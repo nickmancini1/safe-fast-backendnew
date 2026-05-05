@@ -1,14 +1,12 @@
 # SAFE-FAST Build State
 
 - **Current frozen baseline:** `patch8`
-- **Current repo baseline commit:** current GitHub `main` from uploaded ZIP
+- **Active repo:** `safe-fast-backendnew`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
-- **Current objective:** build replay/regression validation before engine patches
-- **Replay foundation status:** expanded to setup-state coverage with deterministic local fixture adapter
-- **Replay expected count after this package:** `16/16`
-- **Continuation local fixture engine count after this package:** `5`
-- **Known issue:** on-demand setup-state classification
-- **Specific states covered:** too early, needs more candles, valid/actionable, too late
-- **Specific suspect area:** continuation shelf/reclaim/trigger may reroll or ratchet as live candles update
-- **Rule:** do not patch setup logic until replay cases exist for the exact failure state
-- **Next exact task:** after this package is committed to GitHub, inspect and patch continuation context selection/finalization in `main.py` only if replay protection remains passing
+- **Current objective:** fix on-demand setup recognition and stage correctness
+- **Continuation anchor-lock patch:** applied to `main.py`, locally tested, committed
+- **Replay validation:** passed locally
+- **Replay result:** `16/16 passed | local_fixture_engine=16 | placeholder_scaffold=0`
+- **Replay protection status:** all 16 cases now use local fixture outputs, no placeholder scaffold
+- **Do not touch:** Railway, production deploy, old repo
+- **Next exact task:** inspect on-demand setup classification failures and add targeted replay cases before further engine logic changes
