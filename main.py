@@ -4615,16 +4615,34 @@ def _setup_classifier(
         }
 
     if trend_supportive is True:
-        if not blocked_now:
-            if near_ema and (room_ratio or 0) >= 2.5 and not chop:
-                return {"setup_type": "Ideal", "trend_label": trend_label, "allowed_setup": True, "setup_type_allowed": True, "setup_eligible_now": True}
-            if tight_break and not chop:
-                return {"setup_type": "Clean Fast Break", "trend_label": trend_label, "allowed_setup": True, "setup_type_allowed": True, "setup_eligible_now": True}
-            return {"setup_type": "Continuation", "trend_label": trend_label, "allowed_setup": True, "setup_type_allowed": True, "setup_eligible_now": False}
+        # Keep setup identity separate from trade eligibility.
+        # A blocker should make the setup not eligible now, but it should not relabel
+        # an Ideal retest as a Clean Fast Break or erase a forming setup.
+        if near_ema and (room_ratio or 0) >= 2.5 and not chop:
+            return {
+                "setup_type": "Ideal",
+                "trend_label": trend_label,
+                "allowed_setup": True,
+                "setup_type_allowed": True,
+                "setup_eligible_now": not blocked_now,
+            }
 
         if tight_break and not chop:
-            return {"setup_type": "Clean Fast Break", "trend_label": trend_label, "allowed_setup": True, "setup_type_allowed": True, "setup_eligible_now": False}
-        return {"setup_type": "Continuation", "trend_label": trend_label, "allowed_setup": True, "setup_type_allowed": True, "setup_eligible_now": False}
+            return {
+                "setup_type": "Clean Fast Break",
+                "trend_label": trend_label,
+                "allowed_setup": True,
+                "setup_type_allowed": True,
+                "setup_eligible_now": not blocked_now,
+            }
+
+        return {
+            "setup_type": "Continuation",
+            "trend_label": trend_label,
+            "allowed_setup": True,
+            "setup_type_allowed": True,
+            "setup_eligible_now": False,
+        }
 
     if trend_supportive is False:
         if tight_break and not chop:
