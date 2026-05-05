@@ -1,0 +1,9 @@
+{
+  "setup_type": "IDEAL",
+  "recognized": true,
+  "confidence": 0.82,
+  "source": "local_fixture_engine",
+  "state_label": "ideal_valid",
+  "final_verdict": "TRADE",
+  "reason": "ideal structure confirmed; actionable"
+}

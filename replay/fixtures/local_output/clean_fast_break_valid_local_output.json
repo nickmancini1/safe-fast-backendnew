@@ -1,0 +1,9 @@
+{
+  "setup_type": "CLEAN_FAST_BREAK",
+  "recognized": true,
+  "confidence": 0.82,
+  "source": "local_fixture_engine",
+  "state_label": "clean_fast_break_valid",
+  "final_verdict": "TRADE",
+  "reason": "clean fast break confirmed; actionable"
+}
