@@ -6282,6 +6282,18 @@ def _continuation_hold_progress_message(continuation_context: Optional[Dict[str,
     continuation_context = continuation_context or {}
     hold_count = int(continuation_context.get("hold_closes_above_reclaim_count") or 0)
     main_blocker = str(continuation_context.get("main_blocker") or "").strip().lower()
+    exact_reason = str(continuation_context.get("exact_reason") or "").strip().lower()
+
+    # Do not say we are waiting for the first completed break if an earlier
+    # completed shelf break is already known/consumed/spent/late.
+    if (
+        exact_reason in {"spent", "late"}
+        or continuation_context.get("prior_completed_shelf_break_seen") is True
+        or continuation_context.get("later_completed_shelf_break_seen") is True
+        or "already happened" in str(continuation_context.get("status_message") or "").lower()
+    ):
+        return None
+
     if _continuation_one_more_hold_needed(continuation_context):
         return (
             "One completed 1H candle has held above the break area. "
