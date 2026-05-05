@@ -1931,8 +1931,8 @@ def _parse_month_day_year(raw: str, fallback_year: int) -> Optional[datetime.dat
     day_token = parts[1]
     if "-" in day_token:
         day_token = day_token.split("-")[0]
-    if "ÃƒÂ¢Ã‚â‚¬Ã‚â€œ" in day_token:
-        day_token = day_token.split("ÃƒÂ¢Ã‚â‚¬Ã‚â€œ")[0]
+    if "ÃƒÆ’Ã‚Â¢Ãƒâ€šÃ¢â€šÂ¬Ãƒâ€šÃ¢â‚¬Å“" in day_token:
+        day_token = day_token.split("ÃƒÆ’Ã‚Â¢Ãƒâ€šÃ¢â€šÂ¬Ãƒâ€šÃ¢â‚¬Å“")[0]
     day_token = re.sub(r"[^0-9]", "", day_token)
     if not day_token:
         return None
@@ -1951,7 +1951,7 @@ def _extract_dates_by_patterns(text: str, fallback_year: int) -> List[datetime.d
     pattern = re.compile(
         r"(January|February|March|April|May|June|July|August|September|October|November|December|"
         r"Jan\.?|Feb\.?|Mar\.?|Apr\.?|May|Jun\.?|Jul\.?|Aug\.?|Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\.?)"
-        r"\s+\d{1,2}(?:\s*[-ÃƒÂ¢Ã‚â‚¬Ã‚â€œ]\s*\d{1,2})?(?:,\s*\d{4}|\s+\d{4})?",
+        r"\s+\d{1,2}(?:\s*[-ÃƒÆ’Ã‚Â¢Ãƒâ€šÃ¢â€šÂ¬Ãƒâ€šÃ¢â‚¬Å“]\s*\d{1,2})?(?:,\s*\d{4}|\s+\d{4})?",
         re.IGNORECASE,
     )
     out: List[datetime.date] = []
@@ -4346,13 +4346,28 @@ def _build_continuation_window_context(
             "atr_14_1h": _round_or_none(atr14, 4),
         }
 
-    priority_rank = {"tradeable": 0, "late": 1, "early": 2}
+    priority_rank = {"tradeable": 0, "late": 1, "early": 2, "spent": 3}
+
+    def _locked_continuation_anchor_rank(snapshot: Dict[str, Any]) -> int:
+        locked_candidate = bool(
+            snapshot.get("breakout_completed")
+            and snapshot.get("reclaim_hold_proven")
+            and (
+                snapshot.get("_carryforward_locked_break_candidate")
+                or snapshot.get("_preserved_locked_break_candidate")
+            )
+        )
+        if not locked_candidate:
+            return 2
+        if snapshot.get("_carryforward_locked_break_candidate"):
+            return 0
+        return 1
 
     def _snapshot_sort_key(snapshot: Dict[str, Any]) -> Any:
+        locked_anchor_rank = _locked_continuation_anchor_rank(snapshot)
         return (
+            locked_anchor_rank,
             priority_rank.get(snapshot.get("exact_reason"), 9),
-            0 if snapshot.get("_carryforward_locked_break_candidate") else 1,
-            0 if snapshot.get("_preserved_locked_break_candidate") else 1,
             snapshot.get("_break_recency_rank") if snapshot.get("_preserved_locked_break_candidate") else 999,
             0 if snapshot.get("reclaim_hold_proven") else 1,
             0 if snapshot.get("shelf_proven") else 1,
@@ -4363,6 +4378,15 @@ def _build_continuation_window_context(
         )
 
     selected = sorted(snapshots, key=_snapshot_sort_key)[0]
+    selected_locked_anchor_rank = _locked_continuation_anchor_rank(selected)
+    selected["continuation_anchor_locked"] = selected_locked_anchor_rank in (0, 1)
+    selected["continuation_anchor_lock_source"] = (
+        "carryforward_locked_break"
+        if selected.get("_carryforward_locked_break_candidate")
+        else "preserved_locked_break"
+        if selected.get("_preserved_locked_break_candidate")
+        else None
+    )
     selected.pop("_carryforward_locked_break_candidate", None)
     selected.pop("_preserved_locked_break_candidate", None)
     selected.pop("_break_recency_rank", None)
