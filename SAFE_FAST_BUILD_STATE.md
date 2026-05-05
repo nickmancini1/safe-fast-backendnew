@@ -8,6 +8,9 @@
 - **On-demand classifier fix:** applied to `main.py`, locally tested, committed
 - **Classifier bug fixed:** Ideal setup identity now survives blockers instead of being mislabeled as Clean Fast Break
 - **Classifier contract test:** `replay/test_on_demand_classifier_contract.py`
+- **Stage-message fix:** applied to `main.py`, locally tested, committed
+- **Stage-message bug fixed:** spent/prior-break continuation no longer says it is waiting for the first completed break
+- **Stage-message contract test:** `replay/test_on_demand_stage_messages.py`
 - **Replay validation:** passed locally
 - **Replay result:** `16/16 passed | local_fixture_engine=16 | placeholder_scaffold=0`
 - **Replay protection status:** all 16 cases now use local fixture outputs, no placeholder scaffold
