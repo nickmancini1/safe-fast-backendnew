@@ -6987,6 +6987,7 @@ def _build_decisive_response_surface(
     next_step: Any,
     invalidation: Any,
     market_closed_context_only: bool = False,
+    caution_line: Optional[str] = None,
     also_failing: Optional[str] = None,
     trap_line: Optional[str] = None,
 ) -> Dict[str, Any]:
@@ -7003,7 +7004,7 @@ def _build_decisive_response_surface(
         if normalized_next_step == normalized_invalidation:
             next_step_text = None
 
-    watchout_items = _surface_item_list(also_failing, trap_line)
+    watchout_items = _surface_item_list(caution_line, also_failing, trap_line)
     watchouts = "; ".join(watchout_items) + "." if watchout_items else None
 
     if market_closed_context_only:
@@ -7071,6 +7072,7 @@ def _build_simple_output_block(
     next_flip_needed: Optional[str] = None,
     primary_blocker: Optional[str] = None,
     decision_blockers: Optional[List[Any]] = None,
+    caution_items: Optional[List[Any]] = None,
 ) -> Dict[str, Any]:
     signal_present = bool(trigger_state.get("trigger_present") is True)
     macro_brief = user_facing.get("macro_brief")
@@ -7115,6 +7117,12 @@ def _build_simple_output_block(
         if human_blocker and human_blocker not in human_top_blockers:
             human_top_blockers.append(human_blocker)
 
+    caution_keys = _ordered_unique_strings(caution_items or [])
+    caution_texts: List[str] = []
+    if "twentyfour_hour_countertrend" in caution_keys:
+        caution_texts.append("24H countertrend caution")
+    caution_line = "; ".join(caution_texts) + "." if caution_texts else None
+
     surface = _build_decisive_response_surface(
         ticker=user_facing.get("ticker"),
         action=normalized_action,
@@ -7123,6 +7131,7 @@ def _build_simple_output_block(
         next_step=next_step,
         invalidation=user_facing.get("invalidation"),
         market_closed_context_only=market_closed_context,
+        caution_line=caution_line,
         also_failing=also_failing,
         trap_line=trap_line,
     )
@@ -7141,6 +7150,8 @@ def _build_simple_output_block(
         "primary_blocker": human_primary_blocker,
         "next_flip_needed": human_next_flip_needed,
         "top_blockers": human_top_blockers,
+        "caution_items": caution_keys,
+        "cautions": caution_texts,
         "primary_blocker_key": effective_primary_blocker,
         "next_flip_needed_key": next_flip_needed,
         "top_blocker_keys": top_blocker_keys,
@@ -9746,6 +9757,7 @@ async def _build_on_demand_payload(request: OnDemandRequest) -> Dict[str, Any]:
             next_flip_needed=approval_context_block.get("next_flip_needed"),
             primary_blocker=approval_context_block.get("primary_blocker"),
             decision_blockers=approval_context_block.get("blockers"),
+            caution_items=checklist_block.get("caution_items"),
         ),
         "screened_best_context": screened_best_context_block,
         "market_context": market_context,
