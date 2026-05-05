@@ -1,0 +1,63 @@
+import ast
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+source = Path("main.py").read_text(encoding="utf-8")
+tree = ast.parse(source)
+
+needed = {"_to_float", "_build_checklist_block", "_is_allowed_setup_type_name", "_continuation_family_detected"}
+ns = {
+    "Any": Any,
+    "Dict": Dict,
+    "List": List,
+    "Optional": Optional,
+    "ALLOWED_SETUP_TYPES": {"Ideal", "Clean Fast Break", "Continuation"},
+}
+
+for node in tree.body:
+    if isinstance(node, ast.FunctionDef) and node.name in needed:
+        mod = ast.Module(body=[node], type_ignores=[])
+        ast.fix_missing_locations(mod)
+        exec(compile(mod, filename="main.py", mode="exec"), ns)
+
+class Req:
+    open_positions = 0
+
+checklist = ns["_build_checklist_block"](
+    request=Req(),
+    market_context={"is_open": True},
+    time_day_gate={"fresh_entry_allowed": True},
+    structure_context={
+        "setup_type": "Clean Fast Break",
+        "setup_type_allowed": True,
+        "twentyfour_hour_supportive": False,
+        "chop_risk": False,
+        "noisy_chop_explicit": False,
+        "room_hard_fail": False,
+        "room_pass": True,
+        "first_wall": 105.0,
+        "extension_blocks_now": False,
+        "ath_open_air_blocks_now": False,
+    },
+    chart_check={"ema50_1h": 100.0, "price_vs_ema50_1h": "above"},
+    primary_candidate={"fits_risk_budget": True},
+    liquidity_context={"liquidity_pass": True},
+    trigger_state={"trigger_present": True},
+    wall_thesis_fit_context={"wall_thesis_fit_status": "pass"},
+)
+
+failed = checklist.get("failed_items", [])
+cautions = checklist.get("caution_items", [])
+
+print("failed_items:", failed)
+print("caution_items:", cautions)
+
+if "twentyfour_hour_supportive" in failed:
+    print("24H CAUTION CONTRACT FAIL: 24H countertrend is still a blocker")
+    raise SystemExit(2)
+
+if "twentyfour_hour_countertrend" not in cautions:
+    print("24H CAUTION CONTRACT FAIL: 24H countertrend caution missing")
+    raise SystemExit(2)
+
+print("24H CAUTION CONTRACT PASS")
