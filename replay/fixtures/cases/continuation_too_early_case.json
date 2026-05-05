@@ -1,0 +1,13 @@
+{
+  "case_id": "continuation_too_early_001",
+  "setup_type_target": "CONTINUATION",
+  "symbol": "SPY",
+  "timeframe": "5m",
+  "timestamp_utc": "2026-05-03T14:50:00Z",
+  "payload": {
+    "option_type": "C",
+    "open_positions": 0,
+    "weekly_trade_count": 0,
+    "notes": "Continuation forming, but reclaim/hold is not proven yet (too early)."
+  }
+}

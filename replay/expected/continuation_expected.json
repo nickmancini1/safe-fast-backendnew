@@ -1,0 +1,13 @@
+{
+  "case_id": "continuation_001",
+  "expected": {
+    "setup_type": "CONTINUATION",
+    "recognized": true,
+    "min_confidence": 0.7
+  },
+  "assertions": [
+    "setup_type == CONTINUATION",
+    "recognized == true",
+    "confidence >= 0.7"
+  ]
+}

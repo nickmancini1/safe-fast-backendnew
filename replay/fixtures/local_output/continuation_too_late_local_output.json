@@ -1,0 +1,19 @@
+{
+  "setup_type": "CONTINUATION",
+  "recognized": true,
+  "confidence": 0.81,
+  "source": "local_fixture_engine",
+  "state_label": "continuation_too_late",
+  "final_verdict": "NO_TRADE",
+  "reason": "too late; clean entry passed and room/reward degraded",
+  "shelf_anchor": {
+    "original_level": 501.25,
+    "selected_level": 501.25,
+    "locked": true
+  },
+  "trigger_anchor": {
+    "original_trigger": 502.1,
+    "selected_trigger": 502.1,
+    "locked": true
+  }
+}

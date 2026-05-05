@@ -1,0 +1,23 @@
+{
+  "setup_type": "CONTINUATION",
+  "recognized": true,
+  "confidence": 0.84,
+  "source": "local_fixture_engine",
+  "state_label": "continuation_shelf_reroll",
+  "final_verdict": "NO_TRADE",
+  "reason": "shelf anchor locked; prevent reroll/ratchet to later worse candle",
+  "shelf_anchor": {
+    "original_level": 501.25,
+    "candidate_later_level": 503.4,
+    "selected_level": 501.25,
+    "locked": true,
+    "rerolled": false
+  },
+  "trigger_anchor": {
+    "original_trigger": 502.1,
+    "candidate_later_trigger": 504.0,
+    "selected_trigger": 502.1,
+    "locked": true,
+    "rerolled": false
+  }
+}

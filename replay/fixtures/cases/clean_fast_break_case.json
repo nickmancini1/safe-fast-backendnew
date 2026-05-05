@@ -1,0 +1,13 @@
+{
+  "case_id": "clean_fast_break_001",
+  "setup_type_target": "CLEAN_FAST_BREAK",
+  "symbol": "SPY",
+  "timeframe": "5m",
+  "timestamp_utc": "2026-05-03T14:40:00Z",
+  "payload": {
+    "option_type": "C",
+    "open_positions": 0,
+    "weekly_trade_count": 0,
+    "notes": "placeholder fixture; replace with frozen real request body"
+  }
+}

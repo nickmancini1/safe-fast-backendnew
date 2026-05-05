@@ -1,0 +1,19 @@
+{
+  "case_id": "ideal_needs_more_candles_001",
+  "expected": {
+    "setup_type": "IDEAL",
+    "recognized": true,
+    "min_confidence": 0.7,
+    "state_label": "ideal_needs_more_candles",
+    "final_verdict": "NO_TRADE",
+    "reason": "needs more candles; confirmation incomplete"
+  },
+  "assertions": [
+    "setup_type == IDEAL",
+    "recognized == true",
+    "confidence >= 0.7",
+    "state_label == ideal_needs_more_candles",
+    "final_verdict == NO_TRADE",
+    "reason contains expected state language"
+  ]
+}

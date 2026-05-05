@@ -1,0 +1,19 @@
+{
+  "setup_type": "CONTINUATION",
+  "recognized": true,
+  "confidence": 0.86,
+  "source": "local_fixture_engine",
+  "state_label": "continuation_valid",
+  "final_verdict": "TRADE",
+  "reason": "continuation shelf/reclaim/hold confirmed; actionable",
+  "shelf_anchor": {
+    "original_level": 501.25,
+    "selected_level": 501.25,
+    "locked": true
+  },
+  "trigger_anchor": {
+    "original_trigger": 502.1,
+    "selected_trigger": 502.1,
+    "locked": true
+  }
+}

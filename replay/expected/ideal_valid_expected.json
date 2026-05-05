@@ -1,0 +1,19 @@
+{
+  "case_id": "ideal_valid_001",
+  "expected": {
+    "setup_type": "IDEAL",
+    "recognized": true,
+    "min_confidence": 0.7,
+    "state_label": "ideal_valid",
+    "final_verdict": "TRADE",
+    "reason": "ideal structure confirmed; actionable"
+  },
+  "assertions": [
+    "setup_type == IDEAL",
+    "recognized == true",
+    "confidence >= 0.7",
+    "state_label == ideal_valid",
+    "final_verdict == TRADE",
+    "reason contains expected state language"
+  ]
+}

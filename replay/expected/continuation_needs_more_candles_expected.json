@@ -1,0 +1,21 @@
+{
+  "case_id": "continuation_needs_more_candles_001",
+  "expected": {
+    "setup_type": "CONTINUATION",
+    "recognized": true,
+    "min_confidence": 0.7,
+    "state_label": "continuation_needs_more_candles",
+    "final_verdict": "NO_TRADE",
+    "reason": "needs more candles; confirmation incomplete",
+    "source": "local_fixture_engine"
+  },
+  "assertions": [
+    "setup_type == CONTINUATION",
+    "recognized == true",
+    "confidence >= 0.7",
+    "state_label == continuation_needs_more_candles",
+    "final_verdict == NO_TRADE",
+    "reason contains expected state language",
+    "source == local_fixture_engine"
+  ]
+}

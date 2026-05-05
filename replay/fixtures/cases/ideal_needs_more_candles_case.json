@@ -1,0 +1,13 @@
+{
+  "case_id": "ideal_needs_more_candles_001",
+  "setup_type_target": "IDEAL",
+  "symbol": "SPY",
+  "timeframe": "5m",
+  "timestamp_utc": "2026-05-03T15:00:00Z",
+  "payload": {
+    "option_type": "C",
+    "open_positions": 0,
+    "weekly_trade_count": 0,
+    "notes": "Ideal setup forming but confirmation is incomplete."
+  }
+}

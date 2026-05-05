@@ -1,0 +1,21 @@
+{
+  "case_id": "continuation_valid_001",
+  "expected": {
+    "setup_type": "CONTINUATION",
+    "recognized": true,
+    "min_confidence": 0.7,
+    "state_label": "continuation_valid",
+    "final_verdict": "TRADE",
+    "reason": "continuation shelf/reclaim/hold confirmed; actionable",
+    "source": "local_fixture_engine"
+  },
+  "assertions": [
+    "setup_type == CONTINUATION",
+    "recognized == true",
+    "confidence >= 0.7",
+    "state_label == continuation_valid",
+    "final_verdict == TRADE",
+    "reason contains expected state language",
+    "source == local_fixture_engine"
+  ]
+}

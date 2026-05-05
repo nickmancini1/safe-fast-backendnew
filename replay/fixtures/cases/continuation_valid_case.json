@@ -1,0 +1,13 @@
+{
+  "case_id": "continuation_valid_001",
+  "setup_type_target": "CONTINUATION",
+  "symbol": "SPY",
+  "timeframe": "5m",
+  "timestamp_utc": "2026-05-03T15:00:00Z",
+  "payload": {
+    "option_type": "C",
+    "open_positions": 0,
+    "weekly_trade_count": 0,
+    "notes": "Continuation shelf/reclaim/hold confirmed; actionable continuation state."
+  }
+}

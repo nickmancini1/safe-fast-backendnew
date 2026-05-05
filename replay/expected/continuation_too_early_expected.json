@@ -1,0 +1,21 @@
+{
+  "case_id": "continuation_too_early_001",
+  "expected": {
+    "setup_type": "CONTINUATION",
+    "recognized": true,
+    "min_confidence": 0.7,
+    "state_label": "continuation_too_early",
+    "final_verdict": "NO_TRADE",
+    "reason": "too early; hold not proven",
+    "source": "local_fixture_engine"
+  },
+  "assertions": [
+    "setup_type == CONTINUATION",
+    "recognized == true",
+    "confidence >= 0.7",
+    "state_label == continuation_too_early",
+    "final_verdict == NO_TRADE",
+    "reason contains too early or hold not proven",
+    "source == local_fixture_engine"
+  ]
+}

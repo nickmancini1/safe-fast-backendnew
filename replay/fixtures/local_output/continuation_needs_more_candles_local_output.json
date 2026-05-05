@@ -1,0 +1,19 @@
+{
+  "setup_type": "CONTINUATION",
+  "recognized": true,
+  "confidence": 0.82,
+  "source": "local_fixture_engine",
+  "state_label": "continuation_needs_more_candles",
+  "final_verdict": "NO_TRADE",
+  "reason": "needs more candles; confirmation incomplete",
+  "shelf_anchor": {
+    "original_level": 501.25,
+    "selected_level": 501.25,
+    "locked": true
+  },
+  "trigger_anchor": {
+    "original_trigger": 502.1,
+    "selected_trigger": 502.1,
+    "locked": true
+  }
+}
