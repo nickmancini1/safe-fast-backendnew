@@ -11,6 +11,9 @@
 - **Stage-message fix:** applied to `main.py`, locally tested, committed
 - **Stage-message bug fixed:** spent/prior-break continuation no longer says it is waiting for the first completed break
 - **Stage-message contract test:** `replay/test_on_demand_stage_messages.py`
+- **24H caution fix:** applied to `main.py`, locally tested, committed
+- **24H rule fixed:** 24H countertrend is a caution, not a hard blocker
+- **24H caution contract test:** `replay/test_on_demand_24h_caution_contract.py`
 - **Replay validation:** passed locally
 - **Replay result:** `16/16 passed | local_fixture_engine=16 | placeholder_scaffold=0`
 - **Replay protection status:** all 16 cases now use local fixture outputs, no placeholder scaffold
