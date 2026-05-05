@@ -14,6 +14,9 @@
 - **24H caution fix:** applied to `main.py`, locally tested, committed
 - **24H rule fixed:** 24H countertrend is a caution, not a hard blocker
 - **24H caution contract test:** `replay/test_on_demand_24h_caution_contract.py`
+- **24H caution surface fix:** applied to `main.py`, locally tested, committed
+- **24H surface bug fixed:** 24H countertrend caution now appears in user-facing watchouts/cautions
+- **24H surface contract test:** `replay/test_on_demand_24h_surface_contract.py`
 - **Replay validation:** passed locally
 - **Replay result:** `16/16 passed | local_fixture_engine=16 | placeholder_scaffold=0`
 - **Replay protection status:** all 16 cases now use local fixture outputs, no placeholder scaffold
