@@ -6180,7 +6180,8 @@ def _build_checklist_block(
 
     items = [
         {"item": "allowed_setup_type", "yes": bool(_is_allowed_setup_type_name(structure_context.get("setup_type")) or continuation_mode)},
-        {"item": "twentyfour_hour_supportive", "yes": bool(structure_context.get("twentyfour_hour_supportive") is not False)},
+        # 24H countertrend is a caution, not a hard blocker.
+        {"item": "twentyfour_hour_supportive", "yes": True},
         {"item": "one_hour_clean_around_ema", "yes": bool(price_side in {"above", "below"} and structure_context.get("chop_risk") is False and structure_context.get("noisy_chop_explicit") is not True)},
         {"item": "clear_room", "yes": clear_room_yes},
         {"item": "early_enough", "yes": early_enough_yes},
@@ -6192,6 +6193,10 @@ def _build_checklist_block(
     ]
 
     failed_items = [row["item"] for row in items if not row["yes"] and row["item"] != "open_trade_already"]
+
+    caution_items: List[str] = []
+    if structure_context.get("twentyfour_hour_supportive") is False:
+        caution_items.append("twentyfour_hour_countertrend")
 
     priority_order = [
         "allowed_setup_type",
@@ -6251,6 +6256,7 @@ def _build_checklist_block(
         "ok": True,
         "items": items,
         "failed_items": failed_items,
+        "caution_items": caution_items,
         "decision_blockers_priority": decision_blockers_priority,
         "effective_failed_items": effective_failed_items,
         "effective_decision_blockers_priority": effective_decision_blockers_priority,
