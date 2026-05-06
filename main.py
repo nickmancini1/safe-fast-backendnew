@@ -6206,6 +6206,12 @@ def _build_checklist_block(
         )
     ):
         caution_items.append("extension_caution")
+    if (
+        structure_context.get("room_hard_fail") is not True
+        and structure_context.get("room_pass") is True
+        and str(structure_context.get("room_quality") or "").strip().lower() == "caution"
+    ):
+        caution_items.append("room_caution")
 
     priority_order = [
         "allowed_setup_type",
@@ -7132,6 +7138,8 @@ def _build_simple_output_block(
         caution_texts.append("24H countertrend caution")
     if "extension_caution" in caution_keys:
         caution_texts.append("extension caution")
+    if "room_caution" in caution_keys:
+        caution_texts.append("room caution")
     caution_line = "; ".join(caution_texts) + "." if caution_texts else None
 
     surface = _build_decisive_response_surface(
