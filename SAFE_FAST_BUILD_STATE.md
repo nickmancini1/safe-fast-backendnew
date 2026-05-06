@@ -18,6 +18,9 @@
 - **24H surface bug fixed:** 24H countertrend caution now appears in user-facing watchouts/cautions
 - **24H surface contract test:** `replay/test_on_demand_24h_surface_contract.py`
 - **24H response-surface contract test:** `replay/test_on_demand_24h_response_surface_contract.py`
+- **Extension caution fix:** applied to `main.py`, locally tested, committed
+- **Extension rule fixed:** elevated/soft extension is surfaced as a caution, not an automatic hard blocker
+- **Extension caution contract test:** `replay/test_on_demand_extension_caution_contract.py`
 - **Account-mode/trade-style plan:** `SAFE_FAST_ACCOUNT_MODE_AND_TRADE_STYLE_PLAN.md`
 - **Current account size for plan:** `$1,500`
 - **Plan rule:** do not add account-mode/trade-style engine logic until on-demand setup recognition and stage correctness are stable and protected
