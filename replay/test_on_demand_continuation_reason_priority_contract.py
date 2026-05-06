@@ -9,6 +9,7 @@ needed = {
     "_to_float",
     "_build_checklist_block",
     "_build_approval_requirements_context_block",
+    "_derive_global_gate_primary_blocker",
     "_is_allowed_setup_type_name",
     "_continuation_family_detected",
 }
@@ -28,11 +29,19 @@ for node in tree.body:
         ast.fix_missing_locations(mod)
         exec(compile(mod, filename="main.py", mode="exec"), ns)
 
+
 class Req:
     open_positions = 0
 
 
-def build_case(*, main_blocker: str, exact_reason: str, shelf_proven: bool, reclaim_hold_proven: bool, extension_blocks_now: bool = False):
+def build_case(
+    *,
+    main_blocker: str,
+    exact_reason: str,
+    shelf_proven: bool,
+    reclaim_hold_proven: bool,
+    extension_blocks_now: bool = False,
+):
     continuation_context = {
         "shelf_exists": True,
         "shelf_proven": shelf_proven,
@@ -50,9 +59,6 @@ def build_case(*, main_blocker: str, exact_reason: str, shelf_proven: bool, recl
         "setup_type_allowed": True,
         "allowed_setup": True,
         "twentyfour_hour_supportive": True,
-
-        # Force a generic checklist blocker so the contract proves continuation
-        # stage blockers outrank generic one-hour / trigger blockers.
         "chop_risk": False,
         "noisy_chop_explicit": False,
         "room_hard_fail": False,
@@ -68,6 +74,7 @@ def build_case(*, main_blocker: str, exact_reason: str, shelf_proven: bool, recl
     }
 
     chart_check = {"ema50_1h": 100.0, "price_vs_ema50_1h": "inside"}
+
     trigger_state = {
         "trigger_present": False,
         "structure_ready": False,
@@ -92,7 +99,10 @@ def build_case(*, main_blocker: str, exact_reason: str, shelf_proven: bool, recl
         trigger_state=trigger_state,
         market_context={"is_open": True},
         time_day_gate={"fresh_entry_allowed": True},
-        macro_context={"has_major_event_today": False, "has_major_event_tomorrow": False},
+        macro_context={
+            "has_major_event_today": False,
+            "has_major_event_tomorrow": False,
+        },
         liquidity_context={"liquidity_pass": True},
         approval_context={
             "approval_ready_now": False,
@@ -155,6 +165,7 @@ generic_blockers = {
 
 for name, kwargs, expected in tests:
     checklist, approval_requirements = build_case(**kwargs)
+
     decision_priority = checklist.get("decision_blockers_priority") or []
     effective_priority = checklist.get("effective_decision_blockers_priority") or []
     override = checklist.get("continuation_blocker_override")
@@ -165,15 +176,22 @@ for name, kwargs, expected in tests:
 
     print(
         f"{name}: override={override}, first={actual_first}, "
-        f"effective_first={actual_effective_first}, approval_next_flip={approval_next_flip}"
+        f"effective_first={actual_effective_first}, "
+        f"approval_next_flip={approval_next_flip}"
     )
     print("  failed_items:", checklist.get("failed_items"))
     print("  decision_blockers_priority:", decision_priority)
 
     ok = all(
         value == expected
-        for value in [override, actual_first, actual_effective_first, approval_next_flip]
+        for value in [
+            override,
+            actual_first,
+            actual_effective_first,
+            approval_next_flip,
+        ]
     )
+
     if not ok:
         failures.append(name)
         continue
