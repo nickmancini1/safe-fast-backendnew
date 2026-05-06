@@ -1,4 +1,3 @@
-@'
 # SAFE-FAST Build State
 
 - **Current frozen baseline:** `patch8`
@@ -33,4 +32,3 @@
 - **Replay protection status:** all 16 cases now use local fixture outputs, no placeholder scaffold
 - **Do not touch:** Railway, production deploy, old repo
 - **Next exact task:** continue finding on-demand setup recognition/stage failures and add targeted replay coverage before further engine logic changes
-'@ | Set-Content .\SAFE_FAST_BUILD_STATE.md
