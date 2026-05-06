@@ -1,3 +1,4 @@
+@'
 # SAFE-FAST Build State
 
 - **Current frozen baseline:** `patch8`
@@ -21,6 +22,9 @@
 - **Extension caution fix:** applied to `main.py`, locally tested, committed
 - **Extension rule fixed:** elevated/soft extension is surfaced as a caution, not an automatic hard blocker
 - **Extension caution contract test:** `replay/test_on_demand_extension_caution_contract.py`
+- **Room caution fix:** applied to `main.py`, locally tested, committed
+- **Room rule fixed:** workable/tight room is surfaced as a caution, while cramped room remains a hard blocker
+- **Room caution contract test:** `replay/test_on_demand_room_caution_contract.py`
 - **Account-mode/trade-style plan:** `SAFE_FAST_ACCOUNT_MODE_AND_TRADE_STYLE_PLAN.md`
 - **Current account size for plan:** `$1,500`
 - **Plan rule:** do not add account-mode/trade-style engine logic until on-demand setup recognition and stage correctness are stable and protected
@@ -29,3 +33,4 @@
 - **Replay protection status:** all 16 cases now use local fixture outputs, no placeholder scaffold
 - **Do not touch:** Railway, production deploy, old repo
 - **Next exact task:** continue finding on-demand setup recognition/stage failures and add targeted replay coverage before further engine logic changes
+'@ | Set-Content .\SAFE_FAST_BUILD_STATE.md
