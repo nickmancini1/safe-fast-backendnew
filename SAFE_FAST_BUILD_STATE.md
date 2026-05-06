@@ -24,6 +24,9 @@
 - **Room caution fix:** applied to `main.py`, locally tested, committed
 - **Room rule fixed:** workable/tight room is surfaced as a caution, while cramped room remains a hard blocker
 - **Room caution contract test:** `replay/test_on_demand_room_caution_contract.py`
+- **Valid-shelf-not-chop fix:** applied to `main.py`, locally tested, committed
+- **Valid shelf rule fixed:** valid post-impulse Continuation shelf/base is not treated as noisy chop
+- **Valid-shelf-not-chop contract test:** `replay/test_on_demand_valid_shelf_not_chop_contract.py`
 - **Account-mode/trade-style plan:** `SAFE_FAST_ACCOUNT_MODE_AND_TRADE_STYLE_PLAN.md`
 - **Current account size for plan:** `$1,500`
 - **Plan rule:** do not add account-mode/trade-style engine logic until on-demand setup recognition and stage correctness are stable and protected
