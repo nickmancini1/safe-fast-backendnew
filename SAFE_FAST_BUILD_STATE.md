@@ -18,8 +18,11 @@
 - **24H surface bug fixed:** 24H countertrend caution now appears in user-facing watchouts/cautions
 - **24H surface contract test:** `replay/test_on_demand_24h_surface_contract.py`
 - **24H response-surface contract test:** `replay/test_on_demand_24h_response_surface_contract.py`
+- **Account-mode/trade-style plan:** `SAFE_FAST_ACCOUNT_MODE_AND_TRADE_STYLE_PLAN.md`
+- **Current account size for plan:** `$1,500`
+- **Plan rule:** do not add account-mode/trade-style engine logic until on-demand setup recognition and stage correctness are stable and protected
 - **Replay validation:** passed locally
 - **Latest regression result:** `16/16 passed | local_fixture_engine=16 | placeholder_scaffold=0`
 - **Replay protection status:** all 16 cases now use local fixture outputs, no placeholder scaffold
 - **Do not touch:** Railway, production deploy, old repo
-- **Next exact task:** find the next on-demand setup recognition/stage failure and add targeted replay coverage before further engine logic changes
+- **Next exact task:** continue finding on-demand setup recognition/stage failures and add targeted replay coverage before further engine logic changes
