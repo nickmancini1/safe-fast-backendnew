@@ -6182,7 +6182,16 @@ def _build_checklist_block(
         {"item": "allowed_setup_type", "yes": bool(_is_allowed_setup_type_name(structure_context.get("setup_type")) or continuation_mode)},
         # 24H countertrend is a caution, not a hard blocker.
         {"item": "twentyfour_hour_supportive", "yes": True},
-        {"item": "one_hour_clean_around_ema", "yes": bool(price_side in {"above", "below"} and structure_context.get("chop_risk") is False and structure_context.get("noisy_chop_explicit") is not True)},
+        {"item": "one_hour_clean_around_ema", "yes": bool(
+            price_side in {"above", "below"}
+            and (
+                (
+                    structure_context.get("chop_risk") is False
+                    and structure_context.get("noisy_chop_explicit") is not True
+                )
+                or structure_context.get("valid_post_impulse_shelf_not_chop") is True
+            )
+        )},
         {"item": "clear_room", "yes": clear_room_yes},
         {"item": "early_enough", "yes": early_enough_yes},
         {"item": "clear_trigger", "yes": clear_trigger_yes},
