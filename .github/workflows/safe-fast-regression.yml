@@ -42,6 +42,8 @@ jobs:
 
       - name: Verify wall thesis fit contract
         run: python replay/test_on_demand_wall_thesis_fit_contract.py
+      - name: Verify no-trade gate priority contract
+        run: python replay/test_on_demand_no_trade_gate_priority_contract.py
 
       - name: Verify extension caution contract
         run: python replay/test_on_demand_extension_caution_contract.py
@@ -66,3 +68,4 @@ jobs:
 
       - name: Run replay regression
         run: python replay/run_replay.py
+
