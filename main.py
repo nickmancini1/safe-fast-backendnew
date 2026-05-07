@@ -1931,8 +1931,8 @@ def _parse_month_day_year(raw: str, fallback_year: int) -> Optional[datetime.dat
     day_token = parts[1]
     if "-" in day_token:
         day_token = day_token.split("-")[0]
-    if "ÃƒÆ’Ã‚Â¢Ãƒâ€šÃ¢â€šÂ¬Ãƒâ€šÃ¢â‚¬Å“" in day_token:
-        day_token = day_token.split("ÃƒÆ’Ã‚Â¢Ãƒâ€šÃ¢â€šÂ¬Ãƒâ€šÃ¢â‚¬Å“")[0]
+    if "ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“" in day_token:
+        day_token = day_token.split("ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“")[0]
     day_token = re.sub(r"[^0-9]", "", day_token)
     if not day_token:
         return None
@@ -1951,7 +1951,7 @@ def _extract_dates_by_patterns(text: str, fallback_year: int) -> List[datetime.d
     pattern = re.compile(
         r"(January|February|March|April|May|June|July|August|September|October|November|December|"
         r"Jan\.?|Feb\.?|Mar\.?|Apr\.?|May|Jun\.?|Jul\.?|Aug\.?|Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\.?)"
-        r"\s+\d{1,2}(?:\s*[-ÃƒÆ’Ã‚Â¢Ãƒâ€šÃ¢â€šÂ¬Ãƒâ€šÃ¢â‚¬Å“]\s*\d{1,2})?(?:,\s*\d{4}|\s+\d{4})?",
+        r"\s+\d{1,2}(?:\s*[-ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“]\s*\d{1,2})?(?:,\s*\d{4}|\s+\d{4})?",
         re.IGNORECASE,
     )
     out: List[datetime.date] = []
@@ -6198,10 +6198,10 @@ def _build_checklist_block(
         {"item": "liquidity_ok", "yes": bool(liquidity_context.get("liquidity_pass") is True)},
         {"item": "invalidation_clear", "yes": bool(ema_value is not None)},
         {"item": "fits_risk", "yes": bool(primary_candidate and primary_candidate.get("fits_risk_budget") is True)},
-        {"item": "open_trade_already", "yes": bool(request.open_positions > 0)},
+        {"item": "open_trade_already", "yes": bool(request.open_positions == 0)},
     ]
 
-    failed_items = [row["item"] for row in items if not row["yes"] and row["item"] != "open_trade_already"]
+    failed_items = [row["item"] for row in items if not row["yes"]]
 
     caution_items: List[str] = []
     if structure_context.get("twentyfour_hour_supportive") is False:
@@ -13426,3 +13426,4 @@ async def safe_fast_on_demand(
     return _ensure_contracts_surface(payload)
 
 # repackaged deploy artifact to force a distinct commit handle
+
