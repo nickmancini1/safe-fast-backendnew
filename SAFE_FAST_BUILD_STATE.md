@@ -25,6 +25,8 @@
 - **Room rule fixed:** workable/tight room is surfaced as a caution, while cramped room remains a hard blocker
 - **Room caution / cramped first-wall contract test:** `replay/test_on_demand_room_caution_contract.py`
 - **Cramped first-wall rule protected:** cramped room / first wall too close hard-fails as `clear_room` and appears first in decision/effective blocker priority
+- **Wall-thesis fit contract test:** `replay/test_on_demand_wall_thesis_fit_contract.py`
+- **Wall-thesis fit rule protected:** failed wall-thesis/hidden-level fit blocks live entry as `wall_thesis_fit` global/effective blocker without becoming a base failed checklist item
 - **Valid-shelf-not-chop fix:** applied to `main.py`, locally tested, committed
 - **Valid shelf rule fixed:** valid post-impulse Continuation shelf/base is not treated as noisy chop
 - **Valid-shelf-not-chop contract test:** `replay/test_on_demand_valid_shelf_not_chop_contract.py`
@@ -32,8 +34,8 @@
 - **Continuation reason-priority rule protected:** developing Continuations surface `no_proven_hold`, `no_valid_trigger`, or `move_too_extended` ahead of generic blockers
 - **Duplicate nested replay cleanup:** accidental `replay/replay/` duplicate continuation reason-priority test removed
 - **GitHub Actions regression workflow:** `.github/workflows/safe-fast-regression.yml`
-- **Latest GitHub Actions result:** `SAFE-FAST Regression #7 passed`
-- **Latest replay check result:** `SAFE-FAST Replay Check #44 passed`
+- **Latest GitHub Actions result:** `SAFE-FAST Regression #10 passed`
+- **Latest replay check result:** `SAFE-FAST Replay Check #47 passed`
 - **Account-mode/trade-style plan:** `SAFE_FAST_ACCOUNT_MODE_AND_TRADE_STYLE_PLAN.md`
 - **Current account size for plan:** `$1,500`
 - **Plan rule:** do not add account-mode/trade-style engine logic until on-demand setup recognition and stage correctness are stable and protected
