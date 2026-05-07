@@ -29,9 +29,10 @@
 - **Valid-shelf-not-chop contract test:** `replay/test_on_demand_valid_shelf_not_chop_contract.py`
 - **Continuation reason-priority contract test:** `replay/test_on_demand_continuation_reason_priority_contract.py`
 - **Continuation reason-priority rule protected:** developing Continuations surface `no_proven_hold`, `no_valid_trigger`, or `move_too_extended` ahead of generic blockers
+- **Duplicate nested replay cleanup:** accidental `replay/replay/` duplicate continuation reason-priority test removed
 - **GitHub Actions regression workflow:** `.github/workflows/safe-fast-regression.yml`
-- **Latest GitHub Actions result:** `SAFE-FAST Regression #3 passed`
-- **Latest replay check result:** `SAFE-FAST Replay Check #40 passed`
+- **Latest GitHub Actions result:** `SAFE-FAST Regression #5 passed`
+- **Latest replay check result:** `SAFE-FAST Replay Check #42 passed`
 - **Account-mode/trade-style plan:** `SAFE_FAST_ACCOUNT_MODE_AND_TRADE_STYLE_PLAN.md`
 - **Current account size for plan:** `$1,500`
 - **Plan rule:** do not add account-mode/trade-style engine logic until on-demand setup recognition and stage correctness are stable and protected
