@@ -32,6 +32,7 @@
 - **No-trade gate priority rule protected:** bad liquidity, missing invalidation, risk mismatch, and existing open position surface as first decision/effective no-trade blockers
 - **Valid-shelf-not-chop fix:** applied to `main.py`, locally tested, committed
 - **Valid shelf rule fixed:** valid post-impulse Continuation shelf/base is not treated as noisy chop
+  
 - **Valid-shelf-not-chop contract test:** `replay/test_on_demand_valid_shelf_not_chop_contract.py`
 - **Continuation reason-priority contract test:** `replay/test_on_demand_continuation_reason_priority_contract.py`
 - **Continuation reason-priority rule protected:** developing Continuations surface `no_proven_hold`, `no_valid_trigger`, or `move_too_extended` ahead of generic blockers
