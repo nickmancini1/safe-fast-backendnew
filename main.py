@@ -6255,6 +6255,10 @@ def _build_checklist_block(
             decision_blockers_priority = continuation_blocker_overrides
 
     global_gate_failures: List[str] = []
+    if market_context.get("is_open") is not True:
+        global_gate_failures.append("market_open")
+    if time_day_gate.get("fresh_entry_allowed") is not True:
+        global_gate_failures.append("fresh_entry_allowed")
     wall_thesis_fit_status = (wall_thesis_fit_context or {}).get("wall_thesis_fit_status")
     if wall_thesis_fit_status == "fail":
         global_gate_failures.append("wall_thesis_fit")
