@@ -26,6 +26,8 @@
 - **On-demand classifier fix:** applied to `main.py`, locally tested, committed
 - **Classifier bug fixed:** Ideal setup identity now survives blockers instead of being mislabeled as Clean Fast Break
 - **Classifier contract test:** `replay/test_on_demand_classifier_contract.py`
+- **Winner-selection contract test:** `replay/test_on_demand_winner_selection_contract.py`
+- **Winner-selection rule protected:** Ideal, Clean Fast Break, and Continuation selection remains deterministic; Continuation shelf context is not overwritten by a fast-break profile
 
 - **Stage-message fix:** applied to `main.py`, locally tested, committed
 - **Stage-message bug fixed:** spent/prior-break Continuation no longer says it is waiting for the first completed break
@@ -83,7 +85,7 @@
 - Remaining on-demand setup recognition edge cases
 - Remaining stage correctness edge cases
 - Session-boundary carry-forward correctness
-- Stable winner selection
+- Remaining stable winner-selection edge cases
 - Continuous lifecycle memory
 - Alert suppression / no duplicate alert spam
 - Shadow accuracy review
@@ -138,4 +140,5 @@ Continue from patch8.
 Next task is to find the next small on-demand setup recognition or stage correctness failure, add/confirm targeted contract or replay coverage first, then make the smallest engine change needed.
 
 No new engine work should happen without coverage first.
+
 
