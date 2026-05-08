@@ -1,4 +1,4 @@
-﻿# SAFE-FAST Build State
+# SAFE-FAST Build State
 
 ## Current baseline
 
@@ -76,6 +76,7 @@
 - **Latest local replay result:** `16/16 passed | local_fixture_engine=16 | placeholder_scaffold=0`
 - **Replay protection status:** all 16 cases use local fixture outputs, no placeholder scaffold
 - **GitHub Actions regression workflow:** `.github/workflows/safe-fast-regression.yml`
+- **GitHub Actions contract sweep:** workflow runs all `replay/test_on_demand_*contract.py` files, then stage-message contract, fixture validation, and replay regression
 - **Latest GitHub Actions run number:** unconfirmed / needs UI verification
 - **Reason:** repo and handoff previously disagreed on the latest Actions run number
 - **Do not promote from Actions run number alone:** require local replay/regression evidence plus build-state update

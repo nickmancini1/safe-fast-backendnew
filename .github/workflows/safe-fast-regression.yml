@@ -31,38 +31,27 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Verify Continuation reason-priority contract
-        run: python replay/test_on_demand_continuation_reason_priority_contract.py
+      - name: Verify all on-demand contract tests
+        run: |
+          python - <<'PY'
+          import subprocess
+          import sys
+          from pathlib import Path
 
-      - name: Verify valid shelf is not chop
-        run: python replay/test_on_demand_valid_shelf_not_chop_contract.py
+          tests = sorted(Path("replay").glob("test_on_demand_*contract.py"))
 
-      - name: Verify room caution / cramped first-wall contract
-        run: python replay/test_on_demand_room_caution_contract.py
+          if not tests:
+              print("No on-demand contract tests found.")
+              sys.exit(2)
 
-      - name: Verify wall thesis fit contract
-        run: python replay/test_on_demand_wall_thesis_fit_contract.py
+          for test in tests:
+              print(f"RUNNING {test}")
+              result = subprocess.run([sys.executable, str(test)])
+              if result.returncode != 0:
+                  sys.exit(result.returncode)
 
-      - name: Verify no-trade gate priority contract
-        run: python replay/test_on_demand_no_trade_gate_priority_contract.py
-
-      - name: Verify session gate priority contract
-        run: python replay/test_on_demand_session_gate_priority_contract.py
-
-      - name: Verify extension caution contract
-        run: python replay/test_on_demand_extension_caution_contract.py
-
-      - name: Verify 24H response surface contract
-        run: python replay/test_on_demand_24h_response_surface_contract.py
-
-      - name: Verify 24H surface contract
-        run: python replay/test_on_demand_24h_surface_contract.py
-
-      - name: Verify 24H caution contract
-        run: python replay/test_on_demand_24h_caution_contract.py
-
-      - name: Verify setup classifier contract
-        run: python replay/test_on_demand_classifier_contract.py
+          print(f"ON-DEMAND CONTRACT SWEEP PASS | count={len(tests)}")
+          PY
 
       - name: Verify stage-message contract
         run: python replay/test_on_demand_stage_messages.py
