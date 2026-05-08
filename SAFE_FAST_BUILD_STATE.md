@@ -152,6 +152,15 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Rule:** do not add level-ranking or optional indicator engine logic until recognition/stage correctness and continuous watcher foundation are stable
 - **Indicator rule:** optional indicators should usually create cautions, not hard blockers
 
+## News / headline risk plan status
+
+- **News/headline risk plan:** `SAFE_FAST_NEWS_AND_HEADLINE_RISK_PLAN.md`
+- **Status:** planned later
+- **Rule:** do not add news/headline engine behavior until on-demand setup recognition and stage correctness are stable and protected
+- **Principle:** setup first, stage second, structure/risk/news context third, trade style last
+- **News rule:** most news should be caution, not hard blocker; hard block only when immediate and material to setup/trade window/hold risk
+- **Unconfirmed rule:** do not invent macro, earnings, filings, or headline data; mark unavailable data as `NEWS_UNCONFIRMED`
+
 ## Next exact task
 
 Continue from patch8.
@@ -159,5 +168,3 @@ Continue from patch8.
 Next task is to find the next small on-demand setup recognition or stage correctness failure, add/confirm targeted contract or replay coverage first, then make the smallest engine change needed.
 
 No new engine work should happen without coverage first.
-
-
