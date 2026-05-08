@@ -41,6 +41,10 @@
 - **Session-boundary user-facing surface fix:** applied to `main.py`, locally tested, committed
 - **Session-boundary user-facing surface contract test:** `replay/test_on_demand_session_boundary_surface_contract.py`
 - **Session-boundary user-facing rule protected:** prior-session completed shelf breaks are humanized as already spent/no fresh trigger now instead of surfacing only the raw reason key
+- **Session-boundary fresh-break fix:** applied to `main.py`, locally tested, committed
+- **Session-boundary fresh-break contract test:** `replay/test_on_demand_session_boundary_fresh_break_contract.py`
+- **Session-boundary fresh-break rule protected:** a fresh current-session Continuation break is not suppressed by an older prior-session spent break
+- **Continuation shelf trigger-basis bug fixed:** `shelf_trigger_basis` is defined before preserve-pending-window logic
 
 - **24H caution fix:** applied to `main.py`, locally tested, committed
 - **24H rule fixed:** 24H countertrend is a caution, not a hard blocker

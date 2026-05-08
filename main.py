@@ -3944,6 +3944,7 @@ def _build_continuation_window_snapshot(
     )
 
     trigger_level = shelf_high if option_type == "C" else shelf_low
+    shelf_trigger_basis = "body_defined_shelf"
     break_reference_level = reclaim_area if reclaim_area is not None else trigger_level
     break_close = _to_float((break_candle or {}).get("close"))
     break_time_iso = (break_candle or {}).get("time_iso")
