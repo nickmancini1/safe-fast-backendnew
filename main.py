@@ -5789,6 +5789,29 @@ def _build_trigger_state(
     structure_context: Dict[str, Any],
     chart_check: Optional[Dict[str, Any]],
 ) -> Dict[str, Any]:
+    # Session-boundary protection: a prior-session completed Continuation shelf break
+    # is spent/blocked context, not a fresh current-session trigger-state reason.
+    continuation_context_for_prior_break = ((structure_context or {}).get("continuation_context") or {})
+    if (
+        _continuation_family_detected(continuation_context_for_prior_break)
+        and continuation_context_for_prior_break.get("prior_completed_shelf_break_seen") is True
+    ):
+        prior_break_trigger_level = _to_float(
+            continuation_context_for_prior_break.get("prior_completed_shelf_break_trigger_level")
+            if continuation_context_for_prior_break.get("prior_completed_shelf_break_trigger_level") is not None
+            else continuation_context_for_prior_break.get("trigger_level")
+        )
+        return {
+            "trigger_present": False,
+            "completed_candle_trigger_present": False,
+            "structure_ready": False,
+            "trigger_level": _round_or_none(prior_break_trigger_level, 4),
+            "trigger_style": "prior_session_completed_shelf_break_spent",
+            "why": "prior_completed_shelf_break_spent",
+            "why_human": continuation_context_for_prior_break.get("status_message")
+            or "Prior completed Continuation shelf break already happened; no fresh trigger now.",
+        }
+
     continuation_context = structure_context.get("continuation_context") or {}
     continuation_mode = _continuation_family_detected(structure_context.get("continuation_context"))
     trigger_style = "close_above_recent_high" if option_type == "C" else "close_below_recent_low"

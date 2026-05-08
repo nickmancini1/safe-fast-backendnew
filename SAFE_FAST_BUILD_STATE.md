@@ -36,6 +36,8 @@
 - **Session-boundary Continuation fix:** applied to `main.py`, locally tested, committed
 - **Session-boundary Continuation contract test:** `replay/test_on_demand_session_boundary_contract.py`
 - **Session-boundary rule protected:** prior-session completed shelf breaks are carried only as spent/blocked context unless a fresh current-session break is selected; prior-session breaks do not become fresh current-session Continuation triggers
+- **Session-boundary trigger-state reason fix:** applied to `main.py`, locally tested, committed
+- **Session-boundary trigger-state rule protected:** prior-session completed shelf breaks surface `prior_completed_shelf_break_spent` in trigger state instead of generic too-early/structure-not-ready reasons
 
 - **24H caution fix:** applied to `main.py`, locally tested, committed
 - **24H rule fixed:** 24H countertrend is a caution, not a hard blocker

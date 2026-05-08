@@ -180,6 +180,9 @@ def assert_prior_session_break_not_fresh(name, candles):
     if "waiting for the first completed" in message:
         failures.append(f"{name}:prior_break_should_not_say_waiting_for_first_break")
 
+    if trigger_state.get("why") != "prior_completed_shelf_break_spent":
+        failures.append(f"{name}:prior_break_should_surface_spent_trigger_why")
+
     if trigger_state.get("completed_candle_trigger_present") is True:
         failures.append(f"{name}:prior_break_should_not_be_completed_candle_trigger_present")
 
