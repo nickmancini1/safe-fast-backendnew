@@ -1,4 +1,4 @@
-# SAFE-FAST Build State
+﻿# SAFE-FAST Build State
 
 ## Current baseline
 
@@ -34,6 +34,8 @@
 - **24H caution fix:** applied to `main.py`, locally tested, committed
 - **24H rule fixed:** 24H countertrend is a caution, not a hard blocker
 - **24H caution contract test:** `replay/test_on_demand_24h_caution_contract.py`
+- **24H support classifier contract test:** `replay/test_on_demand_24h_support_contract.py`
+- **24H support classifier rule protected:** mixed/not-bearish 24H context does not block Continuation; 24H countertrend alone does not disallow Clean Fast Break
 
 - **24H caution surface fix:** applied to `main.py`, locally tested, committed
 - **24H surface bug fixed:** 24H countertrend caution now appears in user-facing watchouts/cautions
@@ -136,3 +138,4 @@ Continue from patch8.
 Next task is to find the next small on-demand setup recognition or stage correctness failure, add/confirm targeted contract or replay coverage first, then make the smallest engine change needed.
 
 No new engine work should happen without coverage first.
+
