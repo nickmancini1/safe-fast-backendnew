@@ -57,6 +57,11 @@
 - **24H surface contract test:** `replay/test_on_demand_24h_surface_contract.py`
 - **24H response-surface contract test:** `replay/test_on_demand_24h_response_surface_contract.py`
 
+- **Macro-event surface contract test:** `replay/test_on_demand_macro_event_surface_contract.py`
+- **Macro-event surface rule protected:** macro event risk is surfaced as caution/context in user-facing response surfaces without destroying setup identity
+- **IV/event-day surface contract test:** `replay/test_on_demand_iv_event_surface_contract.py`
+- **IV/event-day surface rule protected:** high IV / event-day risk is surfaced as caution/context in user-facing response surfaces
+
 - **Extension caution fix:** applied to `main.py`, locally tested, committed
 - **Extension rule fixed:** elevated/soft extension is surfaced as a caution, not an automatic hard blocker
 - **Extension caution contract test:** `replay/test_on_demand_extension_caution_contract.py`
