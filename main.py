@@ -4450,11 +4450,7 @@ def _build_continuation_window_context(
     # "waiting for the first completed break" when an older preserved/carry-forward shelf already
     # got its first completed break. In that case there is no *fresh* continuation trigger now.
     try:
-        if (
-            selected.get("main_blocker") == "no_valid_trigger"
-            and "waiting for the first completed" in str(selected.get("status_message") or "").lower()
-            and completed_candles
-        ):
+        if completed_candles:
             def _candle_et_date_local(candle):
                 raw_time = (candle or {}).get("time_iso")
                 if not raw_time:
@@ -4530,11 +4526,28 @@ def _build_continuation_window_context(
                     if prior_break_seen:
                         break
 
+            selected_break_et_date_local = (
+                _candle_et_date_local({"time_iso": selected.get("breakout_candle_time_iso")})
+                if selected.get("breakout_candle_time_iso")
+                else None
+            )
+            selected_has_current_session_break = bool(
+                selected.get("breakout_completed")
+                and selected_break_et_date_local is not None
+                and latest_completed_et_date_local is not None
+                and selected_break_et_date_local == latest_completed_et_date_local
+            )
+            if prior_break_seen and selected_has_current_session_break:
+                prior_break_seen = False
+
             if prior_break_seen:
                 selected["prior_completed_shelf_break_seen"] = True
                 selected["prior_completed_shelf_break_trigger_level"] = _round_or_none(prior_break_trigger_level, 4)
                 selected["prior_completed_shelf_break_time_iso"] = prior_break_time_iso
                 selected["prior_completed_shelf_break_close"] = _round_or_none(prior_break_close, 4)
+                selected["tradeable_now"] = False
+                selected["inside_tradeable_window"] = False
+                selected["current_break_is_first_completed_break"] = False
 
                 if latest_close is not None and prior_break_trigger_level is not None:
                     if option_type == "C" and latest_close < prior_break_trigger_level:

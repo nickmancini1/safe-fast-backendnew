@@ -33,6 +33,10 @@
 - **Stage-message bug fixed:** spent/prior-break Continuation no longer says it is waiting for the first completed break
 - **Stage-message contract test:** `replay/test_on_demand_stage_messages.py`
 
+- **Session-boundary Continuation fix:** applied to `main.py`, locally tested, committed
+- **Session-boundary Continuation contract test:** `replay/test_on_demand_session_boundary_contract.py`
+- **Session-boundary rule protected:** prior-session completed shelf breaks are carried only as spent/blocked context unless a fresh current-session break is selected; prior-session breaks do not become fresh current-session Continuation triggers
+
 - **24H caution fix:** applied to `main.py`, locally tested, committed
 - **24H rule fixed:** 24H countertrend is a caution, not a hard blocker
 - **24H caution contract test:** `replay/test_on_demand_24h_caution_contract.py`
@@ -85,7 +89,7 @@
 
 - Remaining on-demand setup recognition edge cases
 - Remaining stage correctness edge cases
-- Session-boundary carry-forward correctness
+- Remaining session-boundary carry-forward edge cases
 - Remaining stable winner-selection edge cases
 - Continuous lifecycle memory
 - Alert suppression / no duplicate alert spam
