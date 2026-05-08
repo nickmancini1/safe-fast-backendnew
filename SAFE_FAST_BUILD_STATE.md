@@ -161,6 +161,15 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **News rule:** most news should be caution, not hard blocker; hard block only when immediate and material to setup/trade window/hold risk
 - **Unconfirmed rule:** do not invent macro, earnings, filings, or headline data; mark unavailable data as `NEWS_UNCONFIRMED`
 
+## On-demand closeout plan status
+
+- **On-demand closeout plan:** `SAFE_FAST_ON_DEMAND_CLOSEOUT_PLAN.md`
+- **Status:** planned closeout gates before Continuous Watcher foundation
+- **Rule:** close on-demand by proven failure classes, not percentage estimates
+- **Closeout gates:** mixed setup recognition, stage correctness, session-boundary carry-forward, macro/IV/event-day integration boundary, user-facing output cleanup, and closeout regression proof
+- **Continuous handoff rule:** start Continuous Watcher foundation only after on-demand closeout proof is clean
+- **Phone/laptop rule:** phone-safe work is docs/build-state/Actions review; laptop-only work is `main.py`, local replay/regression, and engine behavior changes
+
 ## Next exact task
 
 Continue from patch8.
