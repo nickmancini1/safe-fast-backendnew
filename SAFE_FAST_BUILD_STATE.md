@@ -1,50 +1,138 @@
 # SAFE-FAST Build State
 
+## Current baseline
+
 - **Current frozen baseline:** `patch8`
 - **Active repo:** `safe-fast-backendnew`
+- **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
-- **Current objective:** fix on-demand setup recognition and stage correctness
+- **main.py source state:** repaired patch8 source confirmed; `import copy` restored
+- **Current objective:** on-demand setup recognition and stage correctness
+- **Current build direction:** finish recognition/stage correctness, then build continuous watch-only automation
+- **Work mode:** build work only, no live trade decisions
+
+## Do not touch
+
+- Do not touch Railway
+- Do not touch production deploy files
+- Do not touch the old repo
+- Do not add auto-trading
+- Do not invent live reads
+- If `getSafeFastOnDemand` is unavailable, mark live fields unconfirmed
+
+## Fixed and protected in patch8
+
 - **Continuation anchor-lock patch:** applied to `main.py`, locally tested, committed
 - **On-demand classifier fix:** applied to `main.py`, locally tested, committed
 - **Classifier bug fixed:** Ideal setup identity now survives blockers instead of being mislabeled as Clean Fast Break
 - **Classifier contract test:** `replay/test_on_demand_classifier_contract.py`
+
 - **Stage-message fix:** applied to `main.py`, locally tested, committed
-- **Stage-message bug fixed:** spent/prior-break continuation no longer says it is waiting for the first completed break
+- **Stage-message bug fixed:** spent/prior-break Continuation no longer says it is waiting for the first completed break
 - **Stage-message contract test:** `replay/test_on_demand_stage_messages.py`
+
 - **24H caution fix:** applied to `main.py`, locally tested, committed
 - **24H rule fixed:** 24H countertrend is a caution, not a hard blocker
 - **24H caution contract test:** `replay/test_on_demand_24h_caution_contract.py`
+
 - **24H caution surface fix:** applied to `main.py`, locally tested, committed
 - **24H surface bug fixed:** 24H countertrend caution now appears in user-facing watchouts/cautions
 - **24H surface contract test:** `replay/test_on_demand_24h_surface_contract.py`
 - **24H response-surface contract test:** `replay/test_on_demand_24h_response_surface_contract.py`
+
 - **Extension caution fix:** applied to `main.py`, locally tested, committed
 - **Extension rule fixed:** elevated/soft extension is surfaced as a caution, not an automatic hard blocker
 - **Extension caution contract test:** `replay/test_on_demand_extension_caution_contract.py`
+
 - **Room caution fix:** applied to `main.py`, locally tested, committed
 - **Room rule fixed:** workable/tight room is surfaced as a caution, while cramped room remains a hard blocker
 - **Room caution / cramped first-wall contract test:** `replay/test_on_demand_room_caution_contract.py`
+
 - **Cramped first-wall rule protected:** cramped room / first wall too close hard-fails as `clear_room` and appears first in decision/effective blocker priority
+
 - **Wall-thesis fit contract test:** `replay/test_on_demand_wall_thesis_fit_contract.py`
 - **Wall-thesis fit rule protected:** failed wall-thesis/hidden-level fit blocks live entry as `wall_thesis_fit` global/effective blocker without becoming a base failed checklist item
+
 - **No-trade gate priority fix:** applied to `main.py`, locally targeted-tested, committed
 - **No-trade gate priority contract test:** `replay/test_on_demand_no_trade_gate_priority_contract.py`
 - **No-trade gate priority rule protected:** bad liquidity, missing invalidation, risk mismatch, and existing open position surface as first decision/effective no-trade blockers
+
 - **Valid-shelf-not-chop fix:** applied to `main.py`, locally tested, committed
 - **Valid shelf rule fixed:** valid post-impulse Continuation shelf/base is not treated as noisy chop
-  
 - **Valid-shelf-not-chop contract test:** `replay/test_on_demand_valid_shelf_not_chop_contract.py`
+
 - **Continuation reason-priority contract test:** `replay/test_on_demand_continuation_reason_priority_contract.py`
 - **Continuation reason-priority rule protected:** developing Continuations surface `no_proven_hold`, `no_valid_trigger`, or `move_too_extended` ahead of generic blockers
+
 - **Duplicate nested replay cleanup:** accidental `replay/replay/` duplicate continuation reason-priority test removed
+
+## Replay / regression status
+
+- **Replay validation:** passed locally
+- **Latest local replay result:** `16/16 passed | local_fixture_engine=16 | placeholder_scaffold=0`
+- **Replay protection status:** all 16 cases use local fixture outputs, no placeholder scaffold
 - **GitHub Actions regression workflow:** `.github/workflows/safe-fast-regression.yml`
-- **Latest GitHub Actions result:** `SAFE-FAST Regression #14 passed`
-- **Latest replay check result:** `SAFE-FAST Replay Check #52 passed`
+- **Latest GitHub Actions run number:** unconfirmed / needs UI verification
+- **Reason:** repo and handoff previously disagreed on the latest Actions run number
+- **Do not promote from Actions run number alone:** require local replay/regression evidence plus build-state update
+
+## Current unproven items
+
+- Remaining on-demand setup recognition edge cases
+- Remaining stage correctness edge cases
+- Session-boundary carry-forward correctness
+- Stable winner selection
+- Continuous lifecycle memory
+- Alert suppression / no duplicate alert spam
+- Shadow accuracy review
+- Production readiness
+
+## Continuous automation target
+
+Final target is **SAFE-FAST Continuous Watcher v1**:
+
+- Watch-only
+- No auto-trade
+- Tracks Ideal / Clean Fast Break / Continuation
+- Tracks setup lifecycle over time
+- Preserves no-trade discipline
+- Sends alerts only on meaningful state changes
+- Marks unavailable live fields as unconfirmed
+- Requires replay/regression and shadow accuracy checks before promotion
+
+## Work mode
+
+### Laptop mode
+
+- Move fast
+- Use PowerShell command blocks when useful
+- Use full replacement files when changing repo files
+- Do not ask user to hunt through code
+
+### Phone mode
+
+- Move slower
+- Short instructions only
+- Provide linked replacement files when needed
+- No long code blocks unless user asks
+
+## Current account-mode / trade-style status
+
 - **Account-mode/trade-style plan:** `SAFE_FAST_ACCOUNT_MODE_AND_TRADE_STYLE_PLAN.md`
 - **Current account size for plan:** `$1,500`
 - **Plan rule:** do not add account-mode/trade-style engine logic until on-demand setup recognition and stage correctness are stable and protected
-- **Replay validation:** passed locally
-- **Latest regression result:** `16/16 passed | local_fixture_engine=16 | placeholder_scaffold=0`
-- **Replay protection status:** all 16 cases now use local fixture outputs, no placeholder scaffold
-- **Do not touch:** Railway, production deploy, old repo
-- **Next exact task:** continue finding on-demand setup recognition/stage failures and add targeted replay coverage before further engine logic changes
+
+## Levels / context plan status
+
+- **Levels/context indicators plan:** `SAFE_FAST_LEVELS_AND_CONTEXT_INDICATORS_PLAN.md`
+- **Status:** planned later
+- **Rule:** do not add level-ranking or optional indicator engine logic until recognition/stage correctness and continuous watcher foundation are stable
+- **Indicator rule:** optional indicators should usually create cautions, not hard blockers
+
+## Next exact task
+
+Continue from patch8.
+
+Next task is to find the next small on-demand setup recognition or stage correctness failure, add/confirm targeted contract or replay coverage first, then make the smallest engine change needed.
+
+No new engine work should happen without coverage first.
