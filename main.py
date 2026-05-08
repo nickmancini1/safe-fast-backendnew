@@ -6863,6 +6863,7 @@ def _humanize_trigger_reason_key(value: Any) -> Optional[str]:
         "too_early_hold_not_proven": "too early - hold not proven",
         "no_valid_continuation_trigger": "no valid continuation trigger",
         "waiting_for_completed_shelf_break_close": "waiting for completed shelf break close",
+        "prior_completed_shelf_break_spent": "prior completed Continuation shelf break already happened; no fresh trigger now",
         "pending_completed_candle_approval": "pending completed-candle approval",
         "too_late_from_hold": "too late from the hold",
     }
@@ -7441,6 +7442,8 @@ def _build_trigger_context_block(
         "current_bar_trigger_present": trigger_state.get("current_bar_trigger_present"),
         "completed_candle_trigger_present": trigger_state.get("completed_candle_trigger_present"),
         "trigger_reason": trigger_state.get("why"),
+        "trigger_reason_human": trigger_state.get("why_human") or _humanize_trigger_reason_key(trigger_state.get("why")),
+        "why_human": trigger_state.get("why_human") or _humanize_trigger_reason_key(trigger_state.get("why")),
         "structure_ready": trigger_state.get("structure_ready"),
         "trigger_style": trigger_state.get("trigger_style"),
         "trigger_level": trigger_state.get("trigger_level"),
