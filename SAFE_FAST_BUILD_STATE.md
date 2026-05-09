@@ -35,6 +35,9 @@
 - **Stage-message fix:** applied to `main.py`, locally tested, committed
 - **Stage-message bug fixed:** spent/prior-break Continuation no longer says it is waiting for the first completed break
 - **Stage-message contract test:** `replay/test_on_demand_stage_messages.py`
+- **Trigger-stage contract test:** `replay/test_on_demand_trigger_stage_contract.py`
+- **Trigger-stage rule protected:** intrabar raw Continuation breaks do not become completed-candle approval; completed triggers while market is closed do not become live trades; too-early holds do not become trigger-ready
+- **Trigger-stage proof status:** committed on `main` as contract-only coverage; no `main.py` engine behavior was changed by this contract-only commit
 
 - **Session-boundary Continuation fix:** applied to `main.py`, locally tested, committed
 - **Session-boundary Continuation contract test:** `replay/test_on_demand_session_boundary_contract.py`
@@ -106,7 +109,7 @@
 ## Current unproven items
 
 - Remaining on-demand setup recognition edge cases
-- Remaining stage correctness edge cases
+- Remaining stage correctness edge cases beyond currently protected trigger-stage cases
 - Remaining session-boundary carry-forward edge cases
 - Remaining stable winner-selection edge cases beyond currently protected mixed setup stage cases
 - Continuous lifecycle memory
