@@ -38,6 +38,9 @@
 - **Trigger-stage contract test:** `replay/test_on_demand_trigger_stage_contract.py`
 - **Trigger-stage rule protected:** intrabar raw Continuation breaks do not become completed-candle approval; completed triggers while market is closed do not become live trades; too-early holds do not become trigger-ready
 - **Trigger-stage proof status:** committed on `main` as contract-only coverage; no `main.py` engine behavior was changed by this contract-only commit
+- **User-facing stage surface contract test:** `replay/test_on_demand_user_facing_stage_surface_contract.py`
+- **User-facing stage surface rule protected:** raw trigger keys are humanized; prior spent breaks explain already-happened/no-fresh-trigger; pending shelf breaks and market-closed pending triggers show clear next steps; watchouts/cautions appear in `response_text`
+- **User-facing stage surface proof status:** committed on `main` as contract-only coverage; no `main.py` engine behavior was changed by this contract-only commit
 
 - **Session-boundary Continuation fix:** applied to `main.py`, locally tested, committed
 - **Session-boundary Continuation contract test:** `replay/test_on_demand_session_boundary_contract.py`
@@ -109,7 +112,7 @@
 ## Current unproven items
 
 - Remaining on-demand setup recognition edge cases
-- Remaining stage correctness edge cases beyond currently protected trigger-stage cases
+- Remaining stage correctness edge cases beyond currently protected trigger-stage and user-facing surface cases
 - Remaining session-boundary carry-forward edge cases
 - Remaining stable winner-selection edge cases beyond currently protected mixed setup stage cases
 - Continuous lifecycle memory
