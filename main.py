@@ -6753,6 +6753,10 @@ def _derive_trade_day_acceptability_condition(
         if trigger_level_text:
             return f"Get the first completed 1H close through the shelf break at {trigger_level_text} while price stays in range."
         return "Get the first completed 1H shelf break while price stays in range."
+    if trigger_reason == "pending_completed_candle_approval":
+        if trigger_level_text:
+            return f"Wait for the completed 1H close to confirm through {trigger_level_text} for approval."
+        return "Wait for the completed 1H close to confirm through the trigger for approval."
     if trigger_reason in {"too_late_from_hold"}:
         return "Wait for a new shelf to form before looking for another continuation entry."
 

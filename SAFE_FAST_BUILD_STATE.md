@@ -77,6 +77,9 @@
 - **Soft-extension pending-trigger contract test:** `replay/test_on_demand_soft_extension_pending_trigger_contract.py`
 - **Soft-extension pending-trigger rule protected:** soft-extension Continuation intrabar shelf breaks become pending completed-candle approval, not live trade and not generic waiting
 - **Soft-extension pending-trigger proof status:** no `main.py` engine behavior changed by this contract-only commit
+- **Pending completed approval surface contract test:** `replay/test_on_demand_pending_completed_approval_surface_contract.py`
+- **Pending completed approval surface rule protected:** pending_completed_candle_approval shows a specific completed-candle approval next step instead of generic live-trigger language
+- **Pending completed approval surface proof status:** contract failed before patch; minimal `main.py` surface-only patch added in `_derive_trade_day_acceptability_condition`; no trigger-state math, setup classification, or trade approval logic changed
 
 - **Room caution fix:** applied to `main.py`, locally tested, committed
 - **Room rule fixed:** workable/tight room is surfaced as a caution, while cramped room remains a hard blocker
