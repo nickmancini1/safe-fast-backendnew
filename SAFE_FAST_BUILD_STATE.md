@@ -31,6 +31,9 @@
 - **Mixed setup stage contract test:** `replay/test_on_demand_mixed_setup_stage_contract.py`
 - **Mixed setup stage rule protected:** spent/blocked Continuation does not beat a valid fresh Ideal or Clean Fast Break candidate; trade-ready Clean Fast Break beats pending fresh Continuation in mixed setup pools
 - **Mixed setup stage proof status:** committed on `main`; GitHub Actions passed for commit `ae6236b`; no `main.py` engine behavior was changed by this contract-only commit
+- **Spent pending Continuation winner contract test:** `replay/test_on_demand_spent_pending_continuation_winner_contract.py`
+- **Spent pending Continuation winner rule protected:** a stale/spent Continuation that reaches screened selection as `PENDING` does not beat a fresh pending Ideal candidate on risk rank or raw engine winner carry-forward
+- **Spent pending Continuation winner proof status:** contract failed before patch; minimal `main.py` winner-selection sort patch demotes prior/spent Continuation candidates; no trigger math, setup classification, or trade approval logic changed
 
 - **Stage-message fix:** applied to `main.py`, locally tested, committed
 - **Stage-message bug fixed:** spent/prior-break Continuation no longer says it is waiting for the first completed break

@@ -6470,6 +6470,13 @@ def _screened_sort_key(item: Dict[str, Any]) -> Any:
     setup_rank = 0 if structure.get("allowed_setup") is True else 1 if structure.get("allowed_setup") is None else 2
 
     continuation_main_blocker = str(continuation_context.get("main_blocker") or "").strip().lower()
+    continuation_exact_reason = str(continuation_context.get("exact_reason") or "").strip().lower()
+    continuation_stale_rank = (
+        1
+        if continuation_exact_reason == "spent"
+        or continuation_context.get("prior_completed_shelf_break_seen") is True
+        else 0
+    )
     continuation_waiting_for_first_break_close = (
         continuation_main_blocker == "no_valid_trigger"
         and continuation_context.get("reclaim_hold_proven") is True
@@ -6504,6 +6511,7 @@ def _screened_sort_key(item: Dict[str, Any]) -> Any:
     return (
         verdict_rank,
         setup_rank,
+        continuation_stale_rank,
         continuation_progress_rank,
         room_rank,
         wall_rank,
