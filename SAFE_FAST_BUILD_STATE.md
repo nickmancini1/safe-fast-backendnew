@@ -57,6 +57,9 @@
 - **Session-boundary fresh-break contract test:** `replay/test_on_demand_session_boundary_fresh_break_contract.py`
 - **Session-boundary fresh-break rule protected:** a fresh current-session Continuation break is not suppressed by an older prior-session spent break
 - **Continuation shelf trigger-basis bug fixed:** `shelf_trigger_basis` is defined before preserve-pending-window logic
+- **Session-boundary weekend carry contract test:** `replay/test_on_demand_session_boundary_weekend_carry_contract.py`
+- **Session-boundary weekend carry rule protected:** a Friday completed Continuation shelf break is treated as the immediately prior regular-session break on Monday, surfaces as spent/no-fresh-trigger context, and does not become a generic early hold or fresh current-session trigger
+- **Session-boundary weekend carry proof status:** contract failed before patch; minimal `main.py` session carry-forward date patch now skips weekend calendar days when finding the prior regular session; `main.py` changed; this was engine stage/carry-forward logic only, not trigger math, setup classification, trade approval, or winner selection
 
 - **24H caution fix:** applied to `main.py`, locally tested, committed
 - **24H rule fixed:** 24H countertrend is a caution, not a hard blocker

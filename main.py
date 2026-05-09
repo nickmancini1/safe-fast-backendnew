@@ -4273,7 +4273,16 @@ def _build_continuation_window_context(
         except Exception:
             return None
 
+    def _previous_regular_session_date(et_date):
+        if et_date is None:
+            return None
+        prev = et_date - timedelta(days=1)
+        while prev.weekday() >= 5:
+            prev = prev - timedelta(days=1)
+        return prev
+
     latest_completed_et_date = _candle_et_date(completed_candles[-1]) if completed_candles else None
+    prior_regular_session_date = _previous_regular_session_date(latest_completed_et_date)
     carryforward_completed = completed_candles[-24:] if len(completed_candles) > 24 else list(completed_candles)
     carryforward_len = len(carryforward_completed)
     if latest_completed_et_date is not None and carryforward_len >= 4:
@@ -4289,9 +4298,7 @@ def _build_continuation_window_context(
                 if break_et_date is None:
                     continue
                 # Only preserve an already-earned breakout from the immediately prior regular session.
-                if break_et_date == latest_completed_et_date:
-                    continue
-                if (latest_completed_et_date - break_et_date).days != 1:
+                if break_et_date != prior_regular_session_date:
                     continue
 
                 snapshot = _build_continuation_window_snapshot(
@@ -4471,6 +4478,7 @@ def _build_continuation_window_context(
             prior_break_close = None
 
             if latest_completed_et_date_local is not None:
+                prior_regular_session_date_local = _previous_regular_session_date(latest_completed_et_date_local)
                 recent_for_label = completed_candles[-24:] if len(completed_candles) > 24 else list(completed_candles)
                 recent_len_local = len(recent_for_label)
                 for shelf_candle_count_local in (2, 3, 4):
@@ -4484,9 +4492,7 @@ def _build_continuation_window_context(
                         break_et_date_local = _candle_et_date_local(break_candle_local)
                         if break_et_date_local is None:
                             continue
-                        if break_et_date_local == latest_completed_et_date_local:
-                            continue
-                        if (latest_completed_et_date_local - break_et_date_local).days != 1:
+                        if break_et_date_local != prior_regular_session_date_local:
                             continue
 
                         snap_local = _build_continuation_window_snapshot(
