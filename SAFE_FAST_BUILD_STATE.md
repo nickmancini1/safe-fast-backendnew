@@ -28,6 +28,9 @@
 - **Classifier contract test:** `replay/test_on_demand_classifier_contract.py`
 - **Winner-selection contract test:** `replay/test_on_demand_winner_selection_contract.py`
 - **Winner-selection rule protected:** Ideal, Clean Fast Break, and Continuation selection remains deterministic; Continuation shelf context is not overwritten by a fast-break profile
+- **Mixed setup stage contract test:** `replay/test_on_demand_mixed_setup_stage_contract.py`
+- **Mixed setup stage rule protected:** spent/blocked Continuation does not beat a valid fresh Ideal or Clean Fast Break candidate; trade-ready Clean Fast Break beats pending fresh Continuation in mixed setup pools
+- **Mixed setup stage proof status:** committed on `main`; GitHub Actions passed for commit `ae6236b`; no `main.py` engine behavior was changed by this contract-only commit
 
 - **Stage-message fix:** applied to `main.py`, locally tested, committed
 - **Stage-message bug fixed:** spent/prior-break Continuation no longer says it is waiting for the first completed break
@@ -96,6 +99,7 @@
 - **GitHub Actions regression workflow:** `.github/workflows/safe-fast-regression.yml`
 - **GitHub Actions contract sweep:** workflow runs all `replay/test_on_demand_*contract.py` files, then stage-message contract, fixture validation, and replay regression
 - **Latest GitHub Actions run number:** unconfirmed / needs UI verification
+- **Latest observed Actions status:** passed on `main` for commit `ae6236b` adding `replay/test_on_demand_mixed_setup_stage_contract.py`
 - **Reason:** repo and handoff previously disagreed on the latest Actions run number
 - **Do not promote from Actions run number alone:** require local replay/regression evidence plus build-state update
 
@@ -104,7 +108,7 @@
 - Remaining on-demand setup recognition edge cases
 - Remaining stage correctness edge cases
 - Remaining session-boundary carry-forward edge cases
-- Remaining stable winner-selection edge cases
+- Remaining stable winner-selection edge cases beyond currently protected mixed setup stage cases
 - Continuous lifecycle memory
 - Alert suppression / no duplicate alert spam
 - Shadow accuracy review
