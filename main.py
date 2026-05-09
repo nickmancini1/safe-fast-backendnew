@@ -6263,6 +6263,7 @@ def _build_checklist_block(
         "allowed_setup_type",
         "twentyfour_hour_supportive",
         "one_hour_clean_around_ema",
+        "ath_open_air",
         "clear_room",
         "early_enough",
         "clear_trigger",
@@ -6273,6 +6274,10 @@ def _build_checklist_block(
     ]
     priority_rank = {name: idx for idx, name in enumerate(priority_order)}
     decision_blockers_priority = sorted(failed_items, key=lambda item: (priority_rank.get(item, 999), item))
+    if structure_context.get("ath_open_air_blocks_now") is True:
+        decision_blockers_priority = ["ath_open_air"] + [
+            item for item in decision_blockers_priority if item != "ath_open_air"
+        ]
 
     continuation_blocker_override = None
     continuation_blocker_overrides: List[str] = []
@@ -6416,9 +6421,14 @@ def _failed_reason_messages(
     continuation_family = _continuation_family_detected(continuation_context)
 
     for item in checklist.get("decision_blockers_priority", checklist.get("failed_items", [])):
+        if item == "ath_open_air":
+            reasons.append("rebuilt 1H structure near all-time highs")
+            continue
         if item == "allowed_setup_type" and continuation_family:
             continue
         if item == "twentyfour_hour_supportive" and structure_context.get("twentyfour_hour_supportive") is not False:
+            continue
+        if structure_context.get("ath_open_air_blocks_now") is True and item in {"clear_room", "early_enough"}:
             continue
         if item == "clear_trigger" and continuation_family and continuation_context.get("main_blocker") in {"no_proven_hold", "move_too_extended"}:
             continue
@@ -6433,7 +6443,7 @@ def _failed_reason_messages(
         reasons.insert(0, hold_progress_message)
     elif continuation_family and continuation_context.get("status_message"):
         reasons.insert(0, continuation_context.get("status_message"))
-    if structure_context.get("extension_state") == "extended":
+    if structure_context.get("extension_state") == "extended" and structure_context.get("ath_open_air_blocks_now") is not True:
         reasons.append("move is extended versus the 1H 50 EMA")
     if liquidity_context.get("liquidity_pass") is False and liquidity_context.get("why"):
         reasons.append(liquidity_context.get("why"))
@@ -7814,7 +7824,9 @@ def _build_approval_requirements_context_block(
     ]
     next_flip_needed = None
     continuation_override = checklist_block.get("continuation_blocker_override")
-    if continuation_override:
+    if structure_context.get("ath_open_air_blocks_now") is True:
+        next_flip_needed = "ath_open_air"
+    elif continuation_override:
         next_flip_needed = continuation_override
     else:
         for gate_name in actionable_blocker_order:

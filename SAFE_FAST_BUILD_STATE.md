@@ -83,6 +83,9 @@
 - **Next-bar hold failure surface contract test:** `replay/test_on_demand_next_bar_hold_failure_surface_contract.py`
 - **Next-bar hold failure surface rule protected:** failed or unconfirmed next-bar breakout hold surfaces as rebuild/confirm hold language instead of generic live-trigger language
 - **Next-bar hold failure surface proof status:** contract failed before patch; minimal `main.py` surface-only patch added in `_derive_trade_day_acceptability_condition`; no trigger-state math, setup classification, or trade approval logic changed
+- **ATH/open-air stage contract test:** `replay/test_on_demand_ath_open_air_stage_contract.py`
+- **ATH/open-air stage rule protected:** open-air price discovery near all-time highs that lacks rebuilt 1H structure surfaces `ath_open_air` / rebuilt-structure as the first decision blocker, effective blocker, approval next flip, and user-facing failed reason instead of generic room or extension language
+- **ATH/open-air stage proof status:** contract failed before patch; minimal `main.py` surface-only patch added in checklist blocker priority, approval next-flip derivation, and failed-reason messaging; no trigger math, setup classification, or trade approval logic changed
 
 - **Room caution fix:** applied to `main.py`, locally tested, committed
 - **Room rule fixed:** workable/tight room is surfaced as a caution, while cramped room remains a hard blocker
