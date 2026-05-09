@@ -6754,7 +6754,8 @@ def _select_screened_best_candidate(
                 screened_reason=raw_reason,
             )
             if (
-                raw_trigger.get("trigger_present") is True
+                raw_engine_pick.get("final_verdict") in {"TRADE", "PENDING"}
+                and raw_trigger.get("trigger_present") is True
                 and raw_structure.get("room_pass") is True
                 and raw_structure.get("extension_blocks_now") is False
                 and bool(raw_effective_failed)

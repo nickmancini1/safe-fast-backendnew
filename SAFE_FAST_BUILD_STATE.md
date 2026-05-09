@@ -34,6 +34,9 @@
 - **Spent pending Continuation winner contract test:** `replay/test_on_demand_spent_pending_continuation_winner_contract.py`
 - **Spent pending Continuation winner rule protected:** a stale/spent Continuation that reaches screened selection as `PENDING` does not beat a fresh pending Ideal candidate on risk rank or raw engine winner carry-forward
 - **Spent pending Continuation winner proof status:** contract failed before patch; minimal `main.py` winner-selection sort patch demotes prior/spent Continuation candidates; no trigger math, setup classification, or trade approval logic changed
+- **Raw NO_TRADE winner override contract test:** `replay/test_on_demand_raw_no_trade_winner_override_contract.py`
+- **Raw NO_TRADE winner override rule protected:** the raw engine ticker override cannot select a `NO_TRADE` candidate ahead of another screened `TRADE` candidate
+- **Raw NO_TRADE winner override proof status:** contract failed before patch; minimal `main.py` winner-selection patch limits the raw-engine override to `TRADE` / `PENDING` raw picks; no trigger math, setup classification, trade approval, session-date logic, or gate priority changed
 
 - **Stage-message fix:** applied to `main.py`, locally tested, committed
 - **Stage-message bug fixed:** spent/prior-break Continuation no longer says it is waiting for the first completed break
