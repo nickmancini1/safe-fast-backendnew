@@ -60,6 +60,9 @@
 - **Session-boundary weekend carry contract test:** `replay/test_on_demand_session_boundary_weekend_carry_contract.py`
 - **Session-boundary weekend carry rule protected:** a Friday completed Continuation shelf break is treated as the immediately prior regular-session break on Monday, surfaces as spent/no-fresh-trigger context, and does not become a generic early hold or fresh current-session trigger
 - **Session-boundary weekend carry proof status:** contract failed before patch; minimal `main.py` session carry-forward date patch now skips weekend calendar days when finding the prior regular session; `main.py` changed; this was engine stage/carry-forward logic only, not trigger math, setup classification, trade approval, or winner selection
+- **Session-boundary holiday carry contract test:** `replay/test_on_demand_session_boundary_holiday_carry_contract.py`
+- **Session-boundary holiday carry rule protected:** a Friday completed Continuation shelf break before a Monday market holiday is treated as the immediately prior regular-session break on Tuesday, surfaces as spent/no-fresh-trigger context, and does not become a generic early hold or fresh current-session trigger
+- **Session-boundary holiday carry proof status:** contract failed before patch; minimal `main.py` prior-session date patch now skips known market holidays when finding the prior regular session; `main.py` changed; this was engine stage/carry-forward logic only, not trigger math, setup classification, trade approval, or winner selection
 
 - **24H caution fix:** applied to `main.py`, locally tested, committed
 - **24H rule fixed:** 24H countertrend is a caution, not a hard blocker

@@ -4273,11 +4273,66 @@ def _build_continuation_window_context(
         except Exception:
             return None
 
+    def _observed_weekday_holiday(month: int, day: int, year: int):
+        observed = datetime(year, month, day).date()
+        if observed.weekday() == 5:
+            return observed - timedelta(days=1)
+        if observed.weekday() == 6:
+            return observed + timedelta(days=1)
+        return observed
+
+    def _nth_weekday_of_month(year: int, month: int, weekday: int, nth: int):
+        cur = datetime(year, month, 1).date()
+        while cur.weekday() != weekday:
+            cur += timedelta(days=1)
+        return cur + timedelta(days=7 * (nth - 1))
+
+    def _last_weekday_of_month(year: int, month: int, weekday: int):
+        cur = datetime(year, month + 1, 1).date() - timedelta(days=1)
+        while cur.weekday() != weekday:
+            cur -= timedelta(days=1)
+        return cur
+
+    def _easter_date(year: int):
+        a = year % 19
+        b = year // 100
+        c = year % 100
+        d = b // 4
+        e = b % 4
+        f = (b + 8) // 25
+        g = (b - f + 1) // 3
+        h = (19 * a + b - d - g + 15) % 30
+        i = c // 4
+        k = c % 4
+        l = (32 + 2 * e + 2 * i - h - k) % 7
+        m = (a + 11 * h + 22 * l) // 451
+        month = (h + l - 7 * m + 114) // 31
+        day = ((h + l - 7 * m + 114) % 31) + 1
+        return datetime(year, month, day).date()
+
+    def _is_market_holiday_date(et_date):
+        if et_date is None:
+            return False
+        year = et_date.year
+        holidays = {
+            _observed_weekday_holiday(1, 1, year),
+            _nth_weekday_of_month(year, 1, 0, 3),
+            _nth_weekday_of_month(year, 2, 0, 3),
+            _easter_date(year) - timedelta(days=2),
+            _last_weekday_of_month(year, 5, 0),
+            _observed_weekday_holiday(6, 19, year),
+            _observed_weekday_holiday(7, 4, year),
+            _nth_weekday_of_month(year, 9, 0, 1),
+            _nth_weekday_of_month(year, 11, 3, 4),
+            _observed_weekday_holiday(12, 25, year),
+        }
+        return et_date in holidays
+
     def _previous_regular_session_date(et_date):
         if et_date is None:
             return None
         prev = et_date - timedelta(days=1)
-        while prev.weekday() >= 5:
+        while prev.weekday() >= 5 or _is_market_holiday_date(prev):
             prev = prev - timedelta(days=1)
         return prev
 
