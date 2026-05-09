@@ -6735,12 +6735,13 @@ def _derive_trade_day_acceptability_condition(
     trigger_state: Dict[str, Any],
 ) -> Optional[str]:
     setup_state = str(user_facing.get("setup_state") or "").strip().upper()
-    if setup_state != "PENDING":
-        return None
-
     trigger_level_text = _format_trade_day_level(trigger_state.get("trigger_level"))
     trigger_reason = str(trigger_state.get("why") or "").strip()
     waiting_on = str(trigger_state.get("live_entry_waiting_on") or "").strip()
+
+    next_bar_hold_reason = trigger_reason in {"next_bar_hold_failed", "next_bar_hold_not_confirmed"}
+    if setup_state != "PENDING" and not (setup_state == "NO TRADE" and next_bar_hold_reason):
+        return None
 
     if waiting_on == "market_open" or "Market is closed" in str(user_facing.get("why") or ""):
         if trigger_level_text:
@@ -6766,8 +6767,11 @@ def _derive_trade_day_acceptability_condition(
     if trigger_reason == "wrong_side_of_ema":
         return "Reclaim the 1H 50 EMA and confirm the trigger."
 
+    if trigger_reason == "next_bar_hold_failed":
+        return "Breakout hold failed. Rebuild the breakout hold before looking for another entry."
+
     if trigger_reason == "next_bar_hold_not_confirmed":
-        return "Hold correctly on the next 1H bar after the breakout candle."
+        return "Confirm the breakout hold on the next 1H bar after the breakout candle."
 
     return "Get a live SAFE-FAST trigger with structure still clean."
 

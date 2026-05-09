@@ -80,6 +80,9 @@
 - **Pending completed approval surface contract test:** `replay/test_on_demand_pending_completed_approval_surface_contract.py`
 - **Pending completed approval surface rule protected:** pending_completed_candle_approval shows a specific completed-candle approval next step instead of generic live-trigger language
 - **Pending completed approval surface proof status:** contract failed before patch; minimal `main.py` surface-only patch added in `_derive_trade_day_acceptability_condition`; no trigger-state math, setup classification, or trade approval logic changed
+- **Next-bar hold failure surface contract test:** `replay/test_on_demand_next_bar_hold_failure_surface_contract.py`
+- **Next-bar hold failure surface rule protected:** failed or unconfirmed next-bar breakout hold surfaces as rebuild/confirm hold language instead of generic live-trigger language
+- **Next-bar hold failure surface proof status:** contract failed before patch; minimal `main.py` surface-only patch added in `_derive_trade_day_acceptability_condition`; no trigger-state math, setup classification, or trade approval logic changed
 
 - **Room caution fix:** applied to `main.py`, locally tested, committed
 - **Room rule fixed:** workable/tight room is surfaced as a caution, while cramped room remains a hard blocker
