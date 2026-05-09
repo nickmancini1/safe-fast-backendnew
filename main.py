@@ -4693,13 +4693,13 @@ def _setup_classifier(
         # Keep setup identity separate from trade eligibility.
         # A blocker should make the setup not eligible now, but it should not relabel
         # an Ideal retest as a Clean Fast Break or erase a forming setup.
-        if near_ema and (room_ratio or 0) >= 2.5 and not chop:
+        if near_ema and (room_ratio or 0) >= 2.5:
             return {
                 "setup_type": "Ideal",
                 "trend_label": trend_label,
                 "allowed_setup": True,
                 "setup_type_allowed": True,
-                "setup_eligible_now": not blocked_now,
+                "setup_eligible_now": bool(not blocked_now and not chop),
             }
 
         if tight_break and not chop:

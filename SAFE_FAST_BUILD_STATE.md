@@ -37,6 +37,9 @@
 - **Raw NO_TRADE winner override contract test:** `replay/test_on_demand_raw_no_trade_winner_override_contract.py`
 - **Raw NO_TRADE winner override rule protected:** the raw engine ticker override cannot select a `NO_TRADE` candidate ahead of another screened `TRADE` candidate
 - **Raw NO_TRADE winner override proof status:** contract failed before patch; minimal `main.py` winner-selection patch limits the raw-engine override to `TRADE` / `PENDING` raw picks; no trigger math, setup classification, trade approval, session-date logic, or gate priority changed
+- **Ideal chop identity contract test:** `replay/test_on_demand_ideal_chop_identity_contract.py`
+- **Ideal chop identity rule protected:** a trend-aligned Ideal EMA retest keeps `setup_type: Ideal` when noisy/chop structure blocks trade eligibility; chop makes the setup not eligible now instead of relabeling it as Continuation
+- **Ideal chop identity proof status:** contract failed before patch; minimal `main.py` setup-recognition classifier patch keeps Ideal identity while setting eligibility false under chop; `main.py` changed; this was setup-recognition logic only, not trigger math, trade approval, winner selection, session-date logic, or gate priority
 
 - **Stage-message fix:** applied to `main.py`, locally tested, committed
 - **Stage-message bug fixed:** spent/prior-break Continuation no longer says it is waiting for the first completed break
