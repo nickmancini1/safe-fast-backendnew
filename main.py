@@ -6372,7 +6372,7 @@ def _build_checklist_block(
             effective_failed_items.append(item)
 
     effective_decision_blockers_priority = list(decision_blockers_priority)
-    for item in global_gate_failures:
+    for item in reversed(global_gate_failures):
         if item not in effective_decision_blockers_priority:
             effective_decision_blockers_priority.insert(0, item)
 

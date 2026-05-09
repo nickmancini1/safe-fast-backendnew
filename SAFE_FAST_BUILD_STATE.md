@@ -117,6 +117,9 @@
 - **Continuation reason-priority rule protected:** developing Continuations surface `no_proven_hold`, `no_valid_trigger`, or `move_too_extended` ahead of generic blockers
 
 - **Duplicate nested replay cleanup:** accidental `replay/replay/` duplicate continuation reason-priority test removed
+- **Market-closed gate priority contract test:** `replay/test_on_demand_market_closed_gate_priority_contract.py`
+- **Market-closed gate priority rule protected:** when the market is closed and fresh-entry gating also fails, `market_open` remains the first effective blocker and `fresh_entry_allowed` follows it instead of reversing the user-facing stage reason
+- **Market-closed gate priority proof status:** contract failed before patch; minimal `main.py` effective-blocker ordering patch preserves global gate failure order; `main.py` changed; this was stage/reason-priority logic only, not trigger math, setup classification, trade approval, winner selection, or session-date logic
 
 ## Replay / regression status
 
