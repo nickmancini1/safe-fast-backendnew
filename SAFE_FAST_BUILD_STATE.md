@@ -74,6 +74,9 @@
 - **Extension caution fix:** applied to `main.py`, locally tested, committed
 - **Extension rule fixed:** elevated/soft extension is surfaced as a caution, not an automatic hard blocker
 - **Extension caution contract test:** `replay/test_on_demand_extension_caution_contract.py`
+- **Soft-extension pending-trigger contract test:** `replay/test_on_demand_soft_extension_pending_trigger_contract.py`
+- **Soft-extension pending-trigger rule protected:** soft-extension Continuation intrabar shelf breaks become pending completed-candle approval, not live trade and not generic waiting
+- **Soft-extension pending-trigger proof status:** no `main.py` engine behavior changed by this contract-only commit
 
 - **Room caution fix:** applied to `main.py`, locally tested, committed
 - **Room rule fixed:** workable/tight room is surfaced as a caution, while cramped room remains a hard blocker
