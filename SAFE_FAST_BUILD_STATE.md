@@ -231,6 +231,14 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Final target:** full automation with manual trade execution only
 - **Execution rule:** no auto-trading
 
+## On-demand transition readiness review
+
+- **Review file:** `SAFE_FAST_ON_DEMAND_TRANSITION_READINESS_REVIEW.md`
+- **Latest review status:** READY WITH KNOWN LIMITS
+- **`main.py` changed:** no
+- **Tests passed:** yes; all on-demand contract tests, stage-message contract, fixture validation, and full replay regression passed locally
+- **Next recommended phase:** Historical Signal Replay v1 planning, with Continuous Watcher foundation planning only
+
 ## Next exact task
 
 Continue from patch8.
