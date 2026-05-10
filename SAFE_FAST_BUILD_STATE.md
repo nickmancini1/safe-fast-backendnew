@@ -56,6 +56,9 @@
 - **Trigger-stage contract test:** `replay/test_on_demand_trigger_stage_contract.py`
 - **Trigger-stage rule protected:** intrabar raw Continuation breaks do not become completed-candle approval; completed triggers while market is closed do not become live trades; too-early holds do not become trigger-ready
 - **Trigger-stage proof status:** committed on `main` as contract-only coverage; no `main.py` engine behavior was changed by this contract-only commit
+- **Put Continuation stage contract test:** `replay/test_on_demand_put_continuation_stage_contract.py`
+- **Put Continuation stage rule protected:** bearish/put-side Continuation shelf breaks use the inverse below-shelf trigger path; intrabar put breaks wait for a completed candle, and completed put triggers while the market is closed do not become live trades
+- **Put Continuation stage proof status:** contract passed before patch; no `main.py` engine behavior changed; this is contract-only stage coverage, not trigger math, setup classification, trade approval, winner selection, session-date logic, or gate priority
 - **User-facing stage surface contract test:** `replay/test_on_demand_user_facing_stage_surface_contract.py`
 - **User-facing stage surface rule protected:** raw trigger keys are humanized; prior spent breaks explain already-happened/no-fresh-trigger; pending shelf breaks and market-closed pending triggers show clear next steps; watchouts/cautions appear in `response_text`
 - **User-facing stage surface proof status:** committed on `main` as contract-only coverage; no `main.py` engine behavior was changed by this contract-only commit
