@@ -4679,8 +4679,13 @@ def _setup_classifier(
     continuation_shelf_proven = bool(continuation_ctx.get("shelf_proven") is True)
     continuation_tradeable_now = bool(continuation_ctx.get("tradeable_now") is True)
     continuation_detected = _continuation_family_detected(continuation_ctx)
+    continuation_spent = bool(
+        continuation_ctx.get("prior_completed_shelf_break_seen") is True
+        or str(continuation_ctx.get("exact_reason") or "").strip().lower() == "spent"
+        or str(continuation_ctx.get("main_blocker") or "").strip().lower() == "prior_completed_shelf_break_spent"
+    )
 
-    if continuation_detected and trend_supportive is not False:
+    if continuation_detected and trend_supportive is not False and not continuation_spent:
         return {
             "setup_type": "Continuation",
             "trend_label": trend_label,

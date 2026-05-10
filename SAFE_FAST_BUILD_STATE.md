@@ -43,6 +43,9 @@
 - **Clean Fast Break chop identity contract test:** `replay/test_on_demand_clean_fast_break_chop_identity_contract.py`
 - **Clean Fast Break chop identity rule protected:** a trend-aligned Clean Fast Break / tight-break profile keeps `setup_type: Clean Fast Break` when noisy/chop structure blocks trade eligibility; chop makes the setup not eligible now instead of relabeling it as Continuation
 - **Clean Fast Break chop identity proof status:** contract failed before patch; minimal `main.py` setup-recognition classifier patch keeps Clean Fast Break identity while setting eligibility false under chop; `main.py` changed; this was setup-recognition logic only, not trigger math, trade approval, winner selection, session-date logic, or gate priority
+- **Spent Continuation / Ideal identity contract test:** `replay/test_on_demand_spent_continuation_ideal_identity_contract.py`
+- **Spent Continuation / Ideal identity rule protected:** stale/spent prior Continuation shelf context does not short-circuit fresh trend-aligned Ideal retest recognition
+- **Spent Continuation / Ideal identity proof status:** contract failed before patch; minimal `main.py` setup-recognition classifier patch lets prior/spent Continuation context fall through to current Ideal recognition; `main.py` changed; this was setup-recognition logic only, not trigger math, trade approval, winner selection, session-date logic, or gate priority
 
 - **Stage-message fix:** applied to `main.py`, locally tested, committed
 - **Stage-message bug fixed:** spent/prior-break Continuation no longer says it is waiting for the first completed break
