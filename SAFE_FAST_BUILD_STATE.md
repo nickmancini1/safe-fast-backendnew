@@ -240,6 +240,17 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Tests passed:** yes; all on-demand contract tests, stage-message contract, fixture validation, and full replay regression passed locally
 - **Next recommended phase:** Historical Signal Replay v1 planning, with Continuous Watcher foundation planning only
 
+## Historical Signal Replay v1 planning status
+
+- **Plan file:** `SAFE_FAST_HISTORICAL_SIGNAL_REPLAY_V1_PLAN.md`
+- **Planning status:** created for docs/schema review before implementation
+- **Purpose boundary:** historical signal replay proves signal/stage behavior over historical bars, not profitability
+- **Trade outcome boundary:** trade outcome backtesting, option P&L, account-mode sizing, production, auto-trading, and live trade decisions remain out of scope
+- **Continuous Watcher handoff:** lifecycle fields planned for future watch-only state tracking and duplicate alert suppression
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Next task:** create signal replay fixture/schema scaffold only, not full implementation
+
 ## Next exact task
 
 Continue from patch8.
