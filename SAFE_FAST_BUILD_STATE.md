@@ -46,6 +46,9 @@
 - **Spent Continuation / Ideal identity contract test:** `replay/test_on_demand_spent_continuation_ideal_identity_contract.py`
 - **Spent Continuation / Ideal identity rule protected:** stale/spent prior Continuation shelf context does not short-circuit fresh trend-aligned Ideal retest recognition
 - **Spent Continuation / Ideal identity proof status:** contract failed before patch; minimal `main.py` setup-recognition classifier patch lets prior/spent Continuation context fall through to current Ideal recognition; `main.py` changed; this was setup-recognition logic only, not trigger math, trade approval, winner selection, session-date logic, or gate priority
+- **Spent Continuation / Clean Fast Break identity contract test:** `replay/test_on_demand_spent_continuation_clean_fast_break_identity_contract.py`
+- **Spent Continuation / Clean Fast Break identity rule protected:** stale/spent prior Continuation shelf context does not short-circuit fresh trend-aligned Clean Fast Break / tight-break recognition
+- **Spent Continuation / Clean Fast Break identity proof status:** contract passed before patch; no `main.py` change needed; this was contract-only setup-recognition proof, not trigger math, trade approval, winner selection, session-date logic, or gate priority
 
 - **Stage-message fix:** applied to `main.py`, locally tested, committed
 - **Stage-message bug fixed:** spent/prior-break Continuation no longer says it is waiting for the first completed break
