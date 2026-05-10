@@ -213,6 +213,15 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Continuous handoff rule:** start Continuous Watcher foundation only after on-demand closeout proof is clean
 - **Phone/laptop rule:** phone-safe work is docs/build-state/Actions review; laptop-only work is `main.py`, local replay/regression, and engine behavior changes
 
+## Master handoff / viability proof status
+
+- **Master project handoff file:** `SAFE_FAST_PROJECT_MASTER_HANDOFF.md`
+- **Backtesting plan file:** `SAFE_FAST_BACKTESTING_PLAN.md`
+- **Viability sequence:** serious historical signal replay and trade outcome backtesting are mandatory viability phases after on-demand closeout and before proof-mode manual trading
+- **Risk-model rule:** backtests must separate planned invalidation risk from full debit exposure
+- **Final target:** full automation with manual trade execution only
+- **Execution rule:** no auto-trading
+
 ## Next exact task
 
 Continue from patch8.
