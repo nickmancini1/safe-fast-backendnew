@@ -251,6 +251,16 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Replay tests changed:** no
 - **Next task:** create signal replay fixture/schema scaffold only, not full implementation
 
+## Historical Signal Replay v1 scaffold status
+
+- **Scaffold folder:** `historical_signal_replay/`
+- **Schema files created:** `historical_signal_replay/schemas/signal_replay_input_v1.schema.json`; `historical_signal_replay/schemas/signal_replay_output_v1.schema.json`
+- **Sample fixture created:** `historical_signal_replay/fixtures/no_hindsight_sample_signal_replay_fixture.json`
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Executable backtest code created:** no
+- **Next task:** validate schema/fixture scaffold and decide whether to begin minimal signal replay implementation
+
 ## Next exact task
 
 Continue from patch8.

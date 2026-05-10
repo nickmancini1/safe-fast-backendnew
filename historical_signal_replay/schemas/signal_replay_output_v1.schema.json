@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://safe-fast.local/schemas/signal_replay_output_v1.schema.json",
+  "title": "SAFE-FAST Historical Signal Replay Output v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "timestamp",
+    "symbol",
+    "setup_type",
+    "setup_state",
+    "stage",
+    "trigger_state",
+    "trigger_level",
+    "invalidation",
+    "room_status",
+    "extension_status",
+    "context_24h",
+    "wall_thesis_fit",
+    "final_verdict",
+    "primary_blocker",
+    "cautions_watchouts",
+    "winner_selection_result",
+    "human_next_step",
+    "first_seen",
+    "last_seen",
+    "state_changed",
+    "prior_state",
+    "current_state",
+    "trigger_changed",
+    "blocker_changed",
+    "duplicate_alert_suppression_key"
+  ],
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "symbol": {
+      "type": "string",
+      "enum": ["SPY", "QQQ", "IWM", "GLD"]
+    },
+    "setup_type": {
+      "type": "string",
+      "enum": ["Ideal", "Clean Fast Break", "Continuation", "None", "UNCONFIRMED"]
+    },
+    "setup_state": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "trigger_state": {
+      "type": "string"
+    },
+    "trigger_level": {
+      "type": ["number", "null"]
+    },
+    "invalidation": {
+      "type": ["number", "null"]
+    },
+    "room_status": {
+      "type": "string"
+    },
+    "extension_status": {
+      "type": "string"
+    },
+    "context_24h": {
+      "type": "string"
+    },
+    "wall_thesis_fit": {
+      "type": "string"
+    },
+    "final_verdict": {
+      "type": "string",
+      "enum": ["TRADE", "PENDING", "NO_TRADE"]
+    },
+    "primary_blocker": {
+      "type": ["string", "null"]
+    },
+    "cautions_watchouts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "winner_selection_result": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "human_next_step": {
+      "type": "string"
+    },
+    "first_seen": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "last_seen": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "state_changed": {
+      "type": "boolean"
+    },
+    "prior_state": {
+      "type": ["string", "null"]
+    },
+    "current_state": {
+      "type": "string"
+    },
+    "trigger_changed": {
+      "type": "boolean"
+    },
+    "blocker_changed": {
+      "type": "boolean"
+    },
+    "duplicate_alert_suppression_key": {
+      "type": "string"
+    }
+  }
+}
