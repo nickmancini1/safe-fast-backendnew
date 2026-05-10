@@ -3,8 +3,9 @@
 ## Baseline
 
 - **Current baseline:** `patch8`
-- **Active objective:** on-demand setup recognition and stage correctness
-- **Latest completed commit:** `b365947` - Preserve Clean Fast Break identity through chop blocker
+- **Active objective:** Historical Signal Replay v1 planning, with Continuous Watcher foundation planning only
+- **Latest completed commit:** `b5f5916` - Add on-demand transition readiness review
+- **On-demand transition status:** READY WITH KNOWN LIMITS
 - **Work mode:** docs/build-state and protected build work only unless explicitly expanded
 - **Production status:** production readiness is not done
 - **Deployment status:** no Railway, deploy, or production file work in this phase
@@ -175,11 +176,11 @@ No auto-trading is allowed at any point.
 Next laptop tasks must stay narrow:
 
 - Start from `patch8`
-- Use the latest completed commit context: `b365947`
-- Pick one on-demand recognition or stage correctness failure
-- Add or confirm targeted replay/regression coverage first
-- Make the smallest allowed engine change only if explicitly authorized
-- Run targeted replay/regression after behavior changes
+- Use the latest completed commit context: `b5f5916`
+- Plan Historical Signal Replay v1 before starting implementation
+- Limit Continuous Watcher work to foundation planning only
+- Do not start trade outcome backtesting implementation yet
+- Do not make engine changes unless explicitly authorized and covered first
 - Update build state with verified facts only
 - Stop after the requested task
 

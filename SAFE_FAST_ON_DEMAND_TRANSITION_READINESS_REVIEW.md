@@ -4,7 +4,7 @@
 
 - **Baseline:** `patch8`
 - **Active objective:** on-demand setup recognition and stage correctness
-- **Latest completed commit:** `64e04b7 Protect put continuation trigger stage`
+- **Latest completed commit:** `b5f5916 Add on-demand transition readiness review`
 - **Review date:** 2026-05-10
 - **Review scope:** docs and regression-readiness review only
 - **Engine changes in this review:** none
@@ -104,4 +104,4 @@ These must not be blended. For the `$1,500` account mode, full debit exposure mu
 
 ## Repo-state note
 
-`SAFE_FAST_PROJECT_MASTER_HANDOFF.md` still lists `b365947` as the latest completed commit, while local `git log` and the current task baseline identify `64e04b7 Protect put continuation trigger stage` as the latest completed commit. This review uses `64e04b7`.
+The stale `SAFE_FAST_PROJECT_MASTER_HANDOFF.md` latest-completed-commit reference has been cleaned up to `b5f5916 Add on-demand transition readiness review`.

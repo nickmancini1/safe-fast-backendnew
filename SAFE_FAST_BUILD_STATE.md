@@ -7,8 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Current objective:** on-demand setup recognition and stage correctness
-- **Current build direction:** finish recognition/stage correctness, then build continuous watch-only automation
+- **Latest completed commit:** `b5f5916 Add on-demand transition readiness review`
+- **Current objective:** Historical Signal Replay v1 planning, with Continuous Watcher foundation planning only
+- **Current build direction:** plan Historical Signal Replay v1 before implementation; keep Continuous Watcher to foundation planning only
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -243,6 +244,6 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 
 Continue from patch8.
 
-Next task is to find the next small on-demand setup recognition or stage correctness failure, add/confirm targeted contract or replay coverage first, then make the smallest engine change needed.
+Next task is Historical Signal Replay v1 planning, with Continuous Watcher foundation planning only.
 
-No new engine work should happen without coverage first.
+Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
