@@ -7,8 +7,8 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `b5f5916 Add on-demand transition readiness review`
-- **Current objective:** Historical Signal Replay v1 planning, with Continuous Watcher foundation planning only
+- **Latest completed commit:** `26d1861 Add historical signal replay v1 plan`
+- **Current objective:** Historical Signal Replay v1 planning/schema/scaffold only, with Continuous Watcher foundation planning only
 - **Current build direction:** plan Historical Signal Replay v1 before implementation; keep Continuous Watcher to foundation planning only
 - **Work mode:** build work only, no live trade decisions
 
@@ -238,7 +238,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Latest review status:** READY WITH KNOWN LIMITS
 - **`main.py` changed:** no
 - **Tests passed:** yes; all on-demand contract tests, stage-message contract, fixture validation, and full replay regression passed locally
-- **Next recommended phase:** Historical Signal Replay v1 planning, with Continuous Watcher foundation planning only
+- **Next recommended phase:** Historical Signal Replay v1 planning/schema/scaffold only, with Continuous Watcher foundation planning only
 
 ## Historical Signal Replay v1 planning status
 
@@ -255,6 +255,6 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 
 Continue from patch8.
 
-Next task is Historical Signal Replay v1 planning, with Continuous Watcher foundation planning only.
+Next task is Historical Signal Replay v1 planning/schema/scaffold only, with Continuous Watcher foundation planning only.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
