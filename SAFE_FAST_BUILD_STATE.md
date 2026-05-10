@@ -7,7 +7,7 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `ca367fc Add historical signal replay schema scaffold`
+- **Latest completed commit:** `3db0964 Update signal replay scaffold references`
 - **Current objective:** Historical Signal Replay v1 planning/schema/scaffold only, with Continuous Watcher foundation planning only
 - **Current build direction:** plan Historical Signal Replay v1 before implementation; keep Continuous Watcher to foundation planning only
 - **Work mode:** build work only, no live trade decisions
@@ -256,15 +256,19 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Scaffold folder:** `historical_signal_replay/`
 - **Schema files created:** `historical_signal_replay/schemas/signal_replay_input_v1.schema.json`; `historical_signal_replay/schemas/signal_replay_output_v1.schema.json`
 - **Sample fixture created:** `historical_signal_replay/fixtures/no_hindsight_sample_signal_replay_fixture.json`
+- **Scaffold validation review:** `historical_signal_replay/SCAFFOLD_VALIDATION_REVIEW.md`
+- **Scaffold validation status:** PASS
+- **Validated locally:** JSON syntax passed for both schemas and fixture; fixture input matched input schema; fixture expected output shape matched output schema
+- **Recommended next task:** minimal signal replay implementation
 - **`main.py` changed:** no
 - **Replay tests changed:** no
 - **Executable backtest code created:** no
-- **Next task:** validate schema/fixture scaffold and decide whether to begin minimal signal replay implementation
+- **Next task:** begin minimal signal replay implementation only; keep it local, non-production, signal/stage replay only
 
 ## Next exact task
 
 Continue from patch8.
 
-Next task is validate schema/fixture scaffold and decide whether to begin minimal signal replay implementation.
+Next task is minimal signal replay implementation only; keep it local, non-production, signal/stage replay only.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
