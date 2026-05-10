@@ -4702,13 +4702,13 @@ def _setup_classifier(
                 "setup_eligible_now": bool(not blocked_now and not chop),
             }
 
-        if tight_break and not chop:
+        if tight_break:
             return {
                 "setup_type": "Clean Fast Break",
                 "trend_label": trend_label,
                 "allowed_setup": True,
                 "setup_type_allowed": True,
-                "setup_eligible_now": not blocked_now,
+                "setup_eligible_now": bool(not blocked_now and not chop),
             }
 
         return {
