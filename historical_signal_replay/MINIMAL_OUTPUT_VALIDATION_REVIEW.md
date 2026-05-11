@@ -102,11 +102,11 @@ Historical Signal Replay v1 remains local signal/stage replay only.
 
 ## Recommended Next Task
 
-- **Recommendation:** decide lifecycle fixture design
+- **Recommendation:** create Continuation lifecycle no-hindsight fixture only
 
 ## Why That Is Next
 
-The current fixture set now includes pending Continuation, Clean Fast Break, and Ideal output shapes, and three-fixture replay support has passed. The next highest-value task is deciding lifecycle fixture design while staying within signal/stage validation. This broadens replay confidence without adding trade outcome backtesting, option P&L, account sizing, production behavior, auto-trading, or live trade decisions.
+The current fixture set now includes pending Continuation, Clean Fast Break, and Ideal output shapes, three-fixture replay support has passed, and lifecycle fixture design is complete. The next highest-value task is creating the Continuation lifecycle no-hindsight fixture only while staying within signal/stage validation. This broadens replay confidence without adding trade outcome backtesting, option P&L, account sizing, production behavior, auto-trading, or live trade decisions.
 
 ## Trade Outcome Backtesting Status
 
