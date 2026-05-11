@@ -5,7 +5,7 @@
 - **Scaffold validation status:** PASS
 - **Review date:** 2026-05-10
 - **Baseline:** patch8
-- **Latest repo commit verified locally:** `3db0964 Update signal replay scaffold references`
+- **Latest repo commit verified locally:** `7a8b0c0 Add signal replay scaffold validation review`
 
 ## Validation Checks
 

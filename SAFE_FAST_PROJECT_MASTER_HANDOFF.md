@@ -3,8 +3,8 @@
 ## Baseline
 
 - **Current baseline:** `patch8`
-- **Active objective:** Historical Signal Replay v1 planning/schema/scaffold only, with Continuous Watcher foundation planning only
-- **Latest completed commit:** `ca367fc` - Add historical signal replay schema scaffold
+- **Active objective:** prepare for minimal Historical Signal Replay v1 implementation, with Continuous Watcher foundation planning only
+- **Latest completed commit:** `7a8b0c0` - Add signal replay scaffold validation review
 - **On-demand transition status:** READY WITH KNOWN LIMITS
 - **Work mode:** docs/build-state and protected build work only unless explicitly expanded
 - **Production status:** production readiness is not done
@@ -176,8 +176,8 @@ No auto-trading is allowed at any point.
 Next laptop tasks must stay narrow:
 
 - Start from `patch8`
-- Use the latest completed commit context: `ca367fc`
-- Plan Historical Signal Replay v1 before starting implementation
+- Use the latest completed commit context: `7a8b0c0`
+- Prepare minimal Historical Signal Replay v1 implementation only
 - Limit Continuous Watcher work to foundation planning only
 - Do not start trade outcome backtesting implementation yet
 - Do not make engine changes unless explicitly authorized and covered first
