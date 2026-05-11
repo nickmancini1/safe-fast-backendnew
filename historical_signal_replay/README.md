@@ -40,10 +40,11 @@ Run command:
 python -B historical_signal_replay/run_signal_replay.py
 ```
 
-The default runner combines the current validated multi-fixture replay set into one local signal log and one summary:
+The default runner combines the current validated three-fixture replay set into one local signal log and one summary:
 
 - `no_hindsight_sample_signal_replay_fixture.json`
 - `no_hindsight_clean_fast_break_signal_replay_fixture.json`
+- `no_hindsight_ideal_signal_replay_fixture.json`
 
 Output files:
 

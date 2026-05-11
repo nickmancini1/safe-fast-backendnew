@@ -12,6 +12,7 @@ FIXTURE_PATH = BASE_DIR / "fixtures" / "no_hindsight_sample_signal_replay_fixtur
 DEFAULT_FIXTURE_PATHS = (
     FIXTURE_PATH,
     BASE_DIR / "fixtures" / "no_hindsight_clean_fast_break_signal_replay_fixture.json",
+    BASE_DIR / "fixtures" / "no_hindsight_ideal_signal_replay_fixture.json",
 )
 REPORTS_DIR = BASE_DIR / "reports"
 SIGNAL_LOG_PATH = REPORTS_DIR / "no_hindsight_sample_signal_log.jsonl"

@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `c4c3926 Add multi-fixture signal replay support`
-- **Current objective:** decide next fixture expansion after multi-fixture Historical Signal Replay support passed, with Continuous Watcher foundation planning only
-- **Current build direction:** decide next fixture expansion after multi-fixture support; keep Continuous Watcher to foundation planning only
+- **Latest completed commit:** `b1654ac Add ideal signal replay fixture`
+- **Current objective:** Historical Signal Replay three-fixture support validated, with Continuous Watcher foundation planning only
+- **Current build direction:** decide lifecycle fixture design next; keep Continuous Watcher to foundation planning only
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -334,10 +334,26 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** validate three-fixture signal replay support
 
+## Historical Signal Replay v1 three-fixture support status
+
+- **Validation status:** PASS
+- **Fixtures included:** `historical_signal_replay/fixtures/no_hindsight_sample_signal_replay_fixture.json`; `historical_signal_replay/fixtures/no_hindsight_clean_fast_break_signal_replay_fixture.json`; `historical_signal_replay/fixtures/no_hindsight_ideal_signal_replay_fixture.json`
+- **Output row count:** 3
+- **Summary consistency result:** PASS; signal log row count, `summary.total_rows`, symbols, setup type counts, final verdict counts, stage counts, and caution counts match all three fixtures
+- **All three setup types included:** yes
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** yes
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** decide lifecycle fixture design
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is decide whether the next fixture should be third setup-type coverage or lifecycle fixture.
+Next task is decide lifecycle fixture design.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.

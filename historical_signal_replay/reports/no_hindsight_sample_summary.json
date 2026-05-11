@@ -3,30 +3,33 @@
     "completed_candle_approval_required": 1
   },
   "caution_counts": {
-    "EVENT_UNCONFIRMED": 2,
-    "IV_UNCONFIRMED": 2,
-    "MACRO_UNCONFIRMED": 2
+    "EVENT_UNCONFIRMED": 3,
+    "IV_UNCONFIRMED": 3,
+    "MACRO_UNCONFIRMED": 3
   },
   "final_verdict_counts": {
     "PENDING": 1,
-    "TRADE": 1
+    "TRADE": 2
   },
   "lifecycle_change_counts": {
     "blocker_changed": 1,
-    "state_changed": 2,
-    "trigger_changed": 2
+    "state_changed": 3,
+    "trigger_changed": 3
   },
   "setup_type_counts": {
     "Clean Fast Break": 1,
-    "Continuation": 1
+    "Continuation": 1,
+    "Ideal": 1
   },
   "stage_counts": {
+    "ema_retest_signal": 1,
     "fresh_break_signal": 1,
     "pending_completed_candle_approval": 1
   },
   "symbols": [
+    "IWM",
     "QQQ",
     "SPY"
   ],
-  "total_rows": 2
+  "total_rows": 3
 }
