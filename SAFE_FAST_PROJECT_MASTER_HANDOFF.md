@@ -3,8 +3,8 @@
 ## Baseline
 
 - **Current baseline:** `patch8`
-- **Active objective:** create Continuation lifecycle no-hindsight fixture only, with Continuous Watcher foundation planning only
-- **Latest completed commit:** `46d468d` - Add lifecycle fixture design review
+- **Active objective:** validate lifecycle fixture shape and decide runner support, with Continuous Watcher foundation planning only
+- **Latest completed commit:** `64576a5` - Add continuation lifecycle signal replay fixture
 - **On-demand transition status:** READY WITH KNOWN LIMITS
 - **Work mode:** docs/build-state and protected build work only unless explicitly expanded
 - **Production status:** production readiness is not done
@@ -176,8 +176,8 @@ No auto-trading is allowed at any point.
 Next laptop tasks must stay narrow:
 
 - Start from `patch8`
-- Use the latest completed commit context: `46d468d`
-- Create Continuation lifecycle no-hindsight fixture only
+- Use the latest completed commit context: `64576a5`
+- Validate lifecycle fixture shape and decide runner support
 - Limit Continuous Watcher work to foundation planning only
 - Do not start trade outcome backtesting implementation yet
 - Do not make engine changes unless explicitly authorized and covered first

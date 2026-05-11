@@ -89,4 +89,4 @@ State, trigger, or blocker changes should be alert candidates. The lifecycle fix
 
 ## Next Task
 
-Create the Continuation lifecycle no-hindsight fixture only.
+Validate lifecycle fixture shape and decide runner support.
