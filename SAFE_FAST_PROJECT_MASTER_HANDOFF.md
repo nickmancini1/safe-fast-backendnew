@@ -3,8 +3,8 @@
 ## Baseline
 
 - **Current baseline:** `patch8`
-- **Active objective:** validate minimal Historical Signal Replay v1 outputs and decide next fixture expansion, with Continuous Watcher foundation planning only
-- **Latest completed commit:** `80ce103` - Add minimal historical signal replay runner
+- **Active objective:** validate multi-fixture Historical Signal Replay support, with Continuous Watcher foundation planning only
+- **Latest completed commit:** `5072849` - Add clean fast break signal replay fixture
 - **On-demand transition status:** READY WITH KNOWN LIMITS
 - **Work mode:** docs/build-state and protected build work only unless explicitly expanded
 - **Production status:** production readiness is not done
@@ -176,8 +176,8 @@ No auto-trading is allowed at any point.
 Next laptop tasks must stay narrow:
 
 - Start from `patch8`
-- Use the latest completed commit context: `80ce103`
-- Validate minimal Historical Signal Replay v1 outputs and decide next fixture expansion
+- Use the latest completed commit context: `5072849`
+- Validate multi-fixture signal replay support
 - Limit Continuous Watcher work to foundation planning only
 - Do not start trade outcome backtesting implementation yet
 - Do not make engine changes unless explicitly authorized and covered first

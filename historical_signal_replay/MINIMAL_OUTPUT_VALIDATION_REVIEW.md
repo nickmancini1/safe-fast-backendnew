@@ -100,13 +100,13 @@ The single signal log row contains all required Historical Signal Replay v1 outp
 
 Historical Signal Replay v1 remains local signal/stage replay only.
 
-## Recommended Next Fixture Expansion
+## Recommended Next Task
 
-- **Recommendation:** add second no-hindsight fixture for a different setup type
+- **Recommendation:** validate multi-fixture signal replay support
 
-## Why That Fixture Is Next
+## Why That Is Next
 
-The current minimal fixture validates one pending Continuation output shape. The next highest-value expansion is a second no-hindsight fixture for a different setup type so the replay scaffold proves setup identity beyond Continuation while staying within signal/stage validation. This broadens fixture coverage without adding lifecycle complexity, blocker/caution specialization, trade outcome backtesting, option P&L, account sizing, production behavior, auto-trading, or live trade decisions.
+The current fixture set now includes a pending Continuation output shape and a Clean Fast Break output shape. The next highest-value task is validating multi-fixture replay support while staying within signal/stage validation. This broadens replay confidence without adding lifecycle complexity, blocker/caution specialization, trade outcome backtesting, option P&L, account sizing, production behavior, auto-trading, or live trade decisions.
 
 ## Trade Outcome Backtesting Status
 
