@@ -379,6 +379,27 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** validate lifecycle fixture shape and decide runner support
 
+## Historical Signal Replay v1 lifecycle fixture validation status
+
+- **Review file:** `historical_signal_replay/LIFECYCLE_FIXTURE_VALIDATION_REVIEW.md`
+- **Validation status:** PASS
+- **Lifecycle row count:** 4
+- **Lifecycle row order result:** PASS; `watching_developing`, `pending_completed_candle_approval`, `triggered_signal_stage`, `spent_no_fresh_trigger`
+- **Duplicate alert suppression key result:** PASS; keys change across meaningful lifecycle states
+- **Boundary check result:** PASS; excludes trade outcome backtesting, option P&L, account sizing, broker/order execution, auto-trading, and live trade decisions
+- **Runner support decision:** needed next for the validated multi-row lifecycle fixture shape; do not add lifecycle rows to the default runner yet
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Generated reports changed:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** add lifecycle runner support only if validation says needed
+
 ## Next exact task
 
 Continue from patch8.
