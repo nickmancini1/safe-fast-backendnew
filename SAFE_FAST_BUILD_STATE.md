@@ -265,6 +265,19 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Executable backtest code created:** no
 - **Next task:** begin minimal signal replay implementation only; keep it local, non-production, signal/stage replay only
 
+## Historical Signal Replay v1 minimal implementation status
+
+- **Implementation files created:** `historical_signal_replay/run_signal_replay.py`; `historical_signal_replay/signal_replay.py`; `historical_signal_replay/metrics.py`
+- **Sample fixture run status:** passed locally with `python -B historical_signal_replay/run_signal_replay.py`
+- **Output files created:** `historical_signal_replay/reports/no_hindsight_sample_signal_log.jsonl`; `historical_signal_replay/reports/no_hindsight_sample_summary.json`; `historical_signal_replay/reports/no_hindsight_regression_candidates.json`
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** validate minimal signal replay outputs and decide next fixture expansion
+
 ## Next exact task
 
 Continue from patch8.

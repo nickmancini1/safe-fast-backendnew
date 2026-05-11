@@ -1,0 +1,28 @@
+{
+  "blocker_counts": {
+    "completed_candle_approval_required": 1
+  },
+  "caution_counts": {
+    "EVENT_UNCONFIRMED": 1,
+    "IV_UNCONFIRMED": 1,
+    "MACRO_UNCONFIRMED": 1
+  },
+  "final_verdict_counts": {
+    "PENDING": 1
+  },
+  "lifecycle_change_counts": {
+    "blocker_changed": 1,
+    "state_changed": 1,
+    "trigger_changed": 1
+  },
+  "setup_type_counts": {
+    "Continuation": 1
+  },
+  "stage_counts": {
+    "pending_completed_candle_approval": 1
+  },
+  "symbols": [
+    "SPY"
+  ],
+  "total_rows": 1
+}
