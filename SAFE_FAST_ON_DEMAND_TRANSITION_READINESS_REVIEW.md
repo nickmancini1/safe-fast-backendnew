@@ -4,7 +4,7 @@
 
 - **Baseline:** `patch8`
 - **Active objective:** on-demand setup recognition and stage correctness
-- **Latest completed commit:** `7a8b0c0 Add signal replay scaffold validation review`
+- **Latest completed commit:** `80ce103 Add minimal historical signal replay runner`
 - **Review date:** 2026-05-10
 - **Review scope:** docs and regression-readiness review only
 - **Engine changes in this review:** none
@@ -104,4 +104,4 @@ These must not be blended. For the `$1,500` account mode, full debit exposure mu
 
 ## Repo-state note
 
-The stale `SAFE_FAST_PROJECT_MASTER_HANDOFF.md` latest-completed-commit reference has been cleaned up to `7a8b0c0 Add signal replay scaffold validation review`.
+The stale `SAFE_FAST_PROJECT_MASTER_HANDOFF.md` latest-completed-commit reference has been cleaned up to `80ce103 Add minimal historical signal replay runner`.

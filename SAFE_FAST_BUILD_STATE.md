@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `7a8b0c0 Add signal replay scaffold validation review`
-- **Current objective:** prepare for minimal Historical Signal Replay v1 implementation, with Continuous Watcher foundation planning only
-- **Current build direction:** prepare minimal Historical Signal Replay v1 implementation; keep Continuous Watcher to foundation planning only
+- **Latest completed commit:** `80ce103 Add minimal historical signal replay runner`
+- **Current objective:** validate minimal Historical Signal Replay v1 outputs and decide next fixture expansion, with Continuous Watcher foundation planning only
+- **Current build direction:** validate minimal Historical Signal Replay v1 outputs and decide next fixture expansion; keep Continuous Watcher to foundation planning only
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -238,18 +238,18 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Latest review status:** READY WITH KNOWN LIMITS
 - **`main.py` changed:** no
 - **Tests passed:** yes; all on-demand contract tests, stage-message contract, fixture validation, and full replay regression passed locally
-- **Next recommended phase:** prepare for minimal Historical Signal Replay v1 implementation, with Continuous Watcher foundation planning only
+- **Next recommended phase:** validate minimal Historical Signal Replay v1 outputs and decide next fixture expansion, with Continuous Watcher foundation planning only
 
 ## Historical Signal Replay v1 planning status
 
 - **Plan file:** `SAFE_FAST_HISTORICAL_SIGNAL_REPLAY_V1_PLAN.md`
-- **Planning status:** schema/scaffold validated; preparing for minimal implementation
+- **Planning status:** minimal implementation exists; output validation and next fixture expansion decision pending
 - **Purpose boundary:** historical signal replay proves signal/stage behavior over historical bars, not profitability
 - **Trade outcome boundary:** trade outcome backtesting, option P&L, account-mode sizing, production, auto-trading, and live trade decisions remain out of scope
 - **Continuous Watcher handoff:** lifecycle fields planned for future watch-only state tracking and duplicate alert suppression
 - **`main.py` changed:** no
 - **Replay tests changed:** no
-- **Next task:** prepare minimal signal replay implementation only; keep it local, non-production, signal/stage replay only
+- **Next task:** validate minimal signal replay outputs and decide next fixture expansion
 
 ## Historical Signal Replay v1 scaffold status
 
@@ -259,11 +259,11 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Scaffold validation review:** `historical_signal_replay/SCAFFOLD_VALIDATION_REVIEW.md`
 - **Scaffold validation status:** PASS
 - **Validated locally:** JSON syntax passed for both schemas and fixture; fixture input matched input schema; fixture expected output shape matched output schema
-- **Recommended next task:** minimal signal replay implementation
+- **Recommended next task:** validate minimal signal replay outputs and decide next fixture expansion
 - **`main.py` changed:** no
 - **Replay tests changed:** no
 - **Executable backtest code created:** no
-- **Next task:** begin minimal signal replay implementation only; keep it local, non-production, signal/stage replay only
+- **Next task:** validate minimal signal replay outputs and decide next fixture expansion
 
 ## Historical Signal Replay v1 minimal implementation status
 
@@ -282,6 +282,6 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 
 Continue from patch8.
 
-Next task is minimal signal replay implementation only; keep it local, non-production, signal/stage replay only.
+Next task is validate minimal signal replay outputs and decide next fixture expansion.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
