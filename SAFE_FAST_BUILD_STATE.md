@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `9544cc2 Update clean fast break fixture references`
-- **Current objective:** validate multi-fixture Historical Signal Replay support, with Continuous Watcher foundation planning only
-- **Current build direction:** validate multi-fixture Historical Signal Replay support; keep Continuous Watcher to foundation planning only
+- **Latest completed commit:** `c4c3926 Add multi-fixture signal replay support`
+- **Current objective:** decide next fixture expansion after multi-fixture Historical Signal Replay support passed, with Continuous Watcher foundation planning only
+- **Current build direction:** decide next fixture expansion after multi-fixture support; keep Continuous Watcher to foundation planning only
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -238,18 +238,18 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Latest review status:** READY WITH KNOWN LIMITS
 - **`main.py` changed:** no
 - **Tests passed:** yes; all on-demand contract tests, stage-message contract, fixture validation, and full replay regression passed locally
-- **Next recommended phase:** validate multi-fixture Historical Signal Replay support, with Continuous Watcher foundation planning only
+- **Next recommended phase:** decide next fixture expansion after multi-fixture Historical Signal Replay support passed, with Continuous Watcher foundation planning only
 
 ## Historical Signal Replay v1 planning status
 
 - **Plan file:** `SAFE_FAST_HISTORICAL_SIGNAL_REPLAY_V1_PLAN.md`
-- **Planning status:** minimal implementation and second fixture exist; multi-fixture validation pending
+- **Planning status:** minimal implementation, second fixture, and multi-fixture support exist; next fixture expansion decision pending
 - **Purpose boundary:** historical signal replay proves signal/stage behavior over historical bars, not profitability
 - **Trade outcome boundary:** trade outcome backtesting, option P&L, account-mode sizing, production, auto-trading, and live trade decisions remain out of scope
 - **Continuous Watcher handoff:** lifecycle fields planned for future watch-only state tracking and duplicate alert suppression
 - **`main.py` changed:** no
 - **Replay tests changed:** no
-- **Next task:** validate multi-fixture signal replay support
+- **Next task:** decide next fixture expansion
 
 ## Historical Signal Replay v1 scaffold status
 
@@ -259,11 +259,11 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Scaffold validation review:** `historical_signal_replay/SCAFFOLD_VALIDATION_REVIEW.md`
 - **Scaffold validation status:** PASS
 - **Validated locally:** JSON syntax passed for both schemas and fixture; fixture input matched input schema; fixture expected output shape matched output schema
-- **Recommended next task:** validate multi-fixture signal replay support
+- **Recommended next task:** decide next fixture expansion
 - **`main.py` changed:** no
 - **Replay tests changed:** no
 - **Executable backtest code created:** no
-- **Next task:** validate multi-fixture signal replay support
+- **Next task:** decide next fixture expansion
 
 ## Historical Signal Replay v1 minimal implementation status
 
@@ -276,7 +276,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Option P&L modeled:** no
 - **Account sizing added:** no
 - **Auto-trading added:** no
-- **Next task:** validate multi-fixture signal replay support
+- **Next task:** decide next fixture expansion
 
 ## Historical Signal Replay v1 output validation status
 
@@ -289,7 +289,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Replay tests changed:** no
 - **Trade outcome backtesting started:** no
 - **Recommended next fixture expansion:** completed with Clean Fast Break fixture
-- **Next task:** validate multi-fixture signal replay support
+- **Next task:** decide next fixture expansion
 
 ## Historical Signal Replay v1 fixture expansion status
 
@@ -302,7 +302,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Option P&L modeled:** no
 - **Account sizing added:** no
 - **Auto-trading added:** no
-- **Next task:** validate multi-fixture signal replay support
+- **Next task:** decide next fixture expansion
 
 ## Historical Signal Replay v1 multi-fixture support status
 
@@ -317,12 +317,12 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Option P&L modeled:** no
 - **Account sizing added:** no
 - **Auto-trading added:** no
-- **Next task:** add third no-hindsight fixture or lifecycle fixture recommendation
+- **Next task:** decide whether the next fixture should be third setup-type coverage or lifecycle fixture
 
 ## Next exact task
 
 Continue from patch8.
 
-Next task is validate multi-fixture signal replay support.
+Next task is decide whether the next fixture should be third setup-type coverage or lifecycle fixture.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
