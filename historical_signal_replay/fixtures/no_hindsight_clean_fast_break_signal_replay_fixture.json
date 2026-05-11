@@ -1,0 +1,125 @@
+{
+  "fixture_name": "no_hindsight_clean_fast_break_signal_replay_fixture",
+  "fixture_version": 1,
+  "purpose": "No-hindsight Clean Fast Break signal-stage fixture for Historical Signal Replay v1 fixture expansion.",
+  "input": {
+    "symbol": "QQQ",
+    "timestamp": "2026-04-21T15:30:00-04:00",
+    "candles_1h_rth": [
+      {
+        "timestamp": "2026-04-21T09:30:00-04:00",
+        "open": 432.4,
+        "high": 434.2,
+        "low": 431.9,
+        "close": 433.8,
+        "volume": 21845000
+      },
+      {
+        "timestamp": "2026-04-21T10:30:00-04:00",
+        "open": 433.8,
+        "high": 435.1,
+        "low": 433.5,
+        "close": 434.9,
+        "volume": 17632000
+      },
+      {
+        "timestamp": "2026-04-21T11:30:00-04:00",
+        "open": 434.9,
+        "high": 435.4,
+        "low": 434.3,
+        "close": 435.0,
+        "volume": 12988000
+      },
+      {
+        "timestamp": "2026-04-21T12:30:00-04:00",
+        "open": 435.0,
+        "high": 436.0,
+        "low": 434.7,
+        "close": 435.7,
+        "volume": 11876000
+      },
+      {
+        "timestamp": "2026-04-21T13:30:00-04:00",
+        "open": 435.7,
+        "high": 436.2,
+        "low": 435.2,
+        "close": 435.9,
+        "volume": 10459000
+      },
+      {
+        "timestamp": "2026-04-21T14:30:00-04:00",
+        "open": 435.9,
+        "high": 438.4,
+        "low": 435.8,
+        "close": 438.1,
+        "volume": 19674000
+      }
+    ],
+    "context_24h_daily": {
+      "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+      "value": null,
+      "as_of": null,
+      "source": null
+    },
+    "market_calendar_session": {
+      "session_date": "2026-04-21",
+      "session_type": "regular",
+      "is_regular_session": true,
+      "timezone": "America/New_York",
+      "notes": "Regular RTH sample session for signal-stage Clean Fast Break fixture."
+    },
+    "macro_context": {
+      "status": "MACRO_UNCONFIRMED",
+      "value": null,
+      "as_of": null,
+      "source": null
+    },
+    "iv_context": {
+      "status": "IV_UNCONFIRMED",
+      "value": null,
+      "as_of": null,
+      "source": null
+    },
+    "event_context": {
+      "status": "EVENT_UNCONFIRMED",
+      "value": null,
+      "as_of": null,
+      "source": null
+    }
+  },
+  "expected_output_shape": {
+    "timestamp": "2026-04-21T15:30:00-04:00",
+    "symbol": "QQQ",
+    "setup_type": "Clean Fast Break",
+    "setup_state": "signal_stage",
+    "stage": "fresh_break_signal",
+    "trigger_state": "triggered",
+    "trigger_level": 436.2,
+    "invalidation": 435.2,
+    "room_status": "unconfirmed",
+    "extension_status": "unconfirmed",
+    "context_24h": "CONTEXT_24H_DAILY_UNCONFIRMED",
+    "wall_thesis_fit": "unconfirmed",
+    "final_verdict": "TRADE",
+    "primary_blocker": null,
+    "cautions_watchouts": [
+      "MACRO_UNCONFIRMED",
+      "IV_UNCONFIRMED",
+      "EVENT_UNCONFIRMED"
+    ],
+    "winner_selection_result": {
+      "selected_symbol": "QQQ",
+      "selected_setup_type": "Clean Fast Break",
+      "selection_status": "shape_only_unimplemented"
+    },
+    "human_next_step": "Signal-state fixture only; no live trade instruction or trade outcome assumption.",
+    "first_seen": "2026-04-21T14:30:00-04:00",
+    "last_seen": "2026-04-21T15:30:00-04:00",
+    "state_changed": true,
+    "prior_state": "watching",
+    "current_state": "signal",
+    "trigger_changed": true,
+    "blocker_changed": false,
+    "duplicate_alert_suppression_key": "QQQ|2026-04-21|Clean Fast Break|fresh_break_signal|none"
+  }
+}

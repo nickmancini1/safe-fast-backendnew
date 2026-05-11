@@ -20,9 +20,15 @@ The final target remains full SAFE-FAST automation with manual trade execution o
 - `schemas/signal_replay_input_v1.schema.json`
 - `schemas/signal_replay_output_v1.schema.json`
 - `fixtures/no_hindsight_sample_signal_replay_fixture.json`
+- `fixtures/no_hindsight_clean_fast_break_signal_replay_fixture.json`
 - `reports/.gitkeep`
 
 The fixture is a no-hindsight example shape only. Unavailable macro, IV, event, and context fields are marked unconfirmed instead of inferred.
+
+## Fixture Inventory
+
+- `no_hindsight_sample_signal_replay_fixture.json` = Continuation / PENDING
+- `no_hindsight_clean_fast_break_signal_replay_fixture.json` = Clean Fast Break / signal-stage fixture only
 
 ## Minimal implementation v1
 

@@ -291,6 +291,19 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Recommended next fixture expansion:** add second no-hindsight fixture for a different setup type
 - **Next task:** create the selected next no-hindsight fixture only
 
+## Historical Signal Replay v1 fixture expansion status
+
+- **New fixture file:** `historical_signal_replay/fixtures/no_hindsight_clean_fast_break_signal_replay_fixture.json`
+- **Setup type covered:** Clean Fast Break
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** validate multi-fixture signal replay support
+
 ## Next exact task
 
 Continue from patch8.
