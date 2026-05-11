@@ -7,8 +7,8 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `b1654ac Add ideal signal replay fixture`
-- **Current objective:** Historical Signal Replay three-fixture support validated, with Continuous Watcher foundation planning only
+- **Latest completed commit:** `4ebe542 Add three-fixture signal replay support`
+- **Current objective:** decide lifecycle fixture design, with Continuous Watcher foundation planning only
 - **Current build direction:** decide lifecycle fixture design next; keep Continuous Watcher to foundation planning only
 - **Work mode:** build work only, no live trade decisions
 
@@ -238,12 +238,12 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Latest review status:** READY WITH KNOWN LIMITS
 - **`main.py` changed:** no
 - **Tests passed:** yes; all on-demand contract tests, stage-message contract, fixture validation, and full replay regression passed locally
-- **Next recommended phase:** decide next fixture expansion after multi-fixture Historical Signal Replay support passed, with Continuous Watcher foundation planning only
+- **Next recommended phase:** decide lifecycle fixture design after three-fixture Historical Signal Replay support passed, with Continuous Watcher foundation planning only
 
 ## Historical Signal Replay v1 planning status
 
 - **Plan file:** `SAFE_FAST_HISTORICAL_SIGNAL_REPLAY_V1_PLAN.md`
-- **Planning status:** minimal implementation, second fixture, and multi-fixture support exist; next fixture expansion decision pending
+- **Planning status:** minimal implementation, second fixture, multi-fixture support, and three-fixture support exist; lifecycle fixture design decision pending
 - **Purpose boundary:** historical signal replay proves signal/stage behavior over historical bars, not profitability
 - **Trade outcome boundary:** trade outcome backtesting, option P&L, account-mode sizing, production, auto-trading, and live trade decisions remain out of scope
 - **Continuous Watcher handoff:** lifecycle fields planned for future watch-only state tracking and duplicate alert suppression
