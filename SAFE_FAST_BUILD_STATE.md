@@ -7,7 +7,7 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `5072849 Add clean fast break signal replay fixture`
+- **Latest completed commit:** `9544cc2 Update clean fast break fixture references`
 - **Current objective:** validate multi-fixture Historical Signal Replay support, with Continuous Watcher foundation planning only
 - **Current build direction:** validate multi-fixture Historical Signal Replay support; keep Continuous Watcher to foundation planning only
 - **Work mode:** build work only, no live trade decisions
@@ -303,6 +303,21 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Account sizing added:** no
 - **Auto-trading added:** no
 - **Next task:** validate multi-fixture signal replay support
+
+## Historical Signal Replay v1 multi-fixture support status
+
+- **Validation status:** PASS
+- **Fixtures included:** `historical_signal_replay/fixtures/no_hindsight_sample_signal_replay_fixture.json`; `historical_signal_replay/fixtures/no_hindsight_clean_fast_break_signal_replay_fixture.json`
+- **Output row count:** 2
+- **Summary consistency result:** PASS; signal log row count, `summary.total_rows`, symbols, setup type counts, final verdict counts, stage counts, and caution counts match both fixtures
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** yes
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** add third no-hindsight fixture or lifecycle fixture recommendation
 
 ## Next exact task
 

@@ -9,6 +9,10 @@ except ImportError:
 
 BASE_DIR = Path(__file__).resolve().parent
 FIXTURE_PATH = BASE_DIR / "fixtures" / "no_hindsight_sample_signal_replay_fixture.json"
+DEFAULT_FIXTURE_PATHS = (
+    FIXTURE_PATH,
+    BASE_DIR / "fixtures" / "no_hindsight_clean_fast_break_signal_replay_fixture.json",
+)
 REPORTS_DIR = BASE_DIR / "reports"
 SIGNAL_LOG_PATH = REPORTS_DIR / "no_hindsight_sample_signal_log.jsonl"
 SUMMARY_PATH = REPORTS_DIR / "no_hindsight_sample_summary.json"
@@ -75,11 +79,17 @@ def validate_fixture(fixture):
     )
 
 
-def run_signal_replay(fixture_path=FIXTURE_PATH):
-    fixture = load_fixture(fixture_path)
-    validate_fixture(fixture)
+def run_signal_replay(fixture_paths=None):
+    if fixture_paths is None:
+        fixture_paths = DEFAULT_FIXTURE_PATHS
 
-    signal_rows = [fixture["expected_output_shape"]]
+    fixtures = []
+    for fixture_path in fixture_paths:
+        fixture = load_fixture(fixture_path)
+        validate_fixture(fixture)
+        fixtures.append(fixture)
+
+    signal_rows = [fixture["expected_output_shape"] for fixture in fixtures]
     summary = build_summary(signal_rows)
     regression_candidates = {
         "purpose": "Signal/stage replay regression candidates only; no profitability, P&L, account sizing, or trade outcomes.",

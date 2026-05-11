@@ -23,7 +23,7 @@ The final target remains full SAFE-FAST automation with manual trade execution o
 - `fixtures/no_hindsight_clean_fast_break_signal_replay_fixture.json`
 - `reports/.gitkeep`
 
-The fixture is a no-hindsight example shape only. Unavailable macro, IV, event, and context fields are marked unconfirmed instead of inferred.
+The fixtures are no-hindsight example shapes only. Unavailable macro, IV, event, and context fields are marked unconfirmed instead of inferred.
 
 ## Fixture Inventory
 
@@ -37,6 +37,11 @@ Run command:
 ```powershell
 python -B historical_signal_replay/run_signal_replay.py
 ```
+
+The default runner combines the current no-hindsight fixture set into one local signal log and one summary:
+
+- `no_hindsight_sample_signal_replay_fixture.json`
+- `no_hindsight_clean_fast_break_signal_replay_fixture.json`
 
 Output files:
 
