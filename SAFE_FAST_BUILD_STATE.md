@@ -319,6 +319,21 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** decide whether the next fixture should be third setup-type coverage or lifecycle fixture
 
+## Historical Signal Replay v1 third setup fixture status
+
+- **New fixture file:** `historical_signal_replay/fixtures/no_hindsight_ideal_signal_replay_fixture.json`
+- **Setup type covered:** Ideal
+- **All three setup types now represented in Historical Signal Replay fixtures:** yes
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Schemas changed:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** validate three-fixture signal replay support
+
 ## Next exact task
 
 Continue from patch8.

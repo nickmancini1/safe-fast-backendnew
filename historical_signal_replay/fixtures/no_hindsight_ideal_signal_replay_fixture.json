@@ -1,0 +1,125 @@
+{
+  "fixture_name": "no_hindsight_ideal_signal_replay_fixture",
+  "fixture_version": 1,
+  "purpose": "No-hindsight Ideal setup signal-stage fixture for Historical Signal Replay v1 fixture expansion.",
+  "input": {
+    "symbol": "IWM",
+    "timestamp": "2026-04-22T15:30:00-04:00",
+    "candles_1h_rth": [
+      {
+        "timestamp": "2026-04-22T09:30:00-04:00",
+        "open": 197.4,
+        "high": 199.1,
+        "low": 197.0,
+        "close": 198.8,
+        "volume": 14285000
+      },
+      {
+        "timestamp": "2026-04-22T10:30:00-04:00",
+        "open": 198.8,
+        "high": 200.2,
+        "low": 198.5,
+        "close": 199.9,
+        "volume": 12641000
+      },
+      {
+        "timestamp": "2026-04-22T11:30:00-04:00",
+        "open": 199.9,
+        "high": 200.4,
+        "low": 199.1,
+        "close": 199.4,
+        "volume": 10376000
+      },
+      {
+        "timestamp": "2026-04-22T12:30:00-04:00",
+        "open": 199.4,
+        "high": 199.8,
+        "low": 198.7,
+        "close": 199.0,
+        "volume": 9562000
+      },
+      {
+        "timestamp": "2026-04-22T13:30:00-04:00",
+        "open": 199.0,
+        "high": 199.7,
+        "low": 198.8,
+        "close": 199.5,
+        "volume": 9184000
+      },
+      {
+        "timestamp": "2026-04-22T14:30:00-04:00",
+        "open": 199.5,
+        "high": 201.0,
+        "low": 199.3,
+        "close": 200.8,
+        "volume": 13798000
+      }
+    ],
+    "context_24h_daily": {
+      "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+      "value": null,
+      "as_of": null,
+      "source": null
+    },
+    "market_calendar_session": {
+      "session_date": "2026-04-22",
+      "session_type": "regular",
+      "is_regular_session": true,
+      "timezone": "America/New_York",
+      "notes": "Regular RTH sample session for signal-stage Ideal setup fixture."
+    },
+    "macro_context": {
+      "status": "MACRO_UNCONFIRMED",
+      "value": null,
+      "as_of": null,
+      "source": null
+    },
+    "iv_context": {
+      "status": "IV_UNCONFIRMED",
+      "value": null,
+      "as_of": null,
+      "source": null
+    },
+    "event_context": {
+      "status": "EVENT_UNCONFIRMED",
+      "value": null,
+      "as_of": null,
+      "source": null
+    }
+  },
+  "expected_output_shape": {
+    "timestamp": "2026-04-22T15:30:00-04:00",
+    "symbol": "IWM",
+    "setup_type": "Ideal",
+    "setup_state": "signal_stage",
+    "stage": "ema_retest_signal",
+    "trigger_state": "triggered",
+    "trigger_level": 200.4,
+    "invalidation": 198.7,
+    "room_status": "unconfirmed",
+    "extension_status": "unconfirmed",
+    "context_24h": "CONTEXT_24H_DAILY_UNCONFIRMED",
+    "wall_thesis_fit": "unconfirmed",
+    "final_verdict": "TRADE",
+    "primary_blocker": null,
+    "cautions_watchouts": [
+      "MACRO_UNCONFIRMED",
+      "IV_UNCONFIRMED",
+      "EVENT_UNCONFIRMED"
+    ],
+    "winner_selection_result": {
+      "selected_symbol": "IWM",
+      "selected_setup_type": "Ideal",
+      "selection_status": "shape_only_unimplemented"
+    },
+    "human_next_step": "Signal-stage fixture only; not a live trade instruction, trade outcome assumption, or execution recommendation.",
+    "first_seen": "2026-04-22T13:30:00-04:00",
+    "last_seen": "2026-04-22T15:30:00-04:00",
+    "state_changed": true,
+    "prior_state": "watching",
+    "current_state": "signal",
+    "trigger_changed": true,
+    "blocker_changed": false,
+    "duplicate_alert_suppression_key": "IWM|2026-04-22|Ideal|ema_retest_signal|none"
+  }
+}
