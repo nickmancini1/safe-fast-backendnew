@@ -278,10 +278,23 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** validate minimal signal replay outputs and decide next fixture expansion
 
+## Historical Signal Replay v1 output validation status
+
+- **Review file:** `historical_signal_replay/MINIMAL_OUTPUT_VALIDATION_REVIEW.md`
+- **Validation status:** PASS
+- **Runner result:** passed locally with `python -B historical_signal_replay/run_signal_replay.py`; all three expected report files produced
+- **Summary consistency result:** PASS; one JSONL row matches summary counts for symbol, setup type, verdict, blocker, stage, lifecycle changes, and cautions
+- **Boundary check result:** PASS; replay remains signal/stage only and still excludes trade outcome backtesting, option P&L, account sizing, production, auto-trading, and live trade decisions
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Trade outcome backtesting started:** no
+- **Recommended next fixture expansion:** add second no-hindsight fixture for a different setup type
+- **Next task:** create the selected next no-hindsight fixture only
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is validate minimal signal replay outputs and decide next fixture expansion.
+Next task is create the selected next no-hindsight fixture only.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
