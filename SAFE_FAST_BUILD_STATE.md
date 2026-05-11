@@ -350,10 +350,22 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** decide lifecycle fixture design
 
+## Historical Signal Replay v1 lifecycle fixture design status
+
+- **Review file:** `historical_signal_replay/LIFECYCLE_FIXTURE_DESIGN_REVIEW.md`
+- **Design status:** complete; first lifecycle fixture type decided
+- **Recommended lifecycle fixture:** multi-row Continuation lifecycle fixture
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Fixtures changed:** no
+- **Trade outcome backtesting started:** no
+- **Next task:** create Continuation lifecycle no-hindsight fixture only
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is decide lifecycle fixture design.
+Next task is create Continuation lifecycle no-hindsight fixture only.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
