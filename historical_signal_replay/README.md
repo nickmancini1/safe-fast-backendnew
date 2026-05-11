@@ -22,6 +22,7 @@ The final target remains full SAFE-FAST automation with manual trade execution o
 - `fixtures/no_hindsight_sample_signal_replay_fixture.json`
 - `fixtures/no_hindsight_clean_fast_break_signal_replay_fixture.json`
 - `fixtures/no_hindsight_ideal_signal_replay_fixture.json`
+- `fixtures/no_hindsight_continuation_lifecycle_signal_replay_fixture.json`
 - `reports/.gitkeep`
 
 The fixtures are no-hindsight example shapes only. Unavailable macro, IV, event, and context fields are marked unconfirmed instead of inferred.
@@ -31,6 +32,7 @@ The fixtures are no-hindsight example shapes only. Unavailable macro, IV, event,
 - `no_hindsight_sample_signal_replay_fixture.json` = Continuation / PENDING
 - `no_hindsight_clean_fast_break_signal_replay_fixture.json` = Clean Fast Break / signal-stage fixture only
 - `no_hindsight_ideal_signal_replay_fixture.json` = Ideal / signal-stage fixture only
+- `no_hindsight_continuation_lifecycle_signal_replay_fixture.json` = Continuation / multi-row lifecycle fixture only
 
 ## Minimal implementation v1
 

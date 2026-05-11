@@ -362,6 +362,22 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Trade outcome backtesting started:** no
 - **Next task:** create Continuation lifecycle no-hindsight fixture only
 
+## Historical Signal Replay v1 Continuation lifecycle fixture status
+
+- **New fixture file:** `historical_signal_replay/fixtures/no_hindsight_continuation_lifecycle_signal_replay_fixture.json`
+- **Fixture type:** multi-row Continuation lifecycle
+- **Lifecycle rows included:** `watching_developing`; `pending_completed_candle_approval`; `triggered_signal_stage`; `spent_no_fresh_trigger`
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Schemas changed:** no
+- **Generated reports changed:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** validate lifecycle fixture shape and decide runner support
+
 ## Next exact task
 
 Continue from patch8.
