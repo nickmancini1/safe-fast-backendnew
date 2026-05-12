@@ -89,4 +89,4 @@ State, trigger, or blocker changes should be alert candidates. The lifecycle fix
 
 ## Next Task
 
-Add lifecycle runner support for the validated multi-row lifecycle fixture shape only.
+Validate lifecycle runner outputs.

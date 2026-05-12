@@ -105,10 +105,10 @@ Trade outcome backtesting is still not started.
 
 ## Runner Support Decision
 
-Runner support is needed next: YES.
+Runner support is needed next: NO. Lifecycle runner support has been added.
 
-The existing default signal replay runner supports single-row fixtures with top-level `input` and `expected_output_shape`. The lifecycle fixture intentionally uses top-level fixture metadata plus `lifecycle_rows`, so it should remain out of the default runner until explicit lifecycle runner support is added.
+The existing default signal replay runner supports single-row fixtures with top-level `input` and `expected_output_shape`. The lifecycle fixture intentionally uses top-level fixture metadata plus `lifecycle_rows`, and explicit lifecycle runner support has now been added.
 
 ## Recommended Next Task
 
-Add lifecycle runner support for the validated multi-row lifecycle fixture shape, without adding trade outcome backtesting, option P&L, account sizing, broker/order execution, auto-trading, live trade decisions, or Continuous Watcher implementation.
+Validate lifecycle runner outputs, without adding trade outcome backtesting, option P&L, account sizing, broker/order execution, auto-trading, live trade decisions, or Continuous Watcher implementation.
