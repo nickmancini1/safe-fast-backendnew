@@ -7,7 +7,7 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `7c78c97 Add repeated-state duplicate suppression fixture`
+- **Latest completed commit:** `cb9835d Update repeated-state fixture references`
 - **Current objective:** validate repeated-state duplicate suppression fixture shape and decide runner support, with Continuous Watcher foundation planning only
 - **Current build direction:** validate repeated-state duplicate suppression fixture shape and decide runner support; keep Continuous Watcher to foundation planning only
 - **Work mode:** build work only, no live trade decisions
@@ -481,10 +481,34 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** validate repeated-state duplicate suppression fixture shape and decide runner support
 
+## Historical Signal Replay v1 repeated-state duplicate suppression fixture validation status
+
+- **Review file:** `historical_signal_replay/REPEATED_STATE_DUPLICATE_SUPPRESSION_FIXTURE_VALIDATION_REVIEW.md`
+- **Validation status:** PASS
+- **Repeated-state row count:** 8
+- **Repeated-state row order result:** PASS; `watching_developing_first_observation`, `watching_developing_repeated_same_state`, `pending_completed_candle_approval_first_observation`, `pending_completed_candle_approval_repeated_same_state`, `triggered_signal_stage_first_observation`, `triggered_signal_stage_repeated_same_state`, `spent_no_fresh_trigger_first_observation`, `spent_no_fresh_trigger_repeated_same_state`
+- **Unique duplicate alert key count:** 4
+- **Meaningful alert candidate count:** 4
+- **Duplicate suppressed count:** 4
+- **Repeated same-state no-change result:** PASS; repeated rows have `state_changed: false`, `trigger_changed: false`, and `blocker_changed: false`
+- **Boundary check result:** PASS; excludes trade outcome backtesting, option P&L, account sizing, broker/order execution, auto-trading, and live trade decisions
+- **Runner support decision:** needed next; current runner does not yet load `repeated_state_rows` or summarize duplicate-suppressed rows
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Generated reports changed:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** add repeated-state runner support only if validation says needed
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is validate repeated-state duplicate suppression fixture shape and decide runner support.
+Next task is add repeated-state runner support only for the validated repeated-state duplicate suppression fixture shape.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
