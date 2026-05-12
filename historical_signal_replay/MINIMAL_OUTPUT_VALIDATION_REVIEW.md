@@ -102,7 +102,7 @@ Historical Signal Replay v1 remains local signal/stage replay only.
 
 ## Recommended Next Task
 
-- **Recommendation:** create repeated-state duplicate suppression no-hindsight fixture only
+- **Recommendation:** validate repeated-state duplicate suppression fixture shape and decide runner support
 
 ## Why That Is Next
 

@@ -100,4 +100,4 @@ Each row should verify:
 
 ## Next Task
 
-Create the repeated-state duplicate suppression no-hindsight fixture only.
+Validate repeated-state duplicate suppression fixture shape and decide runner support.
