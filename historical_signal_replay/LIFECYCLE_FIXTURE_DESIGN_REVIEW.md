@@ -89,4 +89,4 @@ State, trigger, or blocker changes should be alert candidates. The lifecycle fix
 
 ## Next Task
 
-Validate lifecycle runner outputs.
+Decide repeated-state duplicate suppression fixture design.

@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `2d3e55c Add lifecycle signal replay runner support`
-- **Current objective:** validate lifecycle runner outputs, with Continuous Watcher foundation planning only
-- **Current build direction:** validate lifecycle runner outputs; keep Continuous Watcher to foundation planning only
+- **Latest completed commit:** `64685e6 Add lifecycle runner output validation review`
+- **Current objective:** decide repeated-state duplicate suppression fixture design, with Continuous Watcher foundation planning only
+- **Current build direction:** decide repeated-state duplicate suppression fixture design; keep Continuous Watcher to foundation planning only
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -238,7 +238,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Latest review status:** READY WITH KNOWN LIMITS
 - **`main.py` changed:** no
 - **Tests passed:** yes; all on-demand contract tests, stage-message contract, fixture validation, and full replay regression passed locally
-- **Next recommended phase:** validate lifecycle runner outputs, with Continuous Watcher foundation planning only
+- **Next recommended phase:** decide repeated-state duplicate suppression fixture design, with Continuous Watcher foundation planning only
 
 ## Historical Signal Replay v1 planning status
 
@@ -249,7 +249,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Continuous Watcher handoff:** lifecycle fields planned for future watch-only state tracking and duplicate alert suppression
 - **`main.py` changed:** no
 - **Replay tests changed:** no
-- **Next task:** validate lifecycle runner outputs
+- **Next task:** decide repeated-state duplicate suppression fixture design
 
 ## Historical Signal Replay v1 scaffold status
 
@@ -348,7 +348,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Option P&L modeled:** no
 - **Account sizing added:** no
 - **Auto-trading added:** no
-- **Next task:** validate lifecycle runner outputs
+- **Next task:** decide repeated-state duplicate suppression fixture design
 
 ## Historical Signal Replay v1 lifecycle fixture design status
 
@@ -360,7 +360,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Signal replay code changed:** no
 - **Fixtures changed:** no
 - **Trade outcome backtesting started:** no
-- **Next task:** validate lifecycle runner outputs
+- **Next task:** decide repeated-state duplicate suppression fixture design
 
 ## Historical Signal Replay v1 Continuation lifecycle fixture status
 
@@ -377,7 +377,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Option P&L modeled:** no
 - **Account sizing added:** no
 - **Auto-trading added:** no
-- **Next task:** validate lifecycle runner outputs
+- **Next task:** decide repeated-state duplicate suppression fixture design
 
 ## Historical Signal Replay v1 lifecycle fixture validation status
 
@@ -398,7 +398,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Option P&L modeled:** no
 - **Account sizing added:** no
 - **Auto-trading added:** no
-- **Next task:** validate lifecycle runner outputs
+- **Next task:** decide repeated-state duplicate suppression fixture design
 
 ## Historical Signal Replay v1 lifecycle runner support status
 
@@ -417,7 +417,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Option P&L modeled:** no
 - **Account sizing added:** no
 - **Auto-trading added:** no
-- **Next task:** validate lifecycle runner outputs
+- **Next task:** decide repeated-state duplicate suppression fixture design
 
 ## Historical Signal Replay v1 lifecycle runner output validation status
 

@@ -3,8 +3,8 @@
 ## Baseline
 
 - **Current baseline:** `patch8`
-- **Active objective:** validate lifecycle runner outputs, with Continuous Watcher foundation planning only
-- **Latest completed commit:** `2d3e55c` - Add lifecycle signal replay runner support
+- **Active objective:** decide repeated-state duplicate suppression fixture design, with Continuous Watcher foundation planning only
+- **Latest completed commit:** `64685e6` - Add lifecycle runner output validation review
 - **On-demand transition status:** READY WITH KNOWN LIMITS
 - **Work mode:** docs/build-state and protected build work only unless explicitly expanded
 - **Production status:** production readiness is not done
@@ -176,8 +176,8 @@ No auto-trading is allowed at any point.
 Next laptop tasks must stay narrow:
 
 - Start from `patch8`
-- Use the latest completed commit context: `2d3e55c`
-- Validate lifecycle runner outputs
+- Use the latest completed commit context: `64685e6`
+- Decide repeated-state duplicate suppression fixture design
 - Limit Continuous Watcher work to foundation planning only
 - Do not start trade outcome backtesting implementation yet
 - Do not make engine changes unless explicitly authorized and covered first

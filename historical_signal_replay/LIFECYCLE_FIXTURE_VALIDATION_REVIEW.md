@@ -111,4 +111,4 @@ The existing default signal replay runner supports single-row fixtures with top-
 
 ## Recommended Next Task
 
-Validate lifecycle runner outputs, without adding trade outcome backtesting, option P&L, account sizing, broker/order execution, auto-trading, live trade decisions, or Continuous Watcher implementation.
+Decide repeated-state duplicate suppression fixture design, without adding trade outcome backtesting, option P&L, account sizing, broker/order execution, auto-trading, live trade decisions, or Continuous Watcher implementation.
