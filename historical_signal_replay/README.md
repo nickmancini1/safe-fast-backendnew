@@ -91,3 +91,35 @@ Boundary:
 - No P&L
 - No account sizing
 - No auto-trading
+
+## Repeated-state duplicate suppression replay v1
+
+Run command:
+
+```powershell
+python -B historical_signal_replay/run_signal_replay.py
+```
+
+Repeated-state fixture file:
+
+- `fixtures/no_hindsight_continuation_repeated_state_duplicate_suppression_fixture.json`
+
+Repeated-state output files:
+
+- `reports/no_hindsight_continuation_repeated_state_duplicate_suppression_signal_log.jsonl`
+- `reports/no_hindsight_continuation_repeated_state_duplicate_suppression_summary.json`
+- `reports/no_hindsight_continuation_repeated_state_duplicate_suppression_regression_candidates.json`
+
+Expected counts:
+
+- Expected row count: 8
+- Expected meaningful alert candidates: 4
+- Expected duplicate suppressed rows: 4
+
+Boundary:
+
+- Signal/stage/lifecycle duplicate-suppression only
+- No trade outcome
+- No P&L
+- No account sizing
+- No auto-trading

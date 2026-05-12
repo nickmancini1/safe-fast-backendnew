@@ -2,9 +2,13 @@ import json
 from pathlib import Path
 
 try:
-    from .metrics import build_lifecycle_summary, build_summary
+    from .metrics import (
+        build_lifecycle_summary,
+        build_repeated_state_summary,
+        build_summary,
+    )
 except ImportError:
-    from metrics import build_lifecycle_summary, build_summary
+    from metrics import build_lifecycle_summary, build_repeated_state_summary, build_summary
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -31,6 +35,23 @@ LIFECYCLE_SUMMARY_PATH = (
 )
 LIFECYCLE_REGRESSION_CANDIDATES_PATH = (
     REPORTS_DIR / "no_hindsight_continuation_lifecycle_regression_candidates.json"
+)
+REPEATED_STATE_FIXTURE_PATH = (
+    BASE_DIR
+    / "fixtures"
+    / "no_hindsight_continuation_repeated_state_duplicate_suppression_fixture.json"
+)
+REPEATED_STATE_SIGNAL_LOG_PATH = (
+    REPORTS_DIR
+    / "no_hindsight_continuation_repeated_state_duplicate_suppression_signal_log.jsonl"
+)
+REPEATED_STATE_SUMMARY_PATH = (
+    REPORTS_DIR
+    / "no_hindsight_continuation_repeated_state_duplicate_suppression_summary.json"
+)
+REPEATED_STATE_REGRESSION_CANDIDATES_PATH = (
+    REPORTS_DIR
+    / "no_hindsight_continuation_repeated_state_duplicate_suppression_regression_candidates.json"
 )
 
 REQUIRED_INPUT_KEYS = {
@@ -72,6 +93,30 @@ REQUIRED_OUTPUT_KEYS = {
     "duplicate_alert_suppression_key",
 }
 
+REQUIRED_REPEATED_STATE_OUTPUT_KEYS = {
+    "timestamp",
+    "symbol",
+    "setup_type",
+    "setup_state",
+    "stage",
+    "trigger_state",
+    "trigger_level",
+    "invalidation",
+    "final_verdict",
+    "primary_blocker",
+    "human_next_step",
+    "first_seen",
+    "last_seen",
+    "state_changed",
+    "prior_state",
+    "current_state",
+    "trigger_changed",
+    "blocker_changed",
+    "duplicate_alert_suppression_key",
+    "meaningful_alert_candidate",
+    "duplicate_suppressed",
+}
+
 
 def load_fixture(path=FIXTURE_PATH):
     with Path(path).open("r", encoding="utf-8") as handle:
@@ -106,6 +151,27 @@ def validate_lifecycle_fixture(fixture):
         _validate_required_keys(
             row["expected_output_shape"],
             REQUIRED_OUTPUT_KEYS,
+            f"{label}.expected_output_shape",
+        )
+
+
+def validate_repeated_state_fixture(fixture):
+    _validate_required_keys(
+        fixture,
+        {"repeated_state_rows"},
+        "repeated-state fixture",
+    )
+    rows = fixture["repeated_state_rows"]
+    if not isinstance(rows, list) or not rows:
+        raise ValueError("repeated-state fixture repeated_state_rows must be a non-empty list")
+
+    for index, row in enumerate(rows, start=1):
+        label = f"repeated-state fixture row {index}"
+        _validate_required_keys(row, {"input", "expected_output_shape"}, label)
+        _validate_required_keys(row["input"], REQUIRED_INPUT_KEYS, f"{label}.input")
+        _validate_required_keys(
+            row["expected_output_shape"],
+            REQUIRED_REPEATED_STATE_OUTPUT_KEYS,
             f"{label}.expected_output_shape",
         )
 
@@ -212,4 +278,38 @@ def run_lifecycle_signal_replay(fixture_path=LIFECYCLE_FIXTURE_PATH):
         "signal_log_path": str(LIFECYCLE_SIGNAL_LOG_PATH),
         "summary_path": str(LIFECYCLE_SUMMARY_PATH),
         "regression_candidates_path": str(LIFECYCLE_REGRESSION_CANDIDATES_PATH),
+    }
+
+
+def run_repeated_state_signal_replay(fixture_path=REPEATED_STATE_FIXTURE_PATH):
+    fixture = load_fixture(fixture_path)
+    validate_repeated_state_fixture(fixture)
+
+    signal_rows = [
+        row["expected_output_shape"] for row in fixture["repeated_state_rows"]
+    ]
+    summary = build_repeated_state_summary(signal_rows)
+    regression_candidates = _build_regression_candidates(
+        "Signal/stage/lifecycle duplicate-suppression regression candidates only; no profitability, P&L, account sizing, trade outcomes, live trade decisions, or auto-trading.",
+        signal_rows,
+    )
+
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    _write_signal_log(REPEATED_STATE_SIGNAL_LOG_PATH, signal_rows)
+    REPEATED_STATE_SUMMARY_PATH.write_text(
+        json.dumps(summary, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    REPEATED_STATE_REGRESSION_CANDIDATES_PATH.write_text(
+        json.dumps(regression_candidates, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
+    return {
+        "signal_rows": signal_rows,
+        "summary": summary,
+        "regression_candidates": regression_candidates,
+        "signal_log_path": str(REPEATED_STATE_SIGNAL_LOG_PATH),
+        "summary_path": str(REPEATED_STATE_SUMMARY_PATH),
+        "regression_candidates_path": str(REPEATED_STATE_REGRESSION_CANDIDATES_PATH),
     }

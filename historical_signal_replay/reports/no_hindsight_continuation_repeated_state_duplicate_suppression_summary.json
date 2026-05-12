@@ -1,0 +1,41 @@
+{
+  "blocker_counts": {
+    "completed_candle_approval_required": 2,
+    "no_valid_trigger": 2,
+    "prior_completed_shelf_break_spent": 2
+  },
+  "caution_counts": {},
+  "duplicate_alert_suppression_key_counts": {
+    "SPY|2026-04-23|Continuation|developing_hold_forming|no_valid_trigger": 2,
+    "SPY|2026-04-23|Continuation|pending_completed_candle_approval|completed_candle_approval_required": 2,
+    "SPY|2026-04-23|Continuation|spent_no_fresh_trigger|prior_completed_shelf_break_spent": 2,
+    "SPY|2026-04-23|Continuation|triggered_signal_stage|none": 2
+  },
+  "duplicate_suppressed_count": 4,
+  "final_verdict_counts": {
+    "NO_TRADE": 4,
+    "PENDING": 2,
+    "TRADE": 2
+  },
+  "lifecycle_change_counts": {
+    "blocker_changed": 4,
+    "state_changed": 4,
+    "trigger_changed": 3
+  },
+  "meaningful_alert_candidate_count": 4,
+  "repeated_same_state_no_change_count": 4,
+  "setup_type_counts": {
+    "Continuation": 8
+  },
+  "stage_counts": {
+    "developing_hold_forming": 2,
+    "pending_completed_candle_approval": 2,
+    "spent_no_fresh_trigger": 2,
+    "triggered_signal_stage": 2
+  },
+  "symbols": [
+    "SPY"
+  ],
+  "total_rows": 8,
+  "unique_duplicate_alert_suppression_key_count": 4
+}

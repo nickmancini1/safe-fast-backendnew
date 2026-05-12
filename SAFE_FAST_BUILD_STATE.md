@@ -505,10 +505,31 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** add repeated-state runner support only for the validated repeated-state duplicate suppression fixture shape
 
+## Historical Signal Replay v1 repeated-state runner support status
+
+- **Support status:** PASS
+- **Repeated-state fixture included:** `historical_signal_replay/fixtures/no_hindsight_continuation_repeated_state_duplicate_suppression_fixture.json`
+- **Repeated-state output row count:** 8
+- **Repeated-state summary consistency result:** PASS; repeated-state signal log row count, `summary.total_rows`, duplicate alert suppression key counts, unique duplicate alert key count, meaningful alert candidate count, duplicate suppressed count, and repeated same-state no-change count match the validated fixture shape
+- **Unique duplicate alert key count:** 4
+- **Meaningful alert candidate count:** 4
+- **Duplicate suppressed count:** 4
+- **Repeated same-state no-change count:** 4
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** yes
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** validate repeated-state runner outputs
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is add repeated-state runner support only for the validated repeated-state duplicate suppression fixture shape.
+Next task is validate repeated-state runner outputs.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
