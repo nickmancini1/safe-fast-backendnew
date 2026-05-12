@@ -419,10 +419,31 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** validate lifecycle runner outputs
 
+## Historical Signal Replay v1 lifecycle runner output validation status
+
+- **Review file:** `historical_signal_replay/LIFECYCLE_RUNNER_OUTPUT_VALIDATION_REVIEW.md`
+- **Validation status:** PASS
+- **Lifecycle signal log row count:** 4
+- **Lifecycle summary consistency result:** PASS; lifecycle signal log row count, `summary.total_rows`, symbols, setup type counts, final verdict counts, blocker counts, caution counts, stage counts, lifecycle change counts, duplicate alert suppression key counts, and meaningful alert candidate count match all 4 lifecycle rows
+- **Duplicate alert suppression key result:** PASS; 4 unique lifecycle suppression keys, each counted once
+- **Meaningful alert candidate count:** 4
+- **Regression candidate boundary result:** PASS; lifecycle regression candidates are signal/stage/lifecycle metadata only and do not imply profitability
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Generated reports changed:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** decide repeated-state duplicate suppression fixture design
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is validate lifecycle runner outputs.
+Next task is decide repeated-state duplicate suppression fixture design.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
