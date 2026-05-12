@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `64576a5 Add continuation lifecycle signal replay fixture`
-- **Current objective:** validate lifecycle fixture shape and decide runner support, with Continuous Watcher foundation planning only
-- **Current build direction:** validate lifecycle fixture shape and decide runner support; keep Continuous Watcher to foundation planning only
+- **Latest completed commit:** `570cb8c Add lifecycle fixture validation review`
+- **Current objective:** add lifecycle runner support for the validated multi-row fixture shape only, with Continuous Watcher foundation planning only
+- **Current build direction:** add lifecycle runner support only; keep Continuous Watcher to foundation planning only
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -238,7 +238,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Latest review status:** READY WITH KNOWN LIMITS
 - **`main.py` changed:** no
 - **Tests passed:** yes; all on-demand contract tests, stage-message contract, fixture validation, and full replay regression passed locally
-- **Next recommended phase:** validate lifecycle fixture shape and decide runner support, with Continuous Watcher foundation planning only
+- **Next recommended phase:** add lifecycle runner support for the validated multi-row fixture shape only, with Continuous Watcher foundation planning only
 
 ## Historical Signal Replay v1 planning status
 
@@ -249,7 +249,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Continuous Watcher handoff:** lifecycle fields planned for future watch-only state tracking and duplicate alert suppression
 - **`main.py` changed:** no
 - **Replay tests changed:** no
-- **Next task:** validate lifecycle fixture shape and decide runner support
+- **Next task:** add lifecycle runner support for the validated multi-row fixture shape only
 
 ## Historical Signal Replay v1 scaffold status
 
@@ -348,7 +348,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Option P&L modeled:** no
 - **Account sizing added:** no
 - **Auto-trading added:** no
-- **Next task:** validate lifecycle fixture shape and decide runner support
+- **Next task:** add lifecycle runner support for the validated multi-row fixture shape only
 
 ## Historical Signal Replay v1 lifecycle fixture design status
 
@@ -360,7 +360,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Signal replay code changed:** no
 - **Fixtures changed:** no
 - **Trade outcome backtesting started:** no
-- **Next task:** validate lifecycle fixture shape and decide runner support
+- **Next task:** add lifecycle runner support for the validated multi-row fixture shape only
 
 ## Historical Signal Replay v1 Continuation lifecycle fixture status
 
@@ -377,7 +377,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Option P&L modeled:** no
 - **Account sizing added:** no
 - **Auto-trading added:** no
-- **Next task:** validate lifecycle fixture shape and decide runner support
+- **Next task:** add lifecycle runner support for the validated multi-row fixture shape only
 
 ## Historical Signal Replay v1 lifecycle fixture validation status
 
@@ -398,12 +398,12 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Option P&L modeled:** no
 - **Account sizing added:** no
 - **Auto-trading added:** no
-- **Next task:** add lifecycle runner support only if validation says needed
+- **Next task:** add lifecycle runner support for the validated multi-row fixture shape only
 
 ## Next exact task
 
 Continue from patch8.
 
-Next task is validate lifecycle fixture shape and decide runner support.
+Next task is add lifecycle runner support for the validated multi-row fixture shape only.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
