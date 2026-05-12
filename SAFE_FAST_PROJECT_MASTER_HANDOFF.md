@@ -3,8 +3,8 @@
 ## Baseline
 
 - **Current baseline:** `patch8`
-- **Active objective:** decide repeated-state duplicate suppression fixture design, with Continuous Watcher foundation planning only
-- **Latest completed commit:** `64685e6` - Add lifecycle runner output validation review
+- **Active objective:** create repeated-state duplicate suppression no-hindsight fixture only, with Continuous Watcher foundation planning only
+- **Latest completed commit:** `438380b` - Add repeated-state duplicate suppression fixture design
 - **On-demand transition status:** READY WITH KNOWN LIMITS
 - **Work mode:** docs/build-state and protected build work only unless explicitly expanded
 - **Production status:** production readiness is not done
@@ -176,8 +176,8 @@ No auto-trading is allowed at any point.
 Next laptop tasks must stay narrow:
 
 - Start from `patch8`
-- Use the latest completed commit context: `64685e6`
-- Decide repeated-state duplicate suppression fixture design
+- Use the latest completed commit context: `438380b`
+- Create repeated-state duplicate suppression no-hindsight fixture only
 - Limit Continuous Watcher work to foundation planning only
 - Do not start trade outcome backtesting implementation yet
 - Do not make engine changes unless explicitly authorized and covered first

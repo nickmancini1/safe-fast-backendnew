@@ -82,4 +82,4 @@ Trade outcome backtesting is still not started.
 
 ## Recommended Next Task
 
-Decide repeated-state duplicate suppression fixture design.
+create repeated-state duplicate suppression no-hindsight fixture only.
