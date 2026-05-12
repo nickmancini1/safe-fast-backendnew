@@ -1,0 +1,878 @@
+{
+  "fixture_name": "no_hindsight_continuation_repeated_state_duplicate_suppression_fixture",
+  "fixture_version": 1,
+  "purpose": "Multi-row no-hindsight Continuation repeated-state duplicate suppression fixture for Historical Signal Replay v1. This fixture covers signal/stage/lifecycle duplicate alert suppression shape only and excludes trade outcomes, option economics, account sizing, broker execution, and live trading instructions.",
+  "boundary_notes": [
+    "Each repeated-state row includes only information available at that row timestamp.",
+    "Macro, IV, event, and 24H context fields are unconfirmed because they are unavailable in this fixture.",
+    "First-observation rows are meaningful alert candidates; repeated same-state rows are duplicate suppressed.",
+    "Expected output rows are signal-state shapes only, not live trade instructions or execution recommendations.",
+    "This fixture does not include P&L, option contract economics, account sizing, trade outcome, broker/order/execution content, or auto-trading behavior."
+  ],
+  "repeated_state_rows": [
+    {
+      "row_name": "watching_developing_first_observation",
+      "row_index": 1,
+      "input": {
+        "symbol": "SPY",
+        "timestamp": "2026-04-23T12:30:00-04:00",
+        "candles_1h_rth": [
+          {
+            "timestamp": "2026-04-23T09:30:00-04:00",
+            "open": 517.2,
+            "high": 519.4,
+            "low": 516.8,
+            "close": 518.9,
+            "volume": 18640000
+          },
+          {
+            "timestamp": "2026-04-23T10:30:00-04:00",
+            "open": 518.9,
+            "high": 520.1,
+            "low": 518.5,
+            "close": 519.7,
+            "volume": 14270000
+          },
+          {
+            "timestamp": "2026-04-23T11:30:00-04:00",
+            "open": 519.7,
+            "high": 520.0,
+            "low": 518.8,
+            "close": 519.2,
+            "volume": 11860000
+          },
+          {
+            "timestamp": "2026-04-23T12:30:00-04:00",
+            "open": 519.2,
+            "high": 519.8,
+            "low": 518.9,
+            "close": 519.5,
+            "volume": 9340000
+          }
+        ],
+        "context_24h_daily": {
+          "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "market_calendar_session": {
+          "session_date": "2026-04-23",
+          "session_type": "regular",
+          "is_regular_session": true,
+          "timezone": "America/New_York",
+          "notes": "Regular RTH repeated-state row with Continuation shelf still developing."
+        },
+        "macro_context": {
+          "status": "MACRO_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "iv_context": {
+          "status": "IV_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "event_context": {
+          "status": "EVENT_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        }
+      },
+      "expected_output_shape": {
+        "timestamp": "2026-04-23T12:30:00-04:00",
+        "symbol": "SPY",
+        "setup_type": "Continuation",
+        "setup_state": "developing",
+        "stage": "developing_hold_forming",
+        "trigger_state": "not_present",
+        "trigger_level": 520.1,
+        "invalidation": 518.5,
+        "final_verdict": "NO_TRADE",
+        "primary_blocker": "no_valid_trigger",
+        "human_next_step": "Signal/stage lifecycle fixture only: keep watching the developing Continuation shelf; this is not a live trade instruction or execution recommendation.",
+        "first_seen": "2026-04-23T12:30:00-04:00",
+        "last_seen": "2026-04-23T12:30:00-04:00",
+        "state_changed": true,
+        "prior_state": null,
+        "current_state": "developing",
+        "trigger_changed": false,
+        "blocker_changed": true,
+        "duplicate_alert_suppression_key": "SPY|2026-04-23|Continuation|developing_hold_forming|no_valid_trigger",
+        "meaningful_alert_candidate": true,
+        "duplicate_suppressed": false
+      }
+    },
+    {
+      "row_name": "watching_developing_repeated_same_state",
+      "row_index": 2,
+      "input": {
+        "symbol": "SPY",
+        "timestamp": "2026-04-23T12:45:00-04:00",
+        "candles_1h_rth": [
+          {
+            "timestamp": "2026-04-23T09:30:00-04:00",
+            "open": 517.2,
+            "high": 519.4,
+            "low": 516.8,
+            "close": 518.9,
+            "volume": 18640000
+          },
+          {
+            "timestamp": "2026-04-23T10:30:00-04:00",
+            "open": 518.9,
+            "high": 520.1,
+            "low": 518.5,
+            "close": 519.7,
+            "volume": 14270000
+          },
+          {
+            "timestamp": "2026-04-23T11:30:00-04:00",
+            "open": 519.7,
+            "high": 520.0,
+            "low": 518.8,
+            "close": 519.2,
+            "volume": 11860000
+          },
+          {
+            "timestamp": "2026-04-23T12:30:00-04:00",
+            "open": 519.2,
+            "high": 519.8,
+            "low": 518.9,
+            "close": 519.5,
+            "volume": 9340000
+          }
+        ],
+        "context_24h_daily": {
+          "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "market_calendar_session": {
+          "session_date": "2026-04-23",
+          "session_type": "regular",
+          "is_regular_session": true,
+          "timezone": "America/New_York",
+          "notes": "Regular RTH repeated observation of the same developing Continuation shelf state."
+        },
+        "macro_context": {
+          "status": "MACRO_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "iv_context": {
+          "status": "IV_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "event_context": {
+          "status": "EVENT_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        }
+      },
+      "expected_output_shape": {
+        "timestamp": "2026-04-23T12:45:00-04:00",
+        "symbol": "SPY",
+        "setup_type": "Continuation",
+        "setup_state": "developing",
+        "stage": "developing_hold_forming",
+        "trigger_state": "not_present",
+        "trigger_level": 520.1,
+        "invalidation": 518.5,
+        "final_verdict": "NO_TRADE",
+        "primary_blocker": "no_valid_trigger",
+        "human_next_step": "Signal/stage lifecycle fixture only: repeated developing Continuation shelf state is duplicate suppressed; this is not a live trade instruction or execution recommendation.",
+        "first_seen": "2026-04-23T12:30:00-04:00",
+        "last_seen": "2026-04-23T12:45:00-04:00",
+        "state_changed": false,
+        "prior_state": "developing",
+        "current_state": "developing",
+        "trigger_changed": false,
+        "blocker_changed": false,
+        "duplicate_alert_suppression_key": "SPY|2026-04-23|Continuation|developing_hold_forming|no_valid_trigger",
+        "meaningful_alert_candidate": false,
+        "duplicate_suppressed": true
+      }
+    },
+    {
+      "row_name": "pending_completed_candle_approval_first_observation",
+      "row_index": 3,
+      "input": {
+        "symbol": "SPY",
+        "timestamp": "2026-04-23T13:30:00-04:00",
+        "candles_1h_rth": [
+          {
+            "timestamp": "2026-04-23T09:30:00-04:00",
+            "open": 517.2,
+            "high": 519.4,
+            "low": 516.8,
+            "close": 518.9,
+            "volume": 18640000
+          },
+          {
+            "timestamp": "2026-04-23T10:30:00-04:00",
+            "open": 518.9,
+            "high": 520.1,
+            "low": 518.5,
+            "close": 519.7,
+            "volume": 14270000
+          },
+          {
+            "timestamp": "2026-04-23T11:30:00-04:00",
+            "open": 519.7,
+            "high": 520.0,
+            "low": 518.8,
+            "close": 519.2,
+            "volume": 11860000
+          },
+          {
+            "timestamp": "2026-04-23T12:30:00-04:00",
+            "open": 519.2,
+            "high": 519.8,
+            "low": 518.9,
+            "close": 519.5,
+            "volume": 9340000
+          },
+          {
+            "timestamp": "2026-04-23T13:30:00-04:00",
+            "open": 519.5,
+            "high": 520.6,
+            "low": 519.3,
+            "close": 520.4,
+            "volume": 10490000
+          }
+        ],
+        "context_24h_daily": {
+          "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "market_calendar_session": {
+          "session_date": "2026-04-23",
+          "session_type": "regular",
+          "is_regular_session": true,
+          "timezone": "America/New_York",
+          "notes": "Regular RTH repeated-state row with intrabar shelf break awaiting completed-candle approval."
+        },
+        "macro_context": {
+          "status": "MACRO_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "iv_context": {
+          "status": "IV_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "event_context": {
+          "status": "EVENT_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        }
+      },
+      "expected_output_shape": {
+        "timestamp": "2026-04-23T13:30:00-04:00",
+        "symbol": "SPY",
+        "setup_type": "Continuation",
+        "setup_state": "pending",
+        "stage": "pending_completed_candle_approval",
+        "trigger_state": "pending",
+        "trigger_level": 520.1,
+        "invalidation": 518.5,
+        "final_verdict": "PENDING",
+        "primary_blocker": "completed_candle_approval_required",
+        "human_next_step": "Signal/stage lifecycle fixture only: wait for completed-candle approval language; this is not a live trade instruction or execution recommendation.",
+        "first_seen": "2026-04-23T12:30:00-04:00",
+        "last_seen": "2026-04-23T13:30:00-04:00",
+        "state_changed": true,
+        "prior_state": "developing",
+        "current_state": "pending",
+        "trigger_changed": true,
+        "blocker_changed": true,
+        "duplicate_alert_suppression_key": "SPY|2026-04-23|Continuation|pending_completed_candle_approval|completed_candle_approval_required",
+        "meaningful_alert_candidate": true,
+        "duplicate_suppressed": false
+      }
+    },
+    {
+      "row_name": "pending_completed_candle_approval_repeated_same_state",
+      "row_index": 4,
+      "input": {
+        "symbol": "SPY",
+        "timestamp": "2026-04-23T13:45:00-04:00",
+        "candles_1h_rth": [
+          {
+            "timestamp": "2026-04-23T09:30:00-04:00",
+            "open": 517.2,
+            "high": 519.4,
+            "low": 516.8,
+            "close": 518.9,
+            "volume": 18640000
+          },
+          {
+            "timestamp": "2026-04-23T10:30:00-04:00",
+            "open": 518.9,
+            "high": 520.1,
+            "low": 518.5,
+            "close": 519.7,
+            "volume": 14270000
+          },
+          {
+            "timestamp": "2026-04-23T11:30:00-04:00",
+            "open": 519.7,
+            "high": 520.0,
+            "low": 518.8,
+            "close": 519.2,
+            "volume": 11860000
+          },
+          {
+            "timestamp": "2026-04-23T12:30:00-04:00",
+            "open": 519.2,
+            "high": 519.8,
+            "low": 518.9,
+            "close": 519.5,
+            "volume": 9340000
+          },
+          {
+            "timestamp": "2026-04-23T13:30:00-04:00",
+            "open": 519.5,
+            "high": 520.6,
+            "low": 519.3,
+            "close": 520.4,
+            "volume": 10490000
+          }
+        ],
+        "context_24h_daily": {
+          "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "market_calendar_session": {
+          "session_date": "2026-04-23",
+          "session_type": "regular",
+          "is_regular_session": true,
+          "timezone": "America/New_York",
+          "notes": "Regular RTH repeated observation of the same pending completed-candle approval state."
+        },
+        "macro_context": {
+          "status": "MACRO_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "iv_context": {
+          "status": "IV_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "event_context": {
+          "status": "EVENT_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        }
+      },
+      "expected_output_shape": {
+        "timestamp": "2026-04-23T13:45:00-04:00",
+        "symbol": "SPY",
+        "setup_type": "Continuation",
+        "setup_state": "pending",
+        "stage": "pending_completed_candle_approval",
+        "trigger_state": "pending",
+        "trigger_level": 520.1,
+        "invalidation": 518.5,
+        "final_verdict": "PENDING",
+        "primary_blocker": "completed_candle_approval_required",
+        "human_next_step": "Signal/stage lifecycle fixture only: repeated pending completed-candle approval state is duplicate suppressed; this is not a live trade instruction or execution recommendation.",
+        "first_seen": "2026-04-23T12:30:00-04:00",
+        "last_seen": "2026-04-23T13:45:00-04:00",
+        "state_changed": false,
+        "prior_state": "pending",
+        "current_state": "pending",
+        "trigger_changed": false,
+        "blocker_changed": false,
+        "duplicate_alert_suppression_key": "SPY|2026-04-23|Continuation|pending_completed_candle_approval|completed_candle_approval_required",
+        "meaningful_alert_candidate": false,
+        "duplicate_suppressed": true
+      }
+    },
+    {
+      "row_name": "triggered_signal_stage_first_observation",
+      "row_index": 5,
+      "input": {
+        "symbol": "SPY",
+        "timestamp": "2026-04-23T14:30:00-04:00",
+        "candles_1h_rth": [
+          {
+            "timestamp": "2026-04-23T09:30:00-04:00",
+            "open": 517.2,
+            "high": 519.4,
+            "low": 516.8,
+            "close": 518.9,
+            "volume": 18640000
+          },
+          {
+            "timestamp": "2026-04-23T10:30:00-04:00",
+            "open": 518.9,
+            "high": 520.1,
+            "low": 518.5,
+            "close": 519.7,
+            "volume": 14270000
+          },
+          {
+            "timestamp": "2026-04-23T11:30:00-04:00",
+            "open": 519.7,
+            "high": 520.0,
+            "low": 518.8,
+            "close": 519.2,
+            "volume": 11860000
+          },
+          {
+            "timestamp": "2026-04-23T12:30:00-04:00",
+            "open": 519.2,
+            "high": 519.8,
+            "low": 518.9,
+            "close": 519.5,
+            "volume": 9340000
+          },
+          {
+            "timestamp": "2026-04-23T13:30:00-04:00",
+            "open": 519.5,
+            "high": 520.6,
+            "low": 519.3,
+            "close": 520.4,
+            "volume": 10490000
+          },
+          {
+            "timestamp": "2026-04-23T14:30:00-04:00",
+            "open": 520.4,
+            "high": 521.3,
+            "low": 520.2,
+            "close": 521.0,
+            "volume": 12830000
+          }
+        ],
+        "context_24h_daily": {
+          "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "market_calendar_session": {
+          "session_date": "2026-04-23",
+          "session_type": "regular",
+          "is_regular_session": true,
+          "timezone": "America/New_York",
+          "notes": "Regular RTH repeated-state row with completed Continuation shelf break at signal stage."
+        },
+        "macro_context": {
+          "status": "MACRO_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "iv_context": {
+          "status": "IV_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "event_context": {
+          "status": "EVENT_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        }
+      },
+      "expected_output_shape": {
+        "timestamp": "2026-04-23T14:30:00-04:00",
+        "symbol": "SPY",
+        "setup_type": "Continuation",
+        "setup_state": "signal_stage",
+        "stage": "triggered_signal_stage",
+        "trigger_state": "triggered",
+        "trigger_level": 520.1,
+        "invalidation": 518.5,
+        "final_verdict": "TRADE",
+        "primary_blocker": null,
+        "human_next_step": "Signal/stage lifecycle fixture only: triggered signal-stage state for replay shape; this is not an execution recommendation, live trade instruction, or trade outcome assumption.",
+        "first_seen": "2026-04-23T12:30:00-04:00",
+        "last_seen": "2026-04-23T14:30:00-04:00",
+        "state_changed": true,
+        "prior_state": "pending",
+        "current_state": "signal",
+        "trigger_changed": true,
+        "blocker_changed": true,
+        "duplicate_alert_suppression_key": "SPY|2026-04-23|Continuation|triggered_signal_stage|none",
+        "meaningful_alert_candidate": true,
+        "duplicate_suppressed": false
+      }
+    },
+    {
+      "row_name": "triggered_signal_stage_repeated_same_state",
+      "row_index": 6,
+      "input": {
+        "symbol": "SPY",
+        "timestamp": "2026-04-23T14:45:00-04:00",
+        "candles_1h_rth": [
+          {
+            "timestamp": "2026-04-23T09:30:00-04:00",
+            "open": 517.2,
+            "high": 519.4,
+            "low": 516.8,
+            "close": 518.9,
+            "volume": 18640000
+          },
+          {
+            "timestamp": "2026-04-23T10:30:00-04:00",
+            "open": 518.9,
+            "high": 520.1,
+            "low": 518.5,
+            "close": 519.7,
+            "volume": 14270000
+          },
+          {
+            "timestamp": "2026-04-23T11:30:00-04:00",
+            "open": 519.7,
+            "high": 520.0,
+            "low": 518.8,
+            "close": 519.2,
+            "volume": 11860000
+          },
+          {
+            "timestamp": "2026-04-23T12:30:00-04:00",
+            "open": 519.2,
+            "high": 519.8,
+            "low": 518.9,
+            "close": 519.5,
+            "volume": 9340000
+          },
+          {
+            "timestamp": "2026-04-23T13:30:00-04:00",
+            "open": 519.5,
+            "high": 520.6,
+            "low": 519.3,
+            "close": 520.4,
+            "volume": 10490000
+          },
+          {
+            "timestamp": "2026-04-23T14:30:00-04:00",
+            "open": 520.4,
+            "high": 521.3,
+            "low": 520.2,
+            "close": 521.0,
+            "volume": 12830000
+          }
+        ],
+        "context_24h_daily": {
+          "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "market_calendar_session": {
+          "session_date": "2026-04-23",
+          "session_type": "regular",
+          "is_regular_session": true,
+          "timezone": "America/New_York",
+          "notes": "Regular RTH repeated observation of the same triggered signal-stage state."
+        },
+        "macro_context": {
+          "status": "MACRO_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "iv_context": {
+          "status": "IV_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "event_context": {
+          "status": "EVENT_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        }
+      },
+      "expected_output_shape": {
+        "timestamp": "2026-04-23T14:45:00-04:00",
+        "symbol": "SPY",
+        "setup_type": "Continuation",
+        "setup_state": "signal_stage",
+        "stage": "triggered_signal_stage",
+        "trigger_state": "triggered",
+        "trigger_level": 520.1,
+        "invalidation": 518.5,
+        "final_verdict": "TRADE",
+        "primary_blocker": null,
+        "human_next_step": "Signal/stage lifecycle fixture only: repeated triggered signal-stage state is duplicate suppressed; this is not an execution recommendation, live trade instruction, or trade outcome assumption.",
+        "first_seen": "2026-04-23T12:30:00-04:00",
+        "last_seen": "2026-04-23T14:45:00-04:00",
+        "state_changed": false,
+        "prior_state": "signal",
+        "current_state": "signal",
+        "trigger_changed": false,
+        "blocker_changed": false,
+        "duplicate_alert_suppression_key": "SPY|2026-04-23|Continuation|triggered_signal_stage|none",
+        "meaningful_alert_candidate": false,
+        "duplicate_suppressed": true
+      }
+    },
+    {
+      "row_name": "spent_no_fresh_trigger_first_observation",
+      "row_index": 7,
+      "input": {
+        "symbol": "SPY",
+        "timestamp": "2026-04-23T15:30:00-04:00",
+        "candles_1h_rth": [
+          {
+            "timestamp": "2026-04-23T09:30:00-04:00",
+            "open": 517.2,
+            "high": 519.4,
+            "low": 516.8,
+            "close": 518.9,
+            "volume": 18640000
+          },
+          {
+            "timestamp": "2026-04-23T10:30:00-04:00",
+            "open": 518.9,
+            "high": 520.1,
+            "low": 518.5,
+            "close": 519.7,
+            "volume": 14270000
+          },
+          {
+            "timestamp": "2026-04-23T11:30:00-04:00",
+            "open": 519.7,
+            "high": 520.0,
+            "low": 518.8,
+            "close": 519.2,
+            "volume": 11860000
+          },
+          {
+            "timestamp": "2026-04-23T12:30:00-04:00",
+            "open": 519.2,
+            "high": 519.8,
+            "low": 518.9,
+            "close": 519.5,
+            "volume": 9340000
+          },
+          {
+            "timestamp": "2026-04-23T13:30:00-04:00",
+            "open": 519.5,
+            "high": 520.6,
+            "low": 519.3,
+            "close": 520.4,
+            "volume": 10490000
+          },
+          {
+            "timestamp": "2026-04-23T14:30:00-04:00",
+            "open": 520.4,
+            "high": 521.3,
+            "low": 520.2,
+            "close": 521.0,
+            "volume": 12830000
+          },
+          {
+            "timestamp": "2026-04-23T15:30:00-04:00",
+            "open": 521.0,
+            "high": 521.2,
+            "low": 520.1,
+            "close": 520.5,
+            "volume": 15260000
+          }
+        ],
+        "context_24h_daily": {
+          "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "market_calendar_session": {
+          "session_date": "2026-04-23",
+          "session_type": "regular",
+          "is_regular_session": true,
+          "timezone": "America/New_York",
+          "notes": "Regular RTH repeated-state row after the prior completed shelf break is spent and no fresh Continuation trigger remains."
+        },
+        "macro_context": {
+          "status": "MACRO_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "iv_context": {
+          "status": "IV_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "event_context": {
+          "status": "EVENT_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        }
+      },
+      "expected_output_shape": {
+        "timestamp": "2026-04-23T15:30:00-04:00",
+        "symbol": "SPY",
+        "setup_type": "Continuation",
+        "setup_state": "spent",
+        "stage": "spent_no_fresh_trigger",
+        "trigger_state": "spent",
+        "trigger_level": 520.1,
+        "invalidation": 518.5,
+        "final_verdict": "NO_TRADE",
+        "primary_blocker": "prior_completed_shelf_break_spent",
+        "human_next_step": "Signal/stage lifecycle fixture only: no fresh Continuation trigger remains after the prior completed shelf break was spent; this is not a live trade instruction or execution recommendation.",
+        "first_seen": "2026-04-23T12:30:00-04:00",
+        "last_seen": "2026-04-23T15:30:00-04:00",
+        "state_changed": true,
+        "prior_state": "signal",
+        "current_state": "spent",
+        "trigger_changed": true,
+        "blocker_changed": true,
+        "duplicate_alert_suppression_key": "SPY|2026-04-23|Continuation|spent_no_fresh_trigger|prior_completed_shelf_break_spent",
+        "meaningful_alert_candidate": true,
+        "duplicate_suppressed": false
+      }
+    },
+    {
+      "row_name": "spent_no_fresh_trigger_repeated_same_state",
+      "row_index": 8,
+      "input": {
+        "symbol": "SPY",
+        "timestamp": "2026-04-23T15:45:00-04:00",
+        "candles_1h_rth": [
+          {
+            "timestamp": "2026-04-23T09:30:00-04:00",
+            "open": 517.2,
+            "high": 519.4,
+            "low": 516.8,
+            "close": 518.9,
+            "volume": 18640000
+          },
+          {
+            "timestamp": "2026-04-23T10:30:00-04:00",
+            "open": 518.9,
+            "high": 520.1,
+            "low": 518.5,
+            "close": 519.7,
+            "volume": 14270000
+          },
+          {
+            "timestamp": "2026-04-23T11:30:00-04:00",
+            "open": 519.7,
+            "high": 520.0,
+            "low": 518.8,
+            "close": 519.2,
+            "volume": 11860000
+          },
+          {
+            "timestamp": "2026-04-23T12:30:00-04:00",
+            "open": 519.2,
+            "high": 519.8,
+            "low": 518.9,
+            "close": 519.5,
+            "volume": 9340000
+          },
+          {
+            "timestamp": "2026-04-23T13:30:00-04:00",
+            "open": 519.5,
+            "high": 520.6,
+            "low": 519.3,
+            "close": 520.4,
+            "volume": 10490000
+          },
+          {
+            "timestamp": "2026-04-23T14:30:00-04:00",
+            "open": 520.4,
+            "high": 521.3,
+            "low": 520.2,
+            "close": 521.0,
+            "volume": 12830000
+          },
+          {
+            "timestamp": "2026-04-23T15:30:00-04:00",
+            "open": 521.0,
+            "high": 521.2,
+            "low": 520.1,
+            "close": 520.5,
+            "volume": 15260000
+          }
+        ],
+        "context_24h_daily": {
+          "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "market_calendar_session": {
+          "session_date": "2026-04-23",
+          "session_type": "regular",
+          "is_regular_session": true,
+          "timezone": "America/New_York",
+          "notes": "Regular RTH repeated observation of the same spent/no-fresh-trigger state."
+        },
+        "macro_context": {
+          "status": "MACRO_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "iv_context": {
+          "status": "IV_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        },
+        "event_context": {
+          "status": "EVENT_UNCONFIRMED",
+          "value": null,
+          "as_of": null,
+          "source": null
+        }
+      },
+      "expected_output_shape": {
+        "timestamp": "2026-04-23T15:45:00-04:00",
+        "symbol": "SPY",
+        "setup_type": "Continuation",
+        "setup_state": "spent",
+        "stage": "spent_no_fresh_trigger",
+        "trigger_state": "spent",
+        "trigger_level": 520.1,
+        "invalidation": 518.5,
+        "final_verdict": "NO_TRADE",
+        "primary_blocker": "prior_completed_shelf_break_spent",
+        "human_next_step": "Signal/stage lifecycle fixture only: repeated spent/no-fresh-trigger state is duplicate suppressed; this is not a live trade instruction or execution recommendation.",
+        "first_seen": "2026-04-23T12:30:00-04:00",
+        "last_seen": "2026-04-23T15:45:00-04:00",
+        "state_changed": false,
+        "prior_state": "spent",
+        "current_state": "spent",
+        "trigger_changed": false,
+        "blocker_changed": false,
+        "duplicate_alert_suppression_key": "SPY|2026-04-23|Continuation|spent_no_fresh_trigger|prior_completed_shelf_break_spent",
+        "meaningful_alert_candidate": false,
+        "duplicate_suppressed": true
+      }
+    }
+  ]
+}

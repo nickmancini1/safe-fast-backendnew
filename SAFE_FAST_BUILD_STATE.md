@@ -461,6 +461,25 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** create repeated-state duplicate suppression no-hindsight fixture only
 
+## Historical Signal Replay v1 repeated-state duplicate suppression fixture status
+
+- **New fixture file:** `historical_signal_replay/fixtures/no_hindsight_continuation_repeated_state_duplicate_suppression_fixture.json`
+- **Fixture type:** Continuation repeated-state duplicate suppression
+- **Row count:** 8
+- **Unique duplicate alert keys expected:** 4
+- **Meaningful alert candidate count expected:** 4
+- **Duplicate suppressed count expected:** 4
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Schemas changed:** no
+- **Generated reports changed:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** validate repeated-state duplicate suppression fixture shape and decide runner support
+
 ## Next exact task
 
 Continue from patch8.
