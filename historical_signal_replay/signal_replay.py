@@ -2,9 +2,9 @@ import json
 from pathlib import Path
 
 try:
-    from .metrics import build_summary
+    from .metrics import build_lifecycle_summary, build_summary
 except ImportError:
-    from metrics import build_summary
+    from metrics import build_lifecycle_summary, build_summary
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -18,6 +18,20 @@ REPORTS_DIR = BASE_DIR / "reports"
 SIGNAL_LOG_PATH = REPORTS_DIR / "no_hindsight_sample_signal_log.jsonl"
 SUMMARY_PATH = REPORTS_DIR / "no_hindsight_sample_summary.json"
 REGRESSION_CANDIDATES_PATH = REPORTS_DIR / "no_hindsight_regression_candidates.json"
+LIFECYCLE_FIXTURE_PATH = (
+    BASE_DIR
+    / "fixtures"
+    / "no_hindsight_continuation_lifecycle_signal_replay_fixture.json"
+)
+LIFECYCLE_SIGNAL_LOG_PATH = (
+    REPORTS_DIR / "no_hindsight_continuation_lifecycle_signal_log.jsonl"
+)
+LIFECYCLE_SUMMARY_PATH = (
+    REPORTS_DIR / "no_hindsight_continuation_lifecycle_summary.json"
+)
+LIFECYCLE_REGRESSION_CANDIDATES_PATH = (
+    REPORTS_DIR / "no_hindsight_continuation_lifecycle_regression_candidates.json"
+)
 
 REQUIRED_INPUT_KEYS = {
     "symbol",
@@ -80,6 +94,55 @@ def validate_fixture(fixture):
     )
 
 
+def validate_lifecycle_fixture(fixture):
+    _validate_required_keys(fixture, {"lifecycle_rows"}, "lifecycle fixture")
+    if not isinstance(fixture["lifecycle_rows"], list) or not fixture["lifecycle_rows"]:
+        raise ValueError("lifecycle fixture lifecycle_rows must be a non-empty list")
+
+    for index, row in enumerate(fixture["lifecycle_rows"], start=1):
+        label = f"lifecycle fixture row {index}"
+        _validate_required_keys(row, {"input", "expected_output_shape"}, label)
+        _validate_required_keys(row["input"], REQUIRED_INPUT_KEYS, f"{label}.input")
+        _validate_required_keys(
+            row["expected_output_shape"],
+            REQUIRED_OUTPUT_KEYS,
+            f"{label}.expected_output_shape",
+        )
+
+
+def _write_signal_log(path, rows):
+    with path.open("w", encoding="utf-8") as handle:
+        for row in rows:
+            handle.write(json.dumps(row, sort_keys=True) + "\n")
+
+
+def _build_regression_candidates(purpose, rows=None):
+    candidates = []
+    for row in rows or []:
+        candidates.append(
+            {
+                "timestamp": row.get("timestamp"),
+                "symbol": row.get("symbol"),
+                "setup_type": row.get("setup_type"),
+                "stage": row.get("stage"),
+                "setup_state": row.get("setup_state"),
+                "trigger_state": row.get("trigger_state"),
+                "final_verdict": row.get("final_verdict"),
+                "primary_blocker": row.get("primary_blocker"),
+                "state_changed": row.get("state_changed"),
+                "trigger_changed": row.get("trigger_changed"),
+                "blocker_changed": row.get("blocker_changed"),
+                "duplicate_alert_suppression_key": row.get(
+                    "duplicate_alert_suppression_key"
+                ),
+            }
+        )
+    return {
+        "purpose": purpose,
+        "candidates": candidates,
+    }
+
+
 def run_signal_replay(fixture_paths=None):
     if fixture_paths is None:
         fixture_paths = DEFAULT_FIXTURE_PATHS
@@ -92,15 +155,12 @@ def run_signal_replay(fixture_paths=None):
 
     signal_rows = [fixture["expected_output_shape"] for fixture in fixtures]
     summary = build_summary(signal_rows)
-    regression_candidates = {
-        "purpose": "Signal/stage replay regression candidates only; no profitability, P&L, account sizing, or trade outcomes.",
-        "candidates": [],
-    }
+    regression_candidates = _build_regression_candidates(
+        "Signal/stage replay regression candidates only; no profitability, P&L, account sizing, or trade outcomes."
+    )
 
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
-    with SIGNAL_LOG_PATH.open("w", encoding="utf-8") as handle:
-        for row in signal_rows:
-            handle.write(json.dumps(row, sort_keys=True) + "\n")
+    _write_signal_log(SIGNAL_LOG_PATH, signal_rows)
 
     SUMMARY_PATH.write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n",
@@ -118,4 +178,38 @@ def run_signal_replay(fixture_paths=None):
         "signal_log_path": str(SIGNAL_LOG_PATH),
         "summary_path": str(SUMMARY_PATH),
         "regression_candidates_path": str(REGRESSION_CANDIDATES_PATH),
+    }
+
+
+def run_lifecycle_signal_replay(fixture_path=LIFECYCLE_FIXTURE_PATH):
+    fixture = load_fixture(fixture_path)
+    validate_lifecycle_fixture(fixture)
+
+    signal_rows = [
+        row["expected_output_shape"] for row in fixture["lifecycle_rows"]
+    ]
+    summary = build_lifecycle_summary(signal_rows)
+    regression_candidates = _build_regression_candidates(
+        "Signal/stage/lifecycle replay regression candidates only; no profitability, P&L, account sizing, trade outcomes, live trade decisions, or auto-trading.",
+        signal_rows,
+    )
+
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    _write_signal_log(LIFECYCLE_SIGNAL_LOG_PATH, signal_rows)
+    LIFECYCLE_SUMMARY_PATH.write_text(
+        json.dumps(summary, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    LIFECYCLE_REGRESSION_CANDIDATES_PATH.write_text(
+        json.dumps(regression_candidates, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
+    return {
+        "signal_rows": signal_rows,
+        "summary": summary,
+        "regression_candidates": regression_candidates,
+        "signal_log_path": str(LIFECYCLE_SIGNAL_LOG_PATH),
+        "summary_path": str(LIFECYCLE_SUMMARY_PATH),
+        "regression_candidates_path": str(LIFECYCLE_REGRESSION_CANDIDATES_PATH),
     }

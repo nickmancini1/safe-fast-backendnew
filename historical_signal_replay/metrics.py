@@ -25,6 +25,16 @@ def _count_lifecycle_changes(rows):
     return dict(counter)
 
 
+def _count_meaningful_alert_candidates(rows):
+    return sum(
+        1
+        for row in rows
+        if row.get("state_changed")
+        or row.get("trigger_changed")
+        or row.get("blocker_changed")
+    )
+
+
 def build_summary(rows):
     return {
         "total_rows": len(rows),
@@ -36,3 +46,15 @@ def build_summary(rows):
         "stage_counts": _count_values(rows, "stage"),
         "lifecycle_change_counts": _count_lifecycle_changes(rows),
     }
+
+
+def build_lifecycle_summary(rows):
+    summary = build_summary(rows)
+    summary["duplicate_alert_suppression_key_counts"] = _count_values(
+        rows,
+        "duplicate_alert_suppression_key",
+    )
+    summary["meaningful_alert_candidate_count"] = _count_meaningful_alert_candidates(
+        rows
+    )
+    return summary

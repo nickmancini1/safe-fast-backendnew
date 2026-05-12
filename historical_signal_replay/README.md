@@ -63,3 +63,29 @@ Boundaries:
 - No live trade decisions
 - No broker or live market API calls
 - No auto-trading
+
+## Lifecycle replay v1
+
+Run command:
+
+```powershell
+python -B historical_signal_replay/run_signal_replay.py
+```
+
+Lifecycle fixture file:
+
+- `fixtures/no_hindsight_continuation_lifecycle_signal_replay_fixture.json`
+
+Lifecycle output files:
+
+- `reports/no_hindsight_continuation_lifecycle_signal_log.jsonl`
+- `reports/no_hindsight_continuation_lifecycle_summary.json`
+- `reports/no_hindsight_continuation_lifecycle_regression_candidates.json`
+
+Boundary:
+
+- Signal/stage/lifecycle only
+- No trade outcome
+- No P&L
+- No account sizing
+- No auto-trading

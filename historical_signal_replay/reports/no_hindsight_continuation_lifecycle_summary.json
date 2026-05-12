@@ -1,0 +1,42 @@
+{
+  "blocker_counts": {
+    "completed_candle_approval_required": 1,
+    "no_valid_trigger": 1,
+    "prior_completed_shelf_break_spent": 1
+  },
+  "caution_counts": {
+    "EVENT_UNCONFIRMED": 4,
+    "IV_UNCONFIRMED": 4,
+    "MACRO_UNCONFIRMED": 4
+  },
+  "duplicate_alert_suppression_key_counts": {
+    "SPY|2026-04-23|Continuation|developing_hold_forming|no_valid_trigger": 1,
+    "SPY|2026-04-23|Continuation|pending_completed_candle_approval|completed_candle_approval_required": 1,
+    "SPY|2026-04-23|Continuation|spent_no_fresh_trigger|prior_completed_shelf_break_spent": 1,
+    "SPY|2026-04-23|Continuation|triggered_signal_stage|none": 1
+  },
+  "final_verdict_counts": {
+    "NO_TRADE": 2,
+    "PENDING": 1,
+    "TRADE": 1
+  },
+  "lifecycle_change_counts": {
+    "blocker_changed": 4,
+    "state_changed": 4,
+    "trigger_changed": 3
+  },
+  "meaningful_alert_candidate_count": 4,
+  "setup_type_counts": {
+    "Continuation": 4
+  },
+  "stage_counts": {
+    "developing_hold_forming": 1,
+    "pending_completed_candle_approval": 1,
+    "spent_no_fresh_trigger": 1,
+    "triggered_signal_stage": 1
+  },
+  "symbols": [
+    "SPY"
+  ],
+  "total_rows": 4
+}
