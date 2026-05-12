@@ -46,12 +46,12 @@ The repeated-state duplicate suppression fixture shape is valid for the requeste
 
 ## Runner Support Decision
 
-Runner support is needed next.
+Runner support status: PASS.
 
-The existing runner supports the default single-row fixtures and the `lifecycle_rows` fixture. It does not yet load `repeated_state_rows`, emit the repeated-state rows, or summarize `duplicate_suppressed` counts for this fixture. Do not add repeated-state rows to the runner until the next task explicitly authorizes runner support.
+The existing runner supports the default single-row fixtures, the `lifecycle_rows` fixture, and the `repeated_state_rows` fixture. Repeated-state runner output validation is needed next.
 
 ## Recommended Next Task
 
-Add repeated-state runner support only for the validated `repeated_state_rows` fixture shape, including summary support for 8 rows, 4 unique duplicate alert keys, 4 meaningful alert candidates, and 4 duplicate-suppressed rows.
+Validate repeated-state runner outputs for the validated `repeated_state_rows` fixture shape, including summary support for 8 rows, 4 unique duplicate alert keys, 4 meaningful alert candidates, and 4 duplicate-suppressed rows.
 
 Keep the next task signal/stage/lifecycle only. Do not start trade outcome backtesting, option P&L modeling, account sizing, auto-trading, broker/order execution, or live trade decisions.

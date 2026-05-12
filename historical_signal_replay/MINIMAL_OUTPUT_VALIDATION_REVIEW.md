@@ -102,11 +102,11 @@ Historical Signal Replay v1 remains local signal/stage replay only.
 
 ## Recommended Next Task
 
-- **Recommendation:** add repeated-state runner support only for the validated repeated-state duplicate suppression fixture shape
+- **Recommendation:** validate repeated-state runner outputs
 
 ## Why That Is Next
 
-The current fixture set now includes pending Continuation, Clean Fast Break, Ideal, a validated multi-row Continuation lifecycle fixture, and a validated repeated-state duplicate suppression fixture shape. The next highest-value task is adding runner support only for that validated repeated-state fixture shape while staying within signal/stage/lifecycle validation. This broadens replay confidence without adding trade outcome backtesting, option P&L, account sizing, production behavior, auto-trading, or live trade decisions.
+The current fixture set now includes pending Continuation, Clean Fast Break, Ideal, a validated multi-row Continuation lifecycle fixture, a validated repeated-state duplicate suppression fixture shape, and repeated-state runner support. The next highest-value task is validating repeated-state runner outputs while staying within signal/stage/lifecycle validation. This broadens replay confidence without adding trade outcome backtesting, option P&L, account sizing, production behavior, auto-trading, or live trade decisions.
 
 ## Trade Outcome Backtesting Status
 

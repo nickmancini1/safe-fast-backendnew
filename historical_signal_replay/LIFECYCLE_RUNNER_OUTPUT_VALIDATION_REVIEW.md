@@ -82,4 +82,4 @@ Trade outcome backtesting is still not started.
 
 ## Recommended Next Task
 
-add repeated-state runner support only for the validated repeated-state duplicate suppression fixture shape.
+validate repeated-state runner outputs.

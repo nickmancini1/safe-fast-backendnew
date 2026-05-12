@@ -100,4 +100,4 @@ Each row should verify:
 
 ## Next Task
 
-Add repeated-state runner support only for the validated repeated-state duplicate suppression fixture shape.
+Validate repeated-state runner outputs.

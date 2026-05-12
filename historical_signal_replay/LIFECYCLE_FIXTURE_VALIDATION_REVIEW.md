@@ -111,4 +111,4 @@ The existing default signal replay runner supports single-row fixtures with top-
 
 ## Recommended Next Task
 
-Add repeated-state runner support only for the validated repeated-state duplicate suppression fixture shape, without adding trade outcome backtesting, option P&L, account sizing, broker/order execution, auto-trading, live trade decisions, or Continuous Watcher implementation.
+Validate repeated-state runner outputs, without adding trade outcome backtesting, option P&L, account sizing, broker/order execution, auto-trading, live trade decisions, or Continuous Watcher implementation.
