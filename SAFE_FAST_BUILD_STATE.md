@@ -440,10 +440,31 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** decide repeated-state duplicate suppression fixture design
 
+## Historical Signal Replay v1 repeated-state duplicate suppression fixture design status
+
+- **Review file:** `historical_signal_replay/REPEATED_STATE_DUPLICATE_SUPPRESSION_FIXTURE_DESIGN_REVIEW.md`
+- **Design status:** complete; first repeated-state duplicate suppression fixture type decided
+- **Recommended fixture:** Continuation repeated-state duplicate suppression fixture
+- **Expected row count:** 8
+- **Expected unique duplicate alert keys:** 4
+- **Expected meaningful alert candidate count:** 4
+- **Expected duplicate suppressed count:** 4
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Generated reports changed:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** create repeated-state duplicate suppression no-hindsight fixture only
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is decide repeated-state duplicate suppression fixture design.
+Next task is create repeated-state duplicate suppression no-hindsight fixture only.
 
 Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
