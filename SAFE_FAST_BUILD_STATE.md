@@ -601,6 +601,27 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Account sizing added:** no
 - **Next task:** create first real historical replay v1 fixture/data sequence
 
+## Historical Signal Replay v1 source historical data intake status
+
+- **Spec file:** `historical_signal_replay/SOURCE_HISTORICAL_DATA_INTAKE_SPEC.md`
+- **Source data README file:** `historical_signal_replay/source_data/README.md`
+- **CSV template file:** `historical_signal_replay/source_data/templates/first_real_historical_replay_v1_source_template.csv`
+- **Status:** PASS
+- **Reason:** first real historical replay sequence stopped because no source data existed
+- **No-hindsight rule:** documented; each row may use only market bars and context available at or before that row timestamp
+- **No fabricated data rule:** documented; do not invent timestamps, OHLCV, volume, levels, setup labels, blocker labels, lifecycle labels, context, or source metadata
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Generated reports changed:** no
+- **Real historical replay implementation started:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Next task:** add first real source historical data file for one allowed symbol
+
 ## Next exact task
 
 Continue from patch8.
