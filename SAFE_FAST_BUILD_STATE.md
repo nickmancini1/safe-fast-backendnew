@@ -622,6 +622,19 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Account sizing added:** no
 - **Next task:** add first real source historical data file for one allowed symbol
 
+## Historical Signal Replay v1 dxLink source CSV exporter status
+
+- **Script file:** `historical_signal_replay/export_dxlink_source_csv.py`
+- **Review file:** `historical_signal_replay/source_data/DXLINK_SOURCE_CSV_EXPORTER_REVIEW.md`
+- **Status:** PASS
+- **Read-only boundary:** market-data only; no order, execution, option P&L, account sizing, auto-trading, production, or live trade decision path added
+- **No fabricated data rule:** exporter writes only real returned dxLink OHLCV candle rows; unavailable 24H/daily, macro, IV, and event context remains explicitly unconfirmed
+- **Output target:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+- **`main.py` changed:** no
+- **Order/execution logic changed:** no
+- **Real source CSV created:** no
+- **Next task:** run read-only exporter to create first real SPY source CSV
+
 ## Next exact task
 
 Continue from patch8.
