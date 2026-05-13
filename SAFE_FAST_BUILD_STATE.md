@@ -9,7 +9,7 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `3c53131 Update repeated-state runner support references`
 - **Latest completed build milestone:** `bb51379 Add repeated-state signal replay runner support`
-- **Current objective:** repeated-state runner output validation complete; decide next historical signal replay validation step
+- **Current objective:** first real SPY source historical data validation complete; decide first bounded no-hindsight signal/stage/lifecycle source-data window
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -635,10 +635,43 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Real source CSV created:** no
 - **Next task:** run read-only exporter to create first real SPY source CSV
 
+## Historical Signal Replay v1 first real source historical data validation status
+
+- **Review file:** `historical_signal_replay/source_data/FIRST_REAL_SOURCE_HISTORICAL_DATA_VALIDATION_REVIEW.md`
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+- **Validation status:** PASS
+- **Source CSV accepted:** yes
+- **Symbol:** SPY
+- **Timeframe:** 1h_rth
+- **Row count:** 293
+- **Timestamp range:** 2026-03-16T09:30:00-04:00 through 2026-05-13T14:30:00-04:00
+- **Header validation result:** PASS; header exactly matches `historical_signal_replay/source_data/templates/first_real_historical_replay_v1_source_template.csv`
+- **Timestamp/session validation result:** PASS; timezone-aware ISO 8601 timestamps, `America/New_York`, regular RTH rows, `regular_session=true`, expected 1h RTH cadence
+- **OHLCV validation result:** PASS; numeric OHLCV, non-negative volume, and internally valid high/low/open/close relationships
+- **Source/as-of validation result:** PASS; source, `source_as_of`, and vendor present; `source_as_of` parses as ISO 8601
+- **Context fields result:** PASS; unavailable 24H/daily, macro, IV, and event context fields are explicitly unconfirmed with blank context as-of fields
+- **No-hindsight result:** PASS; source file has no setup, trigger, blocker, lifecycle, outcome, profit/loss, account-sizing, option, broker, order, execution, or backtest labels
+- **Boundary result:** PASS; validation remained source-data intake only for future signal/stage/lifecycle review
+- **Schema JSON validation result:** PASS; both signal replay v1 schemas parsed with `python -m json.tool`
+- **Runner result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Contract tests result:** PASS; all 35 `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message test result:** PASS
+- **Fixture validation result:** PASS
+- **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **`main.py` changed:** no
+- **`dxlink_candles.py` changed:** no
+- **Replay tests changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Generated reports changed:** no
+- **Replay fixture created:** no
+- **Backtesting started:** no
+- **Next task:** select the first bounded SPY source-data window for no-hindsight signal/stage/lifecycle fixture design only
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is decide the next historical signal replay validation step while staying signal/stage/lifecycle only.
+Next task is select the first bounded SPY source-data window for no-hindsight signal/stage/lifecycle fixture design only.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
