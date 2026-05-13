@@ -581,6 +581,26 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Account sizing added:** no
 - **Next task:** plan real historical replay v1 data expansion
 
+## Historical Signal Replay v1 real historical replay data expansion planning status
+
+- **Plan file:** `historical_signal_replay/REAL_HISTORICAL_REPLAY_V1_DATA_EXPANSION_PLAN.md`
+- **Planning status:** PASS; docs-only real historical replay v1 data expansion plan created
+- **Purpose:** plan expansion from no-hindsight sample fixture shapes into real historical signal/stage/lifecycle data sequences
+- **Proposed first coverage:** Ideal developing to valid trigger or blocked/no-trade; Clean Fast Break developing to valid trigger or blocked/no-trade; Continuation developing to pending/completed/spent lifecycle; repeated unchanged state duplicate suppression; session-boundary prior-session context that must not become a fresh trigger; headline/elevated gap-risk context-only note
+- **No-hindsight boundary:** each row may use only information available at or before that row timestamp; unavailable context remains unconfirmed
+- **Signal/stage/lifecycle boundary:** real historical replay v1 remains signal/stage/lifecycle replay only, not profitability proof
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Generated reports changed:** no
+- **Real historical replay implementation started:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Next task:** create first real historical replay v1 fixture/data sequence
+
 ## Next exact task
 
 Continue from patch8.
