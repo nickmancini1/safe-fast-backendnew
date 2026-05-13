@@ -7,9 +7,10 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `bb51379 Add repeated-state signal replay runner support`
-- **Current objective:** validate repeated-state runner outputs, with Continuous Watcher foundation planning only
-- **Current build direction:** validate repeated-state runner outputs; keep Continuous Watcher to foundation planning only
+- **Latest completed commit:** `3c53131 Update repeated-state runner support references`
+- **Latest completed build milestone:** `bb51379 Add repeated-state signal replay runner support`
+- **Current objective:** repeated-state runner output validation complete; decide next historical signal replay validation step
+- **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -526,10 +527,42 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** validate repeated-state runner outputs
 
+## Historical Signal Replay v1 repeated-state runner output validation status
+
+- **Review file:** `historical_signal_replay/REPEATED_STATE_RUNNER_OUTPUT_VALIDATION_REVIEW.md`
+- **Validation status:** PASS
+- **Existing signal replay row count:** 3
+- **Lifecycle signal log row count:** 4
+- **Repeated-state signal log row count:** 8
+- **Repeated-state summary consistency result:** PASS; repeated-state signal log row count, `summary.total_rows`, duplicate alert suppression key counts, unique duplicate alert key count, meaningful alert candidate count, duplicate suppressed count, and repeated same-state no-change count match the validated fixture shape
+- **Repeated-state summary total rows:** 8
+- **Unique duplicate alert key count:** 4
+- **Meaningful alert candidate count:** 4
+- **Duplicate suppressed count:** 4
+- **Repeated same-state no-change count:** 4
+- **Duplicate alert key count result:** PASS; 4 duplicate alert suppression keys are counted 2 times each
+- **Regression candidate boundary result:** PASS; repeated-state regression candidates remain signal/stage/lifecycle metadata only
+- **Runner result:** PASS
+- **Contract tests result:** PASS; all `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message test result:** PASS
+- **Fixture validation result:** PASS
+- **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Generated reports changed:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Auto-trading added:** no
+- **Next task:** decide next historical signal replay validation step while staying signal/stage/lifecycle only
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is validate repeated-state runner outputs.
+Next task is decide the next historical signal replay validation step while staying signal/stage/lifecycle only.
 
-Do not start backtesting implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
+Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
