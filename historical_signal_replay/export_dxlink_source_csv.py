@@ -5,10 +5,15 @@ import asyncio
 import csv
 import math
 import os
+import sys
 from datetime import datetime, time, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 API_BASE = "https://api.tastyworks.com"
 USER_AGENT = "safe-fast-backend/1.8.6"
