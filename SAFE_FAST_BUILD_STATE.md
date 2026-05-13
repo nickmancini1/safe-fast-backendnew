@@ -559,6 +559,28 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Auto-trading added:** no
 - **Next task:** decide next historical signal replay validation step while staying signal/stage/lifecycle only
 
+## Historical Signal Replay v1 closeout status
+
+- **Review file:** `historical_signal_replay/HISTORICAL_SIGNAL_REPLAY_V1_CLOSEOUT_REVIEW.md`
+- **Closeout status:** PASS
+- **Fixture coverage summary:** PASS; default signal/stage fixtures, Continuation lifecycle fixture, and repeated-state duplicate suppression fixture are validated for the v1 foundation
+- **Setup-family coverage summary:** PASS; Continuation, Clean Fast Break, and Ideal are represented in the default signal replay fixture set
+- **Lifecycle coverage summary:** PASS; Continuation lifecycle rows cover `watching_developing`, `pending_completed_candle_approval`, `triggered_signal_stage`, and `spent_no_fresh_trigger`
+- **Repeated-state duplicate suppression coverage summary:** PASS; repeated-state fixture covers 8 rows, 4 unique duplicate alert suppression keys, 4 meaningful alert candidates, 4 duplicate-suppressed rows, and 4 repeated same-state no-change rows
+- **Output/report consistency summary:** PASS; default, lifecycle, and repeated-state report summaries match their validated signal log row counts and expected metric counts
+- **Boundary result:** PASS; Historical Signal Replay v1 proves signal/stage/lifecycle replay behavior only and does not prove profitability, option contract performance, account sizing, full Continuous Watcher behavior, production readiness, or live trade decisions
+- **`main.py` changed:** no
+- **Replay tests changed:** no
+- **Signal replay code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Generated reports changed:** no
+- **Real historical replay expansion started:** no
+- **Trade outcome backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Next task:** plan real historical replay v1 data expansion
+
 ## Next exact task
 
 Continue from patch8.
