@@ -802,6 +802,39 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Backtesting started:** no
 - **Next task:** create second real historical replay v1 fixture from approved design
 
+## Historical Signal Replay v1 second real fixture creation status
+
+- **Review file:** `historical_signal_replay/SECOND_REAL_HISTORICAL_REPLAY_V1_FIXTURE_CREATION_REVIEW.md`
+- **Fixture file:** `historical_signal_replay/fixtures/second_real_spy_ideal_replay_v1_fixture.json`
+- **Fixture creation status:** PASS
+- **Source file:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+- **Symbol:** SPY
+- **Timeframe:** 1h_rth
+- **Timestamp range:** 2026-05-06T09:30:00-04:00 through 2026-05-13T14:30:00-04:00
+- **Setup family:** Ideal
+- **Fixture row count:** 6
+- **Lifecycle/stage sequence result:** PASS; `watching_ideal_impulse_context`, `watching_ideal_pullback_retest_developing`, `watching_ideal_retest_hold_unconfirmed`, `ideal_retest_recovery_confirmation_candidate`, `ideal_triggered_signal_stage_candidate`, `ideal_follow_through_no_fresh_trigger`
+- **No-hindsight result:** PASS; each row uses only validated SPY source candles available at or before that row timestamp
+- **Boundary result:** PASS; fixture remains signal/stage/lifecycle only and excludes trade outcome backtesting, option P&L, account sizing, broker/order/execution, auto-trading, and live trade decisions
+- **OHLCV changed:** no
+- **Fabricated market data:** no
+- **`main.py` changed:** no
+- **`dxlink_candles.py` changed:** no
+- **Runner code changed:** no
+- **Schemas changed:** no
+- **Replay tests changed:** no
+- **Generated reports changed:** no
+- **Backtesting started:** no
+- **Fixture JSON validation result:** PASS
+- **Schema JSON validation result:** PASS
+- **Source OHLCV integrity result:** PASS; fixture candles match the validated source CSV rows and each lifecycle row ends at its declared timestamp
+- **Runner result:** PASS
+- **Contract tests result:** PASS; all `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS
+- **Fixture validation result:** PASS
+- **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** decide separately whether runner report emission for the second-real fixture is desired without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, or live trade decisions
+
 ## Next exact task
 
 Continue from patch8.
