@@ -1,0 +1,767 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://safe-fast.local/schemas/chart_outcome_backtest_input_v1.schema.json",
+  "title": "SAFE-FAST Chart Outcome Backtest Input v1",
+  "description": "Chart-only input candidate for measuring underlying-chart trade outcomes after a qualifying historical signal replay row. This schema does not model option P&L, account sizing, broker/order execution, watcher behavior, auto-trading, or live trade decisions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "candidate_id",
+    "chart_only",
+    "excluded_modeling",
+    "source_replay_fixture",
+    "source_signal_log",
+    "source_summary",
+    "source_row_name",
+    "source_row_index",
+    "source_signal_timestamp",
+    "symbol",
+    "timeframe",
+    "session",
+    "direction",
+    "setup_family",
+    "setup_identity",
+    "stage",
+    "setup_state",
+    "lifecycle",
+    "final_verdict",
+    "trigger_state",
+    "entry_condition",
+    "invalidation_condition",
+    "follow_through_condition",
+    "failure_condition",
+    "time_stop_condition",
+    "available_context",
+    "lookahead_window",
+    "source_candle_window",
+    "no_hindsight_audit"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "chart_outcome_backtest_input_v1"
+    },
+    "candidate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "chart_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "excluded_modeling": {
+      "$ref": "#/$defs/excludedModeling"
+    },
+    "source_replay_fixture": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "source_signal_log": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "source_summary": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "source_row_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_row_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_signal_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "symbol": {
+      "type": "string",
+      "enum": ["SPY", "QQQ", "IWM", "GLD"]
+    },
+    "timeframe": {
+      "type": "string",
+      "enum": ["1h_rth"]
+    },
+    "session": {
+      "$ref": "#/$defs/session"
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["CALL", "PUT", "LONG", "SHORT", "BULLISH", "BEARISH"]
+    },
+    "setup_family": {
+      "type": "string",
+      "enum": ["Ideal", "Clean Fast Break", "Continuation"]
+    },
+    "setup_identity": {
+      "$ref": "#/$defs/setupIdentity"
+    },
+    "stage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "setup_state": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lifecycle": {
+      "$ref": "#/$defs/lifecycle"
+    },
+    "final_verdict": {
+      "type": "string",
+      "enum": ["TRADE", "PENDING", "NO_TRADE"]
+    },
+    "trigger_state": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entry_condition": {
+      "$ref": "#/$defs/entryCondition"
+    },
+    "invalidation_condition": {
+      "$ref": "#/$defs/invalidationCondition"
+    },
+    "follow_through_condition": {
+      "$ref": "#/$defs/followThroughCondition"
+    },
+    "failure_condition": {
+      "$ref": "#/$defs/failureCondition"
+    },
+    "time_stop_condition": {
+      "$ref": "#/$defs/timeStopCondition"
+    },
+    "available_context": {
+      "$ref": "#/$defs/availableContext"
+    },
+    "lookahead_window": {
+      "$ref": "#/$defs/lookaheadWindow"
+    },
+    "source_candle_window": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/candle"
+      }
+    },
+    "no_hindsight_audit": {
+      "$ref": "#/$defs/noHindsightAudit"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "artifactReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "status"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": ["available", "unavailable", "unconfirmed"]
+        },
+        "sha256": {
+          "type": ["string", "null"]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "excludedModeling": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "option_pnl_modeled",
+        "option_spread_pricing_modeled",
+        "account_sizing_modeled",
+        "broker_order_execution_modeled",
+        "watcher_implementation_started"
+      ],
+      "properties": {
+        "option_pnl_modeled": {
+          "type": "boolean",
+          "const": false
+        },
+        "option_spread_pricing_modeled": {
+          "type": "boolean",
+          "const": false
+        },
+        "account_sizing_modeled": {
+          "type": "boolean",
+          "const": false
+        },
+        "broker_order_execution_modeled": {
+          "type": "boolean",
+          "const": false
+        },
+        "watcher_implementation_started": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["session_date", "session_type", "timezone"],
+      "properties": {
+        "session_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "session_type": {
+          "type": "string",
+          "enum": ["regular", "short", "closed", "unknown"]
+        },
+        "timezone": {
+          "type": "string"
+        }
+      }
+    },
+    "setupIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "symbol",
+        "setup_family",
+        "direction",
+        "stage",
+        "setup_state",
+        "trigger_state",
+        "trigger_level",
+        "invalidation",
+        "primary_blocker",
+        "cautions_watchouts",
+        "winner_selection_result",
+        "duplicate_alert_suppression_key"
+      ],
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "enum": ["SPY", "QQQ", "IWM", "GLD"]
+        },
+        "setup_family": {
+          "type": "string",
+          "enum": ["Ideal", "Clean Fast Break", "Continuation"]
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["CALL", "PUT", "LONG", "SHORT", "BULLISH", "BEARISH"]
+        },
+        "stage": {
+          "type": "string"
+        },
+        "setup_state": {
+          "type": "string"
+        },
+        "trigger_state": {
+          "type": "string"
+        },
+        "trigger_level": {
+          "type": ["number", "null"]
+        },
+        "invalidation": {
+          "type": ["number", "null"]
+        },
+        "primary_blocker": {
+          "type": ["string", "null"]
+        },
+        "cautions_watchouts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "winner_selection_result": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "selected_setup_type": {
+              "type": ["string", "null"],
+              "enum": ["Ideal", "Clean Fast Break", "Continuation", "None", "UNCONFIRMED", null]
+            }
+          }
+        },
+        "duplicate_alert_suppression_key": {
+          "type": "string"
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "current_state",
+        "prior_state",
+        "first_seen",
+        "last_seen",
+        "state_changed",
+        "trigger_changed",
+        "blocker_changed",
+        "final_verdict",
+        "human_next_step"
+      ],
+      "properties": {
+        "current_state": {
+          "type": "string"
+        },
+        "prior_state": {
+          "type": ["string", "null"]
+        },
+        "first_seen": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "last_seen": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "state_changed": {
+          "type": "boolean"
+        },
+        "trigger_changed": {
+          "type": "boolean"
+        },
+        "blocker_changed": {
+          "type": "boolean"
+        },
+        "final_verdict": {
+          "type": "string",
+          "enum": ["TRADE", "PENDING", "NO_TRADE"]
+        },
+        "human_next_step": {
+          "type": "string"
+        }
+      }
+    },
+    "entryCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entry_trigger_type",
+        "entry_trigger_level",
+        "entry_reference_source",
+        "entry_signal_timestamp",
+        "entry_eligibility_rule",
+        "entry_candle_policy",
+        "entry_price_policy",
+        "entry_confirmation_required",
+        "entry_confirmation_basis"
+      ],
+      "properties": {
+        "entry_trigger_type": {
+          "type": "string",
+          "enum": ["breakout", "retest_reclaim", "shelf_break", "base_break", "ema_retest_recovery", "manual_chart_trigger"]
+        },
+        "entry_trigger_level": {
+          "type": ["number", "null"]
+        },
+        "entry_reference_source": {
+          "type": "string"
+        },
+        "entry_signal_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "entry_eligibility_rule": {
+          "type": "string"
+        },
+        "entry_candle_policy": {
+          "type": "string",
+          "enum": ["next_eligible_candle_after_signal", "same_candle_completed_trigger_explicit"]
+        },
+        "entry_price_policy": {
+          "type": "string",
+          "enum": ["trigger_level", "next_eligible_candle_open", "next_eligible_candle_close", "explicit_reference_price"]
+        },
+        "entry_confirmation_required": {
+          "type": "boolean"
+        },
+        "entry_confirmation_basis": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "invalidationCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "invalidation_type",
+        "invalidation_level",
+        "invalidation_reference_source",
+        "invalidation_rule",
+        "invalidation_touch_or_close_policy",
+        "invalidation_known_at_entry",
+        "likely_chart_risk_points",
+        "likely_chart_risk_percent",
+        "likely_risk_vs_full_risk_note"
+      ],
+      "properties": {
+        "invalidation_type": {
+          "type": "string",
+          "enum": ["ema_1h_50_loss", "shelf_failure", "base_failure", "retest_hold_failure", "breakout_hold_failure", "thesis_level_reversal", "explicit_chart_level"]
+        },
+        "invalidation_level": {
+          "type": ["number", "null"]
+        },
+        "invalidation_reference_source": {
+          "type": "string"
+        },
+        "invalidation_rule": {
+          "type": "string"
+        },
+        "invalidation_touch_or_close_policy": {
+          "type": "string",
+          "enum": ["touch", "close", "either"]
+        },
+        "invalidation_known_at_entry": {
+          "type": "boolean",
+          "const": true
+        },
+        "likely_chart_risk_points": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "likely_chart_risk_percent": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "likely_risk_vs_full_risk_note": {
+          "type": "string"
+        }
+      }
+    },
+    "followThroughCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "follow_through_type",
+        "follow_through_threshold",
+        "follow_through_threshold_basis",
+        "follow_through_touch_or_close_policy",
+        "follow_through_required_before_time_stop",
+        "first_trouble_area",
+        "continuation_objective"
+      ],
+      "properties": {
+        "follow_through_type": {
+          "type": "string",
+          "enum": ["favorable_points", "favorable_percent", "chart_r_multiple", "directional_close", "hold_and_continue", "first_trouble_area_reached", "continuation_objective_reached"]
+        },
+        "follow_through_threshold": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "follow_through_threshold_basis": {
+          "type": "string"
+        },
+        "follow_through_touch_or_close_policy": {
+          "type": "string",
+          "enum": ["touch", "close", "either"]
+        },
+        "follow_through_required_before_time_stop": {
+          "type": "boolean"
+        },
+        "first_trouble_area": {
+          "$ref": "#/$defs/nullableChartLevel"
+        },
+        "continuation_objective": {
+          "$ref": "#/$defs/nullableChartLevel"
+        }
+      }
+    },
+    "failureCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "failure_type",
+        "failure_rule",
+        "failure_level",
+        "failure_touch_or_close_policy",
+        "hold_failure_required",
+        "hard_blocker_failure_policy"
+      ],
+      "properties": {
+        "failure_type": {
+          "type": "string",
+          "enum": ["invalidation_hit", "trigger_hold_failed", "thesis_level_reversed", "no_meaningful_move_before_time_stop", "hard_chart_blocker_before_follow_through"]
+        },
+        "failure_rule": {
+          "type": "string"
+        },
+        "failure_level": {
+          "type": ["number", "null"]
+        },
+        "failure_touch_or_close_policy": {
+          "type": "string",
+          "enum": ["touch", "close", "either"]
+        },
+        "hold_failure_required": {
+          "type": "boolean"
+        },
+        "hard_blocker_failure_policy": {
+          "type": "string"
+        }
+      }
+    },
+    "timeStopCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "time_stop_type",
+        "max_hold_candles",
+        "max_hold_sessions",
+        "entry_session_close_policy",
+        "overnight_carry_policy",
+        "fast_swing_max_sessions",
+        "source_end_policy"
+      ],
+      "properties": {
+        "time_stop_type": {
+          "type": "string",
+          "enum": ["same_day", "fast_swing", "same_day_or_fast_swing"]
+        },
+        "max_hold_candles": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_hold_sessions": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "entry_session_close_policy": {
+          "type": "string"
+        },
+        "overnight_carry_policy": {
+          "type": "string",
+          "enum": ["not_allowed", "allowed_chart_classification_only", "required_for_fast_swing_classification"]
+        },
+        "fast_swing_max_sessions": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "source_end_policy": {
+          "type": "string",
+          "enum": ["unresolved_insufficient_lookahead"]
+        }
+      }
+    },
+    "availableContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "context_24h_daily",
+        "macro_context",
+        "iv_context",
+        "event_context",
+        "headline_gap_risk_context"
+      ],
+      "properties": {
+        "context_24h_daily": {
+          "$ref": "#/$defs/contextValue"
+        },
+        "macro_context": {
+          "$ref": "#/$defs/contextValue"
+        },
+        "iv_context": {
+          "$ref": "#/$defs/contextValue"
+        },
+        "event_context": {
+          "$ref": "#/$defs/contextValue"
+        },
+        "headline_gap_risk_context": {
+          "$ref": "#/$defs/headlineGapRiskContext"
+        }
+      }
+    },
+    "contextValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "value"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["confirmed", "unavailable", "unconfirmed"]
+        },
+        "value": {
+          "type": ["string", "number", "boolean", "object", "array", "null"]
+        },
+        "as_of": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "source": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "headlineGapRiskContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "macro_context_status",
+        "iv_context_status",
+        "event_context_status",
+        "headline_context_status",
+        "gap_detected_from_chart",
+        "gap_direction",
+        "gap_points",
+        "gap_percent",
+        "gap_cause_known",
+        "gap_cause_source"
+      ],
+      "properties": {
+        "macro_context_status": {
+          "type": "string",
+          "enum": ["confirmed", "unavailable", "unconfirmed"]
+        },
+        "iv_context_status": {
+          "type": "string",
+          "enum": ["confirmed", "unavailable", "unconfirmed"]
+        },
+        "event_context_status": {
+          "type": "string",
+          "enum": ["confirmed", "unavailable", "unconfirmed"]
+        },
+        "headline_context_status": {
+          "type": "string",
+          "enum": ["confirmed", "unavailable", "unconfirmed"]
+        },
+        "gap_detected_from_chart": {
+          "type": "boolean"
+        },
+        "gap_direction": {
+          "type": ["string", "null"],
+          "enum": ["up", "down", "none", "unknown", null]
+        },
+        "gap_points": {
+          "type": ["number", "null"]
+        },
+        "gap_percent": {
+          "type": ["number", "null"]
+        },
+        "gap_cause_known": {
+          "type": "boolean"
+        },
+        "gap_cause_source": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "lookaheadWindow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start_timestamp", "end_timestamp", "max_candles", "max_sessions"],
+      "properties": {
+        "start_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end_timestamp": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "max_candles": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_sessions": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        }
+      }
+    },
+    "candle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["timestamp", "open", "high", "low", "close", "volume"],
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "open": {
+          "type": "number"
+        },
+        "high": {
+          "type": "number"
+        },
+        "low": {
+          "type": "number"
+        },
+        "close": {
+          "type": "number"
+        },
+        "volume": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "nullableChartLevel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "source", "known_at_entry"],
+      "properties": {
+        "level": {
+          "type": ["number", "null"]
+        },
+        "source": {
+          "type": ["string", "null"]
+        },
+        "known_at_entry": {
+          "type": "boolean"
+        }
+      }
+    },
+    "noHindsightAudit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_created_at",
+        "candidate_created_from_source_timestamp",
+        "rules_defined_before_future_scan",
+        "setup_identity_copied_from_source",
+        "future_candles_used_only_for_outcome_measurement",
+        "manual_override_used"
+      ],
+      "properties": {
+        "candidate_created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "candidate_created_from_source_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "rules_defined_before_future_scan": {
+          "type": "boolean",
+          "const": true
+        },
+        "setup_identity_copied_from_source": {
+          "type": "boolean",
+          "const": true
+        },
+        "future_candles_used_only_for_outcome_measurement": {
+          "type": "boolean",
+          "const": true
+        },
+        "manual_override_used": {
+          "type": "boolean",
+          "const": false
+        },
+        "manual_override_reason": {
+          "type": ["string", "null"]
+        }
+      }
+    }
+  }
+}

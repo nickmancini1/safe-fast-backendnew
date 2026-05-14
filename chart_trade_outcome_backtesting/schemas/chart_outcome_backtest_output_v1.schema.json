@@ -1,0 +1,463 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://safe-fast.local/schemas/chart_outcome_backtest_output_v1.schema.json",
+  "title": "SAFE-FAST Chart Outcome Backtest Output v1",
+  "description": "Chart-only measured outcome for one predeclared chart outcome backtest input candidate. This schema reports underlying-chart behavior only and excludes option P&L, account sizing, broker/order execution, watcher behavior, auto-trading, and live trade decisions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "candidate_id",
+    "chart_only",
+    "source_signal_timestamp",
+    "entry_status",
+    "entry_timestamp",
+    "entry_reference_price",
+    "terminal_outcome_type",
+    "terminal_timestamp",
+    "terminal_reference_price",
+    "terminal_reason",
+    "holding_period_candles",
+    "holding_period_sessions",
+    "same_day_fast_swing_classification",
+    "max_favorable_move",
+    "max_adverse_move",
+    "chart_r_multiple",
+    "likely_chart_risk",
+    "full_risk_modeled",
+    "option_pnl_modeled",
+    "account_sizing_modeled",
+    "broker_order_execution_modeled",
+    "headline_gap_risk_context",
+    "no_hindsight_audit",
+    "known_unavailable_context"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "chart_outcome_backtest_output_v1"
+    },
+    "candidate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "chart_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "source_signal_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "entry_status": {
+      "type": "string",
+      "enum": ["entry_reached", "entry_not_reached", "entry_disqualified", "unresolved_insufficient_lookahead"]
+    },
+    "entry_timestamp": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "entry_reference_price": {
+      "type": ["number", "null"]
+    },
+    "terminal_outcome_type": {
+      "type": "string",
+      "enum": ["follow_through", "invalidated", "time_stop", "no_entry", "unresolved_insufficient_lookahead"]
+    },
+    "terminal_timestamp": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "terminal_reference_price": {
+      "type": ["number", "null"]
+    },
+    "terminal_reason": {
+      "type": "string"
+    },
+    "terminal_candle_reference": {
+      "$ref": "#/$defs/terminalCandleReference"
+    },
+    "holding_period_candles": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "holding_period_sessions": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "same_day_fast_swing_classification": {
+      "$ref": "#/$defs/holdClassification"
+    },
+    "max_favorable_move": {
+      "$ref": "#/$defs/maxFavorableMove"
+    },
+    "max_adverse_move": {
+      "$ref": "#/$defs/maxAdverseMove"
+    },
+    "chart_r_multiple": {
+      "type": ["number", "null"]
+    },
+    "likely_chart_risk": {
+      "$ref": "#/$defs/likelyChartRisk"
+    },
+    "full_risk_modeled": {
+      "type": "boolean",
+      "const": false
+    },
+    "option_pnl_modeled": {
+      "type": "boolean",
+      "const": false
+    },
+    "account_sizing_modeled": {
+      "type": "boolean",
+      "const": false
+    },
+    "broker_order_execution_modeled": {
+      "type": "boolean",
+      "const": false
+    },
+    "headline_gap_risk_context": {
+      "$ref": "#/$defs/headlineGapRiskContext"
+    },
+    "no_hindsight_audit": {
+      "$ref": "#/$defs/noHindsightAudit"
+    },
+    "known_unavailable_context": {
+      "$ref": "#/$defs/knownUnavailableContext"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "terminalCandleReference": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["timestamp", "open", "high", "low", "close", "volume"],
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "open": {
+          "type": "number"
+        },
+        "high": {
+          "type": "number"
+        },
+        "low": {
+          "type": "number"
+        },
+        "close": {
+          "type": "number"
+        },
+        "volume": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "holdClassification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hold_classification",
+        "entry_session_date",
+        "terminal_session_date",
+        "same_session_terminal",
+        "overnight_carried",
+        "sessions_held",
+        "same_day_time_stop_applied",
+        "fast_swing_time_stop_applied"
+      ],
+      "properties": {
+        "hold_classification": {
+          "type": "string",
+          "enum": [
+            "same_day",
+            "fast_swing",
+            "time_stop_same_day",
+            "time_stop_fast_swing",
+            "invalidated_same_day",
+            "invalidated_fast_swing",
+            "unresolved_insufficient_lookahead",
+            "no_entry"
+          ]
+        },
+        "entry_session_date": {
+          "type": ["string", "null"],
+          "format": "date"
+        },
+        "terminal_session_date": {
+          "type": ["string", "null"],
+          "format": "date"
+        },
+        "same_session_terminal": {
+          "type": ["boolean", "null"]
+        },
+        "overnight_carried": {
+          "type": ["boolean", "null"]
+        },
+        "sessions_held": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "same_day_time_stop_applied": {
+          "type": "boolean"
+        },
+        "fast_swing_time_stop_applied": {
+          "type": "boolean"
+        }
+      }
+    },
+    "maxFavorableMove": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mfe_points",
+        "mfe_percent",
+        "mfe_chart_r",
+        "mfe_timestamp",
+        "mfe_candle_index",
+        "mfe_candles_after_entry",
+        "mfe_before_terminal_condition"
+      ],
+      "properties": {
+        "mfe_points": {
+          "type": ["number", "null"]
+        },
+        "mfe_percent": {
+          "type": ["number", "null"]
+        },
+        "mfe_chart_r": {
+          "type": ["number", "null"]
+        },
+        "mfe_timestamp": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "mfe_candle_index": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "mfe_candles_after_entry": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "mfe_before_terminal_condition": {
+          "type": "boolean"
+        }
+      }
+    },
+    "maxAdverseMove": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mae_points",
+        "mae_percent",
+        "mae_chart_r",
+        "mae_timestamp",
+        "mae_candle_index",
+        "mae_candles_after_entry",
+        "mae_before_terminal_condition"
+      ],
+      "properties": {
+        "mae_points": {
+          "type": ["number", "null"]
+        },
+        "mae_percent": {
+          "type": ["number", "null"]
+        },
+        "mae_chart_r": {
+          "type": ["number", "null"]
+        },
+        "mae_timestamp": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "mae_candle_index": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "mae_candles_after_entry": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "mae_before_terminal_condition": {
+          "type": "boolean"
+        }
+      }
+    },
+    "likelyChartRisk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entry_reference_price",
+        "invalidation_reference_price",
+        "likely_chart_risk_points",
+        "likely_chart_risk_percent",
+        "likely_chart_risk_basis",
+        "full_risk_note"
+      ],
+      "properties": {
+        "entry_reference_price": {
+          "type": ["number", "null"]
+        },
+        "invalidation_reference_price": {
+          "type": ["number", "null"]
+        },
+        "likely_chart_risk_points": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "likely_chart_risk_percent": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "likely_chart_risk_basis": {
+          "type": "string"
+        },
+        "full_risk_note": {
+          "type": "string"
+        }
+      }
+    },
+    "headlineGapRiskContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "macro_context_status",
+        "iv_context_status",
+        "event_context_status",
+        "headline_context_status",
+        "gap_detected_from_chart",
+        "gap_direction",
+        "gap_points",
+        "gap_percent",
+        "gap_cause_known",
+        "gap_cause_source"
+      ],
+      "properties": {
+        "macro_context_status": {
+          "type": "string",
+          "enum": ["confirmed", "unavailable", "unconfirmed"]
+        },
+        "iv_context_status": {
+          "type": "string",
+          "enum": ["confirmed", "unavailable", "unconfirmed"]
+        },
+        "event_context_status": {
+          "type": "string",
+          "enum": ["confirmed", "unavailable", "unconfirmed"]
+        },
+        "headline_context_status": {
+          "type": "string",
+          "enum": ["confirmed", "unavailable", "unconfirmed"]
+        },
+        "gap_detected_from_chart": {
+          "type": "boolean"
+        },
+        "gap_direction": {
+          "type": ["string", "null"],
+          "enum": ["up", "down", "none", "unknown", null]
+        },
+        "gap_points": {
+          "type": ["number", "null"]
+        },
+        "gap_percent": {
+          "type": ["number", "null"]
+        },
+        "gap_cause_known": {
+          "type": "boolean"
+        },
+        "gap_cause_source": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "noHindsightAudit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rules_defined_before_future_scan",
+        "setup_identity_not_recomputed_from_future_candles",
+        "future_candles_used_only_for_outcome_measurement",
+        "first_terminal_condition_stops_scan",
+        "source_end_unresolved_when_needed",
+        "manual_override_used"
+      ],
+      "properties": {
+        "rules_defined_before_future_scan": {
+          "type": "boolean",
+          "const": true
+        },
+        "setup_identity_not_recomputed_from_future_candles": {
+          "type": "boolean",
+          "const": true
+        },
+        "future_candles_used_only_for_outcome_measurement": {
+          "type": "boolean",
+          "const": true
+        },
+        "first_terminal_condition_stops_scan": {
+          "type": "boolean",
+          "const": true
+        },
+        "source_end_unresolved_when_needed": {
+          "type": "boolean",
+          "const": true
+        },
+        "manual_override_used": {
+          "type": "boolean",
+          "const": false
+        },
+        "manual_override_reason": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "knownUnavailableContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "context_24h_daily_unavailable_or_unconfirmed",
+        "macro_context_unavailable_or_unconfirmed",
+        "iv_context_unavailable_or_unconfirmed",
+        "event_context_unavailable_or_unconfirmed",
+        "headline_context_unavailable_or_unconfirmed",
+        "option_chain_unavailable_by_design",
+        "account_context_unavailable_by_design",
+        "broker_execution_unavailable_by_design"
+      ],
+      "properties": {
+        "context_24h_daily_unavailable_or_unconfirmed": {
+          "type": "boolean"
+        },
+        "macro_context_unavailable_or_unconfirmed": {
+          "type": "boolean"
+        },
+        "iv_context_unavailable_or_unconfirmed": {
+          "type": "boolean"
+        },
+        "event_context_unavailable_or_unconfirmed": {
+          "type": "boolean"
+        },
+        "headline_context_unavailable_or_unconfirmed": {
+          "type": "boolean"
+        },
+        "option_chain_unavailable_by_design": {
+          "type": "boolean",
+          "const": true
+        },
+        "account_context_unavailable_by_design": {
+          "type": "boolean",
+          "const": true
+        },
+        "broker_execution_unavailable_by_design": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    }
+  }
+}

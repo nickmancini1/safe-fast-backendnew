@@ -1078,10 +1078,24 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Reports changed:** no
 - **Next task:** create chart-based trade outcome backtesting v1 schema files
 
+## Chart-based trade outcome backtesting v1 schema files status
+
+- **Input schema file:** `chart_trade_outcome_backtesting/schemas/chart_outcome_backtest_input_v1.schema.json`
+- **Output schema file:** `chart_trade_outcome_backtesting/schemas/chart_outcome_backtest_output_v1.schema.json`
+- **README file:** `chart_trade_outcome_backtesting/README.md`
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_SCHEMA_FILES_REVIEW.md`
+- **Status:** PASS
+- **Chart-only boundary:** outcomes measure underlying-chart entry, invalidation, follow-through, failure, time stop, max favorable move, max adverse move, and same-day versus fast-swing classification only.
+- **Backtesting implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **Next task:** create first chart-based trade outcome backtesting v1 sample input/output fixture
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create chart-based trade outcome backtesting v1 schema files without starting backtesting implementation, option P&L modeling, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
+Next task is create first chart-based trade outcome backtesting v1 sample input/output fixture without starting backtesting implementation, option P&L modeling, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
