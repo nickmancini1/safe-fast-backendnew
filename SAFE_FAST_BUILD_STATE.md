@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `3c53131 Update repeated-state runner support references`
-- **Latest completed build milestone:** `bb51379 Add repeated-state signal replay runner support`
-- **Current objective:** first real SPY Continuation fixture created; validate first-real fixture runner inclusion/support only if report emission is desired
+- **Latest completed commit:** `8bfd989 Add first real SPY Continuation replay fixture`
+- **Latest completed build milestone:** first-real SPY Continuation replay fixture runner output validation
+- **Current objective:** first-real SPY Continuation fixture runner inclusion/support validated
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -726,10 +726,47 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** validate first-real fixture runner inclusion/support as a separate bounded task if report emission is desired
 
+## Historical Signal Replay v1 first real fixture runner output validation status
+
+- **Review file:** `historical_signal_replay/FIRST_REAL_HISTORICAL_REPLAY_V1_RUNNER_OUTPUT_VALIDATION_REVIEW.md`
+- **Validation status:** PASS
+- **Fixture file:** `historical_signal_replay/fixtures/first_real_spy_continuation_replay_v1_fixture.json`
+- **Generated signal log:** `historical_signal_replay/reports/first_real_spy_continuation_replay_v1_signal_log.jsonl`
+- **Generated summary:** `historical_signal_replay/reports/first_real_spy_continuation_replay_v1_summary.json`
+- **Generated regression candidates:** `historical_signal_replay/reports/first_real_spy_continuation_replay_v1_regression_candidates.json`
+- **Symbol:** SPY
+- **Timeframe:** 1h_rth
+- **Setup family:** Continuation
+- **First-real signal log exists:** yes
+- **First-real signal log row count:** 6
+- **First-real summary total rows:** 6
+- **Setup family count result:** PASS; `Continuation: 6`
+- **Stage count result:** PASS; `developing_pullback_shelf: 1`, `developing_shelf_no_trigger: 2`, `opening_probe_no_completed_approval: 1`, `triggered_signal_stage_candidate: 1`, `spent_or_follow_through_no_fresh_trigger: 1`
+- **Lifecycle/stage sequence result:** PASS; `developing_pullback_shelf`, `developing_shelf_no_trigger`, `developing_shelf_no_trigger`, `opening_probe_no_completed_approval`, `triggered_signal_stage_candidate`, `spent_or_follow_through_no_fresh_trigger`
+- **Fixture row-name sequence result:** PASS; `watching_developing_pullback_shelf`, `watching_developing_shelf_no_trigger`, `watching_developing_repeated_same_state`, `opening_probe_no_completed_approval`, `triggered_signal_stage_candidate`, `spent_or_follow_through_no_fresh_trigger`
+- **Boundary result:** PASS; reports remain signal/stage/lifecycle only and make no profitability, backtesting, option P&L, account sizing, execution, auto-trading, or live trade decision claims
+- **Runner code changed:** yes; `historical_signal_replay/run_signal_replay.py` only
+- **Generated reports changed:** yes
+- **Review file created:** yes
+- **`SAFE_FAST_BUILD_STATE.md` updated:** yes
+- **`main.py` changed:** no
+- **`dxlink_candles.py` changed:** no
+- **Schemas changed:** no
+- **Fixture contents changed:** no
+- **Replay tests changed:** no
+- **Backtesting started:** no
+- **Runner result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Fixture JSON validation result:** PASS; `python -m json.tool historical_signal_replay/fixtures/first_real_spy_continuation_replay_v1_fixture.json`
+- **Stage-message result:** PASS
+- **Fixture validation result:** PASS
+- **Contract tests result:** PASS; all `replay/test_on_demand_*contract.py` files passed locally
+- **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** decide the next bounded real historical signal/stage/lifecycle replay validation step without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, or live trade decisions
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is validate first-real fixture runner inclusion/support as a separate bounded task if report emission is desired.
+Next task is decide the next bounded real historical signal/stage/lifecycle replay validation step.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.

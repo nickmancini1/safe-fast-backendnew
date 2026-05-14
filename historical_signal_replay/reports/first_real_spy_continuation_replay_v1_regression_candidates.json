@@ -1,0 +1,89 @@
+{
+  "candidates": [
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "SPY|2026-04-28|Continuation|developing_pullback_shelf|no_valid_trigger",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "no_valid_trigger",
+      "setup_state": "developing",
+      "setup_type": "Continuation",
+      "stage": "developing_pullback_shelf",
+      "state_changed": true,
+      "symbol": "SPY",
+      "timestamp": "2026-04-28T13:30:00-04:00",
+      "trigger_changed": false,
+      "trigger_state": "not_present"
+    },
+    {
+      "blocker_changed": false,
+      "duplicate_alert_suppression_key": "SPY|2026-04-29|Continuation|developing_shelf_no_trigger|no_valid_trigger",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "no_valid_trigger",
+      "setup_state": "developing",
+      "setup_type": "Continuation",
+      "stage": "developing_shelf_no_trigger",
+      "state_changed": true,
+      "symbol": "SPY",
+      "timestamp": "2026-04-29T12:30:00-04:00",
+      "trigger_changed": false,
+      "trigger_state": "not_present"
+    },
+    {
+      "blocker_changed": false,
+      "duplicate_alert_suppression_key": "SPY|2026-04-29|Continuation|developing_shelf_no_trigger|no_valid_trigger",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "no_valid_trigger",
+      "setup_state": "developing",
+      "setup_type": "Continuation",
+      "stage": "developing_shelf_no_trigger",
+      "state_changed": false,
+      "symbol": "SPY",
+      "timestamp": "2026-04-29T15:30:00-04:00",
+      "trigger_changed": false,
+      "trigger_state": "not_present"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "SPY|2026-04-30|Continuation|opening_probe_no_completed_approval|completed_candle_approval_required",
+      "final_verdict": "PENDING",
+      "primary_blocker": "completed_candle_approval_required",
+      "setup_state": "pending",
+      "setup_type": "Continuation",
+      "stage": "opening_probe_no_completed_approval",
+      "state_changed": true,
+      "symbol": "SPY",
+      "timestamp": "2026-04-30T09:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "probe_unconfirmed"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "SPY|2026-04-30|Continuation|triggered_signal_stage_candidate|none",
+      "final_verdict": "TRADE",
+      "primary_blocker": null,
+      "setup_state": "signal_stage",
+      "setup_type": "Continuation",
+      "stage": "triggered_signal_stage_candidate",
+      "state_changed": true,
+      "symbol": "SPY",
+      "timestamp": "2026-04-30T12:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "triggered"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "SPY|2026-04-30|Continuation|spent_or_follow_through_no_fresh_trigger|prior_completed_shelf_break_spent",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "prior_completed_shelf_break_spent",
+      "setup_state": "spent",
+      "setup_type": "Continuation",
+      "stage": "spent_or_follow_through_no_fresh_trigger",
+      "state_changed": true,
+      "symbol": "SPY",
+      "timestamp": "2026-04-30T15:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "spent"
+    }
+  ],
+  "purpose": "First-real SPY Continuation signal/stage/lifecycle replay regression candidates only; no profitability, P&L, account sizing, trade outcomes, live trade decisions, or auto-trading."
+}
