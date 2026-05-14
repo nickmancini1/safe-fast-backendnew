@@ -9,7 +9,7 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `3c53131 Update repeated-state runner support references`
 - **Latest completed build milestone:** `bb51379 Add repeated-state signal replay runner support`
-- **Current objective:** first real SPY source historical data validation complete; decide first bounded no-hindsight signal/stage/lifecycle source-data window
+- **Current objective:** first real SPY Continuation fixture created; validate first-real fixture runner inclusion/support only if report emission is desired
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -695,10 +695,41 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Backtesting started:** no
 - **Next task:** create first real historical replay v1 fixture from approved design
 
+## Historical Signal Replay v1 first real fixture creation status
+
+- **Review file:** `historical_signal_replay/FIRST_REAL_HISTORICAL_REPLAY_V1_FIXTURE_CREATION_REVIEW.md`
+- **Fixture file:** `historical_signal_replay/fixtures/first_real_spy_continuation_replay_v1_fixture.json`
+- **Fixture creation status:** PASS
+- **Source file:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+- **Symbol:** SPY
+- **Timeframe:** 1h_rth
+- **Timestamp range:** 2026-04-24T09:30:00-04:00 through 2026-04-30T15:30:00-04:00
+- **Setup family:** Continuation
+- **Fixture row count:** 6
+- **Lifecycle/stage sequence result:** PASS; `watching_developing_pullback_shelf`, `watching_developing_shelf_no_trigger`, `watching_developing_repeated_same_state`, `opening_probe_no_completed_approval`, `triggered_signal_stage_candidate`, `spent_or_follow_through_no_fresh_trigger`
+- **No-hindsight result:** PASS; each row uses only validated SPY source candles available at or before that row timestamp
+- **Boundary result:** PASS; fixture remains signal/stage/lifecycle only and excludes trade outcome backtesting, option P&L, account sizing, broker/order/execution, auto-trading, and live trade decisions
+- **OHLCV changed:** no
+- **Fabricated market data:** no
+- **`main.py` changed:** no
+- **`dxlink_candles.py` changed:** no
+- **Runner code changed:** no
+- **Schemas changed:** no
+- **Replay tests changed:** no
+- **Generated reports changed:** no
+- **Backtesting started:** no
+- **Fixture JSON validation result:** PASS
+- **Runner result:** PASS
+- **Contract tests result:** PASS; all 35 `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS
+- **Fixture validation result:** PASS
+- **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** validate first-real fixture runner inclusion/support as a separate bounded task if report emission is desired
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create first real historical replay v1 fixture from approved design.
+Next task is validate first-real fixture runner inclusion/support as a separate bounded task if report emission is desired.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
