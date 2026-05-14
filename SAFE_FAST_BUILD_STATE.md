@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `8e79df1 Add second real SPY Ideal replay fixture`
-- **Latest completed build milestone:** second-real SPY Ideal replay fixture runner output validation
-- **Current objective:** second-real SPY Ideal fixture runner inclusion/support validated
+- **Latest completed commit:** `c6a0430 Add second real SPY Ideal runner output validation`
+- **Latest completed build milestone:** third-real SPY Clean Fast Break source window selection
+- **Current objective:** third-real SPY Clean Fast Break source-data window selected for future fixture design
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -872,10 +872,36 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** decide the next bounded historical signal/stage/lifecycle replay validation step without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, or live trade decisions
 
+## Historical Signal Replay v1 third SPY source window selection status
+
+- **Review file:** `historical_signal_replay/source_data/THIRD_REAL_SPY_WINDOW_SELECTION_REVIEW.md`
+- **Selection status:** PASS
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+- **Symbol:** SPY
+- **Timeframe:** 1h_rth
+- **Selected row count:** 28
+- **Selected timestamp range:** 2026-04-10T09:30:00-04:00 through 2026-04-15T15:30:00-04:00
+- **Likely setup family candidate:** Clean Fast Break
+- **No-hindsight result:** PASS
+- **Boundary result:** PASS; source-window selection only, no fixture creation, no OHLCV changes, no fabricated labels, no backtesting, no option P&L, no account sizing, no broker/order/execution, no auto-trading, and no live trade decisions
+- **`main.py` changed:** no
+- **`dxlink_candles.py` changed:** no
+- **Runner code changed:** no
+- **Schemas changed:** no
+- **Generated reports changed:** no
+- **Fixture created:** no
+- **Backtesting started:** no
+- **Runner result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Contract tests result:** PASS; all `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
+- **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
+- **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** design a third real historical replay v1 fixture from the selected SPY source-data window
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is decide the next bounded historical signal/stage/lifecycle replay validation step.
+Next task is design a third real historical replay v1 fixture from the selected SPY source-data window.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
