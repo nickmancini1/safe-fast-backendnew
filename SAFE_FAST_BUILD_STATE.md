@@ -1043,10 +1043,29 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Watcher implementation started:** no
 - **Next task:** create a docs-only chart-based trade outcome backtesting v1 planning review without implementing backtesting, modeling option P&L, adding account sizing, starting watcher behavior, auto-trading, live reads, or live trade decisions.
 
+## Chart-based trade outcome backtesting v1 planning status
+
+- **Plan file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_PLAN.md`
+- **Planning status:** PASS
+- **Purpose:** define the chart-only outcome methodology for qualifying SAFE-FAST historical signals before any implementation, option P&L modeling, account sizing, watcher behavior, auto-trading, live reads, or live trade decisions.
+- **Chart-only boundary:** outcomes measure underlying-chart entry, invalidation, follow-through, failure, time stop, max favorable move, max adverse move, and same-day versus fast-swing classification only.
+- **Allowed universe:** SPY, QQQ, IWM, GLD
+- **Setup families:** Ideal, Clean Fast Break, Continuation
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Backtesting implementation started:** no
+- **Watcher implementation started:** no
+- **Runner code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **`main.py` changed:** no
+- **Next task:** design chart-based trade outcome backtesting v1 schema
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create a docs-only chart-based trade outcome backtesting v1 planning review without starting backtesting implementation, option P&L modeling, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
+Next task is design chart-based trade outcome backtesting v1 schema without starting backtesting implementation, option P&L modeling, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
