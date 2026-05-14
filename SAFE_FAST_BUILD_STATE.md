@@ -789,10 +789,23 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** design a second real historical replay v1 fixture from the selected SPY source-data window
 
+## Historical Signal Replay v1 second real fixture design status
+
+- **Review file:** `historical_signal_replay/SECOND_REAL_HISTORICAL_REPLAY_V1_FIXTURE_DESIGN_REVIEW.md`
+- **Design status:** PASS
+- **Source file:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+- **Symbol:** SPY
+- **Timeframe:** 1h_rth
+- **Timestamp range:** 2026-05-06T09:30:00-04:00 through 2026-05-13T14:30:00-04:00
+- **Setup family candidate:** Ideal
+- **Fixture created:** no
+- **Backtesting started:** no
+- **Next task:** create second real historical replay v1 fixture from approved design
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is decide the next bounded real historical signal/stage/lifecycle replay validation step.
+Next task is create second real historical replay v1 fixture from approved design.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
