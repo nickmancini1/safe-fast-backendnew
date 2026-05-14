@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `33097a4 Add third real SPY Clean Fast Break replay fixture`
-- **Latest completed build milestone:** third-real SPY Clean Fast Break runner output validation
-- **Current objective:** third-real SPY Clean Fast Break runner output validation completed; future historical signal/stage/lifecycle replay work must be approved separately
+- **Latest completed commit:** `5410a7d Add third real SPY Clean Fast Break runner output validation`
+- **Latest completed build milestone:** SPY three-setup real historical replay v1 closeout
+- **Current objective:** SPY three-setup real historical replay v1 closeout completed; future historical signal/stage/lifecycle replay work must be approved separately
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -999,10 +999,36 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** choose the next bounded historical signal/stage/lifecycle replay validation step without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, or live trade decisions
 
+## Historical Signal Replay v1 SPY three-setup real historical closeout status
+
+- **Review file:** `historical_signal_replay/REAL_HISTORICAL_REPLAY_V1_SPY_THREE_SETUP_CLOSEOUT_REVIEW.md`
+- **Closeout status:** PASS
+- **Source data file:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+- **Source data summary:** PASS; validated SPY 1h_rth source CSV has 293 rows from 2026-03-16T09:30:00-04:00 through 2026-05-13T14:30:00-04:00, sourced from `dxlink_candles.get_1h_ema50_snapshot` as of 2026-05-13T18:43:00Z
+- **Setup families covered:** Continuation, Ideal, Clean Fast Break
+- **Continuation coverage:** PASS; 35 selected source rows, 6 fixture rows, 6 runner output rows, setup count `Continuation: 6`
+- **Ideal coverage:** PASS; 41 selected source rows, 6 fixture rows, 6 runner output rows, setup count `Ideal: 6`
+- **Clean Fast Break coverage:** PASS; 28 selected source rows, 6 fixture rows, 6 runner output rows, setup count `Clean Fast Break: 6`
+- **Runner output validation status:** PASS; signal log, summary, and regression candidate outputs exist for all three real SPY setup-family fixtures
+- **Setup-family coverage result:** PASS; all three setup families have real source-data coverage, fixture creation, and runner output validation
+- **No-hindsight result:** PASS; selected windows and fixtures use only validated SPY source candles available at or before each row timestamp
+- **Boundary result:** PASS; closeout remains signal/stage/lifecycle only and does not start or claim trade outcome backtesting, option P&L, account sizing, broker/order/execution, auto-trading, or live trade decisions
+- **`main.py` changed:** no
+- **`dxlink_candles.py` changed:** no
+- **Runner code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Generated reports changed:** no
+- **Replay tests changed:** no
+- **Backtesting started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Next task:** decide next bounded phase after SPY three-setup real historical replay closeout
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is choose the next bounded historical signal/stage/lifecycle replay validation step without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
+Next task is decide next bounded phase after SPY three-setup real historical replay closeout without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
