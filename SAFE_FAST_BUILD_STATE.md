@@ -763,6 +763,32 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** decide the next bounded real historical signal/stage/lifecycle replay validation step without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, or live trade decisions
 
+## Historical Signal Replay v1 second SPY source window selection status
+
+- **Review file:** `historical_signal_replay/source_data/SECOND_REAL_SPY_WINDOW_SELECTION_REVIEW.md`
+- **Selection status:** PASS
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+- **Symbol:** SPY
+- **Timeframe:** 1h_rth
+- **Selected row count:** 41
+- **Selected timestamp range:** 2026-05-06T09:30:00-04:00 through 2026-05-13T14:30:00-04:00
+- **Likely setup family candidate:** Ideal
+- **No-hindsight result:** PASS
+- **Boundary result:** PASS; source-window selection only, no fixture creation, no OHLCV changes, no fabricated labels, no backtesting, no option P&L, no account sizing, no broker/order/execution, no auto-trading, and no live trade decisions
+- **`main.py` changed:** no
+- **`dxlink_candles.py` changed:** no
+- **Runner code changed:** no
+- **Schemas changed:** no
+- **Generated reports changed:** no
+- **Fixture created:** no
+- **Backtesting started:** no
+- **Runner result:** PASS
+- **Contract tests result:** PASS; all 35 `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS
+- **Fixture validation result:** PASS
+- **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** design a second real historical replay v1 fixture from the selected SPY source-data window
+
 ## Next exact task
 
 Continue from patch8.
