@@ -668,10 +668,24 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Backtesting started:** no
 - **Next task:** select the first bounded SPY source-data window for no-hindsight signal/stage/lifecycle fixture design only
 
+## Historical Signal Replay v1 first SPY source window selection status
+
+- **Review file:** `historical_signal_replay/source_data/FIRST_REAL_SPY_WINDOW_SELECTION_REVIEW.md`
+- **Selection status:** PASS
+- **Symbol:** SPY
+- **Timeframe:** 1h_rth
+- **Selected row count:** 35
+- **Selected timestamp range:** 2026-04-24T09:30:00-04:00 through 2026-04-30T15:30:00-04:00
+- **Likely setup family candidate:** Continuation
+- **No-hindsight result:** PASS
+- **Fixture created:** no
+- **Backtesting started:** no
+- **Next task:** design first real historical replay v1 fixture from selected SPY window
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is select the first bounded SPY source-data window for no-hindsight signal/stage/lifecycle fixture design only.
+Next task is design first real historical replay v1 fixture from selected SPY window.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
