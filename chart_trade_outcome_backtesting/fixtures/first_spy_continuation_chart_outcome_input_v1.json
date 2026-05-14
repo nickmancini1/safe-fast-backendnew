@@ -1,0 +1,311 @@
+{
+  "schema_version": "chart_outcome_backtest_input_v1",
+  "candidate_id": "first_spy_continuation_chart_outcome_v1",
+  "chart_only": true,
+  "excluded_modeling": {
+    "option_pnl_modeled": false,
+    "option_spread_pricing_modeled": false,
+    "account_sizing_modeled": false,
+    "broker_order_execution_modeled": false,
+    "watcher_implementation_started": false
+  },
+  "source_replay_fixture": {
+    "path": "historical_signal_replay/fixtures/first_real_spy_continuation_replay_v1_fixture.json",
+    "status": "available",
+    "sha256": null,
+    "notes": "Validated first real SPY Continuation replay fixture; signal/stage/lifecycle only."
+  },
+  "source_signal_log": {
+    "path": "historical_signal_replay/reports/first_real_spy_continuation_replay_v1_signal_log.jsonl",
+    "status": "available",
+    "sha256": null,
+    "notes": "Signal row used: triggered_signal_stage_candidate."
+  },
+  "source_summary": {
+    "path": "historical_signal_replay/reports/first_real_spy_continuation_replay_v1_summary.json",
+    "status": "available",
+    "sha256": null,
+    "notes": "Summary confirms one SPY Continuation TRADE row in the replay output."
+  },
+  "source_row_name": "triggered_signal_stage_candidate",
+  "source_row_index": 5,
+  "source_signal_timestamp": "2026-04-30T12:30:00-04:00",
+  "symbol": "SPY",
+  "timeframe": "1h_rth",
+  "session": {
+    "session_date": "2026-04-30",
+    "session_type": "regular",
+    "timezone": "America/New_York"
+  },
+  "direction": "CALL",
+  "setup_family": "Continuation",
+  "setup_identity": {
+    "symbol": "SPY",
+    "setup_family": "Continuation",
+    "direction": "CALL",
+    "stage": "triggered_signal_stage_candidate",
+    "setup_state": "signal_stage",
+    "trigger_state": "triggered",
+    "trigger_level": 715.61,
+    "invalidation": 708.37,
+    "primary_blocker": null,
+    "cautions_watchouts": [
+      "MACRO_UNCONFIRMED",
+      "IV_UNCONFIRMED",
+      "EVENT_UNCONFIRMED"
+    ],
+    "winner_selection_result": {
+      "selected_symbol": "SPY",
+      "selected_setup_type": "Continuation",
+      "selection_status": "shape_only_first_real_historical_fixture"
+    },
+    "duplicate_alert_suppression_key": "SPY|2026-04-30|Continuation|triggered_signal_stage_candidate|none"
+  },
+  "stage": "triggered_signal_stage_candidate",
+  "setup_state": "signal_stage",
+  "lifecycle": {
+    "current_state": "signal",
+    "prior_state": "opening_probe_no_completed_approval",
+    "first_seen": "2026-04-28T13:30:00-04:00",
+    "last_seen": "2026-04-30T12:30:00-04:00",
+    "state_changed": true,
+    "trigger_changed": true,
+    "blocker_changed": true,
+    "final_verdict": "TRADE",
+    "human_next_step": "Signal/stage lifecycle fixture only: completed trigger-stage candidate for replay shape; this is not an execution recommendation, live trade instruction, or trade outcome assumption."
+  },
+  "final_verdict": "TRADE",
+  "trigger_state": "triggered",
+  "entry_condition": {
+    "entry_trigger_type": "shelf_break",
+    "entry_trigger_level": 715.61,
+    "entry_reference_source": "2026-04-30T12:30:00-04:00 replay row close at 715.83 above prior selected-window high 715.61.",
+    "entry_signal_timestamp": "2026-04-30T12:30:00-04:00",
+    "entry_eligibility_rule": "Candidate is eligible only because the source replay row is SPY Continuation with final_verdict TRADE and trigger_state triggered.",
+    "entry_candle_policy": "next_eligible_candle_after_signal",
+    "entry_price_policy": "next_eligible_candle_open",
+    "entry_confirmation_required": true,
+    "entry_confirmation_basis": "Completed 1H RTH candle closed above the pre-existing shelf trigger level."
+  },
+  "invalidation_condition": {
+    "invalidation_type": "shelf_failure",
+    "invalidation_level": 708.37,
+    "invalidation_reference_source": "Replay row expected_output_shape.invalidation copied from the first real SPY Continuation fixture.",
+    "invalidation_rule": "Chart-only sample invalidates if a future 1H RTH candle touches or closes through 708.37 before follow-through or time stop.",
+    "invalidation_touch_or_close_policy": "either",
+    "invalidation_known_at_entry": true,
+    "likely_chart_risk_points": 7.45,
+    "likely_chart_risk_percent": 1.0408,
+    "likely_risk_vs_full_risk_note": "Likely risk is only the underlying-chart distance from sample entry reference 715.82 to invalidation 708.37; full option or account risk is not modeled."
+  },
+  "follow_through_condition": {
+    "follow_through_type": "favorable_points",
+    "follow_through_threshold": 2.0,
+    "follow_through_threshold_basis": "Expected sample threshold for scaffold only; not a finalized backtest rule and not selected as profitability proof.",
+    "follow_through_touch_or_close_policy": "touch",
+    "follow_through_required_before_time_stop": true,
+    "first_trouble_area": {
+      "level": 719.79,
+      "source": "Same-day 2026-04-30 high from validated source candles, included as sample context only.",
+      "known_at_entry": false
+    },
+    "continuation_objective": {
+      "level": null,
+      "source": null,
+      "known_at_entry": false
+    }
+  },
+  "failure_condition": {
+    "failure_type": "invalidation_hit",
+    "failure_rule": "Failure if the chart reaches the copied invalidation level before the expected sample follow-through threshold or before the time stop.",
+    "failure_level": 708.37,
+    "failure_touch_or_close_policy": "either",
+    "hold_failure_required": true,
+    "hard_blocker_failure_policy": "No future hard blocker scanning is implemented in this fixture; blockers remain copied from the replay row only."
+  },
+  "time_stop_condition": {
+    "time_stop_type": "same_day_or_fast_swing",
+    "max_hold_candles": 14,
+    "max_hold_sessions": 3,
+    "entry_session_close_policy": "If neither follow-through nor invalidation is proven by the entry session close, classify as expected sample time_stop_same_day or continue as chart-only fast_swing only when the fixture policy permits.",
+    "overnight_carry_policy": "allowed_chart_classification_only",
+    "fast_swing_max_sessions": 3,
+    "source_end_policy": "unresolved_insufficient_lookahead"
+  },
+  "available_context": {
+    "context_24h_daily": {
+      "status": "unconfirmed",
+      "value": "CONTEXT_24H_DAILY_UNCONFIRMED",
+      "as_of": null,
+      "source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv"
+    },
+    "macro_context": {
+      "status": "unconfirmed",
+      "value": "MACRO_UNCONFIRMED",
+      "as_of": null,
+      "source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv"
+    },
+    "iv_context": {
+      "status": "unconfirmed",
+      "value": "IV_UNCONFIRMED",
+      "as_of": null,
+      "source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv"
+    },
+    "event_context": {
+      "status": "unconfirmed",
+      "value": "EVENT_UNCONFIRMED",
+      "as_of": null,
+      "source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv"
+    },
+    "headline_gap_risk_context": {
+      "macro_context_status": "unconfirmed",
+      "iv_context_status": "unconfirmed",
+      "event_context_status": "unconfirmed",
+      "headline_context_status": "unavailable",
+      "gap_detected_from_chart": true,
+      "gap_direction": "up",
+      "gap_points": 3.05,
+      "gap_percent": 0.429,
+      "gap_cause_known": false,
+      "gap_cause_source": null
+    }
+  },
+  "lookahead_window": {
+    "start_timestamp": "2026-04-30T13:30:00-04:00",
+    "end_timestamp": "2026-05-04T15:30:00-04:00",
+    "max_candles": 14,
+    "max_sessions": 3
+  },
+  "source_candle_window": [
+    {
+      "timestamp": "2026-04-30T12:30:00-04:00",
+      "open": 715.18,
+      "high": 715.89,
+      "low": 713.9,
+      "close": 715.83,
+      "volume": 1451529.259507
+    },
+    {
+      "timestamp": "2026-04-30T13:30:00-04:00",
+      "open": 715.82,
+      "high": 718.11,
+      "low": 715.82,
+      "close": 717.88,
+      "volume": 2204539.688794
+    },
+    {
+      "timestamp": "2026-04-30T14:30:00-04:00",
+      "open": 717.91,
+      "high": 719.4,
+      "low": 717.87,
+      "close": 719.12,
+      "volume": 2536234.330405
+    },
+    {
+      "timestamp": "2026-04-30T15:30:00-04:00",
+      "open": 719.11,
+      "high": 719.79,
+      "low": 718.38,
+      "close": 718.42,
+      "volume": 4511121.805083
+    },
+    {
+      "timestamp": "2026-05-01T09:30:00-04:00",
+      "open": 721.28,
+      "high": 724.85,
+      "low": 720.75,
+      "close": 724.2588,
+      "volume": 3765453.867272
+    },
+    {
+      "timestamp": "2026-05-01T10:30:00-04:00",
+      "open": 724.27,
+      "high": 724.27,
+      "low": 722.04,
+      "close": 723.29,
+      "volume": 2411530.014527
+    },
+    {
+      "timestamp": "2026-05-01T11:30:00-04:00",
+      "open": 723.3,
+      "high": 724.38,
+      "low": 721.87,
+      "close": 722.14,
+      "volume": 2533395.562789
+    },
+    {
+      "timestamp": "2026-05-01T12:30:00-04:00",
+      "open": 722.1201,
+      "high": 722.98,
+      "low": 721.49,
+      "close": 722.98,
+      "volume": 1596931.912876
+    },
+    {
+      "timestamp": "2026-05-01T13:30:00-04:00",
+      "open": 722.96,
+      "high": 723.21,
+      "low": 721.5,
+      "close": 722.17,
+      "volume": 1551615.251237
+    },
+    {
+      "timestamp": "2026-05-01T14:30:00-04:00",
+      "open": 722.14,
+      "high": 722.59,
+      "low": 720.78,
+      "close": 722.42,
+      "volume": 2134047.41304
+    },
+    {
+      "timestamp": "2026-05-01T15:30:00-04:00",
+      "open": 722.43,
+      "high": 722.5,
+      "low": 720.47,
+      "close": 720.65,
+      "volume": 2035111.48932
+    },
+    {
+      "timestamp": "2026-05-04T09:30:00-04:00",
+      "open": 720.07,
+      "high": 721.715,
+      "low": 719.25,
+      "close": 721.24,
+      "volume": 2885933.150797
+    },
+    {
+      "timestamp": "2026-05-04T10:30:00-04:00",
+      "open": 721.22,
+      "high": 722.12,
+      "low": 717.45,
+      "close": 718.42,
+      "volume": 4412792.696801
+    },
+    {
+      "timestamp": "2026-05-04T11:30:00-04:00",
+      "open": 718.47,
+      "high": 718.55,
+      "low": 714.99,
+      "close": 717.01,
+      "volume": 4293480.607408
+    },
+    {
+      "timestamp": "2026-05-04T12:30:00-04:00",
+      "open": 716.99,
+      "high": 718.6399,
+      "low": 716.31,
+      "close": 718.555,
+      "volume": 1893269.069733
+    }
+  ],
+  "no_hindsight_audit": {
+    "candidate_created_at": "2026-05-14T00:00:00-04:00",
+    "candidate_created_from_source_timestamp": "2026-04-30T12:30:00-04:00",
+    "rules_defined_before_future_scan": true,
+    "setup_identity_copied_from_source": true,
+    "future_candles_used_only_for_outcome_measurement": true,
+    "manual_override_used": false,
+    "manual_override_reason": null
+  },
+  "notes": "First chart-based trade outcome backtesting v1 sample input fixture. It is scaffold only, uses real validated SPY Continuation replay/source references, and does not implement or prove a backtest result."
+}

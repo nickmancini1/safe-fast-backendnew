@@ -1092,10 +1092,38 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Watcher implementation started:** no
 - **Next task:** create first chart-based trade outcome backtesting v1 sample input/output fixture
 
+## Chart-based trade outcome backtesting v1 sample fixture status
+
+- **Input fixture file:** `chart_trade_outcome_backtesting/fixtures/first_spy_continuation_chart_outcome_input_v1.json`
+- **Expected output fixture file:** `chart_trade_outcome_backtesting/fixtures/first_spy_continuation_chart_outcome_expected_output_v1.json`
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_SAMPLE_FIXTURE_REVIEW.md`
+- **Status:** PASS
+- **Symbol:** SPY
+- **Setup family:** Continuation
+- **Source replay fixture:** `historical_signal_replay/fixtures/first_real_spy_continuation_replay_v1_fixture.json`
+- **Source signal log:** `historical_signal_replay/reports/first_real_spy_continuation_replay_v1_signal_log.jsonl`
+- **Source summary:** `historical_signal_replay/reports/first_real_spy_continuation_replay_v1_summary.json`
+- **Source candle CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+- **Source row:** `triggered_signal_stage_candidate`
+- **Source signal timestamp:** `2026-04-30T12:30:00-04:00`
+- **Chart-only boundary:** documented; sample records entry condition, invalidation, follow-through, failure, time stop, max favorable move, max adverse move, same-day/fast-swing classification, headline/gap-risk context, and likely chart risk versus full-risk notes only
+- **Expected output proof status:** sample/scaffold only, not final backtest proof and not profitability proof
+- **Backtesting implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Broker/order execution modeled:** no
+- **Watcher implementation started:** no
+- **`main.py` changed:** no
+- **Historical replay runner changed:** no
+- **Schemas changed:** no
+- **Historical replay fixtures changed:** no
+- **Reports changed:** no
+- **Next task:** validate chart-based trade outcome sample fixture against schemas
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create first chart-based trade outcome backtesting v1 sample input/output fixture without starting backtesting implementation, option P&L modeling, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
+Next task is validate chart-based trade outcome sample fixture against schemas without starting backtesting implementation, option P&L modeling, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
