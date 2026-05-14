@@ -1062,10 +1062,26 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **`main.py` changed:** no
 - **Next task:** design chart-based trade outcome backtesting v1 schema
 
+## Chart-based trade outcome backtesting v1 schema design status
+
+- **Design file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_SCHEMA_DESIGN.md`
+- **Design status:** PASS
+- **Chart-only boundary:** outcomes measure underlying-chart entry, invalidation, follow-through, failure, time stop, max favorable move, max adverse move, and same-day versus fast-swing classification only.
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Backtesting implementation started:** no
+- **Watcher implementation started:** no
+- **`main.py` changed:** no
+- **Runner code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Next task:** create chart-based trade outcome backtesting v1 schema files
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is design chart-based trade outcome backtesting v1 schema without starting backtesting implementation, option P&L modeling, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
+Next task is create chart-based trade outcome backtesting v1 schema files without starting backtesting implementation, option P&L modeling, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
