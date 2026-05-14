@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `f96729c Add third real SPY source window selection`
-- **Latest completed build milestone:** third-real SPY Clean Fast Break fixture design
-- **Current objective:** third-real SPY Clean Fast Break fixture design completed; future fixture creation must be approved separately
+- **Latest completed commit:** `1a36159 Add third real historical replay fixture design`
+- **Latest completed build milestone:** third-real SPY Clean Fast Break fixture creation
+- **Current objective:** third-real SPY Clean Fast Break fixture creation completed; future runner report emission must be approved separately
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -929,10 +929,43 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** create the third real historical replay v1 fixture from this approved design only if explicitly requested, preserving exact source OHLCV rows and staying signal/stage/lifecycle only
 
+## Historical Signal Replay v1 third real fixture creation status
+
+- **Review file:** `historical_signal_replay/THIRD_REAL_HISTORICAL_REPLAY_V1_FIXTURE_CREATION_REVIEW.md`
+- **Fixture file:** `historical_signal_replay/fixtures/third_real_spy_clean_fast_break_replay_v1_fixture.json`
+- **Fixture creation status:** PASS
+- **Source file:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+- **Symbol:** SPY
+- **Timeframe:** 1h_rth
+- **Timestamp range:** 2026-04-10T09:30:00-04:00 through 2026-04-15T15:30:00-04:00
+- **Setup family:** Clean Fast Break
+- **Fixture row count:** 6
+- **Lifecycle/stage sequence result:** PASS; `watching_clean_fast_break_tight_pause_context`, `clean_fast_break_initial_break_candidate`, `clean_fast_break_follow_through_confirming_context`, `watching_higher_base_after_fast_break`, `clean_fast_break_fresh_break_signal_candidate`, `clean_fast_break_post_break_no_fresh_trigger`
+- **No-hindsight result:** PASS; each row uses only validated SPY source candles available at or before that row timestamp
+- **Boundary result:** PASS; fixture remains signal/stage/lifecycle only and excludes trade outcome backtesting, option P&L, account sizing, broker/order/execution, auto-trading, and live trade decisions
+- **OHLCV changed:** no
+- **Fabricated market data:** no
+- **`main.py` changed:** no
+- **`dxlink_candles.py` changed:** no
+- **Runner code changed:** no
+- **Schemas changed:** no
+- **Replay tests changed:** no
+- **Generated reports changed:** no
+- **Backtesting started:** no
+- **Fixture JSON validation result:** PASS
+- **Schema JSON validation result:** PASS
+- **Source OHLCV integrity result:** PASS; fixture candles match the validated source CSV rows by timestamp and OHLCV numeric value
+- **Runner result:** PASS
+- **Contract tests result:** PASS; all `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS
+- **Fixture validation result:** PASS
+- **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** decide separately whether runner report emission for the third-real Clean Fast Break fixture is desired without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, or live trade decisions
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create the third real historical replay v1 fixture from the approved design only if explicitly requested.
+Next task is decide separately whether runner report emission for the third-real Clean Fast Break fixture is desired without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
