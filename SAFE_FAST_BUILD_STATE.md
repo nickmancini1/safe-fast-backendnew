@@ -1025,10 +1025,28 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Account sizing added:** no
 - **Next task:** decide next bounded phase after SPY three-setup real historical replay closeout
 
+## SAFE-FAST next bounded phase decision status
+
+- **Review file:** `SAFE_FAST_NEXT_BOUNDED_PHASE_DECISION_REVIEW.md`
+- **Decision status:** PASS
+- **Chosen next phase:** Chart-based trade outcome backtesting v1 planning
+- **Reason:** SPY three-setup real historical replay now covers Continuation, Ideal, and Clean Fast Break with real source-data fixtures and runner output validation, which is enough to begin outcome methodology safely as planning only.
+- **Rejected alternatives:** QQQ/IWM/GLD real historical replay coverage next, because broader signal coverage remains useful but is not required before outcome methodology planning; Continuous Watcher MVP planning next, because watcher work must not precede backtesting planning.
+- **`main.py` changed:** no
+- **Runner code changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Backtesting implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **Next task:** create a docs-only chart-based trade outcome backtesting v1 planning review without implementing backtesting, modeling option P&L, adding account sizing, starting watcher behavior, auto-trading, live reads, or live trade decisions.
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is decide next bounded phase after SPY three-setup real historical replay closeout without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
+Next task is create a docs-only chart-based trade outcome backtesting v1 planning review without starting backtesting implementation, option P&L modeling, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
