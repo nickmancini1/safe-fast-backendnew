@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `1a36159 Add third real historical replay fixture design`
-- **Latest completed build milestone:** third-real SPY Clean Fast Break fixture creation
-- **Current objective:** third-real SPY Clean Fast Break fixture creation completed; future runner report emission must be approved separately
+- **Latest completed commit:** `33097a4 Add third real SPY Clean Fast Break replay fixture`
+- **Latest completed build milestone:** third-real SPY Clean Fast Break runner output validation
+- **Current objective:** third-real SPY Clean Fast Break runner output validation completed; future historical signal/stage/lifecycle replay work must be approved separately
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -962,10 +962,47 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Full replay result:** PASS; 16/16 passed, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** decide separately whether runner report emission for the third-real Clean Fast Break fixture is desired without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, or live trade decisions
 
+## Historical Signal Replay v1 third real fixture runner output validation status
+
+- **Review file:** `historical_signal_replay/THIRD_REAL_HISTORICAL_REPLAY_V1_RUNNER_OUTPUT_VALIDATION_REVIEW.md`
+- **Validation status:** PASS
+- **Fixture file:** `historical_signal_replay/fixtures/third_real_spy_clean_fast_break_replay_v1_fixture.json`
+- **Generated signal log:** `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl`
+- **Generated summary:** `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_summary.json`
+- **Generated regression candidates:** `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_regression_candidates.json`
+- **Symbol:** SPY
+- **Timeframe:** 1h_rth
+- **Setup family:** Clean Fast Break
+- **Third-real signal log exists:** yes
+- **Third-real signal log row count:** 6
+- **Third-real summary total rows:** 6
+- **Setup family count result:** PASS; `Clean Fast Break: 6`
+- **Stage count result:** PASS; `clean_fast_break_tight_pause_context: 1`, `clean_fast_break_initial_break_candidate: 1`, `clean_fast_break_follow_through_confirming_context: 1`, `watching_higher_base_after_fast_break: 1`, `clean_fast_break_fresh_break_signal_candidate: 1`, `clean_fast_break_post_break_no_fresh_trigger: 1`
+- **Lifecycle/stage sequence result:** PASS; `clean_fast_break_tight_pause_context`, `clean_fast_break_initial_break_candidate`, `clean_fast_break_follow_through_confirming_context`, `watching_higher_base_after_fast_break`, `clean_fast_break_fresh_break_signal_candidate`, `clean_fast_break_post_break_no_fresh_trigger`
+- **Fixture row-name sequence result:** PASS; `watching_clean_fast_break_tight_pause_context`, `clean_fast_break_initial_break_candidate`, `clean_fast_break_follow_through_confirming_context`, `watching_higher_base_after_fast_break`, `clean_fast_break_fresh_break_signal_candidate`, `clean_fast_break_post_break_no_fresh_trigger`
+- **Boundary result:** PASS; reports remain signal/stage/lifecycle only and make no profitability, trade outcome backtesting, option P&L, account sizing, execution, auto-trading, or live trade decision claims
+- **Runner code changed:** yes; `historical_signal_replay/run_signal_replay.py` only
+- **Generated reports changed:** yes
+- **Review file created:** yes
+- **`SAFE_FAST_BUILD_STATE.md` updated:** yes
+- **`main.py` changed:** no
+- **`dxlink_candles.py` changed:** no
+- **Schemas changed:** no
+- **Fixture contents changed:** no
+- **Replay tests changed:** no
+- **Backtesting started:** no
+- **Runner result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Fixture JSON validation result:** PASS; `python -m json.tool historical_signal_replay/fixtures/third_real_spy_clean_fast_break_replay_v1_fixture.json`
+- **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
+- **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
+- **Contract tests result:** PASS; all 35 `replay/test_on_demand_*contract.py` files passed locally
+- **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** choose the next bounded historical signal/stage/lifecycle replay validation step without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, or live trade decisions
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is decide separately whether runner report emission for the third-real Clean Fast Break fixture is desired without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
+Next task is choose the next bounded historical signal/stage/lifecycle replay validation step without starting backtesting, option P&L, account sizing, watcher implementation, auto-trading, live trade decisions, or engine work.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.

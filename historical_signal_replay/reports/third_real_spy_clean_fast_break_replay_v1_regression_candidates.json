@@ -1,0 +1,89 @@
+{
+  "candidates": [
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "SPY|2026-04-10|Clean Fast Break|clean_fast_break_tight_pause_context|no_completed_break_yet",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "no_completed_break_yet",
+      "setup_state": "watching",
+      "setup_type": "Clean Fast Break",
+      "stage": "clean_fast_break_tight_pause_context",
+      "state_changed": true,
+      "symbol": "SPY",
+      "timestamp": "2026-04-10T15:30:00-04:00",
+      "trigger_changed": false,
+      "trigger_state": "not_present"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "SPY|2026-04-13|Clean Fast Break|clean_fast_break_initial_break_candidate|none",
+      "final_verdict": "TRADE",
+      "primary_blocker": null,
+      "setup_state": "initial_break_candidate",
+      "setup_type": "Clean Fast Break",
+      "stage": "clean_fast_break_initial_break_candidate",
+      "state_changed": true,
+      "symbol": "SPY",
+      "timestamp": "2026-04-13T12:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "triggered"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "SPY|2026-04-13|Clean Fast Break|clean_fast_break_follow_through_confirming_context|prior_completed_clean_fast_break_spent",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "prior_completed_clean_fast_break_spent",
+      "setup_state": "follow_through_context",
+      "setup_type": "Clean Fast Break",
+      "stage": "clean_fast_break_follow_through_confirming_context",
+      "state_changed": true,
+      "symbol": "SPY",
+      "timestamp": "2026-04-13T15:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "follow_through"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "SPY|2026-04-15|Clean Fast Break|watching_higher_base_after_fast_break|fresh_completed_breakout_required",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "fresh_completed_breakout_required",
+      "setup_state": "watching",
+      "setup_type": "Clean Fast Break",
+      "stage": "watching_higher_base_after_fast_break",
+      "state_changed": true,
+      "symbol": "SPY",
+      "timestamp": "2026-04-15T11:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "not_present"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "SPY|2026-04-15|Clean Fast Break|clean_fast_break_fresh_break_signal_candidate|none",
+      "final_verdict": "TRADE",
+      "primary_blocker": null,
+      "setup_state": "signal_stage",
+      "setup_type": "Clean Fast Break",
+      "stage": "clean_fast_break_fresh_break_signal_candidate",
+      "state_changed": true,
+      "symbol": "SPY",
+      "timestamp": "2026-04-15T14:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "triggered"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "SPY|2026-04-15|Clean Fast Break|clean_fast_break_post_break_no_fresh_trigger|prior_completed_clean_fast_break_spent",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "prior_completed_clean_fast_break_spent",
+      "setup_state": "spent",
+      "setup_type": "Clean Fast Break",
+      "stage": "clean_fast_break_post_break_no_fresh_trigger",
+      "state_changed": true,
+      "symbol": "SPY",
+      "timestamp": "2026-04-15T15:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "spent"
+    }
+  ],
+  "purpose": "Third-real SPY Clean Fast Break signal/stage/lifecycle replay regression candidates only; no profitability, P&L, account sizing, trade outcomes, live trade decisions, or auto-trading."
+}
