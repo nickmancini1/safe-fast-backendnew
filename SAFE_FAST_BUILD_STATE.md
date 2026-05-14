@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `18d1424 Add chart-based trade outcome sample fixture`
+- **Latest completed commit:** `d4330cf Add chart outcome sample schema validation`
 - **Latest completed build milestone:** chart-based trade outcome backtesting v1 sample schema validation
-- **Current objective:** chart-based trade outcome sample fixture schema validation completed; next bounded chart outcome validation/tooling step must be approved separately
+- **Current objective:** add minimal chart outcome sample fixture schema-validation script only; do not start backtesting implementation, option P&L, account sizing, or watcher work
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -1153,6 +1153,31 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** decide whether to add a minimal schema-validation command/script for chart outcome sample fixtures, without starting backtesting implementation, option P&L modeling, account sizing, watcher implementation, auto-trading, live reads, or live trade decisions
+
+## Chart-based trade outcome backtesting v1 validation script status
+
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_VALIDATION_SCRIPT_REVIEW.md`
+- **Validation script:** `chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Validation script status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before script:** `d4330cf Add chart outcome sample schema validation`
+- **Scope:** minimal chart-only schema validation command for the existing chart outcome sample input fixture and expected output fixture
+- **Input fixture:** `chart_trade_outcome_backtesting/fixtures/first_spy_continuation_chart_outcome_input_v1.json`
+- **Input schema:** `chart_trade_outcome_backtesting/schemas/chart_outcome_backtest_input_v1.schema.json`
+- **Expected output fixture:** `chart_trade_outcome_backtesting/fixtures/first_spy_continuation_chart_outcome_expected_output_v1.json`
+- **Output schema:** `chart_trade_outcome_backtesting/schemas/chart_outcome_backtest_output_v1.schema.json`
+- **Expected command:** `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Expected behavior:** prints PASS/FAIL and exits nonzero on schema-validation failure
+- **Backtesting implementation started:** no
+- **Outcome calculation implemented:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **`main.py` changed:** no
+- **Historical replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Next task:** expand chart outcome validation only if explicitly requested, without implementing backtesting, calculating outcomes, modeling option P&L, adding account sizing, starting watcher behavior, auto-trading, live reads, or live trade decisions
 
 ## Next exact task
 
