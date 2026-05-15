@@ -1587,6 +1587,29 @@ Do not implement new calculation, model option P&L, add account sizing, start Co
 - **Reports changed:** no
 - **Next task:** validate aggregate chart outcome summary report
 
+## Codex workflow helper auto-submit upgrade status
+
+- **Helper auto-submit upgrade status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before upgrade:** `086e9a6 Add chart outcome backtesting v1 closeout review`
+- **Helper script file:** `tools/safe_fast_codex_task.ps1`
+- **Helper README file:** `tools/CODEX_TASK_HELPER_README.md`
+- **Prompt README file:** `codex_prompts/README.md`
+- **Codex help inspected:** yes; `codex.cmd --help` and `codex.cmd exec --help`
+- **Non-interactive Codex support:** yes; `codex exec` documents `[PROMPT]`, `-`, and stdin prompt input
+- **Auto-submit mode added:** yes; `-AutoSubmit`
+- **Auto-submit command path:** `codex.cmd exec -C <repo-root> -s workspace-write -a never -`
+- **Clipboard fallback preserved:** yes; default mode still copies the prompt file and opens interactive Codex
+- **No engine changes:** yes
+- **No replay/backtesting logic changes:** yes
+- **`main.py` changed:** no
+- **Historical replay runner changed:** no
+- **Chart outcome runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Next task:** decide next bounded phase after chart-based trade outcome backtesting v1 closeout
+
 ## Chart-based trade outcome backtesting v1 aggregate summary reporting status
 
 - **Summary status:** PASS
