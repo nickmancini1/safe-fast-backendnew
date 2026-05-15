@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `f81055d Add post-first chart outcome decision review`
-- **Latest completed build milestone:** chart-based trade outcome backtesting v1 second real calculation
-- **Current objective:** validate second real chart outcome calculation output without modeling option P&L, adding account sizing, or starting watcher work
+- **Latest completed commit:** `0f0df18 Add second real chart outcome calculation`
+- **Latest completed build milestone:** chart-based trade outcome backtesting v1 second real calculation output validation
+- **Current objective:** decide the next bounded chart-based trade outcome backtesting v1 step after second real calculation output validation without modeling option P&L, adding account sizing, or starting watcher work
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -1426,10 +1426,42 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Output JSON parse/schema validation result:** PASS; runner validated output schema and `python -m json.tool chart_trade_outcome_backtesting/reports/second_spy_ideal_chart_outcome_result_v1.json` parsed successfully
 - **Next task:** validate second real chart outcome calculation output
 
+## Chart-based trade outcome backtesting v1 second real calculation output validation status
+
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_SECOND_REAL_CALCULATION_OUTPUT_VALIDATION_REVIEW.md`
+- **Validation status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before validation:** `0f0df18 Add second real chart outcome calculation`
+- **Sample/result file:** `chart_trade_outcome_backtesting/reports/second_spy_ideal_chart_outcome_result_v1.json`
+- **Entry validation result:** PASS; entry timestamp `2026-05-13T12:30:00-04:00` and entry reference price `741.73` match the next eligible real SPY 1H RTH source row after source signal timestamp `2026-05-13T11:30:00-04:00`
+- **Invalidation validation result:** PASS; invalidation `731.83` is copied from the eligible replay signal row, and real source lows through terminal follow-through did not touch or cross invalidation
+- **Follow-through/failure/time-stop validation result:** PASS; bullish follow-through threshold is predeclared at `2.0` favorable points, entry `741.73` plus threshold requires `743.73`, and the real terminal candle high `743.9` reached follow-through on `2026-05-13T13:30:00-04:00`; failure and time stop did not trigger
+- **MFE validation result:** PASS; MFE `2.17` points / `0.2926%` / `0.2192R` is calculated from real source rows only through the first terminal candle
+- **MAE validation result:** PASS; MAE `0.35` points / `0.0472%` / `0.0354R` is calculated from real source rows only through the first terminal candle
+- **Expected output comparison result:** PASS; result matches expected output excluding only runner-written `notes`
+- **Chart-only boundary:** preserved
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Calculation code changed:** no
+- **Historical replay runner changed:** no
+- **Chart fixture validation result:** PASS; `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Chart runner result:** PASS; `python -B chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Output JSON parse/schema validation result:** PASS; runner validated output schema and `python -m json.tool chart_trade_outcome_backtesting/reports/second_spy_ideal_chart_outcome_result_v1.json` parsed successfully
+- **Historical signal replay result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Contract tests result:** PASS; all 35 `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
+- **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
+- **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** create a bounded next-step decision review for chart-based trade outcome backtesting v1 after second real calculation output validation, without modeling option P&L, adding account sizing, starting watcher work, changing `main.py`, changing schemas or fixtures, changing historical replay runners, auto-trading, live reads, or live trade decisions
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is validate second real chart outcome calculation output.
+Next task is create a bounded next-step decision review for chart-based trade outcome backtesting v1 after second real calculation output validation.
 
 Do not model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change fixtures, or expand beyond the second SPY Ideal chart outcome calculation without explicit authorization and coverage first.
