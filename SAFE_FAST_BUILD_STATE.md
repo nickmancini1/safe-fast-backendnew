@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `988c9ee Add second real chart outcome output validation`
-- **Latest completed build milestone:** chart-based trade outcome backtesting v1 post-second-calculation decision review
-- **Current objective:** decide the next bounded chart-based trade outcome backtesting v1 step after second real calculation output validation without modeling option P&L, adding account sizing, or starting watcher work
+- **Latest completed commit:** `35a1249 Add post-second chart outcome decision review`
+- **Latest completed build milestone:** chart-based trade outcome backtesting v1 third real calculation
+- **Current objective:** validate third real chart outcome calculation output without modeling option P&L, adding account sizing, or starting watcher work
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -1477,10 +1477,40 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Runner code changed:** no
 - **Next task:** create the third real chart-only outcome calculation for the SPY Clean Fast Break sample using the existing calculation rules plan as the source of truth, without modeling option P&L, adding account sizing, starting watcher work, changing `main.py`, changing schemas or fixtures without explicit authorization, changing runner code, changing historical replay runners, auto-trading, live reads, or live trade decisions.
 
+## Chart-based trade outcome backtesting v1 third real calculation status
+
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_THIRD_REAL_CALCULATION_REVIEW.md`
+- **Calculation status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before calculation:** `35a1249 Add post-second chart outcome decision review`
+- **Sample used:** `chart_trade_outcome_backtesting/fixtures/third_spy_clean_fast_break_chart_outcome_input_v1.json`
+- **Symbol/setup:** SPY Clean Fast Break
+- **Report file:** `chart_trade_outcome_backtesting/reports/third_spy_clean_fast_break_chart_outcome_result_v1.json`
+- **Chart-only boundary:** preserved; underlying-chart entry, invalidation, follow-through/failure/time-stop, MFE, MAE, same-day/fast-swing classification, headline/gap-risk context, likely chart risk, and no-hindsight audit behavior only
+- **Entry result:** entry reached at `2026-04-15T15:30:00-04:00` using next eligible 1H RTH candle open `699.995`
+- **Invalidation result:** copied pre-entry invalidation `694.2801`; not reached before terminal time stop
+- **MFE/MAE result:** MFE `0.285` points / `0.0407%` / `0.0499R`; MAE `0.735` points / `0.105%` / `0.1286R`
+- **Follow-through/failure/time-stop result:** follow-through not reached; failure/invalidation not reached; same-day time stop reached on `2026-04-15T15:30:00-04:00` at close `699.84`
+- **Same-day/fast-swing classification:** `time_stop_same_day`
+- **Headline/gap-risk context:** preserved as unconfirmed/unavailable; chart gap recorded from real source candles with unknown cause
+- **Likely-risk vs full-risk notes:** preserved as chart-only notes; full risk not modeled
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Broker/order execution modeled:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Historical replay fixtures changed:** no
+- **Historical replay runner changed:** no
+- **Chart fixture validation result:** PASS; `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Chart runner result:** PASS; `python -B chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Output JSON parse/schema validation result:** PASS; runner validated output schema and `python -m json.tool chart_trade_outcome_backtesting/reports/third_spy_clean_fast_break_chart_outcome_result_v1.json` parsed successfully
+- **Next task:** validate third real chart outcome calculation output
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create the third real chart-only outcome calculation for the SPY Clean Fast Break sample using the existing calculation rules plan as the source of truth.
+Next task is validate third real chart outcome calculation output.
 
-Do not model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change fixtures, change runner code, or expand beyond the third SPY Clean Fast Break chart outcome calculation without explicit authorization and coverage first.
+Do not model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change historical replay fixtures, change historical replay runner, or expand beyond third real chart outcome calculation output validation without explicit authorization and coverage first.

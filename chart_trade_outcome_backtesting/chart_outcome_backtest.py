@@ -13,11 +13,11 @@ REPO_ROOT = ROOT.parent
 
 INPUT_SCHEMA = ROOT / "schemas" / "chart_outcome_backtest_input_v1.schema.json"
 OUTPUT_SCHEMA = ROOT / "schemas" / "chart_outcome_backtest_output_v1.schema.json"
-INPUT_FIXTURE = ROOT / "fixtures" / "second_spy_ideal_chart_outcome_input_v1.json"
+INPUT_FIXTURE = ROOT / "fixtures" / "third_spy_clean_fast_break_chart_outcome_input_v1.json"
 EXPECTED_OUTPUT_FIXTURE = (
-    ROOT / "fixtures" / "second_spy_ideal_chart_outcome_expected_output_v1.json"
+    ROOT / "fixtures" / "third_spy_clean_fast_break_chart_outcome_expected_output_v1.json"
 )
-REPORT_PATH = ROOT / "reports" / "second_spy_ideal_chart_outcome_result_v1.json"
+REPORT_PATH = ROOT / "reports" / "third_spy_clean_fast_break_chart_outcome_result_v1.json"
 
 
 @dataclass(frozen=True)
