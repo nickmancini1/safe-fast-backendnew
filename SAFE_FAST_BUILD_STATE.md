@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `db5ac3f Fix Codex helper auto-submit mode`
-- **Latest completed build milestone:** chart-based trade outcome backtesting v1 closeout review
-- **Current objective:** revise Continuous Watcher MVP plan as deferred planning only; next plan broader chart-based trade outcome backtesting coverage before Continuous Watcher implementation
+- **Latest completed commit:** `5fd128f Add deferred Continuous Watcher MVP plan`
+- **Latest completed build milestone:** deferred Continuous Watcher MVP plan
+- **Current objective:** broader chart-based trade outcome backtesting coverage planning before Continuous Watcher implementation
 - **Current build direction:** broader chart-based trade outcome backtesting coverage planning before any watcher implementation or deeper watcher design; do not implement watcher code, option P&L, account sizing, auto-trading, live reads, or live trade decisions
 - **Work mode:** build work only, no live trade decisions
 
@@ -1820,3 +1820,33 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Runner code changed:** no
 - **Chart outcome code changed:** no
 - **Next task:** plan broader chart-based trade outcome backtesting coverage before Continuous Watcher implementation, without changing `main.py`, schemas, fixtures, runner code, reports, chart outcome code, option P&L, account sizing, production/Railway, or live trade behavior.
+
+## Broader chart-based trade outcome backtesting coverage planning status
+
+- **Plan file:** `SAFE_FAST_BROADER_CHART_OUTCOME_BACKTESTING_COVERAGE_PLAN.md`
+- **Planning status:** PASS - docs-only coverage plan
+- **Baseline:** patch8
+- **Latest local commit before planning:** `5fd128f Add deferred Continuous Watcher MVP plan`
+- **Reason watcher remains deferred:** current chart outcome evidence is limited to three SPY setup-family samples; watcher implementation should not be built around only one symbol and one sample per setup family
+- **Next coverage target:** QQQ first, then IWM, then GLD unless later reviewed source-data/window evidence requires a documented exception
+- **Setup-family target:** Ideal, Clean Fast Break, Continuation for each next symbol
+- **Minimum sample target:** 3 validated chart outcome samples per setup family per symbol; 9 per symbol and 27 across QQQ/IWM/GLD
+- **Source-data requirement:** validated real 1H RTH historical source data with no after-the-fact labels, option data, account sizing, broker/order data, P&L labels, or future-row conclusions before replay/window selection
+- **Real historical replay requirement:** required before chart outcome calculation for each symbol/setup-family candidate
+- **Chart outcome calculation requirement:** chart-only output after replay-reviewed candidates only; no option P&L, account sizing, broker/order/fill/slippage, or watcher output
+- **Aggregate summary requirement:** required for each completed symbol pass and must read existing validated result files only
+- **No-hindsight rule:** source, replay, fixture, and candidate selection must not use future rows or later trade outcomes
+- **Headline/gap-risk handling:** candle-visible gaps may be recorded; gap causes, macro, IV, event, and headline context remain unavailable/unconfirmed unless supplied by reviewed sources
+- **Likely risk vs full-risk note:** likely risk is underlying chart distance to invalidation only, not full financial risk
+- **Decision gate:** watcher planning beyond the deferred reference can resume only after QQQ/IWM/GLD broader replay plus chart outcome coverage and aggregate summaries are completed/reviewed or documented exceptions are approved
+- **Implementation started:** no
+- **New data pull started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Next task:** begin QQQ broader chart outcome coverage as a bounded source-data validation and real historical replay planning task for Ideal, Clean Fast Break, and Continuation, without pulling data or changing fixtures unless that task explicitly authorizes those steps.
