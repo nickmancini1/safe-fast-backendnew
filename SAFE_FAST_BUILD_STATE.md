@@ -7,8 +7,8 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `0f0df18 Add second real chart outcome calculation`
-- **Latest completed build milestone:** chart-based trade outcome backtesting v1 second real calculation output validation
+- **Latest completed commit:** `988c9ee Add second real chart outcome output validation`
+- **Latest completed build milestone:** chart-based trade outcome backtesting v1 post-second-calculation decision review
 - **Current objective:** decide the next bounded chart-based trade outcome backtesting v1 step after second real calculation output validation without modeling option P&L, adding account sizing, or starting watcher work
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
@@ -1458,10 +1458,29 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** create a bounded next-step decision review for chart-based trade outcome backtesting v1 after second real calculation output validation, without modeling option P&L, adding account sizing, starting watcher work, changing `main.py`, changing schemas or fixtures, changing historical replay runners, auto-trading, live reads, or live trade decisions
 
+## Chart-based trade outcome backtesting v1 post-second-calculation decision status
+
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_POST_SECOND_CALCULATION_DECISION_REVIEW.md`
+- **Decision status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before decision:** `988c9ee Add second real chart outcome output validation`
+- **Chosen next step:** add third real chart outcome calculation for SPY Clean Fast Break
+- **Reason:** SPY Continuation and SPY Ideal real chart outcome calculations are validated, but SPY Clean Fast Break has eligible historical signal evidence without a corresponding chart outcome calculation.
+- **Rejected alternatives:** build aggregate chart outcome summary reporting, because summary reporting would aggregate incomplete setup-family calculation coverage; move to watcher planning, because watcher work should not start before all three setup families have real chart outcome calculations.
+- **Real calculation implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Runner code changed:** no
+- **Next task:** create the third real chart-only outcome calculation for the SPY Clean Fast Break sample using the existing calculation rules plan as the source of truth, without modeling option P&L, adding account sizing, starting watcher work, changing `main.py`, changing schemas or fixtures without explicit authorization, changing runner code, changing historical replay runners, auto-trading, live reads, or live trade decisions.
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create a bounded next-step decision review for chart-based trade outcome backtesting v1 after second real calculation output validation.
+Next task is create the third real chart-only outcome calculation for the SPY Clean Fast Break sample using the existing calculation rules plan as the source of truth.
 
-Do not model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change fixtures, or expand beyond the second SPY Ideal chart outcome calculation without explicit authorization and coverage first.
+Do not model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change fixtures, change runner code, or expand beyond the third SPY Clean Fast Break chart outcome calculation without explicit authorization and coverage first.
