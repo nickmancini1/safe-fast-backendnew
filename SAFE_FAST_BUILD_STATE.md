@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `23576ee Add post-three chart outcome decision review`
-- **Latest completed build milestone:** chart-based trade outcome backtesting v1 aggregate summary reporting
-- **Current objective:** validate aggregate chart outcome summary report, without implementing new calculation, modeling option P&L, adding account sizing, or starting watcher work
+- **Latest completed commit:** `6b566dd Add Codex workflow helper`
+- **Latest completed build milestone:** chart-based trade outcome backtesting v1 aggregate summary output validation
+- **Current objective:** aggregate chart outcome summary output validation complete; next create a bounded post-validation decision review without implementing new calculation, modeling option P&L, adding account sizing, or starting watcher work
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -1562,9 +1562,9 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 
 Continue from patch8.
 
-Next task is validate aggregate chart outcome summary report.
+Next task is create a bounded next-step decision review after aggregate summary output validation.
 
-Do not implement new calculation, model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change historical replay fixtures, change historical replay runner, or expand beyond aggregate chart outcome summary reporting without explicit authorization and coverage first.
+Do not implement new calculation, model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change historical replay fixtures, change historical replay runner, or expand beyond bounded post-validation decision work without explicit authorization and coverage first.
 
 ## Codex workflow helper status
 
@@ -1625,3 +1625,37 @@ Do not implement new calculation, model option P&L, add account sizing, start Co
 - **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** validate aggregate chart outcome summary report
+
+## Chart-based trade outcome backtesting v1 aggregate summary output validation status
+
+- **Validation status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before validation:** `6b566dd Add Codex workflow helper`
+- **Summary report file:** `chart_trade_outcome_backtesting/reports/spy_three_setup_chart_outcome_summary_v1.json`
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_AGGREGATE_SUMMARY_OUTPUT_VALIDATION_REVIEW.md`
+- **Summary report exists:** yes
+- **Summary JSON validation result:** PASS
+- **Sample count validation result:** PASS; exactly 3 samples included
+- **Setup-family validation result:** PASS; includes Continuation, Ideal, and Clean Fast Break
+- **Follow-through/failure/time-stop validation result:** PASS; 2 follow-through, 0 failure/invalidated, 1 time stop
+- **MFE validation result:** PASS; summary values match source result files
+- **MAE validation result:** PASS; summary values match source result files
+- **MFE summary:** average 1.5817 points / 0.2177% / 0.1922R; max 2.29 points / 0.3199% / 0.3074R
+- **MAE summary:** average 0.3617 points / 0.0507% / 0.0547R; max 0.735 points / 0.105% / 0.1286R
+- **Chart-only boundary:** preserved
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Runner code changed:** no
+- **Chart fixture validation result:** PASS; `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Chart runner result:** PASS; `python -B chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Aggregate summary script result:** PASS; `python -B chart_trade_outcome_backtesting/summarize_chart_outcomes.py`
+- **Historical signal replay result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Contract tests result:** PASS; all 35 `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
+- **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
+- **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** create a bounded next-step decision review after aggregate summary output validation, without implementing new calculations, modeling option P&L, adding account sizing, starting watcher work, changing `main.py`, changing schemas or fixtures, changing historical replay runners, auto-trading, live reads, or live trade decisions.
