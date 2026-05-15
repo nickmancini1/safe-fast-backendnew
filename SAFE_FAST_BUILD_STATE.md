@@ -1566,6 +1566,27 @@ Next task is validate aggregate chart outcome summary report.
 
 Do not implement new calculation, model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change historical replay fixtures, change historical replay runner, or expand beyond aggregate chart outcome summary reporting without explicit authorization and coverage first.
 
+## Codex workflow helper status
+
+- **Helper status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before helper:** `4e551fd Add aggregate chart outcome summary reporting`
+- **Helper script file:** `tools/safe_fast_codex_task.ps1`
+- **Helper README file:** `tools/CODEX_TASK_HELPER_README.md`
+- **Prompt README file:** `codex_prompts/README.md`
+- **Behavior:** copies a prompt file to clipboard, checks clean git status, prints latest commit, and opens Codex interactively from the repo root
+- **Codex help inspected:** yes; `codex.cmd --help`
+- **Non-interactive Codex support:** yes, documented by `codex exec`; not wired into helper
+- **No engine changes:** yes
+- **No replay/backtesting logic changes:** yes
+- **`main.py` changed:** no
+- **Historical replay runner changed:** no
+- **Chart outcome runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Next task:** validate aggregate chart outcome summary report
+
 ## Chart-based trade outcome backtesting v1 aggregate summary reporting status
 
 - **Summary status:** PASS
