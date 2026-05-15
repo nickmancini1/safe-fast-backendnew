@@ -7,10 +7,10 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `378b2db Add post-aggregate chart outcome decision review`
+- **Latest completed commit:** `db5ac3f Fix Codex helper auto-submit mode`
 - **Latest completed build milestone:** chart-based trade outcome backtesting v1 closeout review
-- **Current objective:** chart-based trade outcome backtesting v1 closeout review complete; next decide the next bounded phase after chart-based trade outcome backtesting v1 closeout without implementing new calculation, modeling option P&L, adding account sizing, or starting watcher work
-- **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
+- **Current objective:** next bounded phase after chart outcome v1 closeout decision complete; next create bounded Continuous Watcher MVP planning review without implementation, option P&L, account sizing, or watcher implementation
+- **Current build direction:** Continuous Watcher MVP planning only; do not implement watcher code, trade outcome expansion, option P&L, account sizing, auto-trading, live reads, or live trade decisions
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -1562,9 +1562,9 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 
 Continue from patch8.
 
-Next task is create a bounded next-step decision review after aggregate summary output validation.
+Next task is create a bounded Continuous Watcher MVP planning review.
 
-Do not implement new calculation, model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change historical replay fixtures, change historical replay runner, or expand beyond bounded post-validation decision work without explicit authorization and coverage first.
+Do not implement watcher code, implement new calculation, model option P&L, add account sizing, auto-trade, make live trade decisions, change `main.py`, change schemas, change historical replay fixtures, change historical replay runner, or expand beyond bounded watcher planning work without explicit authorization and coverage first.
 
 ## Codex workflow helper status
 
@@ -1764,3 +1764,30 @@ Do not implement new calculation, model option P&L, add account sizing, start Co
 - **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** decide next bounded phase after chart-based trade outcome backtesting v1 closeout
+
+## Next bounded phase after chart outcome v1 closeout status
+
+- **Review file:** `SAFE_FAST_NEXT_BOUNDED_PHASE_AFTER_CHART_OUTCOME_V1_CLOSEOUT_REVIEW.md`
+- **Decision status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before decision:** `db5ac3f Fix Codex helper auto-submit mode`
+- **Chosen next phase:** Continuous Watcher MVP planning
+- **Reason:** chart-based trade outcome backtesting v1 is formally closed out after validated SPY Continuation, Ideal, and Clean Fast Break chart-only outcomes plus aggregate summary validation. The next step that best moves SAFE-FAST toward Proof-Mode v1 without skipping safeguards is bounded planning for Continuous Watcher MVP behavior, lifecycle state, alert suppression, proof-mode boundaries, and required replay/shadow evidence. Planning does not start watcher implementation and does not add live reads, option P&L, account sizing, or trading behavior.
+- **Rejected alternatives:** broader symbol replay/backtest coverage, because the watcher MVP proof boundary should be defined before expanding evidence requirements; option/risk layer planning, because option P&L, debit-spread modeling, slippage, fills, and full risk behavior remain later work and should not precede watcher MVP planning from this repo state; account sizing planning, because account sizing and account-mode behavior remain future work after watcher proof boundaries are defined, and the current account-mode plan explicitly says not to add this logic to engine behavior yet.
+- **Implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Runner code changed:** no
+- **Chart fixture validation result:** PASS; `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Chart runner result:** PASS; `python -B chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Aggregate summary result:** PASS; `python -B chart_trade_outcome_backtesting/summarize_chart_outcomes.py`
+- **Historical signal replay result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Contract tests result:** PASS; all `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
+- **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
+- **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** create a bounded Continuous Watcher MVP planning review that defines watch-only scope, lifecycle state requirements, no-duplicate alert rules, unavailable live-field handling, proof-mode evidence requirements, and explicit non-implementation boundaries, without changing `main.py`, schemas, fixtures, runner code, option P&L, account sizing, or starting watcher implementation.
