@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `3367935 Add chart outcome runner output validation`
-- **Latest completed build milestone:** chart-based trade outcome backtesting v1 next-step decision review
-- **Current objective:** chart-based trade outcome backtesting v1 next-step decision review is complete; plan real chart outcome calculation rules next without starting real outcome calculation, option P&L, account sizing, or watcher work
+- **Latest completed commit:** `3a0b34e Add chart outcome calculation rules plan`
+- **Latest completed build milestone:** chart-based trade outcome backtesting v1 calculation rules planning
+- **Current objective:** first real chart-only outcome calculation for the first SPY Continuation sample is implemented; validate first real chart outcome calculation output next without modeling option P&L, adding account sizing, or starting watcher work
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -1322,10 +1322,35 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Runner code changed:** no
 - **Next task:** create minimal real chart outcome calculation implementation for first SPY Continuation sample
 
+## Chart-based trade outcome backtesting v1 first real calculation status
+
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_FIRST_REAL_CALCULATION_REVIEW.md`
+- **Calculation status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before calculation:** `3a0b34e Add chart outcome calculation rules plan`
+- **Sample used:** `chart_trade_outcome_backtesting/fixtures/first_spy_continuation_chart_outcome_input_v1.json`
+- **Symbol/setup:** SPY Continuation
+- **Report file:** `chart_trade_outcome_backtesting/reports/first_spy_continuation_chart_outcome_result_v1.json`
+- **Chart-only boundary:** preserved; underlying-chart entry, invalidation, follow-through/failure/time-stop, MFE, MAE, same-day/fast-swing classification, headline/gap-risk context, likely chart risk, and no-hindsight audit behavior only
+- **Entry result:** entry reached at `2026-04-30T13:30:00-04:00` using next eligible 1H RTH candle open `715.82`
+- **Invalidation result:** copied pre-entry invalidation `708.37`; not reached before terminal follow-through
+- **MFE/MAE result:** MFE `2.29` points / `0.3199%` / `0.3074R`; MAE `0.0` points / `0.0%` / `0.0R`
+- **Follow-through/failure/time-stop result:** follow-through reached on `2026-04-30T13:30:00-04:00`; failure not reached; time stop not reached
+- **Same-day/fast-swing classification:** `same_day`
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Broker/order execution modeled:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Historical replay runner changed:** no
+- **Next task:** validate first real chart outcome calculation output
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create minimal real chart outcome calculation implementation for first SPY Continuation sample, using `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_CALCULATION_RULES_PLAN.md` as the source of truth.
+Next task is validate first real chart outcome calculation output.
 
 Do not model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change fixtures, or expand beyond the first SPY Continuation sample without explicit authorization and coverage first.
