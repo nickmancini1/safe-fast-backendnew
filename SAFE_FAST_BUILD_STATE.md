@@ -9,8 +9,8 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `db5ac3f Fix Codex helper auto-submit mode`
 - **Latest completed build milestone:** chart-based trade outcome backtesting v1 closeout review
-- **Current objective:** next bounded phase after chart outcome v1 closeout decision complete; next create bounded Continuous Watcher MVP planning review without implementation, option P&L, account sizing, or watcher implementation
-- **Current build direction:** Continuous Watcher MVP planning only; do not implement watcher code, trade outcome expansion, option P&L, account sizing, auto-trading, live reads, or live trade decisions
+- **Current objective:** revise Continuous Watcher MVP plan as deferred planning only; next plan broader chart-based trade outcome backtesting coverage before Continuous Watcher implementation
+- **Current build direction:** broader chart-based trade outcome backtesting coverage planning before any watcher implementation or deeper watcher design; do not implement watcher code, option P&L, account sizing, auto-trading, live reads, or live trade decisions
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -1562,9 +1562,9 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 
 Continue from patch8.
 
-Next task is create a bounded Continuous Watcher MVP planning review.
+Next task is plan broader chart-based trade outcome backtesting coverage before Continuous Watcher implementation.
 
-Do not implement watcher code, implement new calculation, model option P&L, add account sizing, auto-trade, make live trade decisions, change `main.py`, change schemas, change historical replay fixtures, change historical replay runner, or expand beyond bounded watcher planning work without explicit authorization and coverage first.
+Do not implement watcher code, proceed into deeper watcher design, implement new calculation, model option P&L, add account sizing, auto-trade, make live trade decisions, change `main.py`, change schemas, change historical replay fixtures, change historical replay runner, or expand beyond broader chart-based backtesting coverage planning without explicit authorization and review first.
 
 ## Codex workflow helper status
 
@@ -1790,4 +1790,33 @@ Do not implement watcher code, implement new calculation, model option P&L, add 
 - **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
 - **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
-- **Next task:** create a bounded Continuous Watcher MVP planning review that defines watch-only scope, lifecycle state requirements, no-duplicate alert rules, unavailable live-field handling, proof-mode evidence requirements, and explicit non-implementation boundaries, without changing `main.py`, schemas, fixtures, runner code, option P&L, account sizing, or starting watcher implementation.
+- **Next task:** revise Continuous Watcher MVP plan as deferred planning only and set the next task to plan broader chart-based trade outcome backtesting coverage before Continuous Watcher implementation, without changing `main.py`, schemas, fixtures, runner code, option P&L, account sizing, or starting watcher implementation.
+
+## Continuous Watcher MVP planning status
+
+- **Plan file:** `SAFE_FAST_CONTINUOUS_WATCHER_MVP_PLAN.md`
+- **Planning status:** DEFERRED PLANNING ONLY
+- **Baseline:** patch8
+- **Latest local commit before planning:** `69fffc2 Add next phase decision after chart outcome closeout`
+- **Deferral boundary:** watcher plan is retained only as a deferred planning reference; no watcher implementation or deeper watcher design proceeds until broader chart-based trade outcome backtesting coverage is planned and reviewed
+- **Watch-only boundary:** documented; any later watcher MVP remains watch-only and cannot auto-trade, make live trade decisions, place orders, size positions, select option contracts, or infer unavailable live data
+- **Allowed universe:** SPY, QQQ, IWM, GLD
+- **Setup families:** Ideal, Clean Fast Break, Continuation
+- **Lifecycle/state-change requirements:** documented; plan requires lifecycle tracking for setup candidates and alerts only on meaningful state, trigger freshness, blocker, caution, session, or unavailable-field changes
+- **Duplicate suppression requirements:** documented; plan requires stable state fingerprints, same-state repeat suppression, rebuild/fresh-state alert allowance, suppression reasons, and repeat counts
+- **Unavailable live-field rule:** unavailable live fields must be marked `unconfirmed`; no invented live reads, macro/IV/headline/account/option/broker data, or false pass/fail inference
+- **Session-boundary rule:** prior-session completed breaks remain spent context unless a fresh current-session trigger appears; weekend and known-holiday carry-forward rules remain protected
+- **Shadow-review requirements:** documented; plan requires comparison against human chart review before promotion
+- **Proof-mode evidence requirements:** documented; plan requires lifecycle, duplicate suppression, session-boundary, unavailable-field, and alert payload contract coverage before promotion
+- **Reason for deferral:** a watcher should not be built around only the three current SPY chart outcome samples
+- **Broader backtesting implementation started:** no
+- **Watcher implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Production/Railway touched:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Next task:** plan broader chart-based trade outcome backtesting coverage before Continuous Watcher implementation, without changing `main.py`, schemas, fixtures, runner code, reports, chart outcome code, option P&L, account sizing, production/Railway, or live trade behavior.
