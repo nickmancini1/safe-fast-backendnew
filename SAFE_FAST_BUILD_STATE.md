@@ -1850,3 +1850,29 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Runner code changed:** no
 - **Chart outcome code changed:** no
 - **Next task:** begin QQQ broader chart outcome coverage as a bounded source-data validation and real historical replay planning task for Ideal, Clean Fast Break, and Continuation, without pulling data or changing fixtures unless that task explicitly authorizes those steps.
+
+## QQQ broader chart outcome coverage start status
+
+- **Review file:** `SAFE_FAST_QQQ_BROADER_CHART_OUTCOME_COVERAGE_START_REVIEW.md`
+- **Status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before review:** `ef92993 Add broader chart outcome coverage plan`
+- **Reason QQQ is next:** QQQ is the first next-symbol target in the broader coverage plan and is an allowed SAFE-FAST universe symbol closest to the existing SPY equity-index proof surface.
+- **Current SPY evidence summary:** 3 validated chart-only samples covering Continuation, Ideal, and Clean Fast Break; 2 follow-through, 0 invalidated/failure, 1 time stop; chart-only proof, not profitability proof.
+- **QQQ source data exists:** no
+- **QQQ exporter support:** yes
+- **Required QQQ source-data target path:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`
+- **Required QQQ timeframe/session:** QQQ only, 1H RTH, regular session only, America/New_York timestamps, ordered and session-valid OHLCV source rows.
+- **Setup-family coverage target:** Ideal, Clean Fast Break, Continuation
+- **No-hindsight boundary:** source and replay selection must not use future rows, outcome labels, P&L labels, option data, account sizing, broker/order data, or after-the-fact trade conclusions.
+- **Watcher remains deferred:** yes
+- **New data pull started:** no
+- **Fixture created:** no
+- **Chart outcome calculation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Next task:** pull the first real QQQ 1H RTH dxLink source CSV into `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv` and perform a bounded source-data validation review only, without creating fixtures or calculating chart outcomes unless explicitly authorized after source validation passes.
