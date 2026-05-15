@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `a09c123 Add third real chart outcome calculation`
-- **Latest completed build milestone:** chart-based trade outcome backtesting v1 third real calculation output validation
-- **Current objective:** create a bounded next-step decision review after third real chart outcome calculation output validation, without modeling option P&L, adding account sizing, or starting watcher work
+- **Latest completed commit:** `d4904a1 Add third real chart outcome output validation`
+- **Latest completed build milestone:** chart-based trade outcome backtesting v1 post-three-calculation decision review
+- **Current objective:** build aggregate chart outcome summary reporting for the three validated SPY setup-family chart-only outputs, without implementing new calculation, modeling option P&L, adding account sizing, or starting watcher work
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -1539,10 +1539,29 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** create a bounded next-step decision review for chart-based trade outcome backtesting v1 after all three real setup-family calculations have been validated, without modeling option P&L, adding account sizing, starting watcher work, changing `main.py`, changing schemas or fixtures, changing historical replay runners, auto-trading, live reads, or live trade decisions
 
+## Chart-based trade outcome backtesting v1 post-three-calculation decision status
+
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_POST_THREE_CALCULATION_DECISION_REVIEW.md`
+- **Decision status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before decision:** `d4904a1 Add third real chart outcome output validation`
+- **Chosen next step:** build aggregate chart outcome summary reporting next
+- **Reason:** all three SPY setup-family chart-only outcome calculations are validated, but there is no combined result summary yet. A bounded aggregate summary should consolidate the validated SPY Continuation, SPY Ideal, and SPY Clean Fast Break outcomes before broader symbol coverage, watcher planning, or option/risk planning.
+- **Rejected alternatives:** add broader symbol chart outcome coverage next, because the validated SPY outcomes should be summarized before expanding symbols; start Continuous Watcher MVP planning next, because watcher work should not start before summarizing the chart-only SPY outcome evidence; start option/risk layer planning next, because option P&L and account sizing remain out of scope until chart-only results are summarized.
+- **Real calculation implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Runner code changed:** no
+- **Next task:** create aggregate chart outcome summary reporting for the three validated SPY setup-family chart-only outputs, without implementing new calculations, modeling option P&L, adding account sizing, starting watcher work, changing `main.py`, changing schemas or fixtures, changing historical replay runners, auto-trading, live reads, or live trade decisions.
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create a bounded next-step decision review for chart-based trade outcome backtesting v1 after all three real setup-family calculations have been validated.
+Next task is create aggregate chart outcome summary reporting for the three validated SPY setup-family chart-only outputs.
 
-Do not model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change historical replay fixtures, change historical replay runner, or expand beyond third real chart outcome calculation output validation without explicit authorization and coverage first.
+Do not implement new calculation, model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change historical replay fixtures, change historical replay runner, or expand beyond aggregate chart outcome summary reporting without explicit authorization and coverage first.
