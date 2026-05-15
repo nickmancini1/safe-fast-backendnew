@@ -1228,10 +1228,30 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Historical replay runner changed:** no
 - **Next task:** create minimal chart-based trade outcome backtesting v1 runner scaffold
 
+## Chart-based trade outcome backtesting v1 runner scaffold status
+
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_RUNNER_SCAFFOLD_REVIEW.md`
+- **Runner scaffold status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before scaffold:** `d70863d Add chart outcome runner scaffold plan`
+- **Runner files:** `chart_trade_outcome_backtesting/chart_outcome_backtest.py`, `chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Report file:** `chart_trade_outcome_backtesting/reports/first_spy_continuation_chart_outcome_result_v1.json`
+- **Scope:** minimal chart-only runner scaffold for the existing first SPY Continuation sample fixture
+- **Scaffold status:** validates sample input fixture against input schema, validates expected/sample output and emitted report against output schema, checks source artifact availability/timestamps, writes one scaffold/sample report, and exits nonzero on validation failure
+- **Outcome calculation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **`main.py` changed:** no
+- **Historical replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Next task:** validate chart-based trade outcome runner scaffold output
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create minimal chart-based trade outcome backtesting v1 runner scaffold, without implementing outcome calculation, modeling option P&L, adding account sizing, changing `main.py`, changing schemas or fixtures, changing the historical replay runner, starting watcher implementation, auto-trading, live trade decisions, or engine work.
+Next task is validate chart-based trade outcome runner scaffold output, without implementing outcome calculation, modeling option P&L, adding account sizing, changing `main.py`, changing schemas or fixtures, changing the historical replay runner, starting watcher implementation, auto-trading, live trade decisions, or engine work.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
