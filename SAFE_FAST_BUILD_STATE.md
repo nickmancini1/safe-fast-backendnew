@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `6b566dd Add Codex workflow helper`
+- **Latest completed commit:** `903e4f1 Add aggregate chart outcome summary output validation`
 - **Latest completed build milestone:** chart-based trade outcome backtesting v1 aggregate summary output validation
-- **Current objective:** aggregate chart outcome summary output validation complete; next create a bounded post-validation decision review without implementing new calculation, modeling option P&L, adding account sizing, or starting watcher work
+- **Current objective:** aggregate chart outcome summary output validation complete; post-aggregate-validation decision review created; next create a bounded chart-based trade outcome backtesting v1 closeout review without implementing new calculation, modeling option P&L, adding account sizing, or starting watcher work
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -1659,3 +1659,30 @@ Do not implement new calculation, model option P&L, add account sizing, start Co
 - **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** create a bounded next-step decision review after aggregate summary output validation, without implementing new calculations, modeling option P&L, adding account sizing, starting watcher work, changing `main.py`, changing schemas or fixtures, changing historical replay runners, auto-trading, live reads, or live trade decisions.
+
+## Chart-based trade outcome backtesting v1 post-aggregate-validation decision status
+
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_POST_AGGREGATE_VALIDATION_DECISION_REVIEW.md`
+- **Decision status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before decision:** `903e4f1 Add aggregate chart outcome summary output validation`
+- **Chosen next step:** chart-based trade outcome backtesting v1 closeout review
+- **Reason:** SPY three-setup chart outcome calculations and aggregate summary output are validated, but the chart-based trade outcome backtesting v1 phase has not been formally closed out yet.
+- **Rejected alternatives:** broader symbol chart outcome coverage, because the SPY three-setup v1 phase should be formally closed out before expanding to other symbols; Continuous Watcher MVP planning, because watcher work should not start from this decision point before the chart outcome backtesting v1 phase is closed out; option/risk layer planning, because option P&L, account sizing, and full-risk modeling remain out of scope until the chart-only v1 phase is formally closed.
+- **New implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Runner code changed:** no
+- **Chart fixture validation result:** PASS; `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Chart runner result:** PASS; `python -B chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Aggregate summary result:** PASS; `python -B chart_trade_outcome_backtesting/summarize_chart_outcomes.py`
+- **Historical signal replay result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Contract tests result:** PASS; all `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
+- **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
+- **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** create a bounded chart-based trade outcome backtesting v1 closeout review, using the validated SPY Continuation, SPY Ideal, SPY Clean Fast Break, and aggregate summary evidence as the source of truth, without implementing new calculations, modeling option P&L, adding account sizing, starting watcher work, changing `main.py`, changing schemas or fixtures, changing runner code, changing historical replay runners, auto-trading, live reads, or live trade decisions.
