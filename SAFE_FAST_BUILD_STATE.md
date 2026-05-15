@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `580c5fe Add chart outcome runner scaffold`
-- **Latest completed build milestone:** chart-based trade outcome backtesting v1 runner output validation
-- **Current objective:** chart-based trade outcome backtesting v1 runner scaffold output validation is complete; do not start real outcome calculation, option P&L, account sizing, or watcher work
+- **Latest completed commit:** `3367935 Add chart outcome runner output validation`
+- **Latest completed build milestone:** chart-based trade outcome backtesting v1 next-step decision review
+- **Current objective:** chart-based trade outcome backtesting v1 next-step decision review is complete; plan real chart outcome calculation rules next without starting real outcome calculation, option P&L, account sizing, or watcher work
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -1277,10 +1277,29 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** decide the next bounded chart-based trade outcome backtesting v1 validation/planning step without implementing real outcome calculation, modeling option P&L, adding account sizing, changing `main.py`, changing schemas or fixtures, changing the historical replay runner, starting watcher implementation, auto-trading, live reads, or live trade decisions
 
+## Chart-based trade outcome backtesting v1 next-step decision status
+
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_NEXT_STEP_DECISION_REVIEW.md`
+- **Decision status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before decision:** `3367935 Add chart outcome runner output validation`
+- **Chosen next step:** plan real chart outcome calculation rules next
+- **Reason:** runner scaffold output is validated, but real outcome calculation is not yet designed in enough operational detail to implement safely or expand fixture coverage without locking in sample-only assumptions.
+- **Rejected alternatives:** implement minimal real chart outcome calculation next, because implementation would be premature before entry, invalidation, follow-through, terminal ordering, time-stop, MFE/MAE, and source-end rules are finalized; add more chart outcome sample fixtures next, because additional samples should be built against stable real calculation rules rather than current scaffold assumptions.
+- **Real outcome calculation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Runner code changed:** no
+- **Next task:** create a docs-only real chart outcome calculation rules plan for v1, covering entry timing, invalidation, follow-through, failure, time-stop, first-terminal-condition ordering, MFE/MAE measurement, same-day versus fast-swing classification, unresolved/source-end handling, and no-hindsight audit behavior without implementing real outcome calculation, modeling option P&L, adding account sizing, changing `main.py`, changing schemas or fixtures, changing runner code, starting watcher behavior, auto-trading, live reads, or live trade decisions.
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is decide the next bounded chart-based trade outcome backtesting v1 validation/planning step, without implementing outcome calculation, modeling option P&L, adding account sizing, changing `main.py`, changing schemas or fixtures, changing the historical replay runner, starting watcher implementation, auto-trading, live trade decisions, or engine work.
+Next task is create a docs-only real chart outcome calculation rules plan for chart-based trade outcome backtesting v1, without implementing outcome calculation, modeling option P&L, adding account sizing, changing `main.py`, changing schemas or fixtures, changing runner code, changing the historical replay runner, starting watcher implementation, auto-trading, live trade decisions, or engine work.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
