@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `2324b9a Add first real chart outcome output validation`
-- **Latest completed build milestone:** chart-based trade outcome backtesting v1 first real calculation output validation
-- **Current objective:** create a bounded next-step decision review for chart-based trade outcome backtesting v1 after first real calculation output validation without modeling option P&L, adding account sizing, or starting watcher work
+- **Latest completed commit:** `f81055d Add post-first chart outcome decision review`
+- **Latest completed build milestone:** chart-based trade outcome backtesting v1 second real calculation
+- **Current objective:** validate second real chart outcome calculation output without modeling option P&L, adding account sizing, or starting watcher work
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -1396,10 +1396,40 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Runner code changed:** no
 - **Next task:** create the second real chart-only outcome calculation for the SPY Ideal sample, using the existing calculation rules plan as the source of truth, without modeling option P&L, adding account sizing, starting watcher work, changing `main.py`, changing schemas or fixtures without explicit authorization, changing historical replay runners, auto-trading, live reads, or live trade decisions.
 
+## Chart-based trade outcome backtesting v1 second real calculation status
+
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_SECOND_REAL_CALCULATION_REVIEW.md`
+- **Calculation status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before calculation:** `f81055d Add post-first chart outcome decision review`
+- **Sample used:** `chart_trade_outcome_backtesting/fixtures/second_spy_ideal_chart_outcome_input_v1.json`
+- **Symbol/setup:** SPY Ideal
+- **Report file:** `chart_trade_outcome_backtesting/reports/second_spy_ideal_chart_outcome_result_v1.json`
+- **Chart-only boundary:** preserved; underlying-chart entry, invalidation, follow-through/failure/time-stop, MFE, MAE, same-day/fast-swing classification, headline/gap-risk context, likely chart risk, and no-hindsight audit behavior only
+- **Entry result:** entry reached at `2026-05-13T12:30:00-04:00` using next eligible 1H RTH candle open `741.73`
+- **Invalidation result:** copied pre-entry invalidation `731.83`; not reached before terminal follow-through
+- **MFE/MAE result:** MFE `2.17` points / `0.2926%` / `0.2192R`; MAE `0.35` points / `0.0472%` / `0.0354R`
+- **Follow-through/failure/time-stop result:** follow-through reached on `2026-05-13T13:30:00-04:00`; failure not reached; time stop not reached
+- **Same-day/fast-swing classification:** `same_day`
+- **Headline/gap-risk context:** preserved as unconfirmed/unavailable; chart gap recorded from real source candles with unknown cause
+- **Likely-risk vs full-risk notes:** preserved as chart-only notes; full risk not modeled
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Broker/order execution modeled:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Historical replay fixtures changed:** no
+- **Historical replay runner changed:** no
+- **Chart fixture validation result:** PASS; `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Chart runner result:** PASS; `python -B chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Output JSON parse/schema validation result:** PASS; runner validated output schema and `python -m json.tool chart_trade_outcome_backtesting/reports/second_spy_ideal_chart_outcome_result_v1.json` parsed successfully
+- **Next task:** validate second real chart outcome calculation output
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create the second real chart-only outcome calculation for the SPY Ideal sample.
+Next task is validate second real chart outcome calculation output.
 
 Do not model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change fixtures, or expand beyond the second SPY Ideal chart outcome calculation without explicit authorization and coverage first.

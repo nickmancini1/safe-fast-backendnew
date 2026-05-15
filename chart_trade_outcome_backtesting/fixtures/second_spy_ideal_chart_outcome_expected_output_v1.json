@@ -1,0 +1,96 @@
+{
+  "schema_version": "chart_outcome_backtest_output_v1",
+  "candidate_id": "second_spy_ideal_chart_outcome_v1",
+  "chart_only": true,
+  "source_signal_timestamp": "2026-05-13T11:30:00-04:00",
+  "entry_status": "entry_reached",
+  "entry_timestamp": "2026-05-13T12:30:00-04:00",
+  "entry_reference_price": 741.73,
+  "terminal_outcome_type": "follow_through",
+  "terminal_timestamp": "2026-05-13T13:30:00-04:00",
+  "terminal_reference_price": 743.9,
+  "terminal_reason": "Real chart calculation: next eligible candle open entry 741.73 plus 2.0 point favorable touch threshold was reached by 2026-05-13T13:30:00-04:00 high 743.9.",
+  "terminal_candle_reference": {
+    "timestamp": "2026-05-13T13:30:00-04:00",
+    "open": 742.62,
+    "high": 743.9,
+    "low": 742.0968,
+    "close": 743.53,
+    "volume": 1600286.936667
+  },
+  "holding_period_candles": 2,
+  "holding_period_sessions": 1,
+  "same_day_fast_swing_classification": {
+    "hold_classification": "same_day",
+    "entry_session_date": "2026-05-13",
+    "terminal_session_date": "2026-05-13",
+    "same_session_terminal": true,
+    "overnight_carried": false,
+    "sessions_held": 1,
+    "same_day_time_stop_applied": false,
+    "fast_swing_time_stop_applied": false
+  },
+  "max_favorable_move": {
+    "mfe_points": 2.17,
+    "mfe_percent": 0.2926,
+    "mfe_chart_r": 0.2192,
+    "mfe_timestamp": "2026-05-13T13:30:00-04:00",
+    "mfe_candle_index": 2,
+    "mfe_candles_after_entry": 1,
+    "mfe_before_terminal_condition": true
+  },
+  "max_adverse_move": {
+    "mae_points": 0.35,
+    "mae_percent": 0.0472,
+    "mae_chart_r": 0.0354,
+    "mae_timestamp": "2026-05-13T12:30:00-04:00",
+    "mae_candle_index": 1,
+    "mae_candles_after_entry": 0,
+    "mae_before_terminal_condition": true
+  },
+  "chart_r_multiple": 0.2192,
+  "likely_chart_risk": {
+    "entry_reference_price": 741.73,
+    "invalidation_reference_price": 731.83,
+    "likely_chart_risk_points": 9.9,
+    "likely_chart_risk_percent": 1.3347,
+    "likely_chart_risk_basis": "Underlying-chart distance from calculated next eligible candle open entry to copied replay invalidation level.",
+    "full_risk_note": "Full risk is not modeled. This output excludes option debit, spread pricing, slippage, liquidity, assignment, account drawdown, and broker execution."
+  },
+  "full_risk_modeled": false,
+  "option_pnl_modeled": false,
+  "account_sizing_modeled": false,
+  "broker_order_execution_modeled": false,
+  "headline_gap_risk_context": {
+    "macro_context_status": "unconfirmed",
+    "iv_context_status": "unconfirmed",
+    "event_context_status": "unconfirmed",
+    "headline_context_status": "unavailable",
+    "gap_detected_from_chart": true,
+    "gap_direction": "up",
+    "gap_points": 0.25,
+    "gap_percent": 0.0339,
+    "gap_cause_known": false,
+    "gap_cause_source": null
+  },
+  "no_hindsight_audit": {
+    "rules_defined_before_future_scan": true,
+    "setup_identity_not_recomputed_from_future_candles": true,
+    "future_candles_used_only_for_outcome_measurement": true,
+    "first_terminal_condition_stops_scan": true,
+    "source_end_unresolved_when_needed": true,
+    "manual_override_used": false,
+    "manual_override_reason": null
+  },
+  "known_unavailable_context": {
+    "context_24h_daily_unavailable_or_unconfirmed": true,
+    "macro_context_unavailable_or_unconfirmed": true,
+    "iv_context_unavailable_or_unconfirmed": true,
+    "event_context_unavailable_or_unconfirmed": true,
+    "headline_context_unavailable_or_unconfirmed": true,
+    "option_chain_unavailable_by_design": true,
+    "account_context_unavailable_by_design": true,
+    "broker_execution_unavailable_by_design": true
+  },
+  "notes": "Expected output fixture for the second real SPY Ideal chart-only calculation. It excludes option P&L, account sizing, broker execution, watcher behavior, and live trade decisions."
+}

@@ -13,11 +13,11 @@ REPO_ROOT = ROOT.parent
 
 INPUT_SCHEMA = ROOT / "schemas" / "chart_outcome_backtest_input_v1.schema.json"
 OUTPUT_SCHEMA = ROOT / "schemas" / "chart_outcome_backtest_output_v1.schema.json"
-INPUT_FIXTURE = ROOT / "fixtures" / "first_spy_continuation_chart_outcome_input_v1.json"
+INPUT_FIXTURE = ROOT / "fixtures" / "second_spy_ideal_chart_outcome_input_v1.json"
 EXPECTED_OUTPUT_FIXTURE = (
-    ROOT / "fixtures" / "first_spy_continuation_chart_outcome_expected_output_v1.json"
+    ROOT / "fixtures" / "second_spy_ideal_chart_outcome_expected_output_v1.json"
 )
-REPORT_PATH = ROOT / "reports" / "first_spy_continuation_chart_outcome_result_v1.json"
+REPORT_PATH = ROOT / "reports" / "second_spy_ideal_chart_outcome_result_v1.json"
 
 
 @dataclass(frozen=True)
@@ -320,7 +320,7 @@ def _build_real_chart_report(candidate: Dict[str, Any]) -> Tuple[Optional[Dict[s
     direction = candidate["direction"]
     is_bullish = direction in {"CALL", "LONG", "BULLISH"}
     if not is_bullish:
-        return None, [f"direction: first implementation supports SPY bullish Continuation only, got {direction!r}"]
+        return None, [f"direction: chart outcome v1 supports bullish SPY samples only, got {direction!r}"]
 
     scan_candles = candles[entry_index : entry_index + max_hold_candles]
     if len(scan_candles) < max_hold_candles:
@@ -456,7 +456,8 @@ def _build_real_chart_report(candidate: Dict[str, Any]) -> Tuple[Optional[Dict[s
         },
         "known_unavailable_context": _known_unavailable_context(),
         "notes": (
-            "First real chart-only outcome calculation for the first SPY Continuation sample. "
+            f"Real chart-only outcome calculation for {candidate['symbol']} "
+            f"{candidate['setup_family']} sample {candidate['candidate_id']}. "
             "Uses real source OHLCV rows only, preserves unavailable headline/gap-risk context, "
             "does not model option P&L, does not add account sizing, and does not start watcher work."
         ),
