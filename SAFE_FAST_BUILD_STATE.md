@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `d4904a1 Add third real chart outcome output validation`
-- **Latest completed build milestone:** chart-based trade outcome backtesting v1 post-three-calculation decision review
-- **Current objective:** build aggregate chart outcome summary reporting for the three validated SPY setup-family chart-only outputs, without implementing new calculation, modeling option P&L, adding account sizing, or starting watcher work
+- **Latest completed commit:** `23576ee Add post-three chart outcome decision review`
+- **Latest completed build milestone:** chart-based trade outcome backtesting v1 aggregate summary reporting
+- **Current objective:** validate aggregate chart outcome summary report, without implementing new calculation, modeling option P&L, adding account sizing, or starting watcher work
 - **Current build direction:** keep historical replay signal/stage/lifecycle only; do not start trade outcome backtesting, option P&L, account sizing, or Continuous Watcher implementation
 - **Work mode:** build work only, no live trade decisions
 
@@ -1562,6 +1562,45 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 
 Continue from patch8.
 
-Next task is create aggregate chart outcome summary reporting for the three validated SPY setup-family chart-only outputs.
+Next task is validate aggregate chart outcome summary report.
 
 Do not implement new calculation, model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change historical replay fixtures, change historical replay runner, or expand beyond aggregate chart outcome summary reporting without explicit authorization and coverage first.
+
+## Chart-based trade outcome backtesting v1 aggregate summary reporting status
+
+- **Summary status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before summary:** `23576ee Add post-three chart outcome decision review`
+- **Summary script file:** `chart_trade_outcome_backtesting/summarize_chart_outcomes.py`
+- **Summary report file:** `chart_trade_outcome_backtesting/reports/spy_three_setup_chart_outcome_summary_v1.json`
+- **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_AGGREGATE_SUMMARY_REVIEW.md`
+- **Samples included:** 3
+- **Setup families included:** SPY Continuation, SPY Ideal, SPY Clean Fast Break
+- **Follow-through/failure/time-stop summary:** 2 follow-through, 0 failure/invalidated, 1 time stop
+- **MFE summary:** Continuation 2.29 points / 0.3199% / 0.3074R; Ideal 2.17 points / 0.2926% / 0.2192R; Clean Fast Break 0.285 points / 0.0407% / 0.0499R
+- **MAE summary:** Continuation 0.0 points / 0.0% / 0.0R; Ideal 0.35 points / 0.0472% / 0.0354R; Clean Fast Break 0.735 points / 0.105% / 0.1286R
+- **Same-day/fast-swing classification summary:** 2 `same_day`; 1 `time_stop_same_day`
+- **Headline/gap-risk context summary:** chart gaps detected in all 3 samples; gap cause known in 0 samples; macro/IV/event context remains unconfirmed and headline context unavailable
+- **Chart-only boundary:** preserved
+- **3-sample SPY proof:** yes
+- **Profitability proof:** no
+- **New outcome calculation from OHLCV source rows:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher work started:** no
+- **Broker/order execution modeled:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Existing chart outcome result files changed:** no
+- **Historical replay runner changed:** no
+- **Chart fixture validation result:** PASS; `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Chart runner result:** PASS; `python -B chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Aggregate summary script result:** PASS; `python -B chart_trade_outcome_backtesting/summarize_chart_outcomes.py`
+- **Summary JSON validation result:** PASS; `python -m json.tool chart_trade_outcome_backtesting/reports/spy_three_setup_chart_outcome_summary_v1.json`
+- **Historical signal replay result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Contract tests result:** PASS; all `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
+- **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
+- **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** validate aggregate chart outcome summary report
