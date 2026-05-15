@@ -1282,7 +1282,7 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Review file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_NEXT_STEP_DECISION_REVIEW.md`
 - **Decision status:** PASS
 - **Baseline:** patch8
-- **Latest local commit before decision:** `3367935 Add chart outcome runner output validation`
+- **Latest local commit before decision:** `8498f65 Add chart outcome next-step decision review`
 - **Chosen next step:** plan real chart outcome calculation rules next
 - **Reason:** runner scaffold output is validated, but real outcome calculation is not yet designed in enough operational detail to implement safely or expand fixture coverage without locking in sample-only assumptions.
 - **Rejected alternatives:** implement minimal real chart outcome calculation next, because implementation would be premature before entry, invalidation, follow-through, terminal ordering, time-stop, MFE/MAE, and source-end rules are finalized; add more chart outcome sample fixtures next, because additional samples should be built against stable real calculation rules rather than current scaffold assumptions.
@@ -1296,10 +1296,36 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Runner code changed:** no
 - **Next task:** create a docs-only real chart outcome calculation rules plan for v1, covering entry timing, invalidation, follow-through, failure, time-stop, first-terminal-condition ordering, MFE/MAE measurement, same-day versus fast-swing classification, unresolved/source-end handling, and no-hindsight audit behavior without implementing real outcome calculation, modeling option P&L, adding account sizing, changing `main.py`, changing schemas or fixtures, changing runner code, starting watcher behavior, auto-trading, live reads, or live trade decisions.
 
+## Chart-based trade outcome backtesting v1 calculation rules planning status
+
+- **Plan file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_CALCULATION_RULES_PLAN.md`
+- **Planning status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before planning:** `8498f65 Add chart outcome next-step decision review`
+- **Scope:** docs-only real chart outcome calculation rules plan for v1
+- **Chart-only boundary:** outcomes measure underlying-chart entry, invalidation, follow-through, failure, time stop, max favorable move, max adverse move, same-day versus fast-swing classification, headline/gap-risk context availability, likely chart risk, and no-hindsight audit behavior only.
+- **Eligible signal rows rule:** documented; allowed symbols/setup families only, `final_verdict: TRADE`, `current_state: signal`, `trigger_state: triggered`, no primary blocker, numeric trigger/invalidation, matching selected setup identity, and source/lookahead availability.
+- **Entry rule:** documented; default next eligible 1H RTH candle after signal timestamp with next eligible candle open as chart reference price.
+- **Invalidation rule:** documented; copied pre-entry invalidation level, adverse touch/cross by direction, no future adjustment.
+- **Follow-through/failure/time-stop rules:** documented; predeclared threshold, conservative same-candle ambiguity handling, and source-end unresolved handling.
+- **MFE/MAE rules:** documented; measured on underlying chart only through the first terminal candle and not after terminal condition.
+- **Same-day/fast-swing rules:** documented; classification by entry and terminal regular-session dates within declared hold window.
+- **Headline/gap-risk handling:** documented; chart gaps may be measured, but gap cause must not be inferred.
+- **Likely risk vs full-risk handling:** documented; likely chart risk only, full financial risk not modeled.
+- **Real calculation implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Runner code changed:** no
+- **Next task:** create minimal real chart outcome calculation implementation for first SPY Continuation sample
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is create a docs-only real chart outcome calculation rules plan for chart-based trade outcome backtesting v1, without implementing outcome calculation, modeling option P&L, adding account sizing, changing `main.py`, changing schemas or fixtures, changing runner code, changing the historical replay runner, starting watcher implementation, auto-trading, live trade decisions, or engine work.
+Next task is create minimal real chart outcome calculation implementation for first SPY Continuation sample, using `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_CALCULATION_RULES_PLAN.md` as the source of truth.
 
-Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
+Do not model option P&L, add account sizing, start Continuous Watcher implementation, auto-trade, make live trade decisions, change `main.py`, change schemas, change fixtures, or expand beyond the first SPY Continuation sample without explicit authorization and coverage first.
