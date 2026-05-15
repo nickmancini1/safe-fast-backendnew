@@ -1598,8 +1598,29 @@ Do not implement new calculation, model option P&L, add account sizing, start Co
 - **Codex help inspected:** yes; `codex.cmd --help` and `codex.cmd exec --help`
 - **Non-interactive Codex support:** yes; `codex exec` documents `[PROMPT]`, `-`, and stdin prompt input
 - **Auto-submit mode added:** yes; `-AutoSubmit`
-- **Auto-submit command path:** `codex.cmd exec -C <repo-root> -s workspace-write -a never -`
+- **Auto-submit command path:** `codex.cmd exec -C <repo-root> -s workspace-write -`
 - **Clipboard fallback preserved:** yes; default mode still copies the prompt file and opens interactive Codex
+- **No engine changes:** yes
+- **No replay/backtesting logic changes:** yes
+- **`main.py` changed:** no
+- **Historical replay runner changed:** no
+- **Chart outcome runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Next task:** decide next bounded phase after chart-based trade outcome backtesting v1 closeout
+
+## Codex workflow helper auto-submit bugfix status
+
+- **Helper auto-submit bugfix status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before bugfix:** `8b933ef Add Codex helper auto-submit mode`
+- **Observed error fixed:** `error: unexpected argument '-a' found`
+- **Codex exec help inspected:** yes; `codex.cmd exec --help`
+- **Correct auto-submit command path:** `codex.cmd exec -C <repo-root> -s workspace-write -`
+- **Unsupported interactive flags removed from auto-submit:** yes; `-a` is not passed to `codex exec`
+- **Clipboard fallback preserved:** yes; default mode still copies the prompt file and opens interactive Codex
+- **Help preserved:** yes
 - **No engine changes:** yes
 - **No replay/backtesting logic changes:** yes
 - **`main.py` changed:** no

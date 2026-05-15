@@ -31,7 +31,7 @@ function Show-Help {
     Write-Host "  After Codex opens, press Ctrl+V, then Enter."
     Write-Host ""
     Write-Host "Auto-submit mode:"
-    Write-Host "  Uses: codex.cmd exec -C <repo-root> -s workspace-write -a never -"
+    Write-Host "  Uses: codex.cmd exec -C <repo-root> -s workspace-write -"
 }
 
 if ($Help) {
@@ -69,7 +69,7 @@ try {
 
     if ($AutoSubmit) {
         Write-Host "Submitting prompt to Codex non-interactively from: $RepoRoot"
-        $PromptText | & codex.cmd exec -C "$RepoRoot" -s workspace-write -a never -
+        $PromptText | & codex.cmd exec -C "$RepoRoot" -s workspace-write -
     }
     else {
         Write-Host "Opening Codex from: $RepoRoot"

@@ -38,12 +38,12 @@ After Codex opens, press `Ctrl+V`, then `Enter`.
 - With `-AutoSubmit`, submits the prompt file through stdin with:
 
 ```powershell
-codex.cmd exec -C "$env:USERPROFILE\Desktop\safe-fast-backendnew" -s workspace-write -a never -
+codex.cmd exec -C "$env:USERPROFILE\Desktop\safe-fast-backendnew" -s workspace-write -
 ```
 
 ## Non-Interactive Codex Note
 
-`codex.cmd --help` documents non-interactive support through `codex exec`. `codex.cmd exec --help` documents that the `[PROMPT]` argument can be omitted, or `-` can be used, to read instructions from stdin. The helper's `-AutoSubmit` mode uses that documented stdin path.
+`codex.cmd --help` documents non-interactive support through `codex exec`. `codex.cmd exec --help` documents that the `[PROMPT]` argument can be omitted, or `-` can be used, to read instructions from stdin. The helper's `-AutoSubmit` mode uses that documented stdin path. `codex exec` does not support the interactive approval flag `-a`, so auto-submit does not pass it.
 
 ## Scope
 
