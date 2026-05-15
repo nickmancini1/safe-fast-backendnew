@@ -1209,10 +1209,29 @@ Final target is **SAFE-FAST Continuous Watcher v1**:
 - **Historical replay runner changed:** no
 - **Next task:** plan minimal chart-based trade outcome backtesting v1 runner scaffold
 
+## Chart-based trade outcome backtesting v1 runner scaffold planning status
+
+- **Plan file:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_RUNNER_SCAFFOLD_PLAN.md`
+- **Planning status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before planning:** `959389a Add chart outcome tooling closeout review`
+- **Scope:** docs-only planning review for the minimal chart-based trade outcome backtesting v1 runner scaffold
+- **Chart-only boundary:** documented; runner scaffold remains limited to schema validation, sample fixture loading, source artifact existence checks, and scaffold-only PASS/FAIL reporting for underlying-chart outcome fields
+- **Runner implementation started:** no
+- **Outcome calculation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Historical replay runner changed:** no
+- **Next task:** create minimal chart-based trade outcome backtesting v1 runner scaffold
+
 ## Next exact task
 
 Continue from patch8.
 
-Next task is plan minimal chart-based trade outcome backtesting v1 runner scaffold, without implementing outcome calculation, modeling option P&L, adding account sizing, changing `main.py`, changing schemas or fixtures, changing the historical replay runner, starting watcher implementation, auto-trading, live trade decisions, or engine work.
+Next task is create minimal chart-based trade outcome backtesting v1 runner scaffold, without implementing outcome calculation, modeling option P&L, adding account sizing, changing `main.py`, changing schemas or fixtures, changing the historical replay runner, starting watcher implementation, auto-trading, live trade decisions, or engine work.
 
 Do not start backtesting implementation, trade outcome backtesting, option P&L modeling, account sizing, Continuous Watcher implementation, auto-trading, live trade decisions, or new engine work without explicit authorization and coverage first.
