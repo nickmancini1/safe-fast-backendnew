@@ -1,0 +1,89 @@
+{
+  "candidates": [
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-05-08|Ideal|watching_ideal_impulse_context|no_retest_yet",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "no_retest_yet",
+      "setup_state": "watching",
+      "setup_type": "Ideal",
+      "stage": "watching_ideal_impulse_context",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-05-08T15:30:00-04:00",
+      "trigger_changed": false,
+      "trigger_state": "not_present"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-05-12|Ideal|watching_ideal_pullback_retest_developing|retest_developing",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "retest_developing",
+      "setup_state": "developing",
+      "setup_type": "Ideal",
+      "stage": "watching_ideal_pullback_retest_developing",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-05-12T10:30:00-04:00",
+      "trigger_changed": false,
+      "trigger_state": "not_present"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-05-12|Ideal|watching_ideal_retest_hold_unconfirmed|retest_hold_unconfirmed",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "retest_hold_unconfirmed",
+      "setup_state": "developing",
+      "setup_type": "Ideal",
+      "stage": "watching_ideal_retest_hold_unconfirmed",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-05-12T12:30:00-04:00",
+      "trigger_changed": false,
+      "trigger_state": "not_present"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-05-12|Ideal|ideal_retest_recovery_confirmation_candidate|awaiting_fresh_trigger",
+      "final_verdict": "PENDING",
+      "primary_blocker": "awaiting_fresh_trigger",
+      "setup_state": "confirmation_candidate",
+      "setup_type": "Ideal",
+      "stage": "ideal_retest_recovery_confirmation_candidate",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-05-12T15:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "setup_confirming"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-05-13|Ideal|ideal_triggered_signal_stage_candidate|none",
+      "final_verdict": "TRADE",
+      "primary_blocker": null,
+      "setup_state": "signal_stage",
+      "setup_type": "Ideal",
+      "stage": "ideal_triggered_signal_stage_candidate",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-05-13T12:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "triggered"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-05-14|Ideal|ideal_follow_through_no_fresh_trigger|prior_completed_ideal_trigger_spent",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "prior_completed_ideal_trigger_spent",
+      "setup_state": "spent",
+      "setup_type": "Ideal",
+      "stage": "ideal_follow_through_no_fresh_trigger",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-05-14T11:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "spent"
+    }
+  ],
+  "purpose": "First-real QQQ Ideal signal/stage/lifecycle replay regression candidates only; no profitability, P&L, account sizing, trade outcomes, live trade decisions, or auto-trading."
+}
