@@ -2301,3 +2301,28 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Chart outcome code changed:** no
 - **Boundary result:** PASS; source-window selection only, no fixture conversion, no OHLCV edits, no fabricated labels, no chart outcome calculation, no option P&L, no account sizing, and no watcher implementation.
 - **Next task:** design the QQQ Continuation real historical replay v1 fixture from the selected source-data window, preserving the source-data/no-hindsight boundary and staying signal/stage/lifecycle only.
+
+## QQQ Continuation real historical replay v1 fixture design status
+
+- **Review file:** `historical_signal_replay/QQQ_CONTINUATION_REAL_HISTORICAL_REPLAY_V1_FIXTURE_DESIGN_REVIEW.md`
+- **Design status:** PASS
+- **Source file:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`
+- **Symbol:** QQQ
+- **Timeframe:** `1h_rth`
+- **Timestamp range:** `2026-04-20T09:30:00-04:00` through `2026-05-01T15:30:00-04:00`
+- **Selected row count:** 70
+- **Setup family candidate:** Continuation
+- **Proposed fixture row count:** 6
+- **Proposed lifecycle/stage sequence:** `watching_continuation_pullback_shelf_developing` -> `watching_continuation_shelf_retest_no_trigger` -> `continuation_recovery_above_shelf_candidate` -> `continuation_higher_base_rebuild_candidate` -> `continuation_triggered_signal_stage_candidate` -> `continuation_spent_or_follow_through_no_fresh_trigger`
+- **No-hindsight result:** PASS
+- **Fixture created:** no
+- **Chart outcome calculation started:** no
+- **Watcher implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Boundary result:** PASS; design review only, no fixture creation, no OHLCV edits, no fabricated labels, no chart outcome calculation, no option P&L, no account sizing, and no watcher implementation.
+- **Next task:** create QQQ Continuation real historical replay v1 fixture from approved design
