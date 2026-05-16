@@ -1973,3 +1973,28 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Chart outcome code changed:** no
 - **Boundary result:** PASS; source-window selection only, no fixture conversion, no OHLCV edits, no fabricated labels, no chart outcome calculation, no option P&L, no account sizing, and no watcher implementation.
 - **Next task:** design first QQQ real historical replay v1 fixture from selected window
+
+## QQQ first real historical replay v1 fixture design status
+
+- **Review file:** `historical_signal_replay/QQQ_FIRST_REAL_HISTORICAL_REPLAY_V1_FIXTURE_DESIGN_REVIEW.md`
+- **Design status:** PASS
+- **Source file:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`
+- **Symbol:** QQQ
+- **Timeframe:** `1h_rth`
+- **Timestamp range:** `2026-05-05T09:30:00-04:00` through `2026-05-14T15:30:00-04:00`
+- **Selected row count:** 56
+- **Setup family candidate:** Ideal
+- **Proposed fixture row count:** 6
+- **Proposed lifecycle/stage sequence:** `watching_ideal_impulse_context` -> `watching_ideal_pullback_retest_developing` -> `watching_ideal_retest_hold_unconfirmed` -> `ideal_retest_recovery_confirmation_candidate` -> `ideal_triggered_signal_stage_candidate` -> `ideal_follow_through_no_fresh_trigger`
+- **No-hindsight result:** PASS
+- **Fixture created:** no
+- **Chart outcome calculation started:** no
+- **Watcher implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Boundary result:** PASS; design review only, no fixture creation, no OHLCV edits, no fabricated labels, no chart outcome calculation, no option P&L, no account sizing, and no watcher implementation.
+- **Next task:** create first QQQ real historical replay v1 fixture from approved design
