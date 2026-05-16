@@ -2367,3 +2367,47 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** review whether this QQQ Continuation signal/stage/lifecycle fixture should be wired into historical signal replay outputs in a separate bounded task, without starting chart outcome calculation, watcher implementation, option P&L, or account sizing.
+
+## QQQ Continuation real historical replay v1 runner output validation status
+
+- **Review file:** `historical_signal_replay/QQQ_CONTINUATION_REAL_HISTORICAL_REPLAY_V1_RUNNER_OUTPUT_VALIDATION_REVIEW.md`
+- **Validation status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before validation:** `4b52805 Add QQQ Continuation replay fixture`
+- **Fixture file:** `historical_signal_replay/fixtures/first_real_qqq_continuation_replay_v1_fixture.json`
+- **Symbol:** QQQ
+- **Timeframe:** `1h_rth`
+- **Setup family:** Continuation
+- **Fixture row count:** 6
+- **QQQ Continuation signal log:** `historical_signal_replay/reports/first_real_qqq_continuation_replay_v1_signal_log.jsonl`
+- **QQQ Continuation summary:** `historical_signal_replay/reports/first_real_qqq_continuation_replay_v1_summary.json`
+- **QQQ Continuation regression candidates:** `historical_signal_replay/reports/first_real_qqq_continuation_replay_v1_regression_candidates.json`
+- **QQQ Continuation signal log exists:** yes
+- **QQQ Continuation signal log row count:** 6
+- **QQQ Continuation summary `total_rows`:** 6
+- **Setup family count result:** PASS; `Continuation: 6`
+- **Lifecycle/stage sequence:** `watching_continuation_pullback_shelf_developing` -> `watching_continuation_shelf_retest_no_trigger` -> `continuation_recovery_above_shelf_candidate` -> `continuation_higher_base_rebuild_candidate` -> `continuation_triggered_signal_stage_candidate` -> `continuation_spent_or_follow_through_no_fresh_trigger`
+- **Lifecycle/stage sequence result:** PASS
+- **Boundary result:** PASS; QQQ Continuation reports remain signal/stage/lifecycle only with no profitability, QQQ chart outcome calculation, option P&L, account sizing, execution, auto-trading, watcher, or live trade decision claims.
+- **Watcher remains deferred:** yes
+- **`main.py` changed:** no
+- **`dxlink_candles.py` changed:** no
+- **Schemas changed:** no
+- **Fixture contents changed:** no
+- **Replay tests changed:** no
+- **Runner code changed:** yes; QQQ Continuation fixture support only
+- **Generated reports changed:** yes; QQQ Continuation signal log, summary, and regression candidates added
+- **Chart outcome calculation started:** no new QQQ chart outcome calculation; existing chart validation runner was executed as requested
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **Historical signal replay result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Fixture JSON validation result:** PASS; `python -m json.tool historical_signal_replay/fixtures/first_real_qqq_continuation_replay_v1_fixture.json`
+- **Chart fixture validation result:** PASS; `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Chart runner result:** PASS; `python -B chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Aggregate summary result:** PASS; `python -B chart_trade_outcome_backtesting/summarize_chart_outcomes.py`
+- **Contract tests result:** PASS; all 35 `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
+- **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
+- **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** review QQQ Continuation historical signal replay outputs as signal/stage/lifecycle evidence only, without starting QQQ chart outcome calculation, option P&L, account sizing, watcher implementation, auto-trading, or live trade decisions.

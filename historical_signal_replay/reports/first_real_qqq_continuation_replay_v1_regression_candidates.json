@@ -1,0 +1,89 @@
+{
+  "candidates": [
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-04-20|Continuation|watching_continuation_pullback_shelf_developing|shelf_still_developing",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "shelf_still_developing",
+      "setup_state": "developing",
+      "setup_type": "Continuation",
+      "stage": "watching_continuation_pullback_shelf_developing",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-04-20T15:30:00-04:00",
+      "trigger_changed": false,
+      "trigger_state": "not_present"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-04-21|Continuation|watching_continuation_shelf_retest_no_trigger|no_valid_trigger",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "no_valid_trigger",
+      "setup_state": "developing",
+      "setup_type": "Continuation",
+      "stage": "watching_continuation_shelf_retest_no_trigger",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-04-21T15:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "not_present"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-04-22|Continuation|continuation_recovery_above_shelf_candidate|higher_base_rebuild_not_confirmed",
+      "final_verdict": "PENDING",
+      "primary_blocker": "higher_base_rebuild_not_confirmed",
+      "setup_state": "candidate",
+      "setup_type": "Continuation",
+      "stage": "continuation_recovery_above_shelf_candidate",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-04-22T15:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "candidate"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-04-24|Continuation|continuation_higher_base_rebuild_candidate|fresh_completed_trigger_not_present",
+      "final_verdict": "PENDING",
+      "primary_blocker": "fresh_completed_trigger_not_present",
+      "setup_state": "candidate",
+      "setup_type": "Continuation",
+      "stage": "continuation_higher_base_rebuild_candidate",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-04-24T15:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "not_present"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-04-30|Continuation|continuation_triggered_signal_stage_candidate|none",
+      "final_verdict": "TRADE",
+      "primary_blocker": null,
+      "setup_state": "signal_stage",
+      "setup_type": "Continuation",
+      "stage": "continuation_triggered_signal_stage_candidate",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-04-30T15:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "triggered"
+    },
+    {
+      "blocker_changed": true,
+      "duplicate_alert_suppression_key": "QQQ|2026-05-01|Continuation|continuation_spent_or_follow_through_no_fresh_trigger|prior_completed_shelf_break_spent",
+      "final_verdict": "NO_TRADE",
+      "primary_blocker": "prior_completed_shelf_break_spent",
+      "setup_state": "spent",
+      "setup_type": "Continuation",
+      "stage": "continuation_spent_or_follow_through_no_fresh_trigger",
+      "state_changed": true,
+      "symbol": "QQQ",
+      "timestamp": "2026-05-01T15:30:00-04:00",
+      "trigger_changed": true,
+      "trigger_state": "spent"
+    }
+  ],
+  "purpose": "First-real QQQ Continuation signal/stage/lifecycle replay regression candidates only; no profitability, P&L, account sizing, trade outcomes, live trade decisions, or auto-trading."
+}
