@@ -2136,3 +2136,28 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Chart outcome code changed:** no
 - **Boundary result:** PASS; source-window selection only, no fixture conversion, no OHLCV edits, no fabricated labels, no chart outcome calculation, no option P&L, no account sizing, and no watcher implementation.
 - **Next task:** design the QQQ Clean Fast Break real historical replay v1 fixture from the selected source-data window, preserving the source-data/no-hindsight boundary and staying signal/stage/lifecycle only.
+
+## QQQ Clean Fast Break real historical replay v1 fixture design status
+
+- **Review file:** `historical_signal_replay/QQQ_CLEAN_FAST_BREAK_REAL_HISTORICAL_REPLAY_V1_FIXTURE_DESIGN_REVIEW.md`
+- **Design status:** PASS
+- **Source file:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`
+- **Symbol:** QQQ
+- **Timeframe:** `1h_rth`
+- **Timestamp range:** `2026-04-08T09:30:00-04:00` through `2026-04-17T15:30:00-04:00`
+- **Selected row count:** 56
+- **Setup family candidate:** Clean Fast Break
+- **Proposed fixture row count:** 6
+- **Proposed lifecycle/stage sequence:** `watching_clean_fast_break_gap_impulse_context` -> `watching_clean_fast_break_tight_pause_context` -> `clean_fast_break_initial_break_candidate` -> `clean_fast_break_follow_through_confirming_context` -> `watching_higher_base_after_fast_break` -> `clean_fast_break_post_break_no_fresh_trigger`
+- **No-hindsight result:** PASS
+- **Fixture created:** no
+- **Chart outcome calculation started:** no
+- **Watcher implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Boundary result:** PASS; design review only, no fixture creation, no OHLCV edits, no fabricated labels, no chart outcome calculation, no option P&L, no account sizing, and no watcher implementation.
+- **Next task:** create QQQ Clean Fast Break real historical replay v1 fixture from approved design
