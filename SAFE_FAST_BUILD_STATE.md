@@ -2109,3 +2109,30 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Runner code changed:** no
 - **Chart outcome code changed:** no
 - **Next task:** select a bounded QQQ Clean Fast Break source-data window for real historical replay fixture design, using only the accepted QQQ 1H RTH source rows and preserving no-hindsight candidate-only selection; do not create a fixture or calculate chart outcomes unless a later task explicitly authorizes that step.
+
+## QQQ Clean Fast Break source window selection status
+
+- **Review file:** `historical_signal_replay/source_data/QQQ_CLEAN_FAST_BREAK_WINDOW_SELECTION_REVIEW.md`
+- **Selection status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before selection:** `a0efb7e Add QQQ Ideal replay evidence review`
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`
+- **Symbol:** QQQ
+- **Timeframe:** `1h_rth`
+- **Total source row count:** 301 data rows
+- **Selected timestamp range:** `2026-04-08T09:30:00-04:00` through `2026-04-17T15:30:00-04:00`
+- **Selected row count:** 56
+- **Setup family candidate:** Clean Fast Break
+- **Selection reason:** selected as a clear QQQ Clean Fast Break candidate in the accepted source CSV, with gap/impulse context on `2026-04-08`, compact pause/base behavior on `2026-04-09` and `2026-04-10`, a completed upside break on `2026-04-13`, and bounded follow-through through `2026-04-17`.
+- **No-hindsight result:** PASS; selected from validated source OHLCV/context rows only, with no setup labels, trigger labels, lifecycle labels, trade outcomes, profit/loss, option data, account sizing, broker/order/execution data, or backtest conclusions added.
+- **Fixture created:** no
+- **Chart outcome calculation started:** no
+- **Watcher implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Boundary result:** PASS; source-window selection only, no fixture conversion, no OHLCV edits, no fabricated labels, no chart outcome calculation, no option P&L, no account sizing, and no watcher implementation.
+- **Next task:** design the QQQ Clean Fast Break real historical replay v1 fixture from the selected source-data window, preserving the source-data/no-hindsight boundary and staying signal/stage/lifecycle only.
