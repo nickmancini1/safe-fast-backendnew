@@ -1917,3 +1917,32 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** create a bounded QQQ real historical signal replay planning review from the accepted source CSV, without creating fixtures or calculating chart outcomes unless explicitly authorized.
+
+## QQQ real historical signal replay planning status
+
+- **Review file:** `historical_signal_replay/QQQ_REAL_HISTORICAL_REPLAY_V1_PLANNING_REVIEW.md`
+- **Planning status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before planning:** `9afbb80 Add QQQ source data validation`
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`
+- **Source CSV accepted:** yes
+- **Source CSV row count:** 301 data rows
+- **Timestamp range:** `2026-03-16T15:30:00-04:00` through `2026-05-15T14:30:00-04:00`
+- **Setup families targeted:** Ideal, Clean Fast Break, Continuation
+- **No-hindsight rules documented:** yes
+- **Candidate window selection rules documented:** yes
+- **Lifecycle/stage requirements documented:** yes
+- **Duplicate/state-change requirements documented:** yes
+- **Chart outcome dependency documented:** yes
+- **Watcher remains deferred:** yes
+- **Fixture created:** no
+- **Window selected:** no
+- **Chart outcome calculation started:** no
+- **Watcher implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Next task:** select first bounded QQQ source-data window for real historical replay fixture design
