@@ -2082,3 +2082,30 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** review QQQ Ideal historical signal replay outputs as signal/stage/lifecycle evidence only, then choose the next bounded QQQ real historical replay coverage step without starting QQQ chart outcome calculation, option P&L, account sizing, watcher implementation, auto-trading, or live trade decisions.
+
+## QQQ Ideal replay evidence and next-step decision status
+
+- **Review file:** `historical_signal_replay/QQQ_IDEAL_REPLAY_EVIDENCE_AND_NEXT_STEP_REVIEW.md`
+- **Review status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before review:** `def3a56 Add QQQ Ideal replay runner output validation`
+- **QQQ Ideal evidence status:** PASS; first QQQ Ideal historical signal replay outputs are accepted as signal/stage/lifecycle evidence only.
+- **QQQ Ideal signal log row count:** 6
+- **QQQ Ideal summary `total_rows`:** 6
+- **Setup family coverage result:** PASS; QQQ Ideal covered with `Ideal: 6`
+- **Lifecycle/stage sequence result:** PASS; `watching_ideal_impulse_context` -> `watching_ideal_pullback_retest_developing` -> `watching_ideal_retest_hold_unconfirmed` -> `ideal_retest_recovery_confirmation_candidate` -> `ideal_triggered_signal_stage_candidate` -> `ideal_follow_through_no_fresh_trigger`
+- **No-hindsight result:** PASS
+- **Boundary result:** PASS; evidence review and next-step decision only, no QQQ chart outcome calculation, no option P&L, no account sizing, no watcher implementation, no live trade decisions.
+- **Remaining QQQ setup-family gaps:** Clean Fast Break and Continuation historical signal replay coverage remain unfinished; neither has QQQ window selection, fixture design, fixture creation, runner validation, or chart outcome review from this task.
+- **Chosen next QQQ step:** QQQ Clean Fast Break bounded source-data window selection.
+- **Decision reason:** Ideal is done and no inspected evidence says Continuation should come first, so Clean Fast Break best advances QQQ three-setup coverage toward the broader chart outcome plan.
+- **Fixture created:** no
+- **Chart outcome calculation started:** no
+- **Watcher implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Next task:** select a bounded QQQ Clean Fast Break source-data window for real historical replay fixture design, using only the accepted QQQ 1H RTH source rows and preserving no-hindsight candidate-only selection; do not create a fixture or calculate chart outcomes unless a later task explicitly authorizes that step.
