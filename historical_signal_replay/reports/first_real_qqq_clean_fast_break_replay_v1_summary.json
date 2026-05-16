@@ -1,0 +1,46 @@
+{
+  "blocker_counts": {
+    "fresh_completed_breakout_required": 1,
+    "no_completed_break_yet": 1,
+    "prior_completed_clean_fast_break_spent": 2,
+    "tight_pause_not_formed_yet": 1
+  },
+  "caution_counts": {
+    "EVENT_UNCONFIRMED": 6,
+    "IV_UNCONFIRMED": 6,
+    "MACRO_UNCONFIRMED": 6
+  },
+  "duplicate_alert_suppression_key_counts": {
+    "QQQ|2026-04-08|Clean Fast Break|watching_clean_fast_break_gap_impulse_context|tight_pause_not_formed_yet": 1,
+    "QQQ|2026-04-10|Clean Fast Break|watching_clean_fast_break_tight_pause_context|no_completed_break_yet": 1,
+    "QQQ|2026-04-13|Clean Fast Break|clean_fast_break_follow_through_confirming_context|prior_completed_clean_fast_break_spent": 1,
+    "QQQ|2026-04-13|Clean Fast Break|clean_fast_break_initial_break_candidate|none": 1,
+    "QQQ|2026-04-16|Clean Fast Break|watching_higher_base_after_fast_break|fresh_completed_breakout_required": 1,
+    "QQQ|2026-04-17|Clean Fast Break|clean_fast_break_post_break_no_fresh_trigger|prior_completed_clean_fast_break_spent": 1
+  },
+  "final_verdict_counts": {
+    "NO_TRADE": 5,
+    "TRADE": 1
+  },
+  "lifecycle_change_counts": {
+    "blocker_changed": 6,
+    "state_changed": 6,
+    "trigger_changed": 6
+  },
+  "meaningful_alert_candidate_count": 6,
+  "setup_type_counts": {
+    "Clean Fast Break": 6
+  },
+  "stage_counts": {
+    "clean_fast_break_follow_through_confirming_context": 1,
+    "clean_fast_break_initial_break_candidate": 1,
+    "clean_fast_break_post_break_no_fresh_trigger": 1,
+    "watching_clean_fast_break_gap_impulse_context": 1,
+    "watching_clean_fast_break_tight_pause_context": 1,
+    "watching_higher_base_after_fast_break": 1
+  },
+  "symbols": [
+    "QQQ"
+  ],
+  "total_rows": 6
+}

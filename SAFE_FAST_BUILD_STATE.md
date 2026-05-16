@@ -2202,3 +2202,47 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** review whether this QQQ Clean Fast Break signal/stage/lifecycle fixture should be wired into historical signal replay outputs in a separate bounded task, without starting chart outcome calculation, watcher implementation, option P&L, or account sizing.
+
+## QQQ Clean Fast Break real historical replay v1 runner output validation status
+
+- **Review file:** `historical_signal_replay/QQQ_CLEAN_FAST_BREAK_REAL_HISTORICAL_REPLAY_V1_RUNNER_OUTPUT_VALIDATION_REVIEW.md`
+- **Validation status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before validation:** `3c47431 Add QQQ Clean Fast Break replay fixture`
+- **Fixture file:** `historical_signal_replay/fixtures/first_real_qqq_clean_fast_break_replay_v1_fixture.json`
+- **Symbol:** QQQ
+- **Timeframe:** `1h_rth`
+- **Setup family:** Clean Fast Break
+- **Fixture row count:** 6
+- **QQQ Clean Fast Break signal log:** `historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl`
+- **QQQ Clean Fast Break summary:** `historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_summary.json`
+- **QQQ Clean Fast Break regression candidates:** `historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_regression_candidates.json`
+- **QQQ Clean Fast Break signal log exists:** yes
+- **QQQ Clean Fast Break signal log row count:** 6
+- **QQQ Clean Fast Break summary `total_rows`:** 6
+- **Setup family count result:** PASS; `Clean Fast Break: 6`
+- **Lifecycle/stage sequence:** `watching_clean_fast_break_gap_impulse_context` -> `watching_clean_fast_break_tight_pause_context` -> `clean_fast_break_initial_break_candidate` -> `clean_fast_break_follow_through_confirming_context` -> `watching_higher_base_after_fast_break` -> `clean_fast_break_post_break_no_fresh_trigger`
+- **Lifecycle/stage sequence result:** PASS
+- **Boundary result:** PASS; QQQ Clean Fast Break reports remain signal/stage/lifecycle only with no profitability, QQQ chart outcome backtesting, option P&L, account sizing, execution, auto-trading, watcher, or live trade decision claims.
+- **Watcher remains deferred:** yes
+- **`main.py` changed:** no
+- **`dxlink_candles.py` changed:** no
+- **Schemas changed:** no
+- **Fixture contents changed:** no
+- **Replay tests changed:** no
+- **Runner code changed:** yes; QQQ Clean Fast Break fixture support only
+- **Generated reports changed:** yes; QQQ Clean Fast Break signal log, summary, and regression candidates added
+- **Chart outcome calculation started:** no new QQQ chart outcome calculation; existing chart validation runner was executed as requested
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **Historical signal replay result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Fixture JSON validation result:** PASS; `python -m json.tool historical_signal_replay/fixtures/first_real_qqq_clean_fast_break_replay_v1_fixture.json`
+- **Chart fixture validation result:** PASS; `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Chart runner result:** PASS; `python -B chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Aggregate summary result:** PASS; `python -B chart_trade_outcome_backtesting/summarize_chart_outcomes.py`
+- **Contract tests result:** PASS; all `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
+- **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
+- **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** review QQQ Clean Fast Break historical signal replay outputs as signal/stage/lifecycle evidence only, then choose the next bounded QQQ real historical replay coverage step without starting QQQ chart outcome calculation, option P&L, account sizing, watcher implementation, auto-trading, or live trade decisions.
