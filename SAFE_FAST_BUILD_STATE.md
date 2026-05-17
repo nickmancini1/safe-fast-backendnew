@@ -2439,3 +2439,29 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Runner code changed:** no
 - **Chart outcome code changed:** no
 - **Next task:** create a QQQ three-setup real historical replay closeout review covering Ideal, Clean Fast Break, and Continuation signal/stage/lifecycle evidence only, without creating fixtures, starting chart outcome calculation, modeling option P&L, adding account sizing, or starting watcher implementation.
+
+## QQQ three-setup real historical replay closeout status
+
+- **Review file:** `historical_signal_replay/QQQ_THREE_SETUP_REAL_HISTORICAL_REPLAY_CLOSEOUT_REVIEW.md`
+- **Closeout status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before closeout:** `b268c3f Add QQQ Continuation replay evidence review`
+- **Setup families covered:** Ideal, Clean Fast Break, Continuation
+- **Runner output validation status:** PASS; QQQ Ideal, QQQ Clean Fast Break, and QQQ Continuation runner output validation reviews all passed.
+- **QQQ source data summary:** PASS; accepted QQQ `1h_rth` source CSV has 301 data rows from `2026-03-16T15:30:00-04:00` through `2026-05-15T14:30:00-04:00`, sourced from `dxlink_candles.get_1h_ema50_snapshot` as of `2026-05-15T18:48:44Z`.
+- **Ideal result:** PASS; signal log row count 6, summary `total_rows` 6, setup family count `Ideal: 6`.
+- **Clean Fast Break result:** PASS; signal log row count 6, summary `total_rows` 6, setup family count `Clean Fast Break: 6`.
+- **Continuation result:** PASS; signal log row count 6, summary `total_rows` 6, setup family count `Continuation: 6`.
+- **Setup-family coverage result:** PASS; QQQ real historical signal/stage/lifecycle replay now covers Ideal, Clean Fast Break, and Continuation.
+- **No-hindsight result:** PASS; closeout confirms fixture and output evidence remain tied to reviewed QQQ source rows and signal/stage/lifecycle assertions only, with no future-row outcome labels, profitability labels, option data, account sizing, broker/order data, or chart outcome conclusions.
+- **Signal/stage/lifecycle boundary result:** PASS; closeout remains historical replay evidence only with no QQQ chart outcome calculation, no option P&L, no account sizing, no watcher implementation, no auto-trading, and no live trade decisions.
+- **Watcher remains deferred:** yes
+- **Chart outcome calculation started:** no
+- **Watcher implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Next task:** decide QQQ chart outcome calculation phase after QQQ three-setup replay closeout
