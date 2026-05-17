@@ -9,8 +9,8 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** create IWM historical sample collection worksheet
-- **Current build direction:** IWM broader coverage after SPY + QQQ closeout; collect concrete IWM historical sample windows before fixture/replay creation; GLD deferred; Continuous Watcher remains deferred
+- **Current objective:** populate IWM historical sample collection worksheet with concrete chart windows/evidence
+- **Current build direction:** IWM broader coverage after SPY + QQQ closeout; concrete IWM sample collection must happen before fixture/replay creation; GLD deferred; Continuous Watcher remains deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -2913,6 +2913,25 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Concrete IWM sample evidence found:** no
 - **Fixture creation status:** NO-GO; no concrete IWM historical sample windows are present in repo evidence
 - **Current objective after review:** create IWM historical sample collection worksheet
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## IWM historical sample collection worksheet status
+
+- **Worksheet file:** `SAFE_FAST_IWM_HISTORICAL_SAMPLE_COLLECTION_WORKSHEET.md`
+- **Worksheet status:** PASS
+- **Selected broader coverage target:** IWM
+- **Concrete IWM sample evidence currently available in repo:** no
+- **Fixture creation status:** NO-GO until concrete sample rows are populated and validated
+- **Current objective after worksheet:** populate IWM historical sample collection worksheet with concrete chart windows/evidence
 - **GLD status:** deferred
 - **Continuous Watcher status:** deferred
 - **main.py changed:** no
