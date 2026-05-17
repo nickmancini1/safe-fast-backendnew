@@ -2768,3 +2768,40 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Existing QQQ chart result files changed:** no
 - **Historical replay runner changed:** no
 - **Next task:** validate QQQ aggregate chart outcome summary report
+
+## QQQ chart outcome aggregate summary output validation status
+
+- **Validation status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before validation:** `872906e Add QQQ chart outcome aggregate summary`
+- **Review file:** `SAFE_FAST_QQQ_CHART_OUTCOME_AGGREGATE_SUMMARY_OUTPUT_VALIDATION_REVIEW.md`
+- **Summary report:** `chart_trade_outcome_backtesting/reports/qqq_three_setup_chart_outcome_summary_v1.json`
+- **Summary script file:** `chart_trade_outcome_backtesting/summarize_chart_outcomes.py`
+- **Source result files validated:** `chart_trade_outcome_backtesting/reports/qqq_ideal_chart_outcome_result_v1.json`; `chart_trade_outcome_backtesting/reports/qqq_clean_fast_break_chart_outcome_result_v1.json`; `chart_trade_outcome_backtesting/reports/qqq_continuation_chart_outcome_result_v1.json`
+- **Source schema checked:** `chart_trade_outcome_backtesting/schemas/chart_outcome_backtest_output_v1.schema.json`
+- **Summary report exists:** yes
+- **Summary JSON validation result:** PASS; `python -m json.tool chart_trade_outcome_backtesting/reports/qqq_three_setup_chart_outcome_summary_v1.json`
+- **Sample count validation result:** PASS; exactly 3 samples
+- **Setup-family validation result:** PASS; includes QQQ Ideal, QQQ Clean Fast Break, and QQQ Continuation
+- **Follow-through/failure/time-stop validation result:** PASS; 3 follow-through, 0 failure, 0 time-stop
+- **MFE validation result:** PASS; average 4.9633 points / 0.7410% / 0.4583 chart R and max 6.62 points / 0.9893% / 0.6727 chart R match source result files
+- **MAE validation result:** PASS; average 0.7450 points / 0.1112% / 0.0798 chart R and max 1.115 points / 0.1560% / 0.1557 chart R match source result files
+- **Chart-only boundary preserved:** yes
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Existing QQQ chart result files changed:** no
+- **Calculation code changed:** no
+- **Historical replay runner changed:** no
+- **Chart fixture validation result:** PASS; `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Chart runner result:** PASS; `python -B chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Aggregate summary script result:** PASS; `python -B chart_trade_outcome_backtesting/summarize_chart_outcomes.py`
+- **Historical signal replay result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Contract tests result:** PASS; all 35 `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
+- **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
+- **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** decide whether to broaden chart-only aggregate coverage beyond the 3-sample QQQ proof, without option P&L, account sizing, watcher implementation, `main.py` changes, schema changes, fixture changes, historical replay runner changes, or existing QQQ chart result file changes unless explicitly authorized.
