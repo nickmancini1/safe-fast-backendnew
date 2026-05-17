@@ -9,8 +9,8 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** decide next broader coverage phase after SPY + QQQ current-depth closeout, IWM vs GLD
-- **Current build direction:** broader coverage after SPY + QQQ closeout; likely IWM first unless reviewed evidence supports GLD first; Continuous Watcher remains deferred
+- **Current objective:** begin IWM broader coverage planning/replay preparation
+- **Current build direction:** IWM first after SPY + QQQ closeout; GLD deferred; Continuous Watcher remains deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -2860,6 +2860,23 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Decision:** IWM first
 - **Reason:** repo evidence already set the broader coverage order as QQQ, then IWM, then GLD; QQQ is now closed out, and no later IWM/GLD source-data, window-selection, replay, or chart outcome artifact overrides IWM as the next target.
 - **Current objective after review:** begin IWM broader coverage planning/replay preparation
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## IWM broader coverage planning review status
+
+- **Review file:** `SAFE_FAST_IWM_BROADER_COVERAGE_PLANNING_REVIEW.md`
+- **Review status:** PASS
+- **Selected broader coverage target:** IWM
+- **GLD status:** deferred
+- **Current objective after review:** create IWM broader coverage fixture/replay candidate inventory
 - **Continuous Watcher status:** deferred
 - **main.py changed:** no
 - **Engine logic changed:** no
