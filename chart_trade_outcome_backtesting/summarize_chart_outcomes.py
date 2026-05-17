@@ -8,20 +8,20 @@ from jsonschema.exceptions import ValidationError
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT_SCHEMA = ROOT / "schemas" / "chart_outcome_backtest_output_v1.schema.json"
-SUMMARY_REPORT = ROOT / "reports" / "spy_three_setup_chart_outcome_summary_v1.json"
+SUMMARY_REPORT = ROOT / "reports" / "qqq_three_setup_chart_outcome_summary_v1.json"
 
 SAMPLES: Tuple[Tuple[str, Path], ...] = (
     (
-        "Continuation",
-        ROOT / "reports" / "first_spy_continuation_chart_outcome_result_v1.json",
-    ),
-    (
         "Ideal",
-        ROOT / "reports" / "second_spy_ideal_chart_outcome_result_v1.json",
+        ROOT / "reports" / "qqq_ideal_chart_outcome_result_v1.json",
     ),
     (
         "Clean Fast Break",
-        ROOT / "reports" / "third_spy_clean_fast_break_chart_outcome_result_v1.json",
+        ROOT / "reports" / "qqq_clean_fast_break_chart_outcome_result_v1.json",
+    ),
+    (
+        "Continuation",
+        ROOT / "reports" / "qqq_continuation_chart_outcome_result_v1.json",
     ),
 )
 
@@ -178,11 +178,11 @@ def build_summary() -> Tuple[bool, List[str], Dict[str, Any]]:
     mae_chart_r = [result["max_adverse_move"]["mae_chart_r"] for result in results]
 
     summary: Dict[str, Any] = {
-        "schema_version": "spy_three_setup_chart_outcome_summary_v1",
-        "summary_name": "SPY three setup-family chart outcome summary v1",
+        "schema_version": "qqq_three_setup_chart_outcome_summary_v1",
+        "summary_name": "QQQ three setup-family chart outcome summary v1",
         "baseline": "patch8",
         "source_result_schema": "chart_outcome_backtest_output_v1",
-        "chart_only_3_sample_spy_proof": True,
+        "chart_only_3_sample_qqq_proof": True,
         "profitability_proof": False,
         "summary_boundary": {
             "chart_only": True,
@@ -246,8 +246,8 @@ def build_summary() -> Tuple[bool, List[str], Dict[str, Any]]:
             "validated_result_file_count": len(results),
         },
         "notes": (
-            "Bounded aggregate reporting for the three validated SPY setup-family chart-only "
-            "outcome outputs. This is a 3-sample SPY chart proof and not profitability proof. "
+            "Bounded aggregate reporting for the three validated QQQ setup-family chart-only "
+            "outcome outputs. This is a 3-sample QQQ chart proof and not profitability proof. "
             "It reads only existing result files and does not calculate new outcomes from OHLCV source rows."
         ),
     }
@@ -272,7 +272,7 @@ def main() -> int:
 
     _write_json(SUMMARY_REPORT, summary)
     print("PASS aggregate chart outcome summary")
-    print("chart_only_3_sample_spy_proof: true")
+    print("chart_only_3_sample_qqq_proof: true")
     print("profitability_proof: false")
     print("option_pnl_modeled: false")
     print("account_sizing_added: false")

@@ -2739,3 +2739,32 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** create QQQ three-setup chart outcome summary for Ideal, Clean Fast Break, and Continuation, using the validated chart-only result reports, without option P&L, account sizing, watcher implementation, `main.py` changes, schema changes, fixture changes, historical replay runner changes, or calculation-code changes unless explicitly authorized.
+
+## QQQ chart outcome aggregate summary status
+
+- **Summary status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before summary:** `29fc799 Add QQQ Continuation chart outcome output validation`
+- **Summary script file:** `chart_trade_outcome_backtesting/summarize_chart_outcomes.py`
+- **Summary report file:** `chart_trade_outcome_backtesting/reports/qqq_three_setup_chart_outcome_summary_v1.json`
+- **Review file:** `SAFE_FAST_QQQ_CHART_OUTCOME_AGGREGATE_SUMMARY_REVIEW.md`
+- **Samples included:** 3
+- **Setup families included:** QQQ Ideal, QQQ Clean Fast Break, QQQ Continuation
+- **Source result files included:** `chart_trade_outcome_backtesting/reports/qqq_ideal_chart_outcome_result_v1.json`; `chart_trade_outcome_backtesting/reports/qqq_clean_fast_break_chart_outcome_result_v1.json`; `chart_trade_outcome_backtesting/reports/qqq_continuation_chart_outcome_result_v1.json`
+- **Source schema used for result validation:** `chart_trade_outcome_backtesting/schemas/chart_outcome_backtest_output_v1.schema.json`
+- **Chart-only boundary:** preserved; bounded aggregate reporting reads only the three validated QQQ chart outcome result files and does not calculate new outcomes from OHLCV source rows.
+- **3-sample QQQ proof, not profitability proof:** yes
+- **Follow-through/failure/time-stop summary:** 3 follow-through, 0 failure, 0 time-stop
+- **Same-day / fast-swing classification summary:** 2 same-day, 1 fast-swing
+- **MFE summary:** average 4.9633 points / 0.7410% / 0.4583 chart R; max 6.62 points / 0.9893% / 0.6727 chart R
+- **MAE summary:** average 0.7450 points / 0.1112% / 0.0798 chart R; max 1.115 points / 0.1560% / 0.1557 chart R
+- **Headline/gap-risk context summary:** chart gap detected in 3 of 3 samples; gap cause known in 0 of 3; macro/IV/event context unconfirmed in 3 of 3; headline context unavailable in 3 of 3.
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Existing QQQ chart result files changed:** no
+- **Historical replay runner changed:** no
+- **Next task:** validate QQQ aggregate chart outcome summary report
