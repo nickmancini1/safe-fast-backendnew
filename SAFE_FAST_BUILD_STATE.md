@@ -7,10 +7,10 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `5fd128f Add deferred Continuous Watcher MVP plan`
-- **Latest completed build milestone:** deferred Continuous Watcher MVP plan
-- **Current objective:** broader chart-based trade outcome backtesting coverage planning before Continuous Watcher implementation
-- **Current build direction:** broader chart-based trade outcome backtesting coverage planning before any watcher implementation or deeper watcher design; do not implement watcher code, option P&L, account sizing, auto-trading, live reads, or live trade decisions
+- **Latest completed commit:** `ac1d046 Add QQQ aggregate chart outcome output validation`
+- **Latest completed build milestone:** QQQ aggregate chart outcome output validation
+- **Current objective:** QQQ post-aggregate chart outcome decision review after aggregate summary validation
+- **Current build direction:** formally close out the QQQ chart outcome phase before IWM/GLD broader coverage or Continuous Watcher implementation; do not implement watcher code, option P&L, account sizing, auto-trading, live reads, or live trade decisions
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -2805,3 +2805,23 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
 - **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
 - **Next task:** decide whether to broaden chart-only aggregate coverage beyond the 3-sample QQQ proof, without option P&L, account sizing, watcher implementation, `main.py` changes, schema changes, fixture changes, historical replay runner changes, or existing QQQ chart result file changes unless explicitly authorized.
+
+## QQQ post-aggregate chart outcome decision status
+
+- **Review file:** `SAFE_FAST_QQQ_POST_AGGREGATE_CHART_OUTCOME_DECISION_REVIEW.md`
+- **Decision status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before decision:** `ac1d046 Add QQQ aggregate chart outcome output validation`
+- **Chosen next step:** create QQQ chart outcome closeout review
+- **Reason:** QQQ now has Ideal, Clean Fast Break, and Continuation chart-only outcomes plus aggregate summary validation, but the QQQ chart outcome phase is not formally closed out yet.
+- **Rejected alternatives:** broader chart outcome coverage for IWM; broader chart outcome coverage for GLD; Continuous Watcher MVP planning or implementation; option/risk or account sizing work.
+- **New calculation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Next task:** create QQQ chart outcome closeout review
