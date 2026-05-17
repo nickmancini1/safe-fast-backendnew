@@ -1,4 +1,4 @@
-# SAFE-FAST Build State
+﻿# SAFE-FAST Build State
 
 ## Current baseline
 
@@ -7,10 +7,10 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `723a69f Add QQQ post-aggregate chart outcome decision review`
-- **Latest completed build milestone:** QQQ post-aggregate chart outcome decision review
-- **Current objective:** QQQ chart outcome closeout review
-- **Current build direction:** close out the QQQ chart outcome phase, then decide the next broader coverage phase before IWM/GLD broader coverage or Continuous Watcher implementation; do not implement watcher code, option P&L, account sizing, auto-trading, live reads, or live trade decisions
+- **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
+- **Latest completed build milestone:** QQQ chart outcome closeout review
+- **Current objective:** decide next broader coverage phase after SPY + QQQ current-depth closeout, IWM vs GLD
+- **Current build direction:** broader coverage after SPY + QQQ closeout; likely IWM first unless reviewed evidence supports GLD first; Continuous Watcher remains deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -2852,3 +2852,4 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Runner code changed:** no
 - **Chart outcome code changed:** no
 - **Next task:** decide next broader coverage phase after QQQ chart outcome closeout
+
