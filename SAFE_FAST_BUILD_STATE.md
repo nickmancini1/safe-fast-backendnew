@@ -9,8 +9,8 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** create IWM real historical replay candidate selection review
-- **Current build direction:** IWM broader coverage after SPY + QQQ closeout; begin with IWM real historical replay candidate selection; GLD deferred; Continuous Watcher remains deferred
+- **Current objective:** create IWM historical sample collection worksheet
+- **Current build direction:** IWM broader coverage after SPY + QQQ closeout; collect concrete IWM historical sample windows before fixture/replay creation; GLD deferred; Continuous Watcher remains deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -2894,6 +2894,25 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Selected broader coverage target:** IWM
 - **Candidate inventory scope:** Ideal / Clean Fast Break / Continuation plus stage, session-boundary, winner-selection, no-trade discipline, chart-only outcome, aggregate closeout
 - **Current objective after inventory:** create IWM real historical replay candidate selection review
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## IWM real historical replay candidate selection review status
+
+- **Review file:** `SAFE_FAST_IWM_REAL_HISTORICAL_REPLAY_CANDIDATE_SELECTION_REVIEW.md`
+- **Review status:** PASS
+- **Selected broader coverage target:** IWM
+- **Concrete IWM sample evidence found:** no
+- **Fixture creation status:** NO-GO; no concrete IWM historical sample windows are present in repo evidence
+- **Current objective after review:** create IWM historical sample collection worksheet
 - **GLD status:** deferred
 - **Continuous Watcher status:** deferred
 - **main.py changed:** no
