@@ -2465,3 +2465,23 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Runner code changed:** no
 - **Chart outcome code changed:** no
 - **Next task:** decide QQQ chart outcome calculation phase after QQQ three-setup replay closeout
+
+## QQQ post-three-setup replay closeout decision status
+
+- **Review file:** `SAFE_FAST_QQQ_POST_THREE_SETUP_REPLAY_CLOSEOUT_DECISION_REVIEW.md`
+- **Decision status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before decision:** `9e3562f Add QQQ three-setup real historical replay closeout`
+- **Chosen next phase:** plan QQQ chart outcome calculation phase for Ideal, Clean Fast Break, and Continuation.
+- **Reason:** QQQ now has three-setup real historical replay closeout for Ideal, Clean Fast Break, and Continuation, and SPY already completed the same pattern before chart outcome calculations.
+- **Rejected alternatives:** broaden replay coverage to IWM before QQQ chart outcomes; broaden replay coverage to GLD before QQQ chart outcomes; move to watcher planning; option/risk or account sizing.
+- **Chart outcome calculation started:** no
+- **Chart outcome fixtures created:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Next task:** plan QQQ chart outcome calculation phase for Ideal, Clean Fast Break, and Continuation
