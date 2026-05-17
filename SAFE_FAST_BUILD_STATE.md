@@ -2485,3 +2485,34 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Runner code changed:** no
 - **Chart outcome code changed:** no
 - **Next task:** plan QQQ chart outcome calculation phase for Ideal, Clean Fast Break, and Continuation
+
+## QQQ chart outcome calculation phase planning status
+
+- **Plan file:** `SAFE_FAST_QQQ_CHART_OUTCOME_CALCULATION_PHASE_PLAN.md`
+- **Planning status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before planning:** `883762a Add QQQ post-closeout chart outcome decision review`
+- **Setup families targeted:** Ideal, Clean Fast Break, Continuation
+- **Calculation order:** QQQ Ideal -> QQQ Clean Fast Break -> QQQ Continuation -> QQQ aggregate chart outcome summary -> QQQ chart outcome closeout
+- **Reason QQQ chart outcomes come next:** QQQ now has three-setup real historical replay closeout for Ideal, Clean Fast Break, and Continuation, and SPY already completed the same pattern before chart outcome calculations.
+- **QQQ replay evidence summary:** PASS; Ideal, Clean Fast Break, and Continuation each have 6 accepted signal log rows, 6 summary rows, setup-family counts of 6, and one eligible `TRADE` / `signal` / `triggered` row for later chart outcome calculation.
+- **Entry rule source:** `SAFE_FAST_CHART_BASED_TRADE_OUTCOME_BACKTESTING_V1_CALCULATION_RULES_PLAN.md` plus the accepted QQQ signal log candidate rows.
+- **Invalidation rule source:** copied from each accepted QQQ signal log row before future candle scanning.
+- **Follow-through/failure/time-stop rules:** use the v1 chart outcome calculation rules plan and predeclared candidate fixture conditions.
+- **MFE/MAE requirements:** documented; points, percent, chart R, timestamp, candle index, candles after entry, and no candles after first terminal condition.
+- **Same-day/fast-swing classification requirements:** documented.
+- **Headline/gap-risk handling:** documented; gap cause not inferred, unavailable context remains unavailable/unconfirmed.
+- **Likely risk vs full-risk note:** documented; likely chart risk is underlying-chart distance only, full financial risk remains unmodeled.
+- **No-hindsight rules documented:** yes
+- **Chart-only boundary documented:** yes
+- **Known limits documented:** yes
+- **Chart outcome calculation started:** no
+- **Chart outcome fixtures created:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher implementation started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Runner code changed:** no
+- **Chart outcome code changed:** no
+- **Next task:** create QQQ Ideal chart outcome input/expected output fixture and calculation
