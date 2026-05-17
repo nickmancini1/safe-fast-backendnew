@@ -1,0 +1,96 @@
+{
+  "schema_version": "chart_outcome_backtest_output_v1",
+  "candidate_id": "qqq_clean_fast_break_chart_outcome_v1",
+  "chart_only": true,
+  "source_signal_timestamp": "2026-04-13T12:30:00-04:00",
+  "entry_status": "entry_reached",
+  "entry_timestamp": "2026-04-13T13:30:00-04:00",
+  "entry_reference_price": 614.59,
+  "terminal_outcome_type": "follow_through",
+  "terminal_timestamp": "2026-04-13T15:30:00-04:00",
+  "terminal_reference_price": 617.96,
+  "terminal_reason": "Real chart calculation: next eligible candle open entry 614.59 plus 2.0 point favorable touch threshold was reached by 2026-04-13T15:30:00-04:00 high 617.96.",
+  "terminal_candle_reference": {
+    "timestamp": "2026-04-13T15:30:00-04:00",
+    "open": 615.33,
+    "high": 617.96,
+    "low": 615.1591,
+    "close": 617.32,
+    "volume": 2301880.379296
+  },
+  "holding_period_candles": 3,
+  "holding_period_sessions": 1,
+  "same_day_fast_swing_classification": {
+    "hold_classification": "same_day",
+    "entry_session_date": "2026-04-13",
+    "terminal_session_date": "2026-04-13",
+    "same_session_terminal": true,
+    "overnight_carried": false,
+    "sessions_held": 1,
+    "same_day_time_stop_applied": false,
+    "fast_swing_time_stop_applied": false
+  },
+  "max_favorable_move": {
+    "mfe_points": 3.37,
+    "mfe_percent": 0.5483,
+    "mfe_chart_r": 0.6727,
+    "mfe_timestamp": "2026-04-13T15:30:00-04:00",
+    "mfe_candle_index": 3,
+    "mfe_candles_after_entry": 2,
+    "mfe_before_terminal_condition": true
+  },
+  "max_adverse_move": {
+    "mae_points": 0.78,
+    "mae_percent": 0.1269,
+    "mae_chart_r": 0.1557,
+    "mae_timestamp": "2026-04-13T13:30:00-04:00",
+    "mae_candle_index": 1,
+    "mae_candles_after_entry": 0,
+    "mae_before_terminal_condition": true
+  },
+  "chart_r_multiple": 0.6727,
+  "likely_chart_risk": {
+    "entry_reference_price": 614.59,
+    "invalidation_reference_price": 609.58,
+    "likely_chart_risk_points": 5.01,
+    "likely_chart_risk_percent": 0.8152,
+    "likely_chart_risk_basis": "Underlying-chart distance from calculated next eligible candle open entry to copied replay invalidation level.",
+    "full_risk_note": "Full risk is not modeled. This output excludes option debit, spread pricing, slippage, liquidity, assignment, account drawdown, and broker execution."
+  },
+  "full_risk_modeled": false,
+  "option_pnl_modeled": false,
+  "account_sizing_modeled": false,
+  "broker_order_execution_modeled": false,
+  "headline_gap_risk_context": {
+    "macro_context_status": "unconfirmed",
+    "iv_context_status": "unconfirmed",
+    "event_context_status": "unconfirmed",
+    "headline_context_status": "unavailable",
+    "gap_detected_from_chart": true,
+    "gap_direction": "down",
+    "gap_points": -1.565,
+    "gap_percent": -0.2561,
+    "gap_cause_known": false,
+    "gap_cause_source": null
+  },
+  "no_hindsight_audit": {
+    "rules_defined_before_future_scan": true,
+    "setup_identity_not_recomputed_from_future_candles": true,
+    "future_candles_used_only_for_outcome_measurement": true,
+    "first_terminal_condition_stops_scan": true,
+    "source_end_unresolved_when_needed": true,
+    "manual_override_used": false,
+    "manual_override_reason": null
+  },
+  "known_unavailable_context": {
+    "context_24h_daily_unavailable_or_unconfirmed": true,
+    "macro_context_unavailable_or_unconfirmed": true,
+    "iv_context_unavailable_or_unconfirmed": true,
+    "event_context_unavailable_or_unconfirmed": true,
+    "headline_context_unavailable_or_unconfirmed": true,
+    "option_chain_unavailable_by_design": true,
+    "account_context_unavailable_by_design": true,
+    "broker_execution_unavailable_by_design": true
+  },
+  "notes": "Real chart-only outcome calculation for QQQ Clean Fast Break sample qqq_clean_fast_break_chart_outcome_v1. Uses real source OHLCV rows only, preserves unavailable headline/gap-risk context, does not model option P&L, does not add account sizing, and does not start watcher work."
+}
