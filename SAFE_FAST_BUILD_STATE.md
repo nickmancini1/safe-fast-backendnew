@@ -2853,3 +2853,20 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Chart outcome code changed:** no
 - **Next task:** decide next broader coverage phase after QQQ chart outcome closeout
 
+## Next broader coverage decision review status
+
+- **Review file:** `SAFE_FAST_NEXT_BROADER_COVERAGE_DECISION_REVIEW.md`
+- **Review status:** PASS
+- **Decision:** IWM first
+- **Reason:** repo evidence already set the broader coverage order as QQQ, then IWM, then GLD; QQQ is now closed out, and no later IWM/GLD source-data, window-selection, replay, or chart outcome artifact overrides IWM as the next target.
+- **Current objective after review:** begin IWM broader coverage planning/replay preparation
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
