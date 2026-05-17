@@ -1,0 +1,239 @@
+{
+  "schema_version": "chart_outcome_backtest_input_v1",
+  "candidate_id": "qqq_ideal_chart_outcome_v1",
+  "chart_only": true,
+  "excluded_modeling": {
+    "option_pnl_modeled": false,
+    "option_spread_pricing_modeled": false,
+    "account_sizing_modeled": false,
+    "broker_order_execution_modeled": false,
+    "watcher_implementation_started": false
+  },
+  "source_replay_fixture": {
+    "path": "historical_signal_replay/fixtures/first_real_qqq_ideal_replay_v1_fixture.json",
+    "status": "available",
+    "sha256": null,
+    "notes": "Validated first real QQQ Ideal replay fixture; signal/stage/lifecycle only."
+  },
+  "source_signal_log": {
+    "path": "historical_signal_replay/reports/first_real_qqq_ideal_replay_v1_signal_log.jsonl",
+    "status": "available",
+    "sha256": null,
+    "notes": "Signal row used: ideal_triggered_signal_stage_candidate."
+  },
+  "source_summary": {
+    "path": "historical_signal_replay/reports/first_real_qqq_ideal_replay_v1_summary.json",
+    "status": "available",
+    "sha256": null,
+    "notes": "Summary confirms one QQQ Ideal TRADE row in the replay output."
+  },
+  "source_row_name": "ideal_triggered_signal_stage_candidate",
+  "source_row_index": 5,
+  "source_signal_timestamp": "2026-05-13T12:30:00-04:00",
+  "symbol": "QQQ",
+  "timeframe": "1h_rth",
+  "session": {
+    "session_date": "2026-05-13",
+    "session_type": "regular",
+    "timezone": "America/New_York"
+  },
+  "direction": "CALL",
+  "setup_family": "Ideal",
+  "setup_identity": {
+    "symbol": "QQQ",
+    "setup_family": "Ideal",
+    "direction": "CALL",
+    "stage": "ideal_triggered_signal_stage_candidate",
+    "setup_state": "signal_stage",
+    "trigger_state": "triggered",
+    "trigger_level": 714.59,
+    "invalidation": 696.66,
+    "primary_blocker": null,
+    "cautions_watchouts": [
+      "MACRO_UNCONFIRMED",
+      "IV_UNCONFIRMED",
+      "EVENT_UNCONFIRMED"
+    ],
+    "winner_selection_result": {
+      "selected_symbol": "QQQ",
+      "selected_setup_type": "Ideal",
+      "selection_status": "shape_only_first_real_qqq_historical_fixture"
+    },
+    "duplicate_alert_suppression_key": "QQQ|2026-05-13|Ideal|ideal_triggered_signal_stage_candidate|none"
+  },
+  "stage": "ideal_triggered_signal_stage_candidate",
+  "setup_state": "signal_stage",
+  "lifecycle": {
+    "current_state": "signal",
+    "prior_state": "ideal_retest_recovery_confirmation_candidate",
+    "first_seen": "2026-05-08T15:30:00-04:00",
+    "last_seen": "2026-05-13T12:30:00-04:00",
+    "state_changed": true,
+    "trigger_changed": true,
+    "blocker_changed": true,
+    "final_verdict": "TRADE",
+    "human_next_step": "Signal/stage lifecycle fixture only: completed QQQ Ideal trigger-stage candidate for replay shape; this is not an execution recommendation, live trade instruction, or trade outcome assumption."
+  },
+  "final_verdict": "TRADE",
+  "trigger_state": "triggered",
+  "entry_condition": {
+    "entry_trigger_type": "retest_reclaim",
+    "entry_trigger_level": 714.59,
+    "entry_reference_source": "2026-05-13T12:30:00-04:00 replay row close at 714.805 above copied QQQ Ideal trigger level 714.59.",
+    "entry_signal_timestamp": "2026-05-13T12:30:00-04:00",
+    "entry_eligibility_rule": "Candidate is eligible only because the source replay row is QQQ Ideal with final_verdict TRADE and trigger_state triggered.",
+    "entry_candle_policy": "next_eligible_candle_after_signal",
+    "entry_price_policy": "next_eligible_candle_open",
+    "entry_confirmation_required": true,
+    "entry_confirmation_basis": "Completed 1H RTH candle closed above the copied Ideal trigger level after retest recovery."
+  },
+  "invalidation_condition": {
+    "invalidation_type": "retest_hold_failure",
+    "invalidation_level": 696.66,
+    "invalidation_reference_source": "Replay row expected_output_shape.invalidation copied from the first real QQQ Ideal fixture.",
+    "invalidation_rule": "Chart-only sample invalidates if a future 1H RTH candle touches or closes through 696.66 before follow-through or time stop.",
+    "invalidation_touch_or_close_policy": "either",
+    "invalidation_known_at_entry": true,
+    "likely_chart_risk_points": 18.13,
+    "likely_chart_risk_percent": 2.5364,
+    "likely_risk_vs_full_risk_note": "Likely risk is only the underlying-chart distance from calculated entry reference 714.79 to invalidation 696.66; full option or account risk is not modeled."
+  },
+  "follow_through_condition": {
+    "follow_through_type": "favorable_points",
+    "follow_through_threshold": 2.0,
+    "follow_through_threshold_basis": "Predeclared v1 sample threshold matching the prior real chart-only calculation policy; not selected from future profitability.",
+    "follow_through_touch_or_close_policy": "touch",
+    "follow_through_required_before_time_stop": true,
+    "first_trouble_area": {
+      "level": 719.69,
+      "source": "2026-05-14T09:30:00-04:00 high from validated source candles, included as sample context only.",
+      "known_at_entry": false
+    },
+    "continuation_objective": {
+      "level": null,
+      "source": null,
+      "known_at_entry": false
+    }
+  },
+  "failure_condition": {
+    "failure_type": "invalidation_hit",
+    "failure_rule": "Failure if the chart reaches the copied invalidation level before the predeclared sample follow-through threshold or before the time stop.",
+    "failure_level": 696.66,
+    "failure_touch_or_close_policy": "either",
+    "hold_failure_required": true,
+    "hard_blocker_failure_policy": "No future hard blocker scanning is implemented in this fixture; blockers remain copied from the replay row only."
+  },
+  "time_stop_condition": {
+    "time_stop_type": "same_day_or_fast_swing",
+    "max_hold_candles": 5,
+    "max_hold_sessions": 2,
+    "entry_session_close_policy": "If neither follow-through nor invalidation is proven by the entry session close, continue only as chart-only fast-swing classification within the declared window.",
+    "overnight_carry_policy": "allowed_chart_classification_only",
+    "fast_swing_max_sessions": 2,
+    "source_end_policy": "unresolved_insufficient_lookahead"
+  },
+  "available_context": {
+    "context_24h_daily": {
+      "status": "unconfirmed",
+      "value": "CONTEXT_24H_DAILY_UNCONFIRMED",
+      "as_of": null,
+      "source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv"
+    },
+    "macro_context": {
+      "status": "unconfirmed",
+      "value": "MACRO_UNCONFIRMED",
+      "as_of": null,
+      "source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv"
+    },
+    "iv_context": {
+      "status": "unconfirmed",
+      "value": "IV_UNCONFIRMED",
+      "as_of": null,
+      "source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv"
+    },
+    "event_context": {
+      "status": "unconfirmed",
+      "value": "EVENT_UNCONFIRMED",
+      "as_of": null,
+      "source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv"
+    },
+    "headline_gap_risk_context": {
+      "macro_context_status": "unconfirmed",
+      "iv_context_status": "unconfirmed",
+      "event_context_status": "unconfirmed",
+      "headline_context_status": "unavailable",
+      "gap_detected_from_chart": true,
+      "gap_direction": "up",
+      "gap_points": 0.14,
+      "gap_percent": 0.0196,
+      "gap_cause_known": false,
+      "gap_cause_source": null
+    }
+  },
+  "lookahead_window": {
+    "start_timestamp": "2026-05-13T13:30:00-04:00",
+    "end_timestamp": "2026-05-14T10:30:00-04:00",
+    "max_candles": 5,
+    "max_sessions": 2
+  },
+  "source_candle_window": [
+    {
+      "timestamp": "2026-05-13T12:30:00-04:00",
+      "open": 713.59,
+      "high": 715.02,
+      "low": 713.03,
+      "close": 714.805,
+      "volume": 1524686.447892
+    },
+    {
+      "timestamp": "2026-05-13T13:30:00-04:00",
+      "open": 714.79,
+      "high": 716.65,
+      "low": 713.675,
+      "close": 716.28,
+      "volume": 1554586.226007
+    },
+    {
+      "timestamp": "2026-05-13T14:30:00-04:00",
+      "open": 716.275,
+      "high": 716.415,
+      "low": 714.27,
+      "close": 715.68,
+      "volume": 1883730.321544
+    },
+    {
+      "timestamp": "2026-05-13T15:30:00-04:00",
+      "open": 715.69,
+      "high": 716.05,
+      "low": 713.86,
+      "close": 714.48,
+      "volume": 1906465.087626
+    },
+    {
+      "timestamp": "2026-05-14T09:30:00-04:00",
+      "open": 714.62,
+      "high": 719.69,
+      "low": 714.22,
+      "close": 718.19,
+      "volume": 3966069.063006
+    },
+    {
+      "timestamp": "2026-05-14T10:30:00-04:00",
+      "open": 718.17,
+      "high": 721.81,
+      "low": 717.88,
+      "close": 721.375,
+      "volume": 2572022.567257
+    }
+  ],
+  "no_hindsight_audit": {
+    "candidate_created_at": "2026-05-17T00:00:00-04:00",
+    "candidate_created_from_source_timestamp": "2026-05-13T12:30:00-04:00",
+    "rules_defined_before_future_scan": true,
+    "setup_identity_copied_from_source": true,
+    "future_candles_used_only_for_outcome_measurement": true,
+    "manual_override_used": false,
+    "manual_override_reason": null
+  },
+  "notes": "First QQQ Ideal chart-based trade outcome backtesting v1 sample input fixture. It is chart-only, uses real validated QQQ Ideal replay/source references, and does not model option P&L, account sizing, broker execution, watcher behavior, or live trade decisions."
+}

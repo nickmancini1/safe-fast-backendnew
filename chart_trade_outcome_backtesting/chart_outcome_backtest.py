@@ -13,11 +13,11 @@ REPO_ROOT = ROOT.parent
 
 INPUT_SCHEMA = ROOT / "schemas" / "chart_outcome_backtest_input_v1.schema.json"
 OUTPUT_SCHEMA = ROOT / "schemas" / "chart_outcome_backtest_output_v1.schema.json"
-INPUT_FIXTURE = ROOT / "fixtures" / "third_spy_clean_fast_break_chart_outcome_input_v1.json"
+INPUT_FIXTURE = ROOT / "fixtures" / "qqq_ideal_chart_outcome_input_v1.json"
 EXPECTED_OUTPUT_FIXTURE = (
-    ROOT / "fixtures" / "third_spy_clean_fast_break_chart_outcome_expected_output_v1.json"
+    ROOT / "fixtures" / "qqq_ideal_chart_outcome_expected_output_v1.json"
 )
-REPORT_PATH = ROOT / "reports" / "third_spy_clean_fast_break_chart_outcome_result_v1.json"
+REPORT_PATH = ROOT / "reports" / "qqq_ideal_chart_outcome_result_v1.json"
 
 
 @dataclass(frozen=True)
@@ -88,13 +88,13 @@ def _session_date(timestamp: str) -> Optional[str]:
     return timestamp.split("T", 1)[0]
 
 
-def _source_csv_path() -> Path:
+def _source_csv_path(symbol: str) -> Path:
     return (
         REPO_ROOT
         / "historical_signal_replay"
         / "source_data"
         / "incoming"
-        / "first_real_historical_replay_v1_SPY_source.csv"
+        / f"first_real_historical_replay_v1_{symbol}_source.csv"
     )
 
 
@@ -132,7 +132,7 @@ def _validate_source_artifacts(candidate: Dict[str, Any]) -> List[str]:
                         f"source_signal_log: expected {field}={expected!r}, got {actual!r}"
                     )
 
-    source_csv_path = _source_csv_path()
+    source_csv_path = _source_csv_path(candidate["symbol"])
     if not source_csv_path.exists():
         errors.append(f"source_csv: missing {source_csv_path.relative_to(REPO_ROOT)}")
     else:
@@ -159,7 +159,10 @@ def _validate_source_artifacts(candidate: Dict[str, Any]) -> List[str]:
             )
         ]
         if mismatched_rows:
-            errors.append("source_csv: required rows must be SPY 1h_rth regular-session candles")
+            errors.append(
+                f"source_csv: required rows must be {candidate['symbol']} "
+                "1h_rth regular-session candles"
+            )
 
     return errors
 
@@ -207,7 +210,7 @@ def _load_matching_signal_row(candidate: Dict[str, Any]) -> Tuple[Optional[Dict[
 
 def _load_real_window_candles(candidate: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], List[str]]:
     errors: List[str] = []
-    source_rows = _load_csv_rows(_source_csv_path())
+    source_rows = _load_csv_rows(_source_csv_path(candidate["symbol"]))
     start_timestamp = candidate["source_signal_timestamp"]
     end_timestamp = candidate["lookahead_window"]["end_timestamp"]
     source_rows = [
@@ -320,7 +323,9 @@ def _build_real_chart_report(candidate: Dict[str, Any]) -> Tuple[Optional[Dict[s
     direction = candidate["direction"]
     is_bullish = direction in {"CALL", "LONG", "BULLISH"}
     if not is_bullish:
-        return None, [f"direction: chart outcome v1 supports bullish SPY samples only, got {direction!r}"]
+        return None, [
+            f"direction: chart outcome v1 supports bullish chart samples only, got {direction!r}"
+        ]
 
     scan_candles = candles[entry_index : entry_index + max_hold_candles]
     if len(scan_candles) < max_hold_candles:

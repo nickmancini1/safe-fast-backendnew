@@ -2516,3 +2516,39 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Runner code changed:** no
 - **Chart outcome code changed:** no
 - **Next task:** create QQQ Ideal chart outcome input/expected output fixture and calculation
+
+## QQQ Ideal chart outcome calculation status
+
+- **Calculation status:** PASS
+- **Baseline:** patch8
+- **Latest local commit before calculation:** `a9c4a38 Add QQQ chart outcome calculation phase plan`
+- **Sample used:** QQQ Ideal accepted historical signal replay row `ideal_triggered_signal_stage_candidate`
+- **Symbol/setup:** QQQ / Ideal
+- **Input fixture:** `chart_trade_outcome_backtesting/fixtures/qqq_ideal_chart_outcome_input_v1.json`
+- **Expected output fixture:** `chart_trade_outcome_backtesting/fixtures/qqq_ideal_chart_outcome_expected_output_v1.json`
+- **Report file:** `chart_trade_outcome_backtesting/reports/qqq_ideal_chart_outcome_result_v1.json`
+- **Review file:** `SAFE_FAST_QQQ_IDEAL_CHART_OUTCOME_CALCULATION_REVIEW.md`
+- **Chart-only boundary:** PASS; uses real QQQ 1H RTH source OHLCV rows only and excludes option P&L, account sizing, broker/order execution, watcher behavior, auto-trading, and live trade decisions.
+- **Entry result:** entry reached at `2026-05-13T13:30:00-04:00`, reference price 714.79, using the next eligible candle open after the `2026-05-13T12:30:00-04:00` signal row.
+- **Invalidation result:** copied invalidation 696.66 was not reached before terminal follow-through.
+- **Follow-through/failure/time-stop result:** follow-through reached at `2026-05-14T09:30:00-04:00` high 719.69 before invalidation or time stop; classified as `fast_swing`.
+- **MFE/MAE result:** MFE 4.9 points / 0.6855% / 0.2703 chart R; MAE 1.115 points / 0.156% / 0.0615 chart R.
+- **Headline/gap-risk context:** macro/IV/event unconfirmed, headline unavailable, chart gap up 0.14 points / 0.0196%, gap cause unknown.
+- **Likely risk vs full-risk note:** likely chart risk is underlying-chart distance only; full financial risk remains unmodeled.
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Watcher work started:** no
+- **`main.py` changed:** no
+- **Schemas changed:** no
+- **Historical replay fixtures changed:** no
+- **Historical replay runner changed:** no
+- **Chart outcome calculation code changed:** yes; calculator now reads the source CSV path from the candidate symbol and points the runner constants at the QQQ Ideal fixture/report.
+- **Chart fixture validation result:** PASS; `python -B chart_trade_outcome_backtesting/validate_chart_outcome_fixtures.py`
+- **Chart runner result:** PASS; `python -B chart_trade_outcome_backtesting/run_chart_outcome_backtest.py`
+- **Output JSON validation result:** PASS; `python -m json.tool chart_trade_outcome_backtesting/reports/qqq_ideal_chart_outcome_result_v1.json`
+- **Historical signal replay result:** PASS; `python -B historical_signal_replay/run_signal_replay.py`
+- **Contract tests result:** PASS; all 35 `replay/test_on_demand_*contract.py` files passed locally
+- **Stage-message result:** PASS; `python -B replay/test_on_demand_stage_messages.py`
+- **Fixture validation result:** PASS; `python -B replay/validate_fixtures.py`
+- **Full replay result:** PASS; `python -B replay/run_replay.py` returned `16/16 passed`, `local_fixture_engine=16`, `placeholder_scaffold=0`
+- **Next task:** validate QQQ Ideal chart outcome calculation output
