@@ -3073,3 +3073,18 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Live trade decisions added:** no
 - **Required next contract:** blocked-but-identifiable setup trigger-card surface contract
 
+## Blocked identifiable trigger-card surface contract status
+
+- **Contract test:** `replay/test_on_demand_blocked_identifiable_trigger_card_surface_contract.py`
+- **Contract status:** PASS
+- **Protected rule:** blocked but identifiable on-demand setup output preserves setup identity and exposes trigger-card/blocker context instead of vague confirmation-only language
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+- **Required next contract:** near-trigger / early-warning trigger-card surface contract
+
