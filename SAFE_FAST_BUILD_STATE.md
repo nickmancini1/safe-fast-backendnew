@@ -3058,3 +3058,18 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Live trade decisions added:** no
 - **Required next contract:** put-side trigger-card surface contract
 
+## Put-side trigger-card surface contract status
+
+- **Contract test:** `replay/test_on_demand_put_side_trigger_card_surface_contract.py`
+- **Contract status:** PASS
+- **Protected rule:** put-side on-demand output exposes below-trigger / bearish trigger-card surface instead of vague or call-side confirmation-only language
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+- **Required next contract:** blocked-but-identifiable setup trigger-card surface contract
+
