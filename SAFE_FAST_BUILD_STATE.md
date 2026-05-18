@@ -3121,3 +3121,23 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Required tests run:** `python -B replay/test_on_demand_missing_data_unconfirmed_trigger_card_surface_contract.py`; full `replay/test_on_demand_*contract.py` sweep; `python -B replay/test_on_demand_stage_messages.py`; `python -B replay/validate_fixtures.py`; `python -B replay/run_replay.py`
 - **Required next task:** resume IWM historical sample collection/population unless build-state evidence requires another trigger-card contract first
 
+## IWM sample evidence intake review status
+
+- **Intake review file:** `SAFE_FAST_IWM_SAMPLE_EVIDENCE_INTAKE_REVIEW.md`
+- **Review status:** PASS
+- **Concrete IWM sample evidence in repo:** no
+- **Fixture/replay creation status:** NO-GO until concrete IWM sample windows are supplied
+- **Trigger-card requirement:** every IWM sample must collect trigger path / trigger-card fields
+- **Current objective after review:** supply/populate concrete IWM chart windows/evidence
+- **IWM status:** active broader coverage target
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
