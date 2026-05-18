@@ -3042,3 +3042,19 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Pytest status:** blocked locally; active Python reports `No module named pytest`
 - **Required next contract:** Clean Fast Break forming/pending trigger-card surface contract
 
+## Clean Fast Break forming/pending trigger-card surface contract status
+
+- **Contract test:** `replay/test_on_demand_clean_fast_break_forming_pending_trigger_card_surface_contract.py`
+- **Contract status:** PASS
+- **Protected rule:** Clean Fast Break forming/pending on-demand output exposes trigger-card surface instead of vague confirmation-only language
+- **main.py changed:** yes
+- **If main.py changed:** surface-only output patch, no trigger math/classification/trade approval/winner/session logic changed
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+- **Required next contract:** put-side trigger-card surface contract
+

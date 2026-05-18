@@ -7593,6 +7593,13 @@ def _build_trigger_card_surface(
         else:
             confirmation_rule = "Ideal retest/recovery requires a completed 1H close above the trigger reference."
             next_condition = "Hold the Ideal retest/recovery structure, then get a fresh completed 1H close above the trigger while gates stay clean."
+    elif setup_type == "Clean Fast Break":
+        if option_type_upper == "P":
+            confirmation_rule = "Clean Fast Break put-side tight-pause/base break requires a completed 1H close below the trigger reference."
+            next_condition = "Hold the Clean Fast Break tight-pause/base structure, then get a fresh completed 1H break below the trigger while gates stay clean."
+        else:
+            confirmation_rule = "Clean Fast Break tight-pause/base break requires a completed 1H close above the trigger reference."
+            next_condition = "Hold the Clean Fast Break tight-pause/base structure, then get a fresh completed 1H break above the trigger while gates stay clean."
     else:
         confirmation_rule = "Completed 1H candle confirmation is required for SAFE-FAST trigger approval."
         next_condition = "Get a fresh completed 1H trigger while structure and gates stay clean."
@@ -7605,11 +7612,15 @@ def _build_trigger_card_surface(
     elif trigger_state.get("trigger_present") is True:
         if setup_type == "Ideal":
             freshness_rule = "Fresh Ideal trigger is present only while the retest/recovery structure, timing, and gates remain valid."
+        elif setup_type == "Clean Fast Break":
+            freshness_rule = "Fresh Clean Fast Break trigger is present only while the tight-pause/base break structure, timing, and gates remain valid."
         else:
             freshness_rule = "Fresh trigger is present only while current market, timing, and structure gates remain valid."
     else:
         if setup_type == "Ideal":
             freshness_rule = "No fresh approved Ideal trigger is present yet; the retest/recovery path is still forming or pending confirmation."
+        elif setup_type == "Clean Fast Break":
+            freshness_rule = "No fresh approved Clean Fast Break trigger is present yet; the tight-pause/base break path is still forming or pending confirmation."
         else:
             freshness_rule = "No fresh approved trigger is present yet."
 
@@ -7618,6 +7629,8 @@ def _build_trigger_card_surface(
             trigger_zone = f"Shelf trigger reference near {trigger_level_text}."
         elif setup_type == "Ideal":
             trigger_zone = f"Ideal retest/recovery trigger reference near {trigger_level_text}."
+        elif setup_type == "Clean Fast Break":
+            trigger_zone = f"Clean Fast Break tight-pause/base break trigger reference near {trigger_level_text}."
         else:
             trigger_zone = f"Trigger reference near {trigger_level_text}."
     else:
