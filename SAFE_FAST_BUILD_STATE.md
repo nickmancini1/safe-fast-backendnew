@@ -9,8 +9,8 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** create on-demand trigger-card surface contract gap review before deeper IWM work
-- **Current build direction:** on-demand output-surface contract review before deeper IWM sample collection; IWM remains next broader coverage target; GLD deferred; Continuous Watcher remains deferred
+- **Current objective:** create first on-demand trigger-card surface contract test
+- **Current build direction:** close trigger-card surface contract gap before deeper IWM sample work; SPY/QQQ replay closeout remains accepted; IWM remains next broader coverage target; GLD deferred; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -2954,6 +2954,25 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **SPY/QQQ closeout redo required:** no
 - **Current objective after review:** create on-demand trigger-card surface contract gap review before deeper IWM work
 - **IWM status:** still next broader coverage target
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## On-demand trigger-card surface contract gap review status
+
+- **Review file:** `SAFE_FAST_ON_DEMAND_TRIGGER_CARD_SURFACE_CONTRACT_GAP_REVIEW.md`
+- **Review status:** PASS
+- **Gap identified:** user-facing trigger-card completeness
+- **SPY/QQQ replay redo required:** no
+- **Required next contract:** Continuation stale/spent trigger-card surface contract
+- **IWM status:** still next broader coverage target after trigger-card surface contract planning/coverage
 - **GLD status:** deferred
 - **Continuous Watcher status:** deferred
 - **main.py changed:** no
