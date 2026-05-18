@@ -7578,6 +7578,50 @@ def _build_trigger_card_surface(
         direction = None
     failed_items = list((checklist_block or {}).get("effective_failed_items") or (checklist_block or {}).get("failed_items") or [])
     caution_items = list((checklist_block or {}).get("caution_items") or [])
+    current_price = _to_float(trigger_state.get("current_close"))
+    if current_price is None:
+        current_price = _to_float((structure_context or {}).get("latest_close"))
+    trigger_level_value = _to_float(trigger_level)
+
+    current_distance_to_trigger = None
+    trigger_proximity = None
+    early_warning_threshold = None
+    distance_points = _to_float(continuation_context.get("distance_current_to_shelf_high"))
+    distance_atr = _to_float(continuation_context.get("distance_current_to_shelf_high_atr"))
+    atr_value = _to_float(continuation_context.get("atr_14_1h"))
+    if trigger_level_value is not None and current_price is not None:
+        if distance_points is None:
+            distance_points = current_price - trigger_level_value
+            if option_type_upper == "P":
+                distance_points = trigger_level_value - current_price
+        absolute_distance = abs(distance_points)
+        if option_type_upper == "P":
+            side_text = "below / through" if current_price < trigger_level_value else "above / not through"
+        else:
+            side_text = "above / through" if current_price > trigger_level_value else "below / not through"
+        current_distance_to_trigger = (
+            f"{_format_trade_day_level(absolute_distance)} {side_text} trigger reference "
+            f"{trigger_level_text or _format_trade_day_level(trigger_level_value)}."
+        )
+
+    if distance_atr is not None:
+        proximity_label = "near-trigger / arming"
+        if trigger_reason in {
+            "waiting_for_completed_shelf_break_close",
+            "pending_completed_candle_approval",
+        } or trigger_state.get("pending_completed_candle_approval") is True:
+            proximity_label = "trigger arming / pending completed candle"
+        trigger_proximity = (
+            f"{proximity_label}; current distance is {_format_trade_day_level(abs(distance_atr))} ATR "
+            "from the shelf trigger."
+        )
+        if atr_value is not None:
+            early_warning_threshold = (
+                "Existing Continuation engine window: within 1.0 ATR of the shelf trigger; "
+                f"current 1H ATR context is {_format_trade_day_level(atr_value)}."
+            )
+        else:
+            early_warning_threshold = "Existing Continuation engine window: within 1.0 ATR of the shelf trigger."
 
     if setup_type == "Continuation":
         if option_type_upper == "P":
@@ -7652,6 +7696,12 @@ def _build_trigger_card_surface(
     ]
     if trigger_zone:
         response_text_parts.append(f"Trigger path: {trigger_zone}")
+    if current_distance_to_trigger:
+        response_text_parts.append(f"Current distance to trigger: {current_distance_to_trigger}")
+    if trigger_proximity:
+        response_text_parts.append(f"Trigger proximity: {trigger_proximity}")
+    if early_warning_threshold:
+        response_text_parts.append(f"Early-warning threshold: {early_warning_threshold}")
     response_text_parts.extend(
         [
             f"Confirmation rule: {confirmation_rule}",
@@ -7674,6 +7724,9 @@ def _build_trigger_card_surface(
         "trigger_style": trigger_state.get("trigger_style"),
         "trigger_level": trigger_level,
         "trigger_zone": trigger_zone,
+        "current_distance_to_trigger": current_distance_to_trigger,
+        "trigger_proximity": trigger_proximity,
+        "early_warning_threshold": early_warning_threshold,
         "confirmation_rule": confirmation_rule,
         "freshness_rule": freshness_rule,
         "next_condition": next_condition,

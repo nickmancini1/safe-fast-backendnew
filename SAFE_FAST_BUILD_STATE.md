@@ -3088,3 +3088,19 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Live trade decisions added:** no
 - **Required next contract:** near-trigger / early-warning trigger-card surface contract
 
+## Near-trigger early-warning trigger-card surface contract status
+
+- **Contract test:** `replay/test_on_demand_near_trigger_early_warning_trigger_card_surface_contract.py`
+- **Contract status:** PASS
+- **Protected rule:** near-trigger / early-warning on-demand output exposes trigger-card proximity context instead of vague confirmation-only language
+- **main.py changed:** yes
+- **If main.py changed:** surface-only output patch, no trigger math/classification/trade approval/winner/session logic changed
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+- **Required next contract:** missing-data/unconfirmed trigger-card surface contract
+
