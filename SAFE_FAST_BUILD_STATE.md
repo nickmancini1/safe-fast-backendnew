@@ -3002,3 +3002,25 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Doc update completed:** yes
 - **Required next contract:** Ideal forming/pending trigger-card surface contract
 
+## Day 60 product/business handoff addendum status
+
+- **Addendum file:** `SAFE_FAST_DAY60_PRODUCT_BUSINESS_HANDOFF_ADDENDUM.md`
+- **Addendum status:** PASS
+- **Project day/runway:** Day 15 of 60; 45 days remaining
+- **Day 60 target:** shadow SAFE-FAST Continuous Watcher prototype
+- **Core product function:** monitor SPY / QQQ / IWM / GLD for forming Ideal / Clean Fast Break / Continuation setups with trigger-card alerts
+- **Trigger card requirement:** core on-demand and watcher output requirement
+- **Post-Day-60 operating mode:** $20-tier chats handle focused maintenance, shadow-test review, alert accuracy review, tuning, UI/workflow polish, targeted fixes, and handoff upkeep
+- **Trade outcome/account layer:** after watcher proof, evaluate trade outcome, trade style, account sizing, planned invalidation risk, full debit exposure, and funding-growth gates
+- **Business framing:** rules-based setup watcher/workflow tool, not generic chat
+- **Future handoff rule:** include this addendum in future handoff packages
+- **Current objective after addendum:** create Ideal forming/pending trigger-card surface contract
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+

@@ -185,3 +185,7 @@ Next laptop tasks must stay narrow:
 - Stop after the requested task
 
 Do not touch Railway, deploy, production files, old repos, or auto-trading behavior.
+
+## Day 60 product/business addendum
+
+See `SAFE_FAST_DAY60_PRODUCT_BUSINESS_HANDOFF_ADDENDUM.md` for the public-safe Day 60 product/business handoff addendum, including the watcher target, trigger-card requirement, post-Day-60 $20-tier operating mode, accuracy-review expectations, trade outcome/account layer, business packaging, and future handoff expectations.
