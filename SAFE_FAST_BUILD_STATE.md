@@ -3104,3 +3104,20 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Live trade decisions added:** no
 - **Required next contract:** missing-data/unconfirmed trigger-card surface contract
 
+## Missing-data unconfirmed trigger-card surface contract status
+
+- **Contract test:** `replay/test_on_demand_missing_data_unconfirmed_trigger_card_surface_contract.py`
+- **Contract status:** PASS
+- **Protected rule:** on-demand output marks unavailable trigger-card fields as unconfirmed instead of fabricating values or falling back to vague confirmation-only language
+- **main.py changed:** yes
+- **If main.py changed:** surface-only output patch, no trigger math/classification/trade approval/winner/session logic changed
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+- **Required tests run:** `python -B replay/test_on_demand_missing_data_unconfirmed_trigger_card_surface_contract.py`; full `replay/test_on_demand_*contract.py` sweep; `python -B replay/test_on_demand_stage_messages.py`; `python -B replay/validate_fixtures.py`; `python -B replay/run_replay.py`
+- **Required next task:** resume IWM historical sample collection/population unless build-state evidence requires another trigger-card contract first
+

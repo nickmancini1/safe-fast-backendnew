@@ -7623,7 +7623,15 @@ def _build_trigger_card_surface(
         else:
             early_warning_threshold = "Existing Continuation engine window: within 1.0 ATR of the shelf trigger."
 
-    if setup_type == "Continuation":
+    confirmation_rule_unavailable = (
+        trigger_state.get("confirmation_rule_unavailable") is True
+        or trigger_state.get("timeframe_rule_unavailable") is True
+        or str(trigger_state.get("confirmation_rule_status") or "").lower() in {"unconfirmed", "unavailable"}
+    )
+    if confirmation_rule_unavailable:
+        confirmation_rule = "unconfirmed / unavailable: completed-candle/timeframe trigger rule is not available from the current trigger-card inputs."
+        next_condition = "Trigger-card rule inputs are unconfirmed; do not treat a trigger as known until the completed-candle/timeframe rule is available."
+    elif setup_type == "Continuation":
         if option_type_upper == "P":
             confirmation_rule = "First completed 1H close below the shelf low confirms the put-side Continuation trigger."
             next_condition = "Build a fresh shelf/reclaim hold, then get a completed 1H close below the shelf trigger while gates stay clean."
@@ -7678,7 +7686,17 @@ def _build_trigger_card_surface(
         else:
             trigger_zone = f"Trigger reference near {trigger_level_text}."
     else:
-        trigger_zone = None
+        trigger_zone = "unconfirmed / unavailable: trigger level or zone is not available from the current trigger-card inputs."
+
+    if current_distance_to_trigger is None:
+        current_distance_to_trigger = "unconfirmed / unavailable: current price, trigger level, or distance input is not available."
+    if trigger_proximity is None:
+        trigger_proximity = "unconfirmed / unavailable: trigger proximity cannot be calculated from the current trigger-card inputs."
+    if early_warning_threshold is None:
+        early_warning_threshold = "unconfirmed / unavailable: early-warning threshold is not available from the current trigger-card inputs."
+    invalidation = user_facing.get("invalidation")
+    if not invalidation:
+        invalidation = "unconfirmed / unavailable: invalidation condition is not available from the current trigger-card inputs."
 
     blocker_relationship = None
     if failed_items:
@@ -7707,7 +7725,7 @@ def _build_trigger_card_surface(
             f"Confirmation rule: {confirmation_rule}",
             f"Freshness rule: {freshness_rule}",
             f"Next condition: {next_condition}",
-            f"Invalidation: {str(user_facing.get('invalidation') or 'unconfirmed').rstrip('.')}.",
+            f"Invalidation: {str(invalidation).rstrip('.')}.",
             blocker_relationship,
         ]
     )
@@ -7730,7 +7748,7 @@ def _build_trigger_card_surface(
         "confirmation_rule": confirmation_rule,
         "freshness_rule": freshness_rule,
         "next_condition": next_condition,
-        "invalidation": user_facing.get("invalidation"),
+        "invalidation": invalidation,
         "blockers": failed_items,
         "cautions": caution_items,
         "blocker_caution_relationship": blocker_relationship,
