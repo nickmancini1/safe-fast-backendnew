@@ -7555,6 +7555,99 @@ def _build_trigger_context_block(
     }
 
 
+def _build_trigger_card_surface(
+    option_type: str,
+    structure_context: Dict[str, Any],
+    trigger_state: Dict[str, Any],
+    user_facing: Dict[str, Any],
+    checklist_block: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    setup_type = (structure_context or {}).get("setup_type")
+    continuation_context = (structure_context or {}).get("continuation_context") or {}
+    trigger_reason = trigger_state.get("why")
+    trigger_level = trigger_state.get("trigger_level")
+    trigger_level_text = _format_trade_day_level(trigger_level)
+    trigger_status = trigger_state.get("why_human") or _humanize_trigger_reason_key(trigger_reason)
+    setup_state = user_facing.get("setup_state")
+    failed_items = list((checklist_block or {}).get("effective_failed_items") or (checklist_block or {}).get("failed_items") or [])
+    caution_items = list((checklist_block or {}).get("caution_items") or [])
+
+    if setup_type == "Continuation":
+        if str(option_type or "").upper() == "P":
+            confirmation_rule = "First completed 1H close below the shelf low confirms the put-side Continuation trigger."
+            next_condition = "Build a fresh shelf/reclaim hold, then get a completed 1H close below the shelf trigger while gates stay clean."
+        else:
+            confirmation_rule = "First completed 1H close above the shelf high confirms the Continuation trigger."
+            next_condition = "Build a fresh shelf/reclaim hold, then get a completed 1H close above the shelf trigger while gates stay clean."
+    else:
+        confirmation_rule = "Completed 1H candle confirmation is required for SAFE-FAST trigger approval."
+        next_condition = "Get a fresh completed 1H trigger while structure and gates stay clean."
+
+    if trigger_reason == "prior_completed_shelf_break_spent":
+        freshness_rule = "Prior completed Continuation shelf break is spent; no fresh trigger now."
+        next_condition = "A new Continuation shelf/base must form and produce a fresh completed 1H shelf break."
+    elif trigger_reason == "too_late_from_hold" or str(continuation_context.get("exact_reason") or "").lower() in {"spent", "late"}:
+        freshness_rule = "Continuation trigger path is stale/spent; wait for a new shelf before another entry."
+    elif trigger_state.get("trigger_present") is True:
+        freshness_rule = "Fresh trigger is present only while current market, timing, and structure gates remain valid."
+    else:
+        freshness_rule = "No fresh approved trigger is present yet."
+
+    if trigger_level_text:
+        if setup_type == "Continuation":
+            trigger_zone = f"Shelf trigger reference near {trigger_level_text}."
+        else:
+            trigger_zone = f"Trigger reference near {trigger_level_text}."
+    else:
+        trigger_zone = None
+
+    blocker_relationship = None
+    if failed_items:
+        blocker_relationship = "Trigger readiness is blocked by: " + ", ".join(str(item) for item in failed_items[:5]) + "."
+    elif caution_items:
+        blocker_relationship = "Trigger readiness has cautions: " + ", ".join(str(item) for item in caution_items[:5]) + "."
+    else:
+        blocker_relationship = "No listed blockers or cautions are attached to trigger readiness."
+
+    response_text_parts = [
+        f"Setup: {setup_type or 'unconfirmed'}.",
+        f"Stage: {setup_state or 'unconfirmed'}.",
+        f"Trigger status: {str(trigger_status or 'unconfirmed').rstrip('.')}.",
+    ]
+    if trigger_zone:
+        response_text_parts.append(f"Trigger path: {trigger_zone}")
+    response_text_parts.extend(
+        [
+            f"Confirmation rule: {confirmation_rule}",
+            f"Freshness rule: {freshness_rule}",
+            f"Next condition: {next_condition}",
+            f"Invalidation: {str(user_facing.get('invalidation') or 'unconfirmed').rstrip('.')}.",
+            blocker_relationship,
+        ]
+    )
+
+    return {
+        "ok": True,
+        "surface_type": "trigger_card",
+        "setup_type": setup_type,
+        "option_type": option_type,
+        "stage": setup_state,
+        "trigger_status": trigger_status,
+        "trigger_reason": trigger_reason,
+        "trigger_style": trigger_state.get("trigger_style"),
+        "trigger_level": trigger_level,
+        "trigger_zone": trigger_zone,
+        "confirmation_rule": confirmation_rule,
+        "freshness_rule": freshness_rule,
+        "next_condition": next_condition,
+        "invalidation": user_facing.get("invalidation"),
+        "blockers": failed_items,
+        "cautions": caution_items,
+        "blocker_caution_relationship": blocker_relationship,
+        "response_text": " ".join(response_text_parts),
+    }
+
+
 
 
 def _derive_global_gate_primary_blocker(trigger_reason: Any) -> Optional[str]:
@@ -9903,6 +9996,13 @@ async def _build_on_demand_payload(request: OnDemandRequest) -> Dict[str, Any]:
         "trigger_context": _build_trigger_context_block(
             trigger_state=trigger_state,
             live_map=live_map_block,
+        ),
+        "trigger_card": _build_trigger_card_surface(
+            option_type=request.option_type,
+            structure_context=structure_context,
+            trigger_state=trigger_state,
+            user_facing=user_facing_block,
+            checklist_block=effective_payload_checklist_block,
         ),
         "entry_context": entry_context_block,
         "intrabar_signal_context": intrabar_signal_context_block,

@@ -2984,3 +2984,21 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Railway/production touched:** no
 - **Live trade decisions added:** no
 
+## Continuation stale/spent trigger-card surface contract status
+
+- **Contract test:** `replay/test_on_demand_continuation_stale_spent_trigger_card_surface_contract.py`
+- **Contract status:** PASS
+- **Protected rule:** stale/spent Continuation on-demand output exposes trigger-card surface instead of vague confirmation-only language
+- **main.py changed:** yes
+- **Surface-only output patch:** yes; added structured `trigger_card` output from existing surface context, no trigger math/classification/trade approval/winner/session logic changed
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+- **Required tests run:** `python -B replay/test_on_demand_continuation_stale_spent_trigger_card_surface_contract.py`; relevant existing on-demand trigger/stage/surface/session tests; full `replay/test_on_demand_*contract.py` sweep; `python -B replay/validate_fixtures.py`; `python -B replay/run_replay.py`
+- **Doc update completed:** yes
+- **Required next contract:** Ideal forming/pending trigger-card surface contract
+
