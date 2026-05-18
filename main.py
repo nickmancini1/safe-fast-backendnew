@@ -7569,16 +7569,30 @@ def _build_trigger_card_surface(
     trigger_level_text = _format_trade_day_level(trigger_level)
     trigger_status = trigger_state.get("why_human") or _humanize_trigger_reason_key(trigger_reason)
     setup_state = user_facing.get("setup_state")
+    option_type_upper = str(option_type or "").upper()
+    if option_type_upper == "C":
+        direction = "bullish / call-side"
+    elif option_type_upper == "P":
+        direction = "bearish / put-side"
+    else:
+        direction = None
     failed_items = list((checklist_block or {}).get("effective_failed_items") or (checklist_block or {}).get("failed_items") or [])
     caution_items = list((checklist_block or {}).get("caution_items") or [])
 
     if setup_type == "Continuation":
-        if str(option_type or "").upper() == "P":
+        if option_type_upper == "P":
             confirmation_rule = "First completed 1H close below the shelf low confirms the put-side Continuation trigger."
             next_condition = "Build a fresh shelf/reclaim hold, then get a completed 1H close below the shelf trigger while gates stay clean."
         else:
             confirmation_rule = "First completed 1H close above the shelf high confirms the Continuation trigger."
             next_condition = "Build a fresh shelf/reclaim hold, then get a completed 1H close above the shelf trigger while gates stay clean."
+    elif setup_type == "Ideal":
+        if option_type_upper == "P":
+            confirmation_rule = "Ideal put-side retest/recovery requires a completed 1H close below the trigger reference."
+            next_condition = "Hold the Ideal retest/recovery structure, then get a fresh completed 1H close below the trigger while gates stay clean."
+        else:
+            confirmation_rule = "Ideal retest/recovery requires a completed 1H close above the trigger reference."
+            next_condition = "Hold the Ideal retest/recovery structure, then get a fresh completed 1H close above the trigger while gates stay clean."
     else:
         confirmation_rule = "Completed 1H candle confirmation is required for SAFE-FAST trigger approval."
         next_condition = "Get a fresh completed 1H trigger while structure and gates stay clean."
@@ -7589,13 +7603,21 @@ def _build_trigger_card_surface(
     elif trigger_reason == "too_late_from_hold" or str(continuation_context.get("exact_reason") or "").lower() in {"spent", "late"}:
         freshness_rule = "Continuation trigger path is stale/spent; wait for a new shelf before another entry."
     elif trigger_state.get("trigger_present") is True:
-        freshness_rule = "Fresh trigger is present only while current market, timing, and structure gates remain valid."
+        if setup_type == "Ideal":
+            freshness_rule = "Fresh Ideal trigger is present only while the retest/recovery structure, timing, and gates remain valid."
+        else:
+            freshness_rule = "Fresh trigger is present only while current market, timing, and structure gates remain valid."
     else:
-        freshness_rule = "No fresh approved trigger is present yet."
+        if setup_type == "Ideal":
+            freshness_rule = "No fresh approved Ideal trigger is present yet; the retest/recovery path is still forming or pending confirmation."
+        else:
+            freshness_rule = "No fresh approved trigger is present yet."
 
     if trigger_level_text:
         if setup_type == "Continuation":
             trigger_zone = f"Shelf trigger reference near {trigger_level_text}."
+        elif setup_type == "Ideal":
+            trigger_zone = f"Ideal retest/recovery trigger reference near {trigger_level_text}."
         else:
             trigger_zone = f"Trigger reference near {trigger_level_text}."
     else:
@@ -7611,6 +7633,7 @@ def _build_trigger_card_surface(
 
     response_text_parts = [
         f"Setup: {setup_type or 'unconfirmed'}.",
+        f"Direction: {direction or 'unconfirmed'}.",
         f"Stage: {setup_state or 'unconfirmed'}.",
         f"Trigger status: {str(trigger_status or 'unconfirmed').rstrip('.')}.",
     ]
@@ -7631,6 +7654,7 @@ def _build_trigger_card_surface(
         "surface_type": "trigger_card",
         "setup_type": setup_type,
         "option_type": option_type,
+        "direction": direction,
         "stage": setup_state,
         "trigger_status": trigger_status,
         "trigger_reason": trigger_reason,
