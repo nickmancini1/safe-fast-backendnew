@@ -9,8 +9,8 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** populate IWM historical sample collection worksheet with concrete chart windows/evidence
-- **Current build direction:** IWM broader coverage after SPY + QQQ closeout; concrete IWM sample collection must happen before fixture/replay creation; GLD deferred; Continuous Watcher remains deferred
+- **Current objective:** create on-demand trigger-card surface contract gap review before deeper IWM work
+- **Current build direction:** on-demand output-surface contract review before deeper IWM sample collection; IWM remains next broader coverage target; GLD deferred; Continuous Watcher remains deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -2932,6 +2932,28 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Concrete IWM sample evidence currently available in repo:** no
 - **Fixture creation status:** NO-GO until concrete sample rows are populated and validated
 - **Current objective after worksheet:** populate IWM historical sample collection worksheet with concrete chart windows/evidence
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## On-demand trigger-card requirement review status
+
+- **Review file:** `SAFE_FAST_ON_DEMAND_TRIGGER_CARD_REQUIREMENT_REVIEW.md`
+- **Review status:** PASS
+- **Requirement:** every on-demand valid/developing/pending/triggered/stale setup must expose a trigger card
+- **Applies to:** Ideal / Clean Fast Break / Continuation, call-side and put-side where applicable
+- **SPY trigger-surface audit:** PARTIAL
+- **QQQ trigger-surface audit:** PARTIAL
+- **SPY/QQQ closeout redo required:** no
+- **Current objective after review:** create on-demand trigger-card surface contract gap review before deeper IWM work
+- **IWM status:** still next broader coverage target
 - **GLD status:** deferred
 - **Continuous Watcher status:** deferred
 - **main.py changed:** no
