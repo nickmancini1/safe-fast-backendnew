@@ -3380,3 +3380,28 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Reports changed:** no
 - **Railway/production touched:** no
 - **Live trade decisions added:** no
+
+## IWM Ideal 001 replay fixture JSON asset status
+
+- **Fixture file:** `historical_signal_replay/fixtures/first_real_iwm_ideal_replay_v1_fixture.json`
+- **Fixture status:** PASS
+- **Sample ID:** `IWM-SAMPLE-IDEAL-001`
+- **Window ID:** `IWM-WINDOW-IDEAL-001`
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv`
+- **Source window:** `2026-05-05T09:30:00-04:00` to `2026-05-14T15:30:00-04:00`
+- **Source row count:** 56
+- **JSON syntax validation:** PASS
+- **Fixture/schema validation:** PASS
+- **Replay validation:** PASS; targeted in-memory lifecycle replay summary built from the new fixture without writing reports.
+- **Generated reports created:** no
+- **Replay runner changed:** no
+- **Schema changes required:** no
+- **Next task:** validate IWM Ideal 001 replay fixture output
+- **IWM status:** active broader coverage target
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Schemas changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
