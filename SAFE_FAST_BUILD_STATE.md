@@ -9,8 +9,8 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** create IWM sample source extraction review using the same SPY/QQQ sourcing method
-- **Current build direction:** reuse the accepted SPY/QQQ read-only dxLink source CSV, validation, and source-window selection method for IWM before any IWM fixture/replay/chart-outcome creation; SPY/QQQ replay closeout remains accepted; IWM remains next broader coverage target; GLD deferred; Continuous Watcher deferred
+- **Current objective:** create IWM source CSV export request/instruction review using the SPY/QQQ dxLink 1H RTH template
+- **Current build direction:** obtain or generate the missing IWM read-only dxLink 1H RTH source CSV in the accepted SPY/QQQ template before IWM source validation, source-window selection, fixture/replay/chart-outcome creation, or aggregate closeout; SPY/QQQ replay closeout remains accepted; IWM remains next broader coverage target; GLD deferred; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -3150,6 +3150,26 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Can method be reused for IWM:** YES
 - **Exact next task:** create IWM sample source extraction review using the same SPY/QQQ sourcing method.
 - **User input required:** no chart hunting required; if the read-only export environment is unavailable, smallest input is one IWM source CSV in the existing historical signal replay source-data template format with real IWM 1H RTH OHLCV rows and source metadata.
+- **IWM status:** active broader coverage target
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## IWM sample source extraction review status
+
+- **Review file:** `SAFE_FAST_IWM_SAMPLE_SOURCE_EXTRACTION_REVIEW.md`
+- **Review status:** PASS
+- **SPY/QQQ source method:** read-only dxLink 1H RTH source CSV export, validation, bounded source-window selection, replay validation, chart-only outcome validation
+- **IWM source CSV found:** no
+- **User input required:** yes; smallest possible input is the IWM dxLink 1H RTH source CSV in the same template as SPY/QQQ, the location of an existing IWM source CSV/export, or access/path to the exporter output folder
+- **Exact next task:** create IWM source CSV export request/instruction review using the SPY/QQQ dxLink 1H RTH template
 - **IWM status:** active broader coverage target
 - **GLD status:** deferred
 - **Continuous Watcher status:** deferred
