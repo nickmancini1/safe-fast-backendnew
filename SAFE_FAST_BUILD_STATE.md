@@ -9,7 +9,7 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** create IWM Ideal 001 real historical replay review asset
+- **Current objective:** create IWM Ideal 001 replay fixture specification review
 - **Current build direction:** IWM broader coverage via SPY/QQQ dxLink CSV sourcing method; GLD deferred; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
@@ -3330,3 +3330,27 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Railway/production touched:** no
 - **Live trade decisions added:** no
 
+## IWM Ideal 001 real historical replay review status
+
+- **Review file:** `SAFE_FAST_IWM_IDEAL_001_REAL_HISTORICAL_REPLAY_REVIEW.md`
+- **Review status:** PASS
+- **Sample ID:** `IWM-SAMPLE-IDEAL-001`
+- **Window ID:** `IWM-WINDOW-IDEAL-001`
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv`
+- **Source window:** `2026-05-05T09:30:00-04:00` to `2026-05-14T15:30:00-04:00`
+- **Row count in window:** 56
+- **Trigger-card readiness:** yes
+- **Fixture/replay asset creation status:** GO
+- **Fixture JSON creation status:** NO-GO
+- **Next task:** create IWM Ideal 001 replay fixture specification review
+- **IWM status:** active broader coverage target
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
