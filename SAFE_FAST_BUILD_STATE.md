@@ -9,7 +9,7 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** supply/generate IWM dxLink 1H RTH source CSV, then create IWM source CSV validation review
+- **Current objective:** provide IWM dxLink 1H RTH source CSV or exporter credential/access, then create IWM source CSV validation review
 - **Current build direction:** IWM broader coverage via SPY/QQQ dxLink CSV sourcing method; GLD deferred; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
@@ -3191,6 +3191,25 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Exporter/source process found:** yes
 - **Smallest missing input:** IWM dxLink 1H RTH source CSV, existing export location, or exporter output access/path
 - **Exact next task:** create IWM source CSV validation review after CSV/export path is supplied
+- **IWM status:** active broader coverage target
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## IWM source CSV export blocked status
+
+- **Blocked review file:** `SAFE_FAST_IWM_SOURCE_CSV_EXPORT_BLOCKED_REVIEW.md`
+- **Export status:** STOPPED
+- **Reason:** exporter dry-run found missing required tastytrade/dxLink environment variables: `TT_CLIENT_ID`, `TT_CLIENT_SECRET`, `TT_REDIRECT_URI`, `TT_REFRESH_TOKEN`; expected IWM source CSV does not already exist.
+- **Required input:** IWM dxLink 1H RTH source CSV or exporter output path/access
+- **Next task after input supplied:** create IWM source CSV validation review
 - **IWM status:** active broader coverage target
 - **GLD status:** deferred
 - **Continuous Watcher status:** deferred
