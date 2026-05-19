@@ -9,7 +9,7 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** provide IWM dxLink 1H RTH source CSV or exporter credential/access, then create IWM source CSV validation review
+- **Current objective:** create IWM bounded source-window selection review from accepted IWM dxLink 1H RTH source CSV
 - **Current build direction:** IWM broader coverage via SPY/QQQ dxLink CSV sourcing method; GLD deferred; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
@@ -3210,6 +3210,29 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Reason:** exporter dry-run found missing required tastytrade/dxLink environment variables: `TT_CLIENT_ID`, `TT_CLIENT_SECRET`, `TT_REDIRECT_URI`, `TT_REFRESH_TOKEN`; expected IWM source CSV does not already exist.
 - **Required input:** IWM dxLink 1H RTH source CSV or exporter output path/access
 - **Next task after input supplied:** create IWM source CSV validation review
+- **IWM status:** active broader coverage target
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## IWM source CSV validation status
+
+- **Validation file:** `SAFE_FAST_IWM_SOURCE_CSV_VALIDATION_REVIEW.md`
+- **Validation status:** PASS
+- **IWM source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv`
+- **Source method:** dxLink 1H RTH source CSV
+- **Row count:** 287
+- **First timestamp:** `2026-03-20T09:30:00-04:00`
+- **Last timestamp:** `2026-05-18T15:30:00-04:00`
+- **Source CSV tracking decision:** commit/tracked based on existing SPY/QQQ source CSV repo convention
+- **Next task:** create IWM bounded source-window selection review
 - **IWM status:** active broader coverage target
 - **GLD status:** deferred
 - **Continuous Watcher status:** deferred
