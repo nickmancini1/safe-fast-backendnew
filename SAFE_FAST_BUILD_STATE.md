@@ -9,7 +9,7 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** create IWM bounded source-window selection review from accepted IWM dxLink 1H RTH source CSV
+- **Current objective:** populate IWM historical sample collection worksheet from bounded source-window selection
 - **Current build direction:** IWM broader coverage via SPY/QQQ dxLink CSV sourcing method; GLD deferred; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
@@ -3233,6 +3233,39 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Last timestamp:** `2026-05-18T15:30:00-04:00`
 - **Source CSV tracking decision:** commit/tracked based on existing SPY/QQQ source CSV repo convention
 - **Next task:** create IWM bounded source-window selection review
+- **IWM status:** active broader coverage target
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## IWM bounded source-window selection review status
+
+- **Review file:** `SAFE_FAST_IWM_BOUNDED_SOURCE_WINDOW_SELECTION_REVIEW.md`
+- **Review status:** PASS
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv`
+- **Row count:** 287
+- **Source range:** `2026-03-20T09:30:00-04:00` to `2026-05-18T15:30:00-04:00`
+- **Candidate windows selected:**
+  - `IWM-WINDOW-IDEAL-001`
+  - `IWM-WINDOW-CLEAN-FAST-BREAK-001`
+  - `IWM-WINDOW-CONTINUATION-001`
+  - `IWM-WINDOW-STAGE-DEVELOPING-001`
+  - `IWM-WINDOW-SESSION-BOUNDARY-001`
+  - `IWM-WINDOW-WINNER-SELECTION-001`
+  - `IWM-WINDOW-NO-TRADE-DISCIPLINE-001`
+  - `IWM-WINDOW-CHART-OUTCOME-IDEAL-001`
+  - `IWM-WINDOW-CHART-OUTCOME-CLEAN-FAST-BREAK-001`
+  - `IWM-WINDOW-CHART-OUTCOME-CONTINUATION-001`
+- **Candidate windows not selected / needing more review:** none not selected; all selected labels remain CANDIDATE / NEEDS REVIEW until row-by-row worksheet, fixture, and replay review.
+- **Worksheet population status:** ready
+- **Next task:** populate IWM historical sample collection worksheet from bounded source-window selection
 - **IWM status:** active broader coverage target
 - **GLD status:** deferred
 - **Continuous Watcher status:** deferred
