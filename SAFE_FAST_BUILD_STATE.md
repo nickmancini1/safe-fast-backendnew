@@ -3278,3 +3278,32 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Railway/production touched:** no
 - **Live trade decisions added:** no
 
+## IWM historical sample worksheet population status
+
+- **Worksheet file:** `SAFE_FAST_IWM_HISTORICAL_SAMPLE_COLLECTION_WORKSHEET.md`
+- **Population status:** PASS; populated from bounded IWM source-window selection with CANDIDATE / NEEDS REVIEW labels only.
+- **Source review:** `SAFE_FAST_IWM_BOUNDED_SOURCE_WINDOW_SELECTION_REVIEW.md`
+- **Rows populated:** 10
+  - `IWM-SAMPLE-IDEAL-001` from `IWM-WINDOW-IDEAL-001`
+  - `IWM-SAMPLE-CLEAN-FAST-BREAK-001` from `IWM-WINDOW-CLEAN-FAST-BREAK-001`
+  - `IWM-SAMPLE-CONTINUATION-001` from `IWM-WINDOW-CONTINUATION-001`
+  - `IWM-SAMPLE-STAGE-DEVELOPING-001` from `IWM-WINDOW-STAGE-DEVELOPING-001`
+  - `IWM-SAMPLE-SESSION-BOUNDARY-001` from `IWM-WINDOW-SESSION-BOUNDARY-001`
+  - `IWM-SAMPLE-WINNER-SELECTION-001` from `IWM-WINDOW-WINNER-SELECTION-001`
+  - `IWM-SAMPLE-NO-TRADE-DISCIPLINE-001` from `IWM-WINDOW-NO-TRADE-DISCIPLINE-001`
+  - `IWM-SAMPLE-CHART-OUTCOME-IDEAL-001` from `IWM-WINDOW-CHART-OUTCOME-IDEAL-001`
+  - `IWM-SAMPLE-CHART-OUTCOME-CLEAN-FAST-BREAK-001` from `IWM-WINDOW-CHART-OUTCOME-CLEAN-FAST-BREAK-001`
+  - `IWM-SAMPLE-CHART-OUTCOME-CONTINUATION-001` from `IWM-WINDOW-CHART-OUTCOME-CONTINUATION-001`
+- **Rows still needing evidence:** all 10 need row-by-row review before fixture/replay creation; final setup identity, stage, trigger, invalidation, blockers, cautions, verdict, replay acceptance, and chart-only outcome inputs remain UNCONFIRMED / TO REVIEW.
+- **Trigger-card fields included:** expected setup type, direction if present, candidate stage, trigger zone, completed 1H RTH candle/timeframe rule, invalidation area, blocker/caution questions, fresh/stale/spent question, missing/unconfirmed fields, and fixture/replay readiness.
+- **Fixture/replay creation status:** NO-GO; no fixtures, replay outputs, generated reports, schemas, or chart outcome calculations created.
+- **Next task:** create the first IWM row-by-row replay readiness review from the populated worksheet, starting with `IWM-SAMPLE-IDEAL-001`, without creating fixtures until the row is validated.
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
