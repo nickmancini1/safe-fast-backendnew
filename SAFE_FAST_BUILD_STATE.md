@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
-- **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** export GLD dxLink 1H RTH source CSV, then create GLD source CSV validation review
+- **Latest completed commit:** `92fd978 Add GLD broader coverage preparation source-sourcing review`
+- **Latest completed build milestone:** GLD broader coverage preparation/source-sourcing review
+- **Current objective:** export or supply GLD dxLink 1H RTH source CSV, then create GLD source CSV validation review; current local export attempt is blocked by network/source connection failure
 - **Current build direction:** GLD broader coverage source CSV export and validation via SPY/QQQ/IWM dxLink CSV sourcing method; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
@@ -3840,6 +3840,33 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Exact next task:** export GLD dxLink 1H RTH source CSV, then create GLD source CSV validation review.
 - **SPY/QQQ/IWM status:** current-depth closeout complete
 - **GLD status:** active broader coverage target
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## GLD source CSV validation review status
+
+- **Review file:** `SAFE_FAST_GLD_SOURCE_CSV_VALIDATION_REVIEW.md`
+- **Review status:** BLOCKED
+- **Expected GLD source CSV path:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
+- **Dry-run status:** PASS; exporter accepts GLD, template has 24 columns, output directory exists, and required credential environment variables are present.
+- **Export status:** BLOCKED
+- **Exact block:** OAuth/network connection to `https://api.tastyworks.com/oauth/token` failed with `httpx.ConnectError: All connection attempts failed`.
+- **GLD source CSV found after export attempt:** no
+- **Smallest missing requirement:** working network/source access from this environment to tastytrade OAuth and downstream dxLink source access, or a supplied real GLD source CSV at the expected path.
+- **GLD source CSV row count:** unconfirmed
+- **GLD source CSV date/time span:** unconfirmed
+- **Source/vendor/as-of:** unconfirmed
+- **Exact next task:** export or supply GLD dxLink 1H RTH source CSV, then rerun GLD source CSV validation.
+- **Do not advance to:** GLD bounded source-window selection, fixtures, replay, chart outcomes, or aggregate closeout until the GLD source CSV exists and passes validation.
+- **SPY/QQQ/IWM status:** current-depth closeout complete
+- **GLD status:** active broader coverage target, source CSV export blocked
 - **Continuous Watcher status:** deferred
 - **main.py changed:** no
 - **Engine logic changed:** no
