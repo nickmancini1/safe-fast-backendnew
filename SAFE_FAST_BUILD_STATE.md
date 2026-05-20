@@ -7,7 +7,7 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `eb20d20 Add GLD source CSV validation blocked review`
+- **Latest completed commit:** `f7fbdfc Validate GLD source CSV`
 - **Latest completed build milestone:** GLD source CSV validation
 - **Current objective:** GLD bounded source-window selection/review from the validated GLD dxLink 1H RTH source CSV
 - **Current build direction:** GLD broader coverage bounded source-window selection using the validated source CSV; Continuous Watcher deferred
