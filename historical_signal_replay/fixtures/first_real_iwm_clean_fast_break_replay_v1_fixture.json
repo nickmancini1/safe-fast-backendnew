@@ -1,0 +1,1994 @@
+{
+    "fixture_name":  "first_real_iwm_clean_fast_break_replay_v1_fixture",
+    "fixture_version":  1,
+    "purpose":  "First real historical IWM Clean Fast Break replay v1 fixture. This fixture copies validated 1H RTH source OHLCV rows and covers signal/stage/lifecycle candidate shape only; it excludes trade outcomes, option economics, account sizing, broker execution, live trade decisions, and auto-trading.",
+    "source_data":  {
+                        "source_csv":  "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+                        "symbol":  "IWM",
+                        "sample_id":  "IWM-SAMPLE-CLEAN-FAST-BREAK-001",
+                        "window_id":  "IWM-WINDOW-CLEAN-FAST-BREAK-001",
+                        "timeframe":  "1h_rth",
+                        "timestamp_range":  "2026-04-08T09:30:00-04:00 through 2026-04-17T15:30:00-04:00",
+                        "source_window_row_count":  56,
+                        "fixture_row_count":  6,
+                        "setup_type_status":  "Clean Fast Break CANDIDATE / NEEDS REVIEW",
+                        "direction_status":  "bullish/call-side CANDIDATE / NEEDS REVIEW"
+                    },
+    "boundary_notes":  [
+                           "Each fixture row includes only validated IWM source candles available at or before that row timestamp.",
+                           "OHLCV values are copied from the validated source CSV without edits or fabricated market data.",
+                           "Exact final trigger, exact invalidation, completed-candle approval, final blocker, room, extension, macro, IV, event, and 24H context fields remain unconfirmed or TO REVIEW where repo evidence does not prove them.",
+                           "Expected output rows are signal/stage/lifecycle candidate assertions only, not live trade instructions or execution recommendations.",
+                           "Continuation is not an accepted relabel for this Clean Fast Break candidate fixture unless later repo-backed validation proves it.",
+                           "This fixture does not include P\u0026L, option contract economics, account sizing, trade outcome, broker/order/execution content, or auto-trading behavior."
+                       ],
+    "lifecycle_sequence":  [
+                               "watching_clean_fast_break_gap_impulse_context",
+                               "watching_clean_fast_break_tight_pause_context",
+                               "clean_fast_break_initial_break_candidate",
+                               "clean_fast_break_follow_through_confirming_context",
+                               "watching_higher_base_after_fast_break",
+                               "clean_fast_break_post_break_no_fresh_trigger"
+                           ],
+    "lifecycle_rows":  [
+                           {
+                               "row_name":  "watching_clean_fast_break_gap_impulse_context",
+                               "row_index":  1,
+                               "source_window_timestamp_range":  "2026-04-08T09:30:00-04:00 through 2026-04-08T15:30:00-04:00",
+                               "source_only_basis":  "Completed rows through this timestamp show IWM broad gap/impulse context from the start of the bounded window; no later 2026-04-09/2026-04-10 pause or 2026-04-13 break is used.",
+                               "input":  {
+                                             "symbol":  "IWM",
+                                             "timestamp":  "2026-04-08T15:30:00-04:00",
+                                             "candles_1h_rth":  [
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T09:30:00-04:00",
+                                                                        "open":  261.52,
+                                                                        "high":  262.27,
+                                                                        "low":  260.31,
+                                                                        "close":  260.63,
+                                                                        "volume":  4396555
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T10:30:00-04:00",
+                                                                        "open":  260.63,
+                                                                        "high":  260.82,
+                                                                        "low":  258.43,
+                                                                        "close":  259.685,
+                                                                        "volume":  2083606
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T11:30:00-04:00",
+                                                                        "open":  259.7,
+                                                                        "high":  260.99,
+                                                                        "low":  259.52,
+                                                                        "close":  260.33,
+                                                                        "volume":  1059986
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T12:30:00-04:00",
+                                                                        "open":  260.36,
+                                                                        "high":  260.86,
+                                                                        "low":  259.765,
+                                                                        "close":  260.08,
+                                                                        "volume":  832076
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T13:30:00-04:00",
+                                                                        "open":  260.07,
+                                                                        "high":  261.0905,
+                                                                        "low":  259.77,
+                                                                        "close":  259.8,
+                                                                        "volume":  1254782
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T14:30:00-04:00",
+                                                                        "open":  259.83,
+                                                                        "high":  260.01,
+                                                                        "low":  258.595,
+                                                                        "close":  259.16,
+                                                                        "volume":  1529861
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T15:30:00-04:00",
+                                                                        "open":  259.14,
+                                                                        "high":  260.45,
+                                                                        "low":  259.135,
+                                                                        "close":  260.44,
+                                                                        "volume":  1349026.656
+                                                                    }
+                                                                ],
+                                             "context_24h_daily":  {
+                                                                       "status":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                                       "value":  null,
+                                                                       "as_of":  null,
+                                                                       "source":  null
+                                                                   },
+                                             "macro_context":  {
+                                                                   "status":  "MACRO_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "iv_context":  {
+                                                                "status":  "IV_UNCONFIRMED",
+                                                                "value":  null,
+                                                                "as_of":  null,
+                                                                "source":  null
+                                                            },
+                                             "event_context":  {
+                                                                   "status":  "EVENT_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "market_calendar_session":  {
+                                                                             "session_date":  "2026-04-08",
+                                                                             "session_type":  "regular",
+                                                                             "is_regular_session":  true,
+                                                                             "timezone":  "America/New_York",
+                                                                             "notes":  "Regular RTH first-real IWM Clean Fast Break replay row: watching_clean_fast_break_gap_impulse_context."
+                                                                         }
+                                         },
+                               "expected_output_shape":  {
+                                                             "timestamp":  "2026-04-08T15:30:00-04:00",
+                                                             "symbol":  "IWM",
+                                                             "setup_type":  "Clean Fast Break",
+                                                             "setup_state":  "watching",
+                                                             "stage":  "watching_clean_fast_break_gap_impulse_context",
+                                                             "trigger_state":  "not_present",
+                                                             "trigger_level":  null,
+                                                             "invalidation":  null,
+                                                             "room_status":  "unconfirmed",
+                                                             "extension_status":  "unconfirmed",
+                                                             "context_24h":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                             "wall_thesis_fit":  "unconfirmed",
+                                                             "final_verdict":  "NO_TRADE",
+                                                             "primary_blocker":  "tight_pause_not_formed_yet",
+                                                             "cautions_watchouts":  [
+                                                                                        "trigger_level_TO_REVIEW",
+                                                                                        "invalidation_TO_REVIEW",
+                                                                                        "MACRO_UNCONFIRMED",
+                                                                                        "IV_UNCONFIRMED",
+                                                                                        "EVENT_UNCONFIRMED"
+                                                                                    ],
+                                                             "winner_selection_result":  {
+                                                                                             "selected_symbol":  "IWM",
+                                                                                             "selected_setup_type":  "Clean Fast Break",
+                                                                                             "selection_status":  "shape_only_first_real_iwm_clean_fast_break_historical_fixture_candidate_needs_review",
+                                                                                             "false_continuation_relabel_accepted":  false
+                                                                                         },
+                                                             "human_next_step":  "Signal/stage lifecycle fixture only: watch IWM Clean Fast Break gap/impulse context for a later tight pause; this is not a live trade instruction or execution recommendation.",
+                                                             "first_seen":  "2026-04-08T15:30:00-04:00",
+                                                             "last_seen":  "2026-04-08T15:30:00-04:00",
+                                                             "state_changed":  true,
+                                                             "prior_state":  null,
+                                                             "current_state":  "watching",
+                                                             "trigger_changed":  false,
+                                                             "blocker_changed":  true,
+                                                             "duplicate_alert_suppression_key":  "IWM|2026-04-08|Clean Fast Break|watching_clean_fast_break_gap_impulse_context|tight_pause_not_formed_yet"
+                                                         }
+                           },
+                           {
+                               "row_name":  "watching_clean_fast_break_tight_pause_context",
+                               "row_index":  2,
+                               "source_window_timestamp_range":  "2026-04-08T09:30:00-04:00 through 2026-04-10T15:30:00-04:00",
+                               "source_only_basis":  "Completed rows through this timestamp show the compact pause/base near the 2026-04-09/2026-04-10 highs; no 2026-04-13 break is used.",
+                               "input":  {
+                                             "symbol":  "IWM",
+                                             "timestamp":  "2026-04-10T15:30:00-04:00",
+                                             "candles_1h_rth":  [
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T09:30:00-04:00",
+                                                                        "open":  261.52,
+                                                                        "high":  262.27,
+                                                                        "low":  260.31,
+                                                                        "close":  260.63,
+                                                                        "volume":  4396555
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T10:30:00-04:00",
+                                                                        "open":  260.63,
+                                                                        "high":  260.82,
+                                                                        "low":  258.43,
+                                                                        "close":  259.685,
+                                                                        "volume":  2083606
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T11:30:00-04:00",
+                                                                        "open":  259.7,
+                                                                        "high":  260.99,
+                                                                        "low":  259.52,
+                                                                        "close":  260.33,
+                                                                        "volume":  1059986
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T12:30:00-04:00",
+                                                                        "open":  260.36,
+                                                                        "high":  260.86,
+                                                                        "low":  259.765,
+                                                                        "close":  260.08,
+                                                                        "volume":  832076
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T13:30:00-04:00",
+                                                                        "open":  260.07,
+                                                                        "high":  261.0905,
+                                                                        "low":  259.77,
+                                                                        "close":  259.8,
+                                                                        "volume":  1254782
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T14:30:00-04:00",
+                                                                        "open":  259.83,
+                                                                        "high":  260.01,
+                                                                        "low":  258.595,
+                                                                        "close":  259.16,
+                                                                        "volume":  1529861
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T15:30:00-04:00",
+                                                                        "open":  259.14,
+                                                                        "high":  260.45,
+                                                                        "low":  259.135,
+                                                                        "close":  260.44,
+                                                                        "volume":  1349026.656
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T09:30:00-04:00",
+                                                                        "open":  258.83,
+                                                                        "high":  260.57,
+                                                                        "low":  258.8,
+                                                                        "close":  259.4,
+                                                                        "volume":  1878222
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T10:30:00-04:00",
+                                                                        "open":  259.38,
+                                                                        "high":  260.5,
+                                                                        "low":  259.0893,
+                                                                        "close":  260.225,
+                                                                        "volume":  969270
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T11:30:00-04:00",
+                                                                        "open":  260.22,
+                                                                        "high":  262.38,
+                                                                        "low":  260.15,
+                                                                        "close":  262.11,
+                                                                        "volume":  1424030.910389
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T12:30:00-04:00",
+                                                                        "open":  262.12,
+                                                                        "high":  262.86,
+                                                                        "low":  261.83,
+                                                                        "close":  262.64,
+                                                                        "volume":  732227
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T13:30:00-04:00",
+                                                                        "open":  262.63,
+                                                                        "high":  262.9,
+                                                                        "low":  261.47,
+                                                                        "close":  261.7,
+                                                                        "volume":  930398
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T14:30:00-04:00",
+                                                                        "open":  261.675,
+                                                                        "high":  262.13,
+                                                                        "low":  261.4,
+                                                                        "close":  261.97,
+                                                                        "volume":  924578
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T15:30:00-04:00",
+                                                                        "open":  261.96,
+                                                                        "high":  262.4,
+                                                                        "low":  261.795,
+                                                                        "close":  261.95,
+                                                                        "volume":  1344440
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T09:30:00-04:00",
+                                                                        "open":  262.4,
+                                                                        "high":  262.75,
+                                                                        "low":  261.38,
+                                                                        "close":  262.14,
+                                                                        "volume":  1291892.490168
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T10:30:00-04:00",
+                                                                        "open":  262.15,
+                                                                        "high":  262.34,
+                                                                        "low":  261.44,
+                                                                        "close":  261.92,
+                                                                        "volume":  1012425
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T11:30:00-04:00",
+                                                                        "open":  261.95,
+                                                                        "high":  262.08,
+                                                                        "low":  260.57,
+                                                                        "close":  260.8,
+                                                                        "volume":  1181370
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T12:30:00-04:00",
+                                                                        "open":  260.765,
+                                                                        "high":  260.97,
+                                                                        "low":  260.34,
+                                                                        "close":  260.695,
+                                                                        "volume":  684806.92491
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T13:30:00-04:00",
+                                                                        "open":  260.71,
+                                                                        "high":  261.455,
+                                                                        "low":  260.65,
+                                                                        "close":  261.36,
+                                                                        "volume":  1106507
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T14:30:00-04:00",
+                                                                        "open":  261.365,
+                                                                        "high":  261.71,
+                                                                        "low":  261.15,
+                                                                        "close":  261.53,
+                                                                        "volume":  585261
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T15:30:00-04:00",
+                                                                        "open":  261.52,
+                                                                        "high":  261.52,
+                                                                        "low":  260.965,
+                                                                        "close":  261.29,
+                                                                        "volume":  930638
+                                                                    }
+                                                                ],
+                                             "context_24h_daily":  {
+                                                                       "status":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                                       "value":  null,
+                                                                       "as_of":  null,
+                                                                       "source":  null
+                                                                   },
+                                             "macro_context":  {
+                                                                   "status":  "MACRO_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "iv_context":  {
+                                                                "status":  "IV_UNCONFIRMED",
+                                                                "value":  null,
+                                                                "as_of":  null,
+                                                                "source":  null
+                                                            },
+                                             "event_context":  {
+                                                                   "status":  "EVENT_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "market_calendar_session":  {
+                                                                             "session_date":  "2026-04-10",
+                                                                             "session_type":  "regular",
+                                                                             "is_regular_session":  true,
+                                                                             "timezone":  "America/New_York",
+                                                                             "notes":  "Regular RTH first-real IWM Clean Fast Break replay row: watching_clean_fast_break_tight_pause_context."
+                                                                         }
+                                         },
+                               "expected_output_shape":  {
+                                                             "timestamp":  "2026-04-10T15:30:00-04:00",
+                                                             "symbol":  "IWM",
+                                                             "setup_type":  "Clean Fast Break",
+                                                             "setup_state":  "watching",
+                                                             "stage":  "watching_clean_fast_break_tight_pause_context",
+                                                             "trigger_state":  "trigger_zone_TO_REVIEW",
+                                                             "trigger_level":  null,
+                                                             "invalidation":  null,
+                                                             "room_status":  "unconfirmed",
+                                                             "extension_status":  "unconfirmed",
+                                                             "context_24h":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                             "wall_thesis_fit":  "unconfirmed",
+                                                             "final_verdict":  "NO_TRADE",
+                                                             "primary_blocker":  "completed_break_not_confirmed_yet",
+                                                             "cautions_watchouts":  [
+                                                                                        "trigger_level_TO_REVIEW",
+                                                                                        "invalidation_TO_REVIEW",
+                                                                                        "MACRO_UNCONFIRMED",
+                                                                                        "IV_UNCONFIRMED",
+                                                                                        "EVENT_UNCONFIRMED"
+                                                                                    ],
+                                                             "winner_selection_result":  {
+                                                                                             "selected_symbol":  "IWM",
+                                                                                             "selected_setup_type":  "Clean Fast Break",
+                                                                                             "selection_status":  "shape_only_first_real_iwm_clean_fast_break_historical_fixture_candidate_needs_review",
+                                                                                             "false_continuation_relabel_accepted":  false
+                                                                                         },
+                                                             "human_next_step":  "Signal/stage lifecycle fixture only: IWM tight-pause trigger zone remains TO REVIEW and no completed break is inferred before 2026-04-13; this is not a live trade instruction or execution recommendation.",
+                                                             "first_seen":  "2026-04-08T15:30:00-04:00",
+                                                             "last_seen":  "2026-04-10T15:30:00-04:00",
+                                                             "state_changed":  true,
+                                                             "prior_state":  "watching",
+                                                             "current_state":  "watching_tight_pause_TO_REVIEW",
+                                                             "trigger_changed":  true,
+                                                             "blocker_changed":  true,
+                                                             "duplicate_alert_suppression_key":  "IWM|2026-04-10|Clean Fast Break|watching_clean_fast_break_tight_pause_context|completed_break_not_confirmed_yet"
+                                                         }
+                           },
+                           {
+                               "row_name":  "clean_fast_break_initial_break_candidate",
+                               "row_index":  3,
+                               "source_window_timestamp_range":  "2026-04-08T09:30:00-04:00 through 2026-04-13T12:30:00-04:00",
+                               "source_only_basis":  "Completed rows through this timestamp show IWM closing above the reviewed pause-high area; no later same-day follow-through or later-window data is used.",
+                               "input":  {
+                                             "symbol":  "IWM",
+                                             "timestamp":  "2026-04-13T12:30:00-04:00",
+                                             "candles_1h_rth":  [
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T09:30:00-04:00",
+                                                                        "open":  261.52,
+                                                                        "high":  262.27,
+                                                                        "low":  260.31,
+                                                                        "close":  260.63,
+                                                                        "volume":  4396555
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T10:30:00-04:00",
+                                                                        "open":  260.63,
+                                                                        "high":  260.82,
+                                                                        "low":  258.43,
+                                                                        "close":  259.685,
+                                                                        "volume":  2083606
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T11:30:00-04:00",
+                                                                        "open":  259.7,
+                                                                        "high":  260.99,
+                                                                        "low":  259.52,
+                                                                        "close":  260.33,
+                                                                        "volume":  1059986
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T12:30:00-04:00",
+                                                                        "open":  260.36,
+                                                                        "high":  260.86,
+                                                                        "low":  259.765,
+                                                                        "close":  260.08,
+                                                                        "volume":  832076
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T13:30:00-04:00",
+                                                                        "open":  260.07,
+                                                                        "high":  261.0905,
+                                                                        "low":  259.77,
+                                                                        "close":  259.8,
+                                                                        "volume":  1254782
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T14:30:00-04:00",
+                                                                        "open":  259.83,
+                                                                        "high":  260.01,
+                                                                        "low":  258.595,
+                                                                        "close":  259.16,
+                                                                        "volume":  1529861
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T15:30:00-04:00",
+                                                                        "open":  259.14,
+                                                                        "high":  260.45,
+                                                                        "low":  259.135,
+                                                                        "close":  260.44,
+                                                                        "volume":  1349026.656
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T09:30:00-04:00",
+                                                                        "open":  258.83,
+                                                                        "high":  260.57,
+                                                                        "low":  258.8,
+                                                                        "close":  259.4,
+                                                                        "volume":  1878222
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T10:30:00-04:00",
+                                                                        "open":  259.38,
+                                                                        "high":  260.5,
+                                                                        "low":  259.0893,
+                                                                        "close":  260.225,
+                                                                        "volume":  969270
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T11:30:00-04:00",
+                                                                        "open":  260.22,
+                                                                        "high":  262.38,
+                                                                        "low":  260.15,
+                                                                        "close":  262.11,
+                                                                        "volume":  1424030.910389
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T12:30:00-04:00",
+                                                                        "open":  262.12,
+                                                                        "high":  262.86,
+                                                                        "low":  261.83,
+                                                                        "close":  262.64,
+                                                                        "volume":  732227
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T13:30:00-04:00",
+                                                                        "open":  262.63,
+                                                                        "high":  262.9,
+                                                                        "low":  261.47,
+                                                                        "close":  261.7,
+                                                                        "volume":  930398
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T14:30:00-04:00",
+                                                                        "open":  261.675,
+                                                                        "high":  262.13,
+                                                                        "low":  261.4,
+                                                                        "close":  261.97,
+                                                                        "volume":  924578
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T15:30:00-04:00",
+                                                                        "open":  261.96,
+                                                                        "high":  262.4,
+                                                                        "low":  261.795,
+                                                                        "close":  261.95,
+                                                                        "volume":  1344440
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T09:30:00-04:00",
+                                                                        "open":  262.4,
+                                                                        "high":  262.75,
+                                                                        "low":  261.38,
+                                                                        "close":  262.14,
+                                                                        "volume":  1291892.490168
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T10:30:00-04:00",
+                                                                        "open":  262.15,
+                                                                        "high":  262.34,
+                                                                        "low":  261.44,
+                                                                        "close":  261.92,
+                                                                        "volume":  1012425
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T11:30:00-04:00",
+                                                                        "open":  261.95,
+                                                                        "high":  262.08,
+                                                                        "low":  260.57,
+                                                                        "close":  260.8,
+                                                                        "volume":  1181370
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T12:30:00-04:00",
+                                                                        "open":  260.765,
+                                                                        "high":  260.97,
+                                                                        "low":  260.34,
+                                                                        "close":  260.695,
+                                                                        "volume":  684806.92491
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T13:30:00-04:00",
+                                                                        "open":  260.71,
+                                                                        "high":  261.455,
+                                                                        "low":  260.65,
+                                                                        "close":  261.36,
+                                                                        "volume":  1106507
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T14:30:00-04:00",
+                                                                        "open":  261.365,
+                                                                        "high":  261.71,
+                                                                        "low":  261.15,
+                                                                        "close":  261.53,
+                                                                        "volume":  585261
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T15:30:00-04:00",
+                                                                        "open":  261.52,
+                                                                        "high":  261.52,
+                                                                        "low":  260.965,
+                                                                        "close":  261.29,
+                                                                        "volume":  930638
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T09:30:00-04:00",
+                                                                        "open":  260.26,
+                                                                        "high":  262.47,
+                                                                        "low":  260.03,
+                                                                        "close":  262.41,
+                                                                        "volume":  2045053
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T10:30:00-04:00",
+                                                                        "open":  262.43,
+                                                                        "high":  262.63,
+                                                                        "low":  261.7199,
+                                                                        "close":  261.75,
+                                                                        "volume":  894403.814323
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T11:30:00-04:00",
+                                                                        "open":  261.75,
+                                                                        "high":  263.28,
+                                                                        "low":  261.57,
+                                                                        "close":  263.17,
+                                                                        "volume":  732712
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T12:30:00-04:00",
+                                                                        "open":  263.15,
+                                                                        "high":  264.32,
+                                                                        "low":  262.97,
+                                                                        "close":  263.925,
+                                                                        "volume":  1039789
+                                                                    }
+                                                                ],
+                                             "context_24h_daily":  {
+                                                                       "status":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                                       "value":  null,
+                                                                       "as_of":  null,
+                                                                       "source":  null
+                                                                   },
+                                             "macro_context":  {
+                                                                   "status":  "MACRO_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "iv_context":  {
+                                                                "status":  "IV_UNCONFIRMED",
+                                                                "value":  null,
+                                                                "as_of":  null,
+                                                                "source":  null
+                                                            },
+                                             "event_context":  {
+                                                                   "status":  "EVENT_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "market_calendar_session":  {
+                                                                             "session_date":  "2026-04-13",
+                                                                             "session_type":  "regular",
+                                                                             "is_regular_session":  true,
+                                                                             "timezone":  "America/New_York",
+                                                                             "notes":  "Regular RTH first-real IWM Clean Fast Break replay row: clean_fast_break_initial_break_candidate."
+                                                                         }
+                                         },
+                               "expected_output_shape":  {
+                                                             "timestamp":  "2026-04-13T12:30:00-04:00",
+                                                             "symbol":  "IWM",
+                                                             "setup_type":  "Clean Fast Break",
+                                                             "setup_state":  "candidate_needs_review",
+                                                             "stage":  "clean_fast_break_initial_break_candidate",
+                                                             "trigger_state":  "completed_break_candidate_TO_REVIEW",
+                                                             "trigger_level":  null,
+                                                             "invalidation":  null,
+                                                             "room_status":  "unconfirmed",
+                                                             "extension_status":  "unconfirmed",
+                                                             "context_24h":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                             "wall_thesis_fit":  "unconfirmed",
+                                                             "final_verdict":  "NO_TRADE",
+                                                             "primary_blocker":  "completed_candle_approval_unconfirmed",
+                                                             "cautions_watchouts":  [
+                                                                                        "trigger_level_TO_REVIEW",
+                                                                                        "invalidation_TO_REVIEW",
+                                                                                        "MACRO_UNCONFIRMED",
+                                                                                        "IV_UNCONFIRMED",
+                                                                                        "EVENT_UNCONFIRMED"
+                                                                                    ],
+                                                             "winner_selection_result":  {
+                                                                                             "selected_symbol":  "IWM",
+                                                                                             "selected_setup_type":  "Clean Fast Break",
+                                                                                             "selection_status":  "shape_only_first_real_iwm_clean_fast_break_historical_fixture_candidate_needs_review",
+                                                                                             "false_continuation_relabel_accepted":  false
+                                                                                         },
+                                                             "human_next_step":  "Signal/stage lifecycle fixture only: IWM initial completed-break candidate remains TO REVIEW pending replay output validation; this is not a live trade instruction or execution recommendation.",
+                                                             "first_seen":  "2026-04-08T15:30:00-04:00",
+                                                             "last_seen":  "2026-04-13T12:30:00-04:00",
+                                                             "state_changed":  true,
+                                                             "prior_state":  "watching_tight_pause_TO_REVIEW",
+                                                             "current_state":  "initial_break_candidate_TO_REVIEW",
+                                                             "trigger_changed":  true,
+                                                             "blocker_changed":  true,
+                                                             "duplicate_alert_suppression_key":  "IWM|2026-04-13|Clean Fast Break|clean_fast_break_initial_break_candidate|completed_candle_approval_unconfirmed"
+                                                         }
+                           },
+                           {
+                               "row_name":  "clean_fast_break_follow_through_confirming_context",
+                               "row_index":  4,
+                               "source_window_timestamp_range":  "2026-04-08T09:30:00-04:00 through 2026-04-13T15:30:00-04:00",
+                               "source_only_basis":  "Completed 2026-04-13 rows show same-session follow-through after the reviewed pause-high break candidate without using 2026-04-14 onward.",
+                               "input":  {
+                                             "symbol":  "IWM",
+                                             "timestamp":  "2026-04-13T15:30:00-04:00",
+                                             "candles_1h_rth":  [
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T09:30:00-04:00",
+                                                                        "open":  261.52,
+                                                                        "high":  262.27,
+                                                                        "low":  260.31,
+                                                                        "close":  260.63,
+                                                                        "volume":  4396555
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T10:30:00-04:00",
+                                                                        "open":  260.63,
+                                                                        "high":  260.82,
+                                                                        "low":  258.43,
+                                                                        "close":  259.685,
+                                                                        "volume":  2083606
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T11:30:00-04:00",
+                                                                        "open":  259.7,
+                                                                        "high":  260.99,
+                                                                        "low":  259.52,
+                                                                        "close":  260.33,
+                                                                        "volume":  1059986
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T12:30:00-04:00",
+                                                                        "open":  260.36,
+                                                                        "high":  260.86,
+                                                                        "low":  259.765,
+                                                                        "close":  260.08,
+                                                                        "volume":  832076
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T13:30:00-04:00",
+                                                                        "open":  260.07,
+                                                                        "high":  261.0905,
+                                                                        "low":  259.77,
+                                                                        "close":  259.8,
+                                                                        "volume":  1254782
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T14:30:00-04:00",
+                                                                        "open":  259.83,
+                                                                        "high":  260.01,
+                                                                        "low":  258.595,
+                                                                        "close":  259.16,
+                                                                        "volume":  1529861
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T15:30:00-04:00",
+                                                                        "open":  259.14,
+                                                                        "high":  260.45,
+                                                                        "low":  259.135,
+                                                                        "close":  260.44,
+                                                                        "volume":  1349026.656
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T09:30:00-04:00",
+                                                                        "open":  258.83,
+                                                                        "high":  260.57,
+                                                                        "low":  258.8,
+                                                                        "close":  259.4,
+                                                                        "volume":  1878222
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T10:30:00-04:00",
+                                                                        "open":  259.38,
+                                                                        "high":  260.5,
+                                                                        "low":  259.0893,
+                                                                        "close":  260.225,
+                                                                        "volume":  969270
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T11:30:00-04:00",
+                                                                        "open":  260.22,
+                                                                        "high":  262.38,
+                                                                        "low":  260.15,
+                                                                        "close":  262.11,
+                                                                        "volume":  1424030.910389
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T12:30:00-04:00",
+                                                                        "open":  262.12,
+                                                                        "high":  262.86,
+                                                                        "low":  261.83,
+                                                                        "close":  262.64,
+                                                                        "volume":  732227
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T13:30:00-04:00",
+                                                                        "open":  262.63,
+                                                                        "high":  262.9,
+                                                                        "low":  261.47,
+                                                                        "close":  261.7,
+                                                                        "volume":  930398
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T14:30:00-04:00",
+                                                                        "open":  261.675,
+                                                                        "high":  262.13,
+                                                                        "low":  261.4,
+                                                                        "close":  261.97,
+                                                                        "volume":  924578
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T15:30:00-04:00",
+                                                                        "open":  261.96,
+                                                                        "high":  262.4,
+                                                                        "low":  261.795,
+                                                                        "close":  261.95,
+                                                                        "volume":  1344440
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T09:30:00-04:00",
+                                                                        "open":  262.4,
+                                                                        "high":  262.75,
+                                                                        "low":  261.38,
+                                                                        "close":  262.14,
+                                                                        "volume":  1291892.490168
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T10:30:00-04:00",
+                                                                        "open":  262.15,
+                                                                        "high":  262.34,
+                                                                        "low":  261.44,
+                                                                        "close":  261.92,
+                                                                        "volume":  1012425
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T11:30:00-04:00",
+                                                                        "open":  261.95,
+                                                                        "high":  262.08,
+                                                                        "low":  260.57,
+                                                                        "close":  260.8,
+                                                                        "volume":  1181370
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T12:30:00-04:00",
+                                                                        "open":  260.765,
+                                                                        "high":  260.97,
+                                                                        "low":  260.34,
+                                                                        "close":  260.695,
+                                                                        "volume":  684806.92491
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T13:30:00-04:00",
+                                                                        "open":  260.71,
+                                                                        "high":  261.455,
+                                                                        "low":  260.65,
+                                                                        "close":  261.36,
+                                                                        "volume":  1106507
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T14:30:00-04:00",
+                                                                        "open":  261.365,
+                                                                        "high":  261.71,
+                                                                        "low":  261.15,
+                                                                        "close":  261.53,
+                                                                        "volume":  585261
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T15:30:00-04:00",
+                                                                        "open":  261.52,
+                                                                        "high":  261.52,
+                                                                        "low":  260.965,
+                                                                        "close":  261.29,
+                                                                        "volume":  930638
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T09:30:00-04:00",
+                                                                        "open":  260.26,
+                                                                        "high":  262.47,
+                                                                        "low":  260.03,
+                                                                        "close":  262.41,
+                                                                        "volume":  2045053
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T10:30:00-04:00",
+                                                                        "open":  262.43,
+                                                                        "high":  262.63,
+                                                                        "low":  261.7199,
+                                                                        "close":  261.75,
+                                                                        "volume":  894403.814323
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T11:30:00-04:00",
+                                                                        "open":  261.75,
+                                                                        "high":  263.28,
+                                                                        "low":  261.57,
+                                                                        "close":  263.17,
+                                                                        "volume":  732712
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T12:30:00-04:00",
+                                                                        "open":  263.15,
+                                                                        "high":  264.32,
+                                                                        "low":  262.97,
+                                                                        "close":  263.925,
+                                                                        "volume":  1039789
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T13:30:00-04:00",
+                                                                        "open":  263.92,
+                                                                        "high":  264.16,
+                                                                        "low":  263.66,
+                                                                        "close":  263.97,
+                                                                        "volume":  719774.224754
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T14:30:00-04:00",
+                                                                        "open":  263.945,
+                                                                        "high":  264.83,
+                                                                        "low":  263.88,
+                                                                        "close":  264.7842,
+                                                                        "volume":  724910
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T15:30:00-04:00",
+                                                                        "open":  264.78,
+                                                                        "high":  265.36,
+                                                                        "low":  264.64,
+                                                                        "close":  265.06,
+                                                                        "volume":  1163952.911257
+                                                                    }
+                                                                ],
+                                             "context_24h_daily":  {
+                                                                       "status":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                                       "value":  null,
+                                                                       "as_of":  null,
+                                                                       "source":  null
+                                                                   },
+                                             "macro_context":  {
+                                                                   "status":  "MACRO_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "iv_context":  {
+                                                                "status":  "IV_UNCONFIRMED",
+                                                                "value":  null,
+                                                                "as_of":  null,
+                                                                "source":  null
+                                                            },
+                                             "event_context":  {
+                                                                   "status":  "EVENT_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "market_calendar_session":  {
+                                                                             "session_date":  "2026-04-13",
+                                                                             "session_type":  "regular",
+                                                                             "is_regular_session":  true,
+                                                                             "timezone":  "America/New_York",
+                                                                             "notes":  "Regular RTH first-real IWM Clean Fast Break replay row: clean_fast_break_follow_through_confirming_context."
+                                                                         }
+                                         },
+                               "expected_output_shape":  {
+                                                             "timestamp":  "2026-04-13T15:30:00-04:00",
+                                                             "symbol":  "IWM",
+                                                             "setup_type":  "Clean Fast Break",
+                                                             "setup_state":  "candidate_needs_review",
+                                                             "stage":  "clean_fast_break_follow_through_confirming_context",
+                                                             "trigger_state":  "follow_through_candidate_TO_REVIEW",
+                                                             "trigger_level":  null,
+                                                             "invalidation":  null,
+                                                             "room_status":  "unconfirmed",
+                                                             "extension_status":  "unconfirmed",
+                                                             "context_24h":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                             "wall_thesis_fit":  "unconfirmed",
+                                                             "final_verdict":  "NO_TRADE",
+                                                             "primary_blocker":  "fresh_or_spent_unconfirmed",
+                                                             "cautions_watchouts":  [
+                                                                                        "trigger_level_TO_REVIEW",
+                                                                                        "invalidation_TO_REVIEW",
+                                                                                        "MACRO_UNCONFIRMED",
+                                                                                        "IV_UNCONFIRMED",
+                                                                                        "EVENT_UNCONFIRMED"
+                                                                                    ],
+                                                             "winner_selection_result":  {
+                                                                                             "selected_symbol":  "IWM",
+                                                                                             "selected_setup_type":  "Clean Fast Break",
+                                                                                             "selection_status":  "shape_only_first_real_iwm_clean_fast_break_historical_fixture_candidate_needs_review",
+                                                                                             "false_continuation_relabel_accepted":  false
+                                                                                         },
+                                                             "human_next_step":  "Signal/stage lifecycle fixture only: IWM follow-through confirms source shape but final freshness and approval remain TO REVIEW; this is not a live trade instruction or execution recommendation.",
+                                                             "first_seen":  "2026-04-08T15:30:00-04:00",
+                                                             "last_seen":  "2026-04-13T15:30:00-04:00",
+                                                             "state_changed":  true,
+                                                             "prior_state":  "initial_break_candidate_TO_REVIEW",
+                                                             "current_state":  "follow_through_candidate_TO_REVIEW",
+                                                             "trigger_changed":  true,
+                                                             "blocker_changed":  true,
+                                                             "duplicate_alert_suppression_key":  "IWM|2026-04-13|Clean Fast Break|clean_fast_break_follow_through_confirming_context|fresh_or_spent_unconfirmed"
+                                                         }
+                           },
+                           {
+                               "row_name":  "watching_higher_base_after_fast_break",
+                               "row_index":  5,
+                               "source_window_timestamp_range":  "2026-04-08T09:30:00-04:00 through 2026-04-16T13:30:00-04:00",
+                               "source_only_basis":  "Completed rows through this timestamp show digestion/higher-base context after the 2026-04-13 break and 2026-04-14/2026-04-15 advance, without using 2026-04-17 data.",
+                               "input":  {
+                                             "symbol":  "IWM",
+                                             "timestamp":  "2026-04-16T13:30:00-04:00",
+                                             "candles_1h_rth":  [
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T09:30:00-04:00",
+                                                                        "open":  261.52,
+                                                                        "high":  262.27,
+                                                                        "low":  260.31,
+                                                                        "close":  260.63,
+                                                                        "volume":  4396555
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T10:30:00-04:00",
+                                                                        "open":  260.63,
+                                                                        "high":  260.82,
+                                                                        "low":  258.43,
+                                                                        "close":  259.685,
+                                                                        "volume":  2083606
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T11:30:00-04:00",
+                                                                        "open":  259.7,
+                                                                        "high":  260.99,
+                                                                        "low":  259.52,
+                                                                        "close":  260.33,
+                                                                        "volume":  1059986
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T12:30:00-04:00",
+                                                                        "open":  260.36,
+                                                                        "high":  260.86,
+                                                                        "low":  259.765,
+                                                                        "close":  260.08,
+                                                                        "volume":  832076
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T13:30:00-04:00",
+                                                                        "open":  260.07,
+                                                                        "high":  261.0905,
+                                                                        "low":  259.77,
+                                                                        "close":  259.8,
+                                                                        "volume":  1254782
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T14:30:00-04:00",
+                                                                        "open":  259.83,
+                                                                        "high":  260.01,
+                                                                        "low":  258.595,
+                                                                        "close":  259.16,
+                                                                        "volume":  1529861
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T15:30:00-04:00",
+                                                                        "open":  259.14,
+                                                                        "high":  260.45,
+                                                                        "low":  259.135,
+                                                                        "close":  260.44,
+                                                                        "volume":  1349026.656
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T09:30:00-04:00",
+                                                                        "open":  258.83,
+                                                                        "high":  260.57,
+                                                                        "low":  258.8,
+                                                                        "close":  259.4,
+                                                                        "volume":  1878222
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T10:30:00-04:00",
+                                                                        "open":  259.38,
+                                                                        "high":  260.5,
+                                                                        "low":  259.0893,
+                                                                        "close":  260.225,
+                                                                        "volume":  969270
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T11:30:00-04:00",
+                                                                        "open":  260.22,
+                                                                        "high":  262.38,
+                                                                        "low":  260.15,
+                                                                        "close":  262.11,
+                                                                        "volume":  1424030.910389
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T12:30:00-04:00",
+                                                                        "open":  262.12,
+                                                                        "high":  262.86,
+                                                                        "low":  261.83,
+                                                                        "close":  262.64,
+                                                                        "volume":  732227
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T13:30:00-04:00",
+                                                                        "open":  262.63,
+                                                                        "high":  262.9,
+                                                                        "low":  261.47,
+                                                                        "close":  261.7,
+                                                                        "volume":  930398
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T14:30:00-04:00",
+                                                                        "open":  261.675,
+                                                                        "high":  262.13,
+                                                                        "low":  261.4,
+                                                                        "close":  261.97,
+                                                                        "volume":  924578
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T15:30:00-04:00",
+                                                                        "open":  261.96,
+                                                                        "high":  262.4,
+                                                                        "low":  261.795,
+                                                                        "close":  261.95,
+                                                                        "volume":  1344440
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T09:30:00-04:00",
+                                                                        "open":  262.4,
+                                                                        "high":  262.75,
+                                                                        "low":  261.38,
+                                                                        "close":  262.14,
+                                                                        "volume":  1291892.490168
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T10:30:00-04:00",
+                                                                        "open":  262.15,
+                                                                        "high":  262.34,
+                                                                        "low":  261.44,
+                                                                        "close":  261.92,
+                                                                        "volume":  1012425
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T11:30:00-04:00",
+                                                                        "open":  261.95,
+                                                                        "high":  262.08,
+                                                                        "low":  260.57,
+                                                                        "close":  260.8,
+                                                                        "volume":  1181370
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T12:30:00-04:00",
+                                                                        "open":  260.765,
+                                                                        "high":  260.97,
+                                                                        "low":  260.34,
+                                                                        "close":  260.695,
+                                                                        "volume":  684806.92491
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T13:30:00-04:00",
+                                                                        "open":  260.71,
+                                                                        "high":  261.455,
+                                                                        "low":  260.65,
+                                                                        "close":  261.36,
+                                                                        "volume":  1106507
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T14:30:00-04:00",
+                                                                        "open":  261.365,
+                                                                        "high":  261.71,
+                                                                        "low":  261.15,
+                                                                        "close":  261.53,
+                                                                        "volume":  585261
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T15:30:00-04:00",
+                                                                        "open":  261.52,
+                                                                        "high":  261.52,
+                                                                        "low":  260.965,
+                                                                        "close":  261.29,
+                                                                        "volume":  930638
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T09:30:00-04:00",
+                                                                        "open":  260.26,
+                                                                        "high":  262.47,
+                                                                        "low":  260.03,
+                                                                        "close":  262.41,
+                                                                        "volume":  2045053
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T10:30:00-04:00",
+                                                                        "open":  262.43,
+                                                                        "high":  262.63,
+                                                                        "low":  261.7199,
+                                                                        "close":  261.75,
+                                                                        "volume":  894403.814323
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T11:30:00-04:00",
+                                                                        "open":  261.75,
+                                                                        "high":  263.28,
+                                                                        "low":  261.57,
+                                                                        "close":  263.17,
+                                                                        "volume":  732712
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T12:30:00-04:00",
+                                                                        "open":  263.15,
+                                                                        "high":  264.32,
+                                                                        "low":  262.97,
+                                                                        "close":  263.925,
+                                                                        "volume":  1039789
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T13:30:00-04:00",
+                                                                        "open":  263.92,
+                                                                        "high":  264.16,
+                                                                        "low":  263.66,
+                                                                        "close":  263.97,
+                                                                        "volume":  719774.224754
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T14:30:00-04:00",
+                                                                        "open":  263.945,
+                                                                        "high":  264.83,
+                                                                        "low":  263.88,
+                                                                        "close":  264.7842,
+                                                                        "volume":  724910
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T15:30:00-04:00",
+                                                                        "open":  264.78,
+                                                                        "high":  265.36,
+                                                                        "low":  264.64,
+                                                                        "close":  265.06,
+                                                                        "volume":  1163952.911257
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T09:30:00-04:00",
+                                                                        "open":  267.09,
+                                                                        "high":  268.26,
+                                                                        "low":  266.28,
+                                                                        "close":  268.155,
+                                                                        "volume":  1948678
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T10:30:00-04:00",
+                                                                        "open":  268.18,
+                                                                        "high":  269.04,
+                                                                        "low":  268.15,
+                                                                        "close":  268.89,
+                                                                        "volume":  1168001.441075
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T11:30:00-04:00",
+                                                                        "open":  268.895,
+                                                                        "high":  269.41,
+                                                                        "low":  268.765,
+                                                                        "close":  268.94,
+                                                                        "volume":  709309
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T12:30:00-04:00",
+                                                                        "open":  268.93,
+                                                                        "high":  268.955,
+                                                                        "low":  268.26,
+                                                                        "close":  268.8301,
+                                                                        "volume":  598769
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T13:30:00-04:00",
+                                                                        "open":  268.84,
+                                                                        "high":  268.91,
+                                                                        "low":  267.69,
+                                                                        "close":  267.91,
+                                                                        "volume":  913488
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T14:30:00-04:00",
+                                                                        "open":  267.91,
+                                                                        "high":  268.805,
+                                                                        "low":  267.875,
+                                                                        "close":  268.785,
+                                                                        "volume":  873770
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T15:30:00-04:00",
+                                                                        "open":  268.7899,
+                                                                        "high":  268.9,
+                                                                        "low":  268.43,
+                                                                        "close":  268.67,
+                                                                        "volume":  1215354
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T09:30:00-04:00",
+                                                                        "open":  268.78,
+                                                                        "high":  269.585,
+                                                                        "low":  268.1835,
+                                                                        "close":  269.245,
+                                                                        "volume":  1786659
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T10:30:00-04:00",
+                                                                        "open":  269.25,
+                                                                        "high":  269.32,
+                                                                        "low":  268.2799,
+                                                                        "close":  268.995,
+                                                                        "volume":  1067518
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T11:30:00-04:00",
+                                                                        "open":  269,
+                                                                        "high":  269.01,
+                                                                        "low":  268.195,
+                                                                        "close":  268.71,
+                                                                        "volume":  1243936
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T12:30:00-04:00",
+                                                                        "open":  268.715,
+                                                                        "high":  268.835,
+                                                                        "low":  267.59,
+                                                                        "close":  268.31,
+                                                                        "volume":  921937
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T13:30:00-04:00",
+                                                                        "open":  268.3,
+                                                                        "high":  269.02,
+                                                                        "low":  268.115,
+                                                                        "close":  268.86,
+                                                                        "volume":  635514
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T14:30:00-04:00",
+                                                                        "open":  268.855,
+                                                                        "high":  269.28,
+                                                                        "low":  268.56,
+                                                                        "close":  269.095,
+                                                                        "volume":  646265
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T15:30:00-04:00",
+                                                                        "open":  269.09,
+                                                                        "high":  269.51,
+                                                                        "low":  268.85,
+                                                                        "close":  269.41,
+                                                                        "volume":  734691
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T09:30:00-04:00",
+                                                                        "open":  269.45,
+                                                                        "high":  270.34,
+                                                                        "low":  268.19,
+                                                                        "close":  268.53,
+                                                                        "volume":  2389997
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T10:30:00-04:00",
+                                                                        "open":  268.45,
+                                                                        "high":  270.07,
+                                                                        "low":  268.05,
+                                                                        "close":  269.4,
+                                                                        "volume":  1179344
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T11:30:00-04:00",
+                                                                        "open":  269.4,
+                                                                        "high":  270.2,
+                                                                        "low":  269.27,
+                                                                        "close":  269.7,
+                                                                        "volume":  836799.722283
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T12:30:00-04:00",
+                                                                        "open":  269.715,
+                                                                        "high":  269.8,
+                                                                        "low":  268.5,
+                                                                        "close":  269.04,
+                                                                        "volume":  1301414
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T13:30:00-04:00",
+                                                                        "open":  269.04,
+                                                                        "high":  269.495,
+                                                                        "low":  268.8,
+                                                                        "close":  268.993,
+                                                                        "volume":  876003
+                                                                    }
+                                                                ],
+                                             "context_24h_daily":  {
+                                                                       "status":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                                       "value":  null,
+                                                                       "as_of":  null,
+                                                                       "source":  null
+                                                                   },
+                                             "macro_context":  {
+                                                                   "status":  "MACRO_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "iv_context":  {
+                                                                "status":  "IV_UNCONFIRMED",
+                                                                "value":  null,
+                                                                "as_of":  null,
+                                                                "source":  null
+                                                            },
+                                             "event_context":  {
+                                                                   "status":  "EVENT_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "market_calendar_session":  {
+                                                                             "session_date":  "2026-04-16",
+                                                                             "session_type":  "regular",
+                                                                             "is_regular_session":  true,
+                                                                             "timezone":  "America/New_York",
+                                                                             "notes":  "Regular RTH first-real IWM Clean Fast Break replay row: watching_higher_base_after_fast_break."
+                                                                         }
+                                         },
+                               "expected_output_shape":  {
+                                                             "timestamp":  "2026-04-16T13:30:00-04:00",
+                                                             "symbol":  "IWM",
+                                                             "setup_type":  "Clean Fast Break",
+                                                             "setup_state":  "watching_after_break_TO_REVIEW",
+                                                             "stage":  "watching_higher_base_after_fast_break",
+                                                             "trigger_state":  "higher_base_after_break_TO_REVIEW",
+                                                             "trigger_level":  null,
+                                                             "invalidation":  null,
+                                                             "room_status":  "unconfirmed",
+                                                             "extension_status":  "unconfirmed",
+                                                             "context_24h":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                             "wall_thesis_fit":  "unconfirmed",
+                                                             "final_verdict":  "NO_TRADE",
+                                                             "primary_blocker":  "fresh_or_spent_unconfirmed",
+                                                             "cautions_watchouts":  [
+                                                                                        "trigger_level_TO_REVIEW",
+                                                                                        "invalidation_TO_REVIEW",
+                                                                                        "MACRO_UNCONFIRMED",
+                                                                                        "IV_UNCONFIRMED",
+                                                                                        "EVENT_UNCONFIRMED"
+                                                                                    ],
+                                                             "winner_selection_result":  {
+                                                                                             "selected_symbol":  "IWM",
+                                                                                             "selected_setup_type":  "Clean Fast Break",
+                                                                                             "selection_status":  "shape_only_first_real_iwm_clean_fast_break_historical_fixture_candidate_needs_review",
+                                                                                             "false_continuation_relabel_accepted":  false
+                                                                                         },
+                                                             "human_next_step":  "Signal/stage lifecycle fixture only: IWM higher-base-after-break context remains TO REVIEW and does not imply a fresh live trigger; this is not a live trade instruction or execution recommendation.",
+                                                             "first_seen":  "2026-04-08T15:30:00-04:00",
+                                                             "last_seen":  "2026-04-16T13:30:00-04:00",
+                                                             "state_changed":  true,
+                                                             "prior_state":  "follow_through_candidate_TO_REVIEW",
+                                                             "current_state":  "higher_base_after_fast_break_TO_REVIEW",
+                                                             "trigger_changed":  true,
+                                                             "blocker_changed":  true,
+                                                             "duplicate_alert_suppression_key":  "IWM|2026-04-16|Clean Fast Break|watching_higher_base_after_fast_break|fresh_or_spent_unconfirmed"
+                                                         }
+                           },
+                           {
+                               "row_name":  "clean_fast_break_post_break_no_fresh_trigger",
+                               "row_index":  6,
+                               "source_window_timestamp_range":  "2026-04-08T09:30:00-04:00 through 2026-04-17T15:30:00-04:00",
+                               "source_only_basis":  "The selected window has already followed through after the earlier completed break candidate; this row can represent post-break/spent or no-fresh-trigger context only.",
+                               "input":  {
+                                             "symbol":  "IWM",
+                                             "timestamp":  "2026-04-17T15:30:00-04:00",
+                                             "candles_1h_rth":  [
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T09:30:00-04:00",
+                                                                        "open":  261.52,
+                                                                        "high":  262.27,
+                                                                        "low":  260.31,
+                                                                        "close":  260.63,
+                                                                        "volume":  4396555
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T10:30:00-04:00",
+                                                                        "open":  260.63,
+                                                                        "high":  260.82,
+                                                                        "low":  258.43,
+                                                                        "close":  259.685,
+                                                                        "volume":  2083606
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T11:30:00-04:00",
+                                                                        "open":  259.7,
+                                                                        "high":  260.99,
+                                                                        "low":  259.52,
+                                                                        "close":  260.33,
+                                                                        "volume":  1059986
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T12:30:00-04:00",
+                                                                        "open":  260.36,
+                                                                        "high":  260.86,
+                                                                        "low":  259.765,
+                                                                        "close":  260.08,
+                                                                        "volume":  832076
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T13:30:00-04:00",
+                                                                        "open":  260.07,
+                                                                        "high":  261.0905,
+                                                                        "low":  259.77,
+                                                                        "close":  259.8,
+                                                                        "volume":  1254782
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T14:30:00-04:00",
+                                                                        "open":  259.83,
+                                                                        "high":  260.01,
+                                                                        "low":  258.595,
+                                                                        "close":  259.16,
+                                                                        "volume":  1529861
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-08T15:30:00-04:00",
+                                                                        "open":  259.14,
+                                                                        "high":  260.45,
+                                                                        "low":  259.135,
+                                                                        "close":  260.44,
+                                                                        "volume":  1349026.656
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T09:30:00-04:00",
+                                                                        "open":  258.83,
+                                                                        "high":  260.57,
+                                                                        "low":  258.8,
+                                                                        "close":  259.4,
+                                                                        "volume":  1878222
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T10:30:00-04:00",
+                                                                        "open":  259.38,
+                                                                        "high":  260.5,
+                                                                        "low":  259.0893,
+                                                                        "close":  260.225,
+                                                                        "volume":  969270
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T11:30:00-04:00",
+                                                                        "open":  260.22,
+                                                                        "high":  262.38,
+                                                                        "low":  260.15,
+                                                                        "close":  262.11,
+                                                                        "volume":  1424030.910389
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T12:30:00-04:00",
+                                                                        "open":  262.12,
+                                                                        "high":  262.86,
+                                                                        "low":  261.83,
+                                                                        "close":  262.64,
+                                                                        "volume":  732227
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T13:30:00-04:00",
+                                                                        "open":  262.63,
+                                                                        "high":  262.9,
+                                                                        "low":  261.47,
+                                                                        "close":  261.7,
+                                                                        "volume":  930398
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T14:30:00-04:00",
+                                                                        "open":  261.675,
+                                                                        "high":  262.13,
+                                                                        "low":  261.4,
+                                                                        "close":  261.97,
+                                                                        "volume":  924578
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-09T15:30:00-04:00",
+                                                                        "open":  261.96,
+                                                                        "high":  262.4,
+                                                                        "low":  261.795,
+                                                                        "close":  261.95,
+                                                                        "volume":  1344440
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T09:30:00-04:00",
+                                                                        "open":  262.4,
+                                                                        "high":  262.75,
+                                                                        "low":  261.38,
+                                                                        "close":  262.14,
+                                                                        "volume":  1291892.490168
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T10:30:00-04:00",
+                                                                        "open":  262.15,
+                                                                        "high":  262.34,
+                                                                        "low":  261.44,
+                                                                        "close":  261.92,
+                                                                        "volume":  1012425
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T11:30:00-04:00",
+                                                                        "open":  261.95,
+                                                                        "high":  262.08,
+                                                                        "low":  260.57,
+                                                                        "close":  260.8,
+                                                                        "volume":  1181370
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T12:30:00-04:00",
+                                                                        "open":  260.765,
+                                                                        "high":  260.97,
+                                                                        "low":  260.34,
+                                                                        "close":  260.695,
+                                                                        "volume":  684806.92491
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T13:30:00-04:00",
+                                                                        "open":  260.71,
+                                                                        "high":  261.455,
+                                                                        "low":  260.65,
+                                                                        "close":  261.36,
+                                                                        "volume":  1106507
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T14:30:00-04:00",
+                                                                        "open":  261.365,
+                                                                        "high":  261.71,
+                                                                        "low":  261.15,
+                                                                        "close":  261.53,
+                                                                        "volume":  585261
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-10T15:30:00-04:00",
+                                                                        "open":  261.52,
+                                                                        "high":  261.52,
+                                                                        "low":  260.965,
+                                                                        "close":  261.29,
+                                                                        "volume":  930638
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T09:30:00-04:00",
+                                                                        "open":  260.26,
+                                                                        "high":  262.47,
+                                                                        "low":  260.03,
+                                                                        "close":  262.41,
+                                                                        "volume":  2045053
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T10:30:00-04:00",
+                                                                        "open":  262.43,
+                                                                        "high":  262.63,
+                                                                        "low":  261.7199,
+                                                                        "close":  261.75,
+                                                                        "volume":  894403.814323
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T11:30:00-04:00",
+                                                                        "open":  261.75,
+                                                                        "high":  263.28,
+                                                                        "low":  261.57,
+                                                                        "close":  263.17,
+                                                                        "volume":  732712
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T12:30:00-04:00",
+                                                                        "open":  263.15,
+                                                                        "high":  264.32,
+                                                                        "low":  262.97,
+                                                                        "close":  263.925,
+                                                                        "volume":  1039789
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T13:30:00-04:00",
+                                                                        "open":  263.92,
+                                                                        "high":  264.16,
+                                                                        "low":  263.66,
+                                                                        "close":  263.97,
+                                                                        "volume":  719774.224754
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T14:30:00-04:00",
+                                                                        "open":  263.945,
+                                                                        "high":  264.83,
+                                                                        "low":  263.88,
+                                                                        "close":  264.7842,
+                                                                        "volume":  724910
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-13T15:30:00-04:00",
+                                                                        "open":  264.78,
+                                                                        "high":  265.36,
+                                                                        "low":  264.64,
+                                                                        "close":  265.06,
+                                                                        "volume":  1163952.911257
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T09:30:00-04:00",
+                                                                        "open":  267.09,
+                                                                        "high":  268.26,
+                                                                        "low":  266.28,
+                                                                        "close":  268.155,
+                                                                        "volume":  1948678
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T10:30:00-04:00",
+                                                                        "open":  268.18,
+                                                                        "high":  269.04,
+                                                                        "low":  268.15,
+                                                                        "close":  268.89,
+                                                                        "volume":  1168001.441075
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T11:30:00-04:00",
+                                                                        "open":  268.895,
+                                                                        "high":  269.41,
+                                                                        "low":  268.765,
+                                                                        "close":  268.94,
+                                                                        "volume":  709309
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T12:30:00-04:00",
+                                                                        "open":  268.93,
+                                                                        "high":  268.955,
+                                                                        "low":  268.26,
+                                                                        "close":  268.8301,
+                                                                        "volume":  598769
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T13:30:00-04:00",
+                                                                        "open":  268.84,
+                                                                        "high":  268.91,
+                                                                        "low":  267.69,
+                                                                        "close":  267.91,
+                                                                        "volume":  913488
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T14:30:00-04:00",
+                                                                        "open":  267.91,
+                                                                        "high":  268.805,
+                                                                        "low":  267.875,
+                                                                        "close":  268.785,
+                                                                        "volume":  873770
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-14T15:30:00-04:00",
+                                                                        "open":  268.7899,
+                                                                        "high":  268.9,
+                                                                        "low":  268.43,
+                                                                        "close":  268.67,
+                                                                        "volume":  1215354
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T09:30:00-04:00",
+                                                                        "open":  268.78,
+                                                                        "high":  269.585,
+                                                                        "low":  268.1835,
+                                                                        "close":  269.245,
+                                                                        "volume":  1786659
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T10:30:00-04:00",
+                                                                        "open":  269.25,
+                                                                        "high":  269.32,
+                                                                        "low":  268.2799,
+                                                                        "close":  268.995,
+                                                                        "volume":  1067518
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T11:30:00-04:00",
+                                                                        "open":  269,
+                                                                        "high":  269.01,
+                                                                        "low":  268.195,
+                                                                        "close":  268.71,
+                                                                        "volume":  1243936
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T12:30:00-04:00",
+                                                                        "open":  268.715,
+                                                                        "high":  268.835,
+                                                                        "low":  267.59,
+                                                                        "close":  268.31,
+                                                                        "volume":  921937
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T13:30:00-04:00",
+                                                                        "open":  268.3,
+                                                                        "high":  269.02,
+                                                                        "low":  268.115,
+                                                                        "close":  268.86,
+                                                                        "volume":  635514
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T14:30:00-04:00",
+                                                                        "open":  268.855,
+                                                                        "high":  269.28,
+                                                                        "low":  268.56,
+                                                                        "close":  269.095,
+                                                                        "volume":  646265
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-15T15:30:00-04:00",
+                                                                        "open":  269.09,
+                                                                        "high":  269.51,
+                                                                        "low":  268.85,
+                                                                        "close":  269.41,
+                                                                        "volume":  734691
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T09:30:00-04:00",
+                                                                        "open":  269.45,
+                                                                        "high":  270.34,
+                                                                        "low":  268.19,
+                                                                        "close":  268.53,
+                                                                        "volume":  2389997
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T10:30:00-04:00",
+                                                                        "open":  268.45,
+                                                                        "high":  270.07,
+                                                                        "low":  268.05,
+                                                                        "close":  269.4,
+                                                                        "volume":  1179344
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T11:30:00-04:00",
+                                                                        "open":  269.4,
+                                                                        "high":  270.2,
+                                                                        "low":  269.27,
+                                                                        "close":  269.7,
+                                                                        "volume":  836799.722283
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T12:30:00-04:00",
+                                                                        "open":  269.715,
+                                                                        "high":  269.8,
+                                                                        "low":  268.5,
+                                                                        "close":  269.04,
+                                                                        "volume":  1301414
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T13:30:00-04:00",
+                                                                        "open":  269.04,
+                                                                        "high":  269.495,
+                                                                        "low":  268.8,
+                                                                        "close":  268.993,
+                                                                        "volume":  876003
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T14:30:00-04:00",
+                                                                        "open":  269.02,
+                                                                        "high":  269.93,
+                                                                        "low":  269.02,
+                                                                        "close":  269.7199,
+                                                                        "volume":  944039
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-16T15:30:00-04:00",
+                                                                        "open":  269.75,
+                                                                        "high":  270.09,
+                                                                        "low":  269.68,
+                                                                        "close":  269.96,
+                                                                        "volume":  1543079
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-17T09:30:00-04:00",
+                                                                        "open":  273.74,
+                                                                        "high":  276.25,
+                                                                        "low":  273.12,
+                                                                        "close":  276.01,
+                                                                        "volume":  3197342.9183
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-17T10:30:00-04:00",
+                                                                        "open":  276.01,
+                                                                        "high":  277.26,
+                                                                        "low":  275.39,
+                                                                        "close":  275.79,
+                                                                        "volume":  2156589.364596
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-17T11:30:00-04:00",
+                                                                        "open":  275.78,
+                                                                        "high":  277.265,
+                                                                        "low":  275.625,
+                                                                        "close":  277.24,
+                                                                        "volume":  1133358
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-17T12:30:00-04:00",
+                                                                        "open":  277.24,
+                                                                        "high":  277.63,
+                                                                        "low":  275.69,
+                                                                        "close":  275.995,
+                                                                        "volume":  1667829.794185
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-17T13:30:00-04:00",
+                                                                        "open":  275.97,
+                                                                        "high":  276.42,
+                                                                        "low":  275.26,
+                                                                        "close":  275.61,
+                                                                        "volume":  959131
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-17T14:30:00-04:00",
+                                                                        "open":  275.62,
+                                                                        "high":  275.84,
+                                                                        "low":  274.96,
+                                                                        "close":  275.14,
+                                                                        "volume":  920004
+                                                                    },
+                                                                    {
+                                                                        "timestamp":  "2026-04-17T15:30:00-04:00",
+                                                                        "open":  275.14,
+                                                                        "high":  276.02,
+                                                                        "low":  275.135,
+                                                                        "close":  275.76,
+                                                                        "volume":  1659134.61445
+                                                                    }
+                                                                ],
+                                             "context_24h_daily":  {
+                                                                       "status":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                                       "value":  null,
+                                                                       "as_of":  null,
+                                                                       "source":  null
+                                                                   },
+                                             "macro_context":  {
+                                                                   "status":  "MACRO_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "iv_context":  {
+                                                                "status":  "IV_UNCONFIRMED",
+                                                                "value":  null,
+                                                                "as_of":  null,
+                                                                "source":  null
+                                                            },
+                                             "event_context":  {
+                                                                   "status":  "EVENT_UNCONFIRMED",
+                                                                   "value":  null,
+                                                                   "as_of":  null,
+                                                                   "source":  null
+                                                               },
+                                             "market_calendar_session":  {
+                                                                             "session_date":  "2026-04-17",
+                                                                             "session_type":  "regular",
+                                                                             "is_regular_session":  true,
+                                                                             "timezone":  "America/New_York",
+                                                                             "notes":  "Regular RTH first-real IWM Clean Fast Break replay row: clean_fast_break_post_break_no_fresh_trigger."
+                                                                         }
+                                         },
+                               "expected_output_shape":  {
+                                                             "timestamp":  "2026-04-17T15:30:00-04:00",
+                                                             "symbol":  "IWM",
+                                                             "setup_type":  "Clean Fast Break",
+                                                             "setup_state":  "spent_or_no_fresh_trigger_TO_REVIEW",
+                                                             "stage":  "clean_fast_break_post_break_no_fresh_trigger",
+                                                             "trigger_state":  "freshness_TO_REVIEW",
+                                                             "trigger_level":  null,
+                                                             "invalidation":  null,
+                                                             "room_status":  "unconfirmed",
+                                                             "extension_status":  "unconfirmed",
+                                                             "context_24h":  "CONTEXT_24H_DAILY_UNCONFIRMED",
+                                                             "wall_thesis_fit":  "unconfirmed",
+                                                             "final_verdict":  "NO_TRADE",
+                                                             "primary_blocker":  "fresh_or_spent_unconfirmed",
+                                                             "cautions_watchouts":  [
+                                                                                        "trigger_level_TO_REVIEW",
+                                                                                        "invalidation_TO_REVIEW",
+                                                                                        "MACRO_UNCONFIRMED",
+                                                                                        "IV_UNCONFIRMED",
+                                                                                        "EVENT_UNCONFIRMED"
+                                                                                    ],
+                                                             "winner_selection_result":  {
+                                                                                             "selected_symbol":  "IWM",
+                                                                                             "selected_setup_type":  "Clean Fast Break",
+                                                                                             "selection_status":  "shape_only_first_real_iwm_clean_fast_break_historical_fixture_candidate_needs_review",
+                                                                                             "false_continuation_relabel_accepted":  false
+                                                                                         },
+                                                             "human_next_step":  "Signal/stage lifecycle fixture only: IWM post-break freshness remains TO REVIEW and no fresh live trigger is inferred; this is not a live trade instruction or execution recommendation.",
+                                                             "first_seen":  "2026-04-08T15:30:00-04:00",
+                                                             "last_seen":  "2026-04-17T15:30:00-04:00",
+                                                             "state_changed":  true,
+                                                             "prior_state":  "higher_base_after_fast_break_TO_REVIEW",
+                                                             "current_state":  "spent_or_no_fresh_trigger_TO_REVIEW",
+                                                             "trigger_changed":  true,
+                                                             "blocker_changed":  true,
+                                                             "duplicate_alert_suppression_key":  "IWM|2026-04-17|Clean Fast Break|clean_fast_break_post_break_no_fresh_trigger|fresh_or_spent_unconfirmed"
+                                                         }
+                           }
+                       ]
+}
+
