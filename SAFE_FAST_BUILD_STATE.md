@@ -9,7 +9,7 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** create IWM chart outcome aggregate summary
+- **Current objective:** create IWM chart outcome closeout review
 - **Current build direction:** IWM broader coverage via SPY/QQQ dxLink CSV sourcing method; GLD deferred; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
@@ -3769,6 +3769,30 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Output validation required next:** no
 - **Generated reports created:** no
 - **Next task:** create IWM chart outcome aggregate summary
+- **IWM status:** active broader coverage target
+- **GLD status:** deferred
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## IWM chart outcome aggregate summary status
+
+- **Aggregate summary file:** `SAFE_FAST_IWM_CHART_OUTCOME_AGGREGATE_SUMMARY_REVIEW.md`
+- **Aggregate status:** PASS
+- **Included setup reviews:** Ideal 001, Clean Fast Break 001, Continuation 001
+- **Ideal chart-only outcome status:** INCONCLUSIVE
+- **Clean Fast Break chart-only outcome status:** PARTIAL
+- **Continuation chart-only outcome status:** PARTIAL
+- **Generated reports created:** no
+- **Aggregate output validation required next:** no
+- **Aggregate chart outcome status:** PARTIAL
+- **Next task:** create IWM chart outcome closeout review
 - **IWM status:** active broader coverage target
 - **GLD status:** deferred
 - **Continuous Watcher status:** deferred
