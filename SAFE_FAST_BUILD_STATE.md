@@ -7,10 +7,10 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `f7fbdfc Validate GLD source CSV`
-- **Latest completed build milestone:** GLD source CSV validation
-- **Current objective:** GLD bounded source-window selection/review from the validated GLD dxLink 1H RTH source CSV
-- **Current build direction:** GLD broader coverage bounded source-window selection using the validated source CSV; Continuous Watcher deferred
+- **Latest completed commit:** `0ee8545 Fix latest completed commit after GLD source CSV validation`
+- **Latest completed build milestone:** GLD bounded source-window selection/review
+- **Current objective:** GLD historical sample worksheet population or GLD first setup replay readiness review from selected bounded candidate windows
+- **Current build direction:** GLD broader coverage worksheet/replay-readiness preparation using the validated source CSV and bounded candidate windows; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -3866,6 +3866,34 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Do not advance to in this task:** GLD fixtures, replay, chart outcomes, aggregate closeout, Continuous Watcher, production readiness, option P&L, account sizing, or live trade readiness.
 - **SPY/QQQ/IWM status:** current-depth closeout complete
 - **GLD status:** active broader coverage target, source CSV exported and validated
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## GLD bounded source-window selection/review status
+
+- **Review file:** `SAFE_FAST_GLD_BOUNDED_SOURCE_WINDOW_SELECTION_REVIEW.md`
+- **Review status:** PASS
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
+- **Source CSV row count:** 290
+- **Source CSV date/time span:** `2026-03-23T09:30:00-04:00` to `2026-05-20T11:30:00-04:00`
+- **Source/vendor/as-of:** `dxlink_candles.get_1h_ema50_snapshot`; `dxFeed via tastytrade dxLink`; `2026-05-20T16:25:45Z`
+- **Selected Ideal candidate window:** `GLD-WINDOW-IDEAL-001`; rows 204-238; `2026-05-04T09:30:00-04:00` to `2026-05-08T15:30:00-04:00`; 35 rows.
+- **Selected Clean Fast Break candidate window:** `GLD-WINDOW-CLEAN-FAST-BREAK-001`; rows 183-238; `2026-04-29T09:30:00-04:00` to `2026-05-08T15:30:00-04:00`; 56 rows.
+- **Selected Continuation candidate window:** `GLD-WINDOW-CONTINUATION-001`; rows 78-133; `2026-04-08T09:30:00-04:00` to `2026-04-17T15:30:00-04:00`; 56 rows.
+- **Selection status:** candidate windows selected for future review only; not validated setups, not trigger labels, not outcomes, and not trade decisions.
+- **Unconfirmed/not selected in this task:** put-side setup-family candidate and no-trade discipline window.
+- **Validation status:** PASS; selected row ranges/timestamps were checked against the validated GLD source CSV, and `git diff --check` passed.
+- **Exact next task:** populate the GLD historical sample collection worksheet from bounded source-window selection, or create the GLD first setup replay readiness review from the selected bounded candidate windows.
+- **Do not advance to in this task:** GLD fixtures, replay reports, chart outcomes, aggregate closeout, Continuous Watcher, production readiness, option P&L, account sizing, or live trade readiness.
+- **SPY/QQQ/IWM status:** current-depth closeout complete
+- **GLD status:** active broader coverage target, bounded source-window candidates selected
 - **Continuous Watcher status:** deferred
 - **main.py changed:** no
 - **Engine logic changed:** no
