@@ -8,8 +8,9 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `7edc508 Populate GLD historical sample worksheet`
-- **Latest completed build milestone:** GLD historical sample worksheet population
-- **Current objective:** GLD first setup replay readiness review from populated worksheet, preferably `GLD-SAMPLE-IDEAL-001` first
+- **Latest observed local HEAD for current review:** `402dc4c Fix latest completed commit after GLD worksheet population`
+- **Latest completed build milestone:** GLD Ideal 001 replay readiness review
+- **Current objective:** create GLD Ideal 001 real historical replay review asset; fixture JSON remains NO-GO until later replay review and fixture specification
 - **Current build direction:** GLD broader coverage replay-readiness preparation using the validated source CSV, bounded candidate windows, and populated worksheet; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
@@ -3922,6 +3923,37 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Do not advance to in this task:** GLD fixtures, replay reports, chart outcomes, aggregate closeout, Continuous Watcher, production readiness, option P&L, account sizing, or live trade readiness.
 - **SPY/QQQ/IWM status:** current-depth closeout complete
 - **GLD status:** active broader coverage target, historical sample worksheet populated from selected bounded candidate windows
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## GLD Ideal 001 replay readiness review status
+
+- **Review file:** `SAFE_FAST_GLD_IDEAL_001_REPLAY_READINESS_REVIEW.md`
+- **Review status:** PASS
+- **Sample ID:** `GLD-SAMPLE-IDEAL-001`
+- **Window ID:** `GLD-WINDOW-IDEAL-001`
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
+- **Source row range:** rows 204-238
+- **Source window:** `2026-05-04T09:30:00-04:00` to `2026-05-08T15:30:00-04:00`
+- **Source row count:** 35
+- **Source/vendor/as-of:** `dxlink_candles.get_1h_ema50_snapshot`; `dxFeed via tastytrade dxLink`; `2026-05-20T16:25:45Z`
+- **Source row validation:** PASS; selected rows are GLD-only, `1h_rth`, `America/New_York`, `regular_session=true`, valid OHLCV, and match the worksheet timestamp span.
+- **Expected setup type:** Ideal CANDIDATE / NEEDS REVIEW
+- **Direction:** bullish/call-side candidate if later review confirms
+- **Candidate stage:** pullback/retest into recovery CANDIDATE
+- **Trigger-card readiness:** yes, as TO REVIEW fields only; no exact trigger, invalidation, final stage, final setup identity, or trade verdict was claimed.
+- **Replay/review asset creation status:** GO
+- **Fixture JSON creation status:** NO-GO until later replay review and fixture specification validate the row and define exact assertions.
+- **Generated reports created:** no
+- **Next task:** create GLD Ideal 001 real historical replay review asset.
+- **GLD status:** active broader coverage target; first Ideal readiness review complete
 - **Continuous Watcher status:** deferred
 - **main.py changed:** no
 - **Engine logic changed:** no
