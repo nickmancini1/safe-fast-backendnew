@@ -7,10 +7,10 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `43e9d42 Add GLD bounded source-window selection review`
-- **Latest completed build milestone:** GLD bounded source-window selection/review
-- **Current objective:** GLD historical sample worksheet population or GLD first setup replay readiness review from selected bounded candidate windows
-- **Current build direction:** GLD broader coverage worksheet/replay-readiness preparation using the validated source CSV and bounded candidate windows; Continuous Watcher deferred
+- **Latest completed commit:** `00d52ff Fix latest completed commit after GLD window selection`
+- **Latest completed build milestone:** GLD historical sample worksheet population
+- **Current objective:** GLD first setup replay readiness review from populated worksheet, preferably `GLD-SAMPLE-IDEAL-001` first
+- **Current build direction:** GLD broader coverage replay-readiness preparation using the validated source CSV, bounded candidate windows, and populated worksheet; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -3904,3 +3904,30 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Railway/production touched:** no
 - **Live trade decisions added:** no
 
+## GLD historical sample worksheet population status
+
+- **Worksheet file:** `SAFE_FAST_GLD_HISTORICAL_SAMPLE_COLLECTION_WORKSHEET.md`
+- **Worksheet status:** PASS
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
+- **Source CSV row count:** 290
+- **Source CSV date/time span:** `2026-03-23T09:30:00-04:00` to `2026-05-20T11:30:00-04:00`
+- **Source/vendor/as-of:** `dxlink_candles.get_1h_ema50_snapshot`; `dxFeed via tastytrade dxLink`; `2026-05-20T16:25:45Z`
+- **Sample rows populated:** `GLD-SAMPLE-IDEAL-001`, `GLD-SAMPLE-CLEAN-FAST-BREAK-001`, `GLD-SAMPLE-CONTINUATION-001`
+- **Ideal candidate worksheet row:** `GLD-SAMPLE-IDEAL-001`; source window `GLD-WINDOW-IDEAL-001`; rows 204-238; `2026-05-04T09:30:00-04:00` to `2026-05-08T15:30:00-04:00`; 35 rows; CANDIDATE / NEEDS REVIEW only.
+- **Clean Fast Break candidate worksheet row:** `GLD-SAMPLE-CLEAN-FAST-BREAK-001`; source window `GLD-WINDOW-CLEAN-FAST-BREAK-001`; rows 183-238; `2026-04-29T09:30:00-04:00` to `2026-05-08T15:30:00-04:00`; 56 rows; CANDIDATE / NEEDS REVIEW only.
+- **Continuation candidate worksheet row:** `GLD-SAMPLE-CONTINUATION-001`; source window `GLD-WINDOW-CONTINUATION-001`; rows 78-133; `2026-04-08T09:30:00-04:00` to `2026-04-17T15:30:00-04:00`; 56 rows; CANDIDATE / NEEDS REVIEW only.
+- **Worksheet-source validation status:** PASS; worksheet row ranges/timestamps were checked against the validated GLD source CSV, and `git diff --check` passed.
+- **Fixture/replay status:** NO-GO until row-by-row replay readiness review validates a sample row.
+- **Exact next task:** create GLD first setup replay readiness review from the populated worksheet, preferably `GLD-SAMPLE-IDEAL-001` first.
+- **Do not advance to in this task:** GLD fixtures, replay reports, chart outcomes, aggregate closeout, Continuous Watcher, production readiness, option P&L, account sizing, or live trade readiness.
+- **SPY/QQQ/IWM status:** current-depth closeout complete
+- **GLD status:** active broader coverage target, historical sample worksheet populated from selected bounded candidate windows
+- **Continuous Watcher status:** deferred
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
