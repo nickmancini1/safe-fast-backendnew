@@ -7,8 +7,8 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `7edc508 Populate GLD historical sample worksheet`
-- **Latest observed local HEAD for current review:** `402dc4c Fix latest completed commit after GLD worksheet population`
+- **Latest completed commit:** `b0a4e37 Add GLD Ideal 001 replay readiness review`
+- **Latest observed local HEAD for current review:** `b0a4e37 Add GLD Ideal 001 replay readiness review`
 - **Latest completed build milestone:** GLD Ideal 001 replay readiness review
 - **Current objective:** create GLD Ideal 001 real historical replay review asset; fixture JSON remains NO-GO until later replay review and fixture specification
 - **Current build direction:** GLD broader coverage replay-readiness preparation using the validated source CSV, bounded candidate windows, and populated worksheet; Continuous Watcher deferred
