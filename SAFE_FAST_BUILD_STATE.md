@@ -7,10 +7,10 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `92fd978 Add GLD broader coverage preparation source-sourcing review`
-- **Latest completed build milestone:** GLD broader coverage preparation/source-sourcing review
-- **Current objective:** export or supply GLD dxLink 1H RTH source CSV, then create GLD source CSV validation review; current local export attempt is blocked by network/source connection failure
-- **Current build direction:** GLD broader coverage source CSV export and validation via SPY/QQQ/IWM dxLink CSV sourcing method; Continuous Watcher deferred
+- **Latest completed commit:** `eb20d20 Add GLD source CSV validation blocked review`
+- **Latest completed build milestone:** GLD source CSV validation blocked review
+- **Current objective:** GLD bounded source-window selection/review from the validated GLD dxLink 1H RTH source CSV
+- **Current build direction:** GLD broader coverage bounded source-window selection using the validated source CSV; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -3853,20 +3853,19 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 ## GLD source CSV validation review status
 
 - **Review file:** `SAFE_FAST_GLD_SOURCE_CSV_VALIDATION_REVIEW.md`
-- **Review status:** BLOCKED
-- **Expected GLD source CSV path:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
+- **Review status:** PASS
+- **GLD source CSV path:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
 - **Dry-run status:** PASS; exporter accepts GLD, template has 24 columns, output directory exists, and required credential environment variables are present.
-- **Export status:** BLOCKED
-- **Exact block:** OAuth/network connection to `https://api.tastyworks.com/oauth/token` failed with `httpx.ConnectError: All connection attempts failed`.
-- **GLD source CSV found after export attempt:** no
-- **Smallest missing requirement:** working network/source access from this environment to tastytrade OAuth and downstream dxLink source access, or a supplied real GLD source CSV at the expected path.
-- **GLD source CSV row count:** unconfirmed
-- **GLD source CSV date/time span:** unconfirmed
-- **Source/vendor/as-of:** unconfirmed
-- **Exact next task:** export or supply GLD dxLink 1H RTH source CSV, then rerun GLD source CSV validation.
-- **Do not advance to:** GLD bounded source-window selection, fixtures, replay, chart outcomes, or aggregate closeout until the GLD source CSV exists and passes validation.
+- **Prior blocked attempt:** OAuth/network connection to `https://api.tastyworks.com/oauth/token` previously failed with `httpx.ConnectError: All connection attempts failed`.
+- **Export status:** PASS; real GLD source CSV exists at the expected path.
+- **Validation status:** PASS; exact template header match, 290 GLD-only rows, `1h_rth`, `America/New_York`, `regular_session=true`, chronological timezone-aware RTH rows, valid numeric OHLCV, non-negative volume, populated source/vendor/as-of metadata, context fields unconfirmed/blank according to existing repo pattern, and no forbidden outcome/P&L/option/account/broker/order/execution/live-trade label fields.
+- **GLD source CSV row count:** 290
+- **GLD source CSV date/time span:** `2026-03-23T09:30:00-04:00` to `2026-05-20T11:30:00-04:00`
+- **Source/vendor/as-of:** `dxlink_candles.get_1h_ema50_snapshot`; `dxFeed via tastytrade dxLink`; `2026-05-20T16:25:45Z`
+- **Exact next task:** create GLD bounded source-window selection/review from the validated source CSV only.
+- **Do not advance to in this task:** GLD fixtures, replay, chart outcomes, aggregate closeout, Continuous Watcher, production readiness, option P&L, account sizing, or live trade readiness.
 - **SPY/QQQ/IWM status:** current-depth closeout complete
-- **GLD status:** active broader coverage target, source CSV export blocked
+- **GLD status:** active broader coverage target, source CSV exported and validated
 - **Continuous Watcher status:** deferred
 - **main.py changed:** no
 - **Engine logic changed:** no
