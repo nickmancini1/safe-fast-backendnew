@@ -7,7 +7,7 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `00d52ff Fix latest completed commit after GLD window selection`
+- **Latest completed commit:** `7edc508 Populate GLD historical sample worksheet`
 - **Latest completed build milestone:** GLD historical sample worksheet population
 - **Current objective:** GLD first setup replay readiness review from populated worksheet, preferably `GLD-SAMPLE-IDEAL-001` first
 - **Current build direction:** GLD broader coverage replay-readiness preparation using the validated source CSV, bounded candidate windows, and populated worksheet; Continuous Watcher deferred
