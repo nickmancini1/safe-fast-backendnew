@@ -9,8 +9,8 @@
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `5d33edc Add QQQ chart outcome closeout review`
 - **Latest completed build milestone:** QQQ chart outcome closeout review
-- **Current objective:** create GLD broader coverage preparation/source-sourcing review
-- **Current build direction:** GLD broader coverage preparation/source-sourcing via SPY/QQQ/IWM dxLink CSV sourcing method; Continuous Watcher deferred
+- **Current objective:** export GLD dxLink 1H RTH source CSV, then create GLD source CSV validation review
+- **Current build direction:** GLD broader coverage source CSV export and validation via SPY/QQQ/IWM dxLink CSV sourcing method; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Do not touch
@@ -3820,6 +3820,27 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Next task:** create GLD broader coverage preparation/source-sourcing review
 - **IWM status:** current-depth closeout complete
 - **GLD status:** next broader coverage target if closeout accepted
+- **main.py changed:** no
+- **Engine logic changed:** no
+- **Replay runner changed:** no
+- **Schemas changed:** no
+- **Fixtures changed:** no
+- **Reports changed:** no
+- **Railway/production touched:** no
+- **Live trade decisions added:** no
+
+## GLD broader coverage preparation/source-sourcing review status
+
+- **Review file:** `SAFE_FAST_GLD_BROADER_COVERAGE_PREPARATION_SOURCE_SOURCING_REVIEW.md`
+- **Review status:** PASS
+- **GLD source method:** dxLink 1H RTH source CSV using SPY/QQQ/IWM template.
+- **GLD source CSV found:** no
+- **Expected GLD source CSV path:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
+- **Exporter found:** yes; `historical_signal_replay/export_dxlink_source_csv.py`
+- **Exact next task:** export GLD dxLink 1H RTH source CSV, then create GLD source CSV validation review.
+- **SPY/QQQ/IWM status:** current-depth closeout complete
+- **GLD status:** active broader coverage target
+- **Continuous Watcher status:** deferred
 - **main.py changed:** no
 - **Engine logic changed:** no
 - **Replay runner changed:** no
