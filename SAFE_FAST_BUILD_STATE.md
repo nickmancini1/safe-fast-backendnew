@@ -7,8 +7,8 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `fd30283 Add GLD Ideal 001 fixture output validation`
-- **Latest observed local HEAD for current review:** `474c982 Fix latest completed commit after GLD Ideal fixture output validation`
+- **Latest completed commit:** `30dac4a Add GLD Clean Fast Break 001 readiness review`
+- **Latest observed local HEAD for current review:** `30dac4a Add GLD Clean Fast Break 001 readiness review`
 - **Latest completed build milestone:** GLD Clean Fast Break 001 replay readiness review
 - **Current objective:** create GLD Clean Fast Break 001 real historical replay review asset; generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO
 - **Current build direction:** GLD broader coverage replay-readiness preparation using the validated source CSV, bounded candidate windows, and populated worksheet; Continuous Watcher deferred
