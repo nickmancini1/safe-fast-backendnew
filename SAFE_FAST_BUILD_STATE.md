@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `2ae012e Add GLD Clean Fast Break 001 real historical replay review`
-- **Latest observed local HEAD for current review:** `470081f Fix latest completed commit after GLD Clean Fast Break replay review`
-- **Latest completed build milestone:** GLD Clean Fast Break 001 replay fixture specification review asset, pending user commit
+- **Latest completed commit:** `fb87b89 Add GLD Clean Fast Break 001 fixture specification review`
+- **Latest observed local HEAD for current review:** `fb87b89 Add GLD Clean Fast Break 001 fixture specification review`
+- **Latest completed build milestone:** GLD Clean Fast Break 001 replay fixture specification review asset
 - **Current objective:** create GLD Clean Fast Break 001 replay fixture JSON asset only if this specification review is accepted; generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO
 - **Current build direction:** GLD broader coverage replay-readiness preparation using the validated source CSV, bounded candidate windows, and populated worksheet; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
