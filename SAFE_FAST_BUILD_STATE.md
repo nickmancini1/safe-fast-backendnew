@@ -7,8 +7,8 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `6550d8a Fix latest completed commit after GLD Ideal replay review`
-- **Latest observed local HEAD for current review:** `6550d8a Fix latest completed commit after GLD Ideal replay review`
+- **Latest completed commit:** `d92b563 Add GLD Ideal 001 fixture specification review`
+- **Latest observed local HEAD for current review:** `d92b563 Add GLD Ideal 001 fixture specification review`
 - **Latest completed build milestone:** GLD Ideal 001 replay fixture specification review asset
 - **Current objective:** create GLD Ideal 001 fixture asset only, using `SAFE_FAST_GLD_IDEAL_001_REPLAY_FIXTURE_SPECIFICATION_REVIEW.md`; generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO
 - **Current build direction:** GLD broader coverage replay-readiness preparation using the validated source CSV, bounded candidate windows, and populated worksheet; Continuous Watcher deferred
