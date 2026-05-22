@@ -8,10 +8,10 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `25dcab0 Add GLD chart outcome closeout review`
-- **Latest observed local HEAD / bookkeeping sync commit:** `25dcab0 Add GLD chart outcome closeout review`
-- **Latest completed build milestone:** GLD chart outcome closeout review
-- **Current objective:** create all-symbol current-depth closeout/readiness review per `SAFE_FAST_POST_GLD_WATCHER_TRANSITION_HARDENING_PLAN.md`; generated replay reports, generated chart outcome reports, watcher work, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
-- **Current build direction:** all-symbol current-depth closeout/readiness review after GLD chart-only outcome closeout; Continuous Watcher deferred
+- **Latest observed local HEAD / bookkeeping sync commit:** `7161a35 Fix latest completed commit after GLD chart outcome closeout`
+- **Latest completed build milestone:** all-symbol current-depth closeout/readiness review created locally at PASS / PARTIAL known-limits depth; latest completed milestone commit remains `25dcab0 Add GLD chart outcome closeout review` until this review is committed
+- **Current objective:** Continuous Watcher foundation planning / shadow-watch architecture only after `SAFE_FAST_ALL_SYMBOL_CURRENT_DEPTH_CLOSEOUT_REVIEW.md` is committed and accepted; implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
+- **Current build direction:** post-all-symbol watcher foundation planning / shadow-watch architecture only; Continuous Watcher implementation deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Post-GLD watcher transition hardening plan status
@@ -22,7 +22,7 @@
 - **Active GLD objective:** GLD chart outcome closeout review committed at PASS / PARTIAL known-limits depth.
 - **Continuous Watcher status:** deferred
 - **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, or live trade logic touched.
-- **Next task:** create all-symbol current-depth closeout/readiness review per `SAFE_FAST_POST_GLD_WATCHER_TRANSITION_HARDENING_PLAN.md`; Continuous Watcher remains deferred.
+- **Next task:** commit and accept `SAFE_FAST_ALL_SYMBOL_CURRENT_DEPTH_CLOSEOUT_REVIEW.md`, then create Continuous Watcher foundation planning / shadow-watch architecture only if explicitly authorized; Continuous Watcher implementation remains deferred.
 
 ## Do not touch
 
@@ -4583,6 +4583,40 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Continuous Watcher status:** deferred
 - **Post-GLD hardening plan reference:** intact; `SAFE_FAST_POST_GLD_WATCHER_TRANSITION_HARDENING_PLAN.md` remains PASS and does not start watcher work.
 - **Next task:** create `SAFE_FAST_ALL_SYMBOL_CURRENT_DEPTH_CLOSEOUT_REVIEW.md` per `SAFE_FAST_POST_GLD_WATCHER_TRANSITION_HARDENING_PLAN.md`; do not start watcher implementation, create generated replay reports, create generated chart outcome reports, model option P&L, add account sizing, claim production readiness, or claim live trade readiness.
+
+## All-symbol current-depth closeout/readiness review status
+
+- **Review file:** `SAFE_FAST_ALL_SYMBOL_CURRENT_DEPTH_CLOSEOUT_REVIEW.md`
+- **Review status:** PASS
+- **Current-depth closeout status:** PASS / PARTIAL
+- **Baseline:** patch8
+- **Repo:** `safe-fast-backendnew`
+- **Branch:** `main`
+- **Latest observed local HEAD before review edits:** `7161a35 Fix latest completed commit after GLD chart outcome closeout`
+- **Latest completed milestone commit still recorded:** `25dcab0 Add GLD chart outcome closeout review`
+- **Bookkeeping-sync commits above milestone:** present and not conflicts.
+- **Hardening plan reference:** intact; `SAFE_FAST_POST_GLD_WATCHER_TRANSITION_HARDENING_PLAN.md` remains PASS and is the source for the current-depth matrix, trigger-card requirements, duplicate suppression, diagnostics/news boundaries, chart-only outcome boundaries, and watcher entry gate.
+- **SPY current-depth status:** PASS for Ideal, Clean Fast Break, and Continuation.
+- **QQQ current-depth status:** PASS for Ideal, Clean Fast Break, and Continuation.
+- **IWM current-depth status:** PASS as docs-only closeout and PARTIAL for per-setup chart-only outcome proof at known-limits depth.
+- **GLD current-depth status:** PASS as docs-only closeout and PARTIAL for per-setup chart-only outcome proof at known-limits depth.
+- **Known limits preserved:** small selected historical sample depth; IWM/GLD docs-only chart outcome limits; no IWM/GLD generated chart-outcome JSON reports; no IWM/GLD generated aggregate JSON reports; no generated output validation where no generated report exists; trigger/invalidation/risk-denominator and terminal-condition fields remain unavailable where not repo-backed; headline/news remains `NEWS_UNCONFIRMED`.
+- **Trigger-card readiness status:** PASS / PARTIAL; required trigger-card schema is documented for foundation planning, but candidate-level numeric trigger, invalidation, distance, freshness, and unavailable fields must remain explicit and not fabricated.
+- **Diagnostics status:** DEFERRED; explanation-only until explicitly approved later and must not change decisions.
+- **Headline/news status:** DEFERRED; `NEWS_UNCONFIRMED` unless a later explicit news-source review reads valid sources.
+- **Chart-only boundary:** chart-only outcomes support signal/watchability review and watcher foundation planning, not live trading.
+- **1H OHLCV limitation:** intrabar high/low sequence inside a 1H candle remains unproven.
+- **Generated replay reports created:** no
+- **Generated chart outcome reports created:** no
+- **Watcher code created:** no
+- **Continuous Watcher implementation started:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Production readiness claimed:** no
+- **Live trade readiness claimed:** no
+- **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, or live trade decisions.
+- **Exact next objective after this review is committed and accepted:** Continuous Watcher foundation planning / shadow-watch architecture only, focused on watch-only trigger cards, deterministic candidate state, stale/spent/no-fresh-trigger preservation, duplicate suppression keys, evidence-row references, unavailable-field surfacing, diagnostics boundaries, and no production/live/auto-trade assumptions.
+- **Continuous Watcher status:** deferred until this review is committed and accepted; implementation remains deferred unless explicitly authorized in a later bounded task.
 
 
 
