@@ -7,8 +7,8 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `1ec4d73 Add GLD chart-only outcome phase planning review`
-- **Latest observed local HEAD / bookkeeping sync commit:** `9fac732 Fix latest completed commit after GLD chart outcome planning`
+- **Latest completed milestone commit:** `5477980 Add GLD Ideal 001 chart-only outcome review`
+- **Latest observed local HEAD / bookkeeping sync commit:** `5477980 Add GLD Ideal 001 chart-only outcome review`
 - **Latest completed build milestone:** GLD Ideal 001 chart-only outcome review
 - **Current objective:** create GLD Clean Fast Break 001 chart-only outcome review following the IWM current-depth order; generated replay reports, generated chart outcome reports, aggregate summary, closeout, watcher work, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
 - **Current build direction:** GLD chart-only outcome phase using validated source CSV evidence and PASS fixture output validations; Continuous Watcher deferred
