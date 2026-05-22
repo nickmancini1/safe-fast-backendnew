@@ -1,0 +1,2145 @@
+{
+    "fixture_name": "first_real_gld_continuation_replay_v1_fixture",
+    "fixture_version": 1,
+    "purpose": "First real historical GLD Continuation replay v1 fixture. This fixture copies validated 1H RTH source OHLCV rows and covers signal/stage/lifecycle candidate shape only; it excludes trade outcomes, option economics, account sizing, broker execution, live trade decisions, production readiness, generated reports, chart outcomes, and auto-trading.",
+    "source_data": {
+        "source_csv": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
+        "symbol": "GLD",
+        "sample_id": "GLD-SAMPLE-CONTINUATION-001",
+        "window_id": "GLD-WINDOW-CONTINUATION-001",
+        "timeframe": "1h_rth",
+        "timezone": "America/New_York",
+        "session_type": "regular",
+        "regular_session": true,
+        "source": "dxlink_candles.get_1h_ema50_snapshot",
+        "source_as_of": "2026-05-20T16:25:45Z",
+        "data_vendor": "dxFeed via tastytrade dxLink",
+        "source_row_range": "78-133",
+        "timestamp_range": "2026-04-08T09:30:00-04:00 through 2026-04-17T15:30:00-04:00",
+        "source_window_row_count": 56,
+        "fixture_row_count": 6,
+        "setup_type_status": "Continuation CANDIDATE / NEEDS REVIEW",
+        "direction_status": "bullish/call-side CANDIDATE / NEEDS REVIEW",
+        "news_headline_context": "NEWS_UNCONFIRMED"
+    },
+    "boundary_notes": [
+        "Each fixture row includes only validated GLD source candles available at or before that row timestamp.",
+        "OHLCV values are copied from the validated source CSV without edits or fabricated market data.",
+        "Shelf/base definition, trigger basis/state, exact trigger, exact invalidation, fresh/stale/spent state, 24H/daily, macro, IV, event, headline/news, room, extension, blocker priority, caution list, accepted signal row, and final proof fields remain unconfirmed or TO REVIEW where repo evidence does not prove them.",
+        "Expected output rows are signal/stage/lifecycle candidate assertions only, not live trade instructions or execution recommendations.",
+        "Ideal or Clean Fast Break is not an accepted relabel for this Continuation candidate fixture unless later repo-backed validation proves it.",
+        "This fixture does not include P&L, option contract economics, account sizing, trade outcome, broker/order/execution content, production readiness, generated replay reports, chart outcomes, or auto-trading behavior."
+    ],
+    "lifecycle_sequence": [
+        "watching_continuation_pullback_shelf_developing",
+        "watching_continuation_elevated_shelf_no_trigger",
+        "continuation_rebuild_below_trigger_candidate",
+        "continuation_completed_break_candidate",
+        "continuation_pullback_hold_or_stale_review",
+        "continuation_extension_spent_or_no_fresh_trigger_review"
+    ],
+    "lifecycle_rows": [
+        {
+            "row_name": "watching_continuation_pullback_shelf_developing",
+            "row_index": 1,
+            "source_window_timestamp_range": "2026-04-08T09:30:00-04:00 through 2026-04-08T15:30:00-04:00",
+            "source_only_basis": "Completed rows through 2026-04-08 show the first bounded-window session falling from 440.12 open to the 431.31 window low and ending with 434.51 close; no 2026-04-09/2026-04-10 consolidation, 2026-04-13 rebuild, 2026-04-14 push, or later extension is available.",
+            "input": {
+                "symbol": "GLD",
+                "timestamp": "2026-04-08T15:30:00-04:00",
+                "candles_1h_rth": [
+                    {
+                        "timestamp": "2026-04-08T09:30:00-04:00",
+                        "open": 440.12,
+                        "high": 440.4296,
+                        "low": 437.37,
+                        "close": 437.95,
+                        "volume": 1050225.851183
+                    },
+                    {
+                        "timestamp": "2026-04-08T10:30:00-04:00",
+                        "open": 437.93,
+                        "high": 438.1083,
+                        "low": 434.5801,
+                        "close": 436.38,
+                        "volume": 632914.365176
+                    },
+                    {
+                        "timestamp": "2026-04-08T11:30:00-04:00",
+                        "open": 436.4,
+                        "high": 437.49,
+                        "low": 435.87,
+                        "close": 436.235,
+                        "volume": 355144.453688
+                    },
+                    {
+                        "timestamp": "2026-04-08T12:30:00-04:00",
+                        "open": 436.3,
+                        "high": 437.6883,
+                        "low": 435.92,
+                        "close": 436.415,
+                        "volume": 250436.0
+                    },
+                    {
+                        "timestamp": "2026-04-08T13:30:00-04:00",
+                        "open": 436.38,
+                        "high": 436.64,
+                        "low": 433.22,
+                        "close": 433.77,
+                        "volume": 455249.522304
+                    },
+                    {
+                        "timestamp": "2026-04-08T14:30:00-04:00",
+                        "open": 433.81,
+                        "high": 434.02,
+                        "low": 431.31,
+                        "close": 432.38,
+                        "volume": 554652.530681
+                    },
+                    {
+                        "timestamp": "2026-04-08T15:30:00-04:00",
+                        "open": 432.38,
+                        "high": 434.65,
+                        "low": 432.38,
+                        "close": 434.51,
+                        "volume": 384290.680648
+                    }
+                ],
+                "context_24h_daily": {
+                    "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "market_calendar_session": {
+                    "session_date": "2026-04-08",
+                    "session_type": "regular",
+                    "is_regular_session": true,
+                    "timezone": "America/New_York",
+                    "notes": "Regular RTH first-real GLD Continuation replay row: watching_continuation_pullback_shelf_developing."
+                },
+                "macro_context": {
+                    "status": "MACRO_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "iv_context": {
+                    "status": "IV_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "event_context": {
+                    "status": "EVENT_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                }
+            },
+            "expected_output_shape": {
+                "timestamp": "2026-04-08T15:30:00-04:00",
+                "symbol": "GLD",
+                "setup_type": "Continuation",
+                "setup_state": "watching",
+                "stage": "watching_continuation_pullback_shelf_developing",
+                "trigger_state": "not_present",
+                "trigger_level": null,
+                "invalidation": null,
+                "room_status": "unconfirmed",
+                "extension_status": "unconfirmed",
+                "context_24h": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                "wall_thesis_fit": "unconfirmed",
+                "final_verdict": "NO_TRADE",
+                "primary_blocker": "shelf_still_developing",
+                "cautions_watchouts": [
+                    "shelf_base_TO_REVIEW",
+                    "trigger_basis_state_TO_REVIEW",
+                    "trigger_level_TO_REVIEW",
+                    "invalidation_TO_REVIEW",
+                    "fresh_stale_spent_status_TO_REVIEW",
+                    "session_boundary_carry_forward_TO_REVIEW",
+                    "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "MACRO_UNCONFIRMED",
+                    "IV_UNCONFIRMED",
+                    "EVENT_UNCONFIRMED",
+                    "NEWS_UNCONFIRMED"
+                ],
+                "winner_selection_result": {
+                    "selected_symbol": "GLD",
+                    "selected_setup_type": "Continuation",
+                    "selection_status": "shape_only_first_real_gld_continuation_historical_fixture_candidate_needs_review",
+                    "false_ideal_relabel_accepted": false,
+                    "false_clean_fast_break_relabel_accepted": false,
+                    "news_risk_level": "NEWS_UNCONFIRMED"
+                },
+                "human_next_step": "Signal/stage lifecycle fixture only: GLD Continuation candidate row keeps shelf/base, trigger basis, trigger level, invalidation, fresh/stale/spent state, 24H/daily, macro, IV, event, and news context unconfirmed; this is not a live trade instruction or execution recommendation.",
+                "first_seen": "2026-04-08T15:30:00-04:00",
+                "last_seen": "2026-04-08T15:30:00-04:00",
+                "state_changed": true,
+                "prior_state": null,
+                "current_state": "continuation_pullback_shelf_developing",
+                "trigger_changed": false,
+                "blocker_changed": true,
+                "duplicate_alert_suppression_key": "GLD|2026-04-08|Continuation|watching_continuation_pullback_shelf_developing|shelf_still_developing"
+            }
+        },
+        {
+            "row_name": "watching_continuation_elevated_shelf_no_trigger",
+            "row_index": 2,
+            "source_window_timestamp_range": "2026-04-08T09:30:00-04:00 through 2026-04-10T15:30:00-04:00",
+            "source_only_basis": "Completed rows through 2026-04-10 show consolidation with highs up to 440.905 and a 437.16 close; no 2026-04-13 rebuild, 2026-04-14 push, or 2026-04-17 extension is available.",
+            "input": {
+                "symbol": "GLD",
+                "timestamp": "2026-04-10T15:30:00-04:00",
+                "candles_1h_rth": [
+                    {
+                        "timestamp": "2026-04-08T09:30:00-04:00",
+                        "open": 440.12,
+                        "high": 440.4296,
+                        "low": 437.37,
+                        "close": 437.95,
+                        "volume": 1050225.851183
+                    },
+                    {
+                        "timestamp": "2026-04-08T10:30:00-04:00",
+                        "open": 437.93,
+                        "high": 438.1083,
+                        "low": 434.5801,
+                        "close": 436.38,
+                        "volume": 632914.365176
+                    },
+                    {
+                        "timestamp": "2026-04-08T11:30:00-04:00",
+                        "open": 436.4,
+                        "high": 437.49,
+                        "low": 435.87,
+                        "close": 436.235,
+                        "volume": 355144.453688
+                    },
+                    {
+                        "timestamp": "2026-04-08T12:30:00-04:00",
+                        "open": 436.3,
+                        "high": 437.6883,
+                        "low": 435.92,
+                        "close": 436.415,
+                        "volume": 250436.0
+                    },
+                    {
+                        "timestamp": "2026-04-08T13:30:00-04:00",
+                        "open": 436.38,
+                        "high": 436.64,
+                        "low": 433.22,
+                        "close": 433.77,
+                        "volume": 455249.522304
+                    },
+                    {
+                        "timestamp": "2026-04-08T14:30:00-04:00",
+                        "open": 433.81,
+                        "high": 434.02,
+                        "low": 431.31,
+                        "close": 432.38,
+                        "volume": 554652.530681
+                    },
+                    {
+                        "timestamp": "2026-04-08T15:30:00-04:00",
+                        "open": 432.38,
+                        "high": 434.65,
+                        "low": 432.38,
+                        "close": 434.51,
+                        "volume": 384290.680648
+                    },
+                    {
+                        "timestamp": "2026-04-09T09:30:00-04:00",
+                        "open": 436.47,
+                        "high": 438.69,
+                        "low": 436.25,
+                        "close": 437.59,
+                        "volume": 542876.583306
+                    },
+                    {
+                        "timestamp": "2026-04-09T10:30:00-04:00",
+                        "open": 437.56,
+                        "high": 439.6,
+                        "low": 435.875,
+                        "close": 438.79,
+                        "volume": 476881.395427
+                    },
+                    {
+                        "timestamp": "2026-04-09T11:30:00-04:00",
+                        "open": 438.79,
+                        "high": 440.82,
+                        "low": 438.7375,
+                        "close": 440.085,
+                        "volume": 417470.334135
+                    },
+                    {
+                        "timestamp": "2026-04-09T12:30:00-04:00",
+                        "open": 440.06,
+                        "high": 440.68,
+                        "low": 439.32,
+                        "close": 440.12,
+                        "volume": 240206.027246
+                    },
+                    {
+                        "timestamp": "2026-04-09T13:30:00-04:00",
+                        "open": 440.19,
+                        "high": 440.905,
+                        "low": 438.69,
+                        "close": 439.13,
+                        "volume": 389545.456687
+                    },
+                    {
+                        "timestamp": "2026-04-09T14:30:00-04:00",
+                        "open": 439.03,
+                        "high": 439.26,
+                        "low": 437.86,
+                        "close": 438.37,
+                        "volume": 300797.32986
+                    },
+                    {
+                        "timestamp": "2026-04-09T15:30:00-04:00",
+                        "open": 438.4,
+                        "high": 438.76,
+                        "low": 437.7,
+                        "close": 437.85,
+                        "volume": 267731.634572
+                    },
+                    {
+                        "timestamp": "2026-04-10T09:30:00-04:00",
+                        "open": 438.59,
+                        "high": 440.1699,
+                        "low": 437.57,
+                        "close": 440.0096,
+                        "volume": 890897.347727
+                    },
+                    {
+                        "timestamp": "2026-04-10T10:30:00-04:00",
+                        "open": 439.97,
+                        "high": 440.33,
+                        "low": 438.14,
+                        "close": 438.695,
+                        "volume": 467601.019705
+                    },
+                    {
+                        "timestamp": "2026-04-10T11:30:00-04:00",
+                        "open": 438.65,
+                        "high": 438.9,
+                        "low": 436.0,
+                        "close": 437.0399,
+                        "volume": 432081.151531
+                    },
+                    {
+                        "timestamp": "2026-04-10T12:30:00-04:00",
+                        "open": 437.03,
+                        "high": 438.0025,
+                        "low": 436.89,
+                        "close": 437.44,
+                        "volume": 278273.295167
+                    },
+                    {
+                        "timestamp": "2026-04-10T13:30:00-04:00",
+                        "open": 437.4,
+                        "high": 438.01,
+                        "low": 436.31,
+                        "close": 437.66,
+                        "volume": 319822.391462
+                    },
+                    {
+                        "timestamp": "2026-04-10T14:30:00-04:00",
+                        "open": 437.815,
+                        "high": 438.37,
+                        "low": 437.47,
+                        "close": 437.56,
+                        "volume": 145826.059565
+                    },
+                    {
+                        "timestamp": "2026-04-10T15:30:00-04:00",
+                        "open": 437.51,
+                        "high": 437.6992,
+                        "low": 436.975,
+                        "close": 437.16,
+                        "volume": 217714.53025
+                    }
+                ],
+                "context_24h_daily": {
+                    "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "market_calendar_session": {
+                    "session_date": "2026-04-10",
+                    "session_type": "regular",
+                    "is_regular_session": true,
+                    "timezone": "America/New_York",
+                    "notes": "Regular RTH first-real GLD Continuation replay row: watching_continuation_elevated_shelf_no_trigger."
+                },
+                "macro_context": {
+                    "status": "MACRO_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "iv_context": {
+                    "status": "IV_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "event_context": {
+                    "status": "EVENT_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                }
+            },
+            "expected_output_shape": {
+                "timestamp": "2026-04-10T15:30:00-04:00",
+                "symbol": "GLD",
+                "setup_type": "Continuation",
+                "setup_state": "watching",
+                "stage": "watching_continuation_elevated_shelf_no_trigger",
+                "trigger_state": "no_valid_trigger_TO_REVIEW",
+                "trigger_level": null,
+                "invalidation": null,
+                "room_status": "unconfirmed",
+                "extension_status": "unconfirmed",
+                "context_24h": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                "wall_thesis_fit": "unconfirmed",
+                "final_verdict": "NO_TRADE",
+                "primary_blocker": "no_valid_trigger",
+                "cautions_watchouts": [
+                    "shelf_base_TO_REVIEW",
+                    "trigger_basis_state_TO_REVIEW",
+                    "trigger_level_TO_REVIEW",
+                    "invalidation_TO_REVIEW",
+                    "fresh_stale_spent_status_TO_REVIEW",
+                    "session_boundary_carry_forward_TO_REVIEW",
+                    "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "MACRO_UNCONFIRMED",
+                    "IV_UNCONFIRMED",
+                    "EVENT_UNCONFIRMED",
+                    "NEWS_UNCONFIRMED"
+                ],
+                "winner_selection_result": {
+                    "selected_symbol": "GLD",
+                    "selected_setup_type": "Continuation",
+                    "selection_status": "shape_only_first_real_gld_continuation_historical_fixture_candidate_needs_review",
+                    "false_ideal_relabel_accepted": false,
+                    "false_clean_fast_break_relabel_accepted": false,
+                    "news_risk_level": "NEWS_UNCONFIRMED"
+                },
+                "human_next_step": "Signal/stage lifecycle fixture only: GLD Continuation candidate row keeps shelf/base, trigger basis, trigger level, invalidation, fresh/stale/spent state, 24H/daily, macro, IV, event, and news context unconfirmed; this is not a live trade instruction or execution recommendation.",
+                "first_seen": "2026-04-08T15:30:00-04:00",
+                "last_seen": "2026-04-10T15:30:00-04:00",
+                "state_changed": true,
+                "prior_state": "continuation_pullback_shelf_developing",
+                "current_state": "elevated_shelf_no_trigger",
+                "trigger_changed": false,
+                "blocker_changed": true,
+                "duplicate_alert_suppression_key": "GLD|2026-04-10|Continuation|watching_continuation_elevated_shelf_no_trigger|no_valid_trigger"
+            }
+        },
+        {
+            "row_name": "continuation_rebuild_below_trigger_candidate",
+            "row_index": 3,
+            "source_window_timestamp_range": "2026-04-08T09:30:00-04:00 through 2026-04-13T15:30:00-04:00",
+            "source_only_basis": "Completed rows through 2026-04-13 show rebuilding from a 431.6501 session low to a 435.4 close, still before the later 2026-04-14 push above the reviewed shelf area.",
+            "input": {
+                "symbol": "GLD",
+                "timestamp": "2026-04-13T15:30:00-04:00",
+                "candles_1h_rth": [
+                    {
+                        "timestamp": "2026-04-08T09:30:00-04:00",
+                        "open": 440.12,
+                        "high": 440.4296,
+                        "low": 437.37,
+                        "close": 437.95,
+                        "volume": 1050225.851183
+                    },
+                    {
+                        "timestamp": "2026-04-08T10:30:00-04:00",
+                        "open": 437.93,
+                        "high": 438.1083,
+                        "low": 434.5801,
+                        "close": 436.38,
+                        "volume": 632914.365176
+                    },
+                    {
+                        "timestamp": "2026-04-08T11:30:00-04:00",
+                        "open": 436.4,
+                        "high": 437.49,
+                        "low": 435.87,
+                        "close": 436.235,
+                        "volume": 355144.453688
+                    },
+                    {
+                        "timestamp": "2026-04-08T12:30:00-04:00",
+                        "open": 436.3,
+                        "high": 437.6883,
+                        "low": 435.92,
+                        "close": 436.415,
+                        "volume": 250436.0
+                    },
+                    {
+                        "timestamp": "2026-04-08T13:30:00-04:00",
+                        "open": 436.38,
+                        "high": 436.64,
+                        "low": 433.22,
+                        "close": 433.77,
+                        "volume": 455249.522304
+                    },
+                    {
+                        "timestamp": "2026-04-08T14:30:00-04:00",
+                        "open": 433.81,
+                        "high": 434.02,
+                        "low": 431.31,
+                        "close": 432.38,
+                        "volume": 554652.530681
+                    },
+                    {
+                        "timestamp": "2026-04-08T15:30:00-04:00",
+                        "open": 432.38,
+                        "high": 434.65,
+                        "low": 432.38,
+                        "close": 434.51,
+                        "volume": 384290.680648
+                    },
+                    {
+                        "timestamp": "2026-04-09T09:30:00-04:00",
+                        "open": 436.47,
+                        "high": 438.69,
+                        "low": 436.25,
+                        "close": 437.59,
+                        "volume": 542876.583306
+                    },
+                    {
+                        "timestamp": "2026-04-09T10:30:00-04:00",
+                        "open": 437.56,
+                        "high": 439.6,
+                        "low": 435.875,
+                        "close": 438.79,
+                        "volume": 476881.395427
+                    },
+                    {
+                        "timestamp": "2026-04-09T11:30:00-04:00",
+                        "open": 438.79,
+                        "high": 440.82,
+                        "low": 438.7375,
+                        "close": 440.085,
+                        "volume": 417470.334135
+                    },
+                    {
+                        "timestamp": "2026-04-09T12:30:00-04:00",
+                        "open": 440.06,
+                        "high": 440.68,
+                        "low": 439.32,
+                        "close": 440.12,
+                        "volume": 240206.027246
+                    },
+                    {
+                        "timestamp": "2026-04-09T13:30:00-04:00",
+                        "open": 440.19,
+                        "high": 440.905,
+                        "low": 438.69,
+                        "close": 439.13,
+                        "volume": 389545.456687
+                    },
+                    {
+                        "timestamp": "2026-04-09T14:30:00-04:00",
+                        "open": 439.03,
+                        "high": 439.26,
+                        "low": 437.86,
+                        "close": 438.37,
+                        "volume": 300797.32986
+                    },
+                    {
+                        "timestamp": "2026-04-09T15:30:00-04:00",
+                        "open": 438.4,
+                        "high": 438.76,
+                        "low": 437.7,
+                        "close": 437.85,
+                        "volume": 267731.634572
+                    },
+                    {
+                        "timestamp": "2026-04-10T09:30:00-04:00",
+                        "open": 438.59,
+                        "high": 440.1699,
+                        "low": 437.57,
+                        "close": 440.0096,
+                        "volume": 890897.347727
+                    },
+                    {
+                        "timestamp": "2026-04-10T10:30:00-04:00",
+                        "open": 439.97,
+                        "high": 440.33,
+                        "low": 438.14,
+                        "close": 438.695,
+                        "volume": 467601.019705
+                    },
+                    {
+                        "timestamp": "2026-04-10T11:30:00-04:00",
+                        "open": 438.65,
+                        "high": 438.9,
+                        "low": 436.0,
+                        "close": 437.0399,
+                        "volume": 432081.151531
+                    },
+                    {
+                        "timestamp": "2026-04-10T12:30:00-04:00",
+                        "open": 437.03,
+                        "high": 438.0025,
+                        "low": 436.89,
+                        "close": 437.44,
+                        "volume": 278273.295167
+                    },
+                    {
+                        "timestamp": "2026-04-10T13:30:00-04:00",
+                        "open": 437.4,
+                        "high": 438.01,
+                        "low": 436.31,
+                        "close": 437.66,
+                        "volume": 319822.391462
+                    },
+                    {
+                        "timestamp": "2026-04-10T14:30:00-04:00",
+                        "open": 437.815,
+                        "high": 438.37,
+                        "low": 437.47,
+                        "close": 437.56,
+                        "volume": 145826.059565
+                    },
+                    {
+                        "timestamp": "2026-04-10T15:30:00-04:00",
+                        "open": 437.51,
+                        "high": 437.6992,
+                        "low": 436.975,
+                        "close": 437.16,
+                        "volume": 217714.53025
+                    },
+                    {
+                        "timestamp": "2026-04-13T09:30:00-04:00",
+                        "open": 434.775,
+                        "high": 435.64,
+                        "low": 432.4601,
+                        "close": 433.1,
+                        "volume": 471440.596533
+                    },
+                    {
+                        "timestamp": "2026-04-13T10:30:00-04:00",
+                        "open": 433.05,
+                        "high": 433.7995,
+                        "low": 431.6501,
+                        "close": 432.035,
+                        "volume": 322566.78247
+                    },
+                    {
+                        "timestamp": "2026-04-13T11:30:00-04:00",
+                        "open": 432.0201,
+                        "high": 434.85,
+                        "low": 431.88,
+                        "close": 434.5401,
+                        "volume": 251874.265936
+                    },
+                    {
+                        "timestamp": "2026-04-13T12:30:00-04:00",
+                        "open": 434.445,
+                        "high": 436.2,
+                        "low": 434.01,
+                        "close": 435.61,
+                        "volume": 428111.952093
+                    },
+                    {
+                        "timestamp": "2026-04-13T13:30:00-04:00",
+                        "open": 435.58,
+                        "high": 436.0,
+                        "low": 433.81,
+                        "close": 434.17,
+                        "volume": 280600.79568
+                    },
+                    {
+                        "timestamp": "2026-04-13T14:30:00-04:00",
+                        "open": 434.13,
+                        "high": 435.67,
+                        "low": 434.13,
+                        "close": 435.58,
+                        "volume": 228622.02458
+                    },
+                    {
+                        "timestamp": "2026-04-13T15:30:00-04:00",
+                        "open": 435.58,
+                        "high": 436.01,
+                        "low": 435.21,
+                        "close": 435.4,
+                        "volume": 361664.36893
+                    }
+                ],
+                "context_24h_daily": {
+                    "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "market_calendar_session": {
+                    "session_date": "2026-04-13",
+                    "session_type": "regular",
+                    "is_regular_session": true,
+                    "timezone": "America/New_York",
+                    "notes": "Regular RTH first-real GLD Continuation replay row: continuation_rebuild_below_trigger_candidate."
+                },
+                "macro_context": {
+                    "status": "MACRO_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "iv_context": {
+                    "status": "IV_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "event_context": {
+                    "status": "EVENT_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                }
+            },
+            "expected_output_shape": {
+                "timestamp": "2026-04-13T15:30:00-04:00",
+                "symbol": "GLD",
+                "setup_type": "Continuation",
+                "setup_state": "rebuild_below_trigger_TO_REVIEW",
+                "stage": "continuation_rebuild_below_trigger_candidate",
+                "trigger_state": "below_reviewed_trigger_area_TO_REVIEW",
+                "trigger_level": null,
+                "invalidation": null,
+                "room_status": "unconfirmed",
+                "extension_status": "unconfirmed",
+                "context_24h": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                "wall_thesis_fit": "unconfirmed",
+                "final_verdict": "NO_TRADE",
+                "primary_blocker": "completed_break_not_available_yet",
+                "cautions_watchouts": [
+                    "shelf_base_TO_REVIEW",
+                    "trigger_basis_state_TO_REVIEW",
+                    "trigger_level_TO_REVIEW",
+                    "invalidation_TO_REVIEW",
+                    "fresh_stale_spent_status_TO_REVIEW",
+                    "session_boundary_carry_forward_TO_REVIEW",
+                    "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "MACRO_UNCONFIRMED",
+                    "IV_UNCONFIRMED",
+                    "EVENT_UNCONFIRMED",
+                    "NEWS_UNCONFIRMED"
+                ],
+                "winner_selection_result": {
+                    "selected_symbol": "GLD",
+                    "selected_setup_type": "Continuation",
+                    "selection_status": "shape_only_first_real_gld_continuation_historical_fixture_candidate_needs_review",
+                    "false_ideal_relabel_accepted": false,
+                    "false_clean_fast_break_relabel_accepted": false,
+                    "news_risk_level": "NEWS_UNCONFIRMED"
+                },
+                "human_next_step": "Signal/stage lifecycle fixture only: GLD Continuation candidate row keeps shelf/base, trigger basis, trigger level, invalidation, fresh/stale/spent state, 24H/daily, macro, IV, event, and news context unconfirmed; this is not a live trade instruction or execution recommendation.",
+                "first_seen": "2026-04-08T15:30:00-04:00",
+                "last_seen": "2026-04-13T15:30:00-04:00",
+                "state_changed": true,
+                "prior_state": "elevated_shelf_no_trigger",
+                "current_state": "rebuild_below_trigger_candidate",
+                "trigger_changed": false,
+                "blocker_changed": true,
+                "duplicate_alert_suppression_key": "GLD|2026-04-13|Continuation|continuation_rebuild_below_trigger_candidate|completed_break_not_available_yet"
+            }
+        },
+        {
+            "row_name": "continuation_completed_break_candidate",
+            "row_index": 4,
+            "source_window_timestamp_range": "2026-04-08T09:30:00-04:00 through 2026-04-14T15:30:00-04:00",
+            "source_only_basis": "Completed rows through 2026-04-14 include the push from 439.23 open to 445.18 high and 445.02 close; no 2026-04-15/2026-04-16 pullback/hold context or 2026-04-17 extension is available.",
+            "input": {
+                "symbol": "GLD",
+                "timestamp": "2026-04-14T15:30:00-04:00",
+                "candles_1h_rth": [
+                    {
+                        "timestamp": "2026-04-08T09:30:00-04:00",
+                        "open": 440.12,
+                        "high": 440.4296,
+                        "low": 437.37,
+                        "close": 437.95,
+                        "volume": 1050225.851183
+                    },
+                    {
+                        "timestamp": "2026-04-08T10:30:00-04:00",
+                        "open": 437.93,
+                        "high": 438.1083,
+                        "low": 434.5801,
+                        "close": 436.38,
+                        "volume": 632914.365176
+                    },
+                    {
+                        "timestamp": "2026-04-08T11:30:00-04:00",
+                        "open": 436.4,
+                        "high": 437.49,
+                        "low": 435.87,
+                        "close": 436.235,
+                        "volume": 355144.453688
+                    },
+                    {
+                        "timestamp": "2026-04-08T12:30:00-04:00",
+                        "open": 436.3,
+                        "high": 437.6883,
+                        "low": 435.92,
+                        "close": 436.415,
+                        "volume": 250436.0
+                    },
+                    {
+                        "timestamp": "2026-04-08T13:30:00-04:00",
+                        "open": 436.38,
+                        "high": 436.64,
+                        "low": 433.22,
+                        "close": 433.77,
+                        "volume": 455249.522304
+                    },
+                    {
+                        "timestamp": "2026-04-08T14:30:00-04:00",
+                        "open": 433.81,
+                        "high": 434.02,
+                        "low": 431.31,
+                        "close": 432.38,
+                        "volume": 554652.530681
+                    },
+                    {
+                        "timestamp": "2026-04-08T15:30:00-04:00",
+                        "open": 432.38,
+                        "high": 434.65,
+                        "low": 432.38,
+                        "close": 434.51,
+                        "volume": 384290.680648
+                    },
+                    {
+                        "timestamp": "2026-04-09T09:30:00-04:00",
+                        "open": 436.47,
+                        "high": 438.69,
+                        "low": 436.25,
+                        "close": 437.59,
+                        "volume": 542876.583306
+                    },
+                    {
+                        "timestamp": "2026-04-09T10:30:00-04:00",
+                        "open": 437.56,
+                        "high": 439.6,
+                        "low": 435.875,
+                        "close": 438.79,
+                        "volume": 476881.395427
+                    },
+                    {
+                        "timestamp": "2026-04-09T11:30:00-04:00",
+                        "open": 438.79,
+                        "high": 440.82,
+                        "low": 438.7375,
+                        "close": 440.085,
+                        "volume": 417470.334135
+                    },
+                    {
+                        "timestamp": "2026-04-09T12:30:00-04:00",
+                        "open": 440.06,
+                        "high": 440.68,
+                        "low": 439.32,
+                        "close": 440.12,
+                        "volume": 240206.027246
+                    },
+                    {
+                        "timestamp": "2026-04-09T13:30:00-04:00",
+                        "open": 440.19,
+                        "high": 440.905,
+                        "low": 438.69,
+                        "close": 439.13,
+                        "volume": 389545.456687
+                    },
+                    {
+                        "timestamp": "2026-04-09T14:30:00-04:00",
+                        "open": 439.03,
+                        "high": 439.26,
+                        "low": 437.86,
+                        "close": 438.37,
+                        "volume": 300797.32986
+                    },
+                    {
+                        "timestamp": "2026-04-09T15:30:00-04:00",
+                        "open": 438.4,
+                        "high": 438.76,
+                        "low": 437.7,
+                        "close": 437.85,
+                        "volume": 267731.634572
+                    },
+                    {
+                        "timestamp": "2026-04-10T09:30:00-04:00",
+                        "open": 438.59,
+                        "high": 440.1699,
+                        "low": 437.57,
+                        "close": 440.0096,
+                        "volume": 890897.347727
+                    },
+                    {
+                        "timestamp": "2026-04-10T10:30:00-04:00",
+                        "open": 439.97,
+                        "high": 440.33,
+                        "low": 438.14,
+                        "close": 438.695,
+                        "volume": 467601.019705
+                    },
+                    {
+                        "timestamp": "2026-04-10T11:30:00-04:00",
+                        "open": 438.65,
+                        "high": 438.9,
+                        "low": 436.0,
+                        "close": 437.0399,
+                        "volume": 432081.151531
+                    },
+                    {
+                        "timestamp": "2026-04-10T12:30:00-04:00",
+                        "open": 437.03,
+                        "high": 438.0025,
+                        "low": 436.89,
+                        "close": 437.44,
+                        "volume": 278273.295167
+                    },
+                    {
+                        "timestamp": "2026-04-10T13:30:00-04:00",
+                        "open": 437.4,
+                        "high": 438.01,
+                        "low": 436.31,
+                        "close": 437.66,
+                        "volume": 319822.391462
+                    },
+                    {
+                        "timestamp": "2026-04-10T14:30:00-04:00",
+                        "open": 437.815,
+                        "high": 438.37,
+                        "low": 437.47,
+                        "close": 437.56,
+                        "volume": 145826.059565
+                    },
+                    {
+                        "timestamp": "2026-04-10T15:30:00-04:00",
+                        "open": 437.51,
+                        "high": 437.6992,
+                        "low": 436.975,
+                        "close": 437.16,
+                        "volume": 217714.53025
+                    },
+                    {
+                        "timestamp": "2026-04-13T09:30:00-04:00",
+                        "open": 434.775,
+                        "high": 435.64,
+                        "low": 432.4601,
+                        "close": 433.1,
+                        "volume": 471440.596533
+                    },
+                    {
+                        "timestamp": "2026-04-13T10:30:00-04:00",
+                        "open": 433.05,
+                        "high": 433.7995,
+                        "low": 431.6501,
+                        "close": 432.035,
+                        "volume": 322566.78247
+                    },
+                    {
+                        "timestamp": "2026-04-13T11:30:00-04:00",
+                        "open": 432.0201,
+                        "high": 434.85,
+                        "low": 431.88,
+                        "close": 434.5401,
+                        "volume": 251874.265936
+                    },
+                    {
+                        "timestamp": "2026-04-13T12:30:00-04:00",
+                        "open": 434.445,
+                        "high": 436.2,
+                        "low": 434.01,
+                        "close": 435.61,
+                        "volume": 428111.952093
+                    },
+                    {
+                        "timestamp": "2026-04-13T13:30:00-04:00",
+                        "open": 435.58,
+                        "high": 436.0,
+                        "low": 433.81,
+                        "close": 434.17,
+                        "volume": 280600.79568
+                    },
+                    {
+                        "timestamp": "2026-04-13T14:30:00-04:00",
+                        "open": 434.13,
+                        "high": 435.67,
+                        "low": 434.13,
+                        "close": 435.58,
+                        "volume": 228622.02458
+                    },
+                    {
+                        "timestamp": "2026-04-13T15:30:00-04:00",
+                        "open": 435.58,
+                        "high": 436.01,
+                        "low": 435.21,
+                        "close": 435.4,
+                        "volume": 361664.36893
+                    },
+                    {
+                        "timestamp": "2026-04-14T09:30:00-04:00",
+                        "open": 439.23,
+                        "high": 441.8899,
+                        "low": 439.02,
+                        "close": 441.78,
+                        "volume": 672738.903095
+                    },
+                    {
+                        "timestamp": "2026-04-14T10:30:00-04:00",
+                        "open": 441.78,
+                        "high": 442.54,
+                        "low": 440.07,
+                        "close": 441.17,
+                        "volume": 628165.506424
+                    },
+                    {
+                        "timestamp": "2026-04-14T11:30:00-04:00",
+                        "open": 441.135,
+                        "high": 442.68,
+                        "low": 441.12,
+                        "close": 442.3812,
+                        "volume": 505175.578551
+                    },
+                    {
+                        "timestamp": "2026-04-14T12:30:00-04:00",
+                        "open": 442.43,
+                        "high": 444.025,
+                        "low": 441.75,
+                        "close": 443.1994,
+                        "volume": 460257.0
+                    },
+                    {
+                        "timestamp": "2026-04-14T13:30:00-04:00",
+                        "open": 443.22,
+                        "high": 444.86,
+                        "low": 443.22,
+                        "close": 444.39,
+                        "volume": 309296.517136
+                    },
+                    {
+                        "timestamp": "2026-04-14T14:30:00-04:00",
+                        "open": 444.36,
+                        "high": 444.8074,
+                        "low": 443.7,
+                        "close": 444.63,
+                        "volume": 278740.914214
+                    },
+                    {
+                        "timestamp": "2026-04-14T15:30:00-04:00",
+                        "open": 444.62,
+                        "high": 445.18,
+                        "low": 444.46,
+                        "close": 445.02,
+                        "volume": 580279.452829
+                    }
+                ],
+                "context_24h_daily": {
+                    "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "market_calendar_session": {
+                    "session_date": "2026-04-14",
+                    "session_type": "regular",
+                    "is_regular_session": true,
+                    "timezone": "America/New_York",
+                    "notes": "Regular RTH first-real GLD Continuation replay row: continuation_completed_break_candidate."
+                },
+                "macro_context": {
+                    "status": "MACRO_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "iv_context": {
+                    "status": "IV_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "event_context": {
+                    "status": "EVENT_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                }
+            },
+            "expected_output_shape": {
+                "timestamp": "2026-04-14T15:30:00-04:00",
+                "symbol": "GLD",
+                "setup_type": "Continuation",
+                "setup_state": "completed_break_candidate_TO_REVIEW",
+                "stage": "continuation_completed_break_candidate",
+                "trigger_state": "completed_break_candidate_TO_REVIEW",
+                "trigger_level": null,
+                "invalidation": null,
+                "room_status": "unconfirmed",
+                "extension_status": "unconfirmed",
+                "context_24h": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                "wall_thesis_fit": "unconfirmed",
+                "final_verdict": "NO_TRADE",
+                "primary_blocker": "fresh_or_spent_unconfirmed",
+                "cautions_watchouts": [
+                    "shelf_base_TO_REVIEW",
+                    "trigger_basis_state_TO_REVIEW",
+                    "trigger_level_TO_REVIEW",
+                    "invalidation_TO_REVIEW",
+                    "fresh_stale_spent_status_TO_REVIEW",
+                    "session_boundary_carry_forward_TO_REVIEW",
+                    "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "MACRO_UNCONFIRMED",
+                    "IV_UNCONFIRMED",
+                    "EVENT_UNCONFIRMED",
+                    "NEWS_UNCONFIRMED"
+                ],
+                "winner_selection_result": {
+                    "selected_symbol": "GLD",
+                    "selected_setup_type": "Continuation",
+                    "selection_status": "shape_only_first_real_gld_continuation_historical_fixture_candidate_needs_review",
+                    "false_ideal_relabel_accepted": false,
+                    "false_clean_fast_break_relabel_accepted": false,
+                    "news_risk_level": "NEWS_UNCONFIRMED"
+                },
+                "human_next_step": "Signal/stage lifecycle fixture only: GLD Continuation candidate row keeps shelf/base, trigger basis, trigger level, invalidation, fresh/stale/spent state, 24H/daily, macro, IV, event, and news context unconfirmed; this is not a live trade instruction or execution recommendation.",
+                "first_seen": "2026-04-08T15:30:00-04:00",
+                "last_seen": "2026-04-14T15:30:00-04:00",
+                "state_changed": true,
+                "prior_state": "rebuild_below_trigger_candidate",
+                "current_state": "completed_break_candidate_TO_REVIEW",
+                "trigger_changed": true,
+                "blocker_changed": true,
+                "duplicate_alert_suppression_key": "GLD|2026-04-14|Continuation|continuation_completed_break_candidate|fresh_or_spent_unconfirmed"
+            }
+        },
+        {
+            "row_name": "continuation_pullback_hold_or_stale_review",
+            "row_index": 5,
+            "source_window_timestamp_range": "2026-04-08T09:30:00-04:00 through 2026-04-16T15:30:00-04:00",
+            "source_only_basis": "Completed rows through 2026-04-16 include the post-2026-04-14 pullback/hold context ending with 440.12 close; no 2026-04-17 extension is available.",
+            "input": {
+                "symbol": "GLD",
+                "timestamp": "2026-04-16T15:30:00-04:00",
+                "candles_1h_rth": [
+                    {
+                        "timestamp": "2026-04-08T09:30:00-04:00",
+                        "open": 440.12,
+                        "high": 440.4296,
+                        "low": 437.37,
+                        "close": 437.95,
+                        "volume": 1050225.851183
+                    },
+                    {
+                        "timestamp": "2026-04-08T10:30:00-04:00",
+                        "open": 437.93,
+                        "high": 438.1083,
+                        "low": 434.5801,
+                        "close": 436.38,
+                        "volume": 632914.365176
+                    },
+                    {
+                        "timestamp": "2026-04-08T11:30:00-04:00",
+                        "open": 436.4,
+                        "high": 437.49,
+                        "low": 435.87,
+                        "close": 436.235,
+                        "volume": 355144.453688
+                    },
+                    {
+                        "timestamp": "2026-04-08T12:30:00-04:00",
+                        "open": 436.3,
+                        "high": 437.6883,
+                        "low": 435.92,
+                        "close": 436.415,
+                        "volume": 250436.0
+                    },
+                    {
+                        "timestamp": "2026-04-08T13:30:00-04:00",
+                        "open": 436.38,
+                        "high": 436.64,
+                        "low": 433.22,
+                        "close": 433.77,
+                        "volume": 455249.522304
+                    },
+                    {
+                        "timestamp": "2026-04-08T14:30:00-04:00",
+                        "open": 433.81,
+                        "high": 434.02,
+                        "low": 431.31,
+                        "close": 432.38,
+                        "volume": 554652.530681
+                    },
+                    {
+                        "timestamp": "2026-04-08T15:30:00-04:00",
+                        "open": 432.38,
+                        "high": 434.65,
+                        "low": 432.38,
+                        "close": 434.51,
+                        "volume": 384290.680648
+                    },
+                    {
+                        "timestamp": "2026-04-09T09:30:00-04:00",
+                        "open": 436.47,
+                        "high": 438.69,
+                        "low": 436.25,
+                        "close": 437.59,
+                        "volume": 542876.583306
+                    },
+                    {
+                        "timestamp": "2026-04-09T10:30:00-04:00",
+                        "open": 437.56,
+                        "high": 439.6,
+                        "low": 435.875,
+                        "close": 438.79,
+                        "volume": 476881.395427
+                    },
+                    {
+                        "timestamp": "2026-04-09T11:30:00-04:00",
+                        "open": 438.79,
+                        "high": 440.82,
+                        "low": 438.7375,
+                        "close": 440.085,
+                        "volume": 417470.334135
+                    },
+                    {
+                        "timestamp": "2026-04-09T12:30:00-04:00",
+                        "open": 440.06,
+                        "high": 440.68,
+                        "low": 439.32,
+                        "close": 440.12,
+                        "volume": 240206.027246
+                    },
+                    {
+                        "timestamp": "2026-04-09T13:30:00-04:00",
+                        "open": 440.19,
+                        "high": 440.905,
+                        "low": 438.69,
+                        "close": 439.13,
+                        "volume": 389545.456687
+                    },
+                    {
+                        "timestamp": "2026-04-09T14:30:00-04:00",
+                        "open": 439.03,
+                        "high": 439.26,
+                        "low": 437.86,
+                        "close": 438.37,
+                        "volume": 300797.32986
+                    },
+                    {
+                        "timestamp": "2026-04-09T15:30:00-04:00",
+                        "open": 438.4,
+                        "high": 438.76,
+                        "low": 437.7,
+                        "close": 437.85,
+                        "volume": 267731.634572
+                    },
+                    {
+                        "timestamp": "2026-04-10T09:30:00-04:00",
+                        "open": 438.59,
+                        "high": 440.1699,
+                        "low": 437.57,
+                        "close": 440.0096,
+                        "volume": 890897.347727
+                    },
+                    {
+                        "timestamp": "2026-04-10T10:30:00-04:00",
+                        "open": 439.97,
+                        "high": 440.33,
+                        "low": 438.14,
+                        "close": 438.695,
+                        "volume": 467601.019705
+                    },
+                    {
+                        "timestamp": "2026-04-10T11:30:00-04:00",
+                        "open": 438.65,
+                        "high": 438.9,
+                        "low": 436.0,
+                        "close": 437.0399,
+                        "volume": 432081.151531
+                    },
+                    {
+                        "timestamp": "2026-04-10T12:30:00-04:00",
+                        "open": 437.03,
+                        "high": 438.0025,
+                        "low": 436.89,
+                        "close": 437.44,
+                        "volume": 278273.295167
+                    },
+                    {
+                        "timestamp": "2026-04-10T13:30:00-04:00",
+                        "open": 437.4,
+                        "high": 438.01,
+                        "low": 436.31,
+                        "close": 437.66,
+                        "volume": 319822.391462
+                    },
+                    {
+                        "timestamp": "2026-04-10T14:30:00-04:00",
+                        "open": 437.815,
+                        "high": 438.37,
+                        "low": 437.47,
+                        "close": 437.56,
+                        "volume": 145826.059565
+                    },
+                    {
+                        "timestamp": "2026-04-10T15:30:00-04:00",
+                        "open": 437.51,
+                        "high": 437.6992,
+                        "low": 436.975,
+                        "close": 437.16,
+                        "volume": 217714.53025
+                    },
+                    {
+                        "timestamp": "2026-04-13T09:30:00-04:00",
+                        "open": 434.775,
+                        "high": 435.64,
+                        "low": 432.4601,
+                        "close": 433.1,
+                        "volume": 471440.596533
+                    },
+                    {
+                        "timestamp": "2026-04-13T10:30:00-04:00",
+                        "open": 433.05,
+                        "high": 433.7995,
+                        "low": 431.6501,
+                        "close": 432.035,
+                        "volume": 322566.78247
+                    },
+                    {
+                        "timestamp": "2026-04-13T11:30:00-04:00",
+                        "open": 432.0201,
+                        "high": 434.85,
+                        "low": 431.88,
+                        "close": 434.5401,
+                        "volume": 251874.265936
+                    },
+                    {
+                        "timestamp": "2026-04-13T12:30:00-04:00",
+                        "open": 434.445,
+                        "high": 436.2,
+                        "low": 434.01,
+                        "close": 435.61,
+                        "volume": 428111.952093
+                    },
+                    {
+                        "timestamp": "2026-04-13T13:30:00-04:00",
+                        "open": 435.58,
+                        "high": 436.0,
+                        "low": 433.81,
+                        "close": 434.17,
+                        "volume": 280600.79568
+                    },
+                    {
+                        "timestamp": "2026-04-13T14:30:00-04:00",
+                        "open": 434.13,
+                        "high": 435.67,
+                        "low": 434.13,
+                        "close": 435.58,
+                        "volume": 228622.02458
+                    },
+                    {
+                        "timestamp": "2026-04-13T15:30:00-04:00",
+                        "open": 435.58,
+                        "high": 436.01,
+                        "low": 435.21,
+                        "close": 435.4,
+                        "volume": 361664.36893
+                    },
+                    {
+                        "timestamp": "2026-04-14T09:30:00-04:00",
+                        "open": 439.23,
+                        "high": 441.8899,
+                        "low": 439.02,
+                        "close": 441.78,
+                        "volume": 672738.903095
+                    },
+                    {
+                        "timestamp": "2026-04-14T10:30:00-04:00",
+                        "open": 441.78,
+                        "high": 442.54,
+                        "low": 440.07,
+                        "close": 441.17,
+                        "volume": 628165.506424
+                    },
+                    {
+                        "timestamp": "2026-04-14T11:30:00-04:00",
+                        "open": 441.135,
+                        "high": 442.68,
+                        "low": 441.12,
+                        "close": 442.3812,
+                        "volume": 505175.578551
+                    },
+                    {
+                        "timestamp": "2026-04-14T12:30:00-04:00",
+                        "open": 442.43,
+                        "high": 444.025,
+                        "low": 441.75,
+                        "close": 443.1994,
+                        "volume": 460257.0
+                    },
+                    {
+                        "timestamp": "2026-04-14T13:30:00-04:00",
+                        "open": 443.22,
+                        "high": 444.86,
+                        "low": 443.22,
+                        "close": 444.39,
+                        "volume": 309296.517136
+                    },
+                    {
+                        "timestamp": "2026-04-14T14:30:00-04:00",
+                        "open": 444.36,
+                        "high": 444.8074,
+                        "low": 443.7,
+                        "close": 444.63,
+                        "volume": 278740.914214
+                    },
+                    {
+                        "timestamp": "2026-04-14T15:30:00-04:00",
+                        "open": 444.62,
+                        "high": 445.18,
+                        "low": 444.46,
+                        "close": 445.02,
+                        "volume": 580279.452829
+                    },
+                    {
+                        "timestamp": "2026-04-15T09:30:00-04:00",
+                        "open": 442.8,
+                        "high": 443.74,
+                        "low": 442.28,
+                        "close": 443.17,
+                        "volume": 994187.798512
+                    },
+                    {
+                        "timestamp": "2026-04-15T10:30:00-04:00",
+                        "open": 443.18,
+                        "high": 443.21,
+                        "low": 440.67,
+                        "close": 440.67,
+                        "volume": 424487.481552
+                    },
+                    {
+                        "timestamp": "2026-04-15T11:30:00-04:00",
+                        "open": 440.72,
+                        "high": 442.04,
+                        "low": 439.6,
+                        "close": 441.88,
+                        "volume": 420517.748903
+                    },
+                    {
+                        "timestamp": "2026-04-15T12:30:00-04:00",
+                        "open": 441.95,
+                        "high": 441.96,
+                        "low": 440.7001,
+                        "close": 441.0,
+                        "volume": 194112.23825
+                    },
+                    {
+                        "timestamp": "2026-04-15T13:30:00-04:00",
+                        "open": 441.0,
+                        "high": 441.135,
+                        "low": 440.0,
+                        "close": 440.37,
+                        "volume": 183345.807149
+                    },
+                    {
+                        "timestamp": "2026-04-15T14:30:00-04:00",
+                        "open": 440.46,
+                        "high": 441.2,
+                        "low": 440.37,
+                        "close": 441.19,
+                        "volume": 209976.107862
+                    },
+                    {
+                        "timestamp": "2026-04-15T15:30:00-04:00",
+                        "open": 441.13,
+                        "high": 441.17,
+                        "low": 440.31,
+                        "close": 440.4694,
+                        "volume": 411801.43364
+                    },
+                    {
+                        "timestamp": "2026-04-16T09:30:00-04:00",
+                        "open": 442.2,
+                        "high": 442.9699,
+                        "low": 439.34,
+                        "close": 440.68,
+                        "volume": 684603.918024
+                    },
+                    {
+                        "timestamp": "2026-04-16T10:30:00-04:00",
+                        "open": 440.74,
+                        "high": 441.95,
+                        "low": 438.18,
+                        "close": 441.02,
+                        "volume": 299099.056425
+                    },
+                    {
+                        "timestamp": "2026-04-16T11:30:00-04:00",
+                        "open": 440.92,
+                        "high": 441.8,
+                        "low": 440.5028,
+                        "close": 440.695,
+                        "volume": 260887.551075
+                    },
+                    {
+                        "timestamp": "2026-04-16T12:30:00-04:00",
+                        "open": 440.7403,
+                        "high": 440.75,
+                        "low": 439.4,
+                        "close": 439.4,
+                        "volume": 205904.835865
+                    },
+                    {
+                        "timestamp": "2026-04-16T13:30:00-04:00",
+                        "open": 439.39,
+                        "high": 440.2194,
+                        "low": 439.06,
+                        "close": 439.5983,
+                        "volume": 131180.61778
+                    },
+                    {
+                        "timestamp": "2026-04-16T14:30:00-04:00",
+                        "open": 439.59,
+                        "high": 440.32,
+                        "low": 439.55,
+                        "close": 439.89,
+                        "volume": 140286.0
+                    },
+                    {
+                        "timestamp": "2026-04-16T15:30:00-04:00",
+                        "open": 440.04,
+                        "high": 440.635,
+                        "low": 439.9,
+                        "close": 440.12,
+                        "volume": 218849.823851
+                    }
+                ],
+                "context_24h_daily": {
+                    "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "market_calendar_session": {
+                    "session_date": "2026-04-16",
+                    "session_type": "regular",
+                    "is_regular_session": true,
+                    "timezone": "America/New_York",
+                    "notes": "Regular RTH first-real GLD Continuation replay row: continuation_pullback_hold_or_stale_review."
+                },
+                "macro_context": {
+                    "status": "MACRO_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "iv_context": {
+                    "status": "IV_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "event_context": {
+                    "status": "EVENT_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                }
+            },
+            "expected_output_shape": {
+                "timestamp": "2026-04-16T15:30:00-04:00",
+                "symbol": "GLD",
+                "setup_type": "Continuation",
+                "setup_state": "pullback_hold_or_stale_TO_REVIEW",
+                "stage": "continuation_pullback_hold_or_stale_review",
+                "trigger_state": "freshness_TO_REVIEW",
+                "trigger_level": null,
+                "invalidation": null,
+                "room_status": "unconfirmed",
+                "extension_status": "unconfirmed",
+                "context_24h": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                "wall_thesis_fit": "unconfirmed",
+                "final_verdict": "NO_TRADE",
+                "primary_blocker": "fresh_stale_spent_unconfirmed",
+                "cautions_watchouts": [
+                    "shelf_base_TO_REVIEW",
+                    "trigger_basis_state_TO_REVIEW",
+                    "trigger_level_TO_REVIEW",
+                    "invalidation_TO_REVIEW",
+                    "fresh_stale_spent_status_TO_REVIEW",
+                    "session_boundary_carry_forward_TO_REVIEW",
+                    "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "MACRO_UNCONFIRMED",
+                    "IV_UNCONFIRMED",
+                    "EVENT_UNCONFIRMED",
+                    "NEWS_UNCONFIRMED"
+                ],
+                "winner_selection_result": {
+                    "selected_symbol": "GLD",
+                    "selected_setup_type": "Continuation",
+                    "selection_status": "shape_only_first_real_gld_continuation_historical_fixture_candidate_needs_review",
+                    "false_ideal_relabel_accepted": false,
+                    "false_clean_fast_break_relabel_accepted": false,
+                    "news_risk_level": "NEWS_UNCONFIRMED"
+                },
+                "human_next_step": "Signal/stage lifecycle fixture only: GLD Continuation candidate row keeps shelf/base, trigger basis, trigger level, invalidation, fresh/stale/spent state, 24H/daily, macro, IV, event, and news context unconfirmed; this is not a live trade instruction or execution recommendation.",
+                "first_seen": "2026-04-08T15:30:00-04:00",
+                "last_seen": "2026-04-16T15:30:00-04:00",
+                "state_changed": true,
+                "prior_state": "completed_break_candidate_TO_REVIEW",
+                "current_state": "pullback_hold_or_stale_TO_REVIEW",
+                "trigger_changed": false,
+                "blocker_changed": true,
+                "duplicate_alert_suppression_key": "GLD|2026-04-16|Continuation|continuation_pullback_hold_or_stale_review|fresh_stale_spent_unconfirmed"
+            }
+        },
+        {
+            "row_name": "continuation_extension_spent_or_no_fresh_trigger_review",
+            "row_index": 6,
+            "source_window_timestamp_range": "2026-04-08T09:30:00-04:00 through 2026-04-17T15:30:00-04:00",
+            "source_only_basis": "Full selected window is available and includes the 2026-04-17 extension to the 448.7 window high and final 445.88 close; follow-through, stale/spent, or no-fresh-trigger context remains TO REVIEW.",
+            "input": {
+                "symbol": "GLD",
+                "timestamp": "2026-04-17T15:30:00-04:00",
+                "candles_1h_rth": [
+                    {
+                        "timestamp": "2026-04-08T09:30:00-04:00",
+                        "open": 440.12,
+                        "high": 440.4296,
+                        "low": 437.37,
+                        "close": 437.95,
+                        "volume": 1050225.851183
+                    },
+                    {
+                        "timestamp": "2026-04-08T10:30:00-04:00",
+                        "open": 437.93,
+                        "high": 438.1083,
+                        "low": 434.5801,
+                        "close": 436.38,
+                        "volume": 632914.365176
+                    },
+                    {
+                        "timestamp": "2026-04-08T11:30:00-04:00",
+                        "open": 436.4,
+                        "high": 437.49,
+                        "low": 435.87,
+                        "close": 436.235,
+                        "volume": 355144.453688
+                    },
+                    {
+                        "timestamp": "2026-04-08T12:30:00-04:00",
+                        "open": 436.3,
+                        "high": 437.6883,
+                        "low": 435.92,
+                        "close": 436.415,
+                        "volume": 250436.0
+                    },
+                    {
+                        "timestamp": "2026-04-08T13:30:00-04:00",
+                        "open": 436.38,
+                        "high": 436.64,
+                        "low": 433.22,
+                        "close": 433.77,
+                        "volume": 455249.522304
+                    },
+                    {
+                        "timestamp": "2026-04-08T14:30:00-04:00",
+                        "open": 433.81,
+                        "high": 434.02,
+                        "low": 431.31,
+                        "close": 432.38,
+                        "volume": 554652.530681
+                    },
+                    {
+                        "timestamp": "2026-04-08T15:30:00-04:00",
+                        "open": 432.38,
+                        "high": 434.65,
+                        "low": 432.38,
+                        "close": 434.51,
+                        "volume": 384290.680648
+                    },
+                    {
+                        "timestamp": "2026-04-09T09:30:00-04:00",
+                        "open": 436.47,
+                        "high": 438.69,
+                        "low": 436.25,
+                        "close": 437.59,
+                        "volume": 542876.583306
+                    },
+                    {
+                        "timestamp": "2026-04-09T10:30:00-04:00",
+                        "open": 437.56,
+                        "high": 439.6,
+                        "low": 435.875,
+                        "close": 438.79,
+                        "volume": 476881.395427
+                    },
+                    {
+                        "timestamp": "2026-04-09T11:30:00-04:00",
+                        "open": 438.79,
+                        "high": 440.82,
+                        "low": 438.7375,
+                        "close": 440.085,
+                        "volume": 417470.334135
+                    },
+                    {
+                        "timestamp": "2026-04-09T12:30:00-04:00",
+                        "open": 440.06,
+                        "high": 440.68,
+                        "low": 439.32,
+                        "close": 440.12,
+                        "volume": 240206.027246
+                    },
+                    {
+                        "timestamp": "2026-04-09T13:30:00-04:00",
+                        "open": 440.19,
+                        "high": 440.905,
+                        "low": 438.69,
+                        "close": 439.13,
+                        "volume": 389545.456687
+                    },
+                    {
+                        "timestamp": "2026-04-09T14:30:00-04:00",
+                        "open": 439.03,
+                        "high": 439.26,
+                        "low": 437.86,
+                        "close": 438.37,
+                        "volume": 300797.32986
+                    },
+                    {
+                        "timestamp": "2026-04-09T15:30:00-04:00",
+                        "open": 438.4,
+                        "high": 438.76,
+                        "low": 437.7,
+                        "close": 437.85,
+                        "volume": 267731.634572
+                    },
+                    {
+                        "timestamp": "2026-04-10T09:30:00-04:00",
+                        "open": 438.59,
+                        "high": 440.1699,
+                        "low": 437.57,
+                        "close": 440.0096,
+                        "volume": 890897.347727
+                    },
+                    {
+                        "timestamp": "2026-04-10T10:30:00-04:00",
+                        "open": 439.97,
+                        "high": 440.33,
+                        "low": 438.14,
+                        "close": 438.695,
+                        "volume": 467601.019705
+                    },
+                    {
+                        "timestamp": "2026-04-10T11:30:00-04:00",
+                        "open": 438.65,
+                        "high": 438.9,
+                        "low": 436.0,
+                        "close": 437.0399,
+                        "volume": 432081.151531
+                    },
+                    {
+                        "timestamp": "2026-04-10T12:30:00-04:00",
+                        "open": 437.03,
+                        "high": 438.0025,
+                        "low": 436.89,
+                        "close": 437.44,
+                        "volume": 278273.295167
+                    },
+                    {
+                        "timestamp": "2026-04-10T13:30:00-04:00",
+                        "open": 437.4,
+                        "high": 438.01,
+                        "low": 436.31,
+                        "close": 437.66,
+                        "volume": 319822.391462
+                    },
+                    {
+                        "timestamp": "2026-04-10T14:30:00-04:00",
+                        "open": 437.815,
+                        "high": 438.37,
+                        "low": 437.47,
+                        "close": 437.56,
+                        "volume": 145826.059565
+                    },
+                    {
+                        "timestamp": "2026-04-10T15:30:00-04:00",
+                        "open": 437.51,
+                        "high": 437.6992,
+                        "low": 436.975,
+                        "close": 437.16,
+                        "volume": 217714.53025
+                    },
+                    {
+                        "timestamp": "2026-04-13T09:30:00-04:00",
+                        "open": 434.775,
+                        "high": 435.64,
+                        "low": 432.4601,
+                        "close": 433.1,
+                        "volume": 471440.596533
+                    },
+                    {
+                        "timestamp": "2026-04-13T10:30:00-04:00",
+                        "open": 433.05,
+                        "high": 433.7995,
+                        "low": 431.6501,
+                        "close": 432.035,
+                        "volume": 322566.78247
+                    },
+                    {
+                        "timestamp": "2026-04-13T11:30:00-04:00",
+                        "open": 432.0201,
+                        "high": 434.85,
+                        "low": 431.88,
+                        "close": 434.5401,
+                        "volume": 251874.265936
+                    },
+                    {
+                        "timestamp": "2026-04-13T12:30:00-04:00",
+                        "open": 434.445,
+                        "high": 436.2,
+                        "low": 434.01,
+                        "close": 435.61,
+                        "volume": 428111.952093
+                    },
+                    {
+                        "timestamp": "2026-04-13T13:30:00-04:00",
+                        "open": 435.58,
+                        "high": 436.0,
+                        "low": 433.81,
+                        "close": 434.17,
+                        "volume": 280600.79568
+                    },
+                    {
+                        "timestamp": "2026-04-13T14:30:00-04:00",
+                        "open": 434.13,
+                        "high": 435.67,
+                        "low": 434.13,
+                        "close": 435.58,
+                        "volume": 228622.02458
+                    },
+                    {
+                        "timestamp": "2026-04-13T15:30:00-04:00",
+                        "open": 435.58,
+                        "high": 436.01,
+                        "low": 435.21,
+                        "close": 435.4,
+                        "volume": 361664.36893
+                    },
+                    {
+                        "timestamp": "2026-04-14T09:30:00-04:00",
+                        "open": 439.23,
+                        "high": 441.8899,
+                        "low": 439.02,
+                        "close": 441.78,
+                        "volume": 672738.903095
+                    },
+                    {
+                        "timestamp": "2026-04-14T10:30:00-04:00",
+                        "open": 441.78,
+                        "high": 442.54,
+                        "low": 440.07,
+                        "close": 441.17,
+                        "volume": 628165.506424
+                    },
+                    {
+                        "timestamp": "2026-04-14T11:30:00-04:00",
+                        "open": 441.135,
+                        "high": 442.68,
+                        "low": 441.12,
+                        "close": 442.3812,
+                        "volume": 505175.578551
+                    },
+                    {
+                        "timestamp": "2026-04-14T12:30:00-04:00",
+                        "open": 442.43,
+                        "high": 444.025,
+                        "low": 441.75,
+                        "close": 443.1994,
+                        "volume": 460257.0
+                    },
+                    {
+                        "timestamp": "2026-04-14T13:30:00-04:00",
+                        "open": 443.22,
+                        "high": 444.86,
+                        "low": 443.22,
+                        "close": 444.39,
+                        "volume": 309296.517136
+                    },
+                    {
+                        "timestamp": "2026-04-14T14:30:00-04:00",
+                        "open": 444.36,
+                        "high": 444.8074,
+                        "low": 443.7,
+                        "close": 444.63,
+                        "volume": 278740.914214
+                    },
+                    {
+                        "timestamp": "2026-04-14T15:30:00-04:00",
+                        "open": 444.62,
+                        "high": 445.18,
+                        "low": 444.46,
+                        "close": 445.02,
+                        "volume": 580279.452829
+                    },
+                    {
+                        "timestamp": "2026-04-15T09:30:00-04:00",
+                        "open": 442.8,
+                        "high": 443.74,
+                        "low": 442.28,
+                        "close": 443.17,
+                        "volume": 994187.798512
+                    },
+                    {
+                        "timestamp": "2026-04-15T10:30:00-04:00",
+                        "open": 443.18,
+                        "high": 443.21,
+                        "low": 440.67,
+                        "close": 440.67,
+                        "volume": 424487.481552
+                    },
+                    {
+                        "timestamp": "2026-04-15T11:30:00-04:00",
+                        "open": 440.72,
+                        "high": 442.04,
+                        "low": 439.6,
+                        "close": 441.88,
+                        "volume": 420517.748903
+                    },
+                    {
+                        "timestamp": "2026-04-15T12:30:00-04:00",
+                        "open": 441.95,
+                        "high": 441.96,
+                        "low": 440.7001,
+                        "close": 441.0,
+                        "volume": 194112.23825
+                    },
+                    {
+                        "timestamp": "2026-04-15T13:30:00-04:00",
+                        "open": 441.0,
+                        "high": 441.135,
+                        "low": 440.0,
+                        "close": 440.37,
+                        "volume": 183345.807149
+                    },
+                    {
+                        "timestamp": "2026-04-15T14:30:00-04:00",
+                        "open": 440.46,
+                        "high": 441.2,
+                        "low": 440.37,
+                        "close": 441.19,
+                        "volume": 209976.107862
+                    },
+                    {
+                        "timestamp": "2026-04-15T15:30:00-04:00",
+                        "open": 441.13,
+                        "high": 441.17,
+                        "low": 440.31,
+                        "close": 440.4694,
+                        "volume": 411801.43364
+                    },
+                    {
+                        "timestamp": "2026-04-16T09:30:00-04:00",
+                        "open": 442.2,
+                        "high": 442.9699,
+                        "low": 439.34,
+                        "close": 440.68,
+                        "volume": 684603.918024
+                    },
+                    {
+                        "timestamp": "2026-04-16T10:30:00-04:00",
+                        "open": 440.74,
+                        "high": 441.95,
+                        "low": 438.18,
+                        "close": 441.02,
+                        "volume": 299099.056425
+                    },
+                    {
+                        "timestamp": "2026-04-16T11:30:00-04:00",
+                        "open": 440.92,
+                        "high": 441.8,
+                        "low": 440.5028,
+                        "close": 440.695,
+                        "volume": 260887.551075
+                    },
+                    {
+                        "timestamp": "2026-04-16T12:30:00-04:00",
+                        "open": 440.7403,
+                        "high": 440.75,
+                        "low": 439.4,
+                        "close": 439.4,
+                        "volume": 205904.835865
+                    },
+                    {
+                        "timestamp": "2026-04-16T13:30:00-04:00",
+                        "open": 439.39,
+                        "high": 440.2194,
+                        "low": 439.06,
+                        "close": 439.5983,
+                        "volume": 131180.61778
+                    },
+                    {
+                        "timestamp": "2026-04-16T14:30:00-04:00",
+                        "open": 439.59,
+                        "high": 440.32,
+                        "low": 439.55,
+                        "close": 439.89,
+                        "volume": 140286.0
+                    },
+                    {
+                        "timestamp": "2026-04-16T15:30:00-04:00",
+                        "open": 440.04,
+                        "high": 440.635,
+                        "low": 439.9,
+                        "close": 440.12,
+                        "volume": 218849.823851
+                    },
+                    {
+                        "timestamp": "2026-04-17T09:30:00-04:00",
+                        "open": 445.53,
+                        "high": 448.7,
+                        "low": 445.32,
+                        "close": 447.465,
+                        "volume": 1190310.246021
+                    },
+                    {
+                        "timestamp": "2026-04-17T10:30:00-04:00",
+                        "open": 447.5,
+                        "high": 448.49,
+                        "low": 446.59,
+                        "close": 446.89,
+                        "volume": 693742.519026
+                    },
+                    {
+                        "timestamp": "2026-04-17T11:30:00-04:00",
+                        "open": 446.93,
+                        "high": 447.6486,
+                        "low": 445.93,
+                        "close": 447.09,
+                        "volume": 400012.418843
+                    },
+                    {
+                        "timestamp": "2026-04-17T12:30:00-04:00",
+                        "open": 447.2,
+                        "high": 447.5792,
+                        "low": 445.8,
+                        "close": 446.25,
+                        "volume": 289212.078296
+                    },
+                    {
+                        "timestamp": "2026-04-17T13:30:00-04:00",
+                        "open": 446.22,
+                        "high": 447.17,
+                        "low": 445.84,
+                        "close": 446.5,
+                        "volume": 404905.868885
+                    },
+                    {
+                        "timestamp": "2026-04-17T14:30:00-04:00",
+                        "open": 446.5,
+                        "high": 447.03,
+                        "low": 445.845,
+                        "close": 446.1,
+                        "volume": 297027.756022
+                    },
+                    {
+                        "timestamp": "2026-04-17T15:30:00-04:00",
+                        "open": 446.1,
+                        "high": 446.53,
+                        "low": 445.7409,
+                        "close": 445.88,
+                        "volume": 470210.764589
+                    }
+                ],
+                "context_24h_daily": {
+                    "status": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "market_calendar_session": {
+                    "session_date": "2026-04-17",
+                    "session_type": "regular",
+                    "is_regular_session": true,
+                    "timezone": "America/New_York",
+                    "notes": "Regular RTH first-real GLD Continuation replay row: continuation_extension_spent_or_no_fresh_trigger_review."
+                },
+                "macro_context": {
+                    "status": "MACRO_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "iv_context": {
+                    "status": "IV_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                },
+                "event_context": {
+                    "status": "EVENT_UNCONFIRMED",
+                    "value": null,
+                    "as_of": null,
+                    "source": null
+                }
+            },
+            "expected_output_shape": {
+                "timestamp": "2026-04-17T15:30:00-04:00",
+                "symbol": "GLD",
+                "setup_type": "Continuation",
+                "setup_state": "extension_spent_or_no_fresh_trigger_TO_REVIEW",
+                "stage": "continuation_extension_spent_or_no_fresh_trigger_review",
+                "trigger_state": "freshness_TO_REVIEW",
+                "trigger_level": null,
+                "invalidation": null,
+                "room_status": "unconfirmed",
+                "extension_status": "unconfirmed",
+                "context_24h": "CONTEXT_24H_DAILY_UNCONFIRMED",
+                "wall_thesis_fit": "unconfirmed",
+                "final_verdict": "NO_TRADE",
+                "primary_blocker": "prior_completed_shelf_break_spent_TO_REVIEW",
+                "cautions_watchouts": [
+                    "shelf_base_TO_REVIEW",
+                    "trigger_basis_state_TO_REVIEW",
+                    "trigger_level_TO_REVIEW",
+                    "invalidation_TO_REVIEW",
+                    "fresh_stale_spent_status_TO_REVIEW",
+                    "session_boundary_carry_forward_TO_REVIEW",
+                    "CONTEXT_24H_DAILY_UNCONFIRMED",
+                    "MACRO_UNCONFIRMED",
+                    "IV_UNCONFIRMED",
+                    "EVENT_UNCONFIRMED",
+                    "NEWS_UNCONFIRMED"
+                ],
+                "winner_selection_result": {
+                    "selected_symbol": "GLD",
+                    "selected_setup_type": "Continuation",
+                    "selection_status": "shape_only_first_real_gld_continuation_historical_fixture_candidate_needs_review",
+                    "false_ideal_relabel_accepted": false,
+                    "false_clean_fast_break_relabel_accepted": false,
+                    "news_risk_level": "NEWS_UNCONFIRMED"
+                },
+                "human_next_step": "Signal/stage lifecycle fixture only: GLD Continuation candidate row keeps shelf/base, trigger basis, trigger level, invalidation, fresh/stale/spent state, 24H/daily, macro, IV, event, and news context unconfirmed; this is not a live trade instruction or execution recommendation.",
+                "first_seen": "2026-04-08T15:30:00-04:00",
+                "last_seen": "2026-04-17T15:30:00-04:00",
+                "state_changed": true,
+                "prior_state": "pullback_hold_or_stale_TO_REVIEW",
+                "current_state": "extension_spent_or_no_fresh_trigger_TO_REVIEW",
+                "trigger_changed": false,
+                "blocker_changed": true,
+                "duplicate_alert_suppression_key": "GLD|2026-04-17|Continuation|continuation_extension_spent_or_no_fresh_trigger_review|prior_completed_shelf_break_spent_TO_REVIEW"
+            }
+        }
+    ]
+}

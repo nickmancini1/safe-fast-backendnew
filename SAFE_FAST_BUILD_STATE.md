@@ -7,10 +7,10 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed commit:** `e64159c Add GLD Continuation 001 fixture specification review`
-- **Latest observed local HEAD for current review:** `e64159c Add GLD Continuation 001 fixture specification review`
-- **Latest completed build milestone:** GLD Continuation 001 replay fixture specification review
-- **Current objective:** create GLD Continuation 001 replay fixture asset only; generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO
+- **Latest completed commit:** `144a304 Fix latest completed commit after GLD Continuation fixture spec`
+- **Latest observed local HEAD for current review:** `144a304 Fix latest completed commit after GLD Continuation fixture spec`
+- **Latest completed build milestone:** GLD Continuation 001 replay fixture asset
+- **Current objective:** validate GLD Continuation 001 fixture output only; generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO
 - **Current build direction:** GLD broader coverage replay-readiness preparation using the validated source CSV, bounded candidate windows, and populated worksheet; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
@@ -4331,3 +4331,30 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Live trade readiness claimed:** no
 - **Continuous Watcher status:** deferred
 - **Next task:** create GLD Continuation 001 replay fixture JSON asset only; do not create generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, or live trade decisions.
+
+## GLD Continuation 001 replay fixture asset status
+
+- **Fixture file:** `historical_signal_replay/fixtures/first_real_gld_continuation_replay_v1_fixture.json`
+- **Fixture asset status:** PASS
+- **Sample ID:** `GLD-SAMPLE-CONTINUATION-001`
+- **Window ID:** `GLD-WINDOW-CONTINUATION-001`
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
+- **Source row range:** rows 78-133
+- **Source window:** `2026-04-08T09:30:00-04:00` to `2026-04-17T15:30:00-04:00`
+- **Source row count:** 56
+- **Source/vendor/as-of:** `dxlink_candles.get_1h_ema50_snapshot`; `dxFeed via tastytrade dxLink`; `2026-05-20T16:25:45Z`
+- **Fixture row count:** 6
+- **Lifecycle row timestamps:** `2026-04-08T15:30:00-04:00`, `2026-04-10T15:30:00-04:00`, `2026-04-13T15:30:00-04:00`, `2026-04-14T15:30:00-04:00`, `2026-04-16T15:30:00-04:00`, and `2026-04-17T15:30:00-04:00`
+- **No-hindsight validation:** PASS; each fixture row uses only cumulative GLD source candles available at or before the row timestamp.
+- **Source row validation:** PASS; GLD rows 78-133 are 56 GLD-only `1h_rth` rows, `America/New_York`, `session_type=regular`, `regular_session=true`, valid OHLCV, and matching source/source-as-of/data-vendor metadata.
+- **Unconfirmed fields preserved:** PASS; shelf/base, trigger basis/state, exact trigger, invalidation, fresh/stale/spent state, 24H/daily, macro, IV, event, room, extension, and headline/news remain UNCONFIRMED or TO REVIEW. Headline/news context remains `NEWS_UNCONFIRMED`.
+- **Validation commands:** `python -m json.tool historical_signal_replay\fixtures\first_real_gld_continuation_replay_v1_fixture.json > $null`; targeted `validate_lifecycle_fixture`; `python -B replay\validate_fixtures.py`; targeted JSON Schema validation against `signal_replay_input_v1.schema.json` and `signal_replay_output_v1.schema.json`; targeted GLD source-window consistency check; `git diff --check`.
+- **Generated replay reports created:** no
+- **Chart outcome created:** no
+- **Aggregate closeout created:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Production readiness claimed:** no
+- **Live trade readiness claimed:** no
+- **Continuous Watcher status:** deferred
+- **Next task:** validate GLD Continuation 001 fixture output only; do not create chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, or live trade decisions.
