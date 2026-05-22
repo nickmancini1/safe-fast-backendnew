@@ -8,9 +8,9 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed commit:** `f25b037 Add GLD Continuation 001 real historical replay review`
-- **Latest observed local HEAD for current review:** `f25b037 Add GLD Continuation 001 real historical replay review`
-- **Latest completed build milestone:** GLD Continuation 001 real historical replay review asset
-- **Current objective:** create GLD Continuation 001 replay fixture specification review only; fixture JSON, generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO
+- **Latest observed local HEAD for current review:** `636b4b8 Fix latest completed commit after GLD Continuation replay review`
+- **Latest completed build milestone:** GLD Continuation 001 replay fixture specification review
+- **Current objective:** create GLD Continuation 001 replay fixture asset only; generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO
 - **Current build direction:** GLD broader coverage replay-readiness preparation using the validated source CSV, bounded candidate windows, and populated worksheet; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
@@ -4297,3 +4297,37 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Live trade readiness claimed:** no
 - **Continuous Watcher status:** deferred
 - **Next task:** create GLD Continuation 001 replay fixture specification review only; do not create fixture JSON, generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, or live trade decisions.
+
+## GLD Continuation 001 replay fixture specification review status
+
+- **Review file:** `SAFE_FAST_GLD_CONTINUATION_001_REPLAY_FIXTURE_SPECIFICATION_REVIEW.md`
+- **Review status:** PASS
+- **Sample ID:** `GLD-SAMPLE-CONTINUATION-001`
+- **Window ID:** `GLD-WINDOW-CONTINUATION-001`
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
+- **Source row range:** rows 78-133
+- **Source window:** `2026-04-08T09:30:00-04:00` to `2026-04-17T15:30:00-04:00`
+- **Source row count:** 56
+- **Source/vendor/as-of:** `dxlink_candles.get_1h_ema50_snapshot`; `dxFeed via tastytrade dxLink`; `2026-05-20T16:25:45Z`
+- **Source row validation:** PASS; selected rows are GLD-only, `1h_rth`, `America/New_York`, `regular_session=true`, valid OHLCV, and match the validated GLD source CSV review metadata.
+- **Expected setup type:** Continuation CANDIDATE / NEEDS REVIEW
+- **Direction candidate:** bullish/call-side candidate if later fixture/replay validation confirms; not a live trade direction.
+- **Candidate stage:** elevated shelf/base into potential completed break and follow-through CANDIDATE
+- **Fixture specification status:** PASS; future fixture JSON assertions are defined at source-window, lifecycle-row, shelf/base, trigger-card, unconfirmed-field, no-hindsight, session-boundary, and boundary levels.
+- **Proposed fixture path for next task:** `historical_signal_replay/fixtures/first_real_gld_continuation_replay_v1_fixture.json`
+- **Proposed lifecycle row roles:** 6 review rows at `2026-04-08T15:30:00-04:00`, `2026-04-10T15:30:00-04:00`, `2026-04-13T15:30:00-04:00`, `2026-04-14T15:30:00-04:00`, `2026-04-16T15:30:00-04:00`, and `2026-04-17T15:30:00-04:00`, all as proposed roles only until fixture creation/validation.
+- **Shelf/base fields:** shelf definition, shelf/base level or zone, shelf/base trigger basis, shelf/base low or invalidation relation, and shelf/base freshness remain TO REVIEW / UNCONFIRMED until fixture creation and validation.
+- **Trigger-card fields:** trigger status, trigger level/zone, completed-candle rule, shelf definition, trigger basis/state, invalidation, fresh/stale/spent condition, next condition, blocker/caution relationship, and accepted signal row remain TO REVIEW / UNCONFIRMED until fixture creation and validation.
+- **Fresh/stale/spent fields:** TO REVIEW / UNCONFIRMED; this specification does not decide whether the 2026-04-14 push or 2026-04-17 extension is fresh, stale, spent, follow-through, or no-fresh-trigger context.
+- **Headline/news context:** `NEWS_UNCONFIRMED`; no live headline/news source was read, no headline/news blocker or caution was asserted, and future review must evaluate headline/news risk as context after setup and stage.
+- **Fixture JSON status in this task:** NO-GO; no fixture JSON was created.
+- **Next-task fixture asset status:** GO if this specification review is accepted.
+- **Generated replay report status:** NO-GO
+- **Chart outcome status:** NO-GO
+- **Aggregate closeout status:** NO-GO
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Production readiness claimed:** no
+- **Live trade readiness claimed:** no
+- **Continuous Watcher status:** deferred
+- **Next task:** create GLD Continuation 001 replay fixture JSON asset only; do not create generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, or live trade decisions.
