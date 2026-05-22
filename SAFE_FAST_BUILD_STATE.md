@@ -8,10 +8,10 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `f3e0976 Add GLD Continuation 001 fixture output validation`
-- **Latest observed local HEAD / bookkeeping sync commit:** `f3e0976 Add GLD Continuation 001 fixture output validation`
-- **Latest completed build milestone:** GLD Continuation 001 fixture output validation review
-- **Current objective:** create GLD chart-only outcome phase planning review following the SPY/QQQ/IWM pattern; generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
-- **Current build direction:** GLD broader coverage replay-readiness preparation using the validated source CSV, bounded candidate windows, and populated worksheet; Continuous Watcher deferred
+- **Latest observed local HEAD / bookkeeping sync commit:** `0048878 Fix latest completed commit after GLD Continuation fixture output validation`
+- **Latest completed build milestone:** GLD chart-only outcome phase planning review
+- **Current objective:** create GLD Ideal 001 chart-only outcome review following the IWM current-depth order; generated replay reports, generated chart outcome reports, aggregate summary, closeout, watcher work, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
+- **Current build direction:** GLD chart-only outcome phase using validated source CSV evidence and PASS fixture output validations; Continuous Watcher deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Post-GLD watcher transition hardening plan status
@@ -19,10 +19,10 @@
 - **Plan file:** `SAFE_FAST_POST_GLD_WATCHER_TRANSITION_HARDENING_PLAN.md`
 - **Plan status:** PASS
 - **Purpose:** future-chat-safe clarification for post-GLD watcher transition gates, known-limits matrix, trigger-card requirements, duplicate suppression, diagnostics/news boundaries, chart-only outcome boundaries, and all-symbol closeout review requirements.
-- **Active GLD objective:** GLD Continuation 001 fixture output validation committed; next objective is GLD chart-only outcome phase planning review.
+- **Active GLD objective:** GLD chart-only outcome phase planning review PASS; next objective is GLD Ideal 001 chart-only outcome review.
 - **Continuous Watcher status:** deferred
 - **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, or live trade logic touched.
-- **Next task:** create GLD chart-only outcome phase planning review; Continuous Watcher remains deferred.
+- **Next task:** create GLD Ideal 001 chart-only outcome review; Continuous Watcher remains deferred.
 
 ## Do not touch
 
@@ -4398,4 +4398,29 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Continuous Watcher status:** deferred
 - **Post-GLD hardening plan reference:** intact; `SAFE_FAST_POST_GLD_WATCHER_TRANSITION_HARDENING_PLAN.md` remains PASS and does not start watcher work.
 - **Next task:** create GLD chart-only outcome phase planning review following the SPY/QQQ/IWM pattern; do not create generated replay reports, chart outcomes, aggregate closeout, watcher work, option P&L, account sizing, production readiness, or live trade decisions.
+
+## GLD chart-only outcome phase planning status
+
+- **Planning file:** `SAFE_FAST_GLD_CHART_ONLY_OUTCOME_PHASE_PLANNING_REVIEW.md`
+- **Planning status:** PASS
+- **Source CSV:** `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
+- **Source CSV facts:** 290 GLD `1h_rth` rows from `2026-03-23T09:30:00-04:00` to `2026-05-20T11:30:00-04:00`; source `dxlink_candles.get_1h_ema50_snapshot`; data vendor `dxFeed via tastytrade dxLink`; source as-of `2026-05-20T16:25:45Z`.
+- **GLD chart outcome inputs ready:** Ideal 001, Clean Fast Break 001, and Continuation 001 fixture output validations are PASS.
+- **Per-setup chart-only outcome order:** GLD Ideal 001, then GLD Clean Fast Break 001, then GLD Continuation 001.
+- **Future chart-only review scope:** entry/reference window, follow-through/failure/time-stop behavior where supported, MFE/MAE from validated 1H RTH OHLCV rows, same-day/fast-swing classification where supported, source-end handling, no-hindsight audit, and unavailable context flags.
+- **Future chart-only no-go scope:** no option P&L, option fills, Greeks, spread behavior, account sizing, broker/order execution, auto-trading, production readiness, live trade readiness, or live trade decisions.
+- **1H OHLCV limitation:** future reviews cannot prove intrabar high/low sequence inside a 1H candle.
+- **Headline/news context:** `NEWS_UNCONFIRMED`; no headline/news source was fetched, read, or invented.
+- **Post-GLD hardening plan reference:** intact; `SAFE_FAST_POST_GLD_WATCHER_TRANSITION_HARDENING_PLAN.md` remains PASS and does not start watcher work.
+- **Generated replay reports created:** no
+- **Generated chart outcome reports created:** no
+- **Per-setup chart outcomes created:** no
+- **Aggregate summary created:** no
+- **Closeout created:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Production readiness claimed:** no
+- **Live trade readiness claimed:** no
+- **Continuous Watcher status:** deferred
+- **Next task:** create GLD Ideal 001 chart-only outcome review only; do not create generated replay reports, generated chart outcome reports, aggregate summary, closeout, watcher work, option P&L, account sizing, production readiness, or live trade decisions.
 
