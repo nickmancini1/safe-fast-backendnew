@@ -8,10 +8,10 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `591ef53 Add Continuous Watcher shadow architecture plan`
-- **Latest observed local HEAD / bookkeeping sync commit:** `591ef53 Add Continuous Watcher shadow architecture plan`
-- **Latest completed build milestone:** Continuous Watcher foundation shadow architecture plan
-- **Current objective:** Continuous Watcher foundation trigger-card contract/schema review only; implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
-- **Current build direction:** post-foundation watcher trigger-card contract/schema design review only; Continuous Watcher implementation deferred
+- **Latest observed local HEAD / bookkeeping sync commit:** `07516d8 Fix latest completed commit after watcher shadow architecture plan`
+- **Latest completed build milestone:** Continuous Watcher foundation trigger-card contract/schema review
+- **Current objective:** master handoff package only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
+- **Current build direction:** post-trigger-card-review master handoff package only; Continuous Watcher implementation deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Post-GLD watcher transition hardening plan status
@@ -22,7 +22,7 @@
 - **Active GLD objective:** GLD chart outcome closeout review committed at PASS / PARTIAL known-limits depth.
 - **Continuous Watcher status:** deferred
 - **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, or live trade logic touched.
-- **Next task:** create a trigger-card contract/schema design review only if explicitly authorized; Continuous Watcher implementation remains deferred.
+- **Next task:** create master handoff package only; Continuous Watcher implementation remains deferred.
 
 ## Continuous Watcher foundation shadow architecture planning status
 
@@ -43,6 +43,26 @@
 - **Headline/news status:** `NEWS_UNCONFIRMED`; no valid headline/news source was fetched, read, or used.
 - **Next bounded watcher-foundation design step:** trigger-card contract/schema review only, focused on locking field names, enums, unavailable-field semantics, evidence references, and no-trade wording before any watcher state code, duplicate suppression, alert delivery, or shadow log implementation.
 - **Continuous Watcher status:** deferred; implementation requires a separate explicitly authorized task with tests and a build-state update.
+
+## Trigger-card contract/schema review status
+
+- **Review file:** `SAFE_FAST_TRIGGER_CARD_CONTRACT_SCHEMA_REVIEW.md`
+- **Review status:** PASS
+- **Scope:** documentation and contract design only.
+- **Latest observed local HEAD before review edits:** `07516d8 Fix latest completed commit after watcher shadow architecture plan`.
+- **Latest completed build milestone:** Continuous Watcher foundation trigger-card contract/schema review.
+- **Trigger-card contract status:** PASS; full-card fields, allowed values/enums, unavailable-field semantics, plain-English wording rules, phone-alert summary requirements, laptop/full-card requirements, diagnostic scope, headline/news scope, duplicate suppression support, best-current-candidate inputs, no-go boundaries, and generic review examples are documented.
+- **Continuous Watcher implementation started:** no
+- **Watcher code created:** no
+- **Generated replay reports created:** no
+- **Generated chart outcome reports created:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Production readiness claimed:** no
+- **Live trade readiness claimed:** no
+- **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, live trade decisions, generated reports, or live data fetches.
+- **Headline/news status:** `NEWS_UNCONFIRMED` unless a later explicit news-source review reads a valid source.
+- **Next objective:** master handoff package only, preserving trigger-card contract status, Continuous Watcher deferral, and all no-go boundaries.
 
 ## Do not touch
 
