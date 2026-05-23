@@ -7,11 +7,11 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `e6a3154 Add trigger-card contract schema review`
-- **Latest observed local HEAD / bookkeeping sync commit:** `00beac4 Fix latest completed commit after trigger-card contract review`
-- **Latest completed build milestone:** Continuous Watcher foundation trigger-card contract/schema review
-- **Current objective:** watcher state schema/design review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
-- **Current build direction:** post-trigger-card-review watcher foundation design only; Continuous Watcher implementation deferred
+- **Latest completed milestone commit:** pending user commit for watcher state schema/design review; previous committed milestone was `e6a3154 Add trigger-card contract schema review`
+- **Latest observed local HEAD / bookkeeping sync commit:** `9626c36 Add post-trigger-card master handoff package`
+- **Latest completed build milestone:** Continuous Watcher foundation watcher state schema/design review
+- **Current objective:** shadow log schema review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
+- **Current build direction:** post-watcher-state-review foundation design only; Continuous Watcher implementation deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Master handoff package status
@@ -32,6 +32,29 @@
 - **Live trade readiness claimed:** no
 - **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, live trade decisions, generated reports, or live data fetches.
 - **Next objective:** watcher state schema/design review only, preserving trigger-card contract status, Continuous Watcher deferral, and all no-go boundaries.
+- **Continuous Watcher status:** deferred; implementation requires a separate explicitly authorized task with tests and a build-state update.
+
+## Watcher state schema/design review status
+
+- **Review file:** `SAFE_FAST_WATCHER_STATE_SCHEMA_DESIGN_REVIEW.md`
+- **Review status:** PASS
+- **Scope:** documentation and state-schema design only.
+- **Latest observed local HEAD before review edits:** `9626c36 Add post-trigger-card master handoff package`.
+- **Previous committed milestone before review edits:** `e6a3154 Add trigger-card contract schema review`.
+- **Latest completed build milestone:** Continuous Watcher foundation watcher state schema/design review.
+- **Watcher state contract status:** PASS; internal candidate identity, required state field groups, accepted overlapping trigger-card enums, unavailable-field semantics, lifecycle transition rules, material-change detection, trigger-card projection bridge, duplicate suppression bridge, best-current-candidate support, diagnostics scope, shadow-review prerequisites, and no-go boundaries are documented.
+- **Continuous Watcher implementation started:** no
+- **Watcher code created:** no
+- **Runtime schema file created:** no
+- **Generated replay reports created:** no
+- **Generated chart outcome reports created:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Production readiness claimed:** no
+- **Live trade readiness claimed:** no
+- **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, live trade decisions, generated reports, live data fetches, or runtime watcher implementation.
+- **Headline/news status:** `NEWS_UNCONFIRMED` unless a later explicit news-source review reads a valid source.
+- **Next objective:** shadow log schema review only, preserving watcher state schema/design status, trigger-card contract status, Continuous Watcher deferral, and all no-go boundaries.
 - **Continuous Watcher status:** deferred; implementation requires a separate explicitly authorized task with tests and a build-state update.
 
 ## Post-GLD watcher transition hardening plan status
