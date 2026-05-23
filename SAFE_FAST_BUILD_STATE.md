@@ -8,10 +8,10 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `f7f61bb Add duplicate suppression design review`
-- **Latest observed local HEAD / origin/main:** `f7f61bb Add duplicate suppression design review`
-- **Latest completed build milestone:** Continuous Watcher foundation duplicate suppression design review
-- **Current objective:** best-current-candidate / focus ranking design review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
-- **Current build direction:** post-duplicate-suppression-review foundation design only; Continuous Watcher implementation deferred
+- **Latest observed local HEAD / origin/main:** `9a2d9f2 Sync build state after duplicate suppression review commit`
+- **Latest completed build milestone:** Continuous Watcher foundation best-current-candidate / focus ranking design review documented at PASS; latest completed milestone commit remains `f7f61bb` until this task is explicitly committed as a new milestone
+- **Current objective:** diagnostics explanation design review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
+- **Current build direction:** post-focus-ranking-review foundation design only; Continuous Watcher implementation deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Strict master handoff package status
@@ -107,6 +107,34 @@
 - **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, live trade decisions, generated reports, live data fetches, watcher runtime code, runtime schema files, invented headlines/news, invented trigger levels, invented outcomes, invented trades, invented P&L, or live facts.
 - **Headline/news status:** `NEWS_UNCONFIRMED` unless a later explicit news-source review reads a valid source.
 - **Next objective:** best-current-candidate / focus ranking design review only, preserving trigger-card contract status, watcher state schema/design status, shadow log schema status, duplicate suppression design status, Continuous Watcher deferral, and all no-go boundaries.
+- **Continuous Watcher status:** deferred; implementation requires a separate explicitly authorized task with tests and a build-state update.
+
+## Best-current-candidate / focus ranking design review status
+
+- **Review file:** `SAFE_FAST_BEST_CURRENT_CANDIDATE_FOCUS_RANKING_DESIGN_REVIEW.md`
+- **Review status:** PASS
+- **Scope:** documentation and focus-ranking design only.
+- **Baseline:** patch8
+- **Repo:** `nickmancini1/safe-fast-backendnew`
+- **Branch:** `main`
+- **Latest observed local HEAD / origin/main before review edits:** `9a2d9f2 Sync build state after duplicate suppression review commit`.
+- **Latest completed milestone commit remains:** `f7f61bb Add duplicate suppression design review`.
+- **Bookkeeping sync commit after duplicate suppression review:** `9a2d9f2 Sync build state after duplicate suppression review commit`; this is not a new completed milestone and must not create a sync loop.
+- **Commit status:** not committed in this task.
+- **Latest completed build milestone:** Continuous Watcher foundation best-current-candidate / focus ranking design review.
+- **Focus ranking contract status:** PASS; attention-only best-current-candidate purpose, accepted ranking inputs, no-trade-dominant ranking order, eligible focus buckets, setup-family comparison rules, duplicate suppression interaction, material focus-change break rules, unavailable-field and `NEWS_UNCONFIRMED` handling, phone/full-card behavior, shadow-log `best_candidate_snapshot` requirements, manual review labels, auditability expectations, explicit no-go boundaries, and future implementation test requirements are documented.
+- **Continuous Watcher implementation started:** no
+- **Watcher code created:** no
+- **Runtime schema file created:** no
+- **Generated replay reports created:** no
+- **Generated chart outcome reports created:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Production readiness claimed:** no
+- **Live trade readiness claimed:** no
+- **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, live trade decisions, generated reports, live data fetches, watcher runtime code, runtime schema files, invented headlines/news, invented trigger levels, invented outcomes, invented trades, invented P&L, or live facts.
+- **Headline/news status:** `NEWS_UNCONFIRMED` unless a later explicit news-source review reads a valid source.
+- **Next objective:** diagnostics explanation design review only, preserving trigger-card contract status, watcher state schema/design status, shadow log schema status, duplicate suppression design status, best-current-candidate / focus ranking design status, Continuous Watcher deferral, and all no-go boundaries.
 - **Continuous Watcher status:** deferred; implementation requires a separate explicitly authorized task with tests and a build-state update.
 
 ## Post-GLD watcher transition hardening plan status
