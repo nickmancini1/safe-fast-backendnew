@@ -8,7 +8,7 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `dbf6b22 Add watcher state schema design review`
-- **Latest observed local HEAD / bookkeeping sync commit:** `dbf6b22 Add watcher state schema design review`
+- **Latest observed local HEAD / bookkeeping sync commit:** `971190c Sync build state after watcher state schema review`
 - **Latest completed build milestone:** Continuous Watcher foundation watcher state schema/design review
 - **Current objective:** shadow log schema review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
 - **Current build direction:** post-watcher-state-review foundation design only; Continuous Watcher implementation deferred
@@ -42,6 +42,7 @@
 - **Latest observed local HEAD before review edits:** `9626c36 Add post-trigger-card master handoff package`.
 - **Previous committed milestone before review edits:** `e6a3154 Add trigger-card contract schema review`.
 - **Committed milestone commit:** `dbf6b22 Add watcher state schema design review`.
+- **Bookkeeping sync commit after review:** `971190c Sync build state after watcher state schema review`.
 - **Latest completed build milestone:** Continuous Watcher foundation watcher state schema/design review.
 - **Watcher state contract status:** PASS; internal candidate identity, required state field groups, accepted overlapping trigger-card enums, unavailable-field semantics, lifecycle transition rules, material-change detection, trigger-card projection bridge, duplicate suppression bridge, best-current-candidate support, diagnostics scope, shadow-review prerequisites, and no-go boundaries are documented.
 - **Continuous Watcher implementation started:** no
