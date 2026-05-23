@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `b8b63a4 Add shadow log schema review`
-- **Latest observed local HEAD / bookkeeping sync commit:** `2fd0a62 Add strict post-shadow-log master handoff`
-- **Latest completed build milestone:** Continuous Watcher foundation duplicate suppression design review (documentation-only local review; latest completed milestone commit remains `b8b63a4` until explicitly committed as a new milestone)
+- **Latest completed milestone commit:** `f7f61bb Add duplicate suppression design review`
+- **Latest observed local HEAD / origin/main:** `f7f61bb Add duplicate suppression design review`
+- **Latest completed build milestone:** Continuous Watcher foundation duplicate suppression design review
 - **Current objective:** best-current-candidate / focus ranking design review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
 - **Current build direction:** post-duplicate-suppression-review foundation design only; Continuous Watcher implementation deferred
 - **Work mode:** build work only, no live trade decisions
@@ -91,9 +91,9 @@
 - **Review status:** PASS
 - **Scope:** documentation and duplicate-suppression design only.
 - **Latest observed local HEAD before review edits:** `2fd0a62 Add strict post-shadow-log master handoff`.
-- **Latest completed milestone commit remains:** `b8b63a4 Add shadow log schema review`.
-- **Completed milestone commit status:** unchanged; this design review is local documentation until the user explicitly commits it as a new milestone.
-- **Latest completed build milestone:** Continuous Watcher foundation duplicate suppression design review (documentation-only local review).
+- **Latest completed milestone commit:** `f7f61bb Add duplicate suppression design review`.
+- **Commit status:** committed at `f7f61bb Add duplicate suppression design review`.
+- **Latest completed build milestone:** Continuous Watcher foundation duplicate suppression design review.
 - **Duplicate suppression contract status:** PASS; accepted suppression key inputs, required normalized watcher-state and trigger-card fields, suppression fingerprint rules, material-change break rules, non-material repeat rules, stale/spent no-fresh-trigger discipline, unavailable-field and `NEWS_UNCONFIRMED` handling, phone/full-card behavior, shadow-log requirements, manual review labels, auditability expectations, no-go boundaries, and future implementation test requirements are documented.
 - **Continuous Watcher implementation started:** no
 - **Watcher code created:** no
