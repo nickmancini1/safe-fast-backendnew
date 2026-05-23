@@ -7,8 +7,8 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `dbf6b22 Add watcher state schema design review` remains the latest committed milestone; shadow log schema review is complete locally but uncommitted because local Git could not create `.git/index.lock` due permission denial.
-- **Latest observed local HEAD / bookkeeping sync commit:** `ead8932 Sync build state after 971190c`
+- **Latest completed milestone commit:** `b8b63a4 Add shadow log schema review`
+- **Latest observed local HEAD / bookkeeping sync commit:** `b8b63a4 Add shadow log schema review`
 - **Latest completed build milestone:** Continuous Watcher foundation shadow log schema review
 - **Current objective:** duplicate suppression design review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
 - **Current build direction:** post-shadow-log-review foundation design only; Continuous Watcher implementation deferred
@@ -66,7 +66,7 @@
 - **Scope:** documentation and shadow-log schema design only.
 - **Latest observed local HEAD before review edits:** `ead8932 Sync build state after 971190c`.
 - **Previous committed milestone before review edits:** `dbf6b22 Add watcher state schema design review`.
-- **Commit status:** uncommitted locally; `git add` / `git commit` failed because Git could not create `.git/index.lock` due permission denial.
+- **Commit status:** committed at `b8b63a4 Add shadow log schema review`.
 - **Latest completed build milestone:** Continuous Watcher foundation shadow log schema review.
 - **Shadow log contract status:** PASS; future append-only log record envelope, allowed event types, watcher state snapshots, trigger-card snapshots, alert decision records, suppressed duplicate records, unavailable-field semantics, manual review labels, shadow summary fields, privacy/local-review boundary, replay/regression prerequisites, and no-go boundaries are documented.
 - **Continuous Watcher implementation started:** no
@@ -4726,6 +4726,7 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, or live trade decisions.
 - **Exact next objective after watcher foundation planning is created and accepted:** trigger-card contract/schema design review only, focused on field names, enums, unavailable-field semantics, evidence references, and no-trade wording before any watcher state code, duplicate suppression, alert delivery, or shadow log implementation.
 - **Continuous Watcher status:** deferred; implementation remains deferred unless explicitly authorized in a later bounded task with tests and build-state update.
+
 
 
 
