@@ -8,10 +8,10 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `06568e3 Add best current candidate focus ranking design review`
-- **Latest observed local HEAD / origin/main:** `06568e3 Add best current candidate focus ranking design review`
+- **Latest observed local HEAD / origin/main:** `534c1fd Sync build state after focus ranking review commit`
 - **Latest completed build milestone:** Continuous Watcher foundation best-current-candidate / focus ranking design review
-- **Current objective:** diagnostics explanation design review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
-- **Current build direction:** post-focus-ranking-review foundation design only; Continuous Watcher implementation deferred
+- **Current objective:** headline/news source policy design review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
+- **Current build direction:** post-diagnostics-explanation-review foundation design only; Continuous Watcher implementation deferred
 - **Work mode:** build work only, no live trade decisions
 
 ## Strict master handoff package status
@@ -135,6 +135,34 @@
 - **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, live trade decisions, generated reports, live data fetches, watcher runtime code, runtime schema files, invented headlines/news, invented trigger levels, invented outcomes, invented trades, invented P&L, or live facts.
 - **Headline/news status:** `NEWS_UNCONFIRMED` unless a later explicit news-source review reads a valid source.
 - **Next objective:** diagnostics explanation design review only, preserving trigger-card contract status, watcher state schema/design status, shadow log schema status, duplicate suppression design status, best-current-candidate / focus ranking design status, Continuous Watcher deferral, and all no-go boundaries.
+- **Continuous Watcher status:** deferred; implementation requires a separate explicitly authorized task with tests and a build-state update.
+
+## Diagnostics explanation design review status
+
+- **Review file:** `SAFE_FAST_DIAGNOSTICS_EXPLANATION_DESIGN_REVIEW.md`
+- **Review status:** PASS
+- **Scope:** documentation and diagnostics explanation design only.
+- **Baseline:** patch8
+- **Repo:** `nickmancini1/safe-fast-backendnew`
+- **Branch:** `main`
+- **Latest observed local HEAD / origin/main before review edits:** `534c1fd Sync build state after focus ranking review commit`.
+- **Latest completed milestone commit remains:** `06568e3 Add best current candidate focus ranking design review`.
+- **Bookkeeping sync commit after focus ranking review:** `534c1fd Sync build state after focus ranking review commit`; this is not a new completed milestone and must not create a sync loop.
+- **Commit status:** not committed; documentation review added in working tree only.
+- **Latest completed build milestone:** Continuous Watcher foundation best-current-candidate / focus ranking design review.
+- **Diagnostics explanation contract status:** PASS; explanation-only diagnostics purpose, required inputs, required outputs, reason-code groups, plain-English rules, unavailable-field and `NEWS_UNCONFIRMED` handling, phone/full-card behavior, shadow-log requirements, manual review labels, auditability expectations, explicit no-go boundaries, and future implementation test requirements are documented.
+- **Continuous Watcher implementation started:** no
+- **Watcher code created:** no
+- **Runtime schema file created:** no
+- **Generated replay reports created:** no
+- **Generated chart outcome reports created:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Production readiness claimed:** no
+- **Live trade readiness claimed:** no
+- **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, live trade decisions, generated reports, live data fetches, watcher runtime code, runtime schema files, invented headlines/news, invented trigger levels, invented outcomes, invented trades, invented P&L, or live facts.
+- **Headline/news status:** `NEWS_UNCONFIRMED` unless a later explicit news-source review reads a valid source.
+- **Next objective:** headline/news source policy design review only, preserving trigger-card contract status, watcher state schema/design status, shadow log schema status, duplicate suppression design status, best-current-candidate / focus ranking design status, diagnostics explanation design status, Continuous Watcher deferral, and all no-go boundaries.
 - **Continuous Watcher status:** deferred; implementation requires a separate explicitly authorized task with tests and a build-state update.
 
 ## Post-GLD watcher transition hardening plan status
