@@ -16,6 +16,7 @@ from watcher_foundation.duplicate_suppression import (
     build_suppression_fingerprint,
     decide_duplicate_suppression,
 )
+from watcher_foundation.focus_ranking import FOCUS_RANK_BUCKETS, rank_focus_candidates
 from watcher_foundation.models import (
     WatchOnlyCandidateState,
     reject_forbidden_execution_fields,
@@ -45,6 +46,7 @@ __all__ = [
     "DUPLICATE_SUPPRESSION_FINGERPRINT_VERSION",
     "DUPLICATE_SUPPRESSION_KEY_FIELD_NAMES",
     "EXPLICIT_UNCONFIRMED_MARKERS",
+    "FOCUS_RANK_BUCKETS",
     "MATERIAL_CHANGE_FLAGS_THAT_BREAK_SUPPRESSION",
     "NEWS_UNCONFIRMED",
     "REQUIRED_SHADOW_LOG_FIELDS",
@@ -58,6 +60,7 @@ __all__ = [
     "create_shadow_log_record",
     "decide_duplicate_suppression",
     "project_trigger_card",
+    "rank_focus_candidates",
     "reject_forbidden_execution_fields",
     "serialize_shadow_log_line",
     "update_watcher_state",
