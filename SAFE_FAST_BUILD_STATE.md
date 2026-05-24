@@ -8,12 +8,27 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `e069b3e Add trigger card projection`
-- **Latest observed local HEAD / origin/main:** `e069b3e Add trigger card projection`
+- **Latest observed local HEAD / origin/main:** `9f92b73 Sync build state after trigger card projection commit`
 - **Bookkeeping note:** this build-state wording update, if later committed, is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed build milestone:** Trigger-card projection implementation
 - **Current objective:** shadow-log writer implementation only
-- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; current objective is shadow-log writer implementation only
+- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; shadow-log writer implementation is present in the working tree only pending user review/commit
 - **Work mode:** build work only, no live trade decisions
+
+## Shadow-log writer status
+
+- **Shadow-log writer status:** implemented in working tree only; not committed.
+- **Commit status:** not committed; latest completed milestone remains `e069b3e Add trigger card projection`.
+- **Bookkeeping sync commit above milestone:** `9f92b73 Sync build state after trigger card projection commit`; this is not a new completed milestone and must not create a repeated sync loop.
+- **Allowed implementation scope used:** local shadow-log writer module, shadow-log writer tests, watcher foundation export update, and this build-state update only.
+- **Implementation files:** `watcher_foundation/shadow_log.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_shadow_log_writer.py`.
+- **Local test result:** PASS with `python -m unittest discover -s tests -p test_shadow_log_writer.py` (`15` tests).
+- **Scaffold regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_foundation_scaffold.py` (`6` tests).
+- **State tracking regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_state_tracking.py` (`11` tests).
+- **Trigger-card projection regression result:** PASS with `python -m unittest discover -s tests -p test_trigger_card_projection.py` (`13` tests).
+- **Scope preserved:** local pure Python watch-only shadow-log record creation and JSONL/file-like append helper only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
+- **Next objective:** shadow-log writer commit / build-state sync after user review. Duplicate suppression runtime implementation remains later-only unless this shadow-log writer work is committed and synced.
 
 ## Trigger-card projection status
 
