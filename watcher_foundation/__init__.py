@@ -22,6 +22,12 @@ from watcher_foundation.duplicate_suppression import (
     decide_duplicate_suppression,
 )
 from watcher_foundation.focus_ranking import FOCUS_RANK_BUCKETS, rank_focus_candidates
+from watcher_foundation.headline_news import (
+    REQUIRED_HEADLINE_NEWS_POLICY_FIELDS,
+    VALID_SOURCE_STATUSES,
+    create_headline_news_policy,
+    evaluate_headline_news_policy,
+)
 from watcher_foundation.models import (
     WatchOnlyCandidateState,
     reject_forbidden_execution_fields,
@@ -56,8 +62,10 @@ __all__ = [
     "MATERIAL_CHANGE_FLAGS_THAT_BREAK_SUPPRESSION",
     "NEWS_UNCONFIRMED",
     "REQUIRED_SHADOW_LOG_FIELDS",
+    "REQUIRED_HEADLINE_NEWS_POLICY_FIELDS",
     "REQUIRED_TRIGGER_CARD_FIELDS",
     "SHADOW_LOG_SCHEMA_VERSION",
+    "VALID_SOURCE_STATUSES",
     "WatchOnlyCandidateState",
     "WatcherTrackedState",
     "append_shadow_log_line",
@@ -65,8 +73,10 @@ __all__ = [
     "build_duplicate_suppression_key_fields",
     "build_suppression_fingerprint",
     "create_diagnostics",
+    "create_headline_news_policy",
     "create_shadow_log_record",
     "decide_duplicate_suppression",
+    "evaluate_headline_news_policy",
     "project_trigger_card",
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",
