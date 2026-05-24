@@ -8,12 +8,27 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `5d33ed8 Add watcher state tracking`
-- **Latest observed local HEAD / origin/main:** `5d33ed8 Add watcher state tracking`
+- **Latest observed local HEAD / origin/main:** `9d04fc3 Sync build state after watcher state tracking commit`
 - **Bookkeeping note:** this build-state wording update, if later committed, is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed build milestone:** Watcher state tracking implementation
-- **Current objective:** trigger-card projection implementation only
-- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is the only current objective
+- **Current objective:** trigger-card projection implementation is implemented in working tree only; next objective is trigger-card projection commit / build-state sync after user review
+- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is implemented in working tree only and is not committed yet
 - **Work mode:** build work only, no live trade decisions
+
+## Trigger-card projection status
+
+- **Trigger-card projection status:** implemented in working tree only; not committed.
+- **Commit status:** not committed; latest completed milestone commit remains `5d33ed8 Add watcher state tracking`.
+- **Bookkeeping sync commit above milestone:** `9d04fc3 Sync build state after watcher state tracking commit`; this is not a new completed milestone and must not create a repeated sync loop.
+- **Allowed implementation scope used:** local trigger-card projection module, trigger-card projection tests, watcher foundation export update, and this build-state update only.
+- **Implementation files:** `watcher_foundation/trigger_card.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_trigger_card_projection.py`.
+- **Local test result:** PASS with `python -m unittest discover -s tests -p test_trigger_card_projection.py` (`13` tests).
+- **Scaffold regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_foundation_scaffold.py` (`6` tests).
+- **State tracking regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_state_tracking.py` (`11` tests).
+- **Scope preserved:** local pure Python watch-only trigger-card projection only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
+- **Next objective:** trigger-card projection commit / build-state sync after user review. Shadow-log writer implementation remains next only if this projection work is later committed and synced.
+- **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, and live trade decisions remain NO-GO.
 
 ## Watcher state tracking status
 

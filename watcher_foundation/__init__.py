@@ -13,6 +13,10 @@ from watcher_foundation.models import (
     reject_forbidden_execution_fields,
 )
 from watcher_foundation.state_tracker import WatcherTrackedState, update_watcher_state
+from watcher_foundation.trigger_card import (
+    REQUIRED_TRIGGER_CARD_FIELDS,
+    project_trigger_card,
+)
 
 __all__ = [
     "ACCEPTED_HEADLINE_NEWS_STATUSES",
@@ -21,8 +25,10 @@ __all__ = [
     "ACCEPTED_TRIGGER_STATUSES",
     "EXPLICIT_UNCONFIRMED_MARKERS",
     "NEWS_UNCONFIRMED",
+    "REQUIRED_TRIGGER_CARD_FIELDS",
     "WatchOnlyCandidateState",
     "WatcherTrackedState",
+    "project_trigger_card",
     "reject_forbidden_execution_fields",
     "update_watcher_state",
 ]
