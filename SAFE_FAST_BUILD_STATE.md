@@ -7,10 +7,10 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `34d4755 Add diagnostics explanation design review`
-- **Latest observed local HEAD / origin/main:** `a3f7a85 Sync build state after diagnostics review commit`
-- **Bookkeeping sync commit after diagnostics review:** `a3f7a85 Sync build state after diagnostics review commit`; this is not a new completed milestone and must not create a sync loop
-- **Latest completed build milestone:** Continuous Watcher foundation diagnostics explanation design review
+- **Latest completed milestone commit:** `024e21d Add headline news source policy design review`
+- **Latest observed local HEAD / origin/main:** `024e21d Add headline news source policy design review`
+- **Bookkeeping note:** this build-state-only update is a stale wording correction after the headline/news source policy review commit; it is not a new completed milestone and must not create a repeated sync loop
+- **Latest completed build milestone:** Continuous Watcher foundation headline/news source policy design review
 - **Current objective:** strict watcher-foundation handoff / implementation readiness review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
 - **Current build direction:** post-headline/news-source-policy foundation design only; Continuous Watcher implementation deferred
 - **Work mode:** build work only, no live trade decisions
@@ -174,10 +174,11 @@
 - **Baseline:** patch8
 - **Repo:** `nickmancini1/safe-fast-backendnew`
 - **Branch:** `main`
-- **Latest observed local HEAD / origin/main before review edits:** `a3f7a85 Sync build state after diagnostics review commit`.
-- **Latest completed milestone commit remains:** `34d4755 Add diagnostics explanation design review`.
+- **Latest observed local HEAD / origin/main:** `024e21d Add headline news source policy design review`.
+- **Previous completed milestone before review edits:** `34d4755 Add diagnostics explanation design review`.
 - **Bookkeeping sync commit after diagnostics review:** `a3f7a85 Sync build state after diagnostics review commit`; this is not a new completed milestone and must not create a sync loop.
-- **Latest completed build milestone remains:** Continuous Watcher foundation diagnostics explanation design review until this review is explicitly committed as a new milestone.
+- **Commit status:** committed at `024e21d Add headline news source policy design review`.
+- **Latest completed build milestone:** Continuous Watcher foundation headline/news source policy design review.
 - **Headline/news source policy contract status:** PASS; allowed headline/news statuses, valid-source requirements, invalid/unavailable-source handling, no-invention rules, caution and hard-block policy, setup/stage/no-trade boundaries, source-as-of and evidence requirements, unavailable-field and `NEWS_UNCONFIRMED` handling, phone/full-card behavior, shadow-log requirements, diagnostics/suppression/focus interactions, manual review labels, auditability expectations, explicit no-go boundaries, and future implementation test requirements are documented.
 - **Continuous Watcher implementation started:** no
 - **Watcher code created:** no
