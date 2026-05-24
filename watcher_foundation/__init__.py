@@ -8,6 +8,11 @@ from watcher_foundation.constants import (
     EXPLICIT_UNCONFIRMED_MARKERS,
     NEWS_UNCONFIRMED,
 )
+from watcher_foundation.diagnostics import (
+    DIAGNOSTIC_REASON_CODE_GROUPS,
+    build_diagnostics,
+    create_diagnostics,
+)
 from watcher_foundation.duplicate_suppression import (
     DUPLICATE_SUPPRESSION_FINGERPRINT_VERSION,
     DUPLICATE_SUPPRESSION_KEY_FIELD_NAMES,
@@ -43,6 +48,7 @@ __all__ = [
     "ACCEPTED_TRIGGER_STATUSES",
     "ALLOWED_SHADOW_LOG_EVENT_TYPES",
     "DEFAULT_REVIEW_LABEL",
+    "DIAGNOSTIC_REASON_CODE_GROUPS",
     "DUPLICATE_SUPPRESSION_FINGERPRINT_VERSION",
     "DUPLICATE_SUPPRESSION_KEY_FIELD_NAMES",
     "EXPLICIT_UNCONFIRMED_MARKERS",
@@ -55,8 +61,10 @@ __all__ = [
     "WatchOnlyCandidateState",
     "WatcherTrackedState",
     "append_shadow_log_line",
+    "build_diagnostics",
     "build_duplicate_suppression_key_fields",
     "build_suppression_fingerprint",
+    "create_diagnostics",
     "create_shadow_log_record",
     "decide_duplicate_suppression",
     "project_trigger_card",

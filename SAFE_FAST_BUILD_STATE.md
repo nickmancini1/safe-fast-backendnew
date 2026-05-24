@@ -8,13 +8,33 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `2629415 Add focus ranking runtime`
-- **Latest observed local HEAD / origin/main:** `2629415 Add focus ranking runtime`
+- **Latest observed local HEAD / origin/main:** `cd5fc12 Sync build state after focus ranking runtime commit`
+- **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed build milestone:** Focus ranking runtime implementation
 - **Current objective:** diagnostics runtime implementation only
-- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; shadow-log writer implementation is committed; duplicate suppression runtime implementation is committed; focus ranking runtime implementation is committed; diagnostics runtime implementation is next only.
+- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; shadow-log writer implementation is committed; duplicate suppression runtime implementation is committed; focus ranking runtime implementation is committed; diagnostics runtime implementation is implemented in the working tree only and is not committed yet.
 - **Work mode:** build work only, no live trade decisions
+
+## Diagnostics runtime status
+
+- **Diagnostics runtime status:** implemented in working tree only; not committed.
+- **Commit status:** not committed. Latest completed milestone commit remains `2629415 Add focus ranking runtime`.
+- **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
+- **Allowed implementation scope used:** local diagnostics module, diagnostics runtime tests, watcher foundation export update, and this build-state update only.
+- **Implementation files:** `watcher_foundation/diagnostics.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_diagnostics_runtime.py`.
+- **Local test result:** PASS with `python -m unittest discover -s tests -p test_diagnostics_runtime.py` (`15` tests).
+- **Scaffold regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_foundation_scaffold.py` (`6` tests).
+- **State tracking regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_state_tracking.py` (`11` tests).
+- **Trigger-card projection regression result:** PASS with `python -m unittest discover -s tests -p test_trigger_card_projection.py` (`13` tests).
+- **Shadow-log writer regression result:** PASS with `python -m unittest discover -s tests -p test_shadow_log_writer.py` (`15` tests).
+- **Duplicate suppression runtime regression result:** PASS with `python -m unittest discover -s tests -p test_duplicate_suppression_runtime.py` (`25` tests).
+- **Focus ranking runtime regression result:** PASS with `python -m unittest discover -s tests -p test_focus_ranking_runtime.py` (`18` tests).
+- **Scope preserved:** local pure Python watch-only diagnostics explanations only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
+- **Next objective:** diagnostics runtime commit / build-state sync after user review. If this diagnostics runtime work is later committed and synced, the next implementation objective may be headline/news policy placeholder runtime implementation only.
+- **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, and live trade decisions remain NO-GO.
 
 ## Focus ranking runtime status
 
