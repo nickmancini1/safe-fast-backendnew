@@ -8,12 +8,45 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `024e21d Add headline news source policy design review`
-- **Latest observed local HEAD / origin/main:** `024e21d Add headline news source policy design review`
-- **Bookkeeping note:** this build-state-only update is a stale wording correction after the headline/news source policy review commit; it is not a new completed milestone and must not create a repeated sync loop
+- **Latest observed local HEAD / origin/main:** `7397b36 Sync build state after headline news source policy review commit`
+- **Bookkeeping note:** `7397b36` is a build-state/bookkeeping sync commit after the headline/news source policy review commit; it is not a new completed milestone and must not create a repeated sync loop
 - **Latest completed build milestone:** Continuous Watcher foundation headline/news source policy design review
-- **Current objective:** strict watcher-foundation handoff / implementation readiness review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
-- **Current build direction:** post-headline/news-source-policy foundation design only; Continuous Watcher implementation deferred
+- **Current objective:** local watch-only watcher scaffold implementation only, after strict watcher-foundation handoff / implementation readiness review is committed and build-state is synced; Continuous Watcher implementation remains deferred until then
+- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS; next authorized direction after commit/sync is local watch-only watcher scaffold only
 - **Work mode:** build work only, no live trade decisions
+
+## Strict watcher-foundation handoff / implementation readiness review status
+
+- **Review file:** `SAFE_FAST_STRICT_WATCHER_FOUNDATION_HANDOFF_IMPLEMENTATION_READINESS_REVIEW.md`
+- **Review status:** PASS
+- **Scope:** documentation, handoff, and implementation-readiness review only.
+- **Baseline:** patch8
+- **Repo:** `nickmancini1/safe-fast-backendnew`
+- **Branch:** `main`
+- **Latest observed local HEAD / origin/main before review edits:** `7397b36 Sync build state after headline news source policy review commit`
+- **Latest completed milestone commit remains:** `024e21d Add headline news source policy design review`
+- **Bookkeeping sync commit above milestone:** `7397b36 Sync build state after headline news source policy review commit`; this is not a new completed milestone and must not create a sync loop.
+- **Latest completed build milestone remains:** Continuous Watcher foundation headline/news source policy design review.
+- **Watcher-foundation prerequisite statuses:** trigger-card contract/schema PASS; watcher state schema/design PASS; shadow log schema PASS; duplicate suppression PASS; best-current-candidate / focus ranking PASS; diagnostics explanation PASS; headline/news source policy PASS.
+- **SPY / QQQ / IWM / GLD current-depth closeout:** complete at accepted known-limits depth.
+- **Ready next after this review is committed and build-state is synced:** local watch-only watcher scaffold implementation only.
+- **First scaffold limits:** local watcher-foundation package/folder; pure data models or simple plain Python structures; no live data fetching; no broker/account/order fields; no production integration; no `main.py` edits; basic tests for watch-only boundaries and schema-like required fields.
+- **Future promotion tests required:** trigger-card projection tests; watcher-state required-field tests; shadow-log append-shape tests; duplicate suppression tests; focus ranking tests; diagnostics tests; headline/news `NEWS_UNCONFIRMED` tests; no-trade boundary tests.
+- **Future build sequence:** local watcher scaffold, state tracking, trigger-card projection, shadow log writer, duplicate suppression runtime, focus ranking runtime, diagnostics runtime, headline/news policy placeholder handling, replay/regression validation, shadow review, phone alert layer later.
+- **Phone/laptop plan preserved:** laptop runs watcher first; phone gets short alerts later; phone does not run full watcher first; ChatGPT reviews cards/logs after the fact; ChatGPT does not call live trades.
+- **Continuous Watcher implementation started:** no
+- **Continuous Watcher implementation remains:** deferred until after this readiness review is committed and build-state is synced.
+- **Watcher runtime code created:** no
+- **Runtime schema files created:** no
+- **Generated replay reports created:** no
+- **Generated chart outcome reports created:** no
+- **Option P&L modeled:** no
+- **Account sizing added:** no
+- **Production readiness claimed:** no
+- **Live trade readiness claimed:** no
+- **Still not ready:** production, Railway, live backend, live data, auto-trading, broker/order execution, option P&L, account sizing, generated replay reports, generated chart outcome reports, live trade decisions.
+- **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, live trade decisions, generated reports, live data fetches, watcher runtime code, runtime schema files, invented headlines/news, invented trigger levels, invented outcomes, invented trades, invented P&L, or live facts.
+- **Next objective:** local watch-only watcher scaffold implementation only, preserving all no-go boundaries.
 
 ## Strict master handoff package status
 
