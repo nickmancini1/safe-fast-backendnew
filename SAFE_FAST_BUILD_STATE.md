@@ -8,12 +8,23 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `2e55bfd Add watcher foundation implementation readiness review`
-- **Latest observed local HEAD / origin/main:** `2e55bfd Add watcher foundation implementation readiness review`
+- **Latest observed local HEAD / origin/main:** `bf2d047 Sync build state after watcher readiness review commit`
 - **Bookkeeping note:** this build-state wording update, if later committed, is a bookkeeping-only sync after the watcher foundation implementation readiness review commit; it is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed build milestone:** Continuous Watcher foundation implementation readiness review
 - **Current objective:** local watch-only watcher scaffold implementation only
-- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; next authorized build objective is local watch-only watcher scaffold only
+- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold is implemented in the working tree only and is not committed yet
 - **Work mode:** build work only, no live trade decisions
+
+## Local watch-only watcher scaffold status
+
+- **Scaffold status:** implemented in working tree only; not committed.
+- **Implementation files:** `watcher_foundation/__init__.py`; `watcher_foundation/constants.py`; `watcher_foundation/models.py`.
+- **Test file:** `tests/test_watcher_foundation_scaffold.py`.
+- **Local test result:** PASS with `python -m unittest discover -s tests -p test_watcher_foundation_scaffold.py` (`6` tests).
+- **Scope preserved:** local pure Python data model/constants only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
+- **Latest completed milestone commit remains:** `2e55bfd Add watcher foundation implementation readiness review`.
+- **Bookkeeping sync commit above milestone:** `bf2d047 Sync build state after watcher readiness review commit`; this is not a new completed milestone and must not create a repeated sync loop.
+- **Next objective:** watcher scaffold commit / build-state sync after user review; watcher state tracking implementation only if this scaffold is later committed and synced.
 
 ## Strict watcher-foundation handoff / implementation readiness review status
 
@@ -23,14 +34,14 @@
 - **Baseline:** patch8
 - **Repo:** `nickmancini1/safe-fast-backendnew`
 - **Branch:** `main`
-- **Latest observed local HEAD / origin/main:** `2e55bfd Add watcher foundation implementation readiness review`
+- **Latest observed local HEAD / origin/main:** `bf2d047 Sync build state after watcher readiness review commit`
 - **Latest completed milestone commit:** `2e55bfd Add watcher foundation implementation readiness review`
 - **Commit status:** committed at `2e55bfd Add watcher foundation implementation readiness review`.
 - **Bookkeeping note:** this build-state wording update, if later committed, is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed build milestone:** Continuous Watcher foundation implementation readiness review.
 - **Watcher-foundation prerequisite statuses:** trigger-card contract/schema PASS; watcher state schema/design PASS; shadow log schema PASS; duplicate suppression PASS; best-current-candidate / focus ranking PASS; diagnostics explanation PASS; headline/news source policy PASS.
 - **SPY / QQQ / IWM / GLD current-depth closeout:** complete at accepted known-limits depth.
-- **Ready next:** local watch-only watcher scaffold implementation only.
+- **Ready next:** watcher scaffold commit / build-state sync after user review; watcher state tracking implementation only if this scaffold is later committed and synced.
 - **First scaffold limits:** local watcher-foundation package/folder; pure data models or simple plain Python structures; no live data fetching; no broker/account/order fields; no production integration; no `main.py` edits; basic tests for watch-only boundaries and schema-like required fields.
 - **Future promotion tests required:** trigger-card projection tests; watcher-state required-field tests; shadow-log append-shape tests; duplicate suppression tests; focus ranking tests; diagnostics tests; headline/news `NEWS_UNCONFIRMED` tests; no-trade boundary tests.
 - **Future build sequence:** local watcher scaffold, state tracking, trigger-card projection, shadow log writer, duplicate suppression runtime, focus ranking runtime, diagnostics runtime, headline/news policy placeholder handling, replay/regression validation, shadow review, phone alert layer later.
