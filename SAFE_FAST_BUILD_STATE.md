@@ -7,9 +7,9 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `06568e3 Add best current candidate focus ranking design review`
-- **Latest observed local HEAD / origin/main:** `534c1fd Sync build state after focus ranking review commit`
-- **Latest completed build milestone:** Continuous Watcher foundation best-current-candidate / focus ranking design review
+- **Latest completed milestone commit:** `34d4755 Add diagnostics explanation design review`
+- **Latest observed local HEAD / origin/main:** `34d4755 Add diagnostics explanation design review`
+- **Latest completed build milestone:** Continuous Watcher foundation diagnostics explanation design review
 - **Current objective:** headline/news source policy design review only; Continuous Watcher implementation, generated replay reports, generated chart outcome reports, option P&L, account sizing, production readiness, and live trade decisions remain NO-GO until explicitly authorized
 - **Current build direction:** post-diagnostics-explanation-review foundation design only; Continuous Watcher implementation deferred
 - **Work mode:** build work only, no live trade decisions
@@ -146,10 +146,10 @@
 - **Repo:** `nickmancini1/safe-fast-backendnew`
 - **Branch:** `main`
 - **Latest observed local HEAD / origin/main before review edits:** `534c1fd Sync build state after focus ranking review commit`.
-- **Latest completed milestone commit remains:** `06568e3 Add best current candidate focus ranking design review`.
+- **Previous completed milestone before review edits:** `06568e3 Add best current candidate focus ranking design review`.
 - **Bookkeeping sync commit after focus ranking review:** `534c1fd Sync build state after focus ranking review commit`; this is not a new completed milestone and must not create a sync loop.
-- **Commit status:** not committed; documentation review added in working tree only.
-- **Latest completed build milestone:** Continuous Watcher foundation best-current-candidate / focus ranking design review.
+- **Commit status:** committed at `34d4755 Add diagnostics explanation design review`.
+- **Latest completed build milestone:** Continuous Watcher foundation diagnostics explanation design review.
 - **Diagnostics explanation contract status:** PASS; explanation-only diagnostics purpose, required inputs, required outputs, reason-code groups, plain-English rules, unavailable-field and `NEWS_UNCONFIRMED` handling, phone/full-card behavior, shadow-log requirements, manual review labels, auditability expectations, explicit no-go boundaries, and future implementation test requirements are documented.
 - **Continuous Watcher implementation started:** no
 - **Watcher code created:** no
