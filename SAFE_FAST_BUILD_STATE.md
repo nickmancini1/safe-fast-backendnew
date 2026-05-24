@@ -7,20 +7,32 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `2629415 Add focus ranking runtime`
-- **Latest observed local HEAD / origin/main:** `cd5fc12 Sync build state after focus ranking runtime commit`
+- **Latest completed milestone commit:** `754491d Add diagnostics runtime`
+- **Latest observed local HEAD / origin/main:** `754491d Add diagnostics runtime`
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Latest completed build milestone:** Focus ranking runtime implementation
-- **Current objective:** diagnostics runtime implementation only
-- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; shadow-log writer implementation is committed; duplicate suppression runtime implementation is committed; focus ranking runtime implementation is committed; diagnostics runtime implementation is implemented in the working tree only and is not committed yet.
+- **Latest completed build milestone:** Diagnostics runtime implementation
+- **Current objective:** headline/news policy placeholder runtime implementation only
+- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; shadow-log writer implementation is committed; duplicate suppression runtime implementation is committed; focus ranking runtime implementation is committed; diagnostics runtime implementation is committed.
 - **Work mode:** build work only, no live trade decisions
+
+## Build-State Sync Discipline
+
+- Real feature/build commits are milestone commits.
+- Build-state-only sync commits are bookkeeping commits, not milestones.
+- One post-milestone build-state sync is allowed when exact commit hash/status needs updating.
+- Do not create a sync after a sync.
+- Do not stop the project just because HEAD is a bookkeeping commit.
+- Do not keep or reintroduce stale "working tree only" / "not committed" wording after a feature has been committed.
+- If only commit hash/status wording is stale, edit `SAFE_FAST_BUILD_STATE.md` only.
+- If repo/build-state/handoff disagree on baseline, objective, no-go boundaries, or actual milestone status, stop and name the conflict.
+- Always distinguish latest completed milestone commit from latest bookkeeping/sync HEAD.
 
 ## Diagnostics runtime status
 
-- **Diagnostics runtime status:** implemented in working tree only; not committed.
-- **Commit status:** not committed. Latest completed milestone commit remains `2629415 Add focus ranking runtime`.
+- **Diagnostics runtime status:** implemented and committed.
+- **Commit status:** committed at `754491d Add diagnostics runtime`.
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Allowed implementation scope used:** local diagnostics module, diagnostics runtime tests, watcher foundation export update, and this build-state update only.
 - **Implementation files:** `watcher_foundation/diagnostics.py`; `watcher_foundation/__init__.py`.
@@ -33,7 +45,7 @@
 - **Duplicate suppression runtime regression result:** PASS with `python -m unittest discover -s tests -p test_duplicate_suppression_runtime.py` (`25` tests).
 - **Focus ranking runtime regression result:** PASS with `python -m unittest discover -s tests -p test_focus_ranking_runtime.py` (`18` tests).
 - **Scope preserved:** local pure Python watch-only diagnostics explanations only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
-- **Next objective:** diagnostics runtime commit / build-state sync after user review. If this diagnostics runtime work is later committed and synced, the next implementation objective may be headline/news policy placeholder runtime implementation only.
+- **Next objective:** headline/news policy placeholder runtime implementation only.
 - **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, and live trade decisions remain NO-GO.
 
 ## Focus ranking runtime status
@@ -51,7 +63,7 @@
 - **Shadow-log writer regression result:** PASS with `python -m unittest discover -s tests -p test_shadow_log_writer.py` (`15` tests).
 - **Duplicate suppression runtime regression result:** PASS with `python -m unittest discover -s tests -p test_duplicate_suppression_runtime.py` (`25` tests).
 - **Scope preserved:** local pure Python watch-only focus ranking decisions only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
-- **Next objective:** diagnostics runtime implementation only. This bookkeeping update, if later committed, is not a new completed milestone and must not create a repeated sync loop.
+- **Next objective:** diagnostics runtime implementation was later committed at `754491d Add diagnostics runtime`; current objective is headline/news policy placeholder runtime implementation only. This bookkeeping update, if later committed, is not a new completed milestone and must not create a repeated sync loop.
 - **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, and live trade decisions remain NO-GO.
 
 ## Duplicate suppression runtime status
@@ -68,7 +80,7 @@
 - **Trigger-card projection regression result:** PASS with `python -m unittest discover -s tests -p test_trigger_card_projection.py` (`13` tests).
 - **Shadow-log writer regression result:** PASS with `python -m unittest discover -s tests -p test_shadow_log_writer.py` (`15` tests).
 - **Scope preserved:** local pure Python watch-only duplicate suppression decisions only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
-- **Next objective:** focus ranking runtime implementation was later committed at `2629415 Add focus ranking runtime`; current objective is diagnostics runtime implementation only.
+- **Next objective:** focus ranking runtime implementation was later committed at `2629415 Add focus ranking runtime`; diagnostics runtime implementation was later committed at `754491d Add diagnostics runtime`; current objective is headline/news policy placeholder runtime implementation only.
 - **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, and live trade decisions remain NO-GO.
 
 ## Shadow-log writer status
@@ -84,7 +96,7 @@
 - **State tracking regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_state_tracking.py` (`11` tests).
 - **Trigger-card projection regression result:** PASS with `python -m unittest discover -s tests -p test_trigger_card_projection.py` (`13` tests).
 - **Scope preserved:** local pure Python watch-only shadow-log record creation and JSONL/file-like append helper only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
-- **Next objective:** duplicate suppression runtime implementation was later committed at `eb23471 Add duplicate suppression runtime`; focus ranking runtime implementation was later committed at `2629415 Add focus ranking runtime`; current objective is diagnostics runtime implementation only.
+- **Next objective:** duplicate suppression runtime implementation was later committed at `eb23471 Add duplicate suppression runtime`; focus ranking runtime implementation was later committed at `2629415 Add focus ranking runtime`; diagnostics runtime implementation was later committed at `754491d Add diagnostics runtime`; current objective is headline/news policy placeholder runtime implementation only.
 - **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, and live trade decisions remain NO-GO.
 
 ## Trigger-card projection status
@@ -99,7 +111,7 @@
 - **Scaffold regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_foundation_scaffold.py` (`6` tests).
 - **State tracking regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_state_tracking.py` (`11` tests).
 - **Scope preserved:** local pure Python watch-only trigger-card projection only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
-- **Next objective:** shadow-log writer implementation was later committed at `f8b1f2c Add shadow log writer`; duplicate suppression runtime implementation was later committed at `eb23471 Add duplicate suppression runtime`; focus ranking runtime implementation was later committed at `2629415 Add focus ranking runtime`; current objective is diagnostics runtime implementation only. This bookkeeping update, if later committed, is not a new completed milestone and must not create a repeated sync loop.
+- **Next objective:** shadow-log writer implementation was later committed at `f8b1f2c Add shadow log writer`; duplicate suppression runtime implementation was later committed at `eb23471 Add duplicate suppression runtime`; focus ranking runtime implementation was later committed at `2629415 Add focus ranking runtime`; diagnostics runtime implementation was later committed at `754491d Add diagnostics runtime`; current objective is headline/news policy placeholder runtime implementation only. This bookkeeping update, if later committed, is not a new completed milestone and must not create a repeated sync loop.
 - **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, and live trade decisions remain NO-GO.
 
 ## Watcher state tracking status
@@ -115,7 +127,7 @@
 - **Latest completed milestone commit:** `5d33ed8 Add watcher state tracking`.
 - **Prior scaffold commit preserved:** `5cd96a6 Add local watch-only watcher scaffold`.
 - **Prior bookkeeping sync commit above scaffold milestone:** `43dedd5 Sync build state after watcher scaffold commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Next completed objective after this status:** trigger-card projection implementation, committed at `e069b3e Add trigger card projection`; shadow-log writer implementation was later committed at `f8b1f2c Add shadow log writer`; duplicate suppression runtime implementation was later committed at `eb23471 Add duplicate suppression runtime`; focus ranking runtime implementation was later committed at `2629415 Add focus ranking runtime`; current objective is diagnostics runtime implementation only.
+- **Next completed objective after this status:** trigger-card projection implementation, committed at `e069b3e Add trigger card projection`; shadow-log writer implementation was later committed at `f8b1f2c Add shadow log writer`; duplicate suppression runtime implementation was later committed at `eb23471 Add duplicate suppression runtime`; focus ranking runtime implementation was later committed at `2629415 Add focus ranking runtime`; diagnostics runtime implementation was later committed at `754491d Add diagnostics runtime`; current objective is headline/news policy placeholder runtime implementation only.
 - **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, and live trade decisions remain NO-GO.
 
 ## Local watch-only watcher scaffold status
@@ -129,7 +141,7 @@
 - **Latest completed milestone commit:** `5cd96a6 Add local watch-only watcher scaffold`.
 - **Prior readiness review commit preserved:** `2e55bfd Add watcher foundation implementation readiness review`.
 - **Prior bookkeeping sync commit above readiness milestone:** `bf2d047 Sync build state after watcher readiness review commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Next objective after scaffold:** watcher state tracking implementation was completed at `5d33ed8`; trigger-card projection was later committed at `e069b3e`; shadow-log writer was later committed at `f8b1f2c`; duplicate suppression runtime was later committed at `eb23471`; focus ranking runtime was later committed at `2629415`; current objective is diagnostics runtime implementation only.
+- **Next objective after scaffold:** watcher state tracking implementation was completed at `5d33ed8`; trigger-card projection was later committed at `e069b3e`; shadow-log writer was later committed at `f8b1f2c`; duplicate suppression runtime was later committed at `eb23471`; focus ranking runtime was later committed at `2629415`; diagnostics runtime was later committed at `754491d`; current objective is headline/news policy placeholder runtime implementation only.
 
 ## Strict watcher-foundation handoff / implementation readiness review status
 
@@ -146,7 +158,7 @@
 - **Latest completed build milestone:** Continuous Watcher foundation implementation readiness review.
 - **Watcher-foundation prerequisite statuses:** trigger-card contract/schema PASS; watcher state schema/design PASS; shadow log schema PASS; duplicate suppression PASS; best-current-candidate / focus ranking PASS; diagnostics explanation PASS; headline/news source policy PASS.
 - **SPY / QQQ / IWM / GLD current-depth closeout:** complete at accepted known-limits depth.
-- **Ready next:** watcher state tracking implementation was completed at `5d33ed8`; trigger-card projection was later committed at `e069b3e`; shadow-log writer was later committed at `f8b1f2c`; duplicate suppression runtime was later committed at `eb23471`; focus ranking runtime was later committed at `2629415`; current objective is diagnostics runtime implementation only.
+- **Ready next:** watcher state tracking implementation was completed at `5d33ed8`; trigger-card projection was later committed at `e069b3e`; shadow-log writer was later committed at `f8b1f2c`; duplicate suppression runtime was later committed at `eb23471`; focus ranking runtime was later committed at `2629415`; diagnostics runtime was later committed at `754491d`; current objective is headline/news policy placeholder runtime implementation only.
 - **First scaffold limits:** local watcher-foundation package/folder; pure data models or simple plain Python structures; no live data fetching; no broker/account/order fields; no production integration; no `main.py` edits; basic tests for watch-only boundaries and schema-like required fields.
 - **Future promotion tests required:** trigger-card projection tests; watcher-state required-field tests; shadow-log append-shape tests; duplicate suppression tests; focus ranking tests; diagnostics tests; headline/news `NEWS_UNCONFIRMED` tests; no-trade boundary tests.
 - **Future build sequence:** local watcher scaffold, state tracking, trigger-card projection, shadow log writer, duplicate suppression runtime, focus ranking runtime, diagnostics runtime, headline/news policy placeholder handling, replay/regression validation, shadow review, phone alert layer later.
@@ -163,7 +175,7 @@
 - **Live trade readiness claimed:** no
 - **Still not ready:** production, Railway, live backend, live data, auto-trading, broker/order execution, option P&L, account sizing, generated replay reports, generated chart outcome reports, live trade decisions.
 - **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, live trade decisions, generated reports, live data fetches, watcher runtime code, runtime schema files, invented headlines/news, invented trigger levels, invented outcomes, invented trades, invented P&L, or live facts.
-- **Next objective:** duplicate suppression runtime implementation was later committed at `eb23471 Add duplicate suppression runtime`; focus ranking runtime implementation was later committed at `2629415 Add focus ranking runtime`; current objective is diagnostics runtime implementation only, preserving all no-go boundaries.
+- **Next objective:** duplicate suppression runtime implementation was later committed at `eb23471 Add duplicate suppression runtime`; focus ranking runtime implementation was later committed at `2629415 Add focus ranking runtime`; diagnostics runtime implementation was later committed at `754491d Add diagnostics runtime`; current objective is headline/news policy placeholder runtime implementation only, preserving all no-go boundaries.
 
 ## Strict master handoff package status
 
