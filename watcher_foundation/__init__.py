@@ -12,6 +12,7 @@ from watcher_foundation.models import (
     WatchOnlyCandidateState,
     reject_forbidden_execution_fields,
 )
+from watcher_foundation.state_tracker import WatcherTrackedState, update_watcher_state
 
 __all__ = [
     "ACCEPTED_HEADLINE_NEWS_STATUSES",
@@ -21,5 +22,7 @@ __all__ = [
     "EXPLICIT_UNCONFIRMED_MARKERS",
     "NEWS_UNCONFIRMED",
     "WatchOnlyCandidateState",
+    "WatcherTrackedState",
     "reject_forbidden_execution_fields",
+    "update_watcher_state",
 ]

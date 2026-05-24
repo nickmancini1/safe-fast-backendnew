@@ -8,12 +8,25 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `5cd96a6 Add local watch-only watcher scaffold`
-- **Latest observed local HEAD / origin/main:** `5cd96a6 Add local watch-only watcher scaffold`
-- **Bookkeeping note:** this build-state wording update, if later committed, is a bookkeeping-only sync after the local watch-only watcher scaffold commit; it is not a new completed milestone and must not create a repeated sync loop.
+- **Latest observed local HEAD / origin/main:** `43dedd5 Sync build state after watcher scaffold commit`
+- **Bookkeeping note:** `43dedd5` is a bookkeeping-only sync after the local watch-only watcher scaffold commit; it is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed build milestone:** Local watch-only watcher scaffold implementation
-- **Current objective:** watcher state tracking implementation only
-- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is the only current objective
+- **Current objective:** watcher state tracking implementation review / commit decision only
+- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking is implemented in the working tree only and is not committed yet
 - **Work mode:** build work only, no live trade decisions
+
+## Watcher state tracking status
+
+- **State tracking status:** implemented in working tree only; not committed.
+- **Allowed implementation scope used:** local watcher state tracking module, state tracking tests, watcher foundation exports/constants, and this build-state update only.
+- **Implementation files:** `watcher_foundation/state_tracker.py`; `watcher_foundation/__init__.py`; `watcher_foundation/constants.py`.
+- **Test file:** `tests/test_watcher_state_tracking.py`.
+- **Local test result:** PASS with `python -m unittest discover -s tests -p test_watcher_state_tracking.py` (`11` tests).
+- **Scaffold regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_foundation_scaffold.py` (`6` tests).
+- **Scope preserved:** local pure Python watch-only state tracking only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
+- **Latest completed milestone commit remains:** `5cd96a6 Add local watch-only watcher scaffold`.
+- **Bookkeeping sync commit above milestone:** `43dedd5 Sync build state after watcher scaffold commit`; this is not a new completed milestone and must not create a repeated sync loop.
+- **Next objective:** watcher state tracking commit / build-state sync after user review. Trigger-card projection implementation only becomes eligible later if this state tracking work is explicitly committed and synced.
 
 ## Local watch-only watcher scaffold status
 
