@@ -7,26 +7,29 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `5cd96a6 Add local watch-only watcher scaffold`
-- **Latest observed local HEAD / origin/main:** `43dedd5 Sync build state after watcher scaffold commit`
-- **Bookkeeping note:** `43dedd5` is a bookkeeping-only sync after the local watch-only watcher scaffold commit; it is not a new completed milestone and must not create a repeated sync loop.
-- **Latest completed build milestone:** Local watch-only watcher scaffold implementation
-- **Current objective:** watcher state tracking implementation review / commit decision only
-- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking is implemented in the working tree only and is not committed yet
+- **Latest completed milestone commit:** `5d33ed8 Add watcher state tracking`
+- **Latest observed local HEAD / origin/main:** `5d33ed8 Add watcher state tracking`
+- **Bookkeeping note:** this build-state wording update, if later committed, is not a new completed milestone and must not create a repeated sync loop.
+- **Latest completed build milestone:** Watcher state tracking implementation
+- **Current objective:** trigger-card projection implementation only
+- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is the only current objective
 - **Work mode:** build work only, no live trade decisions
 
 ## Watcher state tracking status
 
-- **State tracking status:** implemented in working tree only; not committed.
+- **State tracking status:** implemented and committed.
+- **Commit status:** committed at `5d33ed8 Add watcher state tracking`.
 - **Allowed implementation scope used:** local watcher state tracking module, state tracking tests, watcher foundation exports/constants, and this build-state update only.
 - **Implementation files:** `watcher_foundation/state_tracker.py`; `watcher_foundation/__init__.py`; `watcher_foundation/constants.py`.
 - **Test file:** `tests/test_watcher_state_tracking.py`.
 - **Local test result:** PASS with `python -m unittest discover -s tests -p test_watcher_state_tracking.py` (`11` tests).
 - **Scaffold regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_foundation_scaffold.py` (`6` tests).
 - **Scope preserved:** local pure Python watch-only state tracking only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
-- **Latest completed milestone commit remains:** `5cd96a6 Add local watch-only watcher scaffold`.
-- **Bookkeeping sync commit above milestone:** `43dedd5 Sync build state after watcher scaffold commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Next objective:** watcher state tracking commit / build-state sync after user review. Trigger-card projection implementation only becomes eligible later if this state tracking work is explicitly committed and synced.
+- **Latest completed milestone commit:** `5d33ed8 Add watcher state tracking`.
+- **Prior scaffold commit preserved:** `5cd96a6 Add local watch-only watcher scaffold`.
+- **Prior bookkeeping sync commit above scaffold milestone:** `43dedd5 Sync build state after watcher scaffold commit`; this is not a new completed milestone and must not create a repeated sync loop.
+- **Next objective:** trigger-card projection implementation only.
+- **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, and live trade decisions remain NO-GO.
 
 ## Local watch-only watcher scaffold status
 
@@ -39,7 +42,7 @@
 - **Latest completed milestone commit:** `5cd96a6 Add local watch-only watcher scaffold`.
 - **Prior readiness review commit preserved:** `2e55bfd Add watcher foundation implementation readiness review`.
 - **Prior bookkeeping sync commit above readiness milestone:** `bf2d047 Sync build state after watcher readiness review commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Next objective:** watcher state tracking implementation only.
+- **Next objective:** watcher state tracking implementation was completed at `5d33ed8`; current objective is trigger-card projection implementation only.
 
 ## Strict watcher-foundation handoff / implementation readiness review status
 
@@ -56,13 +59,13 @@
 - **Latest completed build milestone:** Continuous Watcher foundation implementation readiness review.
 - **Watcher-foundation prerequisite statuses:** trigger-card contract/schema PASS; watcher state schema/design PASS; shadow log schema PASS; duplicate suppression PASS; best-current-candidate / focus ranking PASS; diagnostics explanation PASS; headline/news source policy PASS.
 - **SPY / QQQ / IWM / GLD current-depth closeout:** complete at accepted known-limits depth.
-- **Ready next:** watcher state tracking implementation only, after the committed local watch-only watcher scaffold.
+- **Ready next:** watcher state tracking implementation was completed at `5d33ed8`; current objective is trigger-card projection implementation only.
 - **First scaffold limits:** local watcher-foundation package/folder; pure data models or simple plain Python structures; no live data fetching; no broker/account/order fields; no production integration; no `main.py` edits; basic tests for watch-only boundaries and schema-like required fields.
 - **Future promotion tests required:** trigger-card projection tests; watcher-state required-field tests; shadow-log append-shape tests; duplicate suppression tests; focus ranking tests; diagnostics tests; headline/news `NEWS_UNCONFIRMED` tests; no-trade boundary tests.
 - **Future build sequence:** local watcher scaffold, state tracking, trigger-card projection, shadow log writer, duplicate suppression runtime, focus ranking runtime, diagnostics runtime, headline/news policy placeholder handling, replay/regression validation, shadow review, phone alert layer later.
 - **Phone/laptop plan preserved:** laptop runs watcher first; phone gets short alerts later; phone does not run full watcher first; ChatGPT reviews cards/logs after the fact; ChatGPT does not call live trades.
 - **Continuous Watcher implementation started:** no
-- **Continuous Watcher implementation remains:** deferred outside the next allowed watcher state tracking objective.
+- **Continuous Watcher implementation remains:** deferred outside the current trigger-card projection implementation objective.
 - **Watcher runtime code created:** no
 - **Runtime schema files created:** no
 - **Generated replay reports created:** no
@@ -73,7 +76,7 @@
 - **Live trade readiness claimed:** no
 - **Still not ready:** production, Railway, live backend, live data, auto-trading, broker/order execution, option P&L, account sizing, generated replay reports, generated chart outcome reports, live trade decisions.
 - **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, live trade decisions, generated reports, live data fetches, watcher runtime code, runtime schema files, invented headlines/news, invented trigger levels, invented outcomes, invented trades, invented P&L, or live facts.
-- **Next objective:** watcher state tracking implementation only, preserving all no-go boundaries.
+- **Next objective:** trigger-card projection implementation only, preserving all no-go boundaries.
 
 ## Strict master handoff package status
 
