@@ -8,12 +8,29 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `f8b1f2c Add shadow log writer`
-- **Latest observed local HEAD / origin/main:** `f8b1f2c Add shadow log writer`
-- **Bookkeeping note:** this build-state wording update, if later committed, is not a new completed milestone and must not create a repeated sync loop.
+- **Latest observed local HEAD / origin/main:** `80dc639 Sync build state after shadow log writer commit`
+- **Bookkeeping sync commit above milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed build milestone:** Shadow-log writer implementation
 - **Current objective:** duplicate suppression runtime implementation only
-- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; shadow-log writer implementation is committed; duplicate suppression runtime implementation is the current objective; this bookkeeping edit does not start runtime behavior.
+- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; shadow-log writer implementation is committed; duplicate suppression runtime implementation is implemented in the working tree only and not committed yet; this bookkeeping edit does not start runtime behavior.
 - **Work mode:** build work only, no live trade decisions
+
+## Duplicate suppression runtime status
+
+- **Duplicate suppression runtime status:** implemented in working tree only; not committed.
+- **Commit status:** not committed; latest completed milestone remains `f8b1f2c Add shadow log writer`.
+- **Bookkeeping sync commit above milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
+- **Allowed implementation scope used:** local duplicate suppression module, duplicate suppression runtime tests, watcher foundation export update, and this build-state update only.
+- **Implementation files:** `watcher_foundation/duplicate_suppression.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_duplicate_suppression_runtime.py`.
+- **Local test result:** PASS with `python -m unittest discover -s tests -p test_duplicate_suppression_runtime.py` (`25` tests).
+- **Scaffold regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_foundation_scaffold.py` (`6` tests).
+- **State tracking regression result:** PASS with `python -m unittest discover -s tests -p test_watcher_state_tracking.py` (`11` tests).
+- **Trigger-card projection regression result:** PASS with `python -m unittest discover -s tests -p test_trigger_card_projection.py` (`13` tests).
+- **Shadow-log writer regression result:** PASS with `python -m unittest discover -s tests -p test_shadow_log_writer.py` (`15` tests).
+- **Scope preserved:** local pure Python watch-only duplicate suppression decisions only; no live data fetching, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
+- **Next objective:** duplicate suppression runtime commit / build-state sync after user review. Focus ranking runtime implementation only becomes eligible if this duplicate suppression runtime work is later committed and synced.
+- **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, and live trade decisions remain NO-GO.
 
 ## Shadow-log writer status
 

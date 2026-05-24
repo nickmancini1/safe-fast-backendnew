@@ -8,6 +8,14 @@ from watcher_foundation.constants import (
     EXPLICIT_UNCONFIRMED_MARKERS,
     NEWS_UNCONFIRMED,
 )
+from watcher_foundation.duplicate_suppression import (
+    DUPLICATE_SUPPRESSION_FINGERPRINT_VERSION,
+    DUPLICATE_SUPPRESSION_KEY_FIELD_NAMES,
+    MATERIAL_CHANGE_FLAGS_THAT_BREAK_SUPPRESSION,
+    build_duplicate_suppression_key_fields,
+    build_suppression_fingerprint,
+    decide_duplicate_suppression,
+)
 from watcher_foundation.models import (
     WatchOnlyCandidateState,
     reject_forbidden_execution_fields,
@@ -34,7 +42,10 @@ __all__ = [
     "ACCEPTED_TRIGGER_STATUSES",
     "ALLOWED_SHADOW_LOG_EVENT_TYPES",
     "DEFAULT_REVIEW_LABEL",
+    "DUPLICATE_SUPPRESSION_FINGERPRINT_VERSION",
+    "DUPLICATE_SUPPRESSION_KEY_FIELD_NAMES",
     "EXPLICIT_UNCONFIRMED_MARKERS",
+    "MATERIAL_CHANGE_FLAGS_THAT_BREAK_SUPPRESSION",
     "NEWS_UNCONFIRMED",
     "REQUIRED_SHADOW_LOG_FIELDS",
     "REQUIRED_TRIGGER_CARD_FIELDS",
@@ -42,7 +53,10 @@ __all__ = [
     "WatchOnlyCandidateState",
     "WatcherTrackedState",
     "append_shadow_log_line",
+    "build_duplicate_suppression_key_fields",
+    "build_suppression_fingerprint",
     "create_shadow_log_record",
+    "decide_duplicate_suppression",
     "project_trigger_card",
     "reject_forbidden_execution_fields",
     "serialize_shadow_log_line",
