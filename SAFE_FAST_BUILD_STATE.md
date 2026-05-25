@@ -7,15 +7,15 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `cacfd83 Add watcher replay regression hardening tests`
-- **Latest observed local HEAD / origin/main from user log:** `cacfd83 Add watcher replay regression hardening tests`
+- **Latest completed milestone commit:** `20e0410 Add stable winner selection replay hardening tests`
+- **Latest observed local HEAD / origin/main from user log:** `20e0410 Add stable winner selection replay hardening tests`
 - **Bookkeeping sync commit after diagnostics runtime milestone:** `1fe1aa8 Sync build state after diagnostics runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Latest completed build milestone:** Watcher replay/regression fixture hardening
-- **Current objective:** stable winner selection replay/regression hardening using local/in-memory fixtures only
-- **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; next phase is stable winner selection replay/regression hardening using local/in-memory fixtures only.
+- **Latest completed build milestone:** Stable winner selection replay/regression hardening
+- **Current objective:** local replay/regression validation suite aggregation / reliability hardening using local/in-memory fixtures only
+- **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; next phase is local replay/regression validation suite aggregation / reliability hardening using local/in-memory fixtures only.
 - **Work mode:** build work only, no live trade decisions
 
 ## Build-State Sync Discipline
@@ -146,13 +146,13 @@
 
 ## Stable winner selection replay/regression hardening status
 
-- **Stable winner selection replay/regression hardening status:** implemented in working tree and ready for user review/commit.
-- **Commit status:** not committed yet.
+- **Stable winner selection replay/regression hardening status:** implemented and committed.
+- **Commit status:** committed at `20e0410 Add stable winner selection replay hardening tests`.
 - **Implementation files:** none.
 - **Test files:** `tests/test_watcher_stable_winner_selection_replay.py`; `tests/test_watcher_foundation_local_validation_suite.py`.
 - **Local test results:** PASS with `python -m unittest discover -s tests -p test_focus_ranking_runtime.py` (`18` tests); PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_runner.py` (`12` tests); PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_hardening.py` (`13` tests); PASS with `python -m unittest discover -s tests -p test_watcher_stable_winner_selection_replay.py` (`8` tests); PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`188` tests).
 - **Scope preserved:** local pure Python watch-only stable winner selection replay/regression hardening only; in-memory synthetic observations only; no live data fetching, watcher loops, schedulers, phone alerts, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option/P&L/trade-decision fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, account sizing, or live trade decisions.
-- **Next objective:** user review / commit of stable winner selection replay/regression hardening.
+- **Next objective:** local replay/regression validation suite aggregation / reliability hardening using local/in-memory fixtures only.
 
 ## Diagnostics runtime status
 
