@@ -164,6 +164,16 @@
 - **Scope preserved:** local unittest aggregation/reliability hardening only; in-memory synthetic replay observations only; no live data fetching, network calls, files, watcher loops, schedulers, phone alerts, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option/P&L/trade-decision fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, account sizing, live trade approval, or live trade decisions.
 - **Next objective:** local replay/regression boundary cleanup / final validation sweep using local/in-memory fixtures only.
 
+## Local replay/regression boundary final validation sweep status
+
+- **Local replay/regression boundary final validation sweep status:** implemented in working tree and ready for user review/commit.
+- **Commit status:** not committed yet.
+- **Implementation files:** none.
+- **Test files:** `tests/test_watcher_replay_boundary_final_sweep.py`; `tests/test_watcher_foundation_local_validation_suite.py`.
+- **Local test results:** PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_runner.py` (`12` tests); PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_hardening.py` (`13` tests); PASS with `python -m unittest discover -s tests -p test_watcher_stable_winner_selection_replay.py` (`8` tests); PASS with `python -m unittest discover -s tests -p test_watcher_replay_validation_suite_reliability.py` (`8` tests); PASS with `python -m unittest discover -s tests -p test_watcher_replay_boundary_final_sweep.py` (`9` tests); PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`205` tests).
+- **Scope preserved:** local unittest final validation sweep only; in-memory synthetic replay observations only; no live data fetching, network calls, file persistence, watcher loops, schedulers, phone alerts, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option/P&L/trade-decision fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, account sizing, live trade approval, or live trade decisions.
+- **Next objective:** user review / commit of local replay/regression boundary final validation sweep.
+
 ## Diagnostics runtime status
 
 - **Diagnostics runtime status:** implemented and committed.
