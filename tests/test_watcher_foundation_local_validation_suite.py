@@ -18,6 +18,7 @@ WATCHER_FOUNDATION_TEST_MODULES = (
     "tests.test_watcher_replay_regression_runner",
     "tests.test_watcher_replay_regression_hardening",
     "tests.test_watcher_stable_winner_selection_replay",
+    "tests.test_watcher_replay_validation_suite_reliability",
 )
 
 
