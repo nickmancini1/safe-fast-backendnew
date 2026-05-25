@@ -8,6 +8,10 @@ from watcher_foundation.constants import (
     EXPLICIT_UNCONFIRMED_MARKERS,
     NEWS_UNCONFIRMED,
 )
+from watcher_foundation.batch_runner import (
+    BATCH_RUNNER_RESULT_FIELDS,
+    run_local_watcher_batch,
+)
 from watcher_foundation.diagnostics import (
     DIAGNOSTIC_REASON_CODE_GROUPS,
     build_diagnostics,
@@ -54,6 +58,7 @@ __all__ = [
     "ACCEPTED_STAGES",
     "ACCEPTED_TRIGGER_STATUSES",
     "ALLOWED_SHADOW_LOG_EVENT_TYPES",
+    "BATCH_RUNNER_RESULT_FIELDS",
     "DEFAULT_REVIEW_LABEL",
     "DIAGNOSTIC_REASON_CODE_GROUPS",
     "DUPLICATE_SUPPRESSION_FINGERPRINT_VERSION",
@@ -82,6 +87,7 @@ __all__ = [
     "project_trigger_card",
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",
+    "run_local_watcher_batch",
     "run_local_watcher_pipeline",
     "serialize_shadow_log_line",
     "update_watcher_state",
