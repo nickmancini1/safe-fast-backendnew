@@ -7,15 +7,15 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `ed9e248 Add watcher foundation closeout replay readiness review`
+- **Latest completed milestone commit:** `e44fbc3 Add local watcher replay regression runner`
 - **Latest observed local HEAD / origin/main from user log:** `6be965b Add strict watcher foundation closeout handoff package`
 - **Bookkeeping sync commit after diagnostics runtime milestone:** `1fe1aa8 Sync build state after diagnostics runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Latest completed build milestone:** Watcher foundation closeout / replay-readiness review
-- **Current objective:** watcher replay/regression fixture plan or local replay/regression runner using local fixtures only
-- **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; next phase is watcher replay/regression validation using local/in-memory fixtures only.
+- **Latest completed build milestone:** Local watcher replay/regression runner
+- **Current objective:** watcher replay/regression fixture expansion / validation hardening using local/in-memory fixtures only
+- **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; next phase is watcher replay/regression fixture expansion / validation hardening using local/in-memory fixtures only.
 - **Work mode:** build work only, no live trade decisions
 
 ## Build-State Sync Discipline
@@ -109,7 +109,7 @@
 - **Local validation suite result:** PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`155` tests).
 - **Targeted watcher regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold tests.test_watcher_state_tracking tests.test_trigger_card_projection tests.test_shadow_log_writer tests.test_duplicate_suppression_runtime tests.test_focus_ranking_runtime tests.test_diagnostics_runtime tests.test_headline_news_policy_placeholder tests.test_watcher_pipeline_integration tests.test_watcher_pipeline_sequence_regression tests.test_watcher_batch_runner tests.test_watcher_fixture_regression_pack` (`155` tests).
 - **Scope preserved:** local unittest aggregation/validation only; imports and runs existing watcher foundation coverage; no live data fetching, watcher loops, schedulers, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, trade approval, or live trade decisions.
-- **Next objective:** Watcher replay/regression fixture plan or local replay/regression runner using local fixtures only.
+- **Next objective:** watcher replay/regression fixture expansion / validation hardening using local/in-memory fixtures only.
 - **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, phone alerts, and live trade decisions remain NO-GO.
 
 ## Watcher foundation closeout / replay-readiness review status
@@ -120,19 +120,19 @@
 - **Review file:** `SAFE_FAST_WATCHER_FOUNDATION_CLOSEOUT_REPLAY_READINESS_REVIEW.md`.
 - **Local validation suite result:** PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`155` tests).
 - **Scope preserved:** documentation/readiness only; no `main.py`, engine logic, Railway, production/deploy files, live backend, live data, broker/order execution, option P&L, account sizing, phone alerts, generated reports, persistent generated logs, or live trade decisions.
-- **Ready next:** watcher replay/regression validation planning or implementation using local/in-memory fixtures only.
+- **Ready next:** watcher replay/regression fixture expansion / validation hardening using local/in-memory fixtures only.
 - **Not ready / NO-GO:** production, live data, phone alerts, persistent logs/reports, Railway, deploy, broker/order execution, option P&L, account sizing, and live trade decisions remain NO-GO.
-- **Next objective:** Watcher replay/regression fixture plan or local replay/regression runner using local fixtures only.
+- **Next objective:** watcher replay/regression fixture expansion / validation hardening using local/in-memory fixtures only.
 
 ## Local watcher replay/regression runner status
 
-- **Local watcher replay/regression runner status:** implemented in working tree and ready for user review/commit.
-- **Commit status:** not committed yet.
+- **Local watcher replay/regression runner status:** implemented and committed.
+- **Commit status:** committed at `e44fbc3 Add local watcher replay regression runner`.
 - **Implementation files:** `watcher_foundation/replay_regression.py`; `watcher_foundation/__init__.py`.
 - **Test files:** `tests/test_watcher_replay_regression_runner.py`; `tests/test_watcher_foundation_local_validation_suite.py`.
 - **Local test results:** PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_runner.py` (`12` tests); PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`167` tests).
 - **Scope preserved:** local pure Python watch-only replay/regression runner only; accepts named in-memory fixture cases and caller-provided observation dictionaries only; compares selected expected in-memory outputs; creates no generated replay reports, generated chart outcome reports, persistent generated logs/reports, watcher loops, schedulers, phone alerts, live data fetches, broker/order/account/option/P&L/trade-decision fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, or live trade decisions.
-- **Next objective:** user review / commit of local watcher replay/regression runner.
+- **Next objective:** watcher replay/regression fixture expansion / validation hardening using local/in-memory fixtures only.
 
 ## Diagnostics runtime status
 
