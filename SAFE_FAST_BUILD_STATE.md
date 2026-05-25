@@ -7,15 +7,15 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `3f20e76 Add local watcher batch runner`
-- **Latest observed local HEAD / origin/main from user log:** `3f20e76 Add local watcher batch runner`
+- **Latest completed milestone commit:** `94746b9 Add watcher fixture regression pack`
+- **Latest observed local HEAD / origin/main from user log:** `94746b9 Add watcher fixture regression pack`
 - **Bookkeeping sync commit after diagnostics runtime milestone:** `1fe1aa8 Sync build state after diagnostics runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Latest completed build milestone:** Local in-memory watcher batch runner
-- **Current objective:** watcher fixture regression pack commit / user review.
-- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; shadow-log writer implementation is committed; duplicate suppression runtime implementation is committed; focus ranking runtime implementation is committed; diagnostics runtime implementation is committed; headline/news policy placeholder runtime is committed; local watcher pipeline integration is committed; local watcher pipeline sequence regression is committed; local in-memory watcher batch runner is committed; watcher fixture regression pack is ready to be committed as the next feature milestone after local test/user review.
+- **Latest completed build milestone:** Watcher fixture regression pack
+- **Current objective:** watcher foundation local validation suite commit / user review.
+- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; shadow-log writer implementation is committed; duplicate suppression runtime implementation is committed; focus ranking runtime implementation is committed; diagnostics runtime implementation is committed; headline/news policy placeholder runtime is committed; local watcher pipeline integration is committed; local watcher pipeline sequence regression is committed; local in-memory watcher batch runner is committed; watcher fixture regression pack is committed; watcher foundation local validation suite is ready to be committed as the next feature milestone after local test/user review.
 - **Work mode:** build work only, no live trade decisions
 
 ## Build-State Sync Discipline
@@ -83,20 +83,33 @@
 - **Test file:** `tests/test_watcher_batch_runner.py`.
 - **Local test result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold tests.test_watcher_state_tracking tests.test_trigger_card_projection tests.test_shadow_log_writer tests.test_duplicate_suppression_runtime tests.test_focus_ranking_runtime tests.test_diagnostics_runtime tests.test_headline_news_policy_placeholder tests.test_watcher_pipeline_integration tests.test_watcher_pipeline_sequence_regression tests.test_watcher_batch_runner` (`150` tests).
 - **Scope preserved:** local pure Python watch-only batch runner only; accepts caller-provided observation dicts only; runs the existing local watcher pipeline in order; tracks prior state and duplicate suppression in memory only; returns plain dict summary results and in-memory shadow log records only; no live data fetching, watcher loops, schedulers, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, trade approval, or live trade decisions.
-- **Next objective:** watcher fixture regression pack commit / user review.
+- **Next objective:** watcher foundation local validation suite commit / user review.
 - **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, phone alerts, and live trade decisions remain NO-GO.
 
 ## Watcher fixture regression pack status
 
-- **Watcher fixture regression pack status:** ready to be committed as the next feature milestone after local test/user review.
-- **Commit status:** to be established by the feature commit; latest completed milestone commit remains `3f20e76 Add local watcher batch runner`.
+- **Watcher fixture regression pack status:** implemented and committed.
+- **Commit status:** committed at `94746b9 Add watcher fixture regression pack`.
 - **Allowed implementation scope used:** local fixture-style watcher batch runner/pipeline regression tests and this build-state update only.
 - **Implementation files:** none.
 - **Test file:** `tests/test_watcher_fixture_regression_pack.py`.
 - **Local test result:** PASS with `python -m unittest discover -s tests -p test_watcher_fixture_regression_pack.py` (`5` tests).
 - **Targeted watcher regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold tests.test_watcher_state_tracking tests.test_trigger_card_projection tests.test_shadow_log_writer tests.test_duplicate_suppression_runtime tests.test_focus_ranking_runtime tests.test_diagnostics_runtime tests.test_headline_news_policy_placeholder tests.test_watcher_pipeline_integration tests.test_watcher_pipeline_sequence_regression tests.test_watcher_batch_runner tests.test_watcher_fixture_regression_pack` (`155` tests).
 - **Scope preserved:** local pure Python watch-only fixture regressions only; in-memory caller-provided observations only; covers Ideal, Clean Fast Break, and Continuation setup types; no live data fetching, watcher loops, schedulers, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, trade approval, or live trade decisions.
-- **Next objective:** watcher fixture regression pack commit / user review.
+- **Next objective:** watcher foundation local validation suite commit / user review.
+- **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, phone alerts, and live trade decisions remain NO-GO.
+
+## Watcher foundation local validation suite status
+
+- **Watcher foundation local validation suite status:** ready to be committed as the next feature milestone after local test/user review.
+- **Commit status:** to be established by the feature commit; latest completed milestone commit remains `94746b9 Add watcher fixture regression pack`.
+- **Allowed implementation scope used:** local unittest validation suite wrapper for existing watcher foundation coverage and this build-state update only.
+- **Implementation files:** none.
+- **Test file:** `tests/test_watcher_foundation_local_validation_suite.py`.
+- **Local validation suite result:** PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`155` tests).
+- **Targeted watcher regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold tests.test_watcher_state_tracking tests.test_trigger_card_projection tests.test_shadow_log_writer tests.test_duplicate_suppression_runtime tests.test_focus_ranking_runtime tests.test_diagnostics_runtime tests.test_headline_news_policy_placeholder tests.test_watcher_pipeline_integration tests.test_watcher_pipeline_sequence_regression tests.test_watcher_batch_runner tests.test_watcher_fixture_regression_pack` (`155` tests).
+- **Scope preserved:** local unittest aggregation/validation only; imports and runs existing watcher foundation coverage; no live data fetching, watcher loops, schedulers, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, trade approval, or live trade decisions.
+- **Next objective:** watcher foundation local validation suite commit / user review.
 - **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, phone alerts, and live trade decisions remain NO-GO.
 
 ## Diagnostics runtime status
