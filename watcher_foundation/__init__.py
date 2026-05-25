@@ -37,6 +37,11 @@ from watcher_foundation.models import (
     reject_forbidden_execution_fields,
 )
 from watcher_foundation.pipeline import PIPELINE_RESULT_FIELDS, run_local_watcher_pipeline
+from watcher_foundation.replay_regression import (
+    REPLAY_REGRESSION_RESULT_FIELDS,
+    ReplayRegressionCase,
+    run_local_replay_regression,
+)
 from watcher_foundation.state_tracker import WatcherTrackedState, update_watcher_state
 from watcher_foundation.shadow_log import (
     ALLOWED_SHADOW_LOG_EVENT_TYPES,
@@ -71,8 +76,10 @@ __all__ = [
     "REQUIRED_SHADOW_LOG_FIELDS",
     "REQUIRED_HEADLINE_NEWS_POLICY_FIELDS",
     "REQUIRED_TRIGGER_CARD_FIELDS",
+    "REPLAY_REGRESSION_RESULT_FIELDS",
     "SHADOW_LOG_SCHEMA_VERSION",
     "VALID_SOURCE_STATUSES",
+    "ReplayRegressionCase",
     "WatchOnlyCandidateState",
     "WatcherTrackedState",
     "append_shadow_log_line",
@@ -87,6 +94,7 @@ __all__ = [
     "project_trigger_card",
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",
+    "run_local_replay_regression",
     "run_local_watcher_batch",
     "run_local_watcher_pipeline",
     "serialize_shadow_log_line",

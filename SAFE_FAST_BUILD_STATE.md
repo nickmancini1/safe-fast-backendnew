@@ -124,6 +124,16 @@
 - **Not ready / NO-GO:** production, live data, phone alerts, persistent logs/reports, Railway, deploy, broker/order execution, option P&L, account sizing, and live trade decisions remain NO-GO.
 - **Next objective:** Watcher replay/regression fixture plan or local replay/regression runner using local fixtures only.
 
+## Local watcher replay/regression runner status
+
+- **Local watcher replay/regression runner status:** implemented in working tree and ready for user review/commit.
+- **Commit status:** not committed yet.
+- **Implementation files:** `watcher_foundation/replay_regression.py`; `watcher_foundation/__init__.py`.
+- **Test files:** `tests/test_watcher_replay_regression_runner.py`; `tests/test_watcher_foundation_local_validation_suite.py`.
+- **Local test results:** PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_runner.py` (`12` tests); PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`167` tests).
+- **Scope preserved:** local pure Python watch-only replay/regression runner only; accepts named in-memory fixture cases and caller-provided observation dictionaries only; compares selected expected in-memory outputs; creates no generated replay reports, generated chart outcome reports, persistent generated logs/reports, watcher loops, schedulers, phone alerts, live data fetches, broker/order/account/option/P&L/trade-decision fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, or live trade decisions.
+- **Next objective:** user review / commit of local watcher replay/regression runner.
+
 ## Diagnostics runtime status
 
 - **Diagnostics runtime status:** implemented and committed.
