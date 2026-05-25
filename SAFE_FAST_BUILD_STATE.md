@@ -134,6 +134,16 @@
 - **Scope preserved:** local pure Python watch-only replay/regression runner only; accepts named in-memory fixture cases and caller-provided observation dictionaries only; compares selected expected in-memory outputs; creates no generated replay reports, generated chart outcome reports, persistent generated logs/reports, watcher loops, schedulers, phone alerts, live data fetches, broker/order/account/option/P&L/trade-decision fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, or live trade decisions.
 - **Next objective:** watcher replay/regression fixture expansion / validation hardening using local/in-memory fixtures only.
 
+## Watcher replay/regression fixture hardening status
+
+- **Watcher replay/regression fixture hardening status:** implemented in working tree and ready for user review/commit.
+- **Commit status:** not committed yet.
+- **Implementation files:** none.
+- **Test files:** `tests/test_watcher_replay_regression_hardening.py`; `tests/test_watcher_foundation_local_validation_suite.py`.
+- **Local test results:** PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_runner.py` (`12` tests); PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_hardening.py` (`13` tests); PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`180` tests).
+- **Scope preserved:** local pure Python watch-only replay/regression fixture hardening only; in-memory synthetic observations only; no live data fetching, watcher loops, schedulers, phone alerts, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option/P&L/trade-decision fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, account sizing, or live trade decisions.
+- **Next objective:** user review / commit of watcher replay/regression fixture hardening.
+
 ## Diagnostics runtime status
 
 - **Diagnostics runtime status:** implemented and committed.

@@ -16,6 +16,7 @@ WATCHER_FOUNDATION_TEST_MODULES = (
     "tests.test_watcher_batch_runner",
     "tests.test_watcher_fixture_regression_pack",
     "tests.test_watcher_replay_regression_runner",
+    "tests.test_watcher_replay_regression_hardening",
 )
 
 
