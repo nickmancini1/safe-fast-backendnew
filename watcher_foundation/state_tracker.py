@@ -112,6 +112,8 @@ class WatcherTrackedState:
     state_change_reason_codes: tuple[str, ...] = ("no_material_change",)
     material_change_flags: tuple[str, ...] = ("no_material_change",)
     next_check_or_next_alert_condition: str = "UNCONFIRMED"
+    trigger_path_identifier: str = "UNCONFIRMED"
+    fresh_trigger_path_present: bool = False
     repeat_count: int = 0
 
     def __post_init__(self) -> None:
@@ -185,6 +187,8 @@ class WatcherTrackedState:
             "next_check_or_next_alert_condition": (
                 self.next_check_or_next_alert_condition
             ),
+            "trigger_path_identifier": self.trigger_path_identifier,
+            "fresh_trigger_path_present": self.fresh_trigger_path_present,
             "repeat_count": self.repeat_count,
         }
         if validate:

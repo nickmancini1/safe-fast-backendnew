@@ -127,6 +127,16 @@ def project_trigger_card(
         ),
         "headline_news_status": source.get("headline_news_status")
         or NEWS_UNCONFIRMED,
+        "headline_news_source_status": source.get(
+            "headline_news_source_status", "source_unconfirmed"
+        ),
+        "headline_news_source_confirmed": bool(
+            source.get("headline_news_source_confirmed", False)
+        ),
+        "news_evidence_refs": _as_list(source.get("news_evidence_refs", ())),
+        "news_policy_reason_codes": _as_list(
+            source.get("news_policy_reason_codes", ())
+        ),
         "diagnostic_reason_codes": _diagnostic_reason_codes(source),
         "no_trade_reason": _no_trade_reason(source),
         "duplicate_suppression_key_fields": _duplicate_suppression_key_fields(source),
@@ -136,6 +146,10 @@ def project_trigger_card(
 
     if "evidence_refs" in source:
         card["evidence_refs"] = _as_list(source["evidence_refs"])
+    if "trigger_path_identifier" in source:
+        card["trigger_path_identifier"] = source["trigger_path_identifier"]
+    if "fresh_trigger_path_present" in source:
+        card["fresh_trigger_path_present"] = bool(source["fresh_trigger_path_present"])
 
     _preserve_no_trade_boundaries(card)
     reject_forbidden_execution_fields(card)
