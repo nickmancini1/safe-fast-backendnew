@@ -32,6 +32,7 @@ from watcher_foundation.models import (
     WatchOnlyCandidateState,
     reject_forbidden_execution_fields,
 )
+from watcher_foundation.pipeline import PIPELINE_RESULT_FIELDS, run_local_watcher_pipeline
 from watcher_foundation.state_tracker import WatcherTrackedState, update_watcher_state
 from watcher_foundation.shadow_log import (
     ALLOWED_SHADOW_LOG_EVENT_TYPES,
@@ -61,6 +62,7 @@ __all__ = [
     "FOCUS_RANK_BUCKETS",
     "MATERIAL_CHANGE_FLAGS_THAT_BREAK_SUPPRESSION",
     "NEWS_UNCONFIRMED",
+    "PIPELINE_RESULT_FIELDS",
     "REQUIRED_SHADOW_LOG_FIELDS",
     "REQUIRED_HEADLINE_NEWS_POLICY_FIELDS",
     "REQUIRED_TRIGGER_CARD_FIELDS",
@@ -80,6 +82,7 @@ __all__ = [
     "project_trigger_card",
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",
+    "run_local_watcher_pipeline",
     "serialize_shadow_log_line",
     "update_watcher_state",
 ]

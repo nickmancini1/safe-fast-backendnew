@@ -7,15 +7,15 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `754491d Add diagnostics runtime`
-- **Latest observed local HEAD / origin/main:** `1fe1aa8 Sync build state after diagnostics runtime commit`
+- **Latest completed milestone commit:** `5868d98 Add headline news policy placeholder runtime`
+- **Latest observed local HEAD / origin/main:** `5868d98 Add headline news policy placeholder runtime`
 - **Bookkeeping sync commit after diagnostics runtime milestone:** `1fe1aa8 Sync build state after diagnostics runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Latest completed build milestone:** Diagnostics runtime implementation
-- **Current objective:** headline/news policy placeholder runtime implementation is implemented in working tree only; next objective is headline/news placeholder runtime commit / build-state sync after user review.
-- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; shadow-log writer implementation is committed; duplicate suppression runtime implementation is committed; focus ranking runtime implementation is committed; diagnostics runtime implementation is committed; headline/news policy placeholder runtime is implemented in working tree only, not committed.
+- **Latest completed build milestone:** Headline/news policy placeholder runtime implementation
+- **Current objective:** local watcher pipeline integration commit / user review.
+- **Current build direction:** strict watcher-foundation handoff / implementation readiness is PASS and committed; local watch-only watcher scaffold implementation is committed; watcher state tracking implementation is committed; trigger-card projection implementation is committed; shadow-log writer implementation is committed; duplicate suppression runtime implementation is committed; focus ranking runtime implementation is committed; diagnostics runtime implementation is committed; headline/news policy placeholder runtime is committed; local watcher pipeline integration is ready to be committed as the next feature milestone.
 - **Work mode:** build work only, no live trade decisions
 
 ## Build-State Sync Discipline
@@ -32,8 +32,8 @@
 
 ## Headline/news policy placeholder runtime status
 
-- **Headline/news policy placeholder runtime status:** implemented in working tree only, not committed.
-- **Commit status:** not committed; latest completed milestone commit remains `754491d Add diagnostics runtime`.
+- **Headline/news policy placeholder runtime status:** implemented and committed.
+- **Commit status:** committed at `5868d98 Add headline news policy placeholder runtime`.
 - **Bookkeeping sync commit after diagnostics runtime milestone:** `1fe1aa8 Sync build state after diagnostics runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Allowed implementation scope used:** local headline/news policy placeholder module, headline/news policy placeholder tests, watcher foundation export update, and this build-state update only.
 - **Implementation files:** `watcher_foundation/headline_news.py`; `watcher_foundation/__init__.py`.
@@ -47,8 +47,20 @@
 - **Focus ranking runtime regression result:** PASS with `python -m unittest discover -s tests -p test_focus_ranking_runtime.py` (`18` tests).
 - **Diagnostics runtime regression result:** PASS with `python -m unittest discover -s tests -p test_diagnostics_runtime.py` (`15` tests).
 - **Scope preserved:** local pure Python watch-only headline/news placeholder policy only; no live data fetching, live news reads, external APIs, invented headlines/news, watcher loops, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, or engine logic changes.
-- **Next objective:** headline/news placeholder runtime commit / build-state sync after user review, or local watcher pipeline integration implementation only if this headline/news placeholder runtime work is later committed and synced.
+- **Next objective:** local watcher pipeline integration commit / user review.
 - **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, and live trade decisions remain NO-GO.
+
+## Local watcher pipeline integration status
+
+- **Local watcher pipeline integration status:** ready to be committed as the next feature milestone.
+- **Commit status:** to be established by the feature commit; latest completed milestone commit remains `5868d98 Add headline news policy placeholder runtime`.
+- **Allowed implementation scope used:** local watcher pipeline/orchestration module, local watcher pipeline integration tests, watcher foundation export update, and this build-state update only.
+- **Implementation files:** `watcher_foundation/pipeline.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_watcher_pipeline_integration.py`.
+- **Local test result:** PASS with `python -m unittest discover -s tests -p test_watcher_pipeline_integration.py` (`13` tests).
+- **Scope preserved:** local pure Python watch-only pipeline orchestration only; accepts caller-provided dicts only; no live data fetching, watcher loops, schedulers, phone alerts, runtime schema files, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, trade approval, or live trade decisions.
+- **Next objective:** pipeline integration commit / user review.
+- **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, phone alerts, and live trade decisions remain NO-GO.
 
 ## Diagnostics runtime status
 
