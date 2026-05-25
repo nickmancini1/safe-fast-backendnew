@@ -144,6 +144,16 @@
 - **Scope preserved:** local pure Python watch-only replay/regression fixture hardening only; in-memory synthetic observations only; no live data fetching, watcher loops, schedulers, phone alerts, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option/P&L/trade-decision fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, account sizing, or live trade decisions.
 - **Next objective:** stable winner selection replay/regression hardening using local/in-memory fixtures only.
 
+## Stable winner selection replay/regression hardening status
+
+- **Stable winner selection replay/regression hardening status:** implemented in working tree and ready for user review/commit.
+- **Commit status:** not committed yet.
+- **Implementation files:** none.
+- **Test files:** `tests/test_watcher_stable_winner_selection_replay.py`; `tests/test_watcher_foundation_local_validation_suite.py`.
+- **Local test results:** PASS with `python -m unittest discover -s tests -p test_focus_ranking_runtime.py` (`18` tests); PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_runner.py` (`12` tests); PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_hardening.py` (`13` tests); PASS with `python -m unittest discover -s tests -p test_watcher_stable_winner_selection_replay.py` (`8` tests); PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`188` tests).
+- **Scope preserved:** local pure Python watch-only stable winner selection replay/regression hardening only; in-memory synthetic observations only; no live data fetching, watcher loops, schedulers, phone alerts, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option/P&L/trade-decision fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, account sizing, or live trade decisions.
+- **Next objective:** user review / commit of stable winner selection replay/regression hardening.
+
 ## Diagnostics runtime status
 
 - **Diagnostics runtime status:** implemented and committed.
