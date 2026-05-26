@@ -8,15 +8,16 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `f27a2dd Add shadow review label workflow`
-- **Latest observed local HEAD / origin/main:** `f27a2dd Add shadow review label workflow`
+- **Latest observed local HEAD / origin/main:** `cbfea81 Sync build state after shadow review label workflow`
+- **Bookkeeping sync commit after shadow review label workflow:** `cbfea81 Sync build state after shadow review label workflow`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after shadow review label schema milestone:** `78417f3 Sync build state after shadow review label schema`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after diagnostics runtime milestone:** `1fe1aa8 Sync build state after diagnostics runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed build milestone:** Local shadow review label workflow
-- **Current objective:** shadow review workflow closeout review using local/in-memory evidence only
-- **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; replay/regression closeout review is PASS and committed at `633ad7f Add replay regression closeout review`; shadow review sample labeling / review workflow planning is implemented and committed at `87d9071 Add shadow review sample labeling plan`; local shadow review label schema is implemented and committed at `361e2e4 Add shadow review label schema`; local shadow review label workflow is implemented and committed at `f27a2dd Add shadow review label workflow`.
+- **Current objective:** user review / commit of shadow review workflow closeout review
+- **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; replay/regression closeout review is PASS and committed at `633ad7f Add replay regression closeout review`; shadow review sample labeling / review workflow planning is implemented and committed at `87d9071 Add shadow review sample labeling plan`; local shadow review label schema is implemented and committed at `361e2e4 Add shadow review label schema`; local shadow review label workflow is implemented and committed at `f27a2dd Add shadow review label workflow`; shadow review workflow closeout review is PASS and ready for user review/commit.
 - **Work mode:** build work only, no live trade decisions
 
 ## Build-State Sync Discipline
@@ -219,12 +220,24 @@
 
 - **Shadow review label workflow status:** implemented and committed.
 - **Commit status:** committed at `f27a2dd Add shadow review label workflow`.
+- **Bookkeeping sync commit after workflow:** `cbfea81 Sync build state after shadow review label workflow`; this is not a new completed milestone.
 - **Baseline:** patch8.
 - **Implementation files:** `watcher_foundation/shadow_review.py`; `watcher_foundation/__init__.py`.
 - **Test files:** `tests/test_shadow_review_label_workflow.py`; `tests/test_watcher_foundation_local_validation_suite.py`.
 - **Local test results:** PASS with `python -m unittest discover -s tests -p test_shadow_review_label_schema.py` (`10` tests); PASS with `python -m unittest discover -s tests -p test_shadow_review_label_workflow.py` (`10` tests); PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`225` tests).
 - **Scope preserved:** local pure Python watch-only shadow review label workflow only; accepts caller-provided in-memory sample dictionaries only; validates each sample through the existing shadow review schema validation; rejects invalid samples into an in-memory summary with `sample_id` and reason; counts labels, setup types, and preserved no-trade boundaries; returns `watch_only=True`; creates no files, reports, logs, live data calls, loops, schedulers, alerts, production/Railway/deploy wiring, `main.py` changes, engine logic changes, broker/order/account/option/P&L fields, trade approval, or live trade decisions.
 - **Next objective:** shadow review workflow closeout review using local/in-memory evidence only.
+
+## Shadow review workflow closeout review status
+
+- **Shadow review workflow closeout review status:** PASS and ready for user review/commit.
+- **Commit status:** not committed yet.
+- **Baseline:** patch8.
+- **Review file:** `SAFE_FAST_SHADOW_REVIEW_WORKFLOW_CLOSEOUT_REVIEW.md`.
+- **Evidence used:** local/in-memory evidence only.
+- **Local test results:** PASS with `python -m unittest discover -s tests -p test_shadow_review_label_schema.py` (`10` tests); PASS with `python -m unittest discover -s tests -p test_shadow_review_label_workflow.py` (`10` tests); PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`225` tests).
+- **Scope preserved:** documentation/readiness closeout only; no code changes, test changes, generated reports/logs, `main.py`, engine logic, Railway/deploy files, production files, live backend, live data, watcher loops, phone alerts, broker/order/account/options/P&L behavior, or live trade decisions.
+- **Next objective:** user review / commit of shadow review workflow closeout review.
 
 ## Diagnostics runtime status
 
