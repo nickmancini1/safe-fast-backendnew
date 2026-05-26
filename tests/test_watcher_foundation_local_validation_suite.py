@@ -20,6 +20,7 @@ WATCHER_FOUNDATION_TEST_MODULES = (
     "tests.test_watcher_stable_winner_selection_replay",
     "tests.test_watcher_replay_validation_suite_reliability",
     "tests.test_watcher_replay_boundary_final_sweep",
+    "tests.test_shadow_review_label_schema",
 )
 
 

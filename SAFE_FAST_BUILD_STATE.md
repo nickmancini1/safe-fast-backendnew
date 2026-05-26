@@ -14,7 +14,7 @@
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed build milestone:** Shadow review sample labeling / review workflow plan
-- **Current objective:** local shadow review label schema/test fixture using in-memory sample dicts only
+- **Current objective:** user review / commit of local shadow review label schema
 - **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; replay/regression closeout review is PASS and committed at `633ad7f Add replay regression closeout review`; shadow review sample labeling / review workflow planning is implemented and committed at `87d9071 Add shadow review sample labeling plan`.
 - **Work mode:** build work only, no live trade decisions
 
@@ -201,6 +201,17 @@
 - **Required review fields:** `sample_id`, `setup_type`, `stage`, `trigger_status`, `headline_news_status`, `duplicate_suppression_status`, `focus_winner_status`, `diagnostics_summary`, `reviewer_label`, `reviewer_notes`, `no_trade_boundary_check`.
 - **Scope preserved:** planning document and build-state update only; no code changes, no test changes, no generated reports/logs, no `main.py`, no trading logic, no Railway/deploy files, no live backend, no live data, no broker/order/account/option/P&L fields, no account sizing, no trade approval, and no live trade decisions.
 - **Next objective:** local shadow review label schema/test fixture using in-memory sample dicts only.
+
+## Shadow review label schema status
+
+- **Shadow review label schema status:** implemented in working tree and ready for user review/commit.
+- **Commit status:** not committed yet.
+- **Baseline:** patch8.
+- **Implementation files:** `watcher_foundation/shadow_review.py`; `watcher_foundation/__init__.py`.
+- **Test files:** `tests/test_shadow_review_label_schema.py`; `tests/test_watcher_foundation_local_validation_suite.py`.
+- **Local test results:** PASS with `python -m unittest discover -s tests -p test_shadow_review_label_schema.py` (`10` tests); PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`215` tests).
+- **Scope preserved:** local pure Python watch-only shadow review label validation only; accepts caller-provided in-memory sample dictionaries only; validates required review fields, allowed reviewer labels, recursive broker/order/account/option/P&L/trade-decision field rejection, `no_trade_boundary_check=True`, and local/watch-only wording preservation; creates no files, reports, logs, alerts, loops, live data calls, production wiring, broker/order/account/option/P&L behavior, account sizing, trade approval, or live trade decisions.
+- **Next objective:** user review / commit of local shadow review label schema.
 
 ## Diagnostics runtime status
 

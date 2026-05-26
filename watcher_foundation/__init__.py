@@ -52,6 +52,11 @@ from watcher_foundation.shadow_log import (
     create_shadow_log_record,
     serialize_shadow_log_line,
 )
+from watcher_foundation.shadow_review import (
+    ALLOWED_SHADOW_REVIEW_LABELS,
+    REQUIRED_SHADOW_REVIEW_FIELDS,
+    validate_shadow_review_label,
+)
 from watcher_foundation.trigger_card import (
     REQUIRED_TRIGGER_CARD_FIELDS,
     project_trigger_card,
@@ -63,6 +68,7 @@ __all__ = [
     "ACCEPTED_STAGES",
     "ACCEPTED_TRIGGER_STATUSES",
     "ALLOWED_SHADOW_LOG_EVENT_TYPES",
+    "ALLOWED_SHADOW_REVIEW_LABELS",
     "BATCH_RUNNER_RESULT_FIELDS",
     "DEFAULT_REVIEW_LABEL",
     "DIAGNOSTIC_REASON_CODE_GROUPS",
@@ -74,6 +80,7 @@ __all__ = [
     "NEWS_UNCONFIRMED",
     "PIPELINE_RESULT_FIELDS",
     "REQUIRED_SHADOW_LOG_FIELDS",
+    "REQUIRED_SHADOW_REVIEW_FIELDS",
     "REQUIRED_HEADLINE_NEWS_POLICY_FIELDS",
     "REQUIRED_TRIGGER_CARD_FIELDS",
     "REPLAY_REGRESSION_RESULT_FIELDS",
@@ -99,4 +106,5 @@ __all__ = [
     "run_local_watcher_pipeline",
     "serialize_shadow_log_line",
     "update_watcher_state",
+    "validate_shadow_review_label",
 ]
