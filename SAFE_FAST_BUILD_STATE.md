@@ -7,15 +7,15 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `5e7663d Add replay validation suite reliability hardening tests`
-- **Latest observed local HEAD / origin/main from user log:** `5e7663d Add replay validation suite reliability hardening tests`
+- **Latest completed milestone commit:** `3774d9a Add replay boundary final sweep tests`
+- **Latest observed local HEAD / origin/main from user log:** `3774d9a Add replay boundary final sweep tests`
 - **Bookkeeping sync commit after diagnostics runtime milestone:** `1fe1aa8 Sync build state after diagnostics runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Latest completed build milestone:** Local replay/regression validation suite reliability hardening
-- **Current objective:** local replay/regression boundary cleanup / final validation sweep using local/in-memory fixtures only
-- **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; next phase is local replay/regression boundary cleanup / final validation sweep using local/in-memory fixtures only.
+- **Latest completed build milestone:** Local replay/regression boundary final validation sweep
+- **Current objective:** replay/regression closeout review using local/in-memory validation evidence only
+- **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; next phase is replay/regression closeout review using local/in-memory validation evidence only.
 - **Work mode:** build work only, no live trade decisions
 
 ## Build-State Sync Discipline
@@ -166,13 +166,13 @@
 
 ## Local replay/regression boundary final validation sweep status
 
-- **Local replay/regression boundary final validation sweep status:** implemented in working tree and ready for user review/commit.
-- **Commit status:** not committed yet.
+- **Local replay/regression boundary final validation sweep status:** implemented and committed.
+- **Commit status:** committed at `3774d9a Add replay boundary final sweep tests`.
 - **Implementation files:** none.
 - **Test files:** `tests/test_watcher_replay_boundary_final_sweep.py`; `tests/test_watcher_foundation_local_validation_suite.py`.
 - **Local test results:** PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_runner.py` (`12` tests); PASS with `python -m unittest discover -s tests -p test_watcher_replay_regression_hardening.py` (`13` tests); PASS with `python -m unittest discover -s tests -p test_watcher_stable_winner_selection_replay.py` (`8` tests); PASS with `python -m unittest discover -s tests -p test_watcher_replay_validation_suite_reliability.py` (`8` tests); PASS with `python -m unittest discover -s tests -p test_watcher_replay_boundary_final_sweep.py` (`9` tests); PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`205` tests).
 - **Scope preserved:** local unittest final validation sweep only; in-memory synthetic replay observations only; no live data fetching, network calls, file persistence, watcher loops, schedulers, phone alerts, generated replay reports, generated chart outcome reports, persistent generated log/report files, broker/order/account/option/P&L/trade-decision fields, production/Railway/deploy integration, `main.py` changes, engine logic changes, account sizing, live trade approval, or live trade decisions.
-- **Next objective:** user review / commit of local replay/regression boundary final validation sweep.
+- **Next objective:** replay/regression closeout review using local/in-memory validation evidence only.
 
 ## Diagnostics runtime status
 
