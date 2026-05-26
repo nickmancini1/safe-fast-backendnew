@@ -38,6 +38,17 @@ REQUIRED_SHADOW_REVIEW_FIELDS = (
     "no_trade_boundary_check",
 )
 
+SHADOW_REVIEW_WORKFLOW_SUMMARY_FIELDS = (
+    "samples_processed",
+    "samples_accepted",
+    "samples_rejected",
+    "rejected_samples",
+    "label_counts",
+    "setup_type_counts",
+    "no_trade_boundary_preserved_count",
+    "watch_only",
+)
+
 FORBIDDEN_SHADOW_REVIEW_FIELD_NAMES = FORBIDDEN_EXECUTION_FIELD_NAMES | frozenset(
     {
         "approved_trade",
@@ -83,6 +94,54 @@ def validate_shadow_review_label(sample: dict[str, Any]) -> dict[str, Any]:
     return deepcopy(dict(sample))
 
 
+def run_local_shadow_review_label_workflow(
+    samples: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Validate local in-memory samples and return a watch-only summary."""
+    if type(samples) is not list:
+        raise TypeError("shadow review workflow samples must be a list")
+
+    label_counts = {label: 0 for label in ALLOWED_SHADOW_REVIEW_LABELS}
+    setup_type_counts: dict[str, int] = {}
+    rejected_samples = []
+    no_trade_boundary_preserved_count = 0
+
+    for sample in samples:
+        sample_id = _extract_rejected_sample_id(sample)
+        try:
+            validated = validate_shadow_review_label(sample)
+        except (TypeError, ValueError) as exc:
+            rejected_samples.append(
+                {
+                    "sample_id": sample_id,
+                    "reason": str(exc),
+                }
+            )
+            continue
+
+        reviewer_label = validated["reviewer_label"]
+        setup_type = validated["setup_type"]
+        label_counts[reviewer_label] += 1
+        setup_type_counts[setup_type] = setup_type_counts.get(setup_type, 0) + 1
+        if validated["no_trade_boundary_check"] is True:
+            no_trade_boundary_preserved_count += 1
+
+    samples_processed = len(samples)
+    samples_rejected = len(rejected_samples)
+    samples_accepted = samples_processed - samples_rejected
+
+    return {
+        "samples_processed": samples_processed,
+        "samples_accepted": samples_accepted,
+        "samples_rejected": samples_rejected,
+        "rejected_samples": rejected_samples,
+        "label_counts": label_counts,
+        "setup_type_counts": setup_type_counts,
+        "no_trade_boundary_preserved_count": no_trade_boundary_preserved_count,
+        "watch_only": True,
+    }
+
+
 def _reject_forbidden_shadow_review_fields(
     value: Any, path: tuple[str, ...]
 ) -> None:
@@ -97,6 +156,12 @@ def _reject_forbidden_shadow_review_fields(
     elif isinstance(value, (list, tuple)):
         for index, nested_value in enumerate(value):
             _reject_forbidden_shadow_review_fields(nested_value, (*path, str(index)))
+
+
+def _extract_rejected_sample_id(sample: Any) -> str:
+    if isinstance(sample, Mapping) and "sample_id" in sample:
+        return str(sample["sample_id"])
+    return "UNAVAILABLE"
 
 
 def _require_local_watch_only_wording(sample: Mapping[str, Any]) -> None:

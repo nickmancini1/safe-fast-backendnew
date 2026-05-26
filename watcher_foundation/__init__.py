@@ -55,6 +55,8 @@ from watcher_foundation.shadow_log import (
 from watcher_foundation.shadow_review import (
     ALLOWED_SHADOW_REVIEW_LABELS,
     REQUIRED_SHADOW_REVIEW_FIELDS,
+    SHADOW_REVIEW_WORKFLOW_SUMMARY_FIELDS,
+    run_local_shadow_review_label_workflow,
     validate_shadow_review_label,
 )
 from watcher_foundation.trigger_card import (
@@ -81,6 +83,7 @@ __all__ = [
     "PIPELINE_RESULT_FIELDS",
     "REQUIRED_SHADOW_LOG_FIELDS",
     "REQUIRED_SHADOW_REVIEW_FIELDS",
+    "SHADOW_REVIEW_WORKFLOW_SUMMARY_FIELDS",
     "REQUIRED_HEADLINE_NEWS_POLICY_FIELDS",
     "REQUIRED_TRIGGER_CARD_FIELDS",
     "REPLAY_REGRESSION_RESULT_FIELDS",
@@ -102,6 +105,7 @@ __all__ = [
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",
     "run_local_replay_regression",
+    "run_local_shadow_review_label_workflow",
     "run_local_watcher_batch",
     "run_local_watcher_pipeline",
     "serialize_shadow_log_line",
