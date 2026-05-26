@@ -7,15 +7,15 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `3774d9a Add replay boundary final sweep tests`
-- **Latest observed local HEAD / origin/main from user log:** `b67d219 Sync build state after replay boundary final sweep`
+- **Latest completed milestone commit:** `633ad7f Add replay regression closeout review`
+- **Latest observed local HEAD / origin/main:** `633ad7f Add replay regression closeout review`
 - **Bookkeeping sync commit after diagnostics runtime milestone:** `1fe1aa8 Sync build state after diagnostics runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Latest completed build milestone:** Local replay/regression boundary final validation sweep
-- **Current objective:** user review / commit of replay/regression closeout review
-- **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; replay/regression closeout review is PASS in the working tree and ready for user review/commit, not committed yet.
+- **Latest completed build milestone:** Replay/regression closeout review
+- **Current objective:** shadow review sample labeling / review workflow planning using local artifacts only
+- **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; replay/regression closeout review is PASS and committed at `633ad7f Add replay regression closeout review`.
 - **Work mode:** build work only, no live trade decisions
 
 ## Build-State Sync Discipline
@@ -176,8 +176,8 @@
 
 ## Replay/regression closeout review status
 
-- **Replay/regression closeout review status:** PASS and ready for user review/commit.
-- **Commit status:** not committed yet.
+- **Replay/regression closeout review status:** PASS and committed.
+- **Commit status:** committed at `633ad7f Add replay regression closeout review`.
 - **Review file:** `SAFE_FAST_REPLAY_REGRESSION_CLOSEOUT_REVIEW.md`.
 - **Baseline:** patch8.
 - **Latest completed feature milestone:** `3774d9a Add replay boundary final sweep tests`.
@@ -187,7 +187,7 @@
 - **Evidence proves:** all three setup types are covered locally (`Ideal`, `Clean Fast Break`, `Continuation`); developing-stage transitions are covered locally; session-boundary carry-forward is covered locally; duplicate suppression and stable winner behavior are covered locally; failure details remain visible; replay validation remains local and in-memory; no broker/order/account/option/P&L/trade-decision fields are accepted or emitted; no live trade approval is emitted.
 - **Evidence does not prove:** production readiness, live data readiness, live backend readiness, Railway readiness, phone alert readiness, broker/order execution readiness, option P&L or account sizing readiness, or live trade decision readiness.
 - **Scope preserved:** closeout review document and build-state update only; no code changes, no test changes, no `main.py`, no engine logic, no watcher foundation code, no Railway/production/deploy files, no live backend, no live data fetching, no watcher loops, no phone alerts, no generated replay reports, no generated chart outcome reports, no persistent generated logs/reports, no broker/order/account/option/P&L fields, no account sizing, no live trade approval, and no live trade decisions.
-- **Next objective:** user review / commit of replay/regression closeout review.
+- **Next objective:** shadow review sample labeling / review workflow planning using local artifacts only.
 
 ## Diagnostics runtime status
 
