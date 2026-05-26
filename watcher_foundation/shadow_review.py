@@ -49,6 +49,19 @@ SHADOW_REVIEW_WORKFLOW_SUMMARY_FIELDS = (
     "watch_only",
 )
 
+SHADOW_REVIEW_EXPORT_REQUIRED_FIELDS = (
+    "export_id",
+    "created_from",
+    "schema_version",
+    "samples",
+    "label_counts",
+    "setup_type_counts",
+    "rejected_samples",
+    "no_trade_boundary_summary",
+    "reviewer_notes",
+    "unavailable_fields",
+)
+
 FORBIDDEN_SHADOW_REVIEW_FIELD_NAMES = FORBIDDEN_EXECUTION_FIELD_NAMES | frozenset(
     {
         "approved_trade",
@@ -63,6 +76,44 @@ FORBIDDEN_SHADOW_REVIEW_FIELD_NAMES = FORBIDDEN_EXECUTION_FIELD_NAMES | frozense
         "trade_decisions",
     }
 )
+
+
+def validate_shadow_review_export_shape(export: dict[str, Any]) -> dict[str, Any]:
+    """Return a validated copy of one local in-memory shadow review export."""
+    if type(export) is not dict:
+        raise TypeError("shadow review export must be a dict")
+
+    missing_fields = [
+        field_name
+        for field_name in SHADOW_REVIEW_EXPORT_REQUIRED_FIELDS
+        if field_name not in export
+    ]
+    if missing_fields:
+        raise ValueError(
+            "Missing required shadow review export fields: "
+            + ", ".join(missing_fields)
+        )
+
+    _reject_forbidden_shadow_review_fields(export, path=())
+
+    if type(export["samples"]) is not list:
+        raise TypeError("shadow review export samples must be a list")
+    if type(export["label_counts"]) is not dict:
+        raise TypeError("shadow review export label_counts must be a dict")
+    if type(export["setup_type_counts"]) is not dict:
+        raise TypeError("shadow review export setup_type_counts must be a dict")
+    if type(export["rejected_samples"]) is not list:
+        raise TypeError("shadow review export rejected_samples must be a list")
+    if type(export["no_trade_boundary_summary"]) is not dict:
+        raise TypeError(
+            "shadow review export no_trade_boundary_summary must be a dict"
+        )
+
+    _require_export_watch_only_no_trade_boundary(
+        export["no_trade_boundary_summary"]
+    )
+
+    return deepcopy(dict(export))
 
 
 def validate_shadow_review_label(sample: dict[str, Any]) -> dict[str, Any]:
@@ -174,4 +225,17 @@ def _require_local_watch_only_wording(sample: Mapping[str, Any]) -> None:
     if not has_local or not has_watch_only:
         raise ValueError(
             "shadow review wording must preserve local and watch-only boundaries"
+        )
+
+
+def _require_export_watch_only_no_trade_boundary(
+    no_trade_boundary_summary: Mapping[str, Any]
+) -> None:
+    if no_trade_boundary_summary.get("watch_only") is not True:
+        raise ValueError(
+            "shadow review export must preserve watch_only boundary"
+        )
+    if no_trade_boundary_summary.get("no_trade_boundary_preserved") is not True:
+        raise ValueError(
+            "shadow review export must preserve no-trade boundary"
         )

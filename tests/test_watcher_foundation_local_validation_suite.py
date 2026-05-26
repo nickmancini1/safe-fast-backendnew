@@ -24,6 +24,7 @@ WATCHER_FOUNDATION_TEST_MODULES = (
     "tests.test_shadow_review_label_workflow",
     "tests.test_shadow_review_sample_pack",
     "tests.test_shadow_review_workflow_final_boundary_sweep",
+    "tests.test_shadow_review_export_shape_validator",
 )
 
 
