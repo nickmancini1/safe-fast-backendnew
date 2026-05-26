@@ -22,6 +22,7 @@ WATCHER_FOUNDATION_TEST_MODULES = (
     "tests.test_watcher_replay_boundary_final_sweep",
     "tests.test_shadow_review_label_schema",
     "tests.test_shadow_review_label_workflow",
+    "tests.test_shadow_review_sample_pack",
 )
 
 
