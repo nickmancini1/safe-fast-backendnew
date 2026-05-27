@@ -62,6 +62,18 @@ SHADOW_REVIEW_EXPORT_REQUIRED_FIELDS = (
     "unavailable_fields",
 )
 
+SHADOW_REVIEW_EXPORT_BUNDLE_REQUIRED_FIELDS = (
+    "bundle_id",
+    "schema_version",
+    "created_from",
+    "exports",
+    "bundle_counts",
+    "rejected_exports",
+    "no_trade_boundary_summary",
+    "reviewer_notes",
+    "unavailable_fields",
+)
+
 FORBIDDEN_SHADOW_REVIEW_FIELD_NAMES = FORBIDDEN_EXECUTION_FIELD_NAMES | frozenset(
     {
         "approved_trade",
@@ -76,6 +88,63 @@ FORBIDDEN_SHADOW_REVIEW_FIELD_NAMES = FORBIDDEN_EXECUTION_FIELD_NAMES | frozense
         "trade_decisions",
     }
 )
+
+
+def validate_shadow_review_export_bundle(
+    bundle: dict[str, Any]
+) -> dict[str, Any]:
+    """Return a validated copy of a local in-memory shadow review export bundle."""
+    if type(bundle) is not dict:
+        raise TypeError("shadow review export bundle must be a dict")
+
+    missing_fields = [
+        field_name
+        for field_name in SHADOW_REVIEW_EXPORT_BUNDLE_REQUIRED_FIELDS
+        if field_name not in bundle
+    ]
+    if missing_fields:
+        raise ValueError(
+            "Missing required shadow review export bundle fields: "
+            + ", ".join(missing_fields)
+        )
+
+    _reject_forbidden_shadow_review_fields(bundle, path=())
+
+    if type(bundle["exports"]) is not list:
+        raise TypeError("shadow review export bundle exports must be a list")
+    if type(bundle["bundle_counts"]) is not dict:
+        raise TypeError("shadow review export bundle bundle_counts must be a dict")
+    if type(bundle["rejected_exports"]) is not list:
+        raise TypeError(
+            "shadow review export bundle rejected_exports must be a list"
+        )
+    if type(bundle["no_trade_boundary_summary"]) is not dict:
+        raise TypeError(
+            "shadow review export bundle no_trade_boundary_summary must be a dict"
+        )
+    if type(bundle["bundle_id"]) is not str:
+        raise TypeError("shadow review export bundle bundle_id must be a string")
+    if type(bundle["created_from"]) is not str:
+        raise TypeError("shadow review export bundle created_from must be a string")
+    if type(bundle["schema_version"]) is not int:
+        raise TypeError("shadow review export bundle schema_version must be an int")
+    if type(bundle["reviewer_notes"]) is not str:
+        raise TypeError("shadow review export bundle reviewer_notes must be a string")
+    if type(bundle["unavailable_fields"]) not in (list, dict):
+        raise TypeError(
+            "shadow review export bundle unavailable_fields must be a list or dict"
+        )
+
+    _require_export_watch_only_no_trade_boundary(
+        bundle["no_trade_boundary_summary"]
+    )
+
+    validated_bundle = deepcopy(dict(bundle))
+    validated_bundle["exports"] = [
+        validate_shadow_review_export_shape(export)
+        for export in bundle["exports"]
+    ]
+    return validated_bundle
 
 
 def validate_shadow_review_export_shape(export: dict[str, Any]) -> dict[str, Any]:

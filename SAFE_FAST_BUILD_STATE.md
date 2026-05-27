@@ -8,7 +8,7 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `edb9251 Add shadow review export shape readiness next step plan`
-- **Latest observed local HEAD / origin/main:** `edb9251 Add shadow review export shape readiness next step plan`
+- **Latest observed local HEAD / origin/main:** `499e9d1 Sync build state after shadow review export shape readiness next step plan`
 - **Bookkeeping sync commit after shadow review export-shape final boundary sweep closeout review:** `189268b Sync build state after shadow review export shape final boundary sweep closeout review`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after shadow review export-shape validator closeout review:** `438b926 Sync build state after shadow review export shape validator closeout review`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after shadow review export-shape validator:** `158a356 Sync build state after shadow review export shape validator`; this is not a new completed milestone and must not create a repeated sync loop.
@@ -24,7 +24,7 @@
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed build milestone:** Shadow review export-shape readiness / next-step plan
-- **Current objective:** local shadow review export bundle schema/validator using in-memory dicts only
+- **Current objective:** user review / commit of local shadow review export bundle validator
 - **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; replay/regression closeout review is PASS and committed at `633ad7f Add replay regression closeout review`; shadow review sample labeling / review workflow planning is implemented and committed at `87d9071 Add shadow review sample labeling plan`; local shadow review label schema is implemented and committed at `361e2e4 Add shadow review label schema`; local shadow review label workflow is implemented and committed at `f27a2dd Add shadow review label workflow`; shadow review workflow closeout review is PASS and committed at `d8f80f1 Add shadow review workflow closeout review`; local shadow review sample pack is implemented and committed at `b258f88 Add shadow review sample pack`; shadow review sample pack closeout review is PASS and committed at `ec760a4 Add shadow review sample pack closeout review`; local shadow review workflow final boundary sweep is implemented and committed at `1bc2d2d Add shadow review workflow final boundary sweep`; shadow review workflow final boundary sweep closeout review is PASS and committed at `4073339 Add shadow review final boundary sweep closeout review`.
 - **Work mode:** build work only, no live trade decisions
 
@@ -365,6 +365,17 @@
 - **Tests:** not run, docs-only plan.
 - **Scope preserved:** documentation/readiness planning only; local artifacts only; no code changes, test changes, generated reports/logs, `main.py`, engine logic, Railway/deploy files, production files, live backend, live data, network calls, watcher loops, schedulers, subprocesses, phone alerts, broker/order/account/options/P&L behavior, trade approval, or live trade decisions.
 - **Next objective:** local shadow review export bundle schema/validator using in-memory dicts only.
+
+## Shadow review export bundle validator status
+
+- **Shadow review export bundle validator status:** implemented in working tree and ready for user review/commit.
+- **Commit status:** not committed yet.
+- **Baseline:** patch8.
+- **Implementation files:** `watcher_foundation/shadow_review.py`; `watcher_foundation/__init__.py`; `SAFE_FAST_BUILD_STATE.md`.
+- **Test files:** `tests/test_shadow_review_export_bundle_validator.py`; `tests/test_watcher_foundation_local_validation_suite.py`.
+- **Local test results:** PASS with `python -m unittest discover -s tests -p test_shadow_review_export_shape_validator.py` (`10` tests); PASS with `python -m unittest discover -s tests -p test_shadow_review_export_shape_final_boundary_sweep.py` (`11` tests); PASS with `python -m unittest discover -s tests -p test_shadow_review_export_bundle_validator.py` (`12` tests); PASS with `python -m unittest tests.test_watcher_foundation_local_validation_suite` (`278` tests).
+- **Scope preserved:** local pure Python in-memory export bundle validation only; accepts caller-provided dicts only; returns a validated in-memory dict copy only; validates each bundled export through the existing export-shape validator; preserves rejected export reasons and watch-only/no-trade boundaries; writes no files, creates no reports/logs, calls no network/live data, adds no alerts, loops, schedulers, subprocesses, production wiring, `main.py` changes, engine logic changes, Railway/deploy changes, broker/order/account/options/P&L behavior, trade approval, or live trade decisions.
+- **Next objective:** user review / commit of local shadow review export bundle validator.
 
 ## Diagnostics runtime status
 
