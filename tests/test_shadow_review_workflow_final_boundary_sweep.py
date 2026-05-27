@@ -1,6 +1,5 @@
 import copy
 import os
-import tempfile
 import unittest
 from unittest import mock
 
@@ -144,19 +143,13 @@ class ShadowReviewWorkflowFinalBoundarySweepTests(unittest.TestCase):
 
     def test_workflow_summary_is_in_memory_only_and_creates_no_side_effects(self):
         samples = [self._sample("SYNTH-BOUNDARY-IN-MEMORY-001")]
-        original_cwd = os.getcwd()
-        with tempfile.TemporaryDirectory() as temp_dir:
-            try:
-                os.chdir(temp_dir)
-                before = sorted(os.listdir(temp_dir))
-                with mock.patch("builtins.open", side_effect=AssertionError("open")):
-                    summary = run_local_shadow_review_label_workflow(samples)
-                after = sorted(os.listdir(temp_dir))
-            finally:
-                os.chdir(original_cwd)
+        before = sorted(os.listdir(os.getcwd()))
 
-        self.assertEqual(before, [])
-        self.assertEqual(after, [])
+        with mock.patch("builtins.open", side_effect=AssertionError("open")):
+            summary = run_local_shadow_review_label_workflow(samples)
+        after = sorted(os.listdir(os.getcwd()))
+
+        self.assertEqual(before, after)
         self.assertEqual(tuple(summary.keys()), SHADOW_REVIEW_WORKFLOW_SUMMARY_FIELDS)
         self.assertNotIn("file", summary)
         self.assertNotIn("report", summary)

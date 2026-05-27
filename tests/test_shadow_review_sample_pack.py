@@ -1,5 +1,4 @@
 import os
-import tempfile
 import unittest
 
 from watcher_foundation.shadow_review import (
@@ -220,20 +219,13 @@ class ShadowReviewSamplePackTests(unittest.TestCase):
                 reviewer_label="stale_or_spent",
             ),
         ]
-        original_cwd = os.getcwd()
-        with tempfile.TemporaryDirectory() as temp_dir:
-            try:
-                os.chdir(temp_dir)
-                before = sorted(os.listdir(temp_dir))
+        before = sorted(os.listdir(os.getcwd()))
 
-                summary = run_local_shadow_review_label_workflow(samples)
+        summary = run_local_shadow_review_label_workflow(samples)
 
-                after = sorted(os.listdir(temp_dir))
-            finally:
-                os.chdir(original_cwd)
+        after = sorted(os.listdir(os.getcwd()))
 
-        self.assertEqual(before, [])
-        self.assertEqual(after, [])
+        self.assertEqual(before, after)
         self.assertEqual(summary["samples_accepted"], 3)
         self.assertEqual(summary["samples_rejected"], 0)
 

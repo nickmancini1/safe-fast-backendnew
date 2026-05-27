@@ -1,5 +1,4 @@
 import os
-import tempfile
 import unittest
 from collections import UserDict
 
@@ -128,20 +127,13 @@ class ShadowReviewLabelSchemaTests(unittest.TestCase):
 
     def test_no_files_reports_logs_or_live_calls_are_created(self):
         sample = self._sample()
-        original_cwd = os.getcwd()
-        with tempfile.TemporaryDirectory() as temp_dir:
-            try:
-                os.chdir(temp_dir)
-                before = sorted(os.listdir(temp_dir))
+        before = sorted(os.listdir(os.getcwd()))
 
-                validate_shadow_review_label(sample)
+        validate_shadow_review_label(sample)
 
-                after = sorted(os.listdir(temp_dir))
-            finally:
-                os.chdir(original_cwd)
+        after = sorted(os.listdir(os.getcwd()))
 
-        self.assertEqual(before, [])
-        self.assertEqual(after, [])
+        self.assertEqual(before, after)
 
 
 if __name__ == "__main__":

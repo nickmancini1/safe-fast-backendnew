@@ -1,5 +1,4 @@
 import os
-import tempfile
 import unittest
 
 from watcher_foundation.shadow_review import (
@@ -230,20 +229,13 @@ class ShadowReviewLabelWorkflowTests(unittest.TestCase):
 
     def test_no_files_reports_logs_or_live_calls_are_created(self):
         samples = [self._sample("LOCAL-valid-review-001")]
-        original_cwd = os.getcwd()
-        with tempfile.TemporaryDirectory() as temp_dir:
-            try:
-                os.chdir(temp_dir)
-                before = sorted(os.listdir(temp_dir))
+        before = sorted(os.listdir(os.getcwd()))
 
-                run_local_shadow_review_label_workflow(samples)
+        run_local_shadow_review_label_workflow(samples)
 
-                after = sorted(os.listdir(temp_dir))
-            finally:
-                os.chdir(original_cwd)
+        after = sorted(os.listdir(os.getcwd()))
 
-        self.assertEqual(before, [])
-        self.assertEqual(after, [])
+        self.assertEqual(before, after)
 
 
 if __name__ == "__main__":

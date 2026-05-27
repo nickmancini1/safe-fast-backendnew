@@ -1,6 +1,5 @@
 import copy
 import os
-import tempfile
 import unittest
 from collections import UserDict
 from unittest import mock
@@ -169,33 +168,27 @@ class ShadowReviewExportShapeValidatorTests(unittest.TestCase):
     def test_no_files_reports_logs_or_live_calls_are_created(self):
         export = self._export()
         blocked = AssertionError("external side effect")
-        original_cwd = os.getcwd()
-        with tempfile.TemporaryDirectory() as temp_dir:
-            try:
-                os.chdir(temp_dir)
-                before = sorted(os.listdir(temp_dir))
-                with mock.patch("builtins.open", side_effect=blocked), mock.patch(
-                    "logging.Logger._log", side_effect=blocked
-                ), mock.patch(
-                    "threading.Thread.start", side_effect=blocked
-                ), mock.patch(
-                    "sched.scheduler.run", side_effect=blocked
-                ), mock.patch(
-                    "subprocess.Popen", side_effect=blocked
-                ), mock.patch(
-                    "subprocess.run", side_effect=blocked
-                ), mock.patch(
-                    "socket.socket", side_effect=blocked
-                ), mock.patch(
-                    "urllib.request.urlopen", side_effect=blocked
-                ):
-                    validated = validate_shadow_review_export_shape(export)
-                after = sorted(os.listdir(temp_dir))
-            finally:
-                os.chdir(original_cwd)
+        before = sorted(os.listdir(os.getcwd()))
 
-        self.assertEqual(before, [])
-        self.assertEqual(after, [])
+        with mock.patch("builtins.open", side_effect=blocked), mock.patch(
+            "logging.Logger._log", side_effect=blocked
+        ), mock.patch(
+            "threading.Thread.start", side_effect=blocked
+        ), mock.patch(
+            "sched.scheduler.run", side_effect=blocked
+        ), mock.patch(
+            "subprocess.Popen", side_effect=blocked
+        ), mock.patch(
+            "subprocess.run", side_effect=blocked
+        ), mock.patch(
+            "socket.socket", side_effect=blocked
+        ), mock.patch(
+            "urllib.request.urlopen", side_effect=blocked
+        ):
+            validated = validate_shadow_review_export_shape(export)
+        after = sorted(os.listdir(os.getcwd()))
+
+        self.assertEqual(before, after)
         self.assertNotIn("file", validated)
         self.assertNotIn("report", validated)
         self.assertNotIn("log", validated)
