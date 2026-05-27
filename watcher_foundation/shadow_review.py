@@ -108,6 +108,18 @@ def validate_shadow_review_export_shape(export: dict[str, Any]) -> dict[str, Any
         raise TypeError(
             "shadow review export no_trade_boundary_summary must be a dict"
         )
+    if type(export["export_id"]) is not str:
+        raise TypeError("shadow review export export_id must be a string")
+    if type(export["created_from"]) is not str:
+        raise TypeError("shadow review export created_from must be a string")
+    if type(export["schema_version"]) is not int:
+        raise TypeError("shadow review export schema_version must be an int")
+    if type(export["reviewer_notes"]) is not str:
+        raise TypeError("shadow review export reviewer_notes must be a string")
+    if type(export["unavailable_fields"]) not in (list, dict):
+        raise TypeError(
+            "shadow review export unavailable_fields must be a list or dict"
+        )
 
     _require_export_watch_only_no_trade_boundary(
         export["no_trade_boundary_summary"]
