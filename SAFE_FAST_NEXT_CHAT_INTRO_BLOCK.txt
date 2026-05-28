@@ -3,76 +3,40 @@ You are taking over SAFE-FAST build work. This is not live trade chat.
 Repo: nickmancini1/safe-fast-backendnew
 Branch: main
 Baseline: patch8
-Latest completed feature milestone: ed9e248 Add watcher foundation closeout replay readiness review
+Latest completed milestone: bf99dcf Add shadow review export bundle full closeout decision
+Latest build-state sync: cda4bba Sync build state after shadow review export bundle full closeout decision
 
 Current state:
-Local watcher foundation is complete. The next phase is watcher replay/regression validation using local/in-memory fixtures only.
+Local replay/regression foundation is complete. Local shadow review/export bundle foundation is complete. The current handoff package is docs-only and should be reviewed/committed before the next local-only build phase starts.
 
-First files to read:
+Source priority:
 1. SAFE_FAST_BUILD_STATE.md
-2. SAFE_FAST_STRICT_HANDOFF_POST_WATCHER_FOUNDATION_CLOSEOUT.md
-3. SAFE_FAST_WATCHER_FOUNDATION_CLOSEOUT_REPLAY_READINESS_REVIEW.md
-4. SAFE_FAST_STRICT_WATCHER_FOUNDATION_HANDOFF_IMPLEMENTATION_READINESS_REVIEW.md
-5. SAFE_FAST_STRICT_MASTER_HANDOFF_POST_SHADOW_LOG_REVIEW.md
+2. SAFE_FAST_STRICT_HANDOFF_POST_SHADOW_REVIEW_EXPORT_BUNDLE_CLOSEOUT.md
+3. SAFE_FAST_SHADOW_REVIEW_EXPORT_BUNDLE_FULL_CLOSEOUT_DECISION.md
+4. SAFE_FAST_REPLAY_REGRESSION_CLOSEOUT_REVIEW.md
+5. SAFE_FAST_SHADOW_REVIEW_EXPORT_BUNDLE_READINESS_DECISION.md
+6. Relevant closeout/review docs
+7. watcher_foundation code/tests
+8. Older project docs as background only
 
-Then read as needed:
-- SAFE_FAST_TRIGGER_CARD_CONTRACT_SCHEMA_REVIEW.md
-- SAFE_FAST_WATCHER_STATE_SCHEMA_DESIGN_REVIEW.md
-- SAFE_FAST_SHADOW_LOG_SCHEMA_REVIEW.md
-- SAFE_FAST_DUPLICATE_SUPPRESSION_DESIGN_REVIEW.md
-- SAFE_FAST_BEST_CURRENT_CANDIDATE_FOCUS_RANKING_DESIGN_REVIEW.md
-- SAFE_FAST_DIAGNOSTICS_EXPLANATION_DESIGN_REVIEW.md
-- SAFE_FAST_HEADLINE_NEWS_SOURCE_POLICY_DESIGN_REVIEW.md
-- SAFE_FAST_POST_GLD_WATCHER_TRANSITION_HARDENING_PLAN.md
-- SAFE_FAST_ALL_SYMBOL_CURRENT_DEPTH_CLOSEOUT_REVIEW.md
-- watcher_foundation code and watcher foundation tests
+Codex tooling:
+Default/elevated Windows sandbox failed with `windows sandbox: spawn setup refresh`.
+Use unelevated sandbox:
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never
+Do not use `codex resume` when diagnosing sandbox problems. If Codex fails, direct PowerShell can be used for tightly scoped docs/status tasks.
 
-Current source priority:
-1. SAFE_FAST_BUILD_STATE.md
-2. SAFE_FAST_STRICT_HANDOFF_POST_WATCHER_FOUNDATION_CLOSEOUT.md
-3. SAFE_FAST_WATCHER_FOUNDATION_CLOSEOUT_REPLAY_READINESS_REVIEW.md
-4. SAFE_FAST_STRICT_WATCHER_FOUNDATION_HANDOFF_IMPLEMENTATION_READINESS_REVIEW.md
-5. design review docs
-6. watcher_foundation code/tests
-7. older Day 60/project docs as background only
+Communication requirement:
+Speak to the user in plain English when discussing project status, blockers, progress, or next steps. Avoid vague shorthand, internal-sounding phrases, and confusing labels. Say what happened, what it means, and what to run next. Keep explanations short unless the user asks for detail.
 
 Next objective:
-Watcher replay/regression fixture plan or local replay/regression runner using local fixtures only.
+User review / commit of the detailed next-chat handoff package. After that, begin local next-step build planning after the shadow review/export bundle foundation. Keep it local-only.
 
 No-go boundaries:
 - Do not modify main.py.
 - Do not modify engine logic.
-- Do not touch Railway, production, deploy files, live backend, broker/order execution, auto-trading, option P&L, account sizing, or live trade decisions.
+- Do not touch Railway, production, deploy files, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, or live trade decisions.
 - Do not create watcher loops.
 - Do not fetch live data.
 - Do not create phone alerts.
-- Do not create generated replay reports unless explicitly authorized.
-- Do not create generated chart outcome reports.
-- Do not create persistent generated logs/reports.
-- Do not invent headlines/news, macro events, earnings, filings, rumors, trigger levels, outcomes, trades, P&L, or live facts.
-
-Communication rules:
-- Use plain English first.
-- State baseline, fixed/completed, unproven/NO-GO, active objective, and conflicts.
-- Give one bounded Codex task at a time.
-- Every Codex task must be one complete PowerShell launcher block.
-- Do not give bare prompts unless explicitly asked.
-- Do not use bare codex.
-- Do not use codex.ps1.
-- If PowerShell shows >>, tell the user to press Ctrl+C.
-- If the user pastes PowerShell commands into chat, tell the user to run them in PowerShell.
-- If accidental untracked files appear, stop and clean them before continuing.
-- Do not ask the user to re-explain the project.
-
-Codex launcher requirement:
-Every Codex task must be one complete PowerShell block with:
-
-$prompt = @'
-...
-'@
-
-$prompt | Set-Clipboard
-& "$env:APPDATA\npm\codex.cmd" -a never -s workspace-write
-
-Build-state sync discipline:
-Feature commits are milestones. Build-state-only sync commits are bookkeeping. Do not automatically sync after every feature commit. Do not sync after sync. Do not stop just because HEAD is bookkeeping. Treat the user-provided repo log as proof that watcher foundation closeout/replay-readiness review was committed at ed9e248. Sync only if baseline, objective, no-go boundaries, or true milestone status conflict.
+- Do not create generated reports/logs unless explicitly authorized.
+- Do not edit secrets, .env files, credentials, or deployment settings.
