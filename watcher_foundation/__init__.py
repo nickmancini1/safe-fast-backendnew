@@ -56,10 +56,12 @@ from watcher_foundation.shadow_review import (
     ALLOWED_SHADOW_REVIEW_LABELS,
     REQUIRED_SHADOW_REVIEW_FIELDS,
     SHADOW_REVIEW_EXPORT_BUNDLE_REQUIRED_FIELDS,
+    SHADOW_REVIEW_EXPORT_BUNDLE_REVIEW_PACKAGE_REQUIRED_FIELDS,
     SHADOW_REVIEW_EXPORT_REQUIRED_FIELDS,
     SHADOW_REVIEW_WORKFLOW_SUMMARY_FIELDS,
     run_local_shadow_review_label_workflow,
     validate_shadow_review_export_bundle,
+    validate_shadow_review_export_bundle_review_package,
     validate_shadow_review_export_shape,
     validate_shadow_review_label,
 )
@@ -88,6 +90,7 @@ __all__ = [
     "REQUIRED_SHADOW_LOG_FIELDS",
     "REQUIRED_SHADOW_REVIEW_FIELDS",
     "SHADOW_REVIEW_EXPORT_BUNDLE_REQUIRED_FIELDS",
+    "SHADOW_REVIEW_EXPORT_BUNDLE_REVIEW_PACKAGE_REQUIRED_FIELDS",
     "SHADOW_REVIEW_EXPORT_REQUIRED_FIELDS",
     "SHADOW_REVIEW_WORKFLOW_SUMMARY_FIELDS",
     "REQUIRED_HEADLINE_NEWS_POLICY_FIELDS",
@@ -117,6 +120,7 @@ __all__ = [
     "serialize_shadow_log_line",
     "update_watcher_state",
     "validate_shadow_review_export_bundle",
+    "validate_shadow_review_export_bundle_review_package",
     "validate_shadow_review_export_shape",
     "validate_shadow_review_label",
 ]

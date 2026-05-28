@@ -74,6 +74,19 @@ SHADOW_REVIEW_EXPORT_BUNDLE_REQUIRED_FIELDS = (
     "unavailable_fields",
 )
 
+SHADOW_REVIEW_EXPORT_BUNDLE_REVIEW_PACKAGE_REQUIRED_FIELDS = (
+    "package_id",
+    "schema_version",
+    "created_from",
+    "source_exports",
+    "source_bundles",
+    "review_summary",
+    "rejected_items",
+    "no_trade_boundary_summary",
+    "unavailable_fields",
+    "reviewer_notes",
+)
+
 FORBIDDEN_SHADOW_REVIEW_FIELD_NAMES = FORBIDDEN_EXECUTION_FIELD_NAMES | frozenset(
     {
         "approved_trade",
@@ -88,6 +101,93 @@ FORBIDDEN_SHADOW_REVIEW_FIELD_NAMES = FORBIDDEN_EXECUTION_FIELD_NAMES | frozense
         "trade_decisions",
     }
 )
+
+
+def validate_shadow_review_export_bundle_review_package(
+    package: dict[str, Any]
+) -> dict[str, Any]:
+    """Return a validated copy of a local in-memory review package."""
+    if type(package) is not dict:
+        raise TypeError("shadow review export bundle review package must be a dict")
+
+    missing_fields = [
+        field_name
+        for field_name in SHADOW_REVIEW_EXPORT_BUNDLE_REVIEW_PACKAGE_REQUIRED_FIELDS
+        if field_name not in package
+    ]
+    if missing_fields:
+        raise ValueError(
+            "Missing required shadow review export bundle review package fields: "
+            + ", ".join(missing_fields)
+        )
+
+    _reject_forbidden_shadow_review_fields(package, path=())
+
+    if type(package["source_exports"]) is not list:
+        raise TypeError(
+            "shadow review export bundle review package source_exports must be a list"
+        )
+    if type(package["source_bundles"]) is not list:
+        raise TypeError(
+            "shadow review export bundle review package source_bundles must be a list"
+        )
+    if type(package["review_summary"]) is not dict:
+        raise TypeError(
+            "shadow review export bundle review package review_summary must be a dict"
+        )
+    if type(package["rejected_items"]) is not list:
+        raise TypeError(
+            "shadow review export bundle review package rejected_items must be a list"
+        )
+    if type(package["no_trade_boundary_summary"]) is not dict:
+        raise TypeError(
+            "shadow review export bundle review package "
+            "no_trade_boundary_summary must be a dict"
+        )
+    if type(package["package_id"]) is not str:
+        raise TypeError(
+            "shadow review export bundle review package package_id must be a string"
+        )
+    if type(package["created_from"]) is not str:
+        raise TypeError(
+            "shadow review export bundle review package created_from must be a string"
+        )
+    if type(package["schema_version"]) is not int:
+        raise TypeError(
+            "shadow review export bundle review package schema_version must be an int"
+        )
+    if type(package["reviewer_notes"]) is not str:
+        raise TypeError(
+            "shadow review export bundle review package reviewer_notes must be a string"
+        )
+    if type(package["unavailable_fields"]) not in (list, dict):
+        raise TypeError(
+            "shadow review export bundle review package unavailable_fields must be "
+            "a list or dict"
+        )
+
+    _require_export_watch_only_no_trade_boundary(
+        package["no_trade_boundary_summary"]
+    )
+
+    validated_package = deepcopy(dict(package))
+    validated_package["source_exports"] = []
+    for index, export in enumerate(package["source_exports"]):
+        try:
+            validated_export = validate_shadow_review_export_shape(export)
+        except (TypeError, ValueError) as exc:
+            raise type(exc)(f"source_exports[{index}]: {exc}") from exc
+        validated_package["source_exports"].append(validated_export)
+
+    validated_package["source_bundles"] = []
+    for index, bundle in enumerate(package["source_bundles"]):
+        try:
+            validated_bundle = validate_shadow_review_export_bundle(bundle)
+        except (TypeError, ValueError) as exc:
+            raise type(exc)(f"source_bundles[{index}]: {exc}") from exc
+        validated_package["source_bundles"].append(validated_bundle)
+
+    return validated_package
 
 
 def validate_shadow_review_export_bundle(
