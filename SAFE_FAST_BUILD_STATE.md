@@ -527,6 +527,16 @@
 - **Next objective:** next chat takeover using detailed handoff package.
 - **Still not ready / NO-GO:** production, Railway, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, generated reports, persistent generated logs/reports, phone alerts, live trade decisions, and deployment remain NO-GO.
 
+## Day 60 shadow watcher viability/diagnostics carry-forward status
+
+- **Status:** current docs-only carry-forward requirement.
+- **File:** `SAFE_FAST_DAY60_SHADOW_WATCHER_VIABILITY_DIAGNOSTICS_REQUIREMENTS.md`.
+- **Baseline:** patch8.
+- **Purpose:** preserve Day 60 shadow watcher, controlled shadow-data, viability proof, diagnostics, improvement loop, post-Day-60 $20-tier role, and firm-language requirements for future chats.
+- **Tests:** not run; docs-only update.
+- **Scope preserved:** no code, no tests, no `main.py`, no engine logic, no watcher_foundation code, no live data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
+- **Next objective:** user review/commit of this docs-only carry-forward update, then local-only next-step build planning.
+
 ## Diagnostics runtime status
 
 - **Diagnostics runtime status:** implemented and committed.
