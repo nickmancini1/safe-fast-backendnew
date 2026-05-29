@@ -19,6 +19,10 @@ from watcher_foundation.day60_shadow_contract import (
     validate_day60_shadow_contract_batch,
     validate_day60_shadow_contract_row,
 )
+from watcher_foundation.day60_shadow_session import (
+    DAY60_SHADOW_SESSION_RESULT_FIELDS,
+    run_day60_shadow_session_dry_run,
+)
 from watcher_foundation.diagnostics import (
     DIAGNOSTIC_REASON_CODE_GROUPS,
     build_diagnostics,
@@ -88,6 +92,7 @@ __all__ = [
     "DAY60_SHADOW_CONTRACT_DIAGNOSTIC_PLACEHOLDER_FIELDS",
     "DAY60_SHADOW_CONTRACT_REQUIRED_FIELDS",
     "DAY60_SHADOW_CONTRACT_TRIGGER_CARD_REQUIRED_FIELDS",
+    "DAY60_SHADOW_SESSION_RESULT_FIELDS",
     "DEFAULT_REVIEW_LABEL",
     "DIAGNOSTIC_REASON_CODE_GROUPS",
     "DUPLICATE_SUPPRESSION_FINGERPRINT_VERSION",
@@ -124,6 +129,7 @@ __all__ = [
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",
     "run_local_replay_regression",
+    "run_day60_shadow_session_dry_run",
     "run_local_shadow_review_label_workflow",
     "run_local_watcher_batch",
     "run_local_watcher_pipeline",
