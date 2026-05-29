@@ -8,8 +8,8 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `df0f056 Add Day 60 watcher viability diagnostics carry-forward`
-- **Latest observed local HEAD:** `df0f056 Add Day 60 watcher viability diagnostics carry-forward`
-- **Latest observed origin/main:** `232aad5 Sync build state after strict handoff package`
+- **Latest observed local HEAD:** `810aa35 Sync build state after Day 60 viability diagnostics carry-forward`
+- **Latest observed origin/main:** `810aa35 Sync build state after Day 60 viability diagnostics carry-forward`
 - **Latest build-state sync after shadow review export bundle full closeout decision:** `cda4bba Sync build state after shadow review export bundle full closeout decision`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Bookkeeping sync commit after shadow review export bundle review-package final boundary sweep:** `4f02d67 Sync build state after shadow review export bundle review package final boundary sweep`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after shadow review export bundle review-package final boundary sweep closeout review:** `f227f78 Sync build state after shadow review export bundle review package final boundary sweep closeout review`; this is not a new completed milestone and must not create a repeated sync loop.
@@ -532,12 +532,22 @@
 
 - **Status:** implemented and committed.
 - **Commit status:** committed at `df0f056 Add Day 60 watcher viability diagnostics carry-forward`.
+- **Bookkeeping sync commit after Day 60 watcher viability diagnostics carry-forward:** `810aa35 Sync build state after Day 60 viability diagnostics carry-forward`; this is not a new completed milestone and must not create a repeated sync loop.
 - **File:** `SAFE_FAST_DAY60_SHADOW_WATCHER_VIABILITY_DIAGNOSTICS_REQUIREMENTS.md`.
 - **Baseline:** patch8.
 - **Purpose:** preserve Day 60 shadow watcher, controlled shadow-data, viability proof, diagnostics, improvement loop, post-Day-60 $20-tier role, and firm-language requirements for future chats.
 - **Tests:** not run; docs-only update.
 - **Scope preserved:** no code, no tests, no `main.py`, no engine logic, no watcher_foundation code, no live data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** local-only next-step build planning after Day 60 viability/diagnostics carry-forward.
+
+## Local next-step build plan after Day 60 viability/diagnostics status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **File:** `SAFE_FAST_LOCAL_NEXT_STEP_BUILD_PLAN_AFTER_DAY60_DIAGNOSTICS.md`.
+- **Baseline:** patch8.
+- **Tests:** not run; docs-only planning.
+- **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no watcher_foundation code, no live data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
+- **Next objective:** user review/commit of this docs-only plan, then first local-only implementation step from the plan.
 
 ## Diagnostics runtime status
 
