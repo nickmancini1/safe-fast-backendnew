@@ -12,6 +12,13 @@ from watcher_foundation.batch_runner import (
     BATCH_RUNNER_RESULT_FIELDS,
     run_local_watcher_batch,
 )
+from watcher_foundation.day60_shadow_contract import (
+    DAY60_SHADOW_CONTRACT_DIAGNOSTIC_PLACEHOLDER_FIELDS,
+    DAY60_SHADOW_CONTRACT_REQUIRED_FIELDS,
+    DAY60_SHADOW_CONTRACT_TRIGGER_CARD_REQUIRED_FIELDS,
+    validate_day60_shadow_contract_batch,
+    validate_day60_shadow_contract_row,
+)
 from watcher_foundation.diagnostics import (
     DIAGNOSTIC_REASON_CODE_GROUPS,
     build_diagnostics,
@@ -78,6 +85,9 @@ __all__ = [
     "ALLOWED_SHADOW_LOG_EVENT_TYPES",
     "ALLOWED_SHADOW_REVIEW_LABELS",
     "BATCH_RUNNER_RESULT_FIELDS",
+    "DAY60_SHADOW_CONTRACT_DIAGNOSTIC_PLACEHOLDER_FIELDS",
+    "DAY60_SHADOW_CONTRACT_REQUIRED_FIELDS",
+    "DAY60_SHADOW_CONTRACT_TRIGGER_CARD_REQUIRED_FIELDS",
     "DEFAULT_REVIEW_LABEL",
     "DIAGNOSTIC_REASON_CODE_GROUPS",
     "DUPLICATE_SUPPRESSION_FINGERPRINT_VERSION",
@@ -119,6 +129,8 @@ __all__ = [
     "run_local_watcher_pipeline",
     "serialize_shadow_log_line",
     "update_watcher_state",
+    "validate_day60_shadow_contract_batch",
+    "validate_day60_shadow_contract_row",
     "validate_shadow_review_export_bundle",
     "validate_shadow_review_export_bundle_review_package",
     "validate_shadow_review_export_shape",

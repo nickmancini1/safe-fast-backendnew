@@ -50,6 +50,19 @@
 - If repo/build-state/handoff disagree on baseline, objective, no-go boundaries, or actual milestone status, stop and name the conflict.
 - Always distinguish latest completed milestone commit from latest bookkeeping/sync HEAD.
 
+## Local-only Day 60 shadow watcher input-contract preflight validator status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **Baseline:** patch8.
+- **Implementation files:** `watcher_foundation/day60_shadow_contract.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_day60_shadow_contract.py`.
+- **Focused local test result:** PASS with `python -m unittest discover -s tests -p test_day60_shadow_contract.py` (`15` tests).
+- **Watcher export/regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold tests.test_watcher_state_tracking tests.test_trigger_card_projection tests.test_shadow_log_writer tests.test_duplicate_suppression_runtime tests.test_focus_ranking_runtime tests.test_diagnostics_runtime tests.test_headline_news_policy_placeholder tests.test_watcher_pipeline_integration tests.test_watcher_pipeline_sequence_regression tests.test_watcher_batch_runner tests.test_watcher_fixture_regression_pack tests.test_day60_shadow_contract` (`170` tests).
+- **git diff whitespace check:** PASS with `git diff --check` (exit 0; only existing LF-to-CRLF working-copy warnings for touched files).
+- **Scope preserved:** local pure Python Day 60 shadow watcher input-contract preflight validation only; accepts caller-provided in-memory dict/list payloads only; returns defensive in-memory row copies and in-memory batch summaries only; no data fetching, data creation, live source reads, file/log/report writes, watcher loops, schedulers, alerts, network calls, subprocess calls, trade approval, option P&L, account sizing, broker/order/account behavior, live trade decisions, production/Railway/deploy integration, `main.py` changes, engine logic changes, generated report/log paths, secrets, `.env` files, credentials, or deployment settings.
+- **Next objective:** user review/commit of this local-only validator, then build-state sync.
+- **Still not proven / NO-GO:** Day 60 shadow watcher viability, diagnostics usefulness, controlled shadow data collection, live data readiness, production readiness, broker/order execution, auto-trading, option P&L, account sizing, and live trade readiness remain unproven and not started.
+
 ## Headline/news policy placeholder runtime status
 
 - **Headline/news policy placeholder runtime status:** implemented and committed.
