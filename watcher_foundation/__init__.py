@@ -19,6 +19,13 @@ from watcher_foundation.day60_shadow_contract import (
     validate_day60_shadow_contract_batch,
     validate_day60_shadow_contract_row,
 )
+from watcher_foundation.day60_shadow_review_packet import (
+    DAY60_SHADOW_REVIEW_PACKET_DIAGNOSTIC_PLACEHOLDER_FIELDS,
+    DAY60_SHADOW_REVIEW_PACKET_OUTCOME_PLACEHOLDER_FIELDS,
+    DAY60_SHADOW_REVIEW_PACKET_RESULT_FIELDS,
+    DAY60_SHADOW_REVIEW_PACKET_VIABILITY_PLACEHOLDER_FIELDS,
+    build_day60_shadow_review_packet,
+)
 from watcher_foundation.day60_shadow_session import (
     DAY60_SHADOW_SESSION_RESULT_FIELDS,
     run_day60_shadow_session_dry_run,
@@ -92,6 +99,10 @@ __all__ = [
     "DAY60_SHADOW_CONTRACT_DIAGNOSTIC_PLACEHOLDER_FIELDS",
     "DAY60_SHADOW_CONTRACT_REQUIRED_FIELDS",
     "DAY60_SHADOW_CONTRACT_TRIGGER_CARD_REQUIRED_FIELDS",
+    "DAY60_SHADOW_REVIEW_PACKET_DIAGNOSTIC_PLACEHOLDER_FIELDS",
+    "DAY60_SHADOW_REVIEW_PACKET_OUTCOME_PLACEHOLDER_FIELDS",
+    "DAY60_SHADOW_REVIEW_PACKET_RESULT_FIELDS",
+    "DAY60_SHADOW_REVIEW_PACKET_VIABILITY_PLACEHOLDER_FIELDS",
     "DAY60_SHADOW_SESSION_RESULT_FIELDS",
     "DEFAULT_REVIEW_LABEL",
     "DIAGNOSTIC_REASON_CODE_GROUPS",
@@ -118,6 +129,7 @@ __all__ = [
     "WatcherTrackedState",
     "append_shadow_log_line",
     "build_diagnostics",
+    "build_day60_shadow_review_packet",
     "build_duplicate_suppression_key_fields",
     "build_suppression_fingerprint",
     "create_diagnostics",
