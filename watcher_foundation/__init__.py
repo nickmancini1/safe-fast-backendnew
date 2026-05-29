@@ -26,6 +26,11 @@ from watcher_foundation.day60_shadow_review_packet import (
     DAY60_SHADOW_REVIEW_PACKET_VIABILITY_PLACEHOLDER_FIELDS,
     build_day60_shadow_review_packet,
 )
+from watcher_foundation.day60_shadow_readiness import (
+    DAY60_SHADOW_READINESS_REQUIRED_PROOF_FIELDS,
+    DAY60_SHADOW_READINESS_RESULT_FIELDS,
+    evaluate_day60_shadow_readiness,
+)
 from watcher_foundation.day60_shadow_session import (
     DAY60_SHADOW_SESSION_RESULT_FIELDS,
     run_day60_shadow_session_dry_run,
@@ -103,6 +108,8 @@ __all__ = [
     "DAY60_SHADOW_REVIEW_PACKET_OUTCOME_PLACEHOLDER_FIELDS",
     "DAY60_SHADOW_REVIEW_PACKET_RESULT_FIELDS",
     "DAY60_SHADOW_REVIEW_PACKET_VIABILITY_PLACEHOLDER_FIELDS",
+    "DAY60_SHADOW_READINESS_REQUIRED_PROOF_FIELDS",
+    "DAY60_SHADOW_READINESS_RESULT_FIELDS",
     "DAY60_SHADOW_SESSION_RESULT_FIELDS",
     "DEFAULT_REVIEW_LABEL",
     "DIAGNOSTIC_REASON_CODE_GROUPS",
@@ -137,6 +144,7 @@ __all__ = [
     "create_shadow_log_record",
     "decide_duplicate_suppression",
     "evaluate_headline_news_policy",
+    "evaluate_day60_shadow_readiness",
     "project_trigger_card",
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",
