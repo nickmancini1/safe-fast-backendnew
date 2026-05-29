@@ -7,9 +7,10 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `eb84a4f Add Day 60 shadow session dry-run adapter`
-- **Latest observed local HEAD:** `d56107f Sync build state after Day 60 shadow session dry-run adapter`
-- **Latest observed origin/main:** `d56107f Sync build state after Day 60 shadow session dry-run adapter`
+- **Latest completed milestone commit:** `40e6f29 Add local next-step plan after Day 60 shadow session dry run`
+- **Latest observed local HEAD:** `40e6f29 Add local next-step plan after Day 60 shadow session dry run`
+- **Latest observed origin/main:** `40e6f29 Add local next-step plan after Day 60 shadow session dry run`
+- **Latest completed code milestone commit:** `eb84a4f Add Day 60 shadow session dry-run adapter`
 - **Latest build-state sync after Day 60 shadow session dry-run adapter:** `d56107f Sync build state after Day 60 shadow session dry-run adapter`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after Day 60 shadow contract validator:** `c82b72c Sync build state after Day 60 shadow contract validator`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after shadow review export bundle full closeout decision:** `cda4bba Sync build state after shadow review export bundle full closeout decision`; this is not a new completed milestone and must not create a repeated sync loop.
@@ -35,8 +36,8 @@
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Latest completed build milestone:** Local-only Day 60 shadow session dry-run adapter
-- **Current objective:** user review/commit of the docs-only local next-step plan after the Day 60 shadow session dry-run adapter, then first local-only implementation step from that plan.
+- **Latest completed build milestone:** Local next-step plan after Day 60 shadow session dry run
+- **Current objective:** first local-only implementation step from the committed shadow review/diagnostics packet builder plan.
 - **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; replay/regression closeout review is PASS and committed at `633ad7f Add replay regression closeout review`; shadow review sample labeling / review workflow planning is implemented and committed at `87d9071 Add shadow review sample labeling plan`; local shadow review label schema is implemented and committed at `361e2e4 Add shadow review label schema`; local shadow review label workflow is implemented and committed at `f27a2dd Add shadow review label workflow`; shadow review workflow closeout review is PASS and committed at `d8f80f1 Add shadow review workflow closeout review`; local shadow review sample pack is implemented and committed at `b258f88 Add shadow review sample pack`; shadow review sample pack closeout review is PASS and committed at `ec760a4 Add shadow review sample pack closeout review`; local shadow review workflow final boundary sweep is implemented and committed at `1bc2d2d Add shadow review workflow final boundary sweep`; shadow review workflow final boundary sweep closeout review is PASS and committed at `4073339 Add shadow review final boundary sweep closeout review`; local shadow review export bundle final boundary sweep closeout review is PASS and committed at `ba02655 Add shadow review export bundle final boundary sweep closeout review`; shadow review/export bundle readiness decision is PASS and committed at `556a541 Add shadow review export bundle readiness decision`; shadow review/export bundle review-package plan is PASS and committed at `0f7d4c3 Add shadow review export bundle review package plan`; local shadow review/export bundle review-package validator is implemented and committed at `0d3d816 Add shadow review export bundle review package validator`; shadow review/export bundle review-package validator closeout review is PASS and committed at `6a2f636 Add shadow review export bundle review package validator closeout review`; local shadow review/export bundle review-package final boundary sweep is implemented and committed at `2a8fdc3 Add shadow review export bundle review package final boundary sweep`; shadow review/export bundle review-package final boundary sweep closeout review is PASS and committed at `17e298c Add shadow review export bundle review package final boundary sweep closeout review`.
 - **Work mode:** build work only, no live trade decisions
 
@@ -93,12 +94,13 @@
 
 ## Local next-step plan after Day 60 shadow session dry-run status
 
-- **Status:** implemented in working tree and ready for user review/commit.
+- **Status:** implemented and committed.
+- **Commit status:** committed at `40e6f29 Add local next-step plan after Day 60 shadow session dry run`.
 - **File:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_DAY60_SHADOW_SESSION_DRY_RUN.md`.
 - **Baseline:** patch8.
 - **Tests:** not run; docs-only planning.
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
-- **Next objective:** user review/commit of this docs-only plan, then first local-only implementation step from the plan.
+- **Next objective:** first local-only implementation step from the committed plan.
 
 ## Headline/news policy placeholder runtime status
 
