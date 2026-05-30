@@ -111,6 +111,23 @@
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** first local-only implementation step from the committed plan.
 
+## Local-only Day 60 outcome scoring summary evaluator status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **Baseline:** patch8.
+- **Implementation files:** `watcher_foundation/day60_outcome_scoring_summary.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_day60_outcome_scoring_summary.py`.
+- **Focused local test result:** PASS with `python -m unittest discover -s tests -p test_day60_outcome_scoring_summary.py` (`10` tests).
+- **Day 60 outcome scoring contract regression result:** PASS with `python -m unittest discover -s tests -p test_day60_outcome_scoring_contract.py` (`15` tests).
+- **Day 60 shadow readiness regression result:** PASS with `python -m unittest discover -s tests -p test_day60_shadow_readiness.py` (`11` tests).
+- **Day 60 shadow review packet regression result:** PASS with `python -m unittest discover -s tests -p test_day60_shadow_review_packet.py` (`13` tests).
+- **Day 60 shadow session regression result:** PASS with `python -m unittest discover -s tests -p test_day60_shadow_session.py` (`9` tests).
+- **Day 60 shadow contract regression result:** PASS with `python -m unittest discover -s tests -p test_day60_shadow_contract.py` (`15` tests).
+- **Watcher export/regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold tests.test_watcher_state_tracking tests.test_trigger_card_projection tests.test_shadow_log_writer tests.test_duplicate_suppression_runtime tests.test_focus_ranking_runtime tests.test_diagnostics_runtime tests.test_headline_news_policy_placeholder tests.test_watcher_pipeline_integration tests.test_watcher_pipeline_sequence_regression tests.test_watcher_batch_runner tests.test_watcher_fixture_regression_pack tests.test_day60_shadow_contract tests.test_day60_shadow_session tests.test_day60_shadow_review_packet tests.test_day60_shadow_readiness tests.test_day60_outcome_scoring_contract tests.test_day60_outcome_scoring_summary` (`228` tests).
+- **git diff whitespace check:** PASS with `git diff --check` (exit 0; LF-to-CRLF working-copy warnings only for touched tracked files).
+- **Scope preserved:** local pure Python Day 60 outcome scoring summary evaluation only; accepts caller-provided in-memory outcome-review rows only; validates rows through the existing Day 60 outcome scoring contract validator; returns defensive in-memory accepted rows, rejected rows with reasons, bucket counts, and unavailable outcome field summaries only; writes no files/logs/reports, fetches no data, starts no live data, creates no watcher loops/schedulers/daemons/polling/background workers, sends no alerts, calls no network/subprocess, touches no broker/order/account/options/P&L behavior, makes no live trade decisions, changes no `main.py`, changes no engine logic, changes no Railway/deploy/production files, generated report/log paths, secrets, `.env` files, credentials, or deployment settings.
+- **Next objective:** user review/commit of this local-only outcome scoring summary evaluator, then build-state sync.
+
 ## Local-only Day 60 shadow watcher input-contract preflight validator status
 
 - **Status:** implemented and committed.
