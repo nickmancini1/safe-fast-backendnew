@@ -8,10 +8,11 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `a0396da Add Day 28 missing conversation recovery addendum`
-- **Latest observed local HEAD:** `a0396da Add Day 28 missing conversation recovery addendum`
-- **Latest observed origin/main:** `a0396da Add Day 28 missing conversation recovery addendum`
+- **Latest observed local HEAD:** `e977830 Sync build state after Day 28 recovery addendum`
+- **Latest observed origin/main:** `e977830 Sync build state after Day 28 recovery addendum`
 - **Latest completed code milestone commit:** `db48832 Add Day 60 diagnostics readiness evaluator`
 - **Latest build-state sync after Day 60 diagnostics readiness evaluator:** `7036758 Sync build state after Day 60 diagnostics readiness evaluator`; this is not a new completed milestone and must not create a repeated sync loop.
+- **Latest build-state sync after Day 28 recovery addendum:** `e977830 Sync build state after Day 28 recovery addendum`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after Day 60 shadow review diagnostics packet builder:** `faf91da Sync build state after Day 60 shadow review diagnostics packet builder`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after Day 60 shadow session dry-run next-step plan:** `677ce99 Sync build state after Day 60 shadow session dry-run next-step plan`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after Day 60 shadow session dry-run adapter:** `d56107f Sync build state after Day 60 shadow session dry-run adapter`; this is not a new completed milestone and must not create a repeated sync loop.
@@ -67,6 +68,15 @@
 - **Tests:** not run; docs-only update.
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no `watcher_foundation` code, no live data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** continue current local-only build path after recovery addendum.
+
+## Local next-step plan after Day 60 diagnostics readiness status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **File:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_DAY60_DIAGNOSTICS_READINESS.md`.
+- **Baseline:** patch8.
+- **Tests:** not run; docs-only planning.
+- **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
+- **Next objective:** user review/commit of this docs-only plan, then first local-only implementation step from the plan.
 
 ## Local-only Day 60 shadow watcher input-contract preflight validator status
 
