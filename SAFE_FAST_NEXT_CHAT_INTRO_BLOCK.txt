@@ -3,22 +3,39 @@ You are taking over SAFE-FAST build work. This is not live trade chat.
 Repo: nickmancini1/safe-fast-backendnew
 Branch: main
 Baseline: patch8
-Latest completed milestone: 72a901d Add strict handoff after shadow review export bundle closeout
-Latest build-state sync: cda4bba Sync build state after shadow review export bundle full closeout decision
+Day context: Day 28
+Latest pushed state before the Day 28 recovery addendum: 7036758 Sync build state after Day 60 diagnostics readiness evaluator
+
+Mandatory first reads:
+1. SAFE_FAST_BUILD_STATE.md
+2. SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md
+3. Latest strict handoff / current planning docs
 
 Current state:
-Local replay/regression foundation is complete. Local shadow review/export bundle foundation is complete. The strict handoff package is committed. The current Day 60 shadow watcher viability/diagnostics carry-forward update is docs-only and should be reviewed/committed before the next local-only build phase starts.
+The current active build path is local-only diagnostics/readiness. The input-contract validator, shadow session dry-run adapter, review/diagnostics packet builder, and diagnostics readiness evaluator have been built. Controlled shadow data, live data, alerts, logs/reports, production, broker/order execution, option P&L, account sizing, and live trade decisions remain unproven and not started.
+
+Day 28 missing-conversation recovery:
+The Day 28 missing phone conversation was partially reconstructed into SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md. The reconstructed content is carry-forward planning substance, not the exact missing transcript. Future chats must not make the user re-explain this.
+
+Runway and handoff:
+Day 60 remains a checkpoint. Day 60 must not be treated as automatic production readiness or live-trading readiness. If the $100 Pro tier is extended to two months, Day 90 may become the stronger $20-tier handoff target. The $20 tier should continue from clean docs, small tasks, current objectives, and preserved assumptions; it should not rebuild the project from scratch.
+
+Viability and diagnostics:
+Viability proof is mandatory. Detection alone is not enough; SAFE-FAST must prove whether recognized setups produce useful trading behavior under no-hindsight review. Ideal, Clean Fast Break, and Continuation must be reviewable separately, and SPY, QQQ, IWM, and GLD must be reviewable separately before assuming a combined system works.
+
+Failure diagnosis is mandatory before optimization. Optimization must target diagnosed failure categories and require regression evidence. Required loop: detect -> score outcome -> diagnose failure category -> decide fix path -> adjust rule/contract/test -> run regression -> review again.
+In-depth diagnostics are required before optimization so the project knows what is being optimized.
+Do not start optimization from shallow labels like "failed setup" or "bad alert"; diagnose the evidence, likely cause, affected setup/symbol/stage, trigger/invalidation/freshness relationship, and next fix path first.
 
 Source priority:
 1. SAFE_FAST_BUILD_STATE.md
-2. SAFE_FAST_STRICT_HANDOFF_POST_SHADOW_REVIEW_EXPORT_BUNDLE_CLOSEOUT.md
-3. SAFE_FAST_DAY60_SHADOW_WATCHER_VIABILITY_DIAGNOSTICS_REQUIREMENTS.md
-4. SAFE_FAST_SHADOW_REVIEW_EXPORT_BUNDLE_FULL_CLOSEOUT_DECISION.md
-5. SAFE_FAST_REPLAY_REGRESSION_CLOSEOUT_REVIEW.md
-6. SAFE_FAST_SHADOW_REVIEW_EXPORT_BUNDLE_READINESS_DECISION.md
-7. Relevant closeout/review docs
-8. watcher_foundation code/tests
-9. Older project docs as background only
+2. SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md
+3. Latest strict handoff / current planning docs
+4. SAFE_FAST_DAY60_SHADOW_WATCHER_VIABILITY_DIAGNOSTICS_REQUIREMENTS.md
+5. SAFE_FAST_STRICT_HANDOFF_POST_SHADOW_REVIEW_EXPORT_BUNDLE_CLOSEOUT.md
+6. Relevant closeout/review docs
+7. watcher_foundation code/tests
+8. Older project docs as background only
 
 Codex tooling:
 Default/elevated Windows sandbox failed with `windows sandbox: spawn setup refresh`.
@@ -30,20 +47,16 @@ Communication requirement:
 Speak to the user in plain English when discussing project status, blockers, progress, or next steps. Avoid vague shorthand, internal-sounding phrases, and confusing labels. Say what happened, what it means, and what to run next. Keep explanations short unless the user asks for detail.
 Use firm project language. Use "will" for agreed project direction, "is proven" only when repo evidence exists, "is not proven yet" when evidence does not exist, "is blocked" when current boundaries prevent action, and "requires validation" when a step must be tested before promotion.
 
-Day 60 carry-forward:
-Read SAFE_FAST_DAY60_SHADOW_WATCHER_VIABILITY_DIAGNOSTICS_REQUIREMENTS.md after SAFE_FAST_BUILD_STATE.md and SAFE_FAST_STRICT_HANDOFF_POST_SHADOW_REVIEW_EXPORT_BUNDLE_CLOSEOUT.md. Future chats should not make the user re-explain these requirements.
-
-Day 60 watcher requires a controlled shadow watcher path and eventual data input, while remaining no-trade, no-broker, and no-live-trade-decision. Live data is not permission to trade. Viability proof and diagnostics are required; the project must prove whether detected setups produced useful behavior under no-hindsight review, not merely detect setups.
-
-Required diagnostic loop:
-signal detection -> shadow alert/log -> outcome scoring -> diagnostic review -> rule adjustment -> regression test -> repeat.
+Continuity rule:
+Future phone conversations that materially change the build plan must get a short visible checkpoint immediately in chat. Repo docs and SAFE_FAST_BUILD_STATE.md remain the durable source of truth. If a conversation disappears, future chats must clearly label any replacement content as reconstruction, not recovered transcript.
 
 Next objective:
-User review / commit of the Day 60 shadow watcher viability/diagnostics carry-forward update. After that, begin local next-step build planning after the shadow review/export bundle foundation. Keep it local-only.
+User review/commit of the docs-only Day 28 missing-conversation recovery update, then continue the current local-only build path.
 
 No-go boundaries:
 - Do not modify main.py.
 - Do not modify engine logic.
+- Do not modify watcher_foundation code unless a future bounded task explicitly authorizes it.
 - Do not touch Railway, production, deploy files, live backend, live data, broker/order execution, auto-trading, option P&L, account sizing, or live trade decisions.
 - Do not create watcher loops.
 - Do not fetch live data.
