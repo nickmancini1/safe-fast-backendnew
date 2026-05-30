@@ -21,8 +21,13 @@ Runway and handoff:
 Day 60 remains a checkpoint. Day 60 must not be treated as automatic production readiness or live-trading readiness. If the $100 Pro tier is extended to two months, Day 90 may become the stronger $20-tier handoff target. The $20 tier should continue from clean docs, small tasks, current objectives, and preserved assumptions; it should not rebuild the project from scratch.
 
 Viability and diagnostics:
+Viability proof is the highest priority.
+The project must justify continued time investment.
 Viability proof is mandatory. Detection alone is not enough; SAFE-FAST must prove whether recognized setups produce useful trading behavior under no-hindsight review. Ideal, Clean Fast Break, and Continuation must be reviewable separately, and SPY, QQQ, IWM, and GLD must be reviewable separately before assuming a combined system works.
 
+If results are weak, diagnose deeply before optimizing.
+Whole-system optimization must be evidence-backed and regression-tested.
+Future chats must not drift into endless build work without proof.
 Failure diagnosis is mandatory before optimization. Optimization must target diagnosed failure categories and require regression evidence. Required loop: detect -> score outcome -> diagnose failure category -> decide fix path -> adjust rule/contract/test -> run regression -> review again.
 In-depth diagnostics are required before optimization so the project knows what is being optimized.
 Do not start optimization from shallow labels like "failed setup" or "bad alert"; diagnose the evidence, likely cause, affected setup/symbol/stage, trigger/invalidation/freshness relationship, and next fix path first.

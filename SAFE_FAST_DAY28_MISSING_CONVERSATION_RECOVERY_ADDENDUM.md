@@ -60,6 +60,24 @@ No phase starts just because the prior phase exists. Each phase requires tests, 
 - SPY, QQQ, IWM, and GLD must be reviewable separately before assuming one rule set works for all.
 - Option P&L must not be used too early as the main proof layer because it adds contract/fill/spread/IV noise before chart behavior is proven.
 
+## Viability Proof Is The Highest Priority
+
+- SAFE-FAST must prove whether the trading plan is viable.
+- This is the central purpose of the current build path.
+- The project has real family/time cost and must justify continued investment.
+- Detection alone is not enough.
+- A working watcher alone is not enough.
+- The system must produce evidence that the plan is worth continuing.
+- If results are weak, SAFE-FAST must diagnose failures deeply before optimizing.
+- Optimization must analyze all aspects of the system and make evidence-backed adjustments where necessary.
+- No optimization is accepted without a diagnosed failure category, a targeted fix path, and regression evidence.
+- If diagnostics show a fixable path, the project must pursue that path aggressively.
+- If diagnostics show the plan is not viable, that must be stated honestly instead of hidden by tuning.
+
+The required viability loop is:
+
+detect -> score outcome -> diagnose deeply -> analyze whole system -> decide fix path -> adjust rule/contract/test -> run regression -> review again
+
 ## 7. In-Depth Failure-Diagnosis Requirement
 
 If the plan is not producing good enough results, SAFE-FAST must diagnose what the failures are in depth before attempting optimization.
