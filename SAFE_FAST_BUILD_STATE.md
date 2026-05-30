@@ -8,9 +8,10 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `a3d7489 Add Day 60 outcome scoring contract validator`
-- **Latest observed local HEAD:** `a3d7489 Add Day 60 outcome scoring contract validator`
-- **Latest observed origin/main:** `a3d7489 Add Day 60 outcome scoring contract validator`
+- **Latest observed local HEAD:** `8947810 Sync build state after Day 60 outcome scoring contract validator`
+- **Latest observed origin/main:** `8947810 Sync build state after Day 60 outcome scoring contract validator`
 - **Latest completed code milestone commit:** `a3d7489 Add Day 60 outcome scoring contract validator`
+- **Latest build-state sync after Day 60 outcome scoring contract validator:** `8947810 Sync build state after Day 60 outcome scoring contract validator`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after Day 60 diagnostics readiness evaluator:** `7036758 Sync build state after Day 60 diagnostics readiness evaluator`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after Day 28 recovery addendum:** `e977830 Sync build state after Day 28 recovery addendum`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after Day 60 shadow review diagnostics packet builder:** `faf91da Sync build state after Day 60 shadow review diagnostics packet builder`; this is not a new completed milestone and must not create a repeated sync loop.
@@ -99,6 +100,15 @@
 - **Scope preserved:** local pure Python Day 60 outcome scoring contract validation only; accepts caller-provided in-memory outcome-review rows only; validates required viability proof fields, no-hindsight outcome review boundaries, explicit unavailable proof fields, fabricated proof markers, watch-only boundaries, no-trade boundaries, and recursive broker/order/account/options/P&L/trade-decision forbidden fields; returns defensive in-memory row copies and in-memory batch summaries only; no file/log/report writes, data fetching, live data start, watcher loops, schedulers, alerts, network calls, subprocess calls, broker/order/account/options/P&L behavior, trade approval, live trade decisions, production/Railway/deploy integration, `main.py` changes, engine logic changes, generated report/log paths, secrets, `.env` files, credentials, or deployment settings.
 - **Next objective:** next local-only step planning after outcome scoring contract validator.
 - **Still not proven / NO-GO:** Day 60 shadow watcher viability, diagnostics usefulness against real reviewed outcomes, controlled shadow data collection, live data readiness, production readiness, broker/order execution, auto-trading, option P&L, account sizing, and live trade readiness remain unproven and not started.
+
+## Local next-step plan after Day 60 outcome scoring contract status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **File:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_DAY60_OUTCOME_SCORING_CONTRACT.md`.
+- **Baseline:** patch8.
+- **Tests:** not run; docs-only planning.
+- **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
+- **Next objective:** user review/commit of this docs-only plan, then first local-only implementation step from the plan.
 
 ## Local-only Day 60 shadow watcher input-contract preflight validator status
 
