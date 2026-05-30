@@ -31,6 +31,12 @@ from watcher_foundation.day60_outcome_scoring_summary import (
     DAY60_OUTCOME_SCORING_SUMMARY_RESULT_FIELDS,
     build_day60_outcome_scoring_summary,
 )
+from watcher_foundation.day60_outcome_diagnostics import (
+    DAY60_OUTCOME_DIAGNOSTICS_RESULT_FIELDS,
+    DAY60_OUTCOME_DIAGNOSTIC_FAILURE_CATEGORIES,
+    DAY60_OUTCOME_DIAGNOSTIC_FIX_PATHS,
+    evaluate_day60_outcome_diagnostics,
+)
 from watcher_foundation.day60_shadow_review_packet import (
     DAY60_SHADOW_REVIEW_PACKET_DIAGNOSTIC_PLACEHOLDER_FIELDS,
     DAY60_SHADOW_REVIEW_PACKET_OUTCOME_PLACEHOLDER_FIELDS,
@@ -118,6 +124,9 @@ __all__ = [
     "DAY60_OUTCOME_SCORING_CONTRACT_RESULT_FIELDS",
     "DAY60_OUTCOME_REVIEW_BUCKETS",
     "DAY60_OUTCOME_SCORING_SUMMARY_RESULT_FIELDS",
+    "DAY60_OUTCOME_DIAGNOSTICS_RESULT_FIELDS",
+    "DAY60_OUTCOME_DIAGNOSTIC_FAILURE_CATEGORIES",
+    "DAY60_OUTCOME_DIAGNOSTIC_FIX_PATHS",
     "DAY60_SHADOW_CONTRACT_DIAGNOSTIC_PLACEHOLDER_FIELDS",
     "DAY60_SHADOW_CONTRACT_REQUIRED_FIELDS",
     "DAY60_SHADOW_CONTRACT_TRIGGER_CARD_REQUIRED_FIELDS",
@@ -163,6 +172,7 @@ __all__ = [
     "decide_duplicate_suppression",
     "evaluate_headline_news_policy",
     "evaluate_day60_shadow_readiness",
+    "evaluate_day60_outcome_diagnostics",
     "project_trigger_card",
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",
