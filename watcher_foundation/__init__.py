@@ -59,6 +59,12 @@ from watcher_foundation.historical_outcome_diagnostics import (
     HISTORICAL_OUTCOME_DIAGNOSTIC_FIX_PATHS,
     evaluate_historical_outcome_diagnostics,
 )
+from watcher_foundation.historical_optimization_readiness import (
+    HISTORICAL_OPTIMIZATION_ALLOWED_SYSTEM_AREAS,
+    HISTORICAL_OPTIMIZATION_READINESS_REQUIRED_FIELDS,
+    HISTORICAL_OPTIMIZATION_READINESS_RESULT_FIELDS,
+    evaluate_historical_optimization_readiness,
+)
 from watcher_foundation.day60_shadow_review_packet import (
     DAY60_SHADOW_REVIEW_PACKET_DIAGNOSTIC_PLACEHOLDER_FIELDS,
     DAY60_SHADOW_REVIEW_PACKET_OUTCOME_PLACEHOLDER_FIELDS,
@@ -174,6 +180,9 @@ __all__ = [
     "HISTORICAL_OUTCOME_DIAGNOSTICS_RESULT_FIELDS",
     "HISTORICAL_OUTCOME_DIAGNOSTIC_FAILURE_CATEGORIES",
     "HISTORICAL_OUTCOME_DIAGNOSTIC_FIX_PATHS",
+    "HISTORICAL_OPTIMIZATION_ALLOWED_SYSTEM_AREAS",
+    "HISTORICAL_OPTIMIZATION_READINESS_REQUIRED_FIELDS",
+    "HISTORICAL_OPTIMIZATION_READINESS_RESULT_FIELDS",
     "MATERIAL_CHANGE_FLAGS_THAT_BREAK_SUPPRESSION",
     "NEWS_UNCONFIRMED",
     "PIPELINE_RESULT_FIELDS",
@@ -207,6 +216,7 @@ __all__ = [
     "evaluate_day60_outcome_diagnostics",
     "evaluate_day60_optimization_readiness",
     "evaluate_historical_outcome_diagnostics",
+    "evaluate_historical_optimization_readiness",
     "project_trigger_card",
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",

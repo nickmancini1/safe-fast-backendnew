@@ -75,6 +75,25 @@
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** first local-only implementation step from the committed plan.
 
+## Local-only historical optimization readiness gate status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **Baseline:** patch8.
+- **Implementation files:** `watcher_foundation/historical_optimization_readiness.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_historical_optimization_readiness.py`.
+- **Focused local test result:** PASS with `python -m unittest discover -s tests -p test_historical_optimization_readiness.py` (`24` tests).
+- **Historical outcome diagnostics regression result:** PASS with `python -m unittest discover -s tests -p test_historical_outcome_diagnostics.py` (`14` tests).
+- **Historical outcome proof summary regression result:** PASS with `python -m unittest discover -s tests -p test_historical_outcome_proof_summary.py` (`12` tests).
+- **Historical outcome proof preflight regression result:** PASS with `python -m unittest discover -s tests -p test_historical_outcome_proof_preflight.py` (`14` tests).
+- **Day 60 optimization readiness regression result:** PASS with `python -m unittest discover -s tests -p test_day60_optimization_readiness.py` (`22` tests).
+- **Day 60 outcome diagnostics regression result:** PASS with `python -m unittest discover -s tests -p test_day60_outcome_diagnostics.py` (`14` tests).
+- **Day 60 outcome scoring summary regression result:** PASS with `python -m unittest discover -s tests -p test_day60_outcome_scoring_summary.py` (`10` tests).
+- **Day 60 outcome scoring contract regression result:** PASS with `python -m unittest discover -s tests -p test_day60_outcome_scoring_contract.py` (`15` tests).
+- **Watcher foundation import-surface regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold tests.test_watcher_state_tracking tests.test_trigger_card_projection tests.test_shadow_log_writer tests.test_duplicate_suppression_runtime tests.test_focus_ranking_runtime tests.test_diagnostics_runtime tests.test_headline_news_policy_placeholder tests.test_watcher_pipeline_integration tests.test_watcher_pipeline_sequence_regression tests.test_watcher_batch_runner tests.test_watcher_fixture_regression_pack tests.test_day60_shadow_contract tests.test_day60_shadow_session tests.test_day60_shadow_review_packet tests.test_day60_shadow_readiness tests.test_day60_outcome_scoring_contract tests.test_day60_outcome_scoring_summary tests.test_day60_outcome_diagnostics tests.test_day60_optimization_readiness tests.test_historical_outcome_proof_preflight tests.test_historical_outcome_proof_summary tests.test_historical_outcome_diagnostics tests.test_historical_optimization_readiness` (`328` tests).
+- **git diff whitespace check:** PASS with `git diff --check` (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `watcher_foundation/__init__.py` only).
+- **Scope preserved:** local pure Python historical optimization readiness evaluation only; accepts caller-provided in-memory historical outcome diagnostics summary only; returns an in-memory historical optimization readiness summary only; verifies diagnosed failure category, evidence or explicit unavailable evidence, affected system area, next fix path, regression test path, and no-trade boundary before reporting readiness; preserves affected setup type, symbol, stage, trigger/invalidation/freshness relationship, candidate-only likely causes, unavailable evidence, and shallow-label rejection; does not optimize; no rule, contract, ranking, trigger, invalidation, freshness, duplicate suppression, alert, or user-facing workflow changes; no file/log/report writes, data fetching, live data, controlled shadow data, watcher loops, schedulers, alerts, network calls, subprocess calls, broker/order/account/options/P&L behavior, live trade decisions, production/Railway/deploy integration, `main.py` changes, engine logic changes, generated report/log paths, secrets, `.env` files, credentials, or deployment settings.
+- **Next objective:** user review/commit of this local-only historical optimization readiness gate, then build-state sync.
+
 ## Local-only historical outcome diagnostics evaluator status
 
 - **Status:** implemented and committed.
