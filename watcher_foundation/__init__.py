@@ -49,6 +49,10 @@ from watcher_foundation.historical_outcome_proof_preflight import (
     validate_historical_outcome_proof_batch,
     validate_historical_outcome_proof_row,
 )
+from watcher_foundation.historical_outcome_proof_summary import (
+    HISTORICAL_OUTCOME_PROOF_SUMMARY_RESULT_FIELDS,
+    build_historical_outcome_proof_summary,
+)
 from watcher_foundation.day60_shadow_review_packet import (
     DAY60_SHADOW_REVIEW_PACKET_DIAGNOSTIC_PLACEHOLDER_FIELDS,
     DAY60_SHADOW_REVIEW_PACKET_OUTCOME_PLACEHOLDER_FIELDS,
@@ -160,6 +164,7 @@ __all__ = [
     "FOCUS_RANK_BUCKETS",
     "HISTORICAL_OUTCOME_PROOF_PREFLIGHT_REQUIRED_FIELDS",
     "HISTORICAL_OUTCOME_PROOF_PREFLIGHT_RESULT_FIELDS",
+    "HISTORICAL_OUTCOME_PROOF_SUMMARY_RESULT_FIELDS",
     "MATERIAL_CHANGE_FLAGS_THAT_BREAK_SUPPRESSION",
     "NEWS_UNCONFIRMED",
     "PIPELINE_RESULT_FIELDS",
@@ -181,6 +186,7 @@ __all__ = [
     "build_diagnostics",
     "build_day60_shadow_review_packet",
     "build_day60_outcome_scoring_summary",
+    "build_historical_outcome_proof_summary",
     "build_duplicate_suppression_key_fields",
     "build_suppression_fingerprint",
     "create_diagnostics",
