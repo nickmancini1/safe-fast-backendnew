@@ -183,6 +183,26 @@
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** first local-only implementation step from the committed plan.
 
+## Local-only Day 60 optimization readiness gate status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **Baseline:** patch8.
+- **Implementation files:** `watcher_foundation/day60_optimization_readiness.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_day60_optimization_readiness.py`.
+- **Focused local test result:** PASS with `python -m unittest discover -s tests -p test_day60_optimization_readiness.py` (`22` tests).
+- **Day 60 outcome diagnostics regression result:** PASS with `python -m unittest discover -s tests -p test_day60_outcome_diagnostics.py` (`14` tests).
+- **Day 60 outcome scoring summary regression result:** PASS with `python -m unittest discover -s tests -p test_day60_outcome_scoring_summary.py` (`10` tests).
+- **Day 60 outcome scoring contract regression result:** PASS with `python -m unittest discover -s tests -p test_day60_outcome_scoring_contract.py` (`15` tests).
+- **Day 60 shadow readiness regression result:** PASS with `python -m unittest discover -s tests -p test_day60_shadow_readiness.py` (`11` tests).
+- **Day 60 shadow review packet regression result:** PASS with `python -m unittest discover -s tests -p test_day60_shadow_review_packet.py` (`13` tests).
+- **Day 60 shadow session regression result:** PASS with `python -m unittest discover -s tests -p test_day60_shadow_session.py` (`9` tests).
+- **Day 60 shadow contract regression result:** PASS with `python -m unittest discover -s tests -p test_day60_shadow_contract.py` (`15` tests).
+- **Watcher export/regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold tests.test_watcher_state_tracking tests.test_trigger_card_projection tests.test_shadow_log_writer tests.test_duplicate_suppression_runtime tests.test_focus_ranking_runtime tests.test_diagnostics_runtime tests.test_headline_news_policy_placeholder tests.test_watcher_pipeline_integration tests.test_watcher_pipeline_sequence_regression tests.test_watcher_batch_runner tests.test_watcher_fixture_regression_pack tests.test_day60_shadow_contract tests.test_day60_shadow_session tests.test_day60_shadow_review_packet tests.test_day60_shadow_readiness tests.test_day60_outcome_scoring_contract tests.test_day60_outcome_scoring_summary tests.test_day60_outcome_diagnostics tests.test_day60_optimization_readiness` (`264` tests).
+- **git diff whitespace check:** PASS with `git diff --check` (exit 0).
+- **Scope preserved:** local pure Python Day 60 optimization readiness gate only; accepts the caller-provided in-memory outcome diagnostics summary only; verifies each potential fix path has a diagnosed failure category, evidence or explicit unavailable-evidence marker, affected system area, next fix path, regression test path, and preserved no-trade boundary before allowing future optimization readiness; rejects shallow labels without evidence or fix path; returns an in-memory optimization readiness summary only; does not optimize, change rules/contracts/ranking/triggers/invalidation/freshness/duplicate suppression/alerts/user-facing workflow, write files/logs/reports, fetch data, start live data, create watcher loops/schedulers/daemons/polling/background workers, send alerts, call network/subprocess, touch broker/order/account/options/P&L behavior, make live trade decisions, change `main.py`, change engine logic, change Railway/deploy/production files, generated report/log paths, secrets, `.env` files, credentials, or deployment settings.
+- **Next objective:** user review/commit of this local-only optimization readiness gate, then build-state sync.
+- **Still not proven / NO-GO:** optimization itself, Day 60 shadow watcher viability, diagnostics usefulness against real reviewed outcomes, controlled shadow data collection, live data readiness, production readiness, broker/order execution, auto-trading, option P&L, account sizing, and live trade readiness remain unproven and not started.
+
 ## Local-only Day 60 shadow watcher input-contract preflight validator status
 
 - **Status:** implemented and committed.
