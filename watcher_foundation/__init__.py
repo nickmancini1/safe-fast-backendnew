@@ -43,6 +43,12 @@ from watcher_foundation.day60_optimization_readiness import (
     DAY60_OPTIMIZATION_READINESS_RESULT_FIELDS,
     evaluate_day60_optimization_readiness,
 )
+from watcher_foundation.historical_outcome_proof_preflight import (
+    HISTORICAL_OUTCOME_PROOF_PREFLIGHT_REQUIRED_FIELDS,
+    HISTORICAL_OUTCOME_PROOF_PREFLIGHT_RESULT_FIELDS,
+    validate_historical_outcome_proof_batch,
+    validate_historical_outcome_proof_row,
+)
 from watcher_foundation.day60_shadow_review_packet import (
     DAY60_SHADOW_REVIEW_PACKET_DIAGNOSTIC_PLACEHOLDER_FIELDS,
     DAY60_SHADOW_REVIEW_PACKET_OUTCOME_PLACEHOLDER_FIELDS,
@@ -152,6 +158,8 @@ __all__ = [
     "DUPLICATE_SUPPRESSION_KEY_FIELD_NAMES",
     "EXPLICIT_UNCONFIRMED_MARKERS",
     "FOCUS_RANK_BUCKETS",
+    "HISTORICAL_OUTCOME_PROOF_PREFLIGHT_REQUIRED_FIELDS",
+    "HISTORICAL_OUTCOME_PROOF_PREFLIGHT_RESULT_FIELDS",
     "MATERIAL_CHANGE_FLAGS_THAT_BREAK_SUPPRESSION",
     "NEWS_UNCONFIRMED",
     "PIPELINE_RESULT_FIELDS",
@@ -197,6 +205,8 @@ __all__ = [
     "validate_day60_outcome_scoring_row",
     "validate_day60_shadow_contract_batch",
     "validate_day60_shadow_contract_row",
+    "validate_historical_outcome_proof_batch",
+    "validate_historical_outcome_proof_row",
     "validate_shadow_review_export_bundle",
     "validate_shadow_review_export_bundle_review_package",
     "validate_shadow_review_export_shape",
