@@ -8,9 +8,10 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `9c36c52 Add Day 60 outcome diagnostics evaluator`
-- **Latest observed local HEAD:** `9c36c52 Add Day 60 outcome diagnostics evaluator`
-- **Latest observed origin/main:** `9c36c52 Add Day 60 outcome diagnostics evaluator`
+- **Latest observed local HEAD:** `7cd5cc7 Sync build state after Day 60 outcome diagnostics evaluator`
+- **Latest observed origin/main:** `7cd5cc7 Sync build state after Day 60 outcome diagnostics evaluator`
 - **Latest completed code milestone commit:** `9c36c52 Add Day 60 outcome diagnostics evaluator`
+- **Latest build-state sync after Day 60 outcome diagnostics evaluator:** `7cd5cc7 Sync build state after Day 60 outcome diagnostics evaluator`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after Day 60 outcome scoring summary evaluator:** `5551444 Sync build state after Day 60 outcome scoring summary evaluator`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after Day 60 outcome scoring contract validator:** `8947810 Sync build state after Day 60 outcome scoring contract validator`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest build-state sync after Day 60 diagnostics readiness evaluator:** `7036758 Sync build state after Day 60 diagnostics readiness evaluator`; this is not a new completed milestone and must not create a repeated sync loop.
@@ -73,6 +74,16 @@
 - **Tests:** not run; docs-only update.
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no `watcher_foundation` code, no live data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** continue current local-only build path after recovery addendum.
+
+## Day 28 phone discussion preservation status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **File:** `SAFE_FAST_DAY28_PHONE_DISCUSSION_PRESERVATION_ADDENDUM.md`.
+- **Baseline:** patch8.
+- **Purpose:** preserve Day 28 phone discussion on diagnostics timeline, $20-tier live-data diagnostic role, discretion rule, account growth path, instrument review, and viability priority.
+- **Tests:** not run; docs-only update.
+- **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no `watcher_foundation` code, no live data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
+- **Next objective:** user review/commit of this docs-only preservation update, then continue current local-only build path.
 
 ## Local next-step plan after Day 60 diagnostics readiness status
 

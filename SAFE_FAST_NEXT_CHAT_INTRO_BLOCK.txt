@@ -4,43 +4,48 @@ Repo: nickmancini1/safe-fast-backendnew
 Branch: main
 Baseline: patch8
 Day context: Day 28
-Latest pushed state before the Day 28 recovery addendum: 7036758 Sync build state after Day 60 diagnostics readiness evaluator
+Latest pushed state: 7cd5cc7 Sync build state after Day 60 outcome diagnostics evaluator
 
 Mandatory first reads:
 1. SAFE_FAST_BUILD_STATE.md
-2. SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md
-3. Latest strict handoff / current planning docs
+2. SAFE_FAST_DAY28_PHONE_DISCUSSION_PRESERVATION_ADDENDUM.md
+3. SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md
+4. Latest current planning docs
 
 Current state:
-The current active build path is local-only diagnostics/readiness. The input-contract validator, shadow session dry-run adapter, review/diagnostics packet builder, and diagnostics readiness evaluator have been built. Controlled shadow data, live data, alerts, logs/reports, production, broker/order execution, option P&L, account sizing, and live trade decisions remain unproven and not started.
+The current active build path is local-only diagnostics/readiness after the Day 60 outcome diagnostics evaluator. Controlled shadow data, live data, alerts, logs/reports, production, broker/order execution, option P&L, account sizing, and live trade decisions remain unproven and not started.
 
-Day 28 missing-conversation recovery:
-The Day 28 missing phone conversation was partially reconstructed into SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md. The reconstructed content is carry-forward planning substance, not the exact missing transcript. Future chats must not make the user re-explain this.
-
-Runway and handoff:
-Day 60 remains a checkpoint. Day 60 must not be treated as automatic production readiness or live-trading readiness. If the $100 Pro tier is extended to two months, Day 90 may become the stronger $20-tier handoff target. The $20 tier should continue from clean docs, small tasks, current objectives, and preserved assumptions; it should not rebuild the project from scratch.
+Day 28 preservation:
+The Day 28 phone discussion is preserved in SAFE_FAST_DAY28_PHONE_DISCUSSION_PRESERVATION_ADDENDUM.md. The earlier missing-conversation recovery remains preserved in SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md. Future chats must not make the user re-explain either preserved planning record.
 
 Viability and diagnostics:
-Viability proof is the highest priority.
-The project must justify continued time investment.
-Viability proof is mandatory. Detection alone is not enough; SAFE-FAST must prove whether recognized setups produce useful trading behavior under no-hindsight review. Ideal, Clean Fast Break, and Continuation must be reviewable separately, and SPY, QQQ, IWM, and GLD must be reviewable separately before assuming a combined system works.
+Viability proof is the highest priority. Detection alone is not enough, and a watcher alone is not enough. SAFE-FAST must prove whether the trading plan is viable under no-hindsight review. If results are weak, diagnose deeply before optimizing. Optimization must be evidence-backed and regression-tested.
 
-If results are weak, diagnose deeply before optimizing.
-Whole-system optimization must be evidence-backed and regression-tested.
-Future chats must not drift into endless build work without proof.
-Failure diagnosis is mandatory before optimization. Optimization must target diagnosed failure categories and require regression evidence. Required loop: detect -> score outcome -> diagnose failure category -> decide fix path -> adjust rule/contract/test -> run regression -> review again.
-In-depth diagnostics are required before optimization so the project knows what is being optimized.
-Do not start optimization from shallow labels like "failed setup" or "bad alert"; diagnose the evidence, likely cause, affected setup/symbol/stage, trigger/invalidation/freshness relationship, and next fix path first.
+Trading-plan discretion:
+Hidden discretion should be removed from signal rules. Setup recognition, trigger, invalidation, fresh/stale/spent, blocker/caution, ranking, outcome scoring, and diagnostics should be rule-based. Human discretion is only a no-trade veto, review note, or safety pause. Human discretion must not create a signal, approve a trade, override missing proof, or hide failure.
+
+Account growth:
+Account growth must follow proof. No-capital proof comes first, historical proof comes next, controlled shadow proof comes next, and any tiny live-risk pilot comes only after evidence. Option P&L and account sizing remain later phases, not current proof layers.
+
+$20 tier role:
+The $20 tier reviews compact evidence, not raw live-data streams. The live watcher system must produce clean diagnostic packets, summaries, and outcome records for review. The $20 tier is for review, tuning suggestions, docs/build-state maintenance, and small Codex prompts.
+
+Instrument universe:
+SPY / QQQ / IWM / GLD remain the starting universe. They are not guaranteed to be final forever, but each symbol must be reviewed separately before judging the combined system. Do not expand the universe until these four prove what they are good or bad at.
+
+Timeline placement:
+Local diagnostics are being built now. Historical diagnostics come after local diagnostics. Controlled shadow diagnostics come after historical proof. Live-data shadow diagnostics come later. Live data does not mean live trading.
 
 Source priority:
 1. SAFE_FAST_BUILD_STATE.md
-2. SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md
-3. Latest strict handoff / current planning docs
-4. SAFE_FAST_DAY60_SHADOW_WATCHER_VIABILITY_DIAGNOSTICS_REQUIREMENTS.md
-5. SAFE_FAST_STRICT_HANDOFF_POST_SHADOW_REVIEW_EXPORT_BUNDLE_CLOSEOUT.md
-6. Relevant closeout/review docs
-7. watcher_foundation code/tests
-8. Older project docs as background only
+2. SAFE_FAST_DAY28_PHONE_DISCUSSION_PRESERVATION_ADDENDUM.md
+3. SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md
+4. Latest current planning docs
+5. SAFE_FAST_DAY60_SHADOW_WATCHER_VIABILITY_DIAGNOSTICS_REQUIREMENTS.md
+6. SAFE_FAST_STRICT_HANDOFF_POST_SHADOW_REVIEW_EXPORT_BUNDLE_CLOSEOUT.md
+7. Relevant closeout/review docs
+8. watcher_foundation code/tests
+9. Older project docs as background only
 
 Codex tooling:
 Default/elevated Windows sandbox failed with `windows sandbox: spawn setup refresh`.
@@ -56,7 +61,7 @@ Continuity rule:
 Future phone conversations that materially change the build plan must get a short visible checkpoint immediately in chat. Repo docs and SAFE_FAST_BUILD_STATE.md remain the durable source of truth. If a conversation disappears, future chats must clearly label any replacement content as reconstruction, not recovered transcript.
 
 Next objective:
-User review/commit of the docs-only Day 28 missing-conversation recovery update, then continue the current local-only build path.
+User review/commit of the docs-only Day 28 phone discussion preservation update, then continue the current local-only build path.
 
 No-go boundaries:
 - Do not modify main.py.
