@@ -8,8 +8,9 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `fd6d38f Add local next-step plan after handoff readiness discretion audit`
-- **Latest observed local HEAD:** `fd6d38f Add local next-step plan after handoff readiness discretion audit`
-- **Latest observed origin/main:** `fd6d38f Add local next-step plan after handoff readiness discretion audit`
+- **Latest observed local HEAD:** `9b467af Sync build state after handoff readiness discretion audit plan`
+- **Latest observed origin/main:** `9b467af Sync build state after handoff readiness discretion audit plan`
+- **Latest build-state sync after handoff-readiness discretion audit plan:** `9b467af Sync build state after handoff readiness discretion audit plan`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after handoff-readiness plan:** `6438bec Sync build state after handoff readiness plan`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed code milestone commit:** `62070cd Add historical optimization readiness gate`
 - **Latest build-state sync after historical optimization readiness gate:** `2fc837e Sync build state after historical optimization readiness gate`; this is not a new completed milestone and must not create a repeated sync loop.
@@ -112,11 +113,21 @@
 
 - **Status:** implemented and committed.
 - **Commit status:** committed at `fd6d38f Add local next-step plan after handoff readiness discretion audit`.
+- **Latest build-state sync:** `9b467af Sync build state after handoff readiness discretion audit plan`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **File:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_HANDOFF_READINESS_DISCRETION_AUDIT.md`.
 - **Baseline:** patch8.
 - **Tests:** not run; docs-only planning.
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** first local-only implementation step from the committed plan.
+
+## Discretion audit plan metadata correction status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **File:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_HANDOFF_READINESS_DISCRETION_AUDIT.md`.
+- **Baseline:** patch8.
+- **Tests:** not run; docs-only metadata correction.
+- **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
+- **Next objective:** user review/commit of this docs-only metadata correction, then rerun the local-only discretion audit evaluator implementation.
 
 ## Local-only historical outcome diagnostics evaluator status
 
