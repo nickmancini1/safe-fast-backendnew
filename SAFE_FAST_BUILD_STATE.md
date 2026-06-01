@@ -120,14 +120,26 @@
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** first local-only implementation step from the committed plan.
 
-## Discretion audit plan metadata correction status
+## Local-only trading-plan discretion audit evaluator status
 
 - **Status:** implemented in working tree and ready for user review/commit.
+- **Baseline:** patch8.
+- **Implementation files:** `watcher_foundation/discretion_audit.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_discretion_audit.py`.
+- **Focused local test result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit.py` (`16` tests).
+- **Watcher foundation scaffold regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold` (`6` tests).
+- **git diff whitespace check:** PASS with `git diff --check` (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `watcher_foundation/__init__.py` only).
+- **Scope preserved:** local-only, in-memory SAFE-FAST trading-plan discretion audit evaluator only; accepts caller-provided in-memory rule and contract descriptions only; identifies hidden discretionary language, required vague phrases, supported discretion areas, allowed safety discretion, forbidden signal discretion, and unsupported areas needing review; returns an in-memory audit summary only; does not change trading rules; does not optimize; writes no files/logs/reports; fetches no data; starts no live data or controlled shadow data; creates no watcher loops, schedulers, polling, background workers, or alert delivery; sends no alerts; touches no broker/order/account/options/P&L systems; makes no live trade decisions; no `main.py`, engine logic, Railway/deploy, production, secrets, `.env`, credentials, live backend, generated output path, controlled shadow startup, watcher loop, scheduler, alert delivery, broker/order/account/option/P&L behavior, or deployment setting changes.
+- **Next objective:** user review/commit of this local-only discretion audit evaluator, then build-state sync.
+
+## Discretion audit plan metadata correction status
+
+- **Status:** superseded by the committed local next-step plan status above and the local-only trading-plan discretion audit evaluator implementation status.
 - **File:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_HANDOFF_READINESS_DISCRETION_AUDIT.md`.
 - **Baseline:** patch8.
 - **Tests:** not run; docs-only metadata correction.
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
-- **Next objective:** user review/commit of this docs-only metadata correction, then rerun the local-only discretion audit evaluator implementation.
+- **Next objective:** superseded by user review/commit of the local-only discretion audit evaluator, then build-state sync.
 
 ## Local-only historical outcome diagnostics evaluator status
 

@@ -43,6 +43,13 @@ from watcher_foundation.day60_optimization_readiness import (
     DAY60_OPTIMIZATION_READINESS_RESULT_FIELDS,
     evaluate_day60_optimization_readiness,
 )
+from watcher_foundation.discretion_audit import (
+    DISCRETION_AUDIT_ALLOWED_HUMAN_DISCRETION,
+    DISCRETION_AUDIT_AREAS,
+    DISCRETION_AUDIT_RESULT_FIELDS,
+    DISCRETION_AUDIT_VAGUE_PHRASES,
+    audit_trading_plan_discretion,
+)
 from watcher_foundation.historical_outcome_proof_preflight import (
     HISTORICAL_OUTCOME_PROOF_PREFLIGHT_REQUIRED_FIELDS,
     HISTORICAL_OUTCOME_PROOF_PREFLIGHT_RESULT_FIELDS,
@@ -169,6 +176,10 @@ __all__ = [
     "DAY60_SHADOW_READINESS_RESULT_FIELDS",
     "DAY60_SHADOW_SESSION_RESULT_FIELDS",
     "DEFAULT_REVIEW_LABEL",
+    "DISCRETION_AUDIT_ALLOWED_HUMAN_DISCRETION",
+    "DISCRETION_AUDIT_AREAS",
+    "DISCRETION_AUDIT_RESULT_FIELDS",
+    "DISCRETION_AUDIT_VAGUE_PHRASES",
     "DIAGNOSTIC_REASON_CODE_GROUPS",
     "DUPLICATE_SUPPRESSION_FINGERPRINT_VERSION",
     "DUPLICATE_SUPPRESSION_KEY_FIELD_NAMES",
@@ -201,6 +212,7 @@ __all__ = [
     "WatchOnlyCandidateState",
     "WatcherTrackedState",
     "append_shadow_log_line",
+    "audit_trading_plan_discretion",
     "build_diagnostics",
     "build_day60_shadow_review_packet",
     "build_day60_outcome_scoring_summary",
