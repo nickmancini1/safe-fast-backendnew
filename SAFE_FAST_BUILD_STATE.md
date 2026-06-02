@@ -8,8 +8,9 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `ecf9f4b Add local next-step plan after discretion audit evaluator`
-- **Latest observed local HEAD:** `ecf9f4b Add local next-step plan after discretion audit evaluator`
-- **Latest observed origin/main:** `ecf9f4b Add local next-step plan after discretion audit evaluator`
+- **Latest observed local HEAD:** `477ecb8 Sync build state after discretion audit coverage next-step plan`
+- **Latest observed origin/main:** `477ecb8 Sync build state after discretion audit coverage next-step plan`
+- **Latest build-state sync after discretion audit coverage next-step plan:** `477ecb8 Sync build state after discretion audit coverage next-step plan`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after trading-plan discretion audit evaluator:** `5e9080f Sync build state after trading plan discretion audit evaluator`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after handoff-readiness discretion audit plan:** `9b467af Sync build state after handoff readiness discretion audit plan`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after handoff-readiness plan:** `6438bec Sync build state after handoff readiness plan`; this is not a new completed milestone and must not create a repeated sync loop.
@@ -144,6 +145,15 @@
 - **Tests:** not run; docs-only planning.
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** first local-only implementation step from the committed plan.
+
+## Discretion audit coverage plan metadata correction status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **File:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_DISCRETION_AUDIT_EVALUATOR.md`.
+- **Baseline:** patch8.
+- **Tests:** not run; docs-only metadata correction.
+- **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
+- **Next objective:** user review/commit of this docs-only metadata correction, then rerun the local-only discretion audit coverage evaluator implementation.
 
 ## Discretion audit plan metadata correction status
 

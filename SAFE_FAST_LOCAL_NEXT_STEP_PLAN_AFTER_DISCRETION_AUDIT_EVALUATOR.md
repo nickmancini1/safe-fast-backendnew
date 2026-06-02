@@ -6,8 +6,8 @@
 - **Repo:** `safe-fast-backendnew`
 - **Branch:** `main`
 - **Day context:** Day 28
-- **Latest completed milestone commit:** `58f9303 Add trading plan discretion audit evaluator`
-- **Latest build-state sync after trading-plan discretion audit evaluator:** `5e9080f Sync build state after trading plan discretion audit evaluator`; bookkeeping only, not a new milestone.
+- **Latest completed milestone commit:** `ecf9f4b Add local next-step plan after discretion audit evaluator`
+- **Latest build-state sync after discretion audit coverage next-step plan:** `477ecb8 Sync build state after discretion audit coverage next-step plan`; bookkeeping only, not a new milestone.
 - **Work mode:** build work only, not live trade chat
 
 ## Current Proven Foundation
