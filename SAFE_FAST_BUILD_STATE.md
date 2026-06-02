@@ -8,8 +8,9 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `7ed0cdb Add strict handoff after Day 28 discretion audit coverage`
-- **Latest observed local HEAD:** `7ed0cdb Add strict handoff after Day 28 discretion audit coverage`
-- **Latest observed origin/main:** `7ed0cdb Add strict handoff after Day 28 discretion audit coverage`
+- **Latest observed local HEAD:** `7ba412d Sync build state after strict Day 28 handoff`
+- **Latest observed origin/main:** `7ba412d Sync build state after strict Day 28 handoff`
+- **Latest build-state sync after strict Day 28 handoff:** `7ba412d Sync build state after strict Day 28 handoff`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after discretion audit inventory next-step plan:** `e929eac Sync build state after discretion audit inventory next-step plan`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after discretion audit coverage evaluator:** `cfb9835 Sync build state after discretion audit coverage evaluator`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after discretion audit coverage next-step plan:** `477ecb8 Sync build state after discretion audit coverage next-step plan`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
@@ -184,6 +185,16 @@
 - **Tests:** not run; docs-only handoff package.
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** continue current local-only build path after strict handoff.
+
+## Next-chat intro block sync after strict Day 28 handoff status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **File:** `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`.
+- **Baseline:** patch8.
+- **Purpose:** update the next-chat intro block after the strict Day 28 handoff was committed at `7ed0cdb` and synced at `7ba412d`.
+- **Tests:** not run; docs-only intro-block sync.
+- **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no watcher_foundation code, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
+- **Next objective:** user review/commit of this docs-only intro-block sync, then continue current local-only build path after strict handoff.
 
 ## Discretion audit coverage plan metadata correction status
 
