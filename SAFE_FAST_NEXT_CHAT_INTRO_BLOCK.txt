@@ -3,17 +3,20 @@ You are taking over SAFE-FAST build work. This is not live trade chat.
 Repo: nickmancini1/safe-fast-backendnew
 Branch: main
 Baseline: patch8
-Day context: Day 28
-Latest pushed state: 7cd5cc7 Sync build state after Day 60 outcome diagnostics evaluator
+Day context: Day 28 / final $200-tier handoff-protection day
+Latest pushed state: e929eac Sync build state after discretion audit inventory next-step plan
 
 Mandatory first reads:
 1. SAFE_FAST_BUILD_STATE.md
-2. SAFE_FAST_DAY28_PHONE_DISCUSSION_PRESERVATION_ADDENDUM.md
-3. SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md
-4. Latest current planning docs
+2. SAFE_FAST_STRICT_HANDOFF_DAY28_AFTER_DISCRETION_AUDIT_COVERAGE.md
+3. SAFE_FAST_HANDOFF_READINESS_PLAN_AFTER_HISTORICAL_OPTIMIZATION_READINESS.md
+4. SAFE_FAST_DAY28_PHONE_DISCUSSION_PRESERVATION_ADDENDUM.md
+5. SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md
+6. SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_DISCRETION_AUDIT_COVERAGE.md
+7. Latest relevant local next-step plan
 
 Current state:
-The current active build path is local-only diagnostics/readiness after the Day 60 outcome diagnostics evaluator. Controlled shadow data, live data, alerts, logs/reports, production, broker/order execution, option P&L, account sizing, and live trade decisions remain unproven and not started.
+The current active build path is strict handoff protection after discretion audit coverage and the discretion audit inventory next-step plan. The next implementation task is local-only discretion audit inventory validation only after this handoff is committed and synced. Controlled shadow data, live data, alerts, logs/reports, production, broker/order execution, option P&L, account sizing, and live trade decisions remain unproven and not started.
 
 Day 28 preservation:
 The Day 28 phone discussion is preserved in SAFE_FAST_DAY28_PHONE_DISCUSSION_PRESERVATION_ADDENDUM.md. The earlier missing-conversation recovery remains preserved in SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md. Future chats must not make the user re-explain either preserved planning record.
@@ -34,17 +37,17 @@ Instrument universe:
 SPY / QQQ / IWM / GLD remain the starting universe. They are not guaranteed to be final forever, but each symbol must be reviewed separately before judging the combined system. Do not expand the universe until these four prove what they are good or bad at.
 
 Timeline placement:
-Local diagnostics are being built now. Historical diagnostics come after local diagnostics. Controlled shadow diagnostics come after historical proof. Live-data shadow diagnostics come later. Live data does not mean live trading.
+Local diagnostics, historical proof-path foundations, discretion audit, and discretion audit coverage are built to the current committed milestones. Controlled shadow diagnostics come after historical proof. Live-data shadow diagnostics come later. Live data does not mean live trading.
 
 Source priority:
 1. SAFE_FAST_BUILD_STATE.md
-2. SAFE_FAST_DAY28_PHONE_DISCUSSION_PRESERVATION_ADDENDUM.md
-3. SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md
-4. Latest current planning docs
-5. SAFE_FAST_DAY60_SHADOW_WATCHER_VIABILITY_DIAGNOSTICS_REQUIREMENTS.md
-6. SAFE_FAST_STRICT_HANDOFF_POST_SHADOW_REVIEW_EXPORT_BUNDLE_CLOSEOUT.md
-7. Relevant closeout/review docs
-8. watcher_foundation code/tests
+2. SAFE_FAST_STRICT_HANDOFF_DAY28_AFTER_DISCRETION_AUDIT_COVERAGE.md
+3. SAFE_FAST_HANDOFF_READINESS_PLAN_AFTER_HISTORICAL_OPTIMIZATION_READINESS.md
+4. SAFE_FAST_DAY28_PHONE_DISCUSSION_PRESERVATION_ADDENDUM.md
+5. SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md
+6. SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_DISCRETION_AUDIT_COVERAGE.md
+7. Latest relevant local next-step plan
+8. Relevant watcher_foundation code/tests
 9. Older project docs as background only
 
 Codex tooling:
@@ -61,7 +64,7 @@ Continuity rule:
 Future phone conversations that materially change the build plan must get a short visible checkpoint immediately in chat. Repo docs and SAFE_FAST_BUILD_STATE.md remain the durable source of truth. If a conversation disappears, future chats must clearly label any replacement content as reconstruction, not recovered transcript.
 
 Next objective:
-User review/commit of the docs-only Day 28 phone discussion preservation update, then continue the current local-only build path.
+User review/commit of the strict Day 28 handoff package, then build-state sync. After that, continue with the local-only discretion audit inventory validator from SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_DISCRETION_AUDIT_COVERAGE.md.
 
 No-go boundaries:
 - Do not modify main.py.
