@@ -54,7 +54,7 @@
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Latest completed build milestone:** Local next-step plan after discretion audit evaluator
-- **Current objective:** first local-only implementation step from the committed discretion audit coverage evaluator plan
+- **Current objective:** user review/commit of the local-only discretion audit coverage evaluator working-tree implementation, then build-state sync
 - **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; replay/regression closeout review is PASS and committed at `633ad7f Add replay regression closeout review`; shadow review sample labeling / review workflow planning is implemented and committed at `87d9071 Add shadow review sample labeling plan`; local shadow review label schema is implemented and committed at `361e2e4 Add shadow review label schema`; local shadow review label workflow is implemented and committed at `f27a2dd Add shadow review label workflow`; shadow review workflow closeout review is PASS and committed at `d8f80f1 Add shadow review workflow closeout review`; local shadow review sample pack is implemented and committed at `b258f88 Add shadow review sample pack`; shadow review sample pack closeout review is PASS and committed at `ec760a4 Add shadow review sample pack closeout review`; local shadow review workflow final boundary sweep is implemented and committed at `1bc2d2d Add shadow review workflow final boundary sweep`; shadow review workflow final boundary sweep closeout review is PASS and committed at `4073339 Add shadow review final boundary sweep closeout review`; local shadow review export bundle final boundary sweep closeout review is PASS and committed at `ba02655 Add shadow review export bundle final boundary sweep closeout review`; shadow review/export bundle readiness decision is PASS and committed at `556a541 Add shadow review export bundle readiness decision`; shadow review/export bundle review-package plan is PASS and committed at `0f7d4c3 Add shadow review export bundle review package plan`; local shadow review/export bundle review-package validator is implemented and committed at `0d3d816 Add shadow review export bundle review package validator`; shadow review/export bundle review-package validator closeout review is PASS and committed at `6a2f636 Add shadow review export bundle review package validator closeout review`; local shadow review/export bundle review-package final boundary sweep is implemented and committed at `2a8fdc3 Add shadow review export bundle review package final boundary sweep`; shadow review/export bundle review-package final boundary sweep closeout review is PASS and committed at `17e298c Add shadow review export bundle review package final boundary sweep closeout review`.
 - **Work mode:** build work only, no live trade decisions
 
@@ -146,14 +146,27 @@
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** first local-only implementation step from the committed plan.
 
-## Discretion audit coverage plan metadata correction status
+## Local-only discretion audit coverage evaluator status
 
 - **Status:** implemented in working tree and ready for user review/commit.
+- **Baseline:** patch8.
+- **Implementation files:** `watcher_foundation/discretion_audit_coverage.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_discretion_audit_coverage.py`.
+- **Focused local test result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit_coverage.py` (`14` tests).
+- **Discretion audit regression result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit.py` (`16` tests).
+- **Watcher foundation scaffold regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold` (`6` tests).
+- **git diff whitespace check:** PASS with `git diff --check` (exit 0).
+- **Scope preserved:** local-only, in-memory SAFE-FAST discretion audit coverage evaluator only; accepts caller-provided in-memory discretion-audit summaries only; verifies coverage across setup recognition, trigger, invalidation, fresh/stale/spent, blocker/caution, ranking/focus, outcome scoring, diagnostics, and user workflow; identifies missing areas, forbidden signal discretion areas, safety-discretion-only areas, and inconclusive/unavailable-evidence/needs-review areas; returns an in-memory coverage summary only; does not change trading rules; does not optimize; writes no files/logs/reports; fetches no data; starts no live data or controlled shadow data; creates no watcher loops, schedulers, polling, background workers, or alert delivery; sends no alerts; touches no broker/order/account/options/P&L systems; makes no live trade decisions; no `main.py`, engine logic, Railway/deploy, production, secrets, `.env`, credentials, live backend, generated output path, controlled shadow startup, watcher loop, scheduler, alert delivery, broker/order/account/option/P&L behavior, or deployment setting changes.
+- **Next objective:** user review/commit of this local-only discretion audit coverage evaluator, then build-state sync.
+
+## Discretion audit coverage plan metadata correction status
+
+- **Status:** superseded by the committed local next-step plan and the local-only discretion audit coverage evaluator working-tree implementation status above.
 - **File:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_DISCRETION_AUDIT_EVALUATOR.md`.
 - **Baseline:** patch8.
 - **Tests:** not run; docs-only metadata correction.
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
-- **Next objective:** user review/commit of this docs-only metadata correction, then rerun the local-only discretion audit coverage evaluator implementation.
+- **Next objective:** superseded by the local-only discretion audit coverage evaluator working-tree implementation status above.
 
 ## Discretion audit plan metadata correction status
 

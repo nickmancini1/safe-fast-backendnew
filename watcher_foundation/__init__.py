@@ -50,6 +50,11 @@ from watcher_foundation.discretion_audit import (
     DISCRETION_AUDIT_VAGUE_PHRASES,
     audit_trading_plan_discretion,
 )
+from watcher_foundation.discretion_audit_coverage import (
+    DISCRETION_AUDIT_COVERAGE_RESULT_FIELDS,
+    DISCRETION_AUDIT_REQUIRED_COVERAGE_AREAS,
+    evaluate_discretion_audit_coverage,
+)
 from watcher_foundation.historical_outcome_proof_preflight import (
     HISTORICAL_OUTCOME_PROOF_PREFLIGHT_REQUIRED_FIELDS,
     HISTORICAL_OUTCOME_PROOF_PREFLIGHT_RESULT_FIELDS,
@@ -178,6 +183,8 @@ __all__ = [
     "DEFAULT_REVIEW_LABEL",
     "DISCRETION_AUDIT_ALLOWED_HUMAN_DISCRETION",
     "DISCRETION_AUDIT_AREAS",
+    "DISCRETION_AUDIT_COVERAGE_RESULT_FIELDS",
+    "DISCRETION_AUDIT_REQUIRED_COVERAGE_AREAS",
     "DISCRETION_AUDIT_RESULT_FIELDS",
     "DISCRETION_AUDIT_VAGUE_PHRASES",
     "DIAGNOSTIC_REASON_CODE_GROUPS",
@@ -229,6 +236,7 @@ __all__ = [
     "evaluate_day60_optimization_readiness",
     "evaluate_historical_outcome_diagnostics",
     "evaluate_historical_optimization_readiness",
+    "evaluate_discretion_audit_coverage",
     "project_trigger_card",
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",
