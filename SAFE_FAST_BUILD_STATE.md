@@ -8,9 +8,10 @@
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
 - **Latest completed milestone commit:** `660c334 Add discretion audit inventory validator`
-- **Latest observed local HEAD:** `660c334 Add discretion audit inventory validator`
-- **Latest observed origin/main:** `660c334 Add discretion audit inventory validator`
+- **Latest observed local HEAD:** `3a0db39 Sync build state after discretion audit inventory validator`
+- **Latest observed origin/main:** `3a0db39 Sync build state after discretion audit inventory validator`
 - **Latest build-state sync after strict Day 28 handoff:** `7ba412d Sync build state after strict Day 28 handoff`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
+- **Latest build-state sync after discretion audit inventory validator:** `3a0db39 Sync build state after discretion audit inventory validator`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after discretion audit inventory next-step plan:** `e929eac Sync build state after discretion audit inventory next-step plan`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after discretion audit coverage evaluator:** `cfb9835 Sync build state after discretion audit coverage evaluator`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after discretion audit coverage next-step plan:** `477ecb8 Sync build state after discretion audit coverage next-step plan`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
@@ -179,6 +180,7 @@
 
 - **Status:** implemented and committed.
 - **Commit status:** committed at `660c334 Add discretion audit inventory validator`.
+- **Latest build-state sync:** `3a0db39 Sync build state after discretion audit inventory validator`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Baseline:** patch8.
 - **Current working day context:** Day 31.
 - **Note:** Day 28 file names are historical labels.
@@ -191,6 +193,16 @@
 - **git diff whitespace check:** PASS with `git diff --check` (exit 0).
 - **Scope preserved:** local-only, in-memory SAFE-FAST discretion audit rule-inventory preflight validator only; accepts caller-provided in-memory rule/contract inventory items only; validates required inventory fields, allowed SAFE-FAST trading-plan areas, explicit unavailable fields, watch-only status, and recursive broker/order/account/options/P&L/trade-decision field rejection; returns in-memory validation results only; does not audit hidden discretion yet; does not change trading rules; does not optimize; writes no files/logs/reports; fetches no data; starts no live data or controlled shadow data; creates no watcher loops, schedulers, polling, background workers, or alert delivery; sends no alerts; touches no broker/order/account/options/P&L systems; makes no live trade decisions; no `main.py`, engine logic, Railway/deploy, production, secrets, `.env`, credentials, live backend, generated output path, controlled shadow startup, watcher loop, scheduler, alert delivery, broker/order/account/option/P&L behavior, or deployment setting changes.
 - **Next objective:** next local-only step planning after discretion audit inventory validator.
+
+## Post-handoff Day 31 discretion audit inventory addendum status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **File:** `SAFE_FAST_POST_HANDOFF_DAY31_DISCRETION_AUDIT_INVENTORY_ADDENDUM.md`.
+- **Baseline:** patch8.
+- **Purpose:** preserve Day 31 post-handoff work after the strict Day 28 handoff, including the discretion audit inventory validator at `660c334` and sync at `3a0db39`.
+- **Tests:** not run; docs-only addendum.
+- **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
+- **Next objective:** user review/commit of this docs-only post-handoff addendum, then next local-only step planning after discretion audit inventory validator.
 
 ## Strict handoff after discretion audit coverage status
 
