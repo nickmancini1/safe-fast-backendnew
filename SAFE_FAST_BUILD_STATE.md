@@ -160,7 +160,7 @@
 - **Focused local test result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit_coverage.py` (`14` tests).
 - **Discretion audit regression result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit.py` (`16` tests).
 - **Watcher foundation scaffold regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold` (`6` tests).
-- **git diff whitespace check:** PASS with `git diff --check` (exit 0).
+- **git diff whitespace check:** PASS with `git diff --check` (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `watcher_foundation/__init__.py` only).
 - **Scope preserved:** local-only, in-memory SAFE-FAST discretion audit coverage evaluator only; accepts caller-provided in-memory discretion-audit summaries only; verifies coverage across setup recognition, trigger, invalidation, fresh/stale/spent, blocker/caution, ranking/focus, outcome scoring, diagnostics, and user workflow; identifies missing areas, forbidden signal discretion areas, safety-discretion-only areas, and inconclusive/unavailable-evidence/needs-review areas; returns an in-memory coverage summary only; does not change trading rules; does not optimize; writes no files/logs/reports; fetches no data; starts no live data or controlled shadow data; creates no watcher loops, schedulers, polling, background workers, or alert delivery; sends no alerts; touches no broker/order/account/options/P&L systems; makes no live trade decisions; no `main.py`, engine logic, Railway/deploy, production, secrets, `.env`, credentials, live backend, generated output path, controlled shadow startup, watcher loop, scheduler, alert delivery, broker/order/account/option/P&L behavior, or deployment setting changes.
 - **Next objective:** next local-only step planning after discretion audit coverage evaluator.
 
@@ -174,6 +174,22 @@
 - **Tests:** not run; docs-only planning.
 - **Scope preserved:** docs-only, no code, no tests, no `main.py`, no engine logic, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no live trade decisions, no secrets/.env/credentials/deploy settings.
 - **Next objective:** first local-only implementation step from the committed plan.
+
+## Local-only discretion audit inventory validator status
+
+- **Status:** implemented in working tree and ready for user review/commit.
+- **Baseline:** patch8.
+- **Current working day context:** Day 31.
+- **Note:** Day 28 file names are historical labels.
+- **Implementation files:** `watcher_foundation/discretion_audit_inventory.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_discretion_audit_inventory.py`.
+- **Focused local test result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit_inventory.py` (`15` tests).
+- **Discretion audit coverage regression result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit_coverage.py` (`14` tests).
+- **Discretion audit regression result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit.py` (`16` tests).
+- **Watcher foundation scaffold regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold` (`6` tests).
+- **git diff whitespace check:** PASS with `git diff --check` (exit 0).
+- **Scope preserved:** local-only, in-memory SAFE-FAST discretion audit rule-inventory preflight validator only; accepts caller-provided in-memory rule/contract inventory items only; validates required inventory fields, allowed SAFE-FAST trading-plan areas, explicit unavailable fields, watch-only status, and recursive broker/order/account/options/P&L/trade-decision field rejection; returns in-memory validation results only; does not audit hidden discretion yet; does not change trading rules; does not optimize; writes no files/logs/reports; fetches no data; starts no live data or controlled shadow data; creates no watcher loops, schedulers, polling, background workers, or alert delivery; sends no alerts; touches no broker/order/account/options/P&L systems; makes no live trade decisions; no `main.py`, engine logic, Railway/deploy, production, secrets, `.env`, credentials, live backend, generated output path, controlled shadow startup, watcher loop, scheduler, alert delivery, broker/order/account/option/P&L behavior, or deployment setting changes.
+- **Next objective:** user review/commit of this local-only discretion audit inventory validator, then build-state sync.
 
 ## Strict handoff after discretion audit coverage status
 

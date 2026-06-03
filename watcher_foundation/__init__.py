@@ -55,6 +55,13 @@ from watcher_foundation.discretion_audit_coverage import (
     DISCRETION_AUDIT_REQUIRED_COVERAGE_AREAS,
     evaluate_discretion_audit_coverage,
 )
+from watcher_foundation.discretion_audit_inventory import (
+    DISCRETION_AUDIT_INVENTORY_ALLOWED_AREAS,
+    DISCRETION_AUDIT_INVENTORY_REQUIRED_FIELDS,
+    DISCRETION_AUDIT_INVENTORY_RESULT_FIELDS,
+    validate_discretion_audit_inventory,
+    validate_discretion_audit_inventory_item,
+)
 from watcher_foundation.historical_outcome_proof_preflight import (
     HISTORICAL_OUTCOME_PROOF_PREFLIGHT_REQUIRED_FIELDS,
     HISTORICAL_OUTCOME_PROOF_PREFLIGHT_RESULT_FIELDS,
@@ -184,6 +191,9 @@ __all__ = [
     "DISCRETION_AUDIT_ALLOWED_HUMAN_DISCRETION",
     "DISCRETION_AUDIT_AREAS",
     "DISCRETION_AUDIT_COVERAGE_RESULT_FIELDS",
+    "DISCRETION_AUDIT_INVENTORY_ALLOWED_AREAS",
+    "DISCRETION_AUDIT_INVENTORY_REQUIRED_FIELDS",
+    "DISCRETION_AUDIT_INVENTORY_RESULT_FIELDS",
     "DISCRETION_AUDIT_REQUIRED_COVERAGE_AREAS",
     "DISCRETION_AUDIT_RESULT_FIELDS",
     "DISCRETION_AUDIT_VAGUE_PHRASES",
@@ -251,6 +261,8 @@ __all__ = [
     "validate_day60_outcome_scoring_row",
     "validate_day60_shadow_contract_batch",
     "validate_day60_shadow_contract_row",
+    "validate_discretion_audit_inventory",
+    "validate_discretion_audit_inventory_item",
     "validate_historical_outcome_proof_batch",
     "validate_historical_outcome_proof_row",
     "validate_shadow_review_export_bundle",
