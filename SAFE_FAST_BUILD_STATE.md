@@ -194,6 +194,25 @@
 - **Scope preserved:** local-only, in-memory SAFE-FAST discretion audit rule-inventory preflight validator only; accepts caller-provided in-memory rule/contract inventory items only; validates required inventory fields, allowed SAFE-FAST trading-plan areas, explicit unavailable fields, watch-only status, and recursive broker/order/account/options/P&L/trade-decision field rejection; returns in-memory validation results only; does not audit hidden discretion yet; does not change trading rules; does not optimize; writes no files/logs/reports; fetches no data; starts no live data or controlled shadow data; creates no watcher loops, schedulers, polling, background workers, or alert delivery; sends no alerts; touches no broker/order/account/options/P&L systems; makes no live trade decisions; no `main.py`, engine logic, Railway/deploy, production, secrets, `.env`, credentials, live backend, generated output path, controlled shadow startup, watcher loop, scheduler, alert delivery, broker/order/account/option/P&L behavior, or deployment setting changes.
 - **Next objective:** next local-only step planning after discretion audit inventory validator.
 
+## Local-only discretion audit inventory-to-audit/coverage bridge readiness gate status
+
+- **Status:** implemented in working tree; not committed.
+- **Baseline:** patch8.
+- **Current working day context:** Day 31.
+- **Work mode:** SAFE-FAST build work only, no live trade decisions.
+- **Implementation files:** `watcher_foundation/discretion_audit_inventory_bridge.py`; `watcher_foundation/__init__.py`.
+- **Test file:** `tests/test_discretion_audit_inventory_bridge.py`.
+- **Behavior implemented:** local-only in-memory bridge that accepts caller-provided inventory items only; validates with `validate_discretion_audit_inventory` before conversion; keeps rejected inventory items rejected with in-memory validation reasons; converts only accepted inventory items into the existing `audit_trading_plan_discretion` input shape; preserves `item_id`, `area`, `source`, `text`, `rule_purpose`, `audit_readiness`, `unavailable_fields`, and `watch_only`; does not invent, rewrite, improve, or optimize rule text; supplies `review_context` only from preserved inventory metadata; explicitly marks unavailable-field audit/coverage confidence blockers; runs the existing discretion audit evaluator only when validated accepted input can preserve watch-only boundaries; runs the existing coverage evaluator only when valid audit output preserves expected boundaries; defensively copies nested audit and coverage summaries before returning one combined in-memory readiness/audit/coverage summary.
+- **Focused bridge test result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit_inventory_bridge.py` (`16` tests).
+- **Inventory validator regression result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit_inventory.py` (`15` tests).
+- **Discretion audit evaluator regression result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit.py` (`16` tests).
+- **Discretion audit coverage evaluator regression result:** PASS with `python -m unittest discover -s tests -p test_discretion_audit_coverage.py` (`14` tests).
+- **Watcher foundation scaffold regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold` (`6` tests).
+- **git diff whitespace check:** PASS with `git diff --check` (exit 0; warnings only that `SAFE_FAST_BUILD_STATE.md` and `watcher_foundation/__init__.py` LF will be replaced by CRLF the next time Git touches them).
+- **Scope preserved:** local-only, in-memory, watch-only bridge readiness gate only; no actual rule inventory created; no repo-file scanning; no hidden discretion audit automation against repo files; no rule changes; no optimization; no output files/logs/reports written; no data fetched; no live data or controlled shadow data started; no watcher loops, schedulers, polling, daemons, or background workers; no alerts sent; no broker/order/account/options/P&L touched; no account sizing or position sizing; no live trade decisions; no `main.py`, trading engine logic, Railway/deploy, production, live backend, secrets, `.env`, credentials, tokens, keys, or deployment settings changed.
+- **No readiness claims:** does not claim final SAFE-FAST viability, historical success, controlled shadow readiness, live readiness, production readiness, Railway readiness, live backend readiness, live trade readiness, or live trade decision readiness.
+- **Next local-only objective after this bridge gate:** assistant review before any commit, then a bounded local-only bridge closeout/readiness review or next evidence-backed viability-planning step; continue preserving no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no production/deploy, and no live trade decisions.
+
 ## Post-handoff Day 31 discretion audit inventory addendum status
 
 - **Status:** implemented and committed.

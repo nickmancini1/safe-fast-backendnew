@@ -62,6 +62,10 @@ from watcher_foundation.discretion_audit_inventory import (
     validate_discretion_audit_inventory,
     validate_discretion_audit_inventory_item,
 )
+from watcher_foundation.discretion_audit_inventory_bridge import (
+    DISCRETION_AUDIT_INVENTORY_BRIDGE_RESULT_FIELDS,
+    evaluate_discretion_audit_inventory_bridge,
+)
 from watcher_foundation.historical_outcome_proof_preflight import (
     HISTORICAL_OUTCOME_PROOF_PREFLIGHT_REQUIRED_FIELDS,
     HISTORICAL_OUTCOME_PROOF_PREFLIGHT_RESULT_FIELDS,
@@ -192,6 +196,7 @@ __all__ = [
     "DISCRETION_AUDIT_AREAS",
     "DISCRETION_AUDIT_COVERAGE_RESULT_FIELDS",
     "DISCRETION_AUDIT_INVENTORY_ALLOWED_AREAS",
+    "DISCRETION_AUDIT_INVENTORY_BRIDGE_RESULT_FIELDS",
     "DISCRETION_AUDIT_INVENTORY_REQUIRED_FIELDS",
     "DISCRETION_AUDIT_INVENTORY_RESULT_FIELDS",
     "DISCRETION_AUDIT_REQUIRED_COVERAGE_AREAS",
@@ -247,6 +252,7 @@ __all__ = [
     "evaluate_historical_outcome_diagnostics",
     "evaluate_historical_optimization_readiness",
     "evaluate_discretion_audit_coverage",
+    "evaluate_discretion_audit_inventory_bridge",
     "project_trigger_card",
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",
