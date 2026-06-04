@@ -7,8 +7,8 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `6995bc0 Add outcome proof contract plan`
-- **Latest observed local HEAD:** `6995bc0 Add outcome proof contract plan`
+- **Latest completed milestone commit:** `b878cae Add setup outcome proof evaluator`
+- **Latest observed local HEAD:** `b878cae Add setup outcome proof evaluator`
 - **Latest observed origin/main:** not checked during Day 32 docs-only planning; no GitHub writes allowed.
 - **Latest build-state sync after strict Day 28 handoff:** `7ba412d Sync build state after strict Day 28 handoff`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after discretion audit inventory validator:** `3a0db39 Sync build state after discretion audit inventory validator`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
@@ -57,14 +57,15 @@
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Latest completed build milestone:** Outcome proof contract plan
-- **Current objective:** Day 32 local-only setup outcome proof evaluator implementation that connects caller-provided detected setup records to caller-provided after-setup evidence, outcome classification, and diagnostics.
+- **Latest completed build milestone:** Setup outcome proof evaluator
+- **Current objective:** Day 33 docs-only next-step planning after the setup outcome proof evaluator, focused on local-only setup outcome diagnostics that explain why a setup worked, failed, or lacked enough evidence.
 - **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; replay/regression closeout review is PASS and committed at `633ad7f Add replay regression closeout review`; shadow review sample labeling / review workflow planning is implemented and committed at `87d9071 Add shadow review sample labeling plan`; local shadow review label schema is implemented and committed at `361e2e4 Add shadow review label schema`; local shadow review label workflow is implemented and committed at `f27a2dd Add shadow review label workflow`; shadow review workflow closeout review is PASS and committed at `d8f80f1 Add shadow review workflow closeout review`; local shadow review sample pack is implemented and committed at `b258f88 Add shadow review sample pack`; shadow review sample pack closeout review is PASS and committed at `ec760a4 Add shadow review sample pack closeout review`; local shadow review workflow final boundary sweep is implemented and committed at `1bc2d2d Add shadow review workflow final boundary sweep`; shadow review workflow final boundary sweep closeout review is PASS and committed at `4073339 Add shadow review final boundary sweep closeout review`; local shadow review export bundle final boundary sweep closeout review is PASS and committed at `ba02655 Add shadow review export bundle final boundary sweep closeout review`; shadow review/export bundle readiness decision is PASS and committed at `556a541 Add shadow review export bundle readiness decision`; shadow review/export bundle review-package plan is PASS and committed at `0f7d4c3 Add shadow review export bundle review package plan`; local shadow review/export bundle review-package validator is implemented and committed at `0d3d816 Add shadow review export bundle review package validator`; shadow review/export bundle review-package validator closeout review is PASS and committed at `6a2f636 Add shadow review export bundle review package validator closeout review`; local shadow review/export bundle review-package final boundary sweep is implemented and committed at `2a8fdc3 Add shadow review export bundle review package final boundary sweep`; shadow review/export bundle review-package final boundary sweep closeout review is PASS and committed at `17e298c Add shadow review export bundle review package final boundary sweep closeout review`.
 - **Work mode:** build work only, no live trade decisions
 
 ## Day 32 local-only setup outcome proof evaluator status
 
-- **Status:** implemented in working tree; not committed.
+- **Status:** implemented and committed.
+- **Commit status:** committed at `b878cae Add setup outcome proof evaluator`.
 - **Baseline:** patch8.
 - **Day context:** Day 32.
 - **Implementation files changed:** `watcher_foundation/setup_outcome_proof.py`; `watcher_foundation/__init__.py`.
@@ -81,7 +82,28 @@
 - **Watcher-foundation scaffold regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold` (`6` tests).
 - **git diff whitespace check:** PASS with `git diff --check` (exit 0; LF-to-CRLF working-copy warning for `watcher_foundation/__init__.py` only).
 - **Scope preserved:** local pure Python setup outcome proof evaluation only; accepts caller-provided in-memory records only; returns one in-memory summary only; no `main.py`, no trading logic, no Railway/deploy files, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no account sizing, no live trade decisions, no optimization, and no final viability claim.
-- **Next local-only objective:** assistant review before commit, focused on schema clarity, classification precedence, diagnostic/fix-path usefulness, and ensuring the evaluator stays compatible with the existing Day 60 and historical outcome proof layers.
+- **Next local-only objective:** Day 33 docs-only next-step planning for a local-only setup outcome diagnostics evaluator that turns setup outcome proof results into clear failure reasons and next fix paths before any optimization.
+
+## Day 33 local next-step plan after setup outcome proof status
+
+- **Status:** implemented in working tree; not committed.
+- **Plan file:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_PROOF.md`.
+- **Baseline:** patch8.
+- **Day context:** Day 33.
+- **Work mode:** build work only, no live trade decisions.
+- **Plain-English purpose:** decide the next small local build step after setup outcome proof: a diagnostics evaluator that explains why a setup worked, failed, stayed pending, became stale, invalidated before trigger, or lacked enough evidence, and then points to the smallest responsible next fix path.
+- **Current fixed foundation:** setup outcome proof evaluator is complete at `b878cae`; Day 60 outcome scoring/summary/diagnostics and historical outcome proof/summary/diagnostics layers remain the local diagnostic pattern; no live/shadow/alert/trading systems are active.
+- **What remains unproven:** final trading-plan viability, actual historical success, repeatability of successful setup outcomes, whether failures are caused by setup recognition, trigger/invalidation/freshness/session/blocker/outcome/workflow gaps, and whether lower-tier handoff is required before any higher-tier watcher or optimization work.
+- **Exact next implementation step:** add `watcher_foundation/setup_outcome_diagnostics.py` with focused tests in `tests/test_setup_outcome_diagnostics.py`; it should accept only the in-memory setup outcome proof summary and return one in-memory diagnostics summary with evidence, unavailable proof, likely cause candidates, diagnostic categories, affected system area, next fix paths, proof-limited reasons, and lower-tier handoff flags.
+- **Allowed files for that future step:** `watcher_foundation/setup_outcome_diagnostics.py`; `watcher_foundation/__init__.py`; `tests/test_setup_outcome_diagnostics.py`; `SAFE_FAST_BUILD_STATE.md`.
+- **Forbidden files/systems for that future step:** no `main.py`, no engine logic, no Railway/deploy, no production/live backend, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no account sizing, no secrets/env files, no live trade decisions, and no optimization before diagnostics.
+- **Required future tests:** focused setup outcome diagnostics tests, setup outcome proof regression, Day 60 outcome diagnostics regression, historical outcome diagnostics regression, watcher-foundation scaffold regression, and `git diff --check`.
+- **Required future build-state/doc updates:** update `SAFE_FAST_BUILD_STATE.md` with implementation status, Day 33 context, exact files changed, focused and regression test results, `git diff --check`, preserved no-go boundaries, and the next local-only objective.
+- **Viability loop preserved:** detect -> score outcome -> diagnose deeply -> analyze whole system -> decide fix path -> adjust rule/contract/test -> run regression -> review again.
+- **Diagnostics-before-optimization rule:** preserved; no threshold, ranking, trigger, invalidation, freshness, blocker/caution, or workflow optimization until diagnostics identify an evidence-backed rule, contract, or test gap.
+- **Discretion rule:** preserved; human discretion may only be no-trade veto, review note, or safety pause, and must not create signals, approve trades, override missing proof, move triggers, hide failures, or change outcomes after the fact.
+- **Lower-tier handoff requirement:** preserved; insufficient evidence, stale/freshness gaps, trigger/invalidation ambiguity, blocker/session/workflow ambiguity, or diagnostics gaps must point back to the smallest responsible local contract, fixture, test, or planning layer before broader watcher, live, or optimization work.
+- **Validation for this docs-only plan:** do not run unit tests; run `git diff --check` only.
 
 ## Build-State Sync Discipline
 
