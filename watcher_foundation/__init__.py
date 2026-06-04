@@ -101,6 +101,11 @@ from watcher_foundation.setup_outcome_diagnostics import (
     SETUP_OUTCOME_DIAGNOSTIC_FAILURE_CATEGORIES,
     evaluate_setup_outcome_diagnostics,
 )
+from watcher_foundation.setup_outcome_evidence_packet import (
+    SETUP_OUTCOME_EVIDENCE_PACKET_ITEM_FIELDS,
+    SETUP_OUTCOME_EVIDENCE_PACKET_RESULT_FIELDS,
+    build_setup_outcome_evidence_packet,
+)
 from watcher_foundation.day60_shadow_review_packet import (
     DAY60_SHADOW_REVIEW_PACKET_DIAGNOSTIC_PLACEHOLDER_FIELDS,
     DAY60_SHADOW_REVIEW_PACKET_OUTCOME_PLACEHOLDER_FIELDS,
@@ -232,6 +237,8 @@ __all__ = [
     "SETUP_OUTCOME_DIAGNOSTIC_FIX_PATHS",
     "SETUP_OUTCOME_DIAGNOSTICS_RESULT_FIELDS",
     "SETUP_OUTCOME_DIAGNOSTIC_FAILURE_CATEGORIES",
+    "SETUP_OUTCOME_EVIDENCE_PACKET_ITEM_FIELDS",
+    "SETUP_OUTCOME_EVIDENCE_PACKET_RESULT_FIELDS",
     "SETUP_OUTCOME_PROOF_REQUIRED_FIELDS",
     "SETUP_OUTCOME_PROOF_RESULT_FIELDS",
     "SETUP_OUTCOME_PROOF_STATUSES",
@@ -258,6 +265,7 @@ __all__ = [
     "build_day60_shadow_review_packet",
     "build_day60_outcome_scoring_summary",
     "build_historical_outcome_proof_summary",
+    "build_setup_outcome_evidence_packet",
     "build_duplicate_suppression_key_fields",
     "build_suppression_fingerprint",
     "create_diagnostics",
