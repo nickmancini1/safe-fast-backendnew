@@ -106,6 +106,12 @@ from watcher_foundation.setup_outcome_evidence_packet import (
     SETUP_OUTCOME_EVIDENCE_PACKET_RESULT_FIELDS,
     build_setup_outcome_evidence_packet,
 )
+from watcher_foundation.setup_outcome_packet_readiness import (
+    SETUP_OUTCOME_PACKET_READINESS_ITEM_FIELDS,
+    SETUP_OUTCOME_PACKET_READINESS_RESULT_FIELDS,
+    SETUP_OUTCOME_PACKET_READINESS_STATUSES,
+    evaluate_setup_outcome_packet_readiness,
+)
 from watcher_foundation.day60_shadow_review_packet import (
     DAY60_SHADOW_REVIEW_PACKET_DIAGNOSTIC_PLACEHOLDER_FIELDS,
     DAY60_SHADOW_REVIEW_PACKET_OUTCOME_PLACEHOLDER_FIELDS,
@@ -239,6 +245,9 @@ __all__ = [
     "SETUP_OUTCOME_DIAGNOSTIC_FAILURE_CATEGORIES",
     "SETUP_OUTCOME_EVIDENCE_PACKET_ITEM_FIELDS",
     "SETUP_OUTCOME_EVIDENCE_PACKET_RESULT_FIELDS",
+    "SETUP_OUTCOME_PACKET_READINESS_ITEM_FIELDS",
+    "SETUP_OUTCOME_PACKET_READINESS_RESULT_FIELDS",
+    "SETUP_OUTCOME_PACKET_READINESS_STATUSES",
     "SETUP_OUTCOME_PROOF_REQUIRED_FIELDS",
     "SETUP_OUTCOME_PROOF_RESULT_FIELDS",
     "SETUP_OUTCOME_PROOF_STATUSES",
@@ -280,6 +289,7 @@ __all__ = [
     "evaluate_historical_optimization_readiness",
     "evaluate_setup_outcome_proof",
     "evaluate_setup_outcome_diagnostics",
+    "evaluate_setup_outcome_packet_readiness",
     "evaluate_discretion_audit_coverage",
     "evaluate_discretion_audit_inventory_bridge",
     "project_trigger_card",
