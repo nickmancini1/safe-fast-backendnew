@@ -88,6 +88,14 @@ from watcher_foundation.historical_optimization_readiness import (
     HISTORICAL_OPTIMIZATION_READINESS_RESULT_FIELDS,
     evaluate_historical_optimization_readiness,
 )
+from watcher_foundation.setup_outcome_proof import (
+    SETUP_OUTCOME_DIAGNOSTIC_FIX_PATHS,
+    SETUP_OUTCOME_PROOF_REQUIRED_FIELDS,
+    SETUP_OUTCOME_PROOF_RESULT_FIELDS,
+    SETUP_OUTCOME_PROOF_STATUSES,
+    evaluate_setup_outcome_proof,
+    validate_setup_outcome_proof_record,
+)
 from watcher_foundation.day60_shadow_review_packet import (
     DAY60_SHADOW_REVIEW_PACKET_DIAGNOSTIC_PLACEHOLDER_FIELDS,
     DAY60_SHADOW_REVIEW_PACKET_OUTCOME_PLACEHOLDER_FIELDS,
@@ -216,6 +224,10 @@ __all__ = [
     "HISTORICAL_OPTIMIZATION_ALLOWED_SYSTEM_AREAS",
     "HISTORICAL_OPTIMIZATION_READINESS_REQUIRED_FIELDS",
     "HISTORICAL_OPTIMIZATION_READINESS_RESULT_FIELDS",
+    "SETUP_OUTCOME_DIAGNOSTIC_FIX_PATHS",
+    "SETUP_OUTCOME_PROOF_REQUIRED_FIELDS",
+    "SETUP_OUTCOME_PROOF_RESULT_FIELDS",
+    "SETUP_OUTCOME_PROOF_STATUSES",
     "MATERIAL_CHANGE_FLAGS_THAT_BREAK_SUPPRESSION",
     "NEWS_UNCONFIRMED",
     "PIPELINE_RESULT_FIELDS",
@@ -251,6 +263,7 @@ __all__ = [
     "evaluate_day60_optimization_readiness",
     "evaluate_historical_outcome_diagnostics",
     "evaluate_historical_optimization_readiness",
+    "evaluate_setup_outcome_proof",
     "evaluate_discretion_audit_coverage",
     "evaluate_discretion_audit_inventory_bridge",
     "project_trigger_card",
@@ -271,6 +284,7 @@ __all__ = [
     "validate_discretion_audit_inventory_item",
     "validate_historical_outcome_proof_batch",
     "validate_historical_outcome_proof_row",
+    "validate_setup_outcome_proof_record",
     "validate_shadow_review_export_bundle",
     "validate_shadow_review_export_bundle_review_package",
     "validate_shadow_review_export_shape",
