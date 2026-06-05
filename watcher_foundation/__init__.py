@@ -133,6 +133,10 @@ from watcher_foundation.setup_outcome_proof_review_bundle_readiness import (
     SETUP_OUTCOME_PROOF_REVIEW_BUNDLE_READINESS_RESULT_FIELDS,
     evaluate_setup_outcome_proof_review_bundle_readiness,
 )
+from watcher_foundation.setup_outcome_historical_sample_path import (
+    HISTORICAL_SAMPLE_PATH_RESULT_FIELDS,
+    run_setup_outcome_historical_sample_path,
+)
 from watcher_foundation.day60_shadow_review_packet import (
     DAY60_SHADOW_REVIEW_PACKET_DIAGNOSTIC_PLACEHOLDER_FIELDS,
     DAY60_SHADOW_REVIEW_PACKET_OUTCOME_PLACEHOLDER_FIELDS,
@@ -259,6 +263,7 @@ __all__ = [
     "HISTORICAL_OUTCOME_DIAGNOSTIC_FAILURE_CATEGORIES",
     "HISTORICAL_OUTCOME_DIAGNOSTIC_FIX_PATHS",
     "HISTORICAL_OPTIMIZATION_ALLOWED_SYSTEM_AREAS",
+    "HISTORICAL_SAMPLE_PATH_RESULT_FIELDS",
     "HISTORICAL_OPTIMIZATION_READINESS_REQUIRED_FIELDS",
     "HISTORICAL_OPTIMIZATION_READINESS_RESULT_FIELDS",
     "SETUP_OUTCOME_DIAGNOSTIC_FIX_PATHS",
@@ -331,6 +336,7 @@ __all__ = [
     "reject_forbidden_execution_fields",
     "run_local_replay_regression",
     "run_day60_shadow_session_dry_run",
+    "run_setup_outcome_historical_sample_path",
     "run_local_shadow_review_label_workflow",
     "run_local_watcher_batch",
     "run_local_watcher_pipeline",
