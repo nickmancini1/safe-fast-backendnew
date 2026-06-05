@@ -135,8 +135,11 @@ from watcher_foundation.setup_outcome_proof_review_bundle_readiness import (
 )
 from watcher_foundation.setup_outcome_historical_sample_path import (
     FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET_ID,
+    HISTORICAL_SAMPLE_PATH_OUTPUT_REVIEW_RESULT_FIELDS,
     HISTORICAL_SAMPLE_PATH_RESULT_FIELDS,
     build_first_controlled_historical_sample_evidence_set,
+    review_first_controlled_historical_sample_path_output,
+    review_setup_outcome_historical_sample_path_output,
     run_setup_outcome_historical_sample_path,
 )
 from watcher_foundation.day60_shadow_review_packet import (
@@ -266,6 +269,7 @@ __all__ = [
     "HISTORICAL_OUTCOME_DIAGNOSTIC_FAILURE_CATEGORIES",
     "HISTORICAL_OUTCOME_DIAGNOSTIC_FIX_PATHS",
     "HISTORICAL_OPTIMIZATION_ALLOWED_SYSTEM_AREAS",
+    "HISTORICAL_SAMPLE_PATH_OUTPUT_REVIEW_RESULT_FIELDS",
     "HISTORICAL_SAMPLE_PATH_RESULT_FIELDS",
     "HISTORICAL_OPTIMIZATION_READINESS_REQUIRED_FIELDS",
     "HISTORICAL_OPTIMIZATION_READINESS_RESULT_FIELDS",
@@ -338,6 +342,8 @@ __all__ = [
     "project_trigger_card",
     "rank_focus_candidates",
     "reject_forbidden_execution_fields",
+    "review_first_controlled_historical_sample_path_output",
+    "review_setup_outcome_historical_sample_path_output",
     "run_local_replay_regression",
     "run_day60_shadow_session_dry_run",
     "run_setup_outcome_historical_sample_path",

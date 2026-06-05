@@ -4,10 +4,14 @@ from unittest.mock import patch
 
 from watcher_foundation import (
     FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET_ID,
+    HISTORICAL_SAMPLE_PATH_OUTPUT_REVIEW_RESULT_FIELDS,
     HISTORICAL_SAMPLE_PATH_RESULT_FIELDS,
     build_first_controlled_historical_sample_evidence_set,
+    review_first_controlled_historical_sample_path_output,
+    review_setup_outcome_historical_sample_path_output,
     run_setup_outcome_historical_sample_path,
 )
+from watcher_foundation import setup_outcome_historical_sample_path as sample_path_module
 
 
 class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
@@ -140,6 +144,188 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
         self.assertGreater(result["outcome_group_counts"]["missing_evidence"], 0)
         self.assertIs(result["historical_setup_sample_path_only"], True)
         self.assertIn("bundle_readiness", result["proof_chain"])
+
+    def test_review_first_controlled_sample_uses_builder_and_runner(self):
+        with patch.object(
+            sample_path_module,
+            "build_first_controlled_historical_sample_evidence_set",
+            wraps=sample_path_module.build_first_controlled_historical_sample_evidence_set,
+        ) as builder_mock, patch.object(
+            sample_path_module,
+            "run_setup_outcome_historical_sample_path",
+            wraps=sample_path_module.run_setup_outcome_historical_sample_path,
+        ) as runner_mock:
+            review = review_first_controlled_historical_sample_path_output()
+
+        builder_mock.assert_called_once_with()
+        runner_mock.assert_called_once()
+        self.assertEqual(
+            set(HISTORICAL_SAMPLE_PATH_OUTPUT_REVIEW_RESULT_FIELDS),
+            set(review),
+        )
+        self.assertEqual(
+            review["review_conclusion"],
+            "useful_but_not_final_viability_proof",
+        )
+
+    def test_review_accepts_caller_provided_in_memory_sample_path_output_only(self):
+        sample_output = run_setup_outcome_historical_sample_path(
+            build_first_controlled_historical_sample_evidence_set()
+        )
+
+        review = review_setup_outcome_historical_sample_path_output(sample_output)
+
+        self.assertIs(review["accepted_in_memory_sample_path_output_only"], True)
+        self.assertIs(review["historical_sample_path_output_review_only"], True)
+        self.assertEqual(len(review["worked_samples"]), 1)
+        self.assertEqual(len(review["failed_samples"]), 1)
+        self.assertEqual(len(review["inconclusive_samples"]), 1)
+        self.assertEqual(review["worked_samples"][0]["setup_type"], "Ideal")
+        self.assertEqual(review["worked_samples"][0]["symbol"], "SPY")
+        self.assertEqual(
+            review["failed_samples"][0]["setup_type"], "Clean Fast Break"
+        )
+        self.assertEqual(review["failed_samples"][0]["symbol"], "QQQ")
+        self.assertEqual(
+            review["inconclusive_samples"][0]["setup_type"],
+            "Continuation",
+        )
+        self.assertEqual(review["inconclusive_samples"][0]["symbol"], "GLD")
+
+    def test_review_answers_proof_diagnosis_and_missing_evidence_questions(self):
+        sample_output = run_setup_outcome_historical_sample_path(
+            build_first_controlled_historical_sample_evidence_set()
+        )
+
+        review = review_setup_outcome_historical_sample_path_output(sample_output)
+
+        self.assertIs(review["worked_sample_clear_proof"], True)
+        self.assertIs(review["failed_sample_useful_diagnosis"], True)
+        self.assertIs(review["inconclusive_sample_missing_evidence_clear"], True)
+        self.assertIn("worked_chart_behavior", str(review["useful_proof"]))
+        self.assertIn(
+            "failed_chart_behavior_with_diagnosis",
+            str(review["useful_proof"]),
+        )
+        self.assertIn("missing_evidence_identified", str(review["useful_proof"]))
+        self.assertIn("post_setup_evidence", str(review["missing_evidence"]))
+        self.assertIn("bundle_readiness", str(review["weak_proof"]))
+
+    def test_review_preserves_no_hindsight_setup_symbol_pair_and_boundaries(self):
+        sample_output = run_setup_outcome_historical_sample_path(
+            build_first_controlled_historical_sample_evidence_set()
+        )
+
+        review = review_setup_outcome_historical_sample_path_output(sample_output)
+
+        self.assertIs(review["no_hindsight_boundary_preserved"], True)
+        self.assertIs(review["setup_type_separated"], True)
+        self.assertIs(review["symbol_separated"], True)
+        self.assertIs(review["setup_type_symbol_pair_separated"], True)
+        self.assertIs(review["boundary_review"]["no_trade_boundary_preserved"], True)
+        self.assertIs(
+            review["boundary_review"]["no_live_data_boundary_preserved"],
+            True,
+        )
+        self.assertIs(
+            review["boundary_review"]["no_controlled_shadow_boundary_preserved"],
+            True,
+        )
+        self.assertIs(review["boundary_review"]["no_alert_boundary_preserved"], True)
+        self.assertIs(
+            review["boundary_review"]["no_file_write_boundary_preserved"],
+            True,
+        )
+        self.assertIs(review["boundary_review"]["no_broker_boundary_preserved"], True)
+        self.assertIs(
+            review["boundary_review"]["no_optimization_boundary_preserved"],
+            True,
+        )
+        self.assertIs(review["final_viability_proven"], False)
+        self.assertIs(review["profitability_claimed"], False)
+        self.assertIs(review["historical_success_claimed"], False)
+        self.assertIs(review["optimization_started"], False)
+        self.assertIs(review["no_rule_change_started"], True)
+
+    def test_review_surfaces_fix_paths_regression_needs_and_lower_tier_material(self):
+        sample_output = run_setup_outcome_historical_sample_path(
+            build_first_controlled_historical_sample_evidence_set()
+        )
+
+        review = review_setup_outcome_historical_sample_path_output(sample_output)
+
+        self.assertEqual(
+            review["smallest_next_fix_path"]["path"],
+            "collect_or_preserve_missing_after_setup_evidence",
+        )
+        self.assertIn("data_quality_or_missing_evidence", str(review["next_fix_paths"]))
+        self.assertIn("required_regression_tests", str(review["regression_needs"]))
+        self.assertIs(review["result_useful_for_lower_tier_review"], True)
+        lower_tier = review["lower_tier_review_summary"]
+        self.assertEqual(len(lower_tier["worked_samples"]), 1)
+        self.assertEqual(len(lower_tier["failed_samples"]), 1)
+        self.assertEqual(len(lower_tier["inconclusive_samples"]), 1)
+        self.assertIs(lower_tier["no_trade_watch_only"], True)
+        self.assertIs(lower_tier["no_live_data"], True)
+        self.assertIs(lower_tier["no_controlled_shadow_data"], True)
+        self.assertIs(lower_tier["no_alerts"], True)
+        self.assertIs(lower_tier["no_broker"], True)
+        self.assertIs(lower_tier["no_file_write"], True)
+        self.assertIs(lower_tier["no_rule_change"], True)
+        self.assertIs(lower_tier["no_optimization"], True)
+
+    def test_review_rejects_non_output_shape_and_defensively_copies(self):
+        with self.assertRaisesRegex(TypeError, "must be a dict"):
+            review_setup_outcome_historical_sample_path_output([])
+        with self.assertRaisesRegex(ValueError, "Missing historical sample path"):
+            review_setup_outcome_historical_sample_path_output({"watch_only": True})
+
+        sample_output = run_setup_outcome_historical_sample_path(
+            build_first_controlled_historical_sample_evidence_set()
+        )
+        before = copy.deepcopy(sample_output)
+
+        review = review_setup_outcome_historical_sample_path_output(sample_output)
+        review["worked_samples"][0]["setup_time_evidence_refs"].append("mutated")
+        review["diagnostics"][0]["evidence_used"].append("mutated")
+
+        self.assertEqual(sample_output, before)
+        second = review_setup_outcome_historical_sample_path_output(sample_output)
+        self.assertNotIn(
+            "mutated",
+            second["worked_samples"][0]["setup_time_evidence_refs"],
+        )
+        self.assertNotIn("mutated", second["diagnostics"][0]["evidence_used"])
+
+    def test_review_has_no_file_network_subprocess_thread_or_live_side_effects(self):
+        sample_output = run_setup_outcome_historical_sample_path(
+            build_first_controlled_historical_sample_evidence_set()
+        )
+        before = copy.deepcopy(sample_output)
+
+        with patch("builtins.open") as open_mock, patch(
+            "socket.socket"
+        ) as socket_mock, patch("subprocess.run") as subprocess_mock, patch(
+            "threading.Thread"
+        ) as thread_mock:
+            review = review_setup_outcome_historical_sample_path_output(sample_output)
+
+        self.assertEqual(sample_output, before)
+        self.assertIs(review["boundary_review"]["live_data_started"], False)
+        self.assertIs(
+            review["boundary_review"]["controlled_shadow_data_started"],
+            False,
+        )
+        self.assertIs(review["boundary_review"]["alerts_sent"], False)
+        self.assertIs(review["boundary_review"]["files_written"], False)
+        self.assertIs(
+            review["boundary_review"]["broker_or_trade_behavior_enabled"],
+            False,
+        )
+        open_mock.assert_not_called()
+        socket_mock.assert_not_called()
+        subprocess_mock.assert_not_called()
+        thread_mock.assert_not_called()
 
     def test_first_controlled_sample_preserves_setup_symbol_and_pair_separation(self):
         result = run_setup_outcome_historical_sample_path(

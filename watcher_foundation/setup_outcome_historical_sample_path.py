@@ -91,6 +91,41 @@ HISTORICAL_SAMPLE_PATH_RESULT_FIELDS = (
     "broker_or_trade_behavior_enabled",
 )
 
+HISTORICAL_SAMPLE_PATH_OUTPUT_REVIEW_RESULT_FIELDS = (
+    "watch_only",
+    "historical_sample_path_output_review_only",
+    "accepted_in_memory_sample_path_output_only",
+    "final_viability_proven",
+    "profitability_claimed",
+    "historical_success_claimed",
+    "optimization_started",
+    "no_rule_change_started",
+    "worked_samples",
+    "failed_samples",
+    "inconclusive_samples",
+    "worked_sample_clear_proof",
+    "failed_sample_useful_diagnosis",
+    "inconclusive_sample_missing_evidence_clear",
+    "useful_proof",
+    "weak_proof",
+    "missing_evidence",
+    "missing_evidence_by_setup_type",
+    "missing_evidence_by_symbol",
+    "missing_evidence_by_setup_type_symbol_pair",
+    "diagnostics",
+    "next_fix_paths",
+    "smallest_next_fix_path",
+    "regression_needs",
+    "lower_tier_review_summary",
+    "no_hindsight_boundary_preserved",
+    "setup_type_separated",
+    "symbol_separated",
+    "setup_type_symbol_pair_separated",
+    "boundary_review",
+    "result_useful_for_lower_tier_review",
+    "review_conclusion",
+)
+
 FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET_ID = (
     "first_controlled_historical_sample_evidence_set_v1"
 )
@@ -409,6 +444,125 @@ def run_setup_outcome_historical_sample_path(
         "alerts_sent": False,
         "files_written": False,
         "broker_or_trade_behavior_enabled": False,
+    }
+    return deepcopy(result)
+
+
+def review_first_controlled_historical_sample_path_output() -> dict[str, Any]:
+    """Build, run, and review the first controlled local sample output."""
+    sample_path_output = run_setup_outcome_historical_sample_path(
+        build_first_controlled_historical_sample_evidence_set()
+    )
+    return review_setup_outcome_historical_sample_path_output(sample_path_output)
+
+
+def review_setup_outcome_historical_sample_path_output(
+    sample_path_output: dict[str, Any],
+) -> dict[str, Any]:
+    """Review one caller-provided in-memory historical sample path output."""
+    if type(sample_path_output) is not dict:
+        raise TypeError("Historical sample path output must be a dict")
+
+    output = deepcopy(sample_path_output)
+    _validate_historical_sample_path_output(output)
+
+    setup_by_id = _setup_appeared_by_id(output)
+    happened_by_id = _what_happened_after_by_id(output)
+    diagnostics_by_record_id = _diagnostics_by_record_id(output)
+
+    worked_samples = _review_samples_for_statuses(
+        setup_by_id,
+        happened_by_id,
+        diagnostics_by_record_id,
+        {"worked"},
+    )
+    failed_samples = _review_samples_for_statuses(
+        setup_by_id,
+        happened_by_id,
+        diagnostics_by_record_id,
+        {"failed"},
+    )
+    inconclusive_samples = _review_samples_for_statuses(
+        setup_by_id,
+        happened_by_id,
+        diagnostics_by_record_id,
+        {"inconclusive", "missing_evidence", "unavailable_evidence"},
+    )
+    missing_evidence = _review_missing_evidence(output)
+    boundary_review = _sample_path_output_boundary_review(
+        output,
+        setup_by_id,
+        happened_by_id,
+    )
+    useful_proof = _useful_proof(worked_samples, failed_samples, inconclusive_samples)
+    weak_proof = _weak_proof(output, worked_samples, failed_samples, inconclusive_samples)
+    next_fix_paths = _review_next_fix_paths(output, missing_evidence, weak_proof)
+    regression_needs = _review_regression_needs(output, weak_proof)
+
+    result = {
+        "watch_only": True,
+        "historical_sample_path_output_review_only": True,
+        "accepted_in_memory_sample_path_output_only": True,
+        "final_viability_proven": False,
+        "profitability_claimed": False,
+        "historical_success_claimed": False,
+        "optimization_started": False,
+        "no_rule_change_started": True,
+        "worked_samples": worked_samples,
+        "failed_samples": failed_samples,
+        "inconclusive_samples": inconclusive_samples,
+        "worked_sample_clear_proof": _all_samples_have_clear_proof(worked_samples),
+        "failed_sample_useful_diagnosis": _all_samples_have_useful_diagnosis(
+            failed_samples
+        ),
+        "inconclusive_sample_missing_evidence_clear": (
+            _all_samples_have_missing_evidence(inconclusive_samples)
+        ),
+        "useful_proof": useful_proof,
+        "weak_proof": weak_proof,
+        "missing_evidence": missing_evidence,
+        "missing_evidence_by_setup_type": deepcopy(
+            output["missing_evidence_by_setup_type"]
+        ),
+        "missing_evidence_by_symbol": deepcopy(output["missing_evidence_by_symbol"]),
+        "missing_evidence_by_setup_type_symbol_pair": deepcopy(
+            output["missing_evidence_by_setup_type_symbol_pair"]
+        ),
+        "diagnostics": deepcopy(output["diagnostics"]),
+        "next_fix_paths": next_fix_paths,
+        "smallest_next_fix_path": _smallest_next_fix_path(next_fix_paths),
+        "regression_needs": regression_needs,
+        "lower_tier_review_summary": _sample_path_output_lower_tier_review(
+            output,
+            worked_samples,
+            failed_samples,
+            inconclusive_samples,
+            weak_proof,
+        ),
+        "no_hindsight_boundary_preserved": boundary_review[
+            "no_hindsight_boundary_preserved"
+        ],
+        "setup_type_separated": output["setup_type_separated"],
+        "symbol_separated": output["symbol_separated"],
+        "setup_type_symbol_pair_separated": output[
+            "setup_type_symbol_pair_separated"
+        ],
+        "boundary_review": boundary_review,
+        "result_useful_for_lower_tier_review": _result_useful_for_lower_tier_review(
+            worked_samples,
+            failed_samples,
+            inconclusive_samples,
+            boundary_review,
+            next_fix_paths,
+        ),
+        "review_conclusion": _sample_path_output_review_conclusion(
+            worked_samples,
+            failed_samples,
+            inconclusive_samples,
+            weak_proof,
+            boundary_review,
+            next_fix_paths,
+        ),
     }
     return deepcopy(result)
 
@@ -770,6 +924,447 @@ def _accepted_records(proof_summary: Mapping[str, Any]) -> list[dict[str, Any]]:
         for symbol_records in records_by_symbol.values():
             records.extend(deepcopy(symbol_records))
     return records
+
+
+def _validate_historical_sample_path_output(output: Mapping[str, Any]) -> None:
+    missing = [
+        field_name
+        for field_name in HISTORICAL_SAMPLE_PATH_RESULT_FIELDS
+        if field_name not in output
+    ]
+    if missing:
+        raise ValueError(f"Missing historical sample path output fields: {missing}")
+    if output["historical_setup_sample_path_only"] is not True:
+        raise ValueError("Historical sample path output marker is missing")
+    if output["watch_only"] is not True:
+        raise ValueError("Historical sample path output must remain watch-only")
+
+
+def _setup_appeared_by_id(output: Mapping[str, Any]) -> dict[str, dict[str, Any]]:
+    appeared_by_id = {}
+    for item in output["proof_chain"]["setup_appeared"]:
+        setup_id = item.get("setup_id") if type(item) is dict else None
+        if type(setup_id) is str:
+            appeared_by_id[setup_id] = deepcopy(item)
+    return appeared_by_id
+
+
+def _what_happened_after_by_id(output: Mapping[str, Any]) -> dict[str, dict[str, Any]]:
+    happened_by_id = {}
+    for item in output["proof_chain"]["what_happened_after"]:
+        setup_id = item.get("setup_id") if type(item) is dict else None
+        if type(setup_id) is str:
+            happened_by_id[setup_id] = deepcopy(item)
+    return happened_by_id
+
+
+def _diagnostics_by_record_id(output: Mapping[str, Any]) -> dict[str, dict[str, Any]]:
+    diagnostics_by_id = {}
+    for item in output["diagnostics"]:
+        record_id = item.get("record_id") if type(item) is dict else None
+        if type(record_id) is str:
+            diagnostics_by_id[record_id] = deepcopy(item)
+    return diagnostics_by_id
+
+
+def _review_samples_for_statuses(
+    setup_by_id: Mapping[str, dict[str, Any]],
+    happened_by_id: Mapping[str, dict[str, Any]],
+    diagnostics_by_record_id: Mapping[str, dict[str, Any]],
+    statuses: set[str],
+) -> list[dict[str, Any]]:
+    samples = []
+    for setup_id, happened in happened_by_id.items():
+        outcome_status = _normalized_outcome_status(happened)
+        if outcome_status not in statuses:
+            continue
+        appeared = setup_by_id.get(setup_id, {})
+        diagnostic = diagnostics_by_record_id.get(happened["proof_record_id"], {})
+        missing = _sample_missing_evidence(happened, diagnostic)
+        samples.append(
+            {
+                "proof_record_id": happened["proof_record_id"],
+                "setup_id": setup_id,
+                "setup_type": happened["setup_type"],
+                "symbol": happened["symbol"],
+                "setup_type_symbol_pair": {
+                    "setup_type": happened["setup_type"],
+                    "symbol": happened["symbol"],
+                },
+                "outcome_status": happened["outcome_status"],
+                "outcome_result_state": happened["outcome_result_state"],
+                "setup_time_evidence_refs": deepcopy(
+                    appeared.get("setup_evidence_refs", [])
+                ),
+                "after_setup_evidence": deepcopy(happened["after_setup_evidence"]),
+                "diagnostic_category": deepcopy(
+                    diagnostic.get("diagnostic_category")
+                ),
+                "diagnosis": deepcopy(diagnostic.get("what_happened")),
+                "evidence_used": deepcopy(diagnostic.get("evidence_used", [])),
+                "missing_evidence": missing,
+                "next_fix_path": deepcopy(diagnostic.get("next_fix_path")),
+                "regression_needed": deepcopy(diagnostic.get("regression_needed")),
+                "clear_proof": _sample_has_clear_proof(happened, appeared, diagnostic),
+                "useful_diagnosis": _sample_has_useful_diagnosis(diagnostic),
+                "explicit_missing_evidence": bool(missing),
+                "profitability_claimed": False,
+            }
+        )
+    return deepcopy(samples)
+
+
+def _normalized_outcome_status(happened: Mapping[str, Any]) -> str:
+    if happened.get("outcome_evidence_state") in {
+        "missing_evidence",
+        "unavailable_evidence",
+    }:
+        return "missing_evidence"
+    outcome_result_state = happened.get("outcome_result_state")
+    if outcome_result_state in {
+        "worked",
+        "failed",
+        "inconclusive",
+        "pending",
+        "stale",
+        "invalidated",
+    }:
+        return outcome_result_state
+    return str(outcome_result_state)
+
+
+def _sample_missing_evidence(
+    happened: Mapping[str, Any],
+    diagnostic: Mapping[str, Any],
+) -> list[Any]:
+    missing = []
+    for item in happened.get("unavailable_fields", []):
+        _append_unique(missing, item)
+    for item in diagnostic.get("unavailable_evidence", []):
+        _append_unique(missing, item)
+    after_setup_evidence = happened.get("after_setup_evidence", {})
+    if type(after_setup_evidence) is dict:
+        for field_name in ("source_row_reference", "post_setup_evidence"):
+            if field_name not in after_setup_evidence:
+                _append_unique(
+                    missing,
+                    {
+                        "field_name": field_name,
+                        "status": "missing_evidence",
+                        "reason": f"after_setup_evidence did not include {field_name}",
+                        "fabricated": False,
+                    },
+                )
+    return missing
+
+
+def _sample_has_clear_proof(
+    happened: Mapping[str, Any],
+    appeared: Mapping[str, Any],
+    diagnostic: Mapping[str, Any],
+) -> bool:
+    after_setup_evidence = happened.get("after_setup_evidence", {})
+    return bool(
+        appeared.get("setup_evidence_refs")
+        and type(after_setup_evidence) is dict
+        and after_setup_evidence.get("post_setup_evidence")
+        and happened.get("outcome_result_state") in {"worked", "failed"}
+        and diagnostic.get("evidence_used")
+        and not _sample_missing_evidence(happened, diagnostic)
+    )
+
+
+def _sample_has_useful_diagnosis(diagnostic: Mapping[str, Any]) -> bool:
+    return bool(
+        diagnostic.get("diagnostic_category")
+        and diagnostic.get("what_happened")
+        and diagnostic.get("evidence_used")
+        and diagnostic.get("next_fix_path")
+        and diagnostic.get("regression_needed")
+    )
+
+
+def _all_samples_have_clear_proof(samples: list[dict[str, Any]]) -> bool:
+    return bool(samples) and all(sample["clear_proof"] for sample in samples)
+
+
+def _all_samples_have_useful_diagnosis(samples: list[dict[str, Any]]) -> bool:
+    return bool(samples) and all(sample["useful_diagnosis"] for sample in samples)
+
+
+def _all_samples_have_missing_evidence(samples: list[dict[str, Any]]) -> bool:
+    return bool(samples) and all(
+        sample["explicit_missing_evidence"] for sample in samples
+    )
+
+
+def _review_missing_evidence(output: Mapping[str, Any]) -> list[Any]:
+    missing = []
+    for item in output["missing_evidence"]:
+        _append_unique(missing, item)
+    for item in output["bundle_readiness_result"]["exact_missing_review_items"]:
+        _append_unique(missing, item)
+    return missing
+
+
+def _sample_path_output_boundary_review(
+    output: Mapping[str, Any],
+    setup_by_id: Mapping[str, dict[str, Any]],
+    happened_by_id: Mapping[str, dict[str, Any]],
+) -> dict[str, Any]:
+    no_hindsight = bool(
+        output["no_hindsight_boundary_preserved"]
+        and all("after_setup_evidence" not in item for item in setup_by_id.values())
+        and all("frozen_setup_identity" not in item for item in happened_by_id.values())
+        and all(
+            happened.get("after_setup_evidence", {}).get(
+                "future_evidence_used_to_define_setup"
+            )
+            is False
+            for happened in happened_by_id.values()
+            if type(happened.get("after_setup_evidence")) is dict
+        )
+    )
+    return {
+        "no_hindsight_boundary_preserved": no_hindsight,
+        "no_trade_boundary_preserved": output["no_trade_boundary_preserved"],
+        "no_live_data_boundary_preserved": output[
+            "no_live_data_boundary_preserved"
+        ],
+        "no_controlled_shadow_boundary_preserved": output[
+            "no_controlled_shadow_boundary_preserved"
+        ],
+        "no_alert_boundary_preserved": output["no_alert_boundary_preserved"],
+        "no_file_write_boundary_preserved": output[
+            "no_file_write_boundary_preserved"
+        ],
+        "no_broker_boundary_preserved": output["no_broker_boundary_preserved"],
+        "no_optimization_boundary_preserved": output[
+            "no_optimization_boundary_preserved"
+        ],
+        "no_rule_change_started": output["no_rule_change_started"],
+        "live_data_started": output["live_data_started"],
+        "controlled_shadow_data_started": output["controlled_shadow_data_started"],
+        "alerts_sent": output["alerts_sent"],
+        "files_written": output["files_written"],
+        "broker_or_trade_behavior_enabled": output[
+            "broker_or_trade_behavior_enabled"
+        ],
+        "profitability_claimed": output["profitability_claimed"],
+        "final_viability_proven": output["final_viability_proven"],
+    }
+
+
+def _useful_proof(
+    worked_samples: list[dict[str, Any]],
+    failed_samples: list[dict[str, Any]],
+    inconclusive_samples: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    proof_items = []
+    for sample in worked_samples:
+        if sample["clear_proof"]:
+            proof_items.append(
+                {
+                    "proof_type": "worked_chart_behavior",
+                    "setup_type": sample["setup_type"],
+                    "symbol": sample["symbol"],
+                    "setup_type_symbol_pair": sample["setup_type_symbol_pair"],
+                    "reason": "setup-time and after-setup evidence were present and separated",
+                }
+            )
+    for sample in failed_samples:
+        if sample["clear_proof"] and sample["useful_diagnosis"]:
+            proof_items.append(
+                {
+                    "proof_type": "failed_chart_behavior_with_diagnosis",
+                    "setup_type": sample["setup_type"],
+                    "symbol": sample["symbol"],
+                    "setup_type_symbol_pair": sample["setup_type_symbol_pair"],
+                    "reason": "failure had evidence, diagnosis, fix path, and regression need",
+                }
+            )
+    for sample in inconclusive_samples:
+        if sample["explicit_missing_evidence"]:
+            proof_items.append(
+                {
+                    "proof_type": "missing_evidence_identified",
+                    "setup_type": sample["setup_type"],
+                    "symbol": sample["symbol"],
+                    "setup_type_symbol_pair": sample["setup_type_symbol_pair"],
+                    "reason": "inconclusive sample exposed exact unavailable evidence",
+                }
+            )
+    return deepcopy(proof_items)
+
+
+def _weak_proof(
+    output: Mapping[str, Any],
+    worked_samples: list[dict[str, Any]],
+    failed_samples: list[dict[str, Any]],
+    inconclusive_samples: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    weak = []
+    if not _all_samples_have_clear_proof(worked_samples):
+        weak.append(
+            {
+                "proof_gap": "worked_sample_clear_proof",
+                "reason": "worked sample proof is absent or incomplete",
+            }
+        )
+    if not _all_samples_have_useful_diagnosis(failed_samples):
+        weak.append(
+            {
+                "proof_gap": "failed_sample_useful_diagnosis",
+                "reason": "failed sample diagnosis is absent or incomplete",
+            }
+        )
+    if not _all_samples_have_missing_evidence(inconclusive_samples):
+        weak.append(
+            {
+                "proof_gap": "inconclusive_sample_missing_evidence",
+                "reason": "inconclusive sample did not expose exact missing evidence",
+            }
+        )
+    if output["bundle_readiness_result"]["ready_for_lower_tier_review"] is not True:
+        weak.append(
+            {
+                "proof_gap": "bundle_readiness",
+                "reason": output["bundle_readiness_result"][
+                    "bundle_readiness_decision"
+                ],
+            }
+        )
+    return weak
+
+
+def _review_next_fix_paths(
+    output: Mapping[str, Any],
+    missing_evidence: list[Any],
+    weak_proof: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    fix_paths = []
+    for path in output["next_fix_paths"]:
+        _append_unique(
+            fix_paths,
+            {
+                "path": path,
+                "source": "sample_path_output",
+                "optimization_allowed": False,
+                "rule_change_allowed": False,
+            },
+        )
+    if missing_evidence:
+        _append_unique(
+            fix_paths,
+            {
+                "path": "collect_or_preserve_missing_after_setup_evidence",
+                "source": "review_missing_evidence",
+                "optimization_allowed": False,
+                "rule_change_allowed": False,
+            },
+        )
+    if weak_proof:
+        _append_unique(
+            fix_paths,
+            {
+                "path": "tighten_review_contract_or_fixture_before_expansion",
+                "source": "review_weak_proof",
+                "optimization_allowed": False,
+                "rule_change_allowed": False,
+            },
+        )
+    return fix_paths
+
+
+def _smallest_next_fix_path(next_fix_paths: list[dict[str, Any]]) -> dict[str, Any]:
+    for path in next_fix_paths:
+        if path["path"] == "collect_or_preserve_missing_after_setup_evidence":
+            return deepcopy(path)
+    return deepcopy(next_fix_paths[0]) if next_fix_paths else {}
+
+
+def _review_regression_needs(
+    output: Mapping[str, Any],
+    weak_proof: list[dict[str, Any]],
+) -> list[Any]:
+    regressions = []
+    for item in output["regression_needs"]:
+        _append_unique(regressions, item)
+    for item in weak_proof:
+        _append_unique(
+            regressions,
+            {
+                "regression_gap": item["proof_gap"],
+                "reason": item["reason"],
+            },
+        )
+    return regressions
+
+
+def _sample_path_output_lower_tier_review(
+    output: Mapping[str, Any],
+    worked_samples: list[dict[str, Any]],
+    failed_samples: list[dict[str, Any]],
+    inconclusive_samples: list[dict[str, Any]],
+    weak_proof: list[dict[str, Any]],
+) -> dict[str, Any]:
+    return {
+        "records_processed": output["records_processed"],
+        "records_accepted": output["records_accepted"],
+        "records_rejected": output["records_rejected"],
+        "worked_samples": deepcopy(worked_samples),
+        "failed_samples": deepcopy(failed_samples),
+        "inconclusive_samples": deepcopy(inconclusive_samples),
+        "weak_proof": deepcopy(weak_proof),
+        "bundle_readiness_result": deepcopy(output["bundle_readiness_result"]),
+        "no_trade_watch_only": True,
+        "no_live_data": True,
+        "no_controlled_shadow_data": True,
+        "no_alerts": True,
+        "no_broker": True,
+        "no_file_write": True,
+        "no_rule_change": True,
+        "no_optimization": True,
+        "final_viability_proven": False,
+        "profitability_claimed": False,
+    }
+
+
+def _result_useful_for_lower_tier_review(
+    worked_samples: list[dict[str, Any]],
+    failed_samples: list[dict[str, Any]],
+    inconclusive_samples: list[dict[str, Any]],
+    boundary_review: Mapping[str, Any],
+    next_fix_paths: list[dict[str, Any]],
+) -> bool:
+    return bool(
+        worked_samples
+        and failed_samples
+        and inconclusive_samples
+        and boundary_review["no_hindsight_boundary_preserved"]
+        and next_fix_paths
+    )
+
+
+def _sample_path_output_review_conclusion(
+    worked_samples: list[dict[str, Any]],
+    failed_samples: list[dict[str, Any]],
+    inconclusive_samples: list[dict[str, Any]],
+    weak_proof: list[dict[str, Any]],
+    boundary_review: Mapping[str, Any],
+    next_fix_paths: list[dict[str, Any]],
+) -> str:
+    if (
+        _all_samples_have_clear_proof(worked_samples)
+        and _all_samples_have_useful_diagnosis(failed_samples)
+        and _all_samples_have_missing_evidence(inconclusive_samples)
+        and boundary_review["no_hindsight_boundary_preserved"]
+        and next_fix_paths
+    ):
+        if weak_proof:
+            return "useful_but_not_final_viability_proof"
+        return "useful_controlled_review_ready_for_next_fix_path"
+    return "not_enough_evidence_for_next_fix_path"
 
 
 def _append_unique(target: list[Any], value: Any) -> None:
