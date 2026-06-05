@@ -139,9 +139,9 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
         self.assertEqual(result["records_processed"], 3)
         self.assertEqual(result["records_accepted"], 3)
         self.assertEqual(result["records_rejected"], 0)
-        self.assertGreater(result["outcome_group_counts"]["worked"], 0)
+        self.assertEqual(result["outcome_group_counts"]["worked"], 2)
         self.assertGreater(result["outcome_group_counts"]["failed"], 0)
-        self.assertGreater(result["outcome_group_counts"]["missing_evidence"], 0)
+        self.assertEqual(result["outcome_group_counts"]["missing_evidence"], 0)
         self.assertIs(result["historical_setup_sample_path_only"], True)
         self.assertIn("bundle_readiness", result["proof_chain"])
 
@@ -177,20 +177,25 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
 
         self.assertIs(review["accepted_in_memory_sample_path_output_only"], True)
         self.assertIs(review["historical_sample_path_output_review_only"], True)
-        self.assertEqual(len(review["worked_samples"]), 1)
+        self.assertEqual(len(review["worked_samples"]), 2)
         self.assertEqual(len(review["failed_samples"]), 1)
-        self.assertEqual(len(review["inconclusive_samples"]), 1)
+        self.assertEqual(len(review["inconclusive_samples"]), 0)
         self.assertEqual(review["worked_samples"][0]["setup_type"], "Ideal")
         self.assertEqual(review["worked_samples"][0]["symbol"], "SPY")
         self.assertEqual(
             review["failed_samples"][0]["setup_type"], "Clean Fast Break"
         )
         self.assertEqual(review["failed_samples"][0]["symbol"], "QQQ")
-        self.assertEqual(
-            review["inconclusive_samples"][0]["setup_type"],
-            "Continuation",
+        self.assertIn(
+            ("Continuation", "GLD"),
+            {
+                (sample["setup_type"], sample["symbol"])
+                for sample in review["worked_samples"]
+            },
         )
-        self.assertEqual(review["inconclusive_samples"][0]["symbol"], "GLD")
+        self.assertEqual(review["gld_continuation_review_status"], "reviewable")
+        self.assertIs(review["gld_continuation_became_reviewable"], True)
+        self.assertIs(review["gld_continuation_remains_inconclusive"], False)
 
     def test_review_answers_proof_diagnosis_and_missing_evidence_questions(self):
         sample_output = run_setup_outcome_historical_sample_path(
@@ -201,14 +206,13 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
 
         self.assertIs(review["worked_sample_clear_proof"], True)
         self.assertIs(review["failed_sample_useful_diagnosis"], True)
-        self.assertIs(review["inconclusive_sample_missing_evidence_clear"], True)
+        self.assertIs(review["inconclusive_sample_missing_evidence_clear"], False)
+        self.assertEqual(review["gld_continuation_review_status"], "reviewable")
         self.assertIn("worked_chart_behavior", str(review["useful_proof"]))
         self.assertIn(
             "failed_chart_behavior_with_diagnosis",
             str(review["useful_proof"]),
         )
-        self.assertIn("missing_evidence_identified", str(review["useful_proof"]))
-        self.assertIn("post_setup_evidence", str(review["missing_evidence"]))
         self.assertIn("bundle_readiness", str(review["weak_proof"]))
 
     def test_review_preserves_no_hindsight_setup_symbol_pair_and_boundaries(self):
@@ -254,17 +258,20 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
 
         review = review_setup_outcome_historical_sample_path_output(sample_output)
 
-        self.assertEqual(
+        self.assertIn(
+            "outcome_scoring_review",
+            str(review["next_fix_paths"]),
+        )
+        self.assertNotEqual(
             review["smallest_next_fix_path"]["path"],
             "collect_or_preserve_missing_after_setup_evidence",
         )
-        self.assertIn("data_quality_or_missing_evidence", str(review["next_fix_paths"]))
         self.assertIn("required_regression_tests", str(review["regression_needs"]))
         self.assertIs(review["result_useful_for_lower_tier_review"], True)
         lower_tier = review["lower_tier_review_summary"]
-        self.assertEqual(len(lower_tier["worked_samples"]), 1)
+        self.assertEqual(len(lower_tier["worked_samples"]), 2)
         self.assertEqual(len(lower_tier["failed_samples"]), 1)
-        self.assertEqual(len(lower_tier["inconclusive_samples"]), 1)
+        self.assertEqual(len(lower_tier["inconclusive_samples"]), 0)
         self.assertIs(lower_tier["no_trade_watch_only"], True)
         self.assertIs(lower_tier["no_live_data"], True)
         self.assertIs(lower_tier["no_controlled_shadow_data"], True)
@@ -387,21 +394,26 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
                 False,
             )
 
-    def test_first_controlled_sample_lists_missing_evidence_without_fabrication(self):
+    def test_first_controlled_sample_adds_gld_after_setup_evidence_without_fabrication(self):
         result = run_setup_outcome_historical_sample_path(
             build_first_controlled_historical_sample_evidence_set()
         )
 
-        self.assertIn("Continuation", result["missing_evidence_by_setup_type"])
-        self.assertIn("GLD", result["missing_evidence_by_symbol"])
-        self.assertIn(
-            ("Continuation", "GLD"),
-            {
-                (item["setup_type"], item["symbol"])
-                for item in result["missing_evidence_by_setup_type_symbol_pair"]
-            },
+        self.assertNotIn("Continuation", result["missing_evidence_by_setup_type"])
+        self.assertNotIn("GLD", result["missing_evidence_by_symbol"])
+        happened_by_pair = {
+            (item["setup_type"], item["symbol"]): item
+            for item in result["proof_chain"]["what_happened_after"]
+        }
+        gld = happened_by_pair[("Continuation", "GLD")]
+        self.assertEqual(gld["outcome_result_state"], "worked")
+        self.assertEqual(gld["outcome_evidence_state"], "valid_by_rule")
+        self.assertIn("source_row_reference", gld["after_setup_evidence"])
+        self.assertIn("post_setup_evidence", gld["after_setup_evidence"])
+        self.assertIs(
+            gld["after_setup_evidence"]["future_evidence_used_to_define_setup"],
+            False,
         )
-        self.assertIn("post_setup_evidence", str(result["missing_evidence"]))
         self.assertNotIn("fabricated': True", str(result["missing_evidence"]))
 
     def test_first_controlled_sample_preserves_boundaries_and_no_profitability_claim(self):

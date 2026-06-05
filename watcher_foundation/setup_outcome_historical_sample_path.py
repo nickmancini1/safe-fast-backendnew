@@ -106,6 +106,9 @@ HISTORICAL_SAMPLE_PATH_OUTPUT_REVIEW_RESULT_FIELDS = (
     "worked_sample_clear_proof",
     "failed_sample_useful_diagnosis",
     "inconclusive_sample_missing_evidence_clear",
+    "gld_continuation_review_status",
+    "gld_continuation_became_reviewable",
+    "gld_continuation_remains_inconclusive",
     "useful_proof",
     "weak_proof",
     "missing_evidence",
@@ -259,7 +262,7 @@ def build_first_controlled_historical_sample_evidence_set() -> list[dict[str, An
             ),
         ),
         _controlled_sample_record(
-            proof_record_id="controlled-sample-continuation-gld-missing-001",
+            proof_record_id="controlled-sample-continuation-gld-evidenced-001",
             source_record_id="controlled-source-gld-continuation-001",
             setup_id="controlled-continuation-gld-001",
             setup_type="Continuation",
@@ -274,31 +277,28 @@ def build_first_controlled_historical_sample_evidence_set() -> list[dict[str, An
                 "caller_provided": True,
                 "start_timestamp": "2026-04-15T10:30:00-04:00",
                 "end_timestamp": "2026-04-15T15:30:00-04:00",
+                "source_row_reference": "controlled-source-gld-continuation-001:after-row-1",
+                "post_setup_evidence": [
+                    "controlled-source-gld-continuation-001:held-continuation-shelf",
+                    "controlled-source-gld-continuation-001:follow-through-after-shelf-hold",
+                ],
                 "future_evidence_used_to_define_setup": False,
             },
-            trigger_state="not_triggered",
+            trigger_state="triggered",
             invalidation_state="valid_by_rule",
             freshness_state="fresh",
-            blocker_caution_state="needs_review",
-            session_boundary_state="needs_review",
-            outcome_evidence_state="missing_evidence",
-            outcome_result_state="inconclusive",
+            blocker_caution_state="none",
+            session_boundary_state="valid_by_rule",
+            outcome_evidence_state="valid_by_rule",
+            outcome_result_state="worked",
             evidence_refs=[
                 "controlled-source-gld-continuation-001:setup-time-shelf",
+                "controlled-source-gld-continuation-001:held-continuation-shelf",
             ],
-            unavailable_fields=[
-                _unavailable_sample_field(
-                    "source_row_reference",
-                    "after-setup source row reference was not provided",
-                ),
-                _unavailable_sample_field(
-                    "post_setup_evidence",
-                    "after-setup movement evidence was not provided",
-                ),
-            ],
+            unavailable_fields=[],
             next_fix_path=(
-                "collect or preserve missing GLD continuation after-setup evidence "
-                "before any broader sample expansion"
+                "review the now-evidenced three-sample controlled set before "
+                "any broader sample expansion"
             ),
         ),
     ]
@@ -498,6 +498,11 @@ def review_setup_outcome_historical_sample_path_output(
     weak_proof = _weak_proof(output, worked_samples, failed_samples, inconclusive_samples)
     next_fix_paths = _review_next_fix_paths(output, missing_evidence, weak_proof)
     regression_needs = _review_regression_needs(output, weak_proof)
+    gld_continuation_review_status = _gld_continuation_review_status(
+        worked_samples,
+        failed_samples,
+        inconclusive_samples,
+    )
 
     result = {
         "watch_only": True,
@@ -516,7 +521,15 @@ def review_setup_outcome_historical_sample_path_output(
             failed_samples
         ),
         "inconclusive_sample_missing_evidence_clear": (
-            _all_samples_have_missing_evidence(inconclusive_samples)
+            bool(inconclusive_samples)
+            and _all_samples_have_missing_evidence(inconclusive_samples)
+        ),
+        "gld_continuation_review_status": gld_continuation_review_status,
+        "gld_continuation_became_reviewable": (
+            gld_continuation_review_status == "reviewable"
+        ),
+        "gld_continuation_remains_inconclusive": (
+            gld_continuation_review_status == "inconclusive"
         ),
         "useful_proof": useful_proof,
         "weak_proof": weak_proof,
@@ -1098,6 +1111,24 @@ def _all_samples_have_missing_evidence(samples: list[dict[str, Any]]) -> bool:
     )
 
 
+def _gld_continuation_review_status(
+    worked_samples: list[dict[str, Any]],
+    failed_samples: list[dict[str, Any]],
+    inconclusive_samples: list[dict[str, Any]],
+) -> str:
+    for sample in (*worked_samples, *failed_samples):
+        if (
+            sample["setup_type"] == "Continuation"
+            and sample["symbol"] == "GLD"
+            and sample["clear_proof"]
+        ):
+            return "reviewable"
+    for sample in inconclusive_samples:
+        if sample["setup_type"] == "Continuation" and sample["symbol"] == "GLD":
+            return "inconclusive"
+    return "not_present"
+
+
 def _review_missing_evidence(output: Mapping[str, Any]) -> list[Any]:
     missing = []
     for item in output["missing_evidence"]:
@@ -1218,7 +1249,9 @@ def _weak_proof(
                 "reason": "failed sample diagnosis is absent or incomplete",
             }
         )
-    if not _all_samples_have_missing_evidence(inconclusive_samples):
+    if inconclusive_samples and not _all_samples_have_missing_evidence(
+        inconclusive_samples
+    ):
         weak.append(
             {
                 "proof_gap": "inconclusive_sample_missing_evidence",
@@ -1253,7 +1286,7 @@ def _review_next_fix_paths(
                 "rule_change_allowed": False,
             },
         )
-    if missing_evidence:
+    if _has_after_setup_missing_evidence(missing_evidence):
         _append_unique(
             fix_paths,
             {
@@ -1274,6 +1307,15 @@ def _review_next_fix_paths(
             },
         )
     return fix_paths
+
+
+def _has_after_setup_missing_evidence(missing_evidence: list[Any]) -> bool:
+    for item in missing_evidence:
+        if type(item) is not dict:
+            continue
+        if item.get("field_name") in {"source_row_reference", "post_setup_evidence"}:
+            return True
+    return False
 
 
 def _smallest_next_fix_path(next_fix_paths: list[dict[str, Any]]) -> dict[str, Any]:
@@ -1340,7 +1382,6 @@ def _result_useful_for_lower_tier_review(
     return bool(
         worked_samples
         and failed_samples
-        and inconclusive_samples
         and boundary_review["no_hindsight_boundary_preserved"]
         and next_fix_paths
     )
@@ -1357,7 +1398,10 @@ def _sample_path_output_review_conclusion(
     if (
         _all_samples_have_clear_proof(worked_samples)
         and _all_samples_have_useful_diagnosis(failed_samples)
-        and _all_samples_have_missing_evidence(inconclusive_samples)
+        and (
+            not inconclusive_samples
+            or _all_samples_have_missing_evidence(inconclusive_samples)
+        )
         and boundary_review["no_hindsight_boundary_preserved"]
         and next_fix_paths
     ):
