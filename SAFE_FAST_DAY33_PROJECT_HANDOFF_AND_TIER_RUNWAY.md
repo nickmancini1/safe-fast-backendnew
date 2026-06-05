@@ -8,9 +8,9 @@
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: c880103 Add controlled sample review plan.
-- Latest known completed build commit before this handoff update: c880103 Add controlled sample review plan.
-- Current uncommitted status: Day 34 local-only implementation review of the first controlled historical sample output; allowed changed files are `watcher_foundation/setup_outcome_historical_sample_path.py`, `watcher_foundation/__init__.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
+- Latest known local commit before current uncommitted work: ba7374b Add controlled historical sample output review.
+- Latest known completed build commit before this handoff update: ba7374b Add controlled historical sample output review.
+- Current uncommitted status: Day 34 docs-only planning after the controlled historical sample output review; allowed changed files are `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_HISTORICAL_SAMPLE_OUTPUT_REVIEW.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
 - Real local git status and git log are source of truth.
 - This Day33-named file remains a living handoff document and records this Day 34 update.
 
@@ -309,11 +309,11 @@ Recently built proof chain:
 
 Latest known completed build commit before current uncommitted work:
 
-c880103 Add controlled sample review plan
+ba7374b Add controlled historical sample output review
 
 Latest known local commit before current uncommitted work:
 
-c880103 Add controlled sample review plan
+ba7374b Add controlled historical sample output review
 
 Current Day 34 implementation status:
 
@@ -322,16 +322,17 @@ Current Day 34 implementation status:
 - Controlled historical sample evidence set planning is complete and committed at `0910f54 Add controlled historical sample evidence set plan`.
 - First controlled historical sample evidence set is complete and committed at `2ccc021 Add first controlled historical sample evidence set`.
 - Controlled sample output review planning is complete and committed at `c880103 Add controlled sample review plan`.
-- Current objective is Day 34 local-only review implementation for the first controlled historical sample output.
-- Current plan file is `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET.md`.
-- Current changed files are limited to `watcher_foundation/setup_outcome_historical_sample_path.py`, `watcher_foundation/__init__.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- First controlled historical sample output review is complete and committed at `ba7374b Add controlled historical sample output review`.
+- Current objective is Day 34 docs-only planning after the controlled historical sample output review.
+- Current plan file is `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_HISTORICAL_SAMPLE_OUTPUT_REVIEW.md`.
+- Current changed files are limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_HISTORICAL_SAMPLE_OUTPUT_REVIEW.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
 - Runner behavior: accepts caller-provided in-memory historical setup examples only, rejects file/report/log path, live-data, controlled-shadow, alert, broker/order/account/options/P&L/account-sizing, live-trade-decision, subprocess/thread/socket, watcher-loop, and `main.py` shaped inputs, runs proof -> diagnostics -> evidence packet -> packet readiness -> group review -> group review readiness -> historical bundle -> bundle readiness, preserves setup-time vs post-setup evidence separation, setup type, symbol, setup-type-plus-symbol pair separation, missing evidence, diagnostics, fix paths, regression needs, lower-tier review fields, and exact bundle-readiness missing review items.
 - Sample evidence set behavior: exposes one worked `Ideal` / `SPY` setup, one failed `Clean Fast Break` / `QQQ` setup, and one missing-evidence/inconclusive `Continuation` / `GLD` setup through the existing runner; preserves setup type separation, symbol separation, setup-type-plus-symbol pair separation, setup-time versus after-setup evidence separation, missing evidence, diagnostics, fix paths, lower-tier summary, no-trade/watch-only, no-live-data, no-controlled-shadow, no-alert, no-broker, no-file-write, no-rule-change, and no-optimization boundaries.
 - Review behavior: accepts caller-provided in-memory sample path output only, returns one in-memory review summary only, keeps worked, failed, and inconclusive samples separate, keeps setup type and symbol separate, checks no-hindsight boundaries, surfaces useful proof, weak proof, missing evidence, next fix paths, regression needs, and lower-tier review material, and defensively copies returned data.
 - Review result: the controlled output is useful but not final viability proof. The worked `Ideal` / `SPY` sample gives clear chart-behavior proof; the failed `Clean Fast Break` / `QQQ` sample gives useful diagnosis; the inconclusive `Continuation` / `GLD` sample clearly exposes missing after-setup evidence. Bundle readiness still shows tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
 - Smallest next fix path: collect or preserve missing GLD Continuation after-setup evidence and tighten the smallest related fixture, contract, docs, or regression gap before broader sample expansion.
 - Validation results: focused historical sample path PASS (`24` tests); bundle readiness PASS (`11`); proof review bundle PASS (`13`); review readiness PASS (`12`); review aggregator PASS (`11`); packet readiness PASS (`11`); evidence packet PASS (`12`); diagnostics PASS (`14`); proof PASS (`21`); watcher-foundation scaffold PASS (`6`); `git diff --check` PASS with LF-to-CRLF warnings for `tests/test_setup_outcome_historical_sample_path.py`, `watcher_foundation/__init__.py`, and `watcher_foundation/setup_outcome_historical_sample_path.py` only.
-- Current implementation scope: local-only code/test/docs; no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no file writes by the review, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
+- Current planning scope: docs-only; no code changes, no tests changed, no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no file writes, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
 
 ## Still unproven
 
@@ -340,7 +341,7 @@ Still not proven:
 - final trading-plan viability
 - profitability
 - actual historical success
-- committed closeout of the first local historical sample path output review
+- GLD Continuation after-setup evidence completion
 - controlled shadow data
 - live data
 - alerts
@@ -501,31 +502,31 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Review the Day 34 first controlled local historical sample output implementation before commit, then commit only the allowed files if accepted.
+Review the Day 34 docs-only plan after the controlled historical sample output review before commit, then commit only the allowed docs files if accepted.
 
-Current implementation files:
+Current docs files:
 
-- `watcher_foundation/setup_outcome_historical_sample_path.py`
-- `watcher_foundation/__init__.py`
-- `tests/test_setup_outcome_historical_sample_path.py`
+- `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_HISTORICAL_SAMPLE_OUTPUT_REVIEW.md`
+- `SAFE_FAST_BUILD_STATE.md`
+- `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`
 
 Current plan file:
 
-SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET.md
+SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_HISTORICAL_SAMPLE_OUTPUT_REVIEW.md
 
 Unfinished item:
 
-The review implementation is local and uncommitted until assistant review and commit. Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven.
+The GLD Continuation after-setup evidence fill is not implemented yet. This planning task is local docs-only and uncommitted until assistant review and commit. Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven.
 
 ## Next-after-next objective
 
-Implement the smallest evidence-backed local fix path identified by the first sample-path output review.
+Implement the smallest evidence-backed local fix path identified by the first sample-path output review: fill the missing `Continuation` / `GLD` after-setup evidence.
 
-That follow-up must be limited to the smallest responsible local contract, fixture, test, or planning adjustment. It should ask whether the controlled local examples successfully tested the full chain:
+That follow-up must preserve the existing worked `Ideal` / `SPY` sample and failed `Clean Fast Break` / `QQQ` sample, improve only the existing `Continuation` / `GLD` sample, and stay limited to the smallest responsible local fixture, contract, test, or docs adjustment. It should ask whether the controlled local examples successfully tested the full chain:
 
 setup appeared -> what happened after -> diagnosis -> packet -> packet readiness -> group review -> group readiness -> historical bundle -> bundle readiness
 
-The first sample path output should remain small, explicit, and easy to inspect. Current identified next fix path is to collect or preserve missing GLD Continuation after-setup evidence and tighten the smallest related fixture, contract, docs, or regression gap before broader sample expansion.
+The first sample path output should remain small, explicit, and easy to inspect. Current identified next fix path is to collect or preserve missing GLD Continuation after-setup evidence, rerun the sample path and sample output review, and show whether GLD Continuation becomes reviewable or remains inconclusive before broader sample expansion.
 
 The review should answer:
 
