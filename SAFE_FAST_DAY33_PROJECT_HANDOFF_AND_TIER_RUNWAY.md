@@ -8,9 +8,9 @@
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: c228cb1 Add GLD Continuation evidence fix plan.
-- Latest known completed build commit before this handoff update: c228cb1 Add GLD Continuation evidence fix plan.
-- Current uncommitted status: Day 34 GLD Continuation after-setup evidence implementation; changed files are `watcher_foundation/setup_outcome_historical_sample_path.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
+- Latest known local commit before current uncommitted work: eb6e5d0 Add GLD Continuation after-setup evidence.
+- Latest known completed build commit before this handoff update: eb6e5d0 Add GLD Continuation after-setup evidence.
+- Current uncommitted status: Day 34 docs-only IWM controlled sample expansion planning; changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_GLD_CONTINUATION_EVIDENCE_FIX.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
 - Real local git status and git log are source of truth.
 - This Day33-named file remains a living handoff document and records this Day 34 update.
 
@@ -309,11 +309,11 @@ Recently built proof chain:
 
 Latest known completed build commit before current uncommitted work:
 
-c228cb1 Add GLD Continuation evidence fix plan
+eb6e5d0 Add GLD Continuation after-setup evidence
 
 Latest known local commit before current uncommitted work:
 
-c228cb1 Add GLD Continuation evidence fix plan
+eb6e5d0 Add GLD Continuation after-setup evidence
 
 Current Day 34 implementation status:
 
@@ -324,15 +324,16 @@ Current Day 34 implementation status:
 - Controlled sample output review planning is complete and committed at `c880103 Add controlled sample review plan`.
 - First controlled historical sample output review is complete and committed at `ba7374b Add controlled historical sample output review`.
 - GLD Continuation evidence fix planning is complete and committed at `c228cb1 Add GLD Continuation evidence fix plan`.
-- Current objective is Day 34 GLD Continuation after-setup evidence implementation after the controlled historical sample output review.
-- Current plan file is `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_HISTORICAL_SAMPLE_OUTPUT_REVIEW.md`.
-- Current changed files are limited to `watcher_foundation/setup_outcome_historical_sample_path.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`; all are within the plan-allowed file set.
+- GLD Continuation after-setup evidence implementation is complete and committed at `eb6e5d0 Add GLD Continuation after-setup evidence`.
+- Current objective is Day 34 docs-only planning for the next controlled local sample expansion after the GLD Continuation evidence fix.
+- Current plan file is `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_GLD_CONTINUATION_EVIDENCE_FIX.md`.
+- Current changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_GLD_CONTINUATION_EVIDENCE_FIX.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`; all are within the task-allowed docs file set.
 - Runner behavior: accepts caller-provided in-memory historical setup examples only, rejects file/report/log path, live-data, controlled-shadow, alert, broker/order/account/options/P&L/account-sizing, live-trade-decision, subprocess/thread/socket, watcher-loop, and `main.py` shaped inputs, runs proof -> diagnostics -> evidence packet -> packet readiness -> group review -> group review readiness -> historical bundle -> bundle readiness, preserves setup-time vs post-setup evidence separation, setup type, symbol, setup-type-plus-symbol pair separation, missing evidence, diagnostics, fix paths, regression needs, lower-tier review fields, and exact bundle-readiness missing review items.
 - Sample evidence set behavior: exposes one worked `Ideal` / `SPY` setup, one failed `Clean Fast Break` / `QQQ` setup, and one now-reviewable `Continuation` / `GLD` setup through the existing runner; preserves setup type separation, symbol separation, setup-type-plus-symbol pair separation, setup-time versus after-setup evidence separation, diagnostics, fix paths, lower-tier summary, no-trade/watch-only, no-live-data, no-controlled-shadow, no-alert, no-broker, no-file-write, no-rule-change, and no-optimization boundaries.
 - Review behavior: accepts caller-provided in-memory sample path output only, returns one in-memory review summary only, keeps worked, failed, and inconclusive samples separate, keeps setup type and symbol separate, checks no-hindsight boundaries, surfaces useful proof, weak proof, missing evidence, next fix paths, regression needs, lower-tier review material, and explicitly reports the GLD Continuation review status, and defensively copies returned data.
 - Review result: the controlled output is useful but not final viability proof. The worked `Ideal` / `SPY` sample gives clear chart-behavior proof; the failed `Clean Fast Break` / `QQQ` sample gives useful diagnosis; the existing `Continuation` / `GLD` sample now has caller-provided after-setup evidence and became reviewable. Bundle readiness still shows tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
 - GLD Continuation status: `reviewable`; `gld_continuation_became_reviewable=True`; `gld_continuation_remains_inconclusive=False`; no final viability, profitability, historical success, optimization, or live trade claim.
-- Next objective after this fix: narrow review of what the now-evidenced three-sample controlled set proves and still does not prove, before any broader sample expansion.
+- Next objective after this fix: add one controlled IWM example so the starting universe is not missing IWM, while preserving the SPY, QQQ, and GLD examples and reporting whether IWM becomes reviewable.
 - Validation results: focused historical sample path PASS (`24` tests); bundle readiness PASS (`11`); proof review bundle PASS (`13`); review readiness PASS (`12`); review aggregator PASS (`11`); packet readiness PASS (`11`); evidence packet PASS (`12`); diagnostics PASS (`14`); proof PASS (`21`); watcher-foundation scaffold PASS (`6`); `git diff --check` PASS with LF-to-CRLF working-copy warnings only.
 - Current implementation scope: local-only in-memory code/test/docs update; no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no file writes by the runner/review, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
 
@@ -503,32 +504,31 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Review the Day 34 GLD Continuation after-setup evidence implementation before commit, then commit only the plan-allowed changed files if accepted.
+Review the Day 34 docs-only IWM controlled sample expansion plan before commit, then commit only the task-allowed docs files if accepted.
 
 Current changed files:
 
-- `watcher_foundation/setup_outcome_historical_sample_path.py`
-- `tests/test_setup_outcome_historical_sample_path.py`
+- `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_GLD_CONTINUATION_EVIDENCE_FIX.md`
 - `SAFE_FAST_BUILD_STATE.md`
 - `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`
 
 Current plan file:
 
-SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_HISTORICAL_SAMPLE_OUTPUT_REVIEW.md
+SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_GLD_CONTINUATION_EVIDENCE_FIX.md
 
 Unfinished item:
 
-The GLD Continuation after-setup evidence fill is implemented but uncommitted until assistant review and commit. Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven.
+The IWM controlled sample expansion is planned but not implemented. Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven.
 
 ## Next-after-next objective
 
-Create a narrow review of what the now-evidenced three-sample controlled set proves and still does not prove before broader sample expansion.
+Implement the one-sample IWM controlled local expansion, then run the sample path and output review.
 
-That follow-up must preserve the existing worked `Ideal` / `SPY` sample, failed `Clean Fast Break` / `QQQ` sample, and now-reviewable `Continuation` / `GLD` sample. It should ask whether the controlled local examples successfully tested the full chain:
+That follow-up must preserve the existing worked `Ideal` / `SPY` sample, failed `Clean Fast Break` / `QQQ` sample, and now-reviewable `Continuation` / `GLD` sample while adding exactly one controlled `IWM` example. It should ask whether the controlled local examples successfully tested the full chain:
 
 setup appeared -> what happened after -> diagnosis -> packet -> packet readiness -> group review -> group readiness -> historical bundle -> bundle readiness
 
-The first sample path output should remain small, explicit, and easy to inspect. Current result is that GLD Continuation became reviewable after caller-provided after-setup evidence was added. The next review must not broaden samples to hide remaining tiny-sample or upstream bundle-readiness gaps.
+The sample path output should remain small, explicit, and easy to inspect. Current result is that GLD Continuation became reviewable after caller-provided after-setup evidence was added, but IWM is still missing from the controlled starting universe. The next review must not broaden samples to hide remaining tiny-sample or upstream bundle-readiness gaps.
 
 The review should answer:
 
@@ -538,6 +538,7 @@ The review should answer:
 - Does it keep setup type and symbol separate?
 - Does it identify missing evidence?
 - Does it produce a review packet that a lower-tier chat can understand?
+- Does the new IWM example become reviewable, and what does it teach?
 
 ## Final UI direction
 
