@@ -136,10 +136,10 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
             FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET_ID,
             "first_controlled_historical_sample_evidence_set_v1",
         )
-        self.assertEqual(result["records_processed"], 3)
-        self.assertEqual(result["records_accepted"], 3)
+        self.assertEqual(result["records_processed"], 4)
+        self.assertEqual(result["records_accepted"], 4)
         self.assertEqual(result["records_rejected"], 0)
-        self.assertEqual(result["outcome_group_counts"]["worked"], 2)
+        self.assertEqual(result["outcome_group_counts"]["worked"], 3)
         self.assertGreater(result["outcome_group_counts"]["failed"], 0)
         self.assertEqual(result["outcome_group_counts"]["missing_evidence"], 0)
         self.assertIs(result["historical_setup_sample_path_only"], True)
@@ -177,7 +177,7 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
 
         self.assertIs(review["accepted_in_memory_sample_path_output_only"], True)
         self.assertIs(review["historical_sample_path_output_review_only"], True)
-        self.assertEqual(len(review["worked_samples"]), 2)
+        self.assertEqual(len(review["worked_samples"]), 3)
         self.assertEqual(len(review["failed_samples"]), 1)
         self.assertEqual(len(review["inconclusive_samples"]), 0)
         self.assertEqual(review["worked_samples"][0]["setup_type"], "Ideal")
@@ -196,6 +196,18 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
         self.assertEqual(review["gld_continuation_review_status"], "reviewable")
         self.assertIs(review["gld_continuation_became_reviewable"], True)
         self.assertIs(review["gld_continuation_remains_inconclusive"], False)
+        iwm_samples = [
+            sample
+            for sample in review["worked_samples"]
+            if sample["symbol"] == "IWM"
+        ]
+        self.assertEqual(len(iwm_samples), 1)
+        self.assertEqual(iwm_samples[0]["setup_type"], "Ideal")
+        self.assertEqual(review["iwm_review_status"], "reviewable")
+        self.assertIs(review["iwm_became_reviewable"], True)
+        self.assertIs(review["iwm_remains_inconclusive"], False)
+        self.assertEqual(review["iwm_sample_teaches"]["symbol"], "IWM")
+        self.assertIn("small-cap IWM", review["iwm_sample_teaches"]["teaches"])
 
     def test_review_answers_proof_diagnosis_and_missing_evidence_questions(self):
         sample_output = run_setup_outcome_historical_sample_path(
@@ -208,6 +220,7 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
         self.assertIs(review["failed_sample_useful_diagnosis"], True)
         self.assertIs(review["inconclusive_sample_missing_evidence_clear"], False)
         self.assertEqual(review["gld_continuation_review_status"], "reviewable")
+        self.assertEqual(review["iwm_review_status"], "reviewable")
         self.assertIn("worked_chart_behavior", str(review["useful_proof"]))
         self.assertIn(
             "failed_chart_behavior_with_diagnosis",
@@ -269,7 +282,7 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
         self.assertIn("required_regression_tests", str(review["regression_needs"]))
         self.assertIs(review["result_useful_for_lower_tier_review"], True)
         lower_tier = review["lower_tier_review_summary"]
-        self.assertEqual(len(lower_tier["worked_samples"]), 2)
+        self.assertEqual(len(lower_tier["worked_samples"]), 3)
         self.assertEqual(len(lower_tier["failed_samples"]), 1)
         self.assertEqual(len(lower_tier["inconclusive_samples"]), 0)
         self.assertIs(lower_tier["no_trade_watch_only"], True)
@@ -343,7 +356,7 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
             set(result["represented_setup_types"]),
             {"Ideal", "Clean Fast Break", "Continuation"},
         )
-        self.assertEqual(set(result["represented_symbols"]), {"SPY", "QQQ", "GLD"})
+        self.assertEqual(set(result["represented_symbols"]), {"SPY", "QQQ", "GLD", "IWM"})
         self.assertEqual(
             {
                 (item["setup_type"], item["symbol"])
@@ -353,6 +366,7 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
                 ("Ideal", "SPY"),
                 ("Clean Fast Break", "QQQ"),
                 ("Continuation", "GLD"),
+                ("Ideal", "IWM"),
             },
         )
         self.assertIs(result["setup_type_separated"], True)
@@ -415,6 +429,68 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
             False,
         )
         self.assertNotIn("fabricated': True", str(result["missing_evidence"]))
+
+    def test_first_controlled_sample_adds_exactly_one_iwm_reviewable_example(self):
+        sample = build_first_controlled_historical_sample_evidence_set()
+
+        iwm_records = [record for record in sample if record["symbol"] == "IWM"]
+
+        self.assertEqual(len(iwm_records), 1)
+        iwm_record = iwm_records[0]
+        self.assertEqual(iwm_record["setup_type"], "Ideal")
+        self.assertEqual(iwm_record["setup_id"], "controlled-ideal-iwm-001")
+        self.assertEqual(
+            iwm_record["after_setup_evidence"]["source_row_reference"],
+            "controlled-source-iwm-ideal-001:after-row-1",
+        )
+        self.assertTrue(iwm_record["after_setup_evidence"]["post_setup_evidence"])
+        self.assertIs(
+            iwm_record["after_setup_evidence"][
+                "future_evidence_used_to_define_setup"
+            ],
+            False,
+        )
+
+        result = run_setup_outcome_historical_sample_path(sample)
+        happened_by_pair = {
+            (item["setup_type"], item["symbol"]): item
+            for item in result["proof_chain"]["what_happened_after"]
+        }
+        iwm = happened_by_pair[("Ideal", "IWM")]
+        self.assertEqual(iwm["outcome_result_state"], "worked")
+        self.assertEqual(iwm["outcome_evidence_state"], "valid_by_rule")
+        self.assertIn("source_row_reference", iwm["after_setup_evidence"])
+        self.assertIn("post_setup_evidence", iwm["after_setup_evidence"])
+        self.assertIs(
+            iwm["after_setup_evidence"]["future_evidence_used_to_define_setup"],
+            False,
+        )
+        self.assertNotIn("IWM", result["missing_evidence_by_symbol"])
+
+    def test_review_reports_what_iwm_sample_teaches_without_viability_claim(self):
+        sample_output = run_setup_outcome_historical_sample_path(
+            build_first_controlled_historical_sample_evidence_set()
+        )
+
+        review = review_setup_outcome_historical_sample_path_output(sample_output)
+
+        self.assertEqual(review["iwm_review_status"], "reviewable")
+        self.assertIs(review["iwm_became_reviewable"], True)
+        self.assertIs(review["iwm_remains_inconclusive"], False)
+        self.assertEqual(review["iwm_sample_teaches"]["setup_type"], "Ideal")
+        self.assertEqual(review["iwm_sample_teaches"]["symbol"], "IWM")
+        self.assertEqual(
+            review["iwm_sample_teaches"]["setup_type_symbol_pair"],
+            {"setup_type": "Ideal", "symbol": "IWM"},
+        )
+        self.assertIn("small-cap IWM", review["iwm_sample_teaches"]["teaches"])
+        self.assertIs(review["iwm_sample_teaches"]["profitability_claimed"], False)
+        self.assertIs(review["iwm_sample_teaches"]["final_viability_proven"], False)
+        self.assertIs(review["iwm_sample_teaches"]["optimization_started"], False)
+        self.assertIs(review["final_viability_proven"], False)
+        self.assertIs(review["profitability_claimed"], False)
+        self.assertIs(review["historical_success_claimed"], False)
+        self.assertIs(review["optimization_started"], False)
 
     def test_first_controlled_sample_preserves_boundaries_and_no_profitability_claim(self):
         result = run_setup_outcome_historical_sample_path(

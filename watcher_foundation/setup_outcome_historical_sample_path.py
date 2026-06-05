@@ -109,6 +109,10 @@ HISTORICAL_SAMPLE_PATH_OUTPUT_REVIEW_RESULT_FIELDS = (
     "gld_continuation_review_status",
     "gld_continuation_became_reviewable",
     "gld_continuation_remains_inconclusive",
+    "iwm_review_status",
+    "iwm_became_reviewable",
+    "iwm_remains_inconclusive",
+    "iwm_sample_teaches",
     "useful_proof",
     "weak_proof",
     "missing_evidence",
@@ -298,6 +302,46 @@ def build_first_controlled_historical_sample_evidence_set() -> list[dict[str, An
             unavailable_fields=[],
             next_fix_path=(
                 "review the now-evidenced three-sample controlled set before "
+                "any broader sample expansion"
+            ),
+        ),
+        _controlled_sample_record(
+            proof_record_id="controlled-sample-ideal-iwm-worked-001",
+            source_record_id="controlled-source-iwm-ideal-001",
+            setup_id="controlled-ideal-iwm-001",
+            setup_type="Ideal",
+            symbol="IWM",
+            stage="near-trigger",
+            detection_timestamp="2026-04-16T10:30:00-04:00",
+            setup_evidence_refs=[
+                "controlled-source-iwm-ideal-001:setup-time-candle",
+                "controlled-source-iwm-ideal-001:setup-time-trigger-card",
+            ],
+            after_setup_evidence={
+                "caller_provided": True,
+                "start_timestamp": "2026-04-16T11:30:00-04:00",
+                "end_timestamp": "2026-04-16T15:30:00-04:00",
+                "source_row_reference": "controlled-source-iwm-ideal-001:after-row-1",
+                "post_setup_evidence": [
+                    "controlled-source-iwm-ideal-001:held-trigger-zone",
+                    "controlled-source-iwm-ideal-001:small-cap-follow-through",
+                ],
+                "future_evidence_used_to_define_setup": False,
+            },
+            trigger_state="triggered",
+            invalidation_state="valid_by_rule",
+            freshness_state="fresh",
+            blocker_caution_state="none",
+            session_boundary_state="valid_by_rule",
+            outcome_evidence_state="valid_by_rule",
+            outcome_result_state="worked",
+            evidence_refs=[
+                "controlled-source-iwm-ideal-001:setup-time-trigger-card",
+                "controlled-source-iwm-ideal-001:small-cap-follow-through",
+            ],
+            unavailable_fields=[],
+            next_fix_path=(
+                "review the four-symbol controlled starting universe before "
                 "any broader sample expansion"
             ),
         ),
@@ -503,6 +547,11 @@ def review_setup_outcome_historical_sample_path_output(
         failed_samples,
         inconclusive_samples,
     )
+    iwm_review_status = _iwm_review_status(
+        worked_samples,
+        failed_samples,
+        inconclusive_samples,
+    )
 
     result = {
         "watch_only": True,
@@ -530,6 +579,15 @@ def review_setup_outcome_historical_sample_path_output(
         ),
         "gld_continuation_remains_inconclusive": (
             gld_continuation_review_status == "inconclusive"
+        ),
+        "iwm_review_status": iwm_review_status,
+        "iwm_became_reviewable": iwm_review_status == "reviewable",
+        "iwm_remains_inconclusive": iwm_review_status == "inconclusive",
+        "iwm_sample_teaches": _iwm_sample_teaches(
+            iwm_review_status,
+            worked_samples,
+            failed_samples,
+            inconclusive_samples,
         ),
         "useful_proof": useful_proof,
         "weak_proof": weak_proof,
@@ -1127,6 +1185,53 @@ def _gld_continuation_review_status(
         if sample["setup_type"] == "Continuation" and sample["symbol"] == "GLD":
             return "inconclusive"
     return "not_present"
+
+
+def _iwm_review_status(
+    worked_samples: list[dict[str, Any]],
+    failed_samples: list[dict[str, Any]],
+    inconclusive_samples: list[dict[str, Any]],
+) -> str:
+    for sample in (*worked_samples, *failed_samples):
+        if sample["symbol"] == "IWM" and sample["clear_proof"]:
+            return "reviewable"
+    for sample in inconclusive_samples:
+        if sample["symbol"] == "IWM":
+            return "inconclusive"
+    return "not_present"
+
+
+def _iwm_sample_teaches(
+    iwm_review_status: str,
+    worked_samples: list[dict[str, Any]],
+    failed_samples: list[dict[str, Any]],
+    inconclusive_samples: list[dict[str, Any]],
+) -> dict[str, Any]:
+    for sample in (*worked_samples, *failed_samples, *inconclusive_samples):
+        if sample["symbol"] != "IWM":
+            continue
+        return {
+            "review_status": iwm_review_status,
+            "setup_type": sample["setup_type"],
+            "symbol": sample["symbol"],
+            "setup_type_symbol_pair": deepcopy(sample["setup_type_symbol_pair"]),
+            "outcome_status": sample["outcome_status"],
+            "teaches": (
+                "the controlled local chain can carry one small-cap IWM "
+                "example with setup-time evidence separated from after-setup "
+                "evidence while keeping symbol and setup pair boundaries"
+            ),
+            "profitability_claimed": False,
+            "final_viability_proven": False,
+            "optimization_started": False,
+        }
+    return {
+        "review_status": iwm_review_status,
+        "teaches": "IWM is not present in the controlled local sample output",
+        "profitability_claimed": False,
+        "final_viability_proven": False,
+        "optimization_started": False,
+    }
 
 
 def _review_missing_evidence(output: Mapping[str, Any]) -> list[Any]:
