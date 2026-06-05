@@ -7,8 +7,8 @@
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit:** `599d45f Add Day 33 project handoff and tier runway`
-- **Latest observed local HEAD:** `599d45f Add Day 33 project handoff and tier runway`
+- **Latest completed milestone commit before current uncommitted work:** `bf431c2 Add historical proof bundle readiness plan`
+- **Latest observed local HEAD before current uncommitted work:** `bf431c2 Add historical proof bundle readiness plan`
 - **Latest observed origin/main:** not checked during Day 33 review-readiness implementation; no GitHub writes allowed.
 - **Latest build-state sync after strict Day 28 handoff:** `7ba412d Sync build state after strict Day 28 handoff`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after discretion audit inventory validator:** `3a0db39 Sync build state after discretion audit inventory validator`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
@@ -57,10 +57,35 @@
 - **Bookkeeping sync commit after focus ranking runtime milestone:** `cd5fc12 Sync build state after focus ranking runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after duplicate suppression runtime milestone:** `1bcde3f Sync build state after duplicate suppression runtime commit`; this is not a new completed milestone and must not create a repeated sync loop.
 - **Prior bookkeeping sync commit after shadow-log writer milestone:** `80dc639 Sync build state after shadow log writer commit`; this is not a new completed milestone and must not create a repeated sync loop.
-- **Latest completed build milestone:** Historical setup proof review bundle builder is complete and committed at `0dbae56 Add historical setup proof review bundle builder`; Day 33 project handoff and tier runway preservation is committed at `599d45f Add Day 33 project handoff and tier runway`.
-- **Current objective:** Day 33 docs-only next-step planning after the historical setup proof review bundle builder for a local-only in-memory historical setup proof bundle readiness gate.
+- **Latest completed build milestone:** Historical setup proof review bundle builder is complete and committed at `0dbae56 Add historical setup proof review bundle builder`; Day 33 project handoff and tier runway preservation is committed at `599d45f Add Day 33 project handoff and tier runway`; historical proof bundle readiness planning is committed at `bf431c2 Add historical proof bundle readiness plan`.
+- **Current objective:** Day 33 local-only in-memory historical setup proof bundle readiness gate is implemented locally and ready for assistant review before commit.
 - **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; replay/regression closeout review is PASS and committed at `633ad7f Add replay regression closeout review`; shadow review sample labeling / review workflow planning is implemented and committed at `87d9071 Add shadow review sample labeling plan`; local shadow review label schema is implemented and committed at `361e2e4 Add shadow review label schema`; local shadow review label workflow is implemented and committed at `f27a2dd Add shadow review label workflow`; shadow review workflow closeout review is PASS and committed at `d8f80f1 Add shadow review workflow closeout review`; local shadow review sample pack is implemented and committed at `b258f88 Add shadow review sample pack`; shadow review sample pack closeout review is PASS and committed at `ec760a4 Add shadow review sample pack closeout review`; local shadow review workflow final boundary sweep is implemented and committed at `1bc2d2d Add shadow review workflow final boundary sweep`; shadow review workflow final boundary sweep closeout review is PASS and committed at `4073339 Add shadow review final boundary sweep closeout review`; local shadow review export bundle final boundary sweep closeout review is PASS and committed at `ba02655 Add shadow review export bundle final boundary sweep closeout review`; shadow review/export bundle readiness decision is PASS and committed at `556a541 Add shadow review export bundle readiness decision`; shadow review/export bundle review-package plan is PASS and committed at `0f7d4c3 Add shadow review export bundle review package plan`; local shadow review/export bundle review-package validator is implemented and committed at `0d3d816 Add shadow review export bundle review package validator`; shadow review/export bundle review-package validator closeout review is PASS and committed at `6a2f636 Add shadow review export bundle review package validator closeout review`; local shadow review/export bundle review-package final boundary sweep is implemented and committed at `2a8fdc3 Add shadow review export bundle review package final boundary sweep`; shadow review/export bundle review-package final boundary sweep closeout review is PASS and committed at `17e298c Add shadow review export bundle review package final boundary sweep closeout review`.
 - **Work mode:** build work only, no live trade decisions
+
+## Day 33 local-only historical setup proof bundle readiness gate status
+
+- **Status:** implemented locally; ready for assistant review before commit.
+- **Baseline:** patch8.
+- **Day context:** Day 33.
+- **Latest local commit before this task:** `bf431c2 Add historical proof bundle readiness plan`.
+- **Work mode:** build work only, no live trade decisions.
+- **Implementation files changed:** `watcher_foundation/setup_outcome_proof_review_bundle_readiness.py`; `watcher_foundation/__init__.py`.
+- **Test file changed:** `tests/test_setup_outcome_proof_review_bundle_readiness.py`.
+- **Build-state / handoff files changed:** `SAFE_FAST_BUILD_STATE.md`; `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- **Implementation summary:** local-only in-memory readiness gate accepts exactly one caller-provided historical setup proof review bundle summary, validates the upstream bundle contract and proof-review/no-trade/no-live/no-alert/no-broker/no-file-write/no-rule-change/no-optimization boundaries, returns exactly one in-memory readiness summary, keeps setup type, symbol, and setup-type-plus-symbol pair evidence separate, identifies missing setup type evidence, missing symbol evidence, missing pair evidence, unclear worked patterns, unclear failed patterns, unclear unresolved patterns, unclear repeated fix paths, missing regression coverage, proof gaps, bundle contract gaps, bundle readiness contract gaps, lower-tier readiness, and an exact missing-review-item list when the bundle is not complete enough to review.
+- **Focused bundle readiness test result:** PASS with `python -m unittest discover -s tests -p test_setup_outcome_proof_review_bundle_readiness.py` (`11` tests).
+- **Historical proof review bundle regression result:** PASS with `python -m unittest discover -s tests -p test_setup_outcome_proof_review_bundle.py` (`13` tests).
+- **Setup outcome review readiness regression result:** PASS with `python -m unittest discover -s tests -p test_setup_outcome_review_readiness.py` (`12` tests).
+- **Setup outcome review aggregator regression result:** PASS with `python -m unittest discover -s tests -p test_setup_outcome_review_aggregator.py` (`11` tests).
+- **Setup outcome packet readiness regression result:** PASS with `python -m unittest discover -s tests -p test_setup_outcome_packet_readiness.py` (`11` tests).
+- **Setup outcome evidence packet regression result:** PASS with `python -m unittest discover -s tests -p test_setup_outcome_evidence_packet.py` (`12` tests).
+- **Setup outcome diagnostics regression result:** PASS with `python -m unittest discover -s tests -p test_setup_outcome_diagnostics.py` (`14` tests).
+- **Setup outcome proof regression result:** PASS with `python -m unittest discover -s tests -p test_setup_outcome_proof.py` (`21` tests).
+- **Watcher-foundation scaffold regression result:** PASS with `python -m unittest tests.test_watcher_foundation_scaffold` (`6` tests).
+- **git diff whitespace check:** PASS with `git diff --check` (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`, and `watcher_foundation/__init__.py` only).
+- **Scope preserved:** local pure Python historical setup proof bundle readiness gating only; accepts caller-provided in-memory bundle summaries only; returns one in-memory readiness summary only; no `main.py`, no trading logic, no Railway/deploy files, no live data, no controlled shadow data, no watcher loops, no alerts, no generated reports/logs, no broker/order/account/options/P&L, no account sizing, no live trade decisions, no optimization, no rule changes, and no final viability, historical success, profitability, production readiness, live readiness, or lower-tier final viability claim.
+- **Next local-only objective after this gate:** build the small local historical sample path through the full proof chain so concrete controlled examples can move from setup appeared -> what happened after -> diagnosis -> packet -> packet readiness -> group review -> group readiness -> historical bundle -> bundle readiness.
+- **Unfinished item:** small local historical sample path after this readiness gate.
 
 ## Day 33 local-only historical setup proof review bundle builder status
 
@@ -90,7 +115,7 @@
 - **Plan file:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_PROOF_REVIEW_BUNDLE.md`.
 - **Baseline:** patch8.
 - **Day context:** Day 33.
-- **Latest local commit at planning time:** `599d45f Add Day 33 project handoff and tier runway`.
+- **Latest local commit before implementation:** `bf431c2 Add historical proof bundle readiness plan`.
 - **Plain purpose:** plan the next local-only in-memory historical setup proof bundle readiness gate, so SAFE-FAST can check whether the historical proof bundle is complete enough to trust for serious review before any optimization or live-readiness work.
 - **Current fixed foundation:** setup outcome proof, diagnostics, evidence packet, packet readiness, proof review aggregation, proof review readiness, and historical setup proof review bundle building are complete.
 - **Still unproven:** final trading-plan viability, profitability, actual historical success, bundle readiness, sufficient setup-type evidence, sufficient symbol evidence, sufficient setup-type-plus-symbol-pair evidence, clear worked/failed patterns, clear repeated fix paths, required bundle-level regression naming, lower-tier review readiness, controlled shadow data, live data, alerts, generated reports/logs, broker/order/account/options/P&L, account sizing, production/Railway/live backend readiness, and live trade decisions.
@@ -105,7 +130,7 @@
 - **Six active concerns carried forward:** stop endless infrastructure before real evidence; define complete enough to trust; protect no-hindsight boundaries; keep worked/failed separate from profitable; do not combine symbols or setup types too early; avoid circular review packets.
 - **Scope preserved:** docs-only planning and build-state/handoff sync only; no code, tests, `main.py`, engine logic, Railway/deploy, production/live backend, live data, controlled shadow data, watcher loops, alerts, generated reports/logs, broker/order/account/options/P&L, account sizing, secrets/env files, GitHub writes, commits, optimization, or live trade decisions.
 - **Validation for this docs-only planning task:** unit tests intentionally not run; run `git diff --check` only.
-- **Next local-only objective:** build the historical setup proof bundle readiness gate next.
+- **Next local-only objective:** superseded by the implemented readiness gate above; next objective is the small local historical sample path.
 
 ## Day 32 local-only setup outcome proof evaluator status
 

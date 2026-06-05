@@ -7,8 +7,9 @@
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit: 599d45f Add Day 33 project handoff and tier runway.
-- Latest known completed build commit before this handoff file: 0dbae56 Add historical setup proof review bundle builder.
+- Latest known local commit before current uncommitted work: bf431c2 Add historical proof bundle readiness plan.
+- Latest known completed build commit before this handoff update: bf431c2 Add historical proof bundle readiness plan.
+- Current uncommitted status: historical setup proof bundle readiness gate implemented locally; ready for assistant review before commit.
 - Real local git status and git log are source of truth.
 - This file is a living handoff document and must be updated as the project changes.
 
@@ -299,14 +300,22 @@ Recently built proof chain:
 - setup outcome proof review aggregator
 - setup outcome proof review readiness gate
 - historical setup proof review bundle builder
+- historical setup proof review bundle readiness gate
 
-Latest known completed build commit before this handoff file:
+Latest known completed build commit before current uncommitted work:
 
-0dbae56 Add historical setup proof review bundle builder
+bf431c2 Add historical proof bundle readiness plan
 
-Latest known local commit:
+Latest known local commit before current uncommitted work:
 
-599d45f Add Day 33 project handoff and tier runway
+bf431c2 Add historical proof bundle readiness plan
+
+Current Day 33 implementation status:
+
+- Historical setup proof bundle readiness gate is implemented locally.
+- Files changed: `watcher_foundation/setup_outcome_proof_review_bundle_readiness.py`; `watcher_foundation/__init__.py`; `tests/test_setup_outcome_proof_review_bundle_readiness.py`; `SAFE_FAST_BUILD_STATE.md`; `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- Validation: focused bundle readiness tests and required proof-chain regressions pass; final `git diff --check` result is recorded in `SAFE_FAST_BUILD_STATE.md`.
+- Scope: local-only in-memory proof review readiness only; no live data, no alerts, no broker/order/account/options/P&L, no file/report/log writes, no rule change, no optimization, no final viability claim.
 
 ## Still unproven
 
@@ -315,6 +324,7 @@ Still not proven:
 - final trading-plan viability
 - profitability
 - actual historical success
+- small local historical sample path after the bundle readiness gate
 - controlled shadow data
 - live data
 - alerts
@@ -379,7 +389,7 @@ Concern:
 
 Required response:
 
-The next readiness gate must make it strict.
+The readiness gate now makes it strict.
 
 A historical proof bundle should only be reviewable if it has:
 
@@ -475,30 +485,29 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Build the historical setup proof bundle readiness gate next.
+Build the small local historical sample path next.
 
-It must answer:
+It should run a small controlled set of local historical setup examples through:
 
-- Is the historical proof bundle complete enough to review?
-- Which setup types still need more evidence?
-- Which symbols still need more evidence?
-- Which setup-type-and-symbol pairs are missing?
-- Are worked and failed patterns clear enough?
-- Are repeated fix paths clear enough?
-- Are required regression tests named?
-- Are proof gaps still blocking review?
-- Is the bundle ready for lower-tier review?
-- Is this still proof review, not trading and not optimization?
+- setup appeared
+- what happened after
+- diagnosis
+- evidence packet
+- packet readiness
+- group review
+- group review readiness
+- historical proof bundle
+- bundle readiness
 
-If the bundle is not ready, it must say exactly what is missing.
+The sample path must remain local controlled evidence work, not live data, alerts, generated reports/logs, broker/order/account/options/P&L, account sizing, optimization, production, or trade decisions.
 
-Current planning file:
+Current implementation file:
 
-SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_PROOF_REVIEW_BUNDLE.md
+watcher_foundation/setup_outcome_proof_review_bundle_readiness.py
 
 Unfinished item:
 
-Build the historical proof bundle readiness gate next.
+Small local historical sample path after this readiness gate.
 
 ## Next-after-next objective
 
