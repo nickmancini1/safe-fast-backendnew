@@ -3,15 +3,16 @@
 ## Current update status
 
 - Baseline: patch8.
-- Current working day: Day 33.
+- Current working day: Day 34.
+- Day 33 status: historical context.
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: 73a27ba Add historical setup sample path plan.
-- Latest known completed build commit before this handoff update: 73a27ba Add historical setup sample path plan.
-- Current uncommitted status: local-only historical setup sample path runner implemented; files changed are `watcher_foundation/setup_outcome_historical_sample_path.py`, `watcher_foundation/__init__.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
+- Latest known local commit before current uncommitted work: 6973581 Add historical setup sample path runner.
+- Latest known completed build commit before this handoff update: 6973581 Add historical setup sample path runner.
+- Current uncommitted status: Day 34 docs-only next-step planning after the Day 33 historical setup sample path runner; files changed are `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_HISTORICAL_SAMPLE_PATH.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
 - Real local git status and git log are source of truth.
-- This file is a living handoff document and must be updated as the project changes.
+- This Day33-named file remains a living handoff document and records this Day 34 update.
 
 ## Update protocol
 
@@ -35,6 +36,7 @@ Future chats must not make the user re-explain this context.
 ## Repo and checkpoint handling
 
 - Day 31 is historical context.
+- Day 33 is historical context for the current Day 34 plan/build-state updates.
 - Day 28 file names are historical labels only.
 - fc64232 is the latest Day 31 handoff/build-state checkpoint.
 - 0d23423 is the Day 31 addendum milestone before that sync.
@@ -304,18 +306,19 @@ Recently built proof chain:
 
 Latest known completed build commit before current uncommitted work:
 
-73a27ba Add historical setup sample path plan
+6973581 Add historical setup sample path runner
 
 Latest known local commit before current uncommitted work:
 
-73a27ba Add historical setup sample path plan
+6973581 Add historical setup sample path runner
 
-Current Day 33 implementation status:
+Current Day 34 planning status:
 
 - Historical setup sample path planning is complete and committed at `73a27ba Add historical setup sample path plan`.
-- Current objective is local-only implementation of the small historical setup sample path runner from `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_PROOF_REVIEW_BUNDLE_READINESS.md`.
-- Current implementation status: implemented locally; ready for assistant review before commit.
-- Current changed files: `watcher_foundation/setup_outcome_historical_sample_path.py`, `watcher_foundation/__init__.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- Day 33 historical setup sample path runner is complete and committed at `6973581 Add historical setup sample path runner`.
+- Current objective is Day 34 docs-only planning for the first controlled historical sample evidence set from `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_HISTORICAL_SAMPLE_PATH.md`.
+- Current implementation status: docs-only planning; no code or test changes.
+- Current changed files: `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_HISTORICAL_SAMPLE_PATH.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
 - Runner behavior: accepts caller-provided in-memory historical setup examples only, rejects file/report/log path, live-data, controlled-shadow, alert, broker/order/account/options/P&L/account-sizing, live-trade-decision, subprocess/thread/socket, watcher-loop, and `main.py` shaped inputs, runs proof -> diagnostics -> evidence packet -> packet readiness -> group review -> group review readiness -> historical bundle -> bundle readiness, preserves setup-time vs post-setup evidence separation, setup type, symbol, setup-type-plus-symbol pair separation, missing evidence, diagnostics, fix paths, regression needs, lower-tier review fields, and exact bundle-readiness missing review items.
 - Validation results: focused historical sample path PASS (`11` tests); bundle readiness PASS (`11`); proof review bundle PASS (`13`); review readiness PASS (`12`); review aggregator PASS (`11`); packet readiness PASS (`11`); evidence packet PASS (`12`); diagnostics PASS (`14`); proof PASS (`21`); watcher-foundation scaffold PASS (`6`); `git diff --check` PASS with LF-to-CRLF warnings for `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`, and `watcher_foundation/__init__.py` only.
 - Scope: local-only build; no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no file writes by the runner, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
@@ -488,29 +491,26 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Review the first local historical sample path output and decide the smallest evidence-backed fix path, contract adjustment, fixture improvement, or regression need.
+Build the first controlled local historical sample evidence set after the historical setup sample path runner.
 
-The runner now runs a small controlled set of local historical setup examples through:
+The planned evidence set must remain a tiny local-only in-memory fixture that includes:
 
-- setup appeared
-- what happened after
-- diagnosis
-- evidence packet
-- packet readiness
-- group review
-- group review readiness
-- historical proof bundle
-- bundle readiness
+- at least one worked setup
+- at least one failed setup
+- at least one missing-evidence or inconclusive setup
+- setup type separation
+- symbol separation
+- no-hindsight separation between setup-time evidence and post-setup evidence
 
-The review must remain local controlled evidence work, not live data, alerts, generated reports/logs, broker/order/account/options/P&L, account sizing, optimization, production, or trade decisions.
+The future implementation must remain local controlled evidence work, not live data, controlled shadow data, alerts, generated reports/logs, broker/order/account/options/P&L, account sizing, optimization, production, or trade decisions.
 
 Current plan file:
 
-SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_PROOF_REVIEW_BUNDLE_READINESS.md
+SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_HISTORICAL_SAMPLE_PATH.md
 
 Unfinished item:
 
-Assistant review before commit, then review the first sample-path output. Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven.
+Build the first controlled historical sample evidence set next. Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven.
 
 ## Next-after-next objective
 
