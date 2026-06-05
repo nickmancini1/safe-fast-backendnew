@@ -8,9 +8,9 @@
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: 46b1e27 Add IWM controlled sample expansion plan.
-- Latest known completed build commit before this handoff update: 46b1e27 Add IWM controlled sample expansion plan.
-- Current uncommitted status: Day 34 local-only IWM controlled sample expansion implementation; changed files should be limited to `watcher_foundation/setup_outcome_historical_sample_path.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file. `watcher_foundation/__init__.py` is plan-allowed but did not need changes.
+- Latest known local commit before current uncommitted work: 7cc424c Add IWM controlled sample evidence.
+- Latest known completed build commit before this handoff update: 7cc424c Add IWM controlled sample evidence.
+- Current uncommitted status: Day 34 docs-only planning after IWM controlled sample evidence; changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
 - Real local git status and git log are source of truth.
 - This Day33-named file remains a living handoff document and records this Day 34 update.
 
@@ -309,11 +309,11 @@ Recently built proof chain:
 
 Latest known completed build commit before current uncommitted work:
 
-46b1e27 Add IWM controlled sample expansion plan
+7cc424c Add IWM controlled sample evidence
 
 Latest known local commit before current uncommitted work:
 
-46b1e27 Add IWM controlled sample expansion plan
+7cc424c Add IWM controlled sample evidence
 
 Current Day 34 implementation status:
 
@@ -326,18 +326,19 @@ Current Day 34 implementation status:
 - GLD Continuation evidence fix planning is complete and committed at `c228cb1 Add GLD Continuation evidence fix plan`.
 - GLD Continuation after-setup evidence implementation is complete and committed at `eb6e5d0 Add GLD Continuation after-setup evidence`.
 - IWM controlled sample expansion planning is complete and committed at `46b1e27 Add IWM controlled sample expansion plan`.
-- Current objective is Day 34 local-only implementation of the one-sample IWM controlled sample expansion after the GLD Continuation evidence fix.
-- Current plan file is `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_GLD_CONTINUATION_EVIDENCE_FIX.md`.
-- Current changed files should be limited to `watcher_foundation/setup_outcome_historical_sample_path.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`; `watcher_foundation/__init__.py` is plan-allowed but did not need changes.
+- IWM controlled sample evidence implementation is complete and committed at `7cc424c Add IWM controlled sample evidence`.
+- Current objective is docs-only planning for the next controlled sample coverage review after IWM became represented and reviewable.
+- Current plan file is `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md`.
+- Current changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
 - Runner behavior: accepts caller-provided in-memory historical setup examples only, rejects file/report/log path, live-data, controlled-shadow, alert, broker/order/account/options/P&L/account-sizing, live-trade-decision, subprocess/thread/socket, watcher-loop, and `main.py` shaped inputs, runs proof -> diagnostics -> evidence packet -> packet readiness -> group review -> group review readiness -> historical bundle -> bundle readiness, preserves setup-time vs post-setup evidence separation, setup type, symbol, setup-type-plus-symbol pair separation, missing evidence, diagnostics, fix paths, regression needs, lower-tier review fields, and exact bundle-readiness missing review items.
 - Sample evidence set behavior: exposes one worked `Ideal` / `SPY` setup, one failed `Clean Fast Break` / `QQQ` setup, one reviewable `Continuation` / `GLD` setup, and exactly one controlled `Ideal` / `IWM` setup through the existing runner; preserves setup type separation, symbol separation, setup-type-plus-symbol pair separation, setup-time versus after-setup evidence separation, diagnostics, fix paths, lower-tier summary, no-trade/watch-only, no-live-data, no-controlled-shadow, no-alert, no-broker, no-file-write, no-rule-change, and no-optimization boundaries.
 - Review behavior: accepts caller-provided in-memory sample path output only, returns one in-memory review summary only, keeps worked, failed, and inconclusive samples separate, keeps setup type and symbol separate, checks no-hindsight boundaries, surfaces useful proof, weak proof, missing evidence, next fix paths, regression needs, lower-tier review material, explicitly reports the GLD Continuation review status and IWM review status / teaching, and defensively copies returned data.
 - Review result: the controlled output is useful but not final viability proof. The worked `Ideal` / `SPY` sample gives clear chart-behavior proof; the failed `Clean Fast Break` / `QQQ` sample gives useful diagnosis; the existing `Continuation` / `GLD` sample remains reviewable; the new `Ideal` / `IWM` sample became reviewable. Bundle readiness still shows tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
 - GLD Continuation status: `reviewable`; `gld_continuation_became_reviewable=True`; `gld_continuation_remains_inconclusive=False`; no final viability, profitability, historical success, optimization, or live trade claim.
 - IWM status: `reviewable`; `iwm_became_reviewable=True`; `iwm_remains_inconclusive=False`; the new sample teaches that the controlled local chain can carry one small-cap IWM example with setup-time evidence separated from after-setup evidence while keeping symbol and setup pair boundaries.
-- Next objective after this expansion: narrow review of what the four-symbol controlled starting universe now proves and still does not prove, without hiding tiny-sample or upstream bundle-readiness gaps.
+- Next objective after this docs-only plan: create the narrow controlled sample coverage review of what the four-symbol controlled starting universe now proves and still does not prove, without hiding tiny-sample or upstream bundle-readiness gaps.
 - Validation results: focused historical sample path PASS (`26` tests); bundle readiness PASS (`11`); proof review bundle PASS (`13`); review readiness PASS (`12`); review aggregator PASS (`11`); packet readiness PASS (`11`); evidence packet PASS (`12`); diagnostics PASS (`14`); proof PASS (`21`); watcher-foundation scaffold PASS (`6`); `git diff --check` PASS with LF-to-CRLF working-copy warnings for touched files only.
-- Current implementation scope: local-only in-memory code/test/docs update; no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no file writes by the runner/review, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
+- Current task scope: docs-only planning update; no code changes, no tests changed, no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no file writes by the runner/review, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
 
 ## Still unproven
 
@@ -506,42 +507,29 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Review the Day 34 local-only IWM controlled sample expansion implementation before commit, then commit only the task-allowed implementation/test/docs files if accepted.
+Review the current docs-only next-step plan after IWM controlled sample evidence, then commit only the task-allowed docs files if accepted.
 
 Current changed files:
 
-- `watcher_foundation/setup_outcome_historical_sample_path.py`
-- `tests/test_setup_outcome_historical_sample_path.py`
+- `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md`
 - `SAFE_FAST_BUILD_STATE.md`
 - `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`
 
 Current plan file:
 
-SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_GLD_CONTINUATION_EVIDENCE_FIX.md
+SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md
 
 Unfinished item:
 
-Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven. Bundle readiness still has tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
+Create the controlled sample coverage review next. Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven. Bundle readiness still has tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
 
 ## Next-after-next objective
 
-Create a narrow four-symbol controlled starting-universe review of what the current controlled set proves and still does not prove.
+Create the narrow controlled sample coverage review planned in `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md`.
 
-That follow-up must preserve the existing worked `Ideal` / `SPY` sample, failed `Clean Fast Break` / `QQQ` sample, reviewable `Continuation` / `GLD` sample, and reviewable `Ideal` / `IWM` sample. It should ask whether the controlled local examples successfully tested the full chain:
+That follow-up must answer which symbols, setup types, and setup-type-plus-symbol pairs are represented; which pairs are missing; whether worked, failed, and inconclusive/missing-evidence cases are represented; whether the sample set is useful enough for the next proof review; and what the smallest next evidence-backed gap is.
 
-setup appeared -> what happened after -> diagnosis -> packet -> packet readiness -> group review -> group readiness -> historical bundle -> bundle readiness
-
-The sample path output should remain small, explicit, and easy to inspect. Current result is that GLD Continuation remains reviewable and IWM became reviewable after exactly one controlled IWM sample was added. The next review must not broaden samples to hide remaining tiny-sample or upstream bundle-readiness gaps.
-
-The review should answer:
-
-- Can SAFE-FAST handle real-looking setup examples?
-- Does the proof chain produce useful diagnostics?
-- Does it preserve no-hindsight boundaries?
-- Does it keep setup type and symbol separate?
-- Does it identify missing evidence?
-- Does it produce a review packet that a lower-tier chat can understand?
-- Does the new IWM example become reviewable, and what does it teach?
+The sample path output should remain small, explicit, and easy to inspect. Current result is that GLD Continuation remains reviewable and IWM became reviewable after exactly one controlled IWM sample was added. The next review must not broaden samples to hide remaining tiny-sample, missing-pair, missing-inconclusive, or upstream bundle-readiness gaps.
 
 ## Final UI direction
 
