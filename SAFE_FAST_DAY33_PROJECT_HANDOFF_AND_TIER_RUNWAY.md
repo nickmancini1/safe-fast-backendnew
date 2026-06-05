@@ -7,9 +7,9 @@
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: bf431c2 Add historical proof bundle readiness plan.
-- Latest known completed build commit before this handoff update: bf431c2 Add historical proof bundle readiness plan.
-- Current uncommitted status: historical setup proof bundle readiness gate implemented locally; ready for assistant review before commit.
+- Latest known local commit before current uncommitted work: 7af3506 Add historical proof bundle readiness gate.
+- Latest known completed build commit before this handoff update: 7af3506 Add historical proof bundle readiness gate.
+- Current uncommitted status: docs-only local next-step plan after historical proof bundle readiness gate; plan file `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_PROOF_REVIEW_BUNDLE_READINESS.md`.
 - Real local git status and git log are source of truth.
 - This file is a living handoff document and must be updated as the project changes.
 
@@ -304,18 +304,19 @@ Recently built proof chain:
 
 Latest known completed build commit before current uncommitted work:
 
-bf431c2 Add historical proof bundle readiness plan
+7af3506 Add historical proof bundle readiness gate
 
 Latest known local commit before current uncommitted work:
 
-bf431c2 Add historical proof bundle readiness plan
+7af3506 Add historical proof bundle readiness gate
 
 Current Day 33 implementation status:
 
-- Historical setup proof bundle readiness gate is implemented locally.
-- Files changed: `watcher_foundation/setup_outcome_proof_review_bundle_readiness.py`; `watcher_foundation/__init__.py`; `tests/test_setup_outcome_proof_review_bundle_readiness.py`; `SAFE_FAST_BUILD_STATE.md`; `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
-- Validation: focused bundle readiness tests and required proof-chain regressions pass; final `git diff --check` result is recorded in `SAFE_FAST_BUILD_STATE.md`.
-- Scope: local-only in-memory proof review readiness only; no live data, no alerts, no broker/order/account/options/P&L, no file/report/log writes, no rule change, no optimization, no final viability claim.
+- Historical setup proof bundle readiness gate is complete and committed at `7af3506 Add historical proof bundle readiness gate`.
+- Current objective is docs-only planning for the small local historical sample path after that gate.
+- Current plan file: `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_PROOF_REVIEW_BUNDLE_READINESS.md`.
+- Current allowed edits: create that one plan file and update `SAFE_FAST_BUILD_STATE.md` plus this handoff file.
+- Scope: docs only; no code, no tests, no live data, no alerts, no broker/order/account/options/P&L, no file/report/log writes, no rule change, no optimization, no final viability claim.
 
 ## Still unproven
 
@@ -485,7 +486,7 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Build the small local historical sample path next.
+Build the small local historical sample path next, after review of `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_PROOF_REVIEW_BUNDLE_READINESS.md`.
 
 It should run a small controlled set of local historical setup examples through:
 
@@ -501,25 +502,25 @@ It should run a small controlled set of local historical setup examples through:
 
 The sample path must remain local controlled evidence work, not live data, alerts, generated reports/logs, broker/order/account/options/P&L, account sizing, optimization, production, or trade decisions.
 
-Current implementation file:
+Current plan file:
 
-watcher_foundation/setup_outcome_proof_review_bundle_readiness.py
+SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_SETUP_OUTCOME_PROOF_REVIEW_BUNDLE_READINESS.md
 
 Unfinished item:
 
-Small local historical sample path after this readiness gate.
+Build the small local historical sample path after this docs-only plan.
 
 ## Next-after-next objective
 
-Build a small local historical sample path.
+Review the first local historical sample path output and decide the smallest evidence-backed fix path.
 
-It should test the full chain on controlled local examples:
+The review should ask whether the controlled local examples successfully tested the full chain:
 
 setup appeared -> what happened after -> diagnosis -> packet -> packet readiness -> group review -> group readiness -> historical bundle -> bundle readiness
 
-The first sample path should be small, explicit, and easy to inspect.
+The first sample path output should be small, explicit, and easy to inspect.
 
-It should answer:
+The review should answer:
 
 - Can SAFE-FAST handle real-looking setup examples?
 - Does the proof chain produce useful diagnostics?
