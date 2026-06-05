@@ -3,7 +3,9 @@ import unittest
 from unittest.mock import patch
 
 from watcher_foundation import (
+    FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET_ID,
     HISTORICAL_SAMPLE_PATH_RESULT_FIELDS,
+    build_first_controlled_historical_sample_evidence_set,
     run_setup_outcome_historical_sample_path,
 )
 
@@ -120,6 +122,144 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
         self.assertEqual(result["records_accepted"], 1)
         self.assertEqual(result["proof_chain"]["setup_appeared"][0]["setup_id"], "setup-1")
         self.assertIn("bundle_readiness", result["proof_chain"])
+
+    def test_first_controlled_sample_evidence_set_runs_through_existing_runner(self):
+        sample = build_first_controlled_historical_sample_evidence_set()
+
+        result = run_setup_outcome_historical_sample_path(sample)
+
+        self.assertEqual(
+            FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET_ID,
+            "first_controlled_historical_sample_evidence_set_v1",
+        )
+        self.assertEqual(result["records_processed"], 3)
+        self.assertEqual(result["records_accepted"], 3)
+        self.assertEqual(result["records_rejected"], 0)
+        self.assertGreater(result["outcome_group_counts"]["worked"], 0)
+        self.assertGreater(result["outcome_group_counts"]["failed"], 0)
+        self.assertGreater(result["outcome_group_counts"]["missing_evidence"], 0)
+        self.assertIs(result["historical_setup_sample_path_only"], True)
+        self.assertIn("bundle_readiness", result["proof_chain"])
+
+    def test_first_controlled_sample_preserves_setup_symbol_and_pair_separation(self):
+        result = run_setup_outcome_historical_sample_path(
+            build_first_controlled_historical_sample_evidence_set()
+        )
+
+        self.assertEqual(
+            set(result["represented_setup_types"]),
+            {"Ideal", "Clean Fast Break", "Continuation"},
+        )
+        self.assertEqual(set(result["represented_symbols"]), {"SPY", "QQQ", "GLD"})
+        self.assertEqual(
+            {
+                (item["setup_type"], item["symbol"])
+                for item in result["represented_setup_type_symbol_pairs"]
+            },
+            {
+                ("Ideal", "SPY"),
+                ("Clean Fast Break", "QQQ"),
+                ("Continuation", "GLD"),
+            },
+        )
+        self.assertIs(result["setup_type_separated"], True)
+        self.assertIs(result["symbol_separated"], True)
+        self.assertIs(result["setup_type_symbol_pair_separated"], True)
+
+    def test_first_controlled_sample_preserves_no_hindsight_evidence_separation(self):
+        result = run_setup_outcome_historical_sample_path(
+            build_first_controlled_historical_sample_evidence_set()
+        )
+
+        appeared_by_id = {
+            item["setup_id"]: item
+            for item in result["proof_chain"]["setup_appeared"]
+        }
+        happened_by_id = {
+            item["setup_id"]: item
+            for item in result["proof_chain"]["what_happened_after"]
+        }
+
+        for setup_id, appeared in appeared_by_id.items():
+            self.assertIn("setup_evidence_refs", appeared)
+            self.assertIn("frozen_setup_identity", appeared)
+            self.assertNotIn("after_setup_evidence", appeared)
+            self.assertIs(
+                appeared["no_hindsight_boundary"][
+                    "future_evidence_not_used_to_define_setup"
+                ],
+                True,
+            )
+
+            happened = happened_by_id[setup_id]
+            self.assertIn("after_setup_evidence", happened)
+            self.assertNotIn("frozen_setup_identity", happened)
+            self.assertIs(
+                happened["after_setup_evidence"][
+                    "future_evidence_used_to_define_setup"
+                ],
+                False,
+            )
+
+    def test_first_controlled_sample_lists_missing_evidence_without_fabrication(self):
+        result = run_setup_outcome_historical_sample_path(
+            build_first_controlled_historical_sample_evidence_set()
+        )
+
+        self.assertIn("Continuation", result["missing_evidence_by_setup_type"])
+        self.assertIn("GLD", result["missing_evidence_by_symbol"])
+        self.assertIn(
+            ("Continuation", "GLD"),
+            {
+                (item["setup_type"], item["symbol"])
+                for item in result["missing_evidence_by_setup_type_symbol_pair"]
+            },
+        )
+        self.assertIn("post_setup_evidence", str(result["missing_evidence"]))
+        self.assertNotIn("fabricated': True", str(result["missing_evidence"]))
+
+    def test_first_controlled_sample_preserves_boundaries_and_no_profitability_claim(self):
+        result = run_setup_outcome_historical_sample_path(
+            build_first_controlled_historical_sample_evidence_set()
+        )
+        summary = result["lower_tier_review_summary"]
+
+        self.assertIs(result["watch_only"], True)
+        self.assertIs(result["final_viability_proven"], False)
+        self.assertIs(result["profitability_claimed"], False)
+        self.assertIs(result["optimization_started"], False)
+        self.assertIs(result["no_rule_change_started"], True)
+        self.assertIs(result["no_trade_boundary_preserved"], True)
+        self.assertIs(result["no_live_data_boundary_preserved"], True)
+        self.assertIs(result["no_controlled_shadow_boundary_preserved"], True)
+        self.assertIs(result["no_alert_boundary_preserved"], True)
+        self.assertIs(result["no_file_write_boundary_preserved"], True)
+        self.assertIs(result["no_broker_boundary_preserved"], True)
+        self.assertIs(result["no_optimization_boundary_preserved"], True)
+        self.assertIs(summary["no_trade_watch_only"], True)
+        self.assertIs(summary["no_live_data"], True)
+        self.assertIs(summary["no_alerts"], True)
+        self.assertIs(summary["no_broker"], True)
+        self.assertIs(summary["no_file_write"], True)
+        self.assertIs(summary["no_rule_change"], True)
+        self.assertIs(summary["no_optimization"], True)
+        self.assertNotIn("profitability_score", result)
+
+    def test_first_controlled_sample_builder_has_no_side_effects(self):
+        with patch("builtins.open") as open_mock, patch(
+            "socket.socket"
+        ) as socket_mock, patch("subprocess.run") as subprocess_mock, patch(
+            "threading.Thread"
+        ) as thread_mock:
+            first = build_first_controlled_historical_sample_evidence_set()
+            first[0]["setup_evidence_refs"].append("mutated")
+            second = build_first_controlled_historical_sample_evidence_set()
+
+        self.assertNotIn("mutated", second[0]["setup_evidence_refs"])
+        open_mock.assert_not_called()
+        socket_mock.assert_not_called()
+        subprocess_mock.assert_not_called()
+        thread_mock.assert_not_called()
 
     def test_rejects_non_memory_path_live_alert_broker_and_trade_inputs(self):
         forbidden_cases = (

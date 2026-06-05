@@ -134,7 +134,9 @@ from watcher_foundation.setup_outcome_proof_review_bundle_readiness import (
     evaluate_setup_outcome_proof_review_bundle_readiness,
 )
 from watcher_foundation.setup_outcome_historical_sample_path import (
+    FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET_ID,
     HISTORICAL_SAMPLE_PATH_RESULT_FIELDS,
+    build_first_controlled_historical_sample_evidence_set,
     run_setup_outcome_historical_sample_path,
 )
 from watcher_foundation.day60_shadow_review_packet import (
@@ -255,6 +257,7 @@ __all__ = [
     "DUPLICATE_SUPPRESSION_FINGERPRINT_VERSION",
     "DUPLICATE_SUPPRESSION_KEY_FIELD_NAMES",
     "EXPLICIT_UNCONFIRMED_MARKERS",
+    "FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET_ID",
     "FOCUS_RANK_BUCKETS",
     "HISTORICAL_OUTCOME_PROOF_PREFLIGHT_REQUIRED_FIELDS",
     "HISTORICAL_OUTCOME_PROOF_PREFLIGHT_RESULT_FIELDS",
@@ -309,6 +312,7 @@ __all__ = [
     "build_day60_shadow_review_packet",
     "build_day60_outcome_scoring_summary",
     "build_historical_outcome_proof_summary",
+    "build_first_controlled_historical_sample_evidence_set",
     "build_setup_outcome_evidence_packet",
     "build_setup_outcome_proof_review_bundle",
     "build_duplicate_suppression_key_fields",

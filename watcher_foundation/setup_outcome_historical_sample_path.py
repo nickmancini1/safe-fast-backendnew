@@ -91,6 +91,10 @@ HISTORICAL_SAMPLE_PATH_RESULT_FIELDS = (
     "broker_or_trade_behavior_enabled",
 )
 
+FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET_ID = (
+    "first_controlled_historical_sample_evidence_set_v1"
+)
+
 FORBIDDEN_HISTORICAL_SAMPLE_PATH_FIELD_NAMES = (
     FORBIDDEN_SETUP_OUTCOME_FIELD_NAMES
     | frozenset(
@@ -134,6 +138,137 @@ FORBIDDEN_HISTORICAL_SAMPLE_PATH_FIELD_NAMES = (
         }
     )
 )
+
+
+def build_first_controlled_historical_sample_evidence_set() -> list[dict[str, Any]]:
+    """Return the first tiny caller-provided historical setup evidence set."""
+    records = [
+        _controlled_sample_record(
+            proof_record_id="controlled-sample-ideal-spy-worked-001",
+            source_record_id="controlled-source-spy-ideal-001",
+            setup_id="controlled-ideal-spy-001",
+            setup_type="Ideal",
+            symbol="SPY",
+            stage="near-trigger",
+            detection_timestamp="2026-04-07T10:30:00-04:00",
+            setup_evidence_refs=[
+                "controlled-source-spy-ideal-001:setup-time-candle",
+                "controlled-source-spy-ideal-001:setup-time-trigger-card",
+            ],
+            after_setup_evidence={
+                "caller_provided": True,
+                "start_timestamp": "2026-04-07T11:30:00-04:00",
+                "end_timestamp": "2026-04-07T15:30:00-04:00",
+                "source_row_reference": "controlled-source-spy-ideal-001:after-row-1",
+                "post_setup_evidence": [
+                    "controlled-source-spy-ideal-001:held-trigger-zone",
+                    "controlled-source-spy-ideal-001:follow-through-before-close",
+                ],
+                "future_evidence_used_to_define_setup": False,
+            },
+            trigger_state="triggered",
+            invalidation_state="valid_by_rule",
+            freshness_state="fresh",
+            blocker_caution_state="none",
+            session_boundary_state="valid_by_rule",
+            outcome_evidence_state="valid_by_rule",
+            outcome_result_state="worked",
+            evidence_refs=[
+                "controlled-source-spy-ideal-001:setup-time-candle",
+                "controlled-source-spy-ideal-001:after-row-1",
+            ],
+            unavailable_fields=[],
+            next_fix_path=(
+                "keep the controlled worked setup fixture as a regression for "
+                "setup-time and after-setup separation"
+            ),
+        ),
+        _controlled_sample_record(
+            proof_record_id="controlled-sample-clean-fast-break-qqq-failed-001",
+            source_record_id="controlled-source-qqq-clean-fast-break-001",
+            setup_id="controlled-clean-fast-break-qqq-001",
+            setup_type="Clean Fast Break",
+            symbol="QQQ",
+            stage="near-trigger",
+            detection_timestamp="2026-04-10T10:30:00-04:00",
+            setup_evidence_refs=[
+                "controlled-source-qqq-clean-fast-break-001:setup-time-candle",
+                "controlled-source-qqq-clean-fast-break-001:setup-time-reclaim",
+            ],
+            after_setup_evidence={
+                "caller_provided": True,
+                "start_timestamp": "2026-04-10T11:30:00-04:00",
+                "end_timestamp": "2026-04-10T15:30:00-04:00",
+                "source_row_reference": "controlled-source-qqq-clean-fast-break-001:after-row-1",
+                "post_setup_evidence": [
+                    "controlled-source-qqq-clean-fast-break-001:trigger-followed-by-reversal",
+                    "controlled-source-qqq-clean-fast-break-001:failed-to-hold-reclaim",
+                ],
+                "future_evidence_used_to_define_setup": False,
+            },
+            trigger_state="triggered",
+            invalidation_state="valid_by_rule",
+            freshness_state="fresh",
+            blocker_caution_state="none",
+            session_boundary_state="valid_by_rule",
+            outcome_evidence_state="valid_by_rule",
+            outcome_result_state="failed",
+            evidence_refs=[
+                "controlled-source-qqq-clean-fast-break-001:setup-time-reclaim",
+                "controlled-source-qqq-clean-fast-break-001:failed-to-hold-reclaim",
+            ],
+            unavailable_fields=[],
+            next_fix_path=(
+                "review outcome scoring evidence before changing any clean fast "
+                "break rule or threshold"
+            ),
+        ),
+        _controlled_sample_record(
+            proof_record_id="controlled-sample-continuation-gld-missing-001",
+            source_record_id="controlled-source-gld-continuation-001",
+            setup_id="controlled-continuation-gld-001",
+            setup_type="Continuation",
+            symbol="GLD",
+            stage="near-trigger",
+            detection_timestamp="2026-04-15T09:30:00-04:00",
+            setup_evidence_refs=[
+                "controlled-source-gld-continuation-001:setup-time-candle",
+                "controlled-source-gld-continuation-001:setup-time-shelf",
+            ],
+            after_setup_evidence={
+                "caller_provided": True,
+                "start_timestamp": "2026-04-15T10:30:00-04:00",
+                "end_timestamp": "2026-04-15T15:30:00-04:00",
+                "future_evidence_used_to_define_setup": False,
+            },
+            trigger_state="not_triggered",
+            invalidation_state="valid_by_rule",
+            freshness_state="fresh",
+            blocker_caution_state="needs_review",
+            session_boundary_state="needs_review",
+            outcome_evidence_state="missing_evidence",
+            outcome_result_state="inconclusive",
+            evidence_refs=[
+                "controlled-source-gld-continuation-001:setup-time-shelf",
+            ],
+            unavailable_fields=[
+                _unavailable_sample_field(
+                    "source_row_reference",
+                    "after-setup source row reference was not provided",
+                ),
+                _unavailable_sample_field(
+                    "post_setup_evidence",
+                    "after-setup movement evidence was not provided",
+                ),
+            ],
+            next_fix_path=(
+                "collect or preserve missing GLD continuation after-setup evidence "
+                "before any broader sample expansion"
+            ),
+        ),
+    ]
+    return deepcopy(records)
+
 
 def run_setup_outcome_historical_sample_path(
     historical_setup_examples: list[dict[str, Any]],
@@ -276,6 +411,91 @@ def run_setup_outcome_historical_sample_path(
         "broker_or_trade_behavior_enabled": False,
     }
     return deepcopy(result)
+
+
+def _controlled_sample_record(
+    *,
+    proof_record_id: str,
+    source_record_id: str,
+    setup_id: str,
+    setup_type: str,
+    symbol: str,
+    stage: str,
+    detection_timestamp: str,
+    setup_evidence_refs: list[str],
+    after_setup_evidence: dict[str, Any],
+    trigger_state: str,
+    invalidation_state: str,
+    freshness_state: str,
+    blocker_caution_state: str,
+    session_boundary_state: str,
+    outcome_evidence_state: str,
+    outcome_result_state: str,
+    evidence_refs: list[str],
+    unavailable_fields: list[dict[str, Any]],
+    next_fix_path: str,
+) -> dict[str, Any]:
+    return {
+        "proof_record_id": proof_record_id,
+        "source_record_id": source_record_id,
+        "setup_id": setup_id,
+        "setup_type": setup_type,
+        "symbol": symbol,
+        "timeframe": "1h_rth",
+        "stage": stage,
+        "detection_timestamp": detection_timestamp,
+        "frozen_setup_identity": {
+            "caller_provided": True,
+            "frozen_before_outcome_scan": True,
+            "setup_id": setup_id,
+            "setup_type": setup_type,
+            "symbol": symbol,
+            "frozen_timestamp": detection_timestamp,
+        },
+        "setup_evidence_refs": deepcopy(setup_evidence_refs),
+        "after_setup_evidence": deepcopy(after_setup_evidence),
+        "trigger_state": trigger_state,
+        "invalidation_state": invalidation_state,
+        "freshness_state": freshness_state,
+        "blocker_caution_state": blocker_caution_state,
+        "session_boundary_state": session_boundary_state,
+        "outcome_evidence_state": outcome_evidence_state,
+        "outcome_result_state": outcome_result_state,
+        "evidence_refs": deepcopy(evidence_refs),
+        "unavailable_fields": deepcopy(unavailable_fields),
+        "diagnostic_placeholders": {
+            "next_fix_path": next_fix_path,
+            "lower_tier_handoff": "review controlled local evidence only",
+        },
+        "no_hindsight_boundary": {
+            "setup_identity_frozen_before_outcome_scan": True,
+            "future_evidence_not_used_to_define_setup": True,
+            "no_backfilled_outcome_labels": True,
+        },
+        "no_trade_boundary": {
+            "no_trade": True,
+            "no_broker": True,
+            "no_order": True,
+            "no_account_sizing": True,
+            "no_option_pnl": True,
+            "no_live_trade_decision": True,
+            "broker_enabled": False,
+            "orders_enabled": False,
+            "account_sizing_enabled": False,
+            "option_pnl_enabled": False,
+            "live_trade_decision_enabled": False,
+        },
+        "watch_only": True,
+    }
+
+
+def _unavailable_sample_field(field_name: str, reason: str) -> dict[str, Any]:
+    return {
+        "field_name": field_name,
+        "status": "missing_evidence",
+        "reason": reason,
+        "fabricated": False,
+    }
 
 
 def _carry_packet_outcome_statuses(
