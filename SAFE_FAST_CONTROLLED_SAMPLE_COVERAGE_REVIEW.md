@@ -2,17 +2,17 @@
 
 ## 1. Review Status
 
-- **Status:** PASS as a docs-only controlled sample coverage review.
+- **Status:** PASS as a docs-only controlled sample coverage review after the missing-evidence sample.
 - **Baseline:** patch8.
-- **Day context:** Day 34.
-- **Latest local commit before this task:** `7181645 Update Day 34 handoff timeline and evidence checkpoint`.
-- **Plan source:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md`.
+- **Day context:** Day 35.
+- **Latest local commit before this task:** `8527eff Add controlled missing-evidence sample`.
+- **Plan source:** `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`.
 - **Review source:** current in-memory controlled sample output from `build_first_controlled_historical_sample_evidence_set()`, `run_setup_outcome_historical_sample_path(...)`, and `review_setup_outcome_historical_sample_path_output(...)`.
 - **Files written by runner/review:** none.
 - **Code changed:** no.
 - **Tests changed:** no.
-- **Unit tests run:** no; the plan requires docs-only validation and says not to run unit tests.
-- **Validation run:** `git diff --check` PASS for tracked changes; `git diff --no-index --check -- NUL SAFE_FAST_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md` reported only the expected file-difference exit and LF-to-CRLF warning, with no whitespace errors for the new review file.
+- **Unit tests run:** no; this task is docs-only and explicitly says not to run unit tests.
+- **Validation run:** `git diff --check` PASS; only LF-to-CRLF working-copy warnings were reported.
 
 ## 2. Boundary Statement
 
@@ -24,81 +24,97 @@ No-hindsight boundaries remain preserved: setup-time evidence and after-setup ev
 
 ## 3. Controlled Sample Output Facts
 
-- **Records processed:** 4.
-- **Records accepted:** 4.
+- **Records processed:** 5.
+- **Records accepted:** 5.
 - **Records rejected:** 0.
 - **Represented symbols:** `GLD`, `IWM`, `QQQ`, `SPY`.
 - **Represented setup types:** `Clean Fast Break`, `Continuation`, `Ideal`.
 - **Worked count:** 3.
 - **Failed count:** 1.
-- **Inconclusive count:** 0.
-- **Pending count:** 0.
-- **Stale count:** 0.
-- **Invalidated count:** 0.
-- **Missing-evidence count:** 0.
+- **Inconclusive/missing-evidence count:** 1.
+- **Missing-evidence count:** 1.
+- **Review conclusion:** `useful_but_not_final_viability_proof`.
+- **Smallest next fix path reported by review:** `collect_or_preserve_missing_after_setup_evidence`.
 
-## 4. Represented Pairs
+## 4. Represented Coverage
+
+Symbols represented:
+
+- `SPY`: yes.
+- `QQQ`: yes.
+- `IWM`: yes.
+- `GLD`: yes.
+
+Setup types represented:
+
+- `Ideal`: yes.
+- `Clean Fast Break`: yes.
+- `Continuation`: yes.
+
+Outcome examples represented:
+
+- Worked: yes.
+- Failed: yes.
+- Missing evidence: yes.
+
+## 5. Represented Pairs
 
 - `Ideal` / `SPY`: worked chart/setup behavior.
 - `Clean Fast Break` / `QQQ`: failed chart/setup behavior with useful diagnosis.
 - `Continuation` / `GLD`: worked/reviewable chart/setup behavior.
 - `Ideal` / `IWM`: worked/reviewable chart/setup behavior.
+- `Continuation` / `QQQ`: active missing-evidence coverage.
 
-## 5. Missing Pairs
+## 6. Missing Pairs
 
 - `Clean Fast Break` / `SPY`.
 - `Continuation` / `SPY`.
 - `Ideal` / `QQQ`.
-- `Continuation` / `QQQ`.
 - `Clean Fast Break` / `IWM`.
 - `Continuation` / `IWM`.
 - `Ideal` / `GLD`.
 - `Clean Fast Break` / `GLD`.
 
-## 6. Outcome Coverage
+## 7. Outcome Coverage
 
 Worked chart/setup behavior is represented by `Ideal` / `SPY`, `Continuation` / `GLD`, and `Ideal` / `IWM`.
 
 Failed chart/setup behavior is represented by `Clean Fast Break` / `QQQ`.
 
-Active inconclusive or missing-evidence coverage is not represented in the final four-sample controlled set after GLD and IWM became reviewable.
+Active missing-evidence coverage is represented by `Continuation` / `QQQ`. That sample preserves setup-time candle/shelf evidence, deliberately omits after-setup `source_row_reference` and `post_setup_evidence`, keeps `future_evidence_used_to_define_setup=False`, and is surfaced as missing evidence instead of worked or failed proof.
 
-## 7. Usefulness Decision
+## 8. Separation Checks
 
-The controlled sample set is **useful but missing explicit inconclusive/missing-evidence coverage**.
+- **No-hindsight separation:** PASS. Setup-time evidence and after-setup evidence remain separated, and future evidence is not used to define the original setup.
+- **Setup type separation:** PASS. `Ideal`, `Clean Fast Break`, and `Continuation` remain separately represented.
+- **Symbol separation:** PASS. `SPY`, `QQQ`, `IWM`, and `GLD` remain separately represented.
+- **Setup-type-plus-symbol pair separation:** PASS. The five represented pairs stay explicit and the missing-evidence gap remains scoped to `Continuation` / `QQQ`.
+- **No-trade/watch-only boundary:** PASS. No live data, controlled shadow data, alerts, broker behavior, order behavior, option P&L, account sizing, optimization, rule change, production/Railway path, or live trade decision is introduced.
 
-Reason:
+## 9. Coverage Decision
 
-- It covers all four starting symbols at least once.
-- It covers all three setup types at least once.
-- It preserves setup-type, symbol, and setup-type-plus-symbol pair separation.
-- It includes worked and failed chart/setup behavior.
-- It preserves no-hindsight and no-trade/watch-only boundaries.
-- It remains tiny-sample evidence and does not cover eight setup-type-plus-symbol pairs.
-- It no longer includes an active inconclusive/missing-evidence sample.
-- Upstream bundle readiness still reports `blocked_by_bundle_readiness_contract_gap`.
-
-This is useful enough for the next proof review at tiny-sample known-limits depth, but it is not final viability proof and not lower-tier final readiness.
-
-## 8. Smallest Next Evidence-Backed Gap
-
-The smallest next evidence-backed gap is to add or preserve one explicit inconclusive/missing-evidence controlled sample before broader pair expansion.
+The controlled sample phase is **complete enough to plan real historical examples**.
 
 Reason:
 
-- Symbol coverage is already present across `SPY`, `QQQ`, `IWM`, and `GLD`.
-- Setup-type coverage is already present across `Ideal`, `Clean Fast Break`, and `Continuation`.
-- Worked and failed outcome coverage are already present.
-- The current controlled set has zero inconclusive or missing-evidence cases.
-- A single explicit missing-evidence/inconclusive case would test whether the review path can still explain unavailable evidence, name the blocked field, preserve no-hindsight boundaries, and give the next fix path without fabricating evidence or changing rules.
+- All four starting symbols are represented at least once.
+- All three setup types are represented at least once.
+- Worked chart/setup behavior is represented.
+- Failed chart/setup behavior with diagnosis is represented.
+- Active missing-evidence coverage is represented exactly once.
+- No-hindsight separation held.
+- Setup type, symbol, and setup-type-plus-symbol pair separation held.
+- The review output remains useful but explicitly not final viability proof.
 
-The next gap should be fixed with evidence-backed sample input only. It must not be solved by tuning, rule changes, broad expansion pressure, or backfilled labels.
+This is not complete enough to claim final viability, profitability, actual historical success, lower-tier final readiness, controlled shadow readiness, live readiness, production readiness, or Railway readiness. It is only complete enough to stop adding controlled samples for coverage breadth and start planning the first real historical example batch.
 
-## 9. Next Objective
+## 10. Next Objective
 
-Create the smallest controlled missing-evidence or inconclusive sample, or a docs-only plan for that sample if implementation scope is not yet approved. The next step must keep the sample path local-only and in-memory, preserve no-trade/watch-only boundaries, and continue to separate setup type, symbol, and setup-type-plus-symbol pair coverage.
+Plan the first real historical example batch.
 
-## 10. Unfinished Items To Carry Forward
+The plan should keep the next phase local-only and evidence-backed, preserve setup-time versus after-setup evidence separation, keep symbols and setup types separate, and avoid optimization, rule changes, live data, controlled shadow data, alerts, broker/order/account/options/P&L, account sizing, production/Railway work, and live trade decisions.
+
+## 11. Unfinished Items To Carry Forward
 
 - Final trading-plan viability remains unproven.
 - Profitability remains unproven.
@@ -106,7 +122,6 @@ Create the smallest controlled missing-evidence or inconclusive sample, or a doc
 - Controlled shadow readiness remains unproven.
 - Live readiness remains unproven.
 - Production/Railway readiness remains unproven.
-- Eight setup-type-plus-symbol pairs remain missing.
-- Active inconclusive/missing-evidence coverage is absent from the current four-sample set.
-- Upstream bundle readiness still reports `blocked_by_bundle_readiness_contract_gap`.
-- The sample set remains tiny and must not be generalized into a combined viability score.
+- Seven setup-type-plus-symbol pairs remain missing.
+- Upstream bundle readiness still has tiny-sample/review-contract gaps and must not be treated as final lower-tier readiness.
+- The controlled sample set remains tiny and must not be generalized into a combined viability score.
