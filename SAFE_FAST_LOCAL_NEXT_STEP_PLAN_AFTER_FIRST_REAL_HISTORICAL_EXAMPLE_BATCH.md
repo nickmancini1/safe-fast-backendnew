@@ -2,10 +2,10 @@
 
 ## 1. Plan Status
 
-- **Status:** docs-only planning complete; ready for assistant review before commit.
+- **Status:** docs-only plan correction complete; ready for assistant review before commit.
 - **Baseline:** patch8.
 - **Day context:** Day 35.
-- **Latest local commit before this task:** `ba44d07 Add first real historical example batch`.
+- **Latest local commit before this correction:** `e03c792 Add real historical missing evidence inventory plan`.
 - **Work mode:** build work only, not live trade chat.
 - **Highest priority:** viability proof before optimization.
 - **Purpose:** define the next smallest evidence-backed step after the first real historical example batch produced 2 worked examples and 2 missing-evidence examples.
@@ -140,14 +140,30 @@ The next smallest evidence-backed fix is a docs-only evidence inventory for the 
 
 Future task shape:
 
+- exact inventory file: `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md`;
+- allowed future inventory edits only:
+  - `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md`;
+  - `SAFE_FAST_BUILD_STATE.md`;
+  - `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`;
 - inspect only existing repo sources for IWM Continuation and GLD Ideal;
+- do not invent evidence;
+- answer what exact evidence is missing for IWM Continuation;
+- answer what exact evidence is missing for GLD Ideal;
+- answer whether accepted trigger evidence exists;
+- answer whether accepted invalidation evidence exists;
+- answer whether accepted freshness/final-signal evidence exists;
+- answer whether accepted blocker evidence exists;
+- answer whether accepted terminal outcome evidence exists;
+- answer where evidence exists, if it exists;
+- if evidence does not exist, keep the examples missing-evidence/inconclusive;
+- name the smallest next evidence-backed fix;
 - list every candidate row and any accepted row candidate;
 - record whether each required field is present, null, `TO_REVIEW`, `UNCONFIRMED`, or absent;
 - decide separately for IWM Continuation and GLD Ideal whether accepted proof exists in the repo;
 - if proof exists, plan the smallest later in-memory sample update and regression test;
 - if proof does not exist, preserve missing-evidence status and plan the next bounded real historical example instead of forcing these two through.
 
-The planned inventory file, if later approved, should be docs-only and should not modify fixtures, code, tests, reports, source CSVs, or generated outputs.
+The planned inventory file, if later approved, should be docs-only and should not modify fixtures, code, tests, reports, source CSVs, generated outputs, `main.py`, engine logic, Railway/deploy files, live data paths, broker/order/account/options/P&L, account sizing, optimization logic, production files, or GitHub.
 
 ## 10. Future Implementation Gate
 
@@ -192,6 +208,8 @@ This plan does not prove:
 
 ## 12. Next Objective After This Plan
 
-If this plan is accepted and committed, create a docs-only IWM/GLD missing-evidence inventory from existing repo sources only.
+If this corrected plan is accepted and committed, create `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md` as a docs-only IWM/GLD missing-evidence inventory from existing repo sources only.
 
-Do not run tests for that docs-only inventory unless explicitly requested. Do not change code, tests, fixtures, source CSVs, reports, generated outputs, watcher behavior, live data paths, broker behavior, optimization logic, production files, or `main.py`.
+The next docs-only inventory task may edit only `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+
+Do not run tests for that docs-only inventory unless explicitly requested. Do not change code, tests, fixtures, source CSVs, reports, generated outputs, watcher behavior, live data paths, broker behavior, optimization logic, production files, or `main.py`. Check existing repo sources only, do not invent evidence, and keep IWM Continuation and GLD Ideal missing-evidence/inconclusive unless accepted evidence exists in the repo.

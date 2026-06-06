@@ -8,9 +8,9 @@
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: ba44d07 Add first real historical example batch.
-- Latest known completed build commit before this handoff update: ba44d07 Add first real historical example batch.
-- Current uncommitted status: Day 35 docs-only next-step plan after the first real historical example batch; changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
+- Latest known local commit before current uncommitted work: e03c792 Add real historical missing evidence inventory plan.
+- Latest known completed build commit before this handoff update: e03c792 Add real historical missing evidence inventory plan.
+- Current uncommitted status: Day 35 docs-only plan correction; changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
 - Real local git status and git log are source of truth.
 - This Day33-named file remains a living handoff document and records this Day 35 update.
 
@@ -359,11 +359,11 @@ Recently built proof chain:
 
 Latest known completed build commit before current uncommitted work:
 
-ba44d07 Add first real historical example batch
+e03c792 Add real historical missing evidence inventory plan
 
 Latest known local commit before current uncommitted work:
 
-ba44d07 Add first real historical example batch
+e03c792 Add real historical missing evidence inventory plan
 
 Current Day 35 next-step plan after first real historical example batch status:
 
@@ -418,11 +418,17 @@ Current Day 35 next-step plan after first real historical example batch status:
 - Manual in-memory proof-chain validation result: PASS; the batch ran through `run_setup_outcome_historical_sample_path(...)` and `review_setup_outcome_historical_sample_path_output(...)` with no file/network/subprocess/thread/live/broker side effects.
 - git diff whitespace check: PASS with `git diff --check` (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`, `tests/test_setup_outcome_historical_sample_path.py`, `watcher_foundation/__init__.py`, and `watcher_foundation/setup_outcome_historical_sample_path.py` only).
 - Current next-step plan file: `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`.
+- Current Day 35 plan correction: the previous plan lacked a concrete inventory filename, so this correction names the exact future inventory file and allowed future docs-only edit scope.
+- Exact future inventory file: `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md`.
 - Current plan summary: inspect existing repo evidence for IWM Continuation and GLD Ideal before any code change. The plan names the exact missing accepted evidence: accepted final signal row, accepted triggered state, no primary blocker, numeric trigger, trigger basis, numeric invalidation, invalidation basis, freshness/final signal fields, blocker/caution priority, terminal outcome inputs, and chart risk denominator as applicable by setup.
 - IWM Continuation evidence status: repo contains source-backed candidate and post-candidate movement evidence, but the candidate remains `PENDING`, `completed_shelf_break_candidate_TO_REVIEW`, blocked by `trigger_level_TO_REVIEW`, with null trigger/invalidation and fresh/spent status still `TO_REVIEW`. It must remain missing-evidence/inconclusive unless exact accepted proof is found.
 - GLD Ideal evidence status: repo contains source-backed candidate and post-candidate movement evidence, but the candidate remains `PENDING`, `setup_confirming_TO_REVIEW`, blocked by `completed_candle_hold_unconfirmed`, with null trigger/invalidation and accepted signal/freshness/final fields unconfirmed. It must remain missing-evidence/inconclusive unless exact accepted proof is found.
-- Smallest next evidence-backed gap: create a docs-only IWM/GLD missing-evidence inventory from existing repo sources only; list every candidate/accepted-row possibility and whether each required field is present, null, `TO_REVIEW`, `UNCONFIRMED`, or absent.
+- Smallest next evidence-backed gap: create `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md` as a docs-only IWM/GLD missing-evidence inventory from existing repo sources only; list every candidate/accepted-row possibility and whether each required field is present, null, `TO_REVIEW`, `UNCONFIRMED`, or absent.
+- Allowed edits for the future docs-only inventory task: `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md`; `SAFE_FAST_BUILD_STATE.md`; `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- Future inventory evidence boundary: check existing repo sources only and do not invent evidence.
+- Future inventory required answers: what exact evidence is missing for IWM Continuation; what exact evidence is missing for GLD Ideal; whether accepted trigger evidence exists; whether accepted invalidation evidence exists; whether accepted freshness/final-signal evidence exists; whether accepted blocker evidence exists; whether accepted terminal outcome evidence exists; where evidence exists, if it exists; if evidence does not exist, keep the examples missing-evidence/inconclusive; smallest next evidence-backed fix.
 - Validation for this docs-only task: unit tests not run per instruction; `git diff --check` PASS (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md` only). New plan file checked with `git diff --no-index --check -- NUL SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`; no whitespace errors were reported, with the expected file-difference exit and LF-to-CRLF warning only.
+- Validation for this Day 35 plan correction: tests not run because docs-only; `git diff --check` PASS (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`, and `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md` only).
 - Current task scope: docs only; no code changes, no tests changed, no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no rule change, no optimization, no final viability claim, no historical success claim, no profitability claim, and no live trade decisions.
 
 ## Still unproven
@@ -592,7 +598,7 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Assistant review of the docs-only next-step plan after the first real historical example batch, then commit only expected files if accepted.
+Assistant review of the Day 35 docs-only plan correction, then commit only expected files if accepted.
 
 Current changed files should be limited to:
 
@@ -606,9 +612,17 @@ Final viability, profitability, actual historical success, controlled shadow rea
 
 ## Next-after-next objective
 
-After assistant review and commit, create a docs-only IWM/GLD missing-evidence inventory from existing repo sources only, without optimization, profitability claims, live data, alerts, broker behavior, generated reports/logs, or production work.
+After assistant review and commit, create `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md` as a docs-only IWM/GLD missing-evidence inventory from existing repo sources only, without optimization, profitability claims, live data, alerts, broker behavior, generated reports/logs, or production work.
+
+The next docs-only inventory task may edit only:
+
+- `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md`
+- `SAFE_FAST_BUILD_STATE.md`
+- `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`
 
 The inventory must decide separately whether IWM Continuation and GLD Ideal have accepted trigger/invalidation/freshness/final-signal proof already in the repo. If yes, plan the smallest later in-memory update and regression test. If no, preserve missing-evidence status and choose the next bounded real historical example without hiding remaining tiny-sample, missing-pair, real-history, or upstream bundle-readiness gaps.
+
+The inventory must check existing repo sources only, must not invent evidence, and must answer whether accepted trigger, invalidation, freshness/final-signal, blocker, and terminal outcome evidence exists; where evidence exists, if it exists; what exact evidence remains missing for IWM Continuation and GLD Ideal; and the smallest next evidence-backed fix.
 
 ## Final UI direction
 
