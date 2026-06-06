@@ -1,5 +1,301 @@
 ﻿# SAFE-FAST Build State
 
+## Highest-priority active rule: profitability mandate and diagnosis loop
+
+SAFE-FAST is not being built merely to test whether an idea might work. SAFE-FAST's required build target is a profitable trading plan. The goal is to make SAFE-FAST excellent at making money, not merely excellent at explaining charts.
+
+Profitability is the required target, not a guaranteed claim. Profitability cannot be claimed until evidence proves it.
+
+If SAFE-FAST is unprofitable, weak, not useful enough, unsuccessful in evidence, missing evidence, or inconclusive, that result is not an ending by itself. It is a mandatory diagnosis-and-fix trigger.
+
+Every unsuccessful, weak, missing, or inconclusive result must identify:
+
+- the affected setup type
+- the affected symbol
+- the missing or bad evidence
+- whether the failure is in trigger, invalidation, freshness/final-signal, blocker handling, terminal outcome, timing, rule behavior, signal quality, evidence quality, selection stability, or trading usefulness
+- the smallest next evidence-backed fix
+- the replay/regression protection required before promotion
+
+Preserved meanings:
+
+- "Not useful enough" is not a final result. It is a repair signal.
+- "Unprofitable" is not a stopping point. It is a diagnosis requirement.
+- "Missing evidence" is not low confidence. It is a blocker that must be fixed or explicitly proven blocking.
+- A weak result cannot be treated as an ending unless a hard blocker is proven and documented.
+- A hard blocker means evidence proves a path cannot safely support the profitability target without fake proof, hindsight, unsafe assumptions, or live-money guessing.
+- If one setup type, symbol, rule, signal, timing path, or evidence path fails, the project does not end automatically. The build must isolate the failure, diagnose it, and choose the smallest evidence-backed fix, narrowing path, removal path, or blocker documentation.
+- The final profitable trading plan does not have to preserve every setup type, every symbol, or every original assumption. Anything that cannot support profitability must be fixed, narrowed, isolated, removed, or documented as a blocker.
+
+### Biggest project risk
+
+The biggest hidden danger is that SAFE-FAST could become excellent at explaining charts but not excellent at making money.
+
+A chart can look clean after the fact and still be useless as a trade. A setup can be directionally right and still be too late, too small, too vague, too costly, or too hard to trade safely. The system can sound disciplined and still fail if the signal is late, invalidation is unclear, the exit is vague, or costs and timing delay erase the edge.
+
+Every future task must ask whether it moves SAFE-FAST closer to a proven profitable trading plan, or merely makes the system sound smarter.
+
+### Trading plan reality check
+
+SAFE-FAST currently has a serious path, but it does not yet have a proven trading edge.
+
+The current build is still primarily a recognition-and-discipline system trying to become a profitable trading plan. Recognition success is necessary, but it is not the same as trading profitability.
+
+A system can correctly recognize Ideal, Clean Fast Break, and Continuation setups and still fail as a trading plan. It can be right too late. It can identify a real setup after most of the useful move is gone. It can be directionally right but have too little room after spread, slippage, timing delay, and costs. It can look good in historical review while being too late, too vague, or too expensive to trade safely. It can avoid bad trades but miss enough good trades that it is not useful.
+
+It can overfit to clean historical winners if failed examples, blocked examples, tempting no-trades, late signals, missing-evidence examples, and wrong-winner examples are not included.
+
+It can become unstable if Ideal, Clean Fast Break, and Continuation overlap without a stable winner/abstain rule.
+
+It can behave differently across SPY, QQQ, IWM, and GLD, so symbol-specific weakness must be diagnosed instead of averaged away.
+
+SAFE-FAST's strength is the discipline layer: setup type, trigger evidence, invalidation, blocker handling, freshness/final-signal handling, no-trade discipline, and separation of setup-time evidence from after-setup outcome. That discipline is valuable because it fights hope, hindsight, emotional trading, and vague chart confidence. But that discipline must eventually prove economic usefulness, not just cleaner explanations.
+
+### Trading-usefulness gate
+
+A setup should not count as a true success just because price eventually moved in the right direction.
+
+A setup can only support the profitability target if:
+
+- setup-time evidence was valid
+- the signal was not stale
+- invalidation was clear
+- blockers were handled
+- the setup was identified early enough to matter
+- the move after signal had enough room to matter
+- the outcome was strong enough after realistic timing/cost awareness
+- no hindsight was used
+
+Treat "too late" as a real failure:
+
+- Correct idea, late signal is not a clean win.
+- Correct setup, bad timing is not a clean win.
+- Correct direction, not enough remaining room is not a clean win.
+- A late system can look smart in review and still lose money.
+
+Make "do nothing" a first-class result:
+
+- A profitable trading plan is not only about finding trades.
+- It must be good at avoiding bad trades.
+- Historical evidence must include clean winners, failures, blocked setups, tempting no-trades, missing-evidence examples, late-signal examples, wrong-winner examples, and messy examples.
+
+Make setup overlap strict:
+
+- Ideal, Clean Fast Break, and Continuation may overlap.
+- The plan needs stable rules for which setup wins, when to abstain, when a blocker overrides everything, when freshness expires, when invalidation kills the setup, and when mixed evidence means no action.
+- Without this, SAFE-FAST can explain the same chart different ways later and become unstable.
+
+Make symbol-specific diagnosis strict:
+
+- SPY, QQQ, IWM, and GLD must not be averaged together too early.
+- A setup may work on one symbol and fail on another.
+- A failure must be diagnosed by setup type and symbol, such as IWM Continuation, GLD Ideal, QQQ Clean Fast Break, or SPY Ideal.
+- Symbol-specific weakness must produce a fix, narrowing path, removal path, or blocker documentation.
+
+### Worked, failed, and missing-evidence meanings
+
+A setup must not count as "worked" merely because price eventually moved in the right direction.
+
+A setup can only support the profitability target if setup-time evidence was valid, invalidation was clear, blockers were handled, the signal was not stale, the signal was early enough to matter, and after-setup outcome evidence was strong enough.
+
+A failed setup must explain what failed: trigger, invalidation, freshness, final signal, blocker, timing, wrong setup winner, symbol behavior, economic usefulness, or hindsight contamination.
+
+Missing evidence is a blocker, not low confidence.
+
+Inconclusive means the project does not yet have accepted evidence, not that the setup should be trusted.
+
+### Setup and symbol survival rule
+
+The goal is not loyalty to the original setup list. The goal is profitability under evidence.
+
+Ideal, Clean Fast Break, Continuation, SPY, QQQ, IWM, and GLD must each earn their place.
+
+A setup type or symbol does not need to survive unchanged if evidence says it hurts the plan.
+
+Any weak setup-symbol combination must be fixed, narrowed, isolated, removed, or documented as a blocker.
+
+Strong combinations must not be allowed to hide weak combinations.
+
+The final trading plan may use only the combinations that prove useful.
+
+### Where and when profitability is determined
+
+Profitability is determined in stages.
+
+Day 35 and the current IWM/GLD inventory do not determine profitability. They determine whether accepted evidence exists or is missing.
+
+Day 54 does not determine profitability. It determines whether the compact handoff package is usable by the $20 tier.
+
+Day 60 is the hard historical evidence checkpoint. It does not automatically prove profitability. It determines whether historical evidence is strong enough to plan live-data shadow, or whether exact blockers and next fixes must be named.
+
+Before live-data shadow planning, the project must define historical trading-usefulness criteria. Those criteria must include signal timing, clear invalidation, blocker handling, terminal outcome, repeatability, whether the move was large enough to matter, and realistic awareness of spread, slippage, timing delay, and costs.
+
+Historical trading usefulness must be judged from setup-time evidence and accepted after-setup outcome evidence. It must not use hindsight to justify entries.
+
+Live-data shadow determines whether the system behaves usefully in real time with no trades, no alerts, no broker, no sizing, no money, and no live trade decisions.
+
+Live-data shadow still does not prove actual-money profitability. It proves or disproves real-time usefulness and discipline.
+
+Only after historical proof and live-data shadow both prove useful may a separate tiny-money pilot plan be created.
+
+The tiny-money pilot plan must define actual profitability measurement before any dollars are used, including entry, invalidation, exit, risk limits, cost assumptions, stop rules, review rules, and what result counts as failure.
+
+Actual-money profitability can only be judged from that explicitly approved tiny pilot or later approved stages. It cannot be claimed from recognition alone, historical chart appearance alone, or shadow alone.
+
+### Future complete trading plan requirements
+
+The future profitable trading plan eventually needs more than recognition:
+
+- entry logic
+- invalidation
+- exit logic
+- timing
+- risk limits
+- cost/spread/slippage awareness
+- bad-market filters
+- rules for doing nothing
+- rules for stopping after bad behavior
+- proof that the setup has enough room to matter
+
+Before any money stage, the project must define:
+
+- entry
+- invalidation
+- exit
+- stop rules
+- what counts as enough move
+- what counts as failure
+- when to stop trading after bad behavior
+- how costs, spread, timing delay, and slippage are treated
+
+Order of proof:
+
+1. Can SAFE-FAST recognize the right setup while it is developing?
+2. Can it avoid action when evidence is missing?
+3. Can it pick the right setup type when setups overlap?
+4. Can it identify invalidation before the outcome is known?
+5. Can it produce signals early enough to matter?
+6. Can the move after signal realistically beat costs and timing delay?
+7. Can it define exits and stop rules without hindsight?
+8. Can it repeat across SPY, QQQ, IWM, and GLD?
+9. Can it survive live-data shadow with no trades?
+10. Only then can a tiny-money pilot judge actual profitability.
+
+### Architect operating rule
+
+While architect-level guidance is being used, future chats must not passively follow narrow prompts if the project is drifting.
+
+Future chats must call out hidden risks, vague goals, weak evidence, premature promotion, and anything that makes SAFE-FAST sound smarter without making it more profitable under evidence.
+
+Future chats must preserve important corrections in the repo docs when the correction affects the project direction.
+
+Future chats must keep the build moving toward evidence, diagnosis, trading usefulness, and profitability.
+
+This does not authorize fake proof, live trading, engine changes without evidence and tests, or skipping the staged proof process.
+
+### Architect questions future chats must preserve
+
+Question: What is the biggest way this project could fool us?
+
+Answer: SAFE-FAST could become excellent at explaining charts but not excellent at making money. The defense is the trading-usefulness gate, strict worked/failed meanings, failed examples, no-trade examples, and cost/timing awareness.
+
+Question: What exactly must be true before SAFE-FAST is trusted more?
+
+Answer: It must recognize developing setups, avoid action when evidence is missing, separate setup-time evidence from after-setup evidence, handle blockers, identify invalidation, avoid hindsight, signal early enough to matter, show enough movement after signal to matter, repeat across symbols and setup types, and survive live-data shadow with no trades.
+
+Question: Could one setup type be hurting the whole plan?
+
+Answer: Yes. Ideal, Clean Fast Break, and Continuation should not all be protected just because they are part of the original design. A failing setup type must be diagnosed, narrowed, fixed, isolated, removed, or documented as a blocker.
+
+Question: Could one symbol be hurting the whole plan?
+
+Answer: Yes. SPY, QQQ, IWM, and GLD must not be averaged together too early. Symbol-specific weakness must be diagnosed instead of hidden by stronger symbols.
+
+Question: Does every setup and symbol need to be profitable?
+
+Answer: No. Every setup and symbol must be explainable, but the final profitable trading plan can choose only the combinations that prove useful.
+
+Question: What should happen when something fails?
+
+Answer: Failure must produce a repair map. It must identify what failed, which setup type and symbol were affected, what evidence was missing or bad, and the smallest next evidence-backed fix.
+
+Question: What would make Day 60 a success?
+
+Answer: Day 60 succeeds if it produces a clear evidence-backed decision: ready to plan live-data shadow, not ready with exact blockers and next fix, or not useful enough yet with exact diagnosis and next fix.
+
+Question: What would make Day 60 a failure?
+
+Answer: Day 60 fails if the project still cannot explain what is missing, mixes setup-time evidence with hindsight, lacks required symbol/setup coverage, uses vague worked/failed meanings, or cannot produce compact review material for the $20 tier.
+
+Question: What is the most important next task after preserving this mandate?
+
+Answer: Return to the docs-only IWM/GLD missing-evidence inventory. Determine whether accepted evidence already exists for IWM Continuation and GLD Ideal. If it does not exist, keep them missing-evidence/inconclusive and name the smallest evidence-backed fix.
+
+Question: What should be refused even if there is impatience?
+
+Answer: Do not start live data early, alerts early, broker/order/account work, sizing, Railway, production, engine patches off theory, fake historical proof, hindsight-filled examples, or claims that recognition success equals profitability.
+
+Question: What is the clearest version of the whole project?
+
+Answer: SAFE-FAST must become excellent at making money, but profitability cannot be claimed until evidence proves it. The build must move from historical recognition and discipline, to historical trading usefulness, to live-data shadow with no trades, to a separately approved tiny-money pilot, and only then to actual-money profitability judgment.
+
+Question: What question should every future chat be forced to answer?
+
+Answer: Is this task moving SAFE-FAST closer to a proven profitable trading plan, or is it only making the system sound smarter?
+
+### Pro and $20 tier usage rule
+
+Pro tier is for architecture, diagnosis, hard decisions, and preventing the project from becoming vague.
+
+The $20 tier is for prepared continuation work.
+
+The $20 tier should not be expected to rescue vague architecture, rediscover the project, or make major trading-plan decisions from scratch.
+
+Day 54 is the first subscription decision checkpoint.
+
+Day 54 must decide whether the handoff package is compact and clear enough for the $20 tier to continue.
+
+Day 60 is the hard historical evidence checkpoint.
+
+Do not buy another Pro month automatically.
+
+Consider another Pro month only if the project still needs architect-level judgment to complete the historical evidence package, trading-usefulness gate, setup overlap rules, compact review packets, or Day 60 diagnosis.
+
+If remaining work is mostly prepared execution, focused docs updates, compact review, or running already-defined Codex prompts, the $20 tier should be enough.
+
+Use Pro for architecture, diagnosis, and hard decisions. Use $20 for prepared continuation work.
+
+### Day 60 rule
+
+Day 60 is not a quit/continue vibe check and not an automatic profitability claim. It must produce one of:
+
+1. ready to plan live-data shadow
+2. not ready with exact blockers and next fix
+3. not useful enough yet with exact diagnosis and next fix
+
+### Live-data shadow is not live trading
+
+Live-data shadow means:
+
+- no trades
+- no broker
+- no alerts
+- no account sizing
+- no money
+- no live trade decisions
+- no production/Railway/deploy unless explicitly authorized later
+
+### This mandate does not authorize
+
+This mandate does not authorize:
+
+- fake proof
+- hindsight filling
+- skipping historical evidence
+- live data before historical proof earns shadow planning
+- real money before historical proof and shadow both prove useful
+- changing the Day 35 / patch8 baseline
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
