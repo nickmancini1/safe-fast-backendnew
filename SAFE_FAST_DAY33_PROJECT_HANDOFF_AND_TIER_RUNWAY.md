@@ -8,9 +8,9 @@
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: 8527eff Add controlled missing-evidence sample.
-- Latest known completed build commit before this handoff update: 8527eff Add controlled missing-evidence sample.
-- Current uncommitted status: Day 35 docs-only controlled sample coverage review update; changed files should be limited to `SAFE_FAST_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
+- Latest known local commit before current uncommitted work: bfad6d3 Update controlled sample coverage review.
+- Latest known completed build commit before this handoff update: bfad6d3 Update controlled sample coverage review.
+- Current uncommitted status: Day 35 docs-only first real historical example batch planning; changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_READY_FOR_HISTORICAL.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
 - Real local git status and git log are source of truth.
 - This Day33-named file remains a living handoff document and records this Day 35 update.
 
@@ -359,13 +359,13 @@ Recently built proof chain:
 
 Latest known completed build commit before current uncommitted work:
 
-8527eff Add controlled missing-evidence sample
+bfad6d3 Update controlled sample coverage review
 
 Latest known local commit before current uncommitted work:
 
-8527eff Add controlled missing-evidence sample
+bfad6d3 Update controlled sample coverage review
 
-Current Day 35 controlled sample coverage review update status:
+Current Day 35 first real historical example batch planning status:
 
 - Historical setup sample path planning is complete and committed at `73a27ba Add historical setup sample path plan`.
 - Day 33 historical setup sample path runner is complete and committed at `6973581 Add historical setup sample path runner`.
@@ -382,8 +382,9 @@ Current Day 35 controlled sample coverage review update status:
 - Controlled sample coverage review is complete and committed at `ca8b6a4 Add controlled sample coverage review`.
 - Controlled sample missing-evidence implementation planning is complete and committed at `ad21b40 Add controlled sample missing evidence plan`.
 - Controlled missing-evidence sample implementation is complete and committed at `8527eff Add controlled missing-evidence sample`.
-- Current objective is a docs-only controlled sample coverage review update after the missing-evidence sample.
-- Current changed files should be limited to `SAFE_FAST_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- Controlled sample coverage review update is complete and committed at `bfad6d3 Update controlled sample coverage review`.
+- Current objective is a docs-only plan for the first real historical example batch after controlled coverage became complete enough to plan real historical examples.
+- Current changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_READY_FOR_HISTORICAL.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
 - Runner behavior: accepts caller-provided in-memory historical setup examples only, rejects file/report/log path, live-data, controlled-shadow, alert, broker/order/account/options/P&L/account-sizing, live-trade-decision, subprocess/thread/socket, watcher-loop, and `main.py` shaped inputs, runs proof -> diagnostics -> evidence packet -> packet readiness -> group review -> group review readiness -> historical bundle -> bundle readiness, preserves setup-time vs post-setup evidence separation, setup type, symbol, setup-type-plus-symbol pair separation, missing evidence, diagnostics, fix paths, regression needs, lower-tier review fields, and exact bundle-readiness missing review items.
 - Sample evidence set behavior: exposes one worked `Ideal` / `SPY` setup, one failed `Clean Fast Break` / `QQQ` setup, one reviewable `Continuation` / `GLD` setup, one reviewable `Ideal` / `IWM` setup, and exactly one explicit controlled missing-evidence `Continuation` / `QQQ` setup through the existing runner; preserves setup type separation, symbol separation, setup-type-plus-symbol pair separation, setup-time versus after-setup evidence separation, diagnostics, fix paths, lower-tier summary, no-trade/watch-only, no-live-data, no-controlled-shadow, no-alert, no-broker, no-file-write, no-rule-change, and no-optimization boundaries.
 - Review behavior: accepts caller-provided in-memory sample path output only, returns one in-memory review summary only, keeps worked, failed, and inconclusive samples separate, keeps setup type and symbol separate, checks no-hindsight boundaries, surfaces useful proof, weak proof, missing evidence, next fix paths, regression needs, lower-tier review material, explicitly reports the GLD Continuation review status and IWM review status / teaching, and defensively copies returned data.
@@ -400,7 +401,11 @@ Current Day 35 controlled sample coverage review update status:
 - Prior Day 34 docs-only coverage review validation: unit tests not run because the plan said do not run unit tests for that docs-only step; `git diff --check` PASS (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md` only); new review file checked with `git diff --no-index --check -- NUL SAFE_FAST_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md` and no whitespace errors were reported.
 - Prior Day 34 docs-only missing-evidence plan validation: unit tests not run because that task was docs-only; `git diff --check` PASS (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md` only); new plan file checked with `git diff --no-index --check -- NUL SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md` and no whitespace errors were reported.
 - Current coverage review conclusion: the controlled sample phase is complete enough to plan real historical examples. `SPY`, `QQQ`, `IWM`, and `GLD` are represented; `Ideal`, `Clean Fast Break`, and `Continuation` are represented; worked, failed, and missing-evidence examples are represented; no-hindsight separation held; setup type and symbol separation held.
-- Current task scope: docs-only review update; no `main.py`, no code changes, no tests changed, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
+- Current plan summary: first batch should contain exactly 4 real historical examples, one each for `SPY`, `QQQ`, `IWM`, and `GLD`; all three setup types must be represented; required pairs are `Ideal` / `SPY`, `Clean Fast Break` / `QQQ`, `Continuation` / `IWM`, and `Ideal` / `GLD`.
+- Real historical example definition: one caller-provided in-memory setup example derived from a real past market chart/source record for one symbol, one setup type, and one setup timestamp/window, with setup-time evidence separated from after-setup evidence and no future candles used to define the original setup.
+- Future implementation files, if later explicitly approved, should be limited to `watcher_foundation/setup_outcome_historical_sample_path.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- Future tests must prove the 4-example real historical batch runs through the existing proof chain; preserves symbol/setup/pair separation; rejects controlled IDs/refs for the real batch; preserves no-hindsight and setup-time versus after-setup separation; surfaces missing evidence without fabrication; and preserves no side effects or viability/profitability/live/production/optimization/rule-change claims.
+- Current task scope: docs-only planning; no `main.py`, no code changes, no tests changed, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no rule change, no optimization, no final viability claim, no historical success claim, no profitability claim, and no live trade decisions.
 
 ## Still unproven
 
@@ -569,23 +574,23 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Plan the first real historical example batch.
+Implement the first real historical example batch locally and in memory only, after this docs-only plan is accepted and committed.
 
 Current changed files should be limited to:
 
-- `SAFE_FAST_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`
+- `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_READY_FOR_HISTORICAL.md`
 - `SAFE_FAST_BUILD_STATE.md`
 - `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`
 
 Unfinished item:
 
-Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven. Seven setup-type-plus-symbol pairs remain missing after adding `Continuation` / `QQQ`. Bundle readiness still has tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
+Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven. The planned first real historical batch covers only 4 of 12 setup-type-plus-symbol pairs. Bundle readiness still has tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
 
 ## Next-after-next objective
 
-After assistant review and commit, create the first real historical example batch plan, without optimization, profitability claims, live data, alerts, broker behavior, generated reports/logs, or production work.
+After assistant review and commit, implement the first real historical example batch, without optimization, profitability claims, live data, alerts, broker behavior, generated reports/logs, or production work.
 
-The sample path output should remain small, explicit, and easy to inspect. Current result is that GLD Continuation remains reviewable, IWM remains reviewable, all four symbols and all three setup types are represented, worked and failed outcomes are represented, and active missing-evidence coverage is now present exactly once through `Continuation` / `QQQ`. The next planning step must move from controlled coverage into real historical examples without hiding remaining tiny-sample, missing-pair, real-history, or upstream bundle-readiness gaps.
+The sample path output should remain small, explicit, and easy to inspect. The next implementation step must move from controlled coverage into real historical examples without hiding remaining tiny-sample, missing-pair, real-history, or upstream bundle-readiness gaps.
 
 ## Final UI direction
 
