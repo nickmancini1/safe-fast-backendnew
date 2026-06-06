@@ -137,6 +137,8 @@ FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET_ID = (
     "first_controlled_historical_sample_evidence_set_v1"
 )
 
+FIRST_REAL_HISTORICAL_EXAMPLE_BATCH_ID = "first_real_historical_example_batch_v1"
+
 FORBIDDEN_HISTORICAL_SAMPLE_PATH_FIELD_NAMES = (
     FORBIDDEN_SETUP_OUTCOME_FIELD_NAMES
     | frozenset(
@@ -391,6 +393,246 @@ def build_first_controlled_historical_sample_evidence_set() -> list[dict[str, An
         ),
     ]
     return deepcopy(records)
+
+
+def build_first_real_historical_example_batch() -> list[dict[str, Any]]:
+    """Return the first tiny source-backed real historical example batch."""
+    records = [
+        _historical_sample_record(
+            proof_record_id="real-historical-spy-ideal-001",
+            source_record_id=(
+                "historical_signal_replay/fixtures/"
+                "second_real_spy_ideal_replay_v1_fixture.json:"
+                "ideal_triggered_signal_stage_candidate"
+            ),
+            setup_id="real-spy-ideal-2026-05-13-1130",
+            setup_type="Ideal",
+            symbol="SPY",
+            stage="triggered_signal_stage",
+            detection_timestamp="2026-05-13T11:30:00-04:00",
+            setup_evidence_refs=[
+                "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv:2026-05-06T09:30:00-04:00..2026-05-13T11:30:00-04:00",
+                "historical_signal_replay/fixtures/second_real_spy_ideal_replay_v1_fixture.json:lifecycle_rows[5]:expected_output_shape",
+                "historical_signal_replay/reports/second_real_spy_ideal_replay_v1_summary.json:final_verdict_counts.TRADE=1",
+            ],
+            after_setup_evidence={
+                "caller_provided": True,
+                "start_timestamp": "2026-05-13T12:30:00-04:00",
+                "end_timestamp": "2026-05-13T14:30:00-04:00",
+                "source_row_reference": (
+                    "historical_signal_replay/fixtures/"
+                    "second_real_spy_ideal_replay_v1_fixture.json:"
+                    "ideal_follow_through_no_fresh_trigger"
+                ),
+                "post_setup_evidence": [
+                    "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv:2026-05-13T12:30:00-04:00",
+                    "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv:2026-05-13T13:30:00-04:00",
+                    "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv:2026-05-13T14:30:00-04:00",
+                    "historical_signal_replay/fixtures/second_real_spy_ideal_replay_v1_fixture.json:ideal_follow_through_no_fresh_trigger",
+                ],
+                "future_evidence_used_to_define_setup": False,
+            },
+            trigger_state="triggered",
+            invalidation_state="valid_by_rule",
+            freshness_state="fresh",
+            blocker_caution_state="none",
+            session_boundary_state="valid_by_rule",
+            outcome_evidence_state="valid_by_rule",
+            outcome_result_state="worked",
+            evidence_refs=[
+                "historical_signal_replay/fixtures/second_real_spy_ideal_replay_v1_fixture.json:ideal_triggered_signal_stage_candidate",
+                "historical_signal_replay/fixtures/second_real_spy_ideal_replay_v1_fixture.json:ideal_follow_through_no_fresh_trigger",
+                "historical_signal_replay/reports/second_real_spy_ideal_replay_v1_summary.json",
+            ],
+            unavailable_fields=[],
+            next_fix_path=(
+                "preserve SPY Ideal source-backed trigger and follow-through "
+                "evidence as a real historical regression case before expansion"
+            ),
+        ),
+        _historical_sample_record(
+            proof_record_id="real-historical-qqq-clean-fast-break-001",
+            source_record_id=(
+                "historical_signal_replay/fixtures/"
+                "first_real_qqq_clean_fast_break_replay_v1_fixture.json:"
+                "clean_fast_break_initial_break_candidate"
+            ),
+            setup_id="real-qqq-clean-fast-break-2026-04-13-1230",
+            setup_type="Clean Fast Break",
+            symbol="QQQ",
+            stage="triggered_signal_stage",
+            detection_timestamp="2026-04-13T12:30:00-04:00",
+            setup_evidence_refs=[
+                "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv:2026-04-08T09:30:00-04:00..2026-04-13T12:30:00-04:00",
+                "historical_signal_replay/fixtures/first_real_qqq_clean_fast_break_replay_v1_fixture.json:lifecycle_rows[3]:expected_output_shape",
+                "historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_summary.json:final_verdict_counts.TRADE=1",
+            ],
+            after_setup_evidence={
+                "caller_provided": True,
+                "start_timestamp": "2026-04-13T15:30:00-04:00",
+                "end_timestamp": "2026-04-17T15:30:00-04:00",
+                "source_row_reference": (
+                    "historical_signal_replay/fixtures/"
+                    "first_real_qqq_clean_fast_break_replay_v1_fixture.json:"
+                    "clean_fast_break_follow_through_confirming_context"
+                ),
+                "post_setup_evidence": [
+                    "historical_signal_replay/fixtures/first_real_qqq_clean_fast_break_replay_v1_fixture.json:clean_fast_break_follow_through_confirming_context",
+                    "historical_signal_replay/fixtures/first_real_qqq_clean_fast_break_replay_v1_fixture.json:clean_fast_break_post_break_no_fresh_trigger",
+                    "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv:2026-04-13T15:30:00-04:00..2026-04-17T15:30:00-04:00",
+                ],
+                "future_evidence_used_to_define_setup": False,
+            },
+            trigger_state="triggered",
+            invalidation_state="valid_by_rule",
+            freshness_state="fresh",
+            blocker_caution_state="none",
+            session_boundary_state="valid_by_rule",
+            outcome_evidence_state="valid_by_rule",
+            outcome_result_state="worked",
+            evidence_refs=[
+                "historical_signal_replay/fixtures/first_real_qqq_clean_fast_break_replay_v1_fixture.json:clean_fast_break_initial_break_candidate",
+                "historical_signal_replay/fixtures/first_real_qqq_clean_fast_break_replay_v1_fixture.json:clean_fast_break_follow_through_confirming_context",
+                "historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_summary.json",
+            ],
+            unavailable_fields=[],
+            next_fix_path=(
+                "preserve QQQ Clean Fast Break source-backed trigger and "
+                "follow-through evidence as a real historical regression case"
+            ),
+        ),
+        _historical_sample_record(
+            proof_record_id="real-historical-iwm-continuation-001",
+            source_record_id=(
+                "historical_signal_replay/fixtures/"
+                "first_real_iwm_continuation_replay_v1_fixture.json:"
+                "continuation_triggered_signal_stage_candidate"
+            ),
+            setup_id="real-iwm-continuation-2026-04-30-1530",
+            setup_type="Continuation",
+            symbol="IWM",
+            stage="pending_completed_candle_approval",
+            detection_timestamp="2026-04-30T15:30:00-04:00",
+            setup_evidence_refs=[
+                "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv:2026-04-20T09:30:00-04:00..2026-04-30T15:30:00-04:00",
+                "historical_signal_replay/fixtures/first_real_iwm_continuation_replay_v1_fixture.json:lifecycle_rows[5]:expected_output_shape",
+                "SAFE_FAST_IWM_CONTINUATION_001_CHART_ONLY_OUTCOME_REVIEW.md:Candidate signal-stage row",
+            ],
+            after_setup_evidence={
+                "caller_provided": True,
+                "start_timestamp": "2026-05-01T09:30:00-04:00",
+                "end_timestamp": "2026-05-01T15:30:00-04:00",
+                "source_row_reference": (
+                    "SAFE_FAST_IWM_CONTINUATION_001_CHART_ONLY_OUTCOME_REVIEW.md:"
+                    "next eligible 1H RTH candle after candidate signal-stage row"
+                ),
+                "post_setup_evidence": [
+                    "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv:2026-05-01T09:30:00-04:00..2026-05-01T15:30:00-04:00",
+                    "SAFE_FAST_IWM_CONTINUATION_001_CHART_ONLY_OUTCOME_REVIEW.md:review-limited source movement",
+                ],
+                "future_evidence_used_to_define_setup": False,
+            },
+            trigger_state="needs_review",
+            invalidation_state="unavailable_evidence",
+            freshness_state="needs_review",
+            blocker_caution_state="needs_review",
+            session_boundary_state="needs_review",
+            outcome_evidence_state="unavailable_evidence",
+            outcome_result_state="inconclusive",
+            evidence_refs=[
+                "historical_signal_replay/fixtures/first_real_iwm_continuation_replay_v1_fixture.json:continuation_triggered_signal_stage_candidate",
+                "SAFE_FAST_IWM_CONTINUATION_001_CHART_ONLY_OUTCOME_REVIEW.md:Chart-Only Outcome Calculation",
+            ],
+            unavailable_fields=[
+                _unavailable_sample_field(
+                    "trigger_level",
+                    "IWM Continuation fixture marks trigger_level_TO_REVIEW with no numeric trigger",
+                ),
+                _unavailable_sample_field(
+                    "invalidation_level",
+                    "IWM Continuation fixture marks invalidation_TO_REVIEW with no numeric invalidation",
+                ),
+                _unavailable_sample_field(
+                    "freshness_state",
+                    "IWM Continuation fixture marks fresh/spent status TO REVIEW",
+                ),
+            ],
+            next_fix_path=(
+                "collect or validate IWM Continuation trigger, invalidation, "
+                "and freshness evidence before classifying the outcome"
+            ),
+        ),
+        _historical_sample_record(
+            proof_record_id="real-historical-gld-ideal-001",
+            source_record_id=(
+                "historical_signal_replay/fixtures/"
+                "first_real_gld_ideal_replay_v1_fixture.json:"
+                "ideal_recovery_confirmation_candidate"
+            ),
+            setup_id="real-gld-ideal-2026-05-06-0930",
+            setup_type="Ideal",
+            symbol="GLD",
+            stage="pending_completed_candle_approval",
+            detection_timestamp="2026-05-06T09:30:00-04:00",
+            setup_evidence_refs=[
+                "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv:rows204-218",
+                "historical_signal_replay/fixtures/first_real_gld_ideal_replay_v1_fixture.json:lifecycle_rows[3]:expected_output_shape",
+                "SAFE_FAST_GLD_IDEAL_001_CHART_ONLY_OUTCOME_REVIEW.md:Candidate/reference row",
+            ],
+            after_setup_evidence={
+                "caller_provided": True,
+                "start_timestamp": "2026-05-06T10:30:00-04:00",
+                "end_timestamp": "2026-05-08T15:30:00-04:00",
+                "source_row_reference": (
+                    "SAFE_FAST_GLD_IDEAL_001_CHART_ONLY_OUTCOME_REVIEW.md:"
+                    "rows 219-238 review-limited movement"
+                ),
+                "post_setup_evidence": [
+                    "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv:rows219-238",
+                    "SAFE_FAST_GLD_IDEAL_001_CHART_ONLY_OUTCOME_REVIEW.md:Chart-Only Outcome Calculation",
+                ],
+                "future_evidence_used_to_define_setup": False,
+            },
+            trigger_state="needs_review",
+            invalidation_state="unavailable_evidence",
+            freshness_state="needs_review",
+            blocker_caution_state="needs_review",
+            session_boundary_state="valid_by_rule",
+            outcome_evidence_state="unavailable_evidence",
+            outcome_result_state="inconclusive",
+            evidence_refs=[
+                "historical_signal_replay/fixtures/first_real_gld_ideal_replay_v1_fixture.json:ideal_recovery_confirmation_candidate",
+                "SAFE_FAST_GLD_IDEAL_001_CHART_ONLY_OUTCOME_REVIEW.md:Chart-Only Outcome Calculation",
+            ],
+            unavailable_fields=[
+                _unavailable_sample_field(
+                    "trigger_level",
+                    "GLD Ideal fixture has trigger_level null and setup_confirming_TO_REVIEW",
+                ),
+                _unavailable_sample_field(
+                    "invalidation_level",
+                    "GLD Ideal fixture has invalidation null",
+                ),
+                _unavailable_sample_field(
+                    "freshness_state",
+                    "GLD Ideal fixture leaves fresh/stale/spent determination unconfirmed",
+                ),
+            ],
+            next_fix_path=(
+                "collect or validate GLD Ideal accepted signal, trigger, "
+                "invalidation, and freshness evidence before classifying the outcome"
+            ),
+        ),
+    ]
+    return deepcopy(records)
+
+
+def _historical_sample_record(**kwargs: Any) -> dict[str, Any]:
+    record = _controlled_sample_record(**kwargs)
+    record["diagnostic_placeholders"]["lower_tier_handoff"] = (
+        "review real historical source-backed evidence only"
+    )
+    return record
 
 
 def run_setup_outcome_historical_sample_path(
