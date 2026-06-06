@@ -8,9 +8,9 @@
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: 7cc424c Add IWM controlled sample evidence.
-- Latest known completed build commit before this handoff update: 7cc424c Add IWM controlled sample evidence.
-- Current uncommitted status: Day 34 docs-only planning after IWM controlled sample evidence; changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
+- Latest known local commit before current uncommitted work: d8ab7aa Add controlled sample coverage review plan.
+- Latest known completed build commit before this handoff update: d8ab7aa Add controlled sample coverage review plan.
+- Current uncommitted status: Day 34 docs-only phone clarification update; changed files should be limited to `SAFE_FAST_BUILD_STATE.md` and this handoff file.
 - Real local git status and git log are source of truth.
 - This Day33-named file remains a living handoff document and records this Day 34 update.
 
@@ -37,12 +37,54 @@ Future chats must not make the user re-explain this context.
 
 - Day 31 is historical context.
 - Day 33 is historical context for the current Day 34 plan/build-state updates.
+- Day 34 is the current working day.
 - Day 28 file names are historical labels only.
 - fc64232 is the latest Day 31 handoff/build-state checkpoint.
 - 0d23423 is the Day 31 addendum milestone before that sync.
 - 0e4a0c0 is a later intro-block replacement commit.
 - Those are not conflicts.
 - Sync commits are bookkeeping commits.
+
+## Day 34 Phone Clarifications
+
+### Fixed timeline
+
+- Today is Day 34.
+- Day 54 is the target for the $20-tier handoff package to be usable.
+- Day 60 is the hard evidence checkpoint.
+- There is no Day 90 planning target unless the user explicitly changes the tier plan.
+
+### Day 34 to Day 60 plan
+
+- Day 34 to Day 38: finish controlled sample coverage review.
+- Day 39 to Day 45: start real historical examples.
+- Day 46 to Day 53: expand real historical examples across symbols and setup types.
+- Day 54: $20-tier handoff package must be usable.
+- Day 54 to Day 60: prepare the Day 60 evidence decision package.
+- Day 60: decide whether historical proof earns shadow planning, exact blockers remain, or the current version needs diagnosis/fix path.
+
+Day 60 is not a profitability claim and not live trading.
+
+By Day 60, SAFE-FAST must produce one of these:
+
+- ready to plan live-data shadow
+- not ready, with exact blockers
+- not useful enough yet, with exact diagnosis and fix path
+
+"Not useful enough is not an ending. It is a diagnosis trigger."
+
+If the minimum historical evidence package is not complete by Day 60, it is a blocker, not "low confidence."
+
+### Minimum Day 60 historical evidence package
+
+- real historical examples have started
+- SPY, QQQ, IWM, and GLD are represented
+- Ideal, Clean Fast Break, and Continuation are represented
+- each example separates setup-time evidence from after-setup evidence
+- the system can say worked, failed, or missing evidence
+- the system can explain why
+- the system can name the next fix path
+- the system can produce compact review material for the $20 tier
 
 ## Workflow
 
@@ -109,6 +151,13 @@ The future $20 tier is for:
 - documentation updates
 - focused diagnostics review
 - small patches
+
+The $20 tier role is:
+
+- $20 tier reviews compact packets
+- $20 tier helps with small Codex prompts
+- $20 tier helps update docs
+- $20 tier does nple coverage review
 
 The $20 tier is not:
 
@@ -309,11 +358,11 @@ Recently built proof chain:
 
 Latest known completed build commit before current uncommitted work:
 
-7cc424c Add IWM controlled sample evidence
+d8ab7aa Add controlled sample coverage review plan
 
 Latest known local commit before current uncommitted work:
 
-7cc424c Add IWM controlled sample evidence
+d8ab7aa Add controlled sample coverage review plan
 
 Current Day 34 implementation status:
 
@@ -327,16 +376,17 @@ Current Day 34 implementation status:
 - GLD Continuation after-setup evidence implementation is complete and committed at `eb6e5d0 Add GLD Continuation after-setup evidence`.
 - IWM controlled sample expansion planning is complete and committed at `46b1e27 Add IWM controlled sample expansion plan`.
 - IWM controlled sample evidence implementation is complete and committed at `7cc424c Add IWM controlled sample evidence`.
-- Current objective is docs-only planning for the next controlled sample coverage review after IWM became represented and reviewable.
+- Controlled sample coverage review planning is complete and committed at `d8ab7aa Add controlled sample coverage review plan`.
+- Current objective is controlled sample coverage review.
 - Current plan file is `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md`.
-- Current changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- Current changed files should be limited to `SAFE_FAST_BUILD_STATE.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
 - Runner behavior: accepts caller-provided in-memory historical setup examples only, rejects file/report/log path, live-data, controlled-shadow, alert, broker/order/account/options/P&L/account-sizing, live-trade-decision, subprocess/thread/socket, watcher-loop, and `main.py` shaped inputs, runs proof -> diagnostics -> evidence packet -> packet readiness -> group review -> group review readiness -> historical bundle -> bundle readiness, preserves setup-time vs post-setup evidence separation, setup type, symbol, setup-type-plus-symbol pair separation, missing evidence, diagnostics, fix paths, regression needs, lower-tier review fields, and exact bundle-readiness missing review items.
 - Sample evidence set behavior: exposes one worked `Ideal` / `SPY` setup, one failed `Clean Fast Break` / `QQQ` setup, one reviewable `Continuation` / `GLD` setup, and exactly one controlled `Ideal` / `IWM` setup through the existing runner; preserves setup type separation, symbol separation, setup-type-plus-symbol pair separation, setup-time versus after-setup evidence separation, diagnostics, fix paths, lower-tier summary, no-trade/watch-only, no-live-data, no-controlled-shadow, no-alert, no-broker, no-file-write, no-rule-change, and no-optimization boundaries.
 - Review behavior: accepts caller-provided in-memory sample path output only, returns one in-memory review summary only, keeps worked, failed, and inconclusive samples separate, keeps setup type and symbol separate, checks no-hindsight boundaries, surfaces useful proof, weak proof, missing evidence, next fix paths, regression needs, lower-tier review material, explicitly reports the GLD Continuation review status and IWM review status / teaching, and defensively copies returned data.
 - Review result: the controlled output is useful but not final viability proof. The worked `Ideal` / `SPY` sample gives clear chart-behavior proof; the failed `Clean Fast Break` / `QQQ` sample gives useful diagnosis; the existing `Continuation` / `GLD` sample remains reviewable; the new `Ideal` / `IWM` sample became reviewable. Bundle readiness still shows tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
 - GLD Continuation status: `reviewable`; `gld_continuation_became_reviewable=True`; `gld_continuation_remains_inconclusive=False`; no final viability, profitability, historical success, optimization, or live trade claim.
 - IWM status: `reviewable`; `iwm_became_reviewable=True`; `iwm_remains_inconclusive=False`; the new sample teaches that the controlled local chain can carry one small-cap IWM example with setup-time evidence separated from after-setup evidence while keeping symbol and setup pair boundaries.
-- Next objective after this docs-only plan: create the narrow controlled sample coverage review of what the four-symbol controlled starting universe now proves and still does not prove, without hiding tiny-sample or upstream bundle-readiness gaps.
+- Next objective: create the narrow controlled sample coverage review of what the four-symbol controlled starting universe now proves and still does not prove, without hiding tiny-sample or upstream bundle-readiness gaps.
 - Validation results: focused historical sample path PASS (`26` tests); bundle readiness PASS (`11`); proof review bundle PASS (`13`); review readiness PASS (`12`); review aggregator PASS (`11`); packet readiness PASS (`11`); evidence packet PASS (`12`); diagnostics PASS (`14`); proof PASS (`21`); watcher-foundation scaffold PASS (`6`); `git diff --check` PASS with LF-to-CRLF working-copy warnings for touched files only.
 - Current task scope: docs-only planning update; no code changes, no tests changed, no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no file writes by the runner/review, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
 
