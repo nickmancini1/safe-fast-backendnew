@@ -8,9 +8,9 @@
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: 7181645 Update Day 34 handoff timeline and evidence checkpoint.
-- Latest known completed build commit before this handoff update: 7181645 Update Day 34 handoff timeline and evidence checkpoint.
-- Current uncommitted status: Day 34 controlled sample coverage review; changed files should be limited to `SAFE_FAST_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
+- Latest known local commit before current uncommitted work: ca8b6a4 Add controlled sample coverage review.
+- Latest known completed build commit before this handoff update: ca8b6a4 Add controlled sample coverage review.
+- Current uncommitted status: Day 34 controlled sample missing-evidence/inconclusive next-step plan; changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
 - Real local git status and git log are source of truth.
 - This Day33-named file remains a living handoff document and records this Day 34 update.
 
@@ -358,11 +358,11 @@ Recently built proof chain:
 
 Latest known completed build commit before current uncommitted work:
 
-d8ab7aa Add controlled sample coverage review plan
+ca8b6a4 Add controlled sample coverage review
 
 Latest known local commit before current uncommitted work:
 
-d8ab7aa Add controlled sample coverage review plan
+ca8b6a4 Add controlled sample coverage review
 
 Current Day 34 implementation status:
 
@@ -378,9 +378,10 @@ Current Day 34 implementation status:
 - IWM controlled sample evidence implementation is complete and committed at `7cc424c Add IWM controlled sample evidence`.
 - Controlled sample coverage review planning is complete and committed at `d8ab7aa Add controlled sample coverage review plan`.
 - Day 34 handoff timeline and evidence checkpoint is complete and committed at `7181645 Update Day 34 handoff timeline and evidence checkpoint`.
-- Current objective is controlled sample coverage review.
-- Current plan file is `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md`.
-- Current changed files should be limited to `SAFE_FAST_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- Controlled sample coverage review is complete and committed at `ca8b6a4 Add controlled sample coverage review`.
+- Current objective is docs-only next-step planning after the controlled sample coverage review.
+- Current plan file is `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`.
+- Current changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
 - Runner behavior: accepts caller-provided in-memory historical setup examples only, rejects file/report/log path, live-data, controlled-shadow, alert, broker/order/account/options/P&L/account-sizing, live-trade-decision, subprocess/thread/socket, watcher-loop, and `main.py` shaped inputs, runs proof -> diagnostics -> evidence packet -> packet readiness -> group review -> group review readiness -> historical bundle -> bundle readiness, preserves setup-time vs post-setup evidence separation, setup type, symbol, setup-type-plus-symbol pair separation, missing evidence, diagnostics, fix paths, regression needs, lower-tier review fields, and exact bundle-readiness missing review items.
 - Sample evidence set behavior: exposes one worked `Ideal` / `SPY` setup, one failed `Clean Fast Break` / `QQQ` setup, one reviewable `Continuation` / `GLD` setup, and exactly one controlled `Ideal` / `IWM` setup through the existing runner; preserves setup type separation, symbol separation, setup-type-plus-symbol pair separation, setup-time versus after-setup evidence separation, diagnostics, fix paths, lower-tier summary, no-trade/watch-only, no-live-data, no-controlled-shadow, no-alert, no-broker, no-file-write, no-rule-change, and no-optimization boundaries.
 - Review behavior: accepts caller-provided in-memory sample path output only, returns one in-memory review summary only, keeps worked, failed, and inconclusive samples separate, keeps setup type and symbol separate, checks no-hindsight boundaries, surfaces useful proof, weak proof, missing evidence, next fix paths, regression needs, lower-tier review material, explicitly reports the GLD Continuation review status and IWM review status / teaching, and defensively copies returned data.
@@ -391,9 +392,10 @@ Current Day 34 implementation status:
 - Outcome coverage result: worked chart/setup behavior is represented, failed chart/setup behavior is represented, and active inconclusive/missing-evidence coverage is not represented in the final four-sample controlled set.
 - Usefulness result: useful but missing explicit inconclusive/missing-evidence coverage; useful enough for the next proof review at tiny-sample known-limits depth, not final viability proof and not final lower-tier readiness.
 - Smallest next evidence-backed gap: add or preserve one explicit inconclusive/missing-evidence controlled sample before broader pair expansion.
-- Next objective: create the smallest controlled missing-evidence or inconclusive sample, or a docs-only plan for that sample if implementation scope is not yet approved.
+- Current docs-only plan objective: choose the smallest evidence-backed controlled missing-evidence or inconclusive sample gap and define the allowed future implementation/test scope.
 - Validation results for current docs-only review: unit tests not run because the plan says do not run unit tests for this docs-only step; `git diff --check` PASS (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md` only); new review file checked with `git diff --no-index --check -- NUL SAFE_FAST_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md` and no whitespace errors were reported.
-- Current task scope: docs-only coverage review; no code changes, no tests changed, no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no file writes by the runner/review, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
+- Validation results for current docs-only plan: unit tests not run because this is docs-only; `git diff --check` PASS (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md` only); new plan file checked with `git diff --no-index --check -- NUL SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md` and no whitespace errors were reported.
+- Current task scope: docs-only next-step planning; no code changes, no tests changed, no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no file writes by the runner/review, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
 
 ## Still unproven
 
@@ -562,25 +564,25 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Review the current docs-only controlled sample coverage result after IWM controlled sample evidence, then commit only the task-allowed docs files if accepted.
+Review the docs-only next-step plan after the controlled sample coverage review, then commit only the task-allowed docs files if accepted.
 
 Current changed files:
 
-- `SAFE_FAST_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`
+- `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`
 - `SAFE_FAST_BUILD_STATE.md`
 - `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`
 
 Current plan file:
 
-SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_IWM_CONTROLLED_SAMPLE_EVIDENCE.md
+SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md
 
 Unfinished item:
 
-Create the smallest controlled missing-evidence or inconclusive sample next, or a docs-only plan for that sample if implementation scope is not yet approved. Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven. Eight setup-type-plus-symbol pairs remain missing. Bundle readiness still has tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
+If later approved, implement exactly one active controlled missing-evidence or inconclusive sample with focused tests. Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven. Eight setup-type-plus-symbol pairs remain missing. Bundle readiness still has tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
 
 ## Next-after-next objective
 
-Create the smallest controlled missing-evidence or inconclusive sample, or a docs-only plan for that sample if implementation scope is not yet approved.
+Implement the smallest controlled missing-evidence or inconclusive sample only if explicitly approved, using the plan-defined future file scope and focused tests.
 
 The sample path output should remain small, explicit, and easy to inspect. Current result is that GLD Continuation remains reviewable and IWM became reviewable after exactly one controlled IWM sample was added; coverage review found all four symbols and all three setup types represented, eight setup-type-plus-symbol pairs missing, worked and failed outcomes represented, and active inconclusive/missing-evidence coverage absent. The next review must not broaden samples to hide remaining tiny-sample, missing-pair, missing-inconclusive, or upstream bundle-readiness gaps.
 
