@@ -8,9 +8,9 @@
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: 35b91bf Add first real historical example batch plan.
-- Latest known completed build commit before this handoff update: 35b91bf Add first real historical example batch plan.
-- Current uncommitted status: Day 35 first real historical example batch implementation; changed files should be limited to `watcher_foundation/setup_outcome_historical_sample_path.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
+- Latest known local commit before current uncommitted work: ba44d07 Add first real historical example batch.
+- Latest known completed build commit before this handoff update: ba44d07 Add first real historical example batch.
+- Current uncommitted status: Day 35 docs-only next-step plan after the first real historical example batch; changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
 - Real local git status and git log are source of truth.
 - This Day33-named file remains a living handoff document and records this Day 35 update.
 
@@ -359,13 +359,13 @@ Recently built proof chain:
 
 Latest known completed build commit before current uncommitted work:
 
-35b91bf Add first real historical example batch plan
+ba44d07 Add first real historical example batch
 
 Latest known local commit before current uncommitted work:
 
-35b91bf Add first real historical example batch plan
+ba44d07 Add first real historical example batch
 
-Current Day 35 first real historical example batch implementation status:
+Current Day 35 next-step plan after first real historical example batch status:
 
 - Historical setup sample path planning is complete and committed at `73a27ba Add historical setup sample path plan`.
 - Day 33 historical setup sample path runner is complete and committed at `6973581 Add historical setup sample path runner`.
@@ -384,8 +384,9 @@ Current Day 35 first real historical example batch implementation status:
 - Controlled missing-evidence sample implementation is complete and committed at `8527eff Add controlled missing-evidence sample`.
 - Controlled sample coverage review update is complete and committed at `bfad6d3 Update controlled sample coverage review`.
 - First real historical example batch planning is complete and committed at `35b91bf Add first real historical example batch plan`.
-- Current objective is implementing the first real historical example batch after controlled coverage became complete enough to start real historical examples.
-- Current changed files should be limited to `watcher_foundation/setup_outcome_historical_sample_path.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- First real historical example batch implementation is complete and committed at `ba44d07 Add first real historical example batch`.
+- Current objective is creating the docs-only next-step plan after the first real historical example batch, focused on IWM Continuation and GLD Ideal missing accepted evidence.
+- Current changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
 - Runner behavior: accepts caller-provided in-memory historical setup examples only, rejects file/report/log path, live-data, controlled-shadow, alert, broker/order/account/options/P&L/account-sizing, live-trade-decision, subprocess/thread/socket, watcher-loop, and `main.py` shaped inputs, runs proof -> diagnostics -> evidence packet -> packet readiness -> group review -> group review readiness -> historical bundle -> bundle readiness, preserves setup-time vs post-setup evidence separation, setup type, symbol, setup-type-plus-symbol pair separation, missing evidence, diagnostics, fix paths, regression needs, lower-tier review fields, and exact bundle-readiness missing review items.
 - Sample evidence set behavior: exposes one worked `Ideal` / `SPY` setup, one failed `Clean Fast Break` / `QQQ` setup, one reviewable `Continuation` / `GLD` setup, one reviewable `Ideal` / `IWM` setup, and exactly one explicit controlled missing-evidence `Continuation` / `QQQ` setup through the existing runner; preserves setup type separation, symbol separation, setup-type-plus-symbol pair separation, setup-time versus after-setup evidence separation, diagnostics, fix paths, lower-tier summary, no-trade/watch-only, no-live-data, no-controlled-shadow, no-alert, no-broker, no-file-write, no-rule-change, and no-optimization boundaries.
 - Review behavior: accepts caller-provided in-memory sample path output only, returns one in-memory review summary only, keeps worked, failed, and inconclusive samples separate, keeps setup type and symbol separate, checks no-hindsight boundaries, surfaces useful proof, weak proof, missing evidence, next fix paths, regression needs, lower-tier review material, explicitly reports the GLD Continuation review status and IWM review status / teaching, and defensively copies returned data.
@@ -416,7 +417,13 @@ Current Day 35 first real historical example batch implementation status:
 - Focused validation result: `python -m unittest discover -s tests -p test_setup_outcome_historical_sample_path.py` PASS (`32` tests).
 - Manual in-memory proof-chain validation result: PASS; the batch ran through `run_setup_outcome_historical_sample_path(...)` and `review_setup_outcome_historical_sample_path_output(...)` with no file/network/subprocess/thread/live/broker side effects.
 - git diff whitespace check: PASS with `git diff --check` (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`, `tests/test_setup_outcome_historical_sample_path.py`, `watcher_foundation/__init__.py`, and `watcher_foundation/setup_outcome_historical_sample_path.py` only).
-- Current task scope: implementation only in allowed files; no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no rule change, no optimization, no final viability claim, no historical success claim, no profitability claim, and no live trade decisions.
+- Current next-step plan file: `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`.
+- Current plan summary: inspect existing repo evidence for IWM Continuation and GLD Ideal before any code change. The plan names the exact missing accepted evidence: accepted final signal row, accepted triggered state, no primary blocker, numeric trigger, trigger basis, numeric invalidation, invalidation basis, freshness/final signal fields, blocker/caution priority, terminal outcome inputs, and chart risk denominator as applicable by setup.
+- IWM Continuation evidence status: repo contains source-backed candidate and post-candidate movement evidence, but the candidate remains `PENDING`, `completed_shelf_break_candidate_TO_REVIEW`, blocked by `trigger_level_TO_REVIEW`, with null trigger/invalidation and fresh/spent status still `TO_REVIEW`. It must remain missing-evidence/inconclusive unless exact accepted proof is found.
+- GLD Ideal evidence status: repo contains source-backed candidate and post-candidate movement evidence, but the candidate remains `PENDING`, `setup_confirming_TO_REVIEW`, blocked by `completed_candle_hold_unconfirmed`, with null trigger/invalidation and accepted signal/freshness/final fields unconfirmed. It must remain missing-evidence/inconclusive unless exact accepted proof is found.
+- Smallest next evidence-backed gap: create a docs-only IWM/GLD missing-evidence inventory from existing repo sources only; list every candidate/accepted-row possibility and whether each required field is present, null, `TO_REVIEW`, `UNCONFIRMED`, or absent.
+- Validation for this docs-only task: unit tests not run per instruction; `git diff --check` PASS (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md` only). New plan file checked with `git diff --no-index --check -- NUL SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`; no whitespace errors were reported, with the expected file-difference exit and LF-to-CRLF warning only.
+- Current task scope: docs only; no code changes, no tests changed, no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no rule change, no optimization, no final viability claim, no historical success claim, no profitability claim, and no live trade decisions.
 
 ## Still unproven
 
@@ -585,12 +592,11 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Assistant review of the first real historical example batch implementation, then commit only expected files if accepted.
+Assistant review of the docs-only next-step plan after the first real historical example batch, then commit only expected files if accepted.
 
 Current changed files should be limited to:
 
-- `watcher_foundation/setup_outcome_historical_sample_path.py`
-- `tests/test_setup_outcome_historical_sample_path.py`
+- `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`
 - `SAFE_FAST_BUILD_STATE.md`
 - `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`
 
@@ -600,9 +606,9 @@ Final viability, profitability, actual historical success, controlled shadow rea
 
 ## Next-after-next objective
 
-After assistant review and commit, plan the next bounded real historical evidence step without optimization, profitability claims, live data, alerts, broker behavior, generated reports/logs, or production work.
+After assistant review and commit, create a docs-only IWM/GLD missing-evidence inventory from existing repo sources only, without optimization, profitability claims, live data, alerts, broker behavior, generated reports/logs, or production work.
 
-The sample path output should remain small, explicit, and easy to inspect. The next evidence step must either add a bounded real historical example that improves missing pair/outcome coverage or diagnose the IWM/GLD missing accepted trigger/invalidation/freshness evidence without hiding remaining tiny-sample, missing-pair, real-history, or upstream bundle-readiness gaps.
+The inventory must decide separately whether IWM Continuation and GLD Ideal have accepted trigger/invalidation/freshness/final-signal proof already in the repo. If yes, plan the smallest later in-memory update and regression test. If no, preserve missing-evidence status and choose the next bounded real historical example without hiding remaining tiny-sample, missing-pair, real-history, or upstream bundle-readiness gaps.
 
 ## Final UI direction
 
