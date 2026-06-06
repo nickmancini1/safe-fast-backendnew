@@ -3,16 +3,16 @@
 ## Current update status
 
 - Baseline: patch8.
-- Current working day: Day 34.
+- Current working day: Day 35.
 - Day 33 status: historical context.
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: ca8b6a4 Add controlled sample coverage review.
-- Latest known completed build commit before this handoff update: ca8b6a4 Add controlled sample coverage review.
-- Current uncommitted status: Day 34 controlled sample missing-evidence/inconclusive next-step plan; changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
+- Latest known local commit before current uncommitted work: ad21b40 Add controlled sample missing evidence plan.
+- Latest known completed build commit before this handoff update: ad21b40 Add controlled sample missing evidence plan.
+- Current uncommitted status: Day 35 controlled missing-evidence sample implementation; changed files should be limited to `watcher_foundation/setup_outcome_historical_sample_path.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
 - Real local git status and git log are source of truth.
-- This Day33-named file remains a living handoff document and records this Day 34 update.
+- This Day33-named file remains a living handoff document and records this Day 35 update.
 
 ## Update protocol
 
@@ -36,8 +36,9 @@ Future chats must not make the user re-explain this context.
 ## Repo and checkpoint handling
 
 - Day 31 is historical context.
-- Day 33 is historical context for the current Day 34 plan/build-state updates.
-- Day 34 is the current working day.
+- Day 33 is historical context.
+- Day 34 is historical context for the current Day 35 implementation/build-state updates.
+- Day 35 is the current working day.
 - Day 28 file names are historical labels only.
 - fc64232 is the latest Day 31 handoff/build-state checkpoint.
 - 0d23423 is the Day 31 addendum milestone before that sync.
@@ -358,13 +359,13 @@ Recently built proof chain:
 
 Latest known completed build commit before current uncommitted work:
 
-ca8b6a4 Add controlled sample coverage review
+ad21b40 Add controlled sample missing evidence plan
 
 Latest known local commit before current uncommitted work:
 
-ca8b6a4 Add controlled sample coverage review
+ad21b40 Add controlled sample missing evidence plan
 
-Current Day 34 implementation status:
+Current Day 35 implementation status:
 
 - Historical setup sample path planning is complete and committed at `73a27ba Add historical setup sample path plan`.
 - Day 33 historical setup sample path runner is complete and committed at `6973581 Add historical setup sample path runner`.
@@ -379,23 +380,25 @@ Current Day 34 implementation status:
 - Controlled sample coverage review planning is complete and committed at `d8ab7aa Add controlled sample coverage review plan`.
 - Day 34 handoff timeline and evidence checkpoint is complete and committed at `7181645 Update Day 34 handoff timeline and evidence checkpoint`.
 - Controlled sample coverage review is complete and committed at `ca8b6a4 Add controlled sample coverage review`.
-- Current objective is docs-only next-step planning after the controlled sample coverage review.
-- Current plan file is `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`.
-- Current changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- Controlled sample missing-evidence implementation planning is complete and committed at `ad21b40 Add controlled sample missing evidence plan`.
+- Current objective is implementation of exactly one explicit controlled missing-evidence sample from the accepted plan.
+- Current changed files should be limited to `watcher_foundation/setup_outcome_historical_sample_path.py`, `tests/test_setup_outcome_historical_sample_path.py`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
 - Runner behavior: accepts caller-provided in-memory historical setup examples only, rejects file/report/log path, live-data, controlled-shadow, alert, broker/order/account/options/P&L/account-sizing, live-trade-decision, subprocess/thread/socket, watcher-loop, and `main.py` shaped inputs, runs proof -> diagnostics -> evidence packet -> packet readiness -> group review -> group review readiness -> historical bundle -> bundle readiness, preserves setup-time vs post-setup evidence separation, setup type, symbol, setup-type-plus-symbol pair separation, missing evidence, diagnostics, fix paths, regression needs, lower-tier review fields, and exact bundle-readiness missing review items.
-- Sample evidence set behavior: exposes one worked `Ideal` / `SPY` setup, one failed `Clean Fast Break` / `QQQ` setup, one reviewable `Continuation` / `GLD` setup, and exactly one controlled `Ideal` / `IWM` setup through the existing runner; preserves setup type separation, symbol separation, setup-type-plus-symbol pair separation, setup-time versus after-setup evidence separation, diagnostics, fix paths, lower-tier summary, no-trade/watch-only, no-live-data, no-controlled-shadow, no-alert, no-broker, no-file-write, no-rule-change, and no-optimization boundaries.
+- Sample evidence set behavior: exposes one worked `Ideal` / `SPY` setup, one failed `Clean Fast Break` / `QQQ` setup, one reviewable `Continuation` / `GLD` setup, one reviewable `Ideal` / `IWM` setup, and exactly one explicit controlled missing-evidence `Continuation` / `QQQ` setup through the existing runner; preserves setup type separation, symbol separation, setup-type-plus-symbol pair separation, setup-time versus after-setup evidence separation, diagnostics, fix paths, lower-tier summary, no-trade/watch-only, no-live-data, no-controlled-shadow, no-alert, no-broker, no-file-write, no-rule-change, and no-optimization boundaries.
 - Review behavior: accepts caller-provided in-memory sample path output only, returns one in-memory review summary only, keeps worked, failed, and inconclusive samples separate, keeps setup type and symbol separate, checks no-hindsight boundaries, surfaces useful proof, weak proof, missing evidence, next fix paths, regression needs, lower-tier review material, explicitly reports the GLD Continuation review status and IWM review status / teaching, and defensively copies returned data.
-- Review result: the controlled output is useful but not final viability proof. The worked `Ideal` / `SPY` sample gives clear chart-behavior proof; the failed `Clean Fast Break` / `QQQ` sample gives useful diagnosis; the existing `Continuation` / `GLD` sample remains reviewable; the new `Ideal` / `IWM` sample became reviewable. Bundle readiness still shows tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
+- Review result: the controlled output is useful but not final viability proof. The worked `Ideal` / `SPY` sample gives clear chart-behavior proof; the failed `Clean Fast Break` / `QQQ` sample gives useful diagnosis; the existing `Continuation` / `GLD` sample remains reviewable; the `Ideal` / `IWM` sample remains reviewable; the new `Continuation` / `QQQ` sample provides active missing-evidence coverage. Bundle readiness still shows tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
 - GLD Continuation status: `reviewable`; `gld_continuation_became_reviewable=True`; `gld_continuation_remains_inconclusive=False`; no final viability, profitability, historical success, optimization, or live trade claim.
 - IWM status: `reviewable`; `iwm_became_reviewable=True`; `iwm_remains_inconclusive=False`; the new sample teaches that the controlled local chain can carry one small-cap IWM example with setup-time evidence separated from after-setup evidence while keeping symbol and setup pair boundaries.
-- Controlled sample coverage review result: represented symbols are `GLD`, `IWM`, `QQQ`, and `SPY`; represented setup types are `Clean Fast Break`, `Continuation`, and `Ideal`; represented pairs are `Ideal` / `SPY`, `Clean Fast Break` / `QQQ`, `Continuation` / `GLD`, and `Ideal` / `IWM`; missing pairs are `Clean Fast Break` / `SPY`, `Continuation` / `SPY`, `Ideal` / `QQQ`, `Continuation` / `QQQ`, `Clean Fast Break` / `IWM`, `Continuation` / `IWM`, `Ideal` / `GLD`, and `Clean Fast Break` / `GLD`.
-- Outcome coverage result: worked chart/setup behavior is represented, failed chart/setup behavior is represented, and active inconclusive/missing-evidence coverage is not represented in the final four-sample controlled set.
-- Usefulness result: useful but missing explicit inconclusive/missing-evidence coverage; useful enough for the next proof review at tiny-sample known-limits depth, not final viability proof and not final lower-tier readiness.
-- Smallest next evidence-backed gap: add or preserve one explicit inconclusive/missing-evidence controlled sample before broader pair expansion.
-- Current docs-only plan objective: choose the smallest evidence-backed controlled missing-evidence or inconclusive sample gap and define the allowed future implementation/test scope.
-- Validation results for current docs-only review: unit tests not run because the plan says do not run unit tests for this docs-only step; `git diff --check` PASS (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md` only); new review file checked with `git diff --no-index --check -- NUL SAFE_FAST_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md` and no whitespace errors were reported.
-- Validation results for current docs-only plan: unit tests not run because this is docs-only; `git diff --check` PASS (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md` only); new plan file checked with `git diff --no-index --check -- NUL SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md` and no whitespace errors were reported.
-- Current task scope: docs-only next-step planning; no code changes, no tests changed, no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no file writes by the runner/review, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
+- Controlled sample implementation result: represented symbols are `GLD`, `IWM`, `QQQ`, and `SPY`; represented setup types are `Clean Fast Break`, `Continuation`, and `Ideal`; represented pairs are `Ideal` / `SPY`, `Clean Fast Break` / `QQQ`, `Continuation` / `GLD`, `Ideal` / `IWM`, and `Continuation` / `QQQ`.
+- Outcome coverage result: worked chart/setup behavior is represented, failed chart/setup behavior is represented, and active missing-evidence coverage is now represented exactly once.
+- Missing-evidence coverage present: yes; `controlled-sample-continuation-qqq-missing-evidence-001` has setup-time evidence but missing after-setup `source_row_reference` and `post_setup_evidence`.
+- What the missing-evidence sample teaches: the chain can preserve setup-time evidence, keep missing after-setup evidence scoped to the `Continuation` / `QQQ` pair, diagnose the gap as `data_quality_or_missing_evidence`, avoid fabricating evidence, and name `collect_or_preserve_missing_after_setup_evidence` as the smallest next fix path without optimization or rule changes.
+- Focused validation result: `python -m unittest discover -s tests -p test_setup_outcome_historical_sample_path.py` PASS (`27` tests).
+- Controlled sample path and output review rerun: PASS; `records_processed=5`, `records_accepted=5`, `records_rejected=0`; worked `3`, failed `1`, missing evidence `1`; `review_conclusion=useful_but_not_final_viability_proof`; no final viability, profitability, historical success, or optimization claim.
+- git diff whitespace check: PASS with `git diff --check` (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`, `tests/test_setup_outcome_historical_sample_path.py`, and `watcher_foundation/setup_outcome_historical_sample_path.py` only).
+- Prior Day 34 docs-only coverage review validation: unit tests not run because the plan said do not run unit tests for that docs-only step; `git diff --check` PASS (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md` only); new review file checked with `git diff --no-index --check -- NUL SAFE_FAST_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md` and no whitespace errors were reported.
+- Prior Day 34 docs-only missing-evidence plan validation: unit tests not run because that task was docs-only; `git diff --check` PASS (exit 0; LF-to-CRLF working-copy warnings for `SAFE_FAST_BUILD_STATE.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md` only); new plan file checked with `git diff --no-index --check -- NUL SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md` and no whitespace errors were reported.
+- Current task scope: controlled local-only implementation; no `main.py`, no engine logic, no Railway/deploy, no live data, no controlled shadow data, no alerts, no broker/order/account/options/P&L, no account sizing, no generated reports/logs, no file writes by the runner/review, no rule change, no optimization, no final viability claim, no profitability claim, and no live trade decisions.
 
 ## Still unproven
 
@@ -564,27 +567,24 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Review the docs-only next-step plan after the controlled sample coverage review, then commit only the task-allowed docs files if accepted.
+Review the Day 35 controlled missing-evidence sample implementation, then commit only the task-allowed files if accepted.
 
 Current changed files:
 
-- `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md`
+- `watcher_foundation/setup_outcome_historical_sample_path.py`
+- `tests/test_setup_outcome_historical_sample_path.py`
 - `SAFE_FAST_BUILD_STATE.md`
 - `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`
 
-Current plan file:
-
-SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_CONTROLLED_SAMPLE_COVERAGE_REVIEW.md
-
 Unfinished item:
 
-If later approved, implement exactly one active controlled missing-evidence or inconclusive sample with focused tests. Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven. Eight setup-type-plus-symbol pairs remain missing. Bundle readiness still has tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
+Final viability, profitability, actual historical success, controlled shadow readiness, live readiness, production readiness, and Railway readiness remain unproven. Seven setup-type-plus-symbol pairs remain missing after adding `Continuation` / `QQQ`. Bundle readiness still has tiny-sample/upstream review contract gaps and must not be treated as final lower-tier readiness.
 
 ## Next-after-next objective
 
-Implement the smallest controlled missing-evidence or inconclusive sample only if explicitly approved, using the plan-defined future file scope and focused tests.
+After assistant review and commit, decide the next local evidence step: either plan real historical examples or define the next smallest setup-type-plus-symbol pair expansion, without optimization, profitability claims, live data, alerts, broker behavior, generated reports/logs, or production work.
 
-The sample path output should remain small, explicit, and easy to inspect. Current result is that GLD Continuation remains reviewable and IWM became reviewable after exactly one controlled IWM sample was added; coverage review found all four symbols and all three setup types represented, eight setup-type-plus-symbol pairs missing, worked and failed outcomes represented, and active inconclusive/missing-evidence coverage absent. The next review must not broaden samples to hide remaining tiny-sample, missing-pair, missing-inconclusive, or upstream bundle-readiness gaps.
+The sample path output should remain small, explicit, and easy to inspect. Current result is that GLD Continuation remains reviewable, IWM remains reviewable, all four symbols and all three setup types are represented, worked and failed outcomes are represented, and active missing-evidence coverage is now present exactly once through `Continuation` / `QQQ`. The next review must not broaden samples to hide remaining tiny-sample, missing-pair, real-history, or upstream bundle-readiness gaps.
 
 ## Final UI direction
 

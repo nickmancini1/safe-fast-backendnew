@@ -345,6 +345,50 @@ def build_first_controlled_historical_sample_evidence_set() -> list[dict[str, An
                 "any broader sample expansion"
             ),
         ),
+        _controlled_sample_record(
+            proof_record_id="controlled-sample-continuation-qqq-missing-evidence-001",
+            source_record_id="controlled-source-qqq-continuation-001",
+            setup_id="controlled-continuation-qqq-001",
+            setup_type="Continuation",
+            symbol="QQQ",
+            stage="near-trigger",
+            detection_timestamp="2026-04-17T10:30:00-04:00",
+            setup_evidence_refs=[
+                "controlled-source-qqq-continuation-001:setup-time-candle",
+                "controlled-source-qqq-continuation-001:setup-time-shelf",
+            ],
+            after_setup_evidence={
+                "caller_provided": True,
+                "start_timestamp": "2026-04-17T11:30:00-04:00",
+                "end_timestamp": "2026-04-17T15:30:00-04:00",
+                "future_evidence_used_to_define_setup": False,
+            },
+            trigger_state="triggered",
+            invalidation_state="valid_by_rule",
+            freshness_state="fresh",
+            blocker_caution_state="none",
+            session_boundary_state="valid_by_rule",
+            outcome_evidence_state="missing_evidence",
+            outcome_result_state="inconclusive",
+            evidence_refs=[
+                "controlled-source-qqq-continuation-001:setup-time-candle",
+                "controlled-source-qqq-continuation-001:setup-time-shelf",
+            ],
+            unavailable_fields=[
+                _unavailable_sample_field(
+                    "source_row_reference",
+                    "controlled sample deliberately omits source-backed after-row evidence",
+                ),
+                _unavailable_sample_field(
+                    "post_setup_evidence",
+                    "controlled sample deliberately omits after-setup outcome evidence",
+                ),
+            ],
+            next_fix_path=(
+                "collect or preserve source-backed after-setup evidence before "
+                "classifying the continuation outcome"
+            ),
+        ),
     ]
     return deepcopy(records)
 
@@ -385,6 +429,8 @@ def run_setup_outcome_historical_sample_path(
     bundle_readiness_summary = evaluate_setup_outcome_proof_review_bundle_readiness(
         historical_proof_bundle_summary
     )
+    diagnostics = _diagnostics_summary(diagnostics_summary)
+    scoped_missing_evidence = _missing_evidence_by_actual_scope(diagnostics)
 
     result = {
         "watch_only": True,
@@ -419,17 +465,13 @@ def run_setup_outcome_historical_sample_path(
         "outcome_group_counts": _outcome_group_counts(group_review_summary),
         "missing_evidence": deepcopy(bundle_readiness_summary["missing_evidence"]),
         "missing_evidence_by_setup_type": deepcopy(
-            bundle_readiness_summary["missing_evidence_by_setup_type"]
+            scoped_missing_evidence["by_setup_type"]
         ),
-        "missing_evidence_by_symbol": deepcopy(
-            bundle_readiness_summary["missing_evidence_by_symbol"]
-        ),
+        "missing_evidence_by_symbol": deepcopy(scoped_missing_evidence["by_symbol"]),
         "missing_evidence_by_setup_type_symbol_pair": deepcopy(
-            bundle_readiness_summary[
-                "missing_evidence_by_setup_type_symbol_pair"
-            ]
+            scoped_missing_evidence["by_setup_type_symbol_pair"]
         ),
-        "diagnostics": _diagnostics_summary(diagnostics_summary),
+        "diagnostics": diagnostics,
         "next_fix_paths": _next_fix_paths(
             diagnostics_summary,
             group_review_summary,
@@ -853,6 +895,42 @@ def _diagnostics_summary(diagnostics_summary: Mapping[str, Any]) -> list[dict[st
     ]
 
 
+def _missing_evidence_by_actual_scope(
+    diagnostics: list[dict[str, Any]],
+) -> dict[str, Any]:
+    by_setup_type: dict[str, list[Any]] = {}
+    by_symbol: dict[str, list[Any]] = {}
+    by_pair: list[dict[str, Any]] = []
+    for finding in diagnostics:
+        missing_items = finding.get("unavailable_evidence", [])
+        if not missing_items:
+            continue
+        setup_type = finding.get("affected_setup_type")
+        symbol = finding.get("affected_symbol")
+        if type(setup_type) is str:
+            by_setup_type.setdefault(setup_type, [])
+            for item in missing_items:
+                _append_unique(by_setup_type[setup_type], item)
+        if type(symbol) is str:
+            by_symbol.setdefault(symbol, [])
+            for item in missing_items:
+                _append_unique(by_symbol[symbol], item)
+        if type(setup_type) is str and type(symbol) is str:
+            pair_item = {
+                "setup_type": setup_type,
+                "symbol": symbol,
+                "missing_evidence": [],
+            }
+            for item in missing_items:
+                _append_unique(pair_item["missing_evidence"], item)
+            _append_unique(by_pair, pair_item)
+    return {
+        "by_setup_type": by_setup_type,
+        "by_symbol": by_symbol,
+        "by_setup_type_symbol_pair": by_pair,
+    }
+
+
 def _next_fix_paths(
     diagnostics_summary: Mapping[str, Any],
     group_review_summary: Mapping[str, Any],
@@ -1062,7 +1140,7 @@ def _review_samples_for_statuses(
                     "setup_type": happened["setup_type"],
                     "symbol": happened["symbol"],
                 },
-                "outcome_status": happened["outcome_status"],
+                "outcome_status": outcome_status,
                 "outcome_result_state": happened["outcome_result_state"],
                 "setup_time_evidence_refs": deepcopy(
                     appeared.get("setup_evidence_refs", [])

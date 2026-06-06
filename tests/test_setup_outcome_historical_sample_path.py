@@ -136,12 +136,12 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
             FIRST_CONTROLLED_HISTORICAL_SAMPLE_EVIDENCE_SET_ID,
             "first_controlled_historical_sample_evidence_set_v1",
         )
-        self.assertEqual(result["records_processed"], 4)
-        self.assertEqual(result["records_accepted"], 4)
+        self.assertEqual(result["records_processed"], 5)
+        self.assertEqual(result["records_accepted"], 5)
         self.assertEqual(result["records_rejected"], 0)
         self.assertEqual(result["outcome_group_counts"]["worked"], 3)
         self.assertGreater(result["outcome_group_counts"]["failed"], 0)
-        self.assertEqual(result["outcome_group_counts"]["missing_evidence"], 0)
+        self.assertEqual(result["outcome_group_counts"]["missing_evidence"], 1)
         self.assertIs(result["historical_setup_sample_path_only"], True)
         self.assertIn("bundle_readiness", result["proof_chain"])
 
@@ -179,7 +179,7 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
         self.assertIs(review["historical_sample_path_output_review_only"], True)
         self.assertEqual(len(review["worked_samples"]), 3)
         self.assertEqual(len(review["failed_samples"]), 1)
-        self.assertEqual(len(review["inconclusive_samples"]), 0)
+        self.assertEqual(len(review["inconclusive_samples"]), 1)
         self.assertEqual(review["worked_samples"][0]["setup_type"], "Ideal")
         self.assertEqual(review["worked_samples"][0]["symbol"], "SPY")
         self.assertEqual(
@@ -208,6 +208,11 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
         self.assertIs(review["iwm_remains_inconclusive"], False)
         self.assertEqual(review["iwm_sample_teaches"]["symbol"], "IWM")
         self.assertIn("small-cap IWM", review["iwm_sample_teaches"]["teaches"])
+        missing_sample = review["inconclusive_samples"][0]
+        self.assertEqual(missing_sample["setup_type"], "Continuation")
+        self.assertEqual(missing_sample["symbol"], "QQQ")
+        self.assertEqual(missing_sample["outcome_status"], "missing_evidence")
+        self.assertTrue(missing_sample["explicit_missing_evidence"])
 
     def test_review_answers_proof_diagnosis_and_missing_evidence_questions(self):
         sample_output = run_setup_outcome_historical_sample_path(
@@ -218,7 +223,7 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
 
         self.assertIs(review["worked_sample_clear_proof"], True)
         self.assertIs(review["failed_sample_useful_diagnosis"], True)
-        self.assertIs(review["inconclusive_sample_missing_evidence_clear"], False)
+        self.assertIs(review["inconclusive_sample_missing_evidence_clear"], True)
         self.assertEqual(review["gld_continuation_review_status"], "reviewable")
         self.assertEqual(review["iwm_review_status"], "reviewable")
         self.assertIn("worked_chart_behavior", str(review["useful_proof"]))
@@ -226,6 +231,7 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
             "failed_chart_behavior_with_diagnosis",
             str(review["useful_proof"]),
         )
+        self.assertIn("missing_evidence_identified", str(review["useful_proof"]))
         self.assertIn("bundle_readiness", str(review["weak_proof"]))
 
     def test_review_preserves_no_hindsight_setup_symbol_pair_and_boundaries(self):
@@ -275,7 +281,7 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
             "outcome_scoring_review",
             str(review["next_fix_paths"]),
         )
-        self.assertNotEqual(
+        self.assertEqual(
             review["smallest_next_fix_path"]["path"],
             "collect_or_preserve_missing_after_setup_evidence",
         )
@@ -284,7 +290,7 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
         lower_tier = review["lower_tier_review_summary"]
         self.assertEqual(len(lower_tier["worked_samples"]), 3)
         self.assertEqual(len(lower_tier["failed_samples"]), 1)
-        self.assertEqual(len(lower_tier["inconclusive_samples"]), 0)
+        self.assertEqual(len(lower_tier["inconclusive_samples"]), 1)
         self.assertIs(lower_tier["no_trade_watch_only"], True)
         self.assertIs(lower_tier["no_live_data"], True)
         self.assertIs(lower_tier["no_controlled_shadow_data"], True)
@@ -367,6 +373,7 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
                 ("Clean Fast Break", "QQQ"),
                 ("Continuation", "GLD"),
                 ("Ideal", "IWM"),
+                ("Continuation", "QQQ"),
             },
         )
         self.assertIs(result["setup_type_separated"], True)
@@ -413,8 +420,14 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
             build_first_controlled_historical_sample_evidence_set()
         )
 
-        self.assertNotIn("Continuation", result["missing_evidence_by_setup_type"])
         self.assertNotIn("GLD", result["missing_evidence_by_symbol"])
+        self.assertNotIn(
+            {"setup_type": "Continuation", "symbol": "GLD"},
+            [
+                {"setup_type": item["setup_type"], "symbol": item["symbol"]}
+                for item in result["missing_evidence_by_setup_type_symbol_pair"]
+            ],
+        )
         happened_by_pair = {
             (item["setup_type"], item["symbol"]): item
             for item in result["proof_chain"]["what_happened_after"]
@@ -466,6 +479,71 @@ class SetupOutcomeHistoricalSamplePathTests(unittest.TestCase):
             False,
         )
         self.assertNotIn("IWM", result["missing_evidence_by_symbol"])
+
+    def test_first_controlled_sample_adds_exactly_one_missing_evidence_example(self):
+        sample = build_first_controlled_historical_sample_evidence_set()
+
+        missing_records = [
+            record
+            for record in sample
+            if record["outcome_evidence_state"] == "missing_evidence"
+        ]
+
+        self.assertEqual(len(missing_records), 1)
+        missing_record = missing_records[0]
+        self.assertEqual(missing_record["setup_type"], "Continuation")
+        self.assertEqual(missing_record["symbol"], "QQQ")
+        self.assertEqual(
+            missing_record["setup_id"],
+            "controlled-continuation-qqq-001",
+        )
+        self.assertNotIn(
+            "source_row_reference",
+            missing_record["after_setup_evidence"],
+        )
+        self.assertNotIn("post_setup_evidence", missing_record["after_setup_evidence"])
+        self.assertIs(
+            missing_record["after_setup_evidence"][
+                "future_evidence_used_to_define_setup"
+            ],
+            False,
+        )
+
+        result = run_setup_outcome_historical_sample_path(sample)
+        review = review_setup_outcome_historical_sample_path_output(result)
+        missing_sample = review["inconclusive_samples"][0]
+
+        self.assertEqual(result["outcome_group_counts"]["missing_evidence"], 1)
+        self.assertEqual(review["inconclusive_sample_missing_evidence_clear"], True)
+        self.assertEqual(
+            {
+                item["field_name"]
+                for item in missing_sample["missing_evidence"]
+                if type(item) is dict
+            },
+            {"source_row_reference", "post_setup_evidence"},
+        )
+        self.assertIn("Continuation", result["missing_evidence_by_setup_type"])
+        self.assertIn("QQQ", result["missing_evidence_by_symbol"])
+        self.assertNotIn("SPY", result["missing_evidence_by_symbol"])
+        self.assertNotIn("IWM", result["missing_evidence_by_symbol"])
+        self.assertNotIn("GLD", result["missing_evidence_by_symbol"])
+        self.assertIn(
+            {"setup_type": "Continuation", "symbol": "QQQ"},
+            [
+                {"setup_type": item["setup_type"], "symbol": item["symbol"]}
+                for item in result["missing_evidence_by_setup_type_symbol_pair"]
+            ],
+        )
+        self.assertEqual(
+            review["smallest_next_fix_path"]["path"],
+            "collect_or_preserve_missing_after_setup_evidence",
+        )
+        self.assertIn("missing_evidence_identified", str(review["useful_proof"]))
+        self.assertIs(review["final_viability_proven"], False)
+        self.assertIs(review["profitability_claimed"], False)
+        self.assertIs(review["historical_success_claimed"], False)
+        self.assertIs(review["optimization_started"], False)
 
     def test_review_reports_what_iwm_sample_teaches_without_viability_claim(self):
         sample_output = run_setup_outcome_historical_sample_path(
