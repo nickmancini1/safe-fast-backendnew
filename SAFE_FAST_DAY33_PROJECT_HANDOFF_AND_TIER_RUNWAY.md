@@ -457,6 +457,16 @@ This mandate does not authorize:
 - Purpose of next instruction: specify the exact bounded historical 1H RTH rows needed to populate IWM Continuation and GLD Ideal replacement candidates.
 - Scope preserved: docs-only packet; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 replacement source row packet validator status
+
+- Latest committed baseline before this status: 0f0c519 Add IWM GLD replacement source row request.
+- Build files: `watcher_foundation/replacement_source_row_packet.py`, `tests/test_replacement_source_row_packet.py`, `watcher_foundation/__init__.py`.
+- Result: local in-memory replacement source row packet validator implemented.
+- Purpose: validate future IWM Continuation and GLD Ideal replacement source row packets before acceptance review.
+- Boundary: validates required setup-time fields, no-hindsight outcome-window ordering, candidate ID / symbol / setup-type consistency, OHLCV shape, and forbidden live/broker/order/account/options/P&L fields.
+- Tests: `python -m unittest discover -s tests -p test_replacement_source_row_packet.py`.
+- Scope preserved: no main.py, engine logic, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current update status
 
 - Baseline: patch8.
