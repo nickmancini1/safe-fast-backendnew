@@ -7324,3 +7324,15 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Bas/build-state only. No code, tests, live data, controlled shadow, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy, production, secrets, or live trade decisions.
 - **Update rule:** this handoff file must be updated whenever the day, latest commit, objective, completed milestone, tier/runway status, active risks, unresolved concerns, no-go boundaries, next objective, or future-chat instructions change.
 
+
+## Day 36 baseline sync after replacement source row packet builder
+
+- Latest verified commit: `fa79551 Add replacement source row packet builder`.
+- Verified builder test command: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"`.
+- Verified builder test result: 18 tests passed.
+- Verified cleanup: Python cache folders removed after test run.
+- Verified repository check: `git diff --check` clean.
+- Builder status: accepted as local in-memory replacement source row packet builder only.
+- No file reads, file writes, live data, broker/order/account/options/P&L, alerts, trade decisions, Railway, production, or secrets are authorized by this milestone.
+- Active next objective: create or accept bounded real historical evidence packets for IWM Continuation and GLD Ideal.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until accepted trigger, invalidation, freshness, blocker, setup-time, and terminal outcome proof exists.
