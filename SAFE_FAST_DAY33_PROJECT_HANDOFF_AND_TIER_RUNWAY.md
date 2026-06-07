@@ -1243,3 +1243,14 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Result: exact local row collection instruction created.
 - Status: IWM/GLD remain missing-evidence/inconclusive until rows and accepted proof exist.
 - Next objective: populate or accept bounded local source row packets for the four reserved replacement candidates.
+
+## Day 36 IWM/GLD local source row packet population review status
+
+- Latest committed baseline before this status: `d95291b Add IWM GLD local source export instruction`.
+- New file: `SAFE_FAST_IWM_GLD_LOCAL_SOURCE_ROW_PACKET_POPULATION_REVIEW.md`.
+- Result: no reserved IWM/GLD replacement candidate is `ready_for_packet_build_review`.
+- Reason: exact local source rows for the four reserved replacement candidate IDs were not found in the bounded repo review, and the older IWM Continuation 001 / GLD Ideal 001 paths remain blocked by missing or unaccepted setup-time trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome proof.
+- No accepted proof was created; `accepted_proof=false`, `watch_only=true`, and `no_trade_decision=true` remain preserved for every candidate.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact repo evidence proves otherwise.
+- Next objective: collect or provide bounded local historical 1H RTH source-row packets for the four reserved replacement candidates only if exact setup-time source rows and accepted evidence fields are available.
+- Future chats must use: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
