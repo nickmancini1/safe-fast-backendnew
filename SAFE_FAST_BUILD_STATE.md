@@ -398,6 +398,16 @@ A bounded 1H/24H support-resistance and room-classification design/test plan is 
 - Smallest next evidence-backed fix: stop trying to promote these two candidate examples unless explicitly requested; create a bounded real historical replacement-candidate selection review for a cleaner IWM Continuation or GLD Ideal example with complete setup-time fields.
 - Scope preserved: docs-only evidence review; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 IWM/GLD replacement candidate selection review status
+
+- Latest committed baseline before this status: c80bd9e Add IWM Continuation trigger invalidation freshness acceptance review.
+- Review file: SAFE_FAST_IWM_GLD_REPLACEMENT_CANDIDATE_SELECTION_REVIEW.md.
+- Result: stop trying to promote the current IWM Continuation 001 and GLD Ideal 001 candidates unless explicitly requested later.
+- Reason: both are blocked at setup-time acceptance and remain missing-evidence/inconclusive.
+- Selected next evidence-backed move: create SAFE_FAST_GLD_IDEAL_REPLACEMENT_CANDIDATE_SOURCE_SELECTION_WORKSHEET.md.
+- Target: find a cleaner GLD Ideal replacement candidate from existing repo sources only, or prove no acceptable GLD Ideal replacement candidate exists in current repo sources.
+- Scope preserved: docs-only review; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
