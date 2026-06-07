@@ -365,6 +365,17 @@ A bounded 1H/24H support-resistance and room-classification design/test plan is 
 - Smallest next evidence-backed fix: choose the clearest bounded trigger/invalidation/freshness acceptance review between IWM Continuation and GLD Ideal; do not promote either setup unless accepted setup-time proof exists.
 - Scope preserved: docs-only evidence review; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 GLD Ideal 001 trigger / invalidation / freshness acceptance review status
+
+- Latest committed baseline before this status: 8044901 Add GLD Ideal accepted signal row review.
+- Review file: SAFE_FAST_GLD_IDEAL_001_TRIGGER_INVALIDATION_FRESHNESS_ACCEPTANCE_REVIEW.md.
+- Result: GLD Ideal 001 cannot accept trigger / invalidation / freshness proof from current repo evidence.
+- Status: GLD Ideal 001 remains missing-evidence/inconclusive.
+- Reason: no accepted setup-time signal row, no accepted numeric trigger, no accepted numeric invalidation, no accepted freshness/final-signal, unresolved blocker/caution status, and no terminal outcome eligibility before setup-time acceptance.
+- Smallest next GLD-specific fix: create a bounded GLD Ideal setup-time row acceptance worksheet.
+- Project-level next move: use GLD Ideal as the next worksheet candidate unless local source review proves IWM has clearer accepted setup-time rows.
+- Scope preserved: docs-only evidence review; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
