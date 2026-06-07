@@ -408,6 +408,16 @@ A bounded 1H/24H support-resistance and room-classification design/test plan is 
 - Target: find a cleaner GLD Ideal replacement candidate from existing repo sources only, or prove no acceptable GLD Ideal replacement candidate exists in current repo sources.
 - Scope preserved: docs-only review; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 GLD Ideal replacement candidate source selection worksheet status
+
+- Latest committed baseline before this status: c78a41c Add IWM GLD replacement candidate selection review.
+- Worksheet file: SAFE_FAST_GLD_IDEAL_REPLACEMENT_CANDIDATE_SOURCE_SELECTION_WORKSHEET.md.
+- Result: no acceptable GLD Ideal replacement candidate is accepted from current repo sources.
+- Status: GLD Ideal remains blocked for the current Day 36 missing-evidence path.
+- Reason: current repo source trail points back to GLD-WINDOW-IDEAL-001, and that candidate already failed setup-time row acceptance.
+- Smallest next evidence-backed fix: create SAFE_FAST_IWM_CONTINUATION_REPLACEMENT_CANDIDATE_SOURCE_SELECTION_WORKSHEET.md.
+- Scope preserved: docs-only worksheet; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
