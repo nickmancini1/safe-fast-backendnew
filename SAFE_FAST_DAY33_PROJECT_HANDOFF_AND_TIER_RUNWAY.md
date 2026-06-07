@@ -477,6 +477,16 @@ This mandate does not authorize:
 - Tests: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"`.
 - Scope preserved: no main.py, engine logic, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 replacement source row packet builder status
+
+- Latest committed baseline before this status: b643422 Add replacement source row packet template builder.
+- Build files: `watcher_foundation/replacement_source_row_packet_builder.py`, `tests/test_replacement_source_row_packet_builder.py`, `watcher_foundation/__init__.py`.
+- Result: local in-memory replacement source row packet builder implemented.
+- Purpose: convert caller-provided local 1H RTH source rows into validator-ready IWM/GLD replacement source row packets.
+- Boundary: uses caller-provided in-memory rows only; no file reads, file writes, live data, broker/order/account/options/P&L, alerts, or trade decisions.
+- Tests: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"`.
+- Scope preserved: no main.py, engine logic, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current update status
 
 - Baseline: patch8.
