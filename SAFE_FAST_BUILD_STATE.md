@@ -448,6 +448,15 @@ A bounded 1H/24H support-resistance and room-classification design/test plan is 
 - Smallest next evidence-backed fix: create SAFE_FAST_IWM_GLD_REPLACEMENT_SOURCE_ROW_REQUEST.md.
 - Scope preserved: docs-only worksheet; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 IWM/GLD replacement source row request status
+
+- Latest committed baseline before this status: 7e69635 Add IWM GLD replacement source collection worksheet.
+- Request file: SAFE_FAST_IWM_GLD_REPLACEMENT_SOURCE_ROW_REQUEST.md.
+- Result: exact local source row requirements are defined for two IWM Continuation replacement candidates and two GLD Ideal replacement candidates.
+- Next build step: create SAFE_FAST_IWM_GLD_REPLACEMENT_SOURCE_ROW_PACKET.md.
+- Purpose of next packet: populate the four replacement candidate IDs with local historical 1H RTH source rows, or explicitly mark them unavailable.
+- Scope preserved: docs-only source row request; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
