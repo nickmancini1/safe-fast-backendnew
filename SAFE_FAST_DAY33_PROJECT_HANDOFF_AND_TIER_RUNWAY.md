@@ -1,5 +1,15 @@
 ﻿# SAFE-FAST Day 33 Project Handoff and Tier Runway
 
+Codex launch rule:
+Use only the known-working unelevated Windows sandbox launch:
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never
+
+Do not use plain codex.
+Do not use the default/elevated Windows sandbox.
+Do not use approval modes that pause for proceed/approval questions.
+If Codex fails with socket error 10055 after a full laptop restart using the unelevated command, stop and treat it as a Codex CLI / Windows networking issue, not a SAFE-FAST repo issue.
+Tiny Codex connectivity tests that do not use the unelevated sandbox are not valid tests of the user's working setup.
+
 ## Highest-priority active rule: profitability mandate and diagnosis loop
 
 SAFE-FAST is not being built merely to test whether an idea might work. SAFE-FAST's required build target is a profitable trading plan. The goal is to make SAFE-FAST excellent at making money, not merely excellent at explaining charts.
@@ -1196,4 +1206,20 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Builder status: accepted as local in-memory replacement source row packet builder only.
 - No file reads, file writes, live data, broker/order/account/options/P&L, alerts, trade decisions, Railway, production, or secrets are authorized by this milestone.
 - Active next objective: create or accept bounded real historical evidence packets for IWM Continuation and GLD Ideal.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until accepted trigger, invalidation, freshness, blocker, setup-time, and terminal outcome proof exists.
+
+## Day 36 replacement source row packet readiness reviewer status
+
+- Replacement source row packet readiness reviewer implemented.
+- Files: `watcher_foundation/replacement_source_row_packet_readiness.py`, `tests/test_replacement_source_row_packet_readiness.py`.
+- Purpose: local in-memory readiness review for replacement source row packets.
+- Result: valid complete packets may be marked `ready_for_acceptance_review`, but never accepted proof.
+- Unavailable IWM/GLD slots remain missing-evidence/inconclusive.
+- `accepted_proof` remains false.
+- `watch_only=True` and `no_trade_decision=True` preserved.
+- No file reads/writes from the module.
+- No live data, network, subprocess, broker/order/account/options/P&L, alerts, trade decisions, Railway, production, `main.py`, or engine logic.
+- Test command: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"`.
+- Expected result after rerun: 27 tests OK.
+- Active next objective after this commit: review the readiness reviewer result, then move only to the next evidence-backed IWM/GLD packet step.
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until accepted trigger, invalidation, freshness, blocker, setup-time, and terminal outcome proof exists.

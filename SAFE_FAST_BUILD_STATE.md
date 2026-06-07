@@ -7336,3 +7336,19 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No file reads, file writes, live data, broker/order/account/options/P&L, alerts, trade decisions, Railway, production, or secrets are authorized by this milestone.
 - Active next objective: create or accept bounded real historical evidence packets for IWM Continuation and GLD Ideal.
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until accepted trigger, invalidation, freshness, blocker, setup-time, and terminal outcome proof exists.
+
+## Day 36 replacement source row packet readiness reviewer status
+
+- Replacement source row packet readiness reviewer implemented.
+- Files: `watcher_foundation/replacement_source_row_packet_readiness.py`, `tests/test_replacement_source_row_packet_readiness.py`.
+- Purpose: local in-memory readiness review for replacement source row packets.
+- Result: valid complete packets may be marked `ready_for_acceptance_review`, but never accepted proof.
+- Unavailable IWM/GLD slots remain missing-evidence/inconclusive.
+- `accepted_proof` remains false.
+- `watch_only=True` and `no_trade_decision=True` preserved.
+- No file reads/writes from the module.
+- No live data, network, subprocess, broker/order/account/options/P&L, alerts, trade decisions, Railway, production, `main.py`, or engine logic.
+- Test command: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"`.
+- Expected result after rerun: 27 tests OK.
+- Active next objective after this commit: review the readiness reviewer result, then move only to the next evidence-backed IWM/GLD packet step.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until accepted trigger, invalidation, freshness, blocker, setup-time, and terminal outcome proof exists.
