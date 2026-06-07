@@ -428,6 +428,16 @@ A bounded 1H/24H support-resistance and room-classification design/test plan is 
 - Smallest next evidence-backed fix: create SAFE_FAST_IWM_GLD_NEW_BOUNDED_SOURCE_COLLECTION_PLAN.md.
 - Scope preserved: docs-only worksheet; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 IWM/GLD new bounded source collection plan status
+
+- Latest committed baseline before this status: d233511 Add IWM Continuation replacement candidate source selection worksheet.
+- Plan file: SAFE_FAST_IWM_GLD_NEW_BOUNDED_SOURCE_COLLECTION_PLAN.md.
+- Result: both current IWM Continuation and GLD Ideal replacement paths are blocked in current repo sources.
+- Next build step: create SAFE_FAST_IWM_GLD_REPLACEMENT_SOURCE_COLLECTION_WORKSHEET.md.
+- Purpose of next worksheet: collect cleaner bounded real historical candidates for IWM Continuation and GLD Ideal with complete setup-time fields.
+- Candidate IDs reserved: IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001, IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002, GLD-REPLACEMENT-IDEAL-CANDIDATE-001, GLD-REPLACEMENT-IDEAL-CANDIDATE-002.
+- Scope preserved: docs-only plan; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
