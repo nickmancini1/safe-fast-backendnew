@@ -1235,3 +1235,11 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Active next objective: create or accept bounded real historical local source-row packets for IWM Continuation and GLD Ideal only if exact setup-time and accepted evidence fields are available.
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact repo evidence proves otherwise.
 - Future chats must use: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+
+## Day 36 IWM/GLD local source export instruction status
+
+- Latest committed baseline before this status: `6fe551e Add IWM GLD replacement source row readiness review`.
+- New file: `SAFE_FAST_IWM_GLD_LOCAL_SOURCE_EXPORT_INSTRUCTION.md`.
+- Result: exact local row collection instruction created.
+- Status: IWM/GLD remain missing-evidence/inconclusive until rows and accepted proof exist.
+- Next objective: populate or accept bounded local source row packets for the four reserved replacement candidates.
