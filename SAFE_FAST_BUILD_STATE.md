@@ -387,6 +387,17 @@ A bounded 1H/24H support-resistance and room-classification design/test plan is 
 - Project-level rule: if IWM is also blocked at setup-time acceptance, stop trying to promote these two candidate examples and choose a cleaner bounded real historical example with complete setup-time fields.
 - Scope preserved: docs-only worksheet; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 IWM Continuation 001 trigger / invalidation / freshness acceptance review status
+
+- Latest committed baseline before this status: add70a4 Add GLD Ideal setup time row acceptance worksheet.
+- Review file: SAFE_FAST_IWM_CONTINUATION_001_TRIGGER_INVALIDATION_FRESHNESS_ACCEPTANCE_REVIEW.md.
+- Result: IWM Continuation 001 cannot accept trigger / invalidation / freshness proof from current repo evidence.
+- Status: IWM Continuation 001 remains missing-evidence/inconclusive.
+- Reason: no accepted setup-time signal row, no accepted numeric trigger, no accepted numeric invalidation, no accepted freshness/final-signal, unresolved blocker/caution status, and no terminal outcome eligibility before setup-time acceptance.
+- Combined Day 36 evidence result: IWM Continuation 001 and GLD Ideal 001 both remain missing-evidence/inconclusive because neither has accepted setup-time proof.
+- Smallest next evidence-backed fix: stop trying to promote these two candidate examples unless explicitly requested; create a bounded real historical replacement-candidate selection review for a cleaner IWM Continuation or GLD Ideal example with complete setup-time fields.
+- Scope preserved: docs-only evidence review; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
