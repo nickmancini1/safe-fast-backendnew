@@ -92,6 +92,45 @@ Make symbol-specific diagnosis strict:
 - A failure must be diagnosed by setup type and symbol, such as IWM Continuation, GLD Ideal, QQQ Clean Fast Break, or SPY Ideal.
 - Symbol-specific weakness must produce a fix, narrowing path, removal path, or blocker documentation.
 
+### Execution mechanics and future broker path
+
+SAFE-FAST must separate setup quality from execution quality.
+
+A good setup signal is not a full trading-system win unless the actual signal-to-entry-to-exit path can be executed reliably.
+
+The temporary split path may be tastytrade for data and signal observation and Charles Schwab for manual execution, but that split is only a measured bridge. Manual execution is allowed only as a measured test condition before any approved money stage.
+
+Manual execution must measure:
+
+- signal time
+- setup type
+- symbol
+- underlying price at signal
+- intended option contract
+- option quote and spread at signal
+- time the user sees the signal
+- time Schwab is opened
+- time order ticket is ready
+- intended limit price
+- whether the order would fill or did fill
+- fill price if applicable
+- whether the user chased
+- whether the user skipped
+- reason for skip
+- exit rule
+- actual or simulated exit
+- whether failure came from setup quality or execution mechanics
+
+If the signal is valid but manual Schwab execution is too slow, too wide, too confusing, or too inconsistent, that is a trading-usefulness problem.
+
+If the option spread, fill quality, timing delay, or exit mechanics erase the edge, the setup cannot be counted as profitable.
+
+The preferred future design is one broker for both signal validation and execution, if evidence supports it. Charles Schwab is the current preferred future broker candidate because the user is familiar with the platform and options permissions are there. tastytrade remains an alternate future path if permissions or preference change.
+
+This rule does not authorize broker/API/order automation now. Any future Schwab or tastytrade integration must come only after historical proof and live-data shadow justify it, and only with explicit authorization.
+
+No real-money stage may begin until the broker/execution path defines entry, invalidation, exit, spread limits, delay limits, no-chase rules, stop rules, cancel/skip rules, review rules, and failure definitions.
+
 ### Worked, failed, and missing-evidence meanings
 
 A setup must not count as "worked" merely because price eventually moved in the right direction.
@@ -296,6 +335,16 @@ This mandate does not authorize:
 - real money before historical proof and shadow both prove useful
 - changing the Day 35 / patch8 baseline
 
+
+## Day 35 active next-task correction
+
+The current active evidence blocker remains the docs-only IWM/GLD missing-evidence inventory.
+
+The technical indicator and evidence-component inventory exists as docs-only work pending assistant review. It does not replace the IWM/GLD missing-evidence inventory.
+
+The execution mechanics / future one-broker path rule is preserved as architecture only. It does not authorize broker/API/order automation, live trading, alerts, option P&L, account sizing, production, Railway/deploy, or live trade decisions.
+
+A bounded 1H/24H support-resistance and room-classification design/test plan is only a later candidate if explicitly requested after the IWM/GLD inventory is accepted.
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
@@ -303,8 +352,8 @@ This mandate does not authorize:
 - **Branch:** `main`
 - **Latest confirmed live baseline:** `macro_surface_v26_2026_04_21_preserve_locked_trigger_patch8`
 - **main.py source state:** repaired patch8 source confirmed; `import copy` restored
-- **Latest completed milestone commit before current uncommitted work:** `e03c792 Add real historical missing evidence inventory plan`
-- **Latest observed local HEAD before current uncommitted work:** `e03c792 Add real historical missing evidence inventory plan`
+- **Latest completed milestone commit before current uncommitted work:** `3189fd2 Preserve profitability mandate and trading-usefulness architecture`
+- **Latest observed local HEAD before current uncommitted work:** `3189fd2 Preserve profitability mandate and trading-usefulness architecture`
 - **Latest observed origin/main:** not checked during current Day 35 first real historical batch implementation task; no GitHub writes allowed.
 - **Latest build-state sync after strict Day 28 handoff:** `7ba412d Sync build state after strict Day 28 handoff`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
 - **Latest build-state sync after discretion audit inventory validator:** `3a0db39 Sync build state after discretion audit inventory validator`; this is bookkeeping only, not a new completed milestone, and must not create a repeated sync loop.
@@ -356,9 +405,13 @@ This mandate does not authorize:
 - **Latest completed build milestone:** Historical setup proof review bundle builder is complete and committed at `0dbae56 Add historical setup proof review bundle builder`; Day 33 project handoff and tier runway preservation is committed at `599d45f Add Day 33 project handoff and tier runway`; historical proof bundle readiness planning is committed at `bf431c2 Add historical proof bundle readiness plan`; historical proof bundle readiness gate is complete and committed at `7af3506 Add historical proof bundle readiness gate`; historical setup sample path planning is committed at `73a27ba Add historical setup sample path plan`; historical setup sample path runner is complete and committed at `6973581 Add historical setup sample path runner`; first controlled historical sample evidence set is complete and committed at `2ccc021 Add first controlled historical sample evidence set`; controlled sample review planning is committed at `c880103 Add controlled sample review plan`; controlled historical sample output review is complete and committed at `ba7374b Add controlled historical sample output review`; GLD Continuation evidence fix planning is complete and committed at `c228cb1 Add GLD Continuation evidence fix plan`; GLD Continuation after-setup evidence implementation is complete and committed at `eb6e5d0 Add GLD Continuation after-setup evidence`; IWM controlled sample expansion planning is complete and committed at `46b1e27 Add IWM controlled sample expansion plan`; IWM controlled sample evidence is complete and committed at `7cc424c Add IWM controlled sample evidence`; controlled sample coverage review planning is complete and committed at `d8ab7aa Add controlled sample coverage review plan`; Day 34 handoff timeline and evidence checkpoint is complete and committed at `7181645 Update Day 34 handoff timeline and evidence checkpoint`; controlled sample coverage review is complete and committed at `ca8b6a4 Add controlled sample coverage review`; controlled sample missing-evidence implementation planning is complete and committed at `ad21b40 Add controlled sample missing evidence plan`; controlled missing-evidence sample is complete and committed at `8527eff Add controlled missing-evidence sample`; controlled sample coverage review update is complete and committed at `bfad6d3 Update controlled sample coverage review`; first real historical example batch planning is complete and committed at `35b91bf Add first real historical example batch plan`; first real historical example batch implementation is complete and committed at `ba44d07 Add first real historical example batch`.
 - **Current working context:** Day 35.
 - **Day 33 status:** historical context; the Day 33 historical setup sample path runner is complete and committed.
-- **Current objective:** Day 35 docs-only plan correction to name the exact future IWM/GLD missing-evidence inventory file and allowed inventory edit scope.
+- **Current objective:** Day 35 assistant review and commit of the combined docs-only batch: IWM/GLD missing-evidence inventory, execution mechanics / future one-broker rule, technical indicator/evidence-component inventory, and status cleanup.
 - **Current build direction:** strict watcher-foundation closeout handoff is PASS and committed at `6be965b Add strict watcher foundation closeout handoff package`; local watcher foundation is complete through closeout / replay-readiness review at `ed9e248 Add watcher foundation closeout replay readiness review`; local watcher replay/regression runner is implemented and committed at `e44fbc3 Add local watcher replay regression runner`; watcher replay/regression fixture hardening is implemented and committed at `cacfd83 Add watcher replay regression hardening tests`; stable winner selection replay/regression hardening is implemented and committed at `20e0410 Add stable winner selection replay hardening tests`; local replay/regression validation suite reliability hardening is implemented and committed at `5e7663d Add replay validation suite reliability hardening tests`; local replay/regression boundary final validation sweep is implemented and committed at `3774d9a Add replay boundary final sweep tests`; replay/regression closeout review is PASS and committed at `633ad7f Add replay regression closeout review`; shadow review sample labeling / review workflow planning is implemented and committed at `87d9071 Add shadow review sample labeling plan`; local shadow review label schema is implemented and committed at `361e2e4 Add shadow review label schema`; local shadow review label workflow is implemented and committed at `f27a2dd Add shadow review label workflow`; shadow review workflow closeout review is PASS and committed at `d8f80f1 Add shadow review workflow closeout review`; local shadow review sample pack is implemented and committed at `b258f88 Add shadow review sample pack`; shadow review sample pack closeout review is PASS and committed at `ec760a4 Add shadow review sample pack closeout review`; local shadow review workflow final boundary sweep is implemented and committed at `1bc2d2d Add shadow review workflow final boundary sweep`; shadow review workflow final boundary sweep closeout review is PASS and committed at `4073339 Add shadow review final boundary sweep closeout review`; local shadow review export bundle final boundary sweep closeout review is PASS and committed at `ba02655 Add shadow review export bundle final boundary sweep closeout review`; shadow review/export bundle readiness decision is PASS and committed at `556a541 Add shadow review export bundle readiness decision`; shadow review/export bundle review-package plan is PASS and committed at `0f7d4c3 Add shadow review export bundle review package plan`; local shadow review/export bundle review-package validator is implemented and committed at `0d3d816 Add shadow review export bundle review package validator`; shadow review/export bundle review-package validator closeout review is PASS and committed at `6a2f636 Add shadow review export bundle review package validator closeout review`; local shadow review/export bundle review-package final boundary sweep is implemented and committed at `2a8fdc3 Add shadow review export bundle review package final boundary sweep`; shadow review/export bundle review-package final boundary sweep closeout review is PASS and committed at `17e298c Add shadow review export bundle review package final boundary sweep closeout review`.
 - **Work mode:** build work only, no live trade decisions
+- **Execution mechanics architecture status:** preserved in the profitability/trading-usefulness architecture area. This is a docs-only rule and does not authorize broker/API/order automation, live trading, order execution, option P&L, account sizing, or production work.
+- **Technical indicator inventory status:** started and completed as docs-only inventory in `SAFE_FAST_TECHNICAL_INDICATOR_AND_EVIDENCE_COMPONENT_INVENTORY.md`; official indicator/evidence lists must remain repo-backed, not guessed.
+- **Inventory conclusion:** repo-backed active terms include 1H 50 EMA/EMA50, ATR, OHLCV/volume, trend/context, Ideal, Clean Fast Break, Continuation, trigger, invalidation, blocker, freshness/stale/spent, final verdict/final signal, setup-time/no-hindsight boundary, terminal chart-outcome fields where generated inputs exist, and winner selection. VWAP is source/planning only; Bollinger Bands are planning only; SMA, MACD, RSI, relative volume, opening range, ORB, prior low, high of day, and low of day remain unconfirmed/not accepted because no repo source was found outside the task prompt.
+- **Smallest next evidence-backed fix after this docs batch:** create or accept bounded real historical evidence packets for IWM Continuation and GLD Ideal first, because both remain missing-evidence/inconclusive; bounded 1H/24H support-resistance and room-classification design/test planning is only a later candidate if explicitly requested.
 
 ## Day 33 local-only historical setup sample path runner status
 
@@ -7097,7 +7150,7 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - **Production readiness claimed:** no
 - **Live trade readiness claimed:** no
 - **No-go boundaries preserved:** no `main.py`, engine logic, Railway, production/deploy, live backend, broker/order execution, auto-trading, option P&L, account sizing, live trading logic, or live trade decisions.
-- **Exact next objective after watcher foundation planning is created and accepted:** trigger-card contract/schema design review only, focused on field names, enums, unavailable-field semantics, evidence references, and no-trade wording before any watcher state code, duplicate suppression, alert delivery, or shadow log implementation.
+- **Historical next objective after this all-symbol closeout:** trigger-card contract/schema design review only; that downstream watcher-foundation path was later superseded by completed watcher-foundation work. Current Day 35 next-task status is assistant review and commit of the combined docs-only batch: IWM/GLD missing-evidence inventory, execution mechanics / future one-broker rule, technical indicator/evidence-component inventory, and status cleanup.
 - **Continuous Watcher status:** deferred; implementation remains deferred unless explicitly authorized in a later bounded task with tests and build-state update.
 
 

@@ -92,6 +92,45 @@ Make symbol-specific diagnosis strict:
 - A failure must be diagnosed by setup type and symbol, such as IWM Continuation, GLD Ideal, QQQ Clean Fast Break, or SPY Ideal.
 - Symbol-specific weakness must produce a fix, narrowing path, removal path, or blocker documentation.
 
+### Execution mechanics and future broker path
+
+SAFE-FAST must separate setup quality from execution quality.
+
+A good setup signal is not a full trading-system win unless the actual signal-to-entry-to-exit path can be executed reliably.
+
+The temporary split path may be tastytrade for data and signal observation and Charles Schwab for manual execution, but that split is only a measured bridge. Manual execution is allowed only as a measured test condition before any approved money stage.
+
+Manual execution must measure:
+
+- signal time
+- setup type
+- symbol
+- underlying price at signal
+- intended option contract
+- option quote and spread at signal
+- time the user sees the signal
+- time Schwab is opened
+- time order ticket is ready
+- intended limit price
+- whether the order would fill or did fill
+- fill price if applicable
+- whether the user chased
+- whether the user skipped
+- reason for skip
+- exit rule
+- actual or simulated exit
+- whether failure came from setup quality or execution mechanics
+
+If the signal is valid but manual Schwab execution is too slow, too wide, too confusing, or too inconsistent, that is a trading-usefulness problem.
+
+If the option spread, fill quality, timing delay, or exit mechanics erase the edge, the setup cannot be counted as profitable.
+
+The preferred future design is one broker for both signal validation and execution, if evidence supports it. Charles Schwab is the current preferred future broker candidate because the user is familiar with the platform and options permissions are there. tastytrade remains an alternate future path if permissions or preference change.
+
+This rule does not authorize broker/API/order automation now. Any future Schwab or tastytrade integration must come only after historical proof and live-data shadow justify it, and only with explicit authorization.
+
+No real-money stage may begin until the broker/execution path defines entry, invalidation, exit, spread limits, delay limits, no-chase rules, stop rules, cancel/skip rules, review rules, and failure definitions.
+
 ### Worked, failed, and missing-evidence meanings
 
 A setup must not count as "worked" merely because price eventually moved in the right direction.
@@ -304,11 +343,14 @@ This mandate does not authorize:
 - Mode: build work only, not live trade chat.
 - Repo: safe-fast-backendnew.
 - Branch: main.
-- Latest known local commit before current uncommitted work: e03c792 Add real historical missing evidence inventory plan.
-- Latest known completed build commit before this handoff update: e03c792 Add real historical missing evidence inventory plan.
-- Current uncommitted status: Day 35 docs-only plan correction; changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
+- Latest known local commit before current uncommitted work: 3189fd2 Preserve profitability mandate and trading-usefulness architecture.
+- Latest known completed build commit before this handoff update: 3189fd2 Preserve profitability mandate and trading-usefulness architecture.
+- Current uncommitted status: Day 35 combined docs-only batch pending assistant review and commit. Changed files should be limited to `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md`, `SAFE_FAST_TECHNICAL_INDICATOR_AND_EVIDENCE_COMPONENT_INVENTORY.md`, `SAFE_FAST_BUILD_STATE.md`, and this handoff file.
 - Real local git status and git log are source of truth.
 - This Day33-named file remains a living handoff document and records this Day 35 update.
+- Execution mechanics architecture status: preserved as a docs-only rule after the IWM/GLD inventory path; this does not authorize broker/API/order automation, live trading, order execution, option P&L, account sizing, or production work.
+- Technical indicator inventory status: started and completed in `SAFE_FAST_TECHNICAL_INDICATOR_AND_EVIDENCE_COMPONENT_INVENTORY.md`; official indicator and evidence-component lists must be repo-backed, not guessed.
+- Inventory boundary: this does not authorize new indicators, engine logic, broker integration, order automation, option P&L, account sizing, production work, or live trade decisions.
 
 ## Update protocol
 
@@ -681,8 +723,8 @@ Current Day 35 next-step plan after first real historical example batch status:
 - Controlled sample coverage review update is complete and committed at `bfad6d3 Update controlled sample coverage review`.
 - First real historical example batch planning is complete and committed at `35b91bf Add first real historical example batch plan`.
 - First real historical example batch implementation is complete and committed at `ba44d07 Add first real historical example batch`.
-- Current objective is creating the docs-only next-step plan after the first real historical example batch, focused on IWM Continuation and GLD Ideal missing accepted evidence.
-- Current changed files should be limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- Historical objective for that completed plan-correction block was creating the docs-only next-step plan after the first real historical example batch, focused on IWM Continuation and GLD Ideal missing accepted evidence.
+- Historical changed files for that completed block were limited to `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`, `SAFE_FAST_BUILD_STATE.md`, and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
 - Runner behavior: accepts caller-provided in-memory historical setup examples only, rejects file/report/log path, live-data, controlled-shadow, alert, broker/order/account/options/P&L/account-sizing, live-trade-decision, subprocess/thread/socket, watcher-loop, and `main.py` shaped inputs, runs proof -> diagnostics -> evidence packet -> packet readiness -> group review -> group review readiness -> historical bundle -> bundle readiness, preserves setup-time vs post-setup evidence separation, setup type, symbol, setup-type-plus-symbol pair separation, missing evidence, diagnostics, fix paths, regression needs, lower-tier review fields, and exact bundle-readiness missing review items.
 - Sample evidence set behavior: exposes one worked `Ideal` / `SPY` setup, one failed `Clean Fast Break` / `QQQ` setup, one reviewable `Continuation` / `GLD` setup, one reviewable `Ideal` / `IWM` setup, and exactly one explicit controlled missing-evidence `Continuation` / `QQQ` setup through the existing runner; preserves setup type separation, symbol separation, setup-type-plus-symbol pair separation, setup-time versus after-setup evidence separation, diagnostics, fix paths, lower-tier summary, no-trade/watch-only, no-live-data, no-controlled-shadow, no-alert, no-broker, no-file-write, no-rule-change, and no-optimization boundaries.
 - Review behavior: accepts caller-provided in-memory sample path output only, returns one in-memory review summary only, keeps worked, failed, and inconclusive samples separate, keeps setup type and symbol separate, checks no-hindsight boundaries, surfaces useful proof, weak proof, missing evidence, next fix paths, regression needs, lower-tier review material, explicitly reports the GLD Continuation review status and IWM review status / teaching, and defensively copies returned data.
@@ -894,13 +936,13 @@ A lower-tier chat should not need giant raw logs or hidden repo context to under
 
 ## Next objective
 
-Assistant review of the Day 35 docs-only plan correction, then commit only expected files if accepted.
+After this combined docs-only batch is committed, the next evidence-backed objective is to create or accept bounded real historical evidence packets for IWM Continuation and GLD Ideal, preserving missing-evidence/inconclusive status until accepted proof exists.
 
 Current changed files should be limited to:
 
-- `SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_FIRST_REAL_HISTORICAL_EXAMPLE_BATCH.md`
 - `SAFE_FAST_BUILD_STATE.md`
 - `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`
+- `SAFE_FAST_TECHNICAL_INDICATOR_AND_EVIDENCE_COMPONENT_INVENTORY.md`
 
 Unfinished item:
 
@@ -908,17 +950,7 @@ Final viability, profitability, actual historical success, controlled shadow rea
 
 ## Next-after-next objective
 
-After assistant review and commit, create `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md` as a docs-only IWM/GLD missing-evidence inventory from existing repo sources only, without optimization, profitability claims, live data, alerts, broker behavior, generated reports/logs, or production work.
-
-The next docs-only inventory task may edit only:
-
-- `SAFE_FAST_REAL_HISTORICAL_IWM_GLD_MISSING_EVIDENCE_INVENTORY.md`
-- `SAFE_FAST_BUILD_STATE.md`
-- `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`
-
-The inventory must decide separately whether IWM Continuation and GLD Ideal have accepted trigger/invalidation/freshness/final-signal proof already in the repo. If yes, plan the smallest later in-memory update and regression test. If no, preserve missing-evidence status and choose the next bounded real historical example without hiding remaining tiny-sample, missing-pair, real-history, or upstream bundle-readiness gaps.
-
-The inventory must check existing repo sources only, must not invent evidence, and must answer whether accepted trigger, invalidation, freshness/final-signal, blocker, and terminal outcome evidence exists; where evidence exists, if it exists; what exact evidence remains missing for IWM Continuation and GLD Ideal; and the smallest next evidence-backed fix.
+After the next bounded IWM/GLD evidence packet work is accepted, reassess the smallest evidence-backed fix. A bounded 1H/24H support-resistance and room-classification design/test plan remains only a later candidate if explicitly requested. Do not mix that with broker integration, order automation, option P&L, account sizing, production work, or live trade decisions.
 
 ## Final UI direction
 
