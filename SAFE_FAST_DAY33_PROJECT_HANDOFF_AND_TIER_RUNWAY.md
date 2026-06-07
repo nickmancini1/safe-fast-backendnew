@@ -408,6 +408,16 @@ This mandate does not authorize:
 - Smallest next evidence-backed fix: create SAFE_FAST_IWM_CONTINUATION_REPLACEMENT_CANDIDATE_SOURCE_SELECTION_WORKSHEET.md.
 - Scope preserved: docs-only worksheet; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 IWM Continuation replacement candidate source selection worksheet status
+
+- Latest committed baseline before this status: c8339d9 Add GLD Ideal replacement candidate source selection worksheet.
+- Worksheet file: SAFE_FAST_IWM_CONTINUATION_REPLACEMENT_CANDIDATE_SOURCE_SELECTION_WORKSHEET.md.
+- Result: no acceptable IWM Continuation replacement candidate is accepted from current repo sources.
+- Combined Day 36 result: GLD Ideal replacement search is blocked and IWM Continuation replacement search is blocked.
+- Reason: current repo source trails provide candidate/review material only; accepted setup-time trigger, invalidation, freshness/final-signal, blocker/caution status, and terminal eligibility are not available for a cleaner replacement candidate.
+- Smallest next evidence-backed fix: create SAFE_FAST_IWM_GLD_NEW_BOUNDED_SOURCE_COLLECTION_PLAN.md.
+- Scope preserved: docs-only worksheet; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current update status
 
 - Baseline: patch8.
