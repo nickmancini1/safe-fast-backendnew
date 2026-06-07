@@ -7352,3 +7352,14 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Expected result after rerun: 27 tests OK.
 - Active next objective after this commit: review the readiness reviewer result, then move only to the next evidence-backed IWM/GLD packet step.
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until accepted trigger, invalidation, freshness, blocker, setup-time, and terminal outcome proof exists.
+
+## Day 36 IWM/GLD replacement source row readiness review status
+
+- Latest committed baseline before this status: `e8ad448 Add replacement source row packet readiness reviewer`.
+- Review file: `SAFE_FAST_IWM_GLD_REPLACEMENT_SOURCE_ROW_READINESS_REVIEW.md`.
+- Result: all four reserved replacement candidate slots remain `missing_evidence_inconclusive`; none became `ready_for_acceptance_review`.
+- Reason: exact local replacement source-row packets are unavailable, including accepted setup-time source row, trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome proof.
+- `accepted_proof=false` preserved for every candidate; valid future packets may become `ready_for_acceptance_review`, but this review does not accept proof.
+- Tests: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"` PASS, 27 tests OK.
+- Active next objective: create or accept bounded real historical local source-row packets for IWM Continuation and GLD Ideal only if exact setup-time and accepted evidence fields are available.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact repo evidence proves otherwise.
