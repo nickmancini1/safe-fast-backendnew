@@ -438,6 +438,16 @@ A bounded 1H/24H support-resistance and room-classification design/test plan is 
 - Candidate IDs reserved: IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001, IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002, GLD-REPLACEMENT-IDEAL-CANDIDATE-001, GLD-REPLACEMENT-IDEAL-CANDIDATE-002.
 - Scope preserved: docs-only plan; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 IWM/GLD replacement source collection worksheet status
+
+- Latest committed baseline before this status: 039a7b1 Add IWM GLD new bounded source collection plan.
+- Worksheet file: SAFE_FAST_IWM_GLD_REPLACEMENT_SOURCE_COLLECTION_WORKSHEET.md.
+- Result: replacement candidate slots are defined but not populated with accepted source rows.
+- Status: source collection required for IWM Continuation and GLD Ideal replacement candidates.
+- Candidate IDs reserved: IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001, IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002, GLD-REPLACEMENT-IDEAL-CANDIDATE-001, GLD-REPLACEMENT-IDEAL-CANDIDATE-002.
+- Smallest next evidence-backed fix: create SAFE_FAST_IWM_GLD_REPLACEMENT_SOURCE_ROW_REQUEST.md.
+- Scope preserved: docs-only worksheet; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
