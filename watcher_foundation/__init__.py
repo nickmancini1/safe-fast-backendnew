@@ -368,3 +368,5 @@ __all__ = [
 ]
 
 from .replacement_source_row_packet import validate_replacement_source_row_packet, validate_replacement_source_row_packet_batch
+
+from .replacement_source_row_packet_template import build_replacement_source_row_packet_template, build_all_replacement_source_row_packet_templates, classify_source_row_packet

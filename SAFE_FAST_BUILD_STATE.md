@@ -477,6 +477,16 @@ A bounded 1H/24H support-resistance and room-classification design/test plan is 
 - Tests: `python -m unittest discover -s tests -p test_replacement_source_row_packet.py`.
 - Scope preserved: no main.py, engine logic, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 replacement source row packet template builder status
+
+- Latest committed baseline before this status: 1dcf3e8 Add replacement source row packet validator.
+- Build files: `watcher_foundation/replacement_source_row_packet_template.py`, `tests/test_replacement_source_row_packet_template.py`, `watcher_foundation/__init__.py`.
+- Result: local in-memory replacement source row packet template builder implemented.
+- Purpose: create four candidate packet templates and classify caller-provided source row packets before acceptance review.
+- Boundary: templates remain missing-evidence/inconclusive until caller-provided local source rows fill required setup-time fields.
+- Tests: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"`.
+- Scope preserved: no main.py, engine logic, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
