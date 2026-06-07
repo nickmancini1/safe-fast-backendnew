@@ -335,6 +335,15 @@ This mandate does not authorize:
 - real money before historical proof and shadow both prove useful
 - changing the Day 35 / patch8 baseline
 
+## Day 36 IWM Continuation 001 evidence packet review status
+
+- Latest committed baseline before this status: 858a245 Add Day 35 evidence inventories and execution mechanics architecture.
+- Review file: SAFE_FAST_IWM_CONTINUATION_001_EVIDENCE_PACKET_REVIEW.md.
+- Result: IWM Continuation 001 remains missing-evidence/inconclusive.
+- Reason: repo-backed source chain supports a candidate/review path, but accepted setup-time trigger, accepted invalidation, accepted freshness/final-signal, accepted blocker handling, and accepted terminal outcome evidence are still not proven.
+- Smallest next evidence-backed fix: create a bounded IWM Continuation accepted-signal-row review that decides whether an accepted signal timestamp, trigger, invalidation, freshness/final-signal, blocker/caution status, and terminal outcome can be accepted without hindsight.
+- Scope preserved: docs-only evidence review; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current update status
 
 - Baseline: patch8.

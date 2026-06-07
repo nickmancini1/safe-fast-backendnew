@@ -345,6 +345,15 @@ The technical indicator and evidence-component inventory exists as docs-only wor
 The execution mechanics / future one-broker path rule is preserved as architecture only. It does not authorize broker/API/order automation, live trading, alerts, option P&L, account sizing, production, Railway/deploy, or live trade decisions.
 
 A bounded 1H/24H support-resistance and room-classification design/test plan is only a later candidate if explicitly requested after the IWM/GLD inventory is accepted.
+## Day 36 IWM Continuation 001 evidence packet review status
+
+- Latest committed baseline before this status: 858a245 Add Day 35 evidence inventories and execution mechanics architecture.
+- Review file: SAFE_FAST_IWM_CONTINUATION_001_EVIDENCE_PACKET_REVIEW.md.
+- Result: IWM Continuation 001 remains missing-evidence/inconclusive.
+- Reason: repo-backed source chain supports a candidate/review path, but accepted setup-time trigger, accepted invalidation, accepted freshness/final-signal, accepted blocker handling, and accepted terminal outcome evidence are still not proven.
+- Smallest next evidence-backed fix: create a bounded IWM Continuation accepted-signal-row review that decides whether an accepted signal timestamp, trigger, invalidation, freshness/final-signal, blocker/caution status, and terminal outcome can be accepted without hindsight.
+- Scope preserved: docs-only evidence review; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
