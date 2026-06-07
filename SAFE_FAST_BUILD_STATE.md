@@ -354,6 +354,17 @@ A bounded 1H/24H support-resistance and room-classification design/test plan is 
 - Smallest next evidence-backed fix: create a bounded IWM Continuation accepted-signal-row review that decides whether an accepted signal timestamp, trigger, invalidation, freshness/final-signal, blocker/caution status, and terminal outcome can be accepted without hindsight.
 - Scope preserved: docs-only evidence review; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 GLD Ideal 001 accepted signal row review status
+
+- Latest committed baseline before this status: df3fa06 Add IWM Continuation accepted signal row review.
+- Review file: SAFE_FAST_GLD_IDEAL_001_ACCEPTED_SIGNAL_ROW_REVIEW.md.
+- Result: GLD Ideal 001 does not have an accepted setup-time signal row.
+- Status: GLD Ideal 001 remains missing-evidence/inconclusive.
+- Reason: repo evidence supports a candidate/review chain, but accepted setup-time trigger, accepted invalidation, accepted freshness/final-signal, accepted blocker/caution handling, and accepted terminal outcome eligibility are still not proven.
+- Combined Day 36 evidence result: IWM Continuation 001 and GLD Ideal 001 both remain missing-evidence/inconclusive because neither has an accepted setup-time signal row.
+- Smallest next evidence-backed fix: choose the clearest bounded trigger/invalidation/freshness acceptance review between IWM Continuation and GLD Ideal; do not promote either setup unless accepted setup-time proof exists.
+- Scope preserved: docs-only evidence review; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`
