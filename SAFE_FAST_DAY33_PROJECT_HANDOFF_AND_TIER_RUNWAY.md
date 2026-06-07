@@ -447,6 +447,16 @@ This mandate does not authorize:
 - Purpose of next packet: populate the four replacement candidate IDs with local historical 1H RTH source rows, or explicitly mark them unavailable.
 - Scope preserved: docs-only source row request; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 36 IWM/GLD replacement source row packet status
+
+- Latest committed baseline before this status: 0f0c519 Add IWM GLD replacement source row request.
+- Packet file: SAFE_FAST_IWM_GLD_REPLACEMENT_SOURCE_ROW_PACKET.md.
+- Result: no replacement candidate slot is ready for acceptance review yet.
+- Status: all four replacement slots remain missing-evidence/inconclusive because complete setup-time source row packets are unavailable.
+- Smallest next evidence-backed fix: create SAFE_FAST_IWM_GLD_LOCAL_SOURCE_EXPORT_INSTRUCTION.md.
+- Purpose of next instruction: specify the exact bounded historical 1H RTH rows needed to populate IWM Continuation and GLD Ideal replacement candidates.
+- Scope preserved: docs-only packet; no main.py, engine logic, replay code, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
+
 ## Current update status
 
 - Baseline: patch8.
