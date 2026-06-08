@@ -1332,3 +1332,16 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Validation run: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 61 tests OK; `git diff --check` PASS.
 - Next objective: run bounded row-by-row setup-time evidence review on extracted seed windows only if accepted trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome evidence can be proved from exact repo/local rows.
 - Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+
+## Day 37 setup-time row review gate status
+
+- Latest committed baseline before this status: `029fe86 Add IWM GLD source window extraction application review`.
+- New files: `watcher_foundation/replacement_source_row_setup_time_review.py`, `tests/test_replacement_source_row_setup_time_review.py`.
+- Result: local in-memory setup-time row review gate implemented.
+- Purpose: helps process extracted source-window rows into packet-build-review readiness.
+- Scope: caller-provided in-memory extracted rows and setup-time review fields only; no file reads/writes from the module, live data, network, subprocess, broker/order/account/options/P&L, alerts, trade decisions, Railway, production, `main.py`, or engine logic.
+- This gate does not accept proof; `accepted_proof=false` remains preserved and batch `accepted_proof_count=0`.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
+- Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 75 tests OK.
+- Next objective: use the setup-time row review gate only with exact extracted rows and exact accepted setup-time review fields before any packet-build-review step.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
