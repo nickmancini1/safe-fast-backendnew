@@ -7486,3 +7486,16 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
 - Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 88 tests OK.
 - Next objective: complete one review request only with exact accepted setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal outcome fields before any packet-build-review promotion.
+
+## Day 37 IWM/GLD setup-time review request packet application status
+
+- Latest committed baseline before this status: `5c7c772 Add replacement source row setup-time review request builder`.
+- New file: `SAFE_FAST_IWM_GLD_SETUP_TIME_REVIEW_REQUEST_PACKETS.md`.
+- Result: the setup-time review request builder was applied to the repo-backed extracted IWM/GLD source windows.
+- `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`, and `GLD-REPLACEMENT-IDEAL-CANDIDATE-001` became `ready_for_setup_time_review_request`.
+- `GLD-REPLACEMENT-IDEAL-CANDIDATE-002` remains unavailable because no second exact GLD Ideal source window and row range is repo-backed.
+- `accepted_proof_count=0`.
+- No accepted proof was created; every candidate remains `watch_only=true`, `no_trade_decision=true`, and `accepted_proof=false`.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
+- Validation run: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 88 tests OK; `git diff --check` PASS.
+- Next objective: complete one exact setup-time review request from the clearest repo-backed IWM Continuation or GLD Ideal source window using accepted setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal outcome fields only.
