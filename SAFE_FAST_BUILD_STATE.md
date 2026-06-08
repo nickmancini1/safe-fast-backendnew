@@ -7499,3 +7499,15 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
 - Validation run: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 88 tests OK; `git diff --check` PASS.
 - Next objective: complete one exact setup-time review request from the clearest repo-backed IWM Continuation or GLD Ideal source window using accepted setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal outcome fields only.
+
+## Day 37 setup-time review completion intake helper status
+
+- Latest committed baseline before this status: `bc23a12 Add IWM GLD setup-time review request packets`.
+- New files: `watcher_foundation/replacement_source_row_setup_time_review_completion.py`, `tests/test_replacement_source_row_setup_time_review_completion.py`.
+- Result: local in-memory setup-time review completion intake helper implemented.
+- Purpose: helps process reviewer-completed setup-time request packets before the existing setup-time review gate.
+- Scope: caller-provided in-memory request packets and completed setup-time fields only; no file reads/writes from the module, live data, network, subprocess, broker/order/account/options/P&L, alerts, trade decisions, Railway, production, `main.py`, or engine logic.
+- This helper does not accept proof; `accepted_proof=false` remains preserved and batch `accepted_proof_count=0`.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
+- Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 105 tests OK.
+- Next objective: complete one exact setup-time review request with accepted setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal outcome fields before any packet-build-review promotion.
