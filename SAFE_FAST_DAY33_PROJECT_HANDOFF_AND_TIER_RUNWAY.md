@@ -1320,3 +1320,15 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 61 tests OK.
 - Next objective: provide exact bounded local historical 1H RTH source-window rows and required evidence metadata for the reserved IWM/GLD candidates only when setup-time rows, trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome evidence are available.
 - Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+
+## Day 36 IWM/GLD source-window extraction application status
+
+- Latest committed baseline before this status: `6865c6c Add replacement source row window extractor`.
+- New review file: `SAFE_FAST_IWM_GLD_SOURCE_WINDOW_EXTRACTION_APPLICATION_REVIEW.md`.
+- Result: extractor applied to exact old local source windows for IWM Continuation candidate 001, IWM session-boundary Continuation candidate 002 seed material, and GLD Ideal candidate 001.
+- Candidate seed result: `candidate_seed_ready=0`; three extracted windows became `blocked_missing_evidence`, and the second GLD Ideal reserved slot remains unavailable.
+- No accepted proof was created; `accepted_proof_count=0`.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact accepted proof exists.
+- Validation run: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 61 tests OK; `git diff --check` PASS.
+- Next objective: run bounded row-by-row setup-time evidence review on extracted seed windows only if accepted trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome evidence can be proved from exact repo/local rows.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
