@@ -7404,3 +7404,13 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Tests: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"` PASS, 36 tests OK.
 - Next objective: collect or provide exact bounded local historical 1H RTH source-row packets for the four reserved candidates only if setup-time rows, trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome evidence are available.
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact repo evidence proves otherwise.
+
+## Day 36 strategic hardening preservation status
+
+- Latest committed baseline before this status: current local HEAD after the population gate application review commit, `a027fa7 Add IWM GLD replacement source row population gate application review`.
+- New file: `SAFE_FAST_PROFITABILITY_DEFINITION_AND_DECISION_POLICY_HARDENING_PLAN.md`.
+- Result: preserved profitability definition gaps, decision policy gaps, owner self-questions, prior-chat architect Q&A, build-vs-docs rule, and implementation runway.
+- This is docs-only preservation and creates no proof.
+- No profitability claim was created.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact accepted proof exists.
+- Next objective: resume the evidence-backed IWM/GLD replacement source row packet path unless the user explicitly chooses to implement one hardening plan step next.

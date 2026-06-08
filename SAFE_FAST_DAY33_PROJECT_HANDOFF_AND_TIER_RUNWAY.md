@@ -10,6 +10,9 @@ Do not use approval modes that pause for proceed/approval questions.
 If Codex fails with socket error 10055 after a full laptop restart using the unelevated command, stop and treat it as a Codex CLI / Windows networking issue, not a SAFE-FAST repo issue.
 Tiny Codex connectivity tests that do not use the unelevated sandbox are not valid tests of the user's working setup.
 
+Hard strategic read rule:
+Future chats must read SAFE_FAST_PROFITABILITY_DEFINITION_AND_DECISION_POLICY_HARDENING_PLAN.md before answering questions about project vagueness, profitability definition, usefulness gates, strategic improvement questions, owner self-questions, final scoring, UI readiness, execution reality, build-vs-docs discipline, or next strategic build direction.
+
 ## Highest-priority active rule: profitability mandate and diagnosis loop
 
 SAFE-FAST is not being built merely to test whether an idea might work. SAFE-FAST's required build target is a profitable trading plan. The goal is to make SAFE-FAST excellent at making money, not merely excellent at explaining charts.
@@ -1279,3 +1282,14 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Next objective: collect or provide exact bounded local historical 1H RTH source-row packets for the four reserved candidates only if setup-time rows, trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome evidence are available.
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact repo evidence proves otherwise.
 - Future chats must use: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+
+## Day 36 strategic hardening preservation status
+
+- Latest committed baseline before this status: current local HEAD after the population gate application review commit, `a027fa7 Add IWM GLD replacement source row population gate application review`.
+- New file: `SAFE_FAST_PROFITABILITY_DEFINITION_AND_DECISION_POLICY_HARDENING_PLAN.md`.
+- Result: profitability definition gaps, decision policy gaps, owner self-questions, prior-chat architect Q&A, build-vs-docs rule, and implementation runway were preserved for future chats.
+- This is docs-only preservation and creates no proof.
+- No profitability claim was created.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact accepted proof exists.
+- Next objective: resume the evidence-backed IWM/GLD replacement source row packet path unless the user explicitly chooses to implement one hardening plan step next.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
