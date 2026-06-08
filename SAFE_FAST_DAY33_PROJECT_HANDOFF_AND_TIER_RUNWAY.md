@@ -1345,3 +1345,15 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 75 tests OK.
 - Next objective: use the setup-time row review gate only with exact extracted rows and exact accepted setup-time review fields before any packet-build-review step.
 - Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+
+## Day 37 IWM/GLD setup-time review gate application status
+
+- Latest committed baseline before this status: `b32a0de Add replacement source row setup-time review gate`.
+- New review file: `SAFE_FAST_IWM_GLD_SETUP_TIME_REVIEW_GATE_APPLICATION_REVIEW.md`.
+- Result: setup-time review gate applied to the three repo-backed extracted old IWM/GLD source windows; no reserved replacement candidate became `ready_for_packet_build_review`.
+- Batch result: `ready_for_packet_build_review=0`, `blocked_missing_evidence=3`, `unavailable=1`, `rejected=0`, `accepted_proof_count=0`.
+- No accepted proof was created; every candidate remains `watch_only=true`, `no_trade_decision=true`, and `accepted_proof=false`.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact accepted proof exists.
+- Validation run: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 75 tests OK; `git diff --check` PASS.
+- Next objective: collect or identify one exact setup-time row and all accepted setup-time review fields for the clearest extracted IWM Continuation or GLD Ideal seed before any packet-build-review promotion.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
