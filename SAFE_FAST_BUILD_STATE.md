@@ -7425,4 +7425,17 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - This helper does not accept proof; `accepted_proof=false`, `watch_only=True`, and `no_trade_decision=True` remain preserved.
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact rows and accepted proof exist.
 - Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 47 tests OK.
+
+## Day 36 replacement source row window extractor status
+
+- Latest committed baseline before this status: `a1efab7 Add replacement source row CSV intake helper`.
+- New files: `watcher_foundation/replacement_source_row_window_extractor.py`, `tests/test_replacement_source_row_window_extractor.py`.
+- Updated file: `watcher_foundation/__init__.py`.
+- Result: local in-memory source-window extractor implemented.
+- Purpose: helps process older/local bounded historical 1H RTH source windows into candidate-ready row bundles for the replacement source row CSV intake and packet population gate path.
+- Scope: accepts caller-provided in-memory CSV text and caller-provided request metadata only; it does not read files, collect live data, export data, write files, accept proof, use network/subprocess, touch broker/order/account/options/P&L, emit alerts, or make trade decisions.
+- `accepted_proof=false`, `watch_only=True`, and `no_trade_decision=True` remain preserved.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact rows and accepted proof exist.
+- Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 61 tests OK.
+- Next objective: provide exact bounded local historical 1H RTH source-window rows and required evidence metadata for the reserved IWM/GLD candidates only when setup-time rows, trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome evidence are available.
 - Next objective: provide exact bounded local historical 1H RTH source-row packet requests for the reserved IWM/GLD candidates only when setup-time rows, trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome evidence are available.
