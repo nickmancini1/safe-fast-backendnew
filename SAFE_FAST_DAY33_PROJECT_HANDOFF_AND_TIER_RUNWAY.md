@@ -1267,3 +1267,15 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"` PASS, 36 tests OK.
 - Next objective: provide exact bounded local historical 1H RTH source-row packet requests for the reserved IWM/GLD candidates only if setup-time rows, trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome evidence are available.
 - Future chats must use: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+
+## Day 36 IWM/GLD replacement source row population gate application review status
+
+- Latest committed baseline before this status: `dee4f85 Add replacement source row packet population gate`.
+- New file: `SAFE_FAST_IWM_GLD_REPLACEMENT_SOURCE_ROW_POPULATION_GATE_APPLICATION_REVIEW.md`.
+- Result: the committed local in-memory population gate was applied to unavailable in-memory requests for the four reserved IWM/GLD replacement candidates; no candidate became `ready_for_packet_build_review`.
+- Batch result: total `4`; `ready_for_packet_build_review=0`; `blocked_missing_evidence=0`; `rejected=0`; `unavailable=4`; `accepted_proof_count=0`.
+- No accepted proof was created; `accepted_proof=false`, `watch_only=true`, and `no_trade_decision=true` remain preserved for every candidate.
+- Tests: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"` PASS, 36 tests OK.
+- Next objective: collect or provide exact bounded local historical 1H RTH source-row packets for the four reserved candidates only if setup-time rows, trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome evidence are available.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact repo evidence proves otherwise.
+- Future chats must use: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
