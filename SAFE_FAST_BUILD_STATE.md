@@ -7414,3 +7414,15 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No profitability claim was created.
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact accepted proof exists.
 - Next objective: resume the evidence-backed IWM/GLD replacement source row packet path unless the user explicitly chooses to implement one hardening plan step next.
+
+## Day 36 replacement source row CSV intake helper status
+
+- Latest committed baseline before this status: `a6e4507 Preserve profitability decision policy hardening plan`.
+- New files: `watcher_foundation/replacement_source_row_csv_intake.py`, `tests/test_replacement_source_row_csv_intake.py`.
+- Result: local in-memory CSV/source-row intake helper implemented.
+- Purpose: help process future missing evidence by turning caller-provided historical 1H RTH CSV text or row dicts into replacement source row packet population requests.
+- Scope: no live data collection, file reads/writes from the module, network, subprocess, broker/order/account/options/P&L, alerts, trade decisions, Railway, production, `main.py`, or engine logic.
+- This helper does not accept proof; `accepted_proof=false`, `watch_only=True`, and `no_trade_decision=True` remain preserved.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact rows and accepted proof exist.
+- Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 47 tests OK.
+- Next objective: provide exact bounded local historical 1H RTH source-row packet requests for the reserved IWM/GLD candidates only when setup-time rows, trigger, invalidation, freshness/final-signal, blocker/caution, and terminal-outcome evidence are available.
