@@ -7511,3 +7511,18 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
 - Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 105 tests OK.
 - Next objective: complete one exact setup-time review request with accepted setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal outcome fields before any packet-build-review promotion.
+
+## Day 37 holding-period / trade-duration preservation status
+
+- Latest committed baseline before this status: `cd11592 Add replacement source row setup-time review completion intake`.
+- Status: docs-only preservation. No proof was created, no profitability claim was created, and no live trading, live data, broker/order/account/options/P&L, account sizing, alerts, shadow, production, Railway, real money, `main.py`, engine logic, code, or tests are authorized by this status.
+- SAFE-FAST does not yet have a final approved holding period. The current recommended framing is short-duration, not long-term: same-day to short swing, likely intraday to 1-3 trading days depending on setup type and evidence.
+- This framing is not scalping seconds/minutes, not multi-week investing, and does not approve automatic overnight or weekend holds.
+- SAFE-FAST should not target a number of trades per day. It should trade only when a full setup qualifies, and doing nothing must remain a first-class result.
+- Hold duration means the period from accepted trigger until the setup works under accepted outcome rules, invalidates, becomes stale/spent, meets a blocker, loses enough room to matter, reaches an evidence-backed exit, is ruined by manual execution delay, or becomes economically useless because option spread, decay, or fill quality no longer support the trade.
+- Setup-specific expectation: Ideal is likely the shortest hold and should work soon after confirmation; Clean Fast Break is likely very short and should show strength quickly; Continuation may allow the longest hold of the three but is still not open-ended and remains subject to freshness, session-boundary, invalidation, and blocker rules.
+- Before any real-money stage, SAFE-FAST must define evidence-backed maximum hold by setup type; overnight and Friday/weekend hold rules; exits for invalidation, stale/spent signals, blockers, target/room exhaustion, manual execution delay, option spread, option decay/time-in-trade, and fill quality; no-chase, cancel/skip, and trade-duration failure rules.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive unless exact accepted proof exists.
+- This rule must later become evidence-backed entry, exit, and hold criteria before any money stage.
+- Preserved summary: SAFE-FAST's default intended hold should be short-duration: same-day to short swing, not long-term. Exact hold rules are unproven and must be defined by evidence before any money stage. The system should not aim for trade frequency; it should aim for qualified, fresh, economically useful setups.
+- Next objective: return to the evidence-backed IWM/GLD replacement source-row path or the smallest next evidence-backed trading-usefulness/profitability-definition step.
