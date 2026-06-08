@@ -1357,3 +1357,17 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Validation run: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 75 tests OK; `git diff --check` PASS.
 - Next objective: collect or identify one exact setup-time row and all accepted setup-time review fields for the clearest extracted IWM Continuation or GLD Ideal seed before any packet-build-review promotion.
 - Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+
+## Day 37 setup-time review request packet builder status
+
+- Latest committed baseline before this status: `e1f1bdf Add IWM GLD setup-time review gate application review`.
+- New files: `watcher_foundation/replacement_source_row_setup_time_review_request.py`, `tests/test_replacement_source_row_setup_time_review_request.py`.
+- Result: local in-memory setup-time review request packet builder implemented.
+- Purpose: helps collect/process the missing setup-time review fields from extracted replacement source-window rows before any setup-time gate call.
+- Scope: accepts caller-provided in-memory extracted source-window bundles and optional candidate row numbers/ranges only; no file reads/writes from the module, live data, network, subprocess, broker/order/account/options/P&L, alerts, trade decisions, Railway, production, `main.py`, or engine logic.
+- This helper does not accept proof; `accepted_proof=false` remains preserved and batch `accepted_proof_count=0`.
+- Directionally favorable after-setup movement is not proof, and request packets are not trade signals.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
+- Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 88 tests OK.
+- Next objective: complete one review request only with exact accepted setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal outcome fields before any packet-build-review promotion.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
