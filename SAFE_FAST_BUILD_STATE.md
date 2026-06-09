@@ -7738,3 +7738,20 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No profitability claim was made.
 - Unit tests were not run by instruction.
 - Fastest next action: prioritize QQQ Clean Fast Break and QQQ Continuation repeat rows after this packet, while filling QQQ Continuation next-session freshness, QQQ Ideal fast-swing/wide-risk usefulness, complete blocker/caution review, and no-hindsight signoff for all five.
+
+## Day 38 top 5 replay setup-time field completion review status
+
+- Latest committed baseline before this status: `0b0c5c5 Add Day 38 top 5 replay setup-time packet`.
+- New review file: `SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md`.
+- Result: field-completion review filled the top-5 replay/setup-time packet as much as repo evidence allows.
+- Total reviewed: 5.
+- Fully filled count: 0.
+- Missing-field count: 10 incomplete required fields, counted as freshness plus blocker/caution review for each of the five candidates.
+- Blocked count: 5 blocked from proof/promotion by incomplete freshness/final-signal rules, incomplete blocker/caution review, repeatability, economics, option performance, spread/slippage/fill, account risk, execution path, and entry/exit usefulness.
+- Best candidate remains `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Fastest next action: add repeat QQQ Clean Fast Break rows in batch form, while also testing QQQ Continuation next-session freshness and completing blocker/caution review for all five.
+- Exact source file, exact row/window reference, setup-time row, trigger, invalidation, no-hindsight boundary, terminal chart-only outcome input, and fastest next action are filled for all five as setup-time/review material only.
+- Freshness/final-signal and complete blocker/caution review remain incomplete for all five.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.

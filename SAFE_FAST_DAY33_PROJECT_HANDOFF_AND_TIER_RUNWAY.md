@@ -1664,3 +1664,19 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
 - The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
 - The build-vs-docs rule remains preserved: the next step must fill missing replay/setup-time proof fields and repeat rows, not claim proof from this packet.
+
+## Day 38 top 5 replay setup-time field completion review status
+
+- Latest committed baseline before this status: `0b0c5c5 Add Day 38 top 5 replay setup-time packet`.
+- New review file: `SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md`.
+- Result: the top-5 replay/setup-time fields were filled as far as repo-backed evidence allows.
+- Total reviewed: 5.
+- Fully filled count: 0.
+- Missing-field count: 10 incomplete required fields, counted as freshness plus blocker/caution review for each of the five candidates.
+- Blocked count: 5 blocked from proof/promotion by incomplete freshness/final-signal rules, incomplete blocker/caution review, repeatability, economics, option performance, spread/slippage/fill, account risk, execution path, and entry/exit usefulness.
+- Best candidate remains `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Fastest next action: add repeat QQQ Clean Fast Break rows in batch form, while also testing QQQ Continuation next-session freshness and completing blocker/caution review for all five.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
+- Future chats must keep all five as review anchors only, not proof.
