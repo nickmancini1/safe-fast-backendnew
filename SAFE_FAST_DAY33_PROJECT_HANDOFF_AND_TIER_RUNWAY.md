@@ -1441,3 +1441,16 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Validation run for this evidence worksheet task: `git diff --check` PASS; unit tests were not run by instruction.
 - Next objective: fill or accept completed setup-time review fields, then process through the completion intake helper.
 - Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+
+## Day 37 setup-time review completion draft builder status
+
+- Latest committed baseline before this status: `dcf9a5a Add IWM GLD setup-time review row context packets`.
+- New files: `watcher_foundation/replacement_source_row_setup_time_review_completion_builder.py`, `tests/test_replacement_source_row_setup_time_review_completion_builder.py`.
+- Result: local in-memory setup-time review completion draft builder implemented.
+- Purpose: helps process reviewer-selected setup-time completion choices from row-context packets into a completion payload for the existing completion intake helper.
+- Scope: caller-provided in-memory row-context packet data and reviewer completion choices only; the builder does not choose setup-time rows, triggers, invalidations, freshness, blockers, outcome windows, or any other fields.
+- This builder does not accept proof; `accepted_proof=false` remains preserved and batch `accepted_proof_count=0`.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
+- Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 120 tests OK.
+- Next objective: use the completion draft builder only with caller-completed exact setup-time review choices, then pass `completion_payload` through the completion intake helper without accepting proof.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
