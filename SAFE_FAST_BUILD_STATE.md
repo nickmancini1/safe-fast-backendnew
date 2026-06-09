@@ -7539,3 +7539,15 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
 - Validation run for this docs-only task: `git diff --check` PASS; unit tests were not run by instruction.
 - Next objective: fill or accept completed setup-time review fields, then process through the completion intake helper.
+
+## Day 37 setup-time review row-context packet status
+
+- Latest committed baseline before this status: `3534497 Add IWM GLD setup-time review completion worksheet`.
+- New file: `SAFE_FAST_IWM_GLD_SETUP_TIME_REVIEW_ROW_CONTEXT_PACKETS.md`.
+- Result: row-context evidence packet created for the three ready setup-time review worksheet candidates.
+- `GLD-REPLACEMENT-IDEAL-CANDIDATE-002` remains unavailable because no second exact GLD Ideal source window and row range is repo-backed.
+- `accepted_proof_count=0`.
+- No accepted proof was created.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
+- Validation run for this evidence worksheet task: `git diff --check` PASS; unit tests were not run by instruction.
+- Next objective: fill or accept completed setup-time review fields, then process through the completion intake helper.
