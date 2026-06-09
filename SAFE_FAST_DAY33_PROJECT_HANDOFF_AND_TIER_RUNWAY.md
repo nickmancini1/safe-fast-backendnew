@@ -1504,3 +1504,17 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
 - The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
 - The build-vs-docs rule remains preserved: do not hide behind docs-only work once the blocker is understood.
+
+## Day 38 SPY/QQQ batch candidate expansion review status
+
+- Latest committed baseline before this status: `dedfba2 Add Day 38 ready candidates deeper batch review`.
+- New review file: `SAFE_FAST_DAY38_SPY_QQQ_BATCH_CANDIDATE_EXPANSION_REVIEW.md`.
+- Result: targeted repo-backed SPY/QQQ candidate expansion found one clean distinct addable candidate: the earlier SPY Clean Fast Break initial-break row from `2026-04-13T12:30:00-04:00`.
+- Five apparent SPY/QQQ rows were duplicate context rows from already-counted lifecycles, and one QQQ Clean Fast Break higher-base path is blocked because no fresh trigger row was found.
+- New estimated batch size: 17, so the 20-candidate minimum was not reached.
+- No proof was accepted and no profitability claim was made.
+- Next objective: run a bounded source pass over validated SPY/QQQ historical source windows for additional non-overlapping signal rows with setup type, trigger, invalidation, freshness/blocker status, and terminal chart-only outcome path.
+- Future chats must read `SAFE_FAST_PROFITABILITY_DEFINITION_AND_DECISION_POLICY_HARDENING_PLAN.md` when the hard strategic read rule applies.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+- The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
+- The build-vs-docs rule remains preserved: do not hide behind docs-only work once the blocker is understood.

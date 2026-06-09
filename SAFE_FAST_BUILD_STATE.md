@@ -7601,3 +7601,13 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Tiny-sample warning remains because the 16-candidate batch is still below 20.
 - No proof was accepted and no profitability claim was made.
 - Next objective: keep the five stronger SPY/QQQ candidates in a larger no-hindsight batch, replace the weak SPY Clean Fast Break sample, and add enough clean repo-backed candidates to get above the 20-candidate minimum before any proof review.
+
+## Day 38 SPY/QQQ batch candidate expansion review status
+
+- Latest committed baseline before this status: `dedfba2 Add Day 38 ready candidates deeper batch review`.
+- New review file: `SAFE_FAST_DAY38_SPY_QQQ_BATCH_CANDIDATE_EXPANSION_REVIEW.md`.
+- Result: targeted repo-backed SPY/QQQ candidate expansion found one clean distinct addable candidate: the earlier SPY Clean Fast Break initial-break row from `2026-04-13T12:30:00-04:00`.
+- The review skipped five duplicate context rows from already-counted SPY/QQQ lifecycles and marked one QQQ Clean Fast Break higher-base path blocked because no fresh trigger row was found.
+- New estimated batch size: 17, so the 20-candidate minimum was not reached.
+- No proof was accepted and no profitability claim was made.
+- Next objective: run a bounded source pass over validated SPY/QQQ historical source windows for additional non-overlapping signal rows with setup type, trigger, invalidation, freshness/blocker status, and terminal chart-only outcome path; prioritize a cleaner SPY Clean Fast Break replacement and additional QQQ Clean Fast Break/Continuation rows.
