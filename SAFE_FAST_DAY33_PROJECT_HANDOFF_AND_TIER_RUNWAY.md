@@ -1512,6 +1512,27 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
 - The build-vs-docs rule remains preserved: do not hide behind docs-only work once the blocker is understood.
 
+## Day 38 full 20-candidate deep batch review status
+
+- Latest committed baseline before this status: `c4d8f87 Add Day 38 top 5 candidates deep batch review`.
+- New review file: `SAFE_FAST_DAY38_FULL_20_CANDIDATE_DEEP_BATCH_REVIEW.md`.
+- Result: all 20 Day 38 candidates were deep-reviewed together with the same setup-time, trigger, invalidation, freshness, blocker, outcome, no-hindsight, missing-proof, decision, rank, and next-action checklist.
+- Total reviewed: 20.
+- Keep count: 5.
+- Block count: 13.
+- Drop count: 1.
+- Replace count: 1.
+- Top 5: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, `QQQ-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-IDEAL-001`, and `QQQ-REAL-HISTORICAL-IDEAL-001`.
+- Bottom 5: `GLD-REPLACEMENT-IDEAL-CANDIDATE-002`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, `GLD-REAL-HISTORICAL-CONTINUATION-001`, `GLD-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, and `IWM-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Best current pairs: QQQ Clean Fast Break, QQQ Continuation, SPY Continuation, SPY Ideal, and QQQ Ideal.
+- Weakest current pairs: SPY Clean Fast Break 2026-04-15 sample, GLD Ideal replacement slot 002, GLD Continuation, GLD Clean Fast Break, and IWM Clean Fast Break.
+- Fastest next action: create a bounded setup-time replay worksheet or replay request for `SPY-SOURCE-WINDOW-CONTINUATION-002` using CSV lines 156-169, while separately building repeat-row packets for QQQ Clean Fast Break and QQQ Continuation.
+- No accepted proof was created; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+- The build-vs-docs rule remains preserved: the next step must move missing evidence forward by creating or completing bounded setup-time/replay evidence, not by restating the same blocker.
+
 ## Day 38 ready-candidate deeper batch review status
 
 - Latest committed baseline before this status: `83f297c Add Day 38 historical candidate batch triage review`.

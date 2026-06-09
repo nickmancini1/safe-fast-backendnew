@@ -7684,3 +7684,27 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No profitability claim was made.
 - Unit tests were not run by instruction.
 - Future chats must keep the five as review anchors only, not proof, until repeatability, accepted trading-usefulness proof, economics, option performance, spread/slippage/fill evidence, account risk, and entry/exit usefulness are resolved.
+
+## Day 38 full 20-candidate deep batch review status
+
+- Latest committed baseline before this status: `c4d8f87 Add Day 38 top 5 candidates deep batch review`.
+- New review file: `SAFE_FAST_DAY38_FULL_20_CANDIDATE_DEEP_BATCH_REVIEW.md`.
+- Result: deep-reviewed all 20 Day 38 candidates together using the same checklist for every candidate.
+- Total reviewed: 20.
+- Keep count: 5.
+- Block count: 13.
+- Drop count: 1.
+- Replace count: 1.
+- Kept as review anchors only: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, `QQQ-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-IDEAL-001`, and `QQQ-REAL-HISTORICAL-IDEAL-001`.
+- Dropped from current proof path: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Replace slot: `GLD-REPLACEMENT-IDEAL-CANDIDATE-002`.
+- Blocked candidates remain blocked where setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution review, terminal outcome, no-hindsight replay output, or source-row proof is missing.
+- Top 5: QQQ Clean Fast Break 001, QQQ Continuation 001, SPY Continuation 001, SPY Ideal 001, and QQQ Ideal 001.
+- Bottom 5: GLD replacement Ideal candidate 002, SPY Clean Fast Break 001, GLD Continuation 001, GLD Clean Fast Break 001, and IWM Clean Fast Break 001.
+- Best current pairs: QQQ Clean Fast Break, QQQ Continuation, SPY Continuation, SPY Ideal, and QQQ Ideal.
+- Weakest current pairs: SPY Clean Fast Break 2026-04-15 sample, GLD Ideal replacement slot 002, GLD Continuation, GLD Clean Fast Break, and IWM Clean Fast Break.
+- Fastest next action: create a bounded setup-time replay worksheet or replay request for `SPY-SOURCE-WINDOW-CONTINUATION-002` using CSV lines 156-169, while separately building repeat-row packets for QQQ Clean Fast Break and QQQ Continuation.
+- No accepted proof was created; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
+- Future chats must keep all 20 as candidate-review material only, not proof, until required setup-time fields, terminal outcomes, repeatability, economics, option performance, spread/slippage/fill evidence, account risk, and entry/exit usefulness are resolved.
