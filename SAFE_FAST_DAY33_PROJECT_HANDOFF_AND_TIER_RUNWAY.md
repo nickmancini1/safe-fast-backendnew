@@ -1626,3 +1626,22 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
 - The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
 - The build-vs-docs rule remains preserved: do not hide behind docs-only work once the blocker is understood.
+
+## Day 38 kept candidates batch replay setup-time worksheet status
+
+- Latest committed baseline before this status: `18ce830 Add Day 38 full 20 candidate deep batch review`.
+- New worksheet file: `SAFE_FAST_DAY38_KEPT_CANDIDATES_BATCH_REPLAY_SETUP_TIME_WORKSHEET.md`.
+- Result: one batch replay/setup-time worksheet was created for the five kept Day 38 candidates together.
+- Total kept candidates: 5.
+- Candidates covered: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, `QQQ-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-IDEAL-001`, and `QQQ-REAL-HISTORICAL-IDEAL-001`.
+- The worksheet is a request/work packet, not proof.
+- All five still need exact source CSV line references and completed setup-time replay fields before proof review.
+- Required batch fields remain trigger, invalidation, freshness/final-signal, blocker/caution review, no-hindsight boundary, and terminal chart-only outcome request fields.
+- Fastest batch next action: build one bounded top-5 replay/setup-time packet for all five together, then prioritize additional QQQ Clean Fast Break and QQQ Continuation repeat rows.
+- No accepted proof was created; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
+- Future chats must read `SAFE_FAST_PROFITABILITY_DEFINITION_AND_DECISION_POLICY_HARDENING_PLAN.md` when the hard strategic read rule applies.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+- The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
+- The build-vs-docs rule remains preserved: the next step must fill bounded setup-time/replay fields, not restate the same blockers.

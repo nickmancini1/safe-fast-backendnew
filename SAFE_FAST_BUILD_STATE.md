@@ -7708,3 +7708,18 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No profitability claim was made.
 - Unit tests were not run by instruction.
 - Future chats must keep all 20 as candidate-review material only, not proof, until required setup-time fields, terminal outcomes, repeatability, economics, option performance, spread/slippage/fill evidence, account risk, and entry/exit usefulness are resolved.
+
+## Day 38 kept candidates batch replay setup-time worksheet status
+
+- Latest committed baseline before this status: `18ce830 Add Day 38 full 20 candidate deep batch review`.
+- New worksheet file: `SAFE_FAST_DAY38_KEPT_CANDIDATES_BATCH_REPLAY_SETUP_TIME_WORKSHEET.md`.
+- Result: created one batch replay/setup-time worksheet for the five kept Day 38 candidates together.
+- Total kept candidates: 5.
+- Candidates covered: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, `QQQ-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-IDEAL-001`, and `QQQ-REAL-HISTORICAL-IDEAL-001`.
+- The worksheet keeps all five as review anchors only, not proof.
+- All five still need exact source CSV line references carried into the setup-time packet.
+- All five still need trigger, invalidation, freshness/final-signal, blocker/caution review, no-hindsight boundary, and terminal chart-only outcome request fields completed in batch form before any proof review.
+- Fastest batch next action: build one bounded top-5 replay/setup-time packet for all five together, then prioritize additional QQQ Clean Fast Break and QQQ Continuation repeat rows.
+- No accepted proof was created; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Validation run for this docs-only task: `git diff --check` PASS; unit tests were not run by instruction.
