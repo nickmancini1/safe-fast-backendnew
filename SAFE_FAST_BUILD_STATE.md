@@ -7576,3 +7576,14 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - This helper does not claim profitability; `profitability_claimed=false` remains preserved.
 - Test command/result: `python -m unittest discover -s tests -p "test_historical_candidate_batch_triage.py"` PASS, 18 tests OK.
 - Next objective: apply batch triage to existing repo-backed historical candidate material, then decide what to drop, what to review deeper, and what needs cleaner evidence.
+
+## Day 38 existing historical candidate batch triage application status
+
+- Latest committed baseline before this status: `08d41ca Add historical candidate batch triage helper`.
+- New review file: `SAFE_FAST_DAY38_EXISTING_HISTORICAL_CANDIDATE_BATCH_TRIAGE_REVIEW.md`.
+- Result: applied `watcher_foundation/historical_candidate_batch_triage.py` to 16 repo-backed historical candidate/sample/window/review candidates using in-memory dictionaries only.
+- Batch result: `ready_for_deeper_review=6`, `blocked_missing_evidence=9`, `rejected=0`, `unavailable=1`, `invalid=0`, `accepted_proof_count=0`.
+- Tiny-sample warning remains: 16 candidates is below the default minimum sample size of 20.
+- No proof was accepted and no profitability claim was made.
+- SPY and QQQ setup-family candidates are ready for deeper review only; IWM/GLD candidates still need cleaner accepted trigger, invalidation, freshness/final-signal, blocker review, and terminal outcome evidence.
+- Next objective: run deeper batch review on the six SPY/QQQ ready candidates while completing one exact IWM/GLD setup-time review request only if all required fields are repo-backed.

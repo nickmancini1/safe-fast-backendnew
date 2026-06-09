@@ -1471,3 +1471,18 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
 - The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
 - The build-vs-docs rule remains preserved: do not hide behind docs-only work once the blocker is understood.
+
+## Day 38 existing historical candidate batch triage application status
+
+- Latest committed baseline before this status: `08d41ca Add historical candidate batch triage helper`.
+- New review file: `SAFE_FAST_DAY38_EXISTING_HISTORICAL_CANDIDATE_BATCH_TRIAGE_REVIEW.md`.
+- Result: applied the historical candidate batch triage helper to 16 existing repo-backed candidates using in-memory dictionaries only.
+- Batch result: `ready_for_deeper_review=6`, `blocked_missing_evidence=9`, `rejected=0`, `unavailable=1`, `invalid=0`, `accepted_proof_count=0`.
+- Tiny-sample warning remains because the default minimum sample size is 20.
+- No proof was accepted and no profitability claim was made.
+- SPY/QQQ setup-family candidates are ready for deeper review only; IWM/GLD candidates need cleaner replacement or completed setup-time evidence before promotion.
+- Next objective: deeper batch review for the six SPY/QQQ ready candidates and one exact IWM/GLD setup-time review completion only when all required repo-backed fields exist.
+- Future chats must read `SAFE_FAST_PROFITABILITY_DEFINITION_AND_DECISION_POLICY_HARDENING_PLAN.md` when the hard strategic read rule applies.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+- The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
+- The build-vs-docs rule remains preserved: do not hide behind docs-only work once the blocker is understood.
