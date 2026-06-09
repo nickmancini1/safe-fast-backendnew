@@ -7587,3 +7587,17 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No proof was accepted and no profitability claim was made.
 - SPY and QQQ setup-family candidates are ready for deeper review only; IWM/GLD candidates still need cleaner accepted trigger, invalidation, freshness/final-signal, blocker review, and terminal outcome evidence.
 - Next objective: run deeper batch review on the six SPY/QQQ ready candidates while completing one exact IWM/GLD setup-time review request only if all required fields are repo-backed.
+
+## Day 38 ready-candidate deeper batch review status
+
+- Latest committed baseline before this status: `83f297c Add Day 38 historical candidate batch triage review`.
+- New review file: `SAFE_FAST_DAY38_READY_CANDIDATES_DEEPER_BATCH_REVIEW.md`.
+- Result: reviewed the six SPY/QQQ ready candidates from the Day 38 batch triage review.
+- Batch result: `keep_for_deeper_review=5`, `blocked_missing_proof=0`, `drop_not_clean_enough=1`, `hold_needs_more_rows=0`.
+- Kept for deeper review: SPY Continuation, SPY Ideal, QQQ Ideal, QQQ Clean Fast Break, QQQ Continuation.
+- Dropped from current proof path: SPY Clean Fast Break, because its chart-only outcome time-stopped with too little favorable movement.
+- Best current pairs: QQQ Clean Fast Break, QQQ Continuation, SPY Continuation, SPY Ideal.
+- Weakest current pairs: SPY Clean Fast Break; QQQ Ideal needs more review because chart-risk distance is wide.
+- Tiny-sample warning remains because the 16-candidate batch is still below 20.
+- No proof was accepted and no profitability claim was made.
+- Next objective: keep the five stronger SPY/QQQ candidates in a larger no-hindsight batch, replace the weak SPY Clean Fast Break sample, and add enough clean repo-backed candidates to get above the 20-candidate minimum before any proof review.
