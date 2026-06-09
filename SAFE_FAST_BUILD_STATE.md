@@ -7611,3 +7611,20 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - New estimated batch size: 17, so the 20-candidate minimum was not reached.
 - No proof was accepted and no profitability claim was made.
 - Next objective: run a bounded source pass over validated SPY/QQQ historical source windows for additional non-overlapping signal rows with setup type, trigger, invalidation, freshness/blocker status, and terminal chart-only outcome path; prioritize a cleaner SPY Clean Fast Break replacement and additional QQQ Clean Fast Break/Continuation rows.
+
+## Day 38 SPY/QQQ source-window candidate pass status
+
+- Latest committed baseline before this status: `9a110e2 Add Day 38 SPY QQQ batch candidate expansion review`.
+- New review file: `SAFE_FAST_DAY38_SPY_QQQ_SOURCE_WINDOW_CANDIDATE_PASS.md`.
+- Result: bounded local source-window pass found three additional non-duplicate SPY/QQQ candidate windows from accepted local source CSV rows.
+- Added candidates: `SPY-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-003`, and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002`.
+- Previous batch size: 17.
+- New clean candidates found: 3.
+- Candidates added: 3.
+- New estimated batch size: 20.
+- Batch is now at least 20: yes.
+- Strongest pairs remain QQQ Clean Fast Break, QQQ Continuation, SPY Continuation, and SPY Ideal.
+- Weakest pairs remain prior SPY Clean Fast Break 04-15, QQQ Ideal wide-risk review, and the three new source-window candidates until exact replay/outcome proof exists.
+- No accepted proof was created; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Next objective: run bounded replay readiness/setup-time review on the three added source-window candidates, starting with `SPY-SOURCE-WINDOW-CONTINUATION-002`, and require exact trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal chart-only outcome fields before any proof review.

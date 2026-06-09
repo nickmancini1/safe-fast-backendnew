@@ -1518,3 +1518,24 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
 - The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
 - The build-vs-docs rule remains preserved: do not hide behind docs-only work once the blocker is understood.
+
+## Day 38 SPY/QQQ source-window candidate pass status
+
+- Latest committed baseline before this status: `9a110e2 Add Day 38 SPY QQQ batch candidate expansion review`.
+- New review file: `SAFE_FAST_DAY38_SPY_QQQ_SOURCE_WINDOW_CANDIDATE_PASS.md`.
+- Result: bounded local source-window pass found three additional non-duplicate SPY/QQQ candidate windows from accepted local source CSV rows.
+- Added candidates: `SPY-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-003`, and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002`.
+- Previous batch size: 17.
+- New clean candidates found: 3.
+- Candidates added: 3.
+- New estimated batch size: 20.
+- Batch is now at least 20: yes.
+- Strongest pairs remain QQQ Clean Fast Break, QQQ Continuation, SPY Continuation, and SPY Ideal.
+- Weakest pairs remain prior SPY Clean Fast Break 04-15, QQQ Ideal wide-risk review, and the three new source-window candidates until exact replay/outcome proof exists.
+- No accepted proof was created; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Next objective: run bounded replay readiness/setup-time review on the three added source-window candidates, starting with `SPY-SOURCE-WINDOW-CONTINUATION-002`, and require exact trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal chart-only outcome fields before any proof review.
+- Future chats must read `SAFE_FAST_PROFITABILITY_DEFINITION_AND_DECISION_POLICY_HARDENING_PLAN.md` when the hard strategic read rule applies.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+- The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
+- The build-vs-docs rule remains preserved: do not hide behind docs-only work once the blocker is understood.
