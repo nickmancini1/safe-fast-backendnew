@@ -7805,3 +7805,14 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No proof was accepted; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Unit tests were not run by instruction.
+
+## Day 38 speed discipline / no more time-wasting rule
+
+- Latest committed baseline before this status: `337f36c Add Day 38 QQQ blocker resolution review`.
+- Status: preserved in the top of the handoff.
+- Reason: SAFE-FAST wasted user time by moving too slowly through tiny samples and one-candidate rescue work.
+- User rule: the user will not tolerate more slow, narrow, repetitive work that does not move SAFE-FAST toward a profitable trading plan.
+- Required direction: batch by default, deep-review batches, judge each candidate separately, keep proof standards strict, expand source pools when samples are too small, drop or replace weak candidates, and stop restating known blockers.
+- No proof was accepted.
+- No profitability claim was made.
+- Next objective: batch-level evidence work only, unless a single-candidate task is explicitly justified by the batch result.

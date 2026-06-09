@@ -1,4 +1,33 @@
-Ôªø# SAFE-FAST Day 33 Project Handoff and Tier Runway
+# REQUIRED TOP RULE: Day 38 speed discipline without quality loss
+
+SAFE-FAST has wasted user time by moving too slowly.
+
+What went wrong:
+- The work stayed too long on tiny samples.
+- The work crawled through weak examples one at a time.
+- The work tried too hard to rescue blocked IWM/GLD paths.
+- The assistant repeatedly promised faster work, then kept giving narrow tasks.
+- The user will not tolerate more slow work that does not move toward a profitable trading plan.
+
+Required speed rule:
+- Batch by default.
+- Deep-review batches, not shallowly.
+- Judge every candidate separately inside the batch.
+- Do not reduce proof standards.
+- Do not invent evidence.
+- Do not treat favorable price movement as proof.
+- Missing setup candle, trigger, invalidation, freshness, blocker, no-hindsight check, or outcome still blocks the candidate.
+- If the repo pool is too small, expand the source pool.
+- If a candidate is weak, drop it or replace it.
+- If a setup/symbol pair is weak, narrow it, isolate it, remove it, or document the blocker.
+- Do not keep creating documents that restate the same blocker.
+- Every task must move toward evidence, diagnosis, trading usefulness, regression protection, batch scale, or profitability definition.
+
+Before giving any next task, future chats must ask:
+Does this move SAFE-FAST closer to a proven profitable trading plan, or is it another slow paperwork loop?
+
+If it is another slow paperwork loop, do not do it.
+# SAFE-FAST Day 33 Project Handoff and Tier Runway
 
 Codex launch rule:
 Use only the known-working unelevated Windows sandbox launch:
@@ -619,7 +648,7 @@ The user wants direct normal English.
 
 Do not add filler.
 Do not narrate internal thinking.
-Do not say ‚Äúplain English.‚Äù
+Do not say ìplain English.î
 Do not use copy blocks unless the user should paste them somewhere.
 Say what matters, what changed, what is next, and what is still unproven.
 
@@ -635,7 +664,7 @@ Do not plan around Day 90.
 
 The lower-tier handoff must be ready before the current $200 window ends.
 
-Future chats must not soften this into ‚Äúmaybe‚Äù or treat Day 90 as a planning target unless the user explicitly changes the tier plan.
+Future chats must not soften this into ìmaybeî or treat Day 90 as a planning target unless the user explicitly changes the tier plan.
 
 Use the current $200 window for:
 
@@ -821,7 +850,7 @@ Each setup type must be reviewable on its own.
 
 ## Worked or failed does not mean profitable
 
-For now, ‚Äúworked‚Äù means the chart/setup behavior matched the plan expectation.
+For now, ìworkedî means the chart/setup behavior matched the plan expectation.
 
 It does not mean profitable.
 
@@ -1001,7 +1030,7 @@ This is local controlled evidence work, not live data.
 
 Concern:
 
-‚ÄúComplete enough to trust‚Äù can become vague.
+ìComplete enough to trustî can become vague.
 
 Required response:
 
@@ -1121,7 +1150,7 @@ After the next bounded IWM/GLD evidence packet work is accepted, reassess the sm
 
 The final UI is not a trade recommendation screen.
 
-It should not simply say ‚Äúbuy‚Äù or ‚Äútrade this.‚Äù
+It should not simply say ìbuyî or ìtrade this.î
 
 It must show:
 
@@ -1189,7 +1218,7 @@ The UI should eventually include:
 
 The finish line is not:
 
-‚ÄúThe watcher works.‚Äù
+ìThe watcher works.î
 
 The finish line is:
 
@@ -1729,3 +1758,4 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - No proof was accepted; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Unit tests were not run by instruction.
+
