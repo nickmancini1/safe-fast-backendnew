@@ -7723,3 +7723,18 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No accepted proof was created; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Validation run for this docs-only task: `git diff --check` PASS; unit tests were not run by instruction.
+
+## Day 38 top 5 replay setup-time packet status
+
+- Latest committed baseline before this status: `9c9edb6 Add Day 38 kept candidates batch replay setup-time worksheet`.
+- New packet file: `SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_PACKET.md`.
+- Result: created one bounded replay/setup-time packet for all five kept Day 38 candidates together.
+- Total kept candidates covered: 5.
+- Candidates covered: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, `QQQ-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-IDEAL-001`, and `QQQ-REAL-HISTORICAL-IDEAL-001`.
+- Exact source CSV row references are now carried for all five setup-time rows.
+- Replay signal-log rows, trigger fields, invalidation fields, primary blocker fields, unconfirmed context fields, no-hindsight requests, and terminal chart-only outcome requests are carried in one packet.
+- The packet remains request/setup-time material only, not proof.
+- No accepted proof was created; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
+- Fastest next action: prioritize QQQ Clean Fast Break and QQQ Continuation repeat rows after this packet, while filling QQQ Continuation next-session freshness, QQQ Ideal fast-swing/wide-risk usefulness, complete blocker/caution review, and no-hindsight signoff for all five.
