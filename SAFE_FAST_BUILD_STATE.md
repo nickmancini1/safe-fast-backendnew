@@ -7563,3 +7563,16 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
 - Test command/result: `python -m unittest discover -s tests -p "test_replacement_source_row*.py"` PASS, 120 tests OK.
 - Next objective: use the completion draft builder only with caller-completed exact setup-time review choices, then pass `completion_payload` through the completion intake helper without accepting proof.
+
+## Day 38 batch historical candidate triage helper status
+
+- Latest committed baseline before this status: `60ed8f9 Add replacement source row setup-time review completion builder`.
+- New files: `watcher_foundation/historical_candidate_batch_triage.py`, `tests/test_historical_candidate_batch_triage.py`.
+- Result: local in-memory batch candidate triage helper implemented.
+- Purpose: stop one-example crawling and move SAFE-FAST toward batch evidence review across historical candidates.
+- Scope: caller-provided in-memory candidate dictionaries only; no file reads/writes from the module, live data, network, subprocess, broker/order/account/options/P&L, alerts, trade decisions, Railway, production, `main.py`, or engine logic.
+- The helper sorts candidates into ready for deeper review, missing proof, reject/drop, unavailable, and invalid-input buckets, with symbol, setup-type, and symbol/setup-pair summaries.
+- This helper does not accept proof; `accepted_proof=false` and batch `accepted_proof_count=0` remain preserved.
+- This helper does not claim profitability; `profitability_claimed=false` remains preserved.
+- Test command/result: `python -m unittest discover -s tests -p "test_historical_candidate_batch_triage.py"` PASS, 18 tests OK.
+- Next objective: apply batch triage to existing repo-backed historical candidate material, then decide what to drop, what to review deeper, and what needs cleaner evidence.
