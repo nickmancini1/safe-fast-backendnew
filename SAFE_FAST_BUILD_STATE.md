@@ -7646,3 +7646,20 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No profitability claim was made.
 - Validation run for this docs-only task: `git diff --check` PASS; unit tests were not run by instruction.
 - Next objective: run bounded replay readiness/setup-time review on `SPY-SOURCE-WINDOW-CONTINUATION-002` using the exact 2026-04-16 through 2026-04-17 source rows, requiring exact trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal chart-only outcome fields before any proof review.
+
+## Day 38 SPY source-window Continuation 002 review status
+
+- Latest committed baseline before this status: `e172ee1 Add Day 38 full 20 candidate batch worklist`.
+- New review file: `SAFE_FAST_DAY38_SPY_SOURCE_WINDOW_CONTINUATION_002_REVIEW.md`.
+- Result: bounded setup-time/replay-readiness review completed for `SPY-SOURCE-WINDOW-CONTINUATION-002` using exact SPY source CSV lines 156-169, `2026-04-16T09:30:00-04:00` through `2026-04-17T15:30:00-04:00`.
+- Setup type: SPY Continuation.
+- Setup-time row candidate: `2026-04-17T09:30:00-04:00`; candidate only, not accepted proof.
+- Trigger candidate: completed 1H RTH break/hold above the `2026-04-16` high area, candidate level `702.78`; not accepted proof.
+- Invalidation candidate: conservative 04-16 base low `698.53`; tighter 04-16 15:30 low `700.83` remains only an alternate candidate.
+- After-setup source-only outcome window: `2026-04-17T10:30:00-04:00` through `2026-04-17T15:30:00-04:00`; max high `712.38`, min low `708.99`, final close `710.04`; directional movement was not accepted as proof.
+- Decision: block. Keep in the batch as a blocked source-window candidate; do not drop, but do not move forward to proof review.
+- Blocker: accepted replay fixture row, trigger, invalidation, freshness/final-signal review, blocker/caution review, no-hindsight replay output, exact terminal chart-only outcome review, and economics are still missing.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Validation run for this docs-only task: `git diff --check` PASS with LF-to-CRLF working-copy warnings; unit tests were not run by instruction.
+- Next objective: create a bounded setup-time replay worksheet or replay request for lines 156-169, requiring completed trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal chart-only outcome fields before proof review.
