@@ -1414,3 +1414,17 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - Preserved summary: SAFE-FAST's default intended hold should be short-duration: same-day to short swing, not long-term. Exact hold rules are unproven and must be defined by evidence before any money stage. The system should not aim for trade frequency; it should aim for qualified, fresh, economically useful setups.
 - Next objective: return to the evidence-backed IWM/GLD replacement source-row path or the smallest next evidence-backed trading-usefulness/profitability-definition step.
 - Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+
+## Day 37 setup-time review completion worksheet status
+
+- Latest committed baseline before this status: `1736405 Preserve SAFE-FAST holding period rule`.
+- New file: `SAFE_FAST_IWM_GLD_SETUP_TIME_REVIEW_COMPLETION_WORKSHEET.md`.
+- Result: fillable completion worksheet created for setup-time review request packets.
+- `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`, and `GLD-REPLACEMENT-IDEAL-CANDIDATE-001` are ready for setup-time review completion, but none has accepted proof.
+- `GLD-REPLACEMENT-IDEAL-CANDIDATE-002` remains unavailable because no second exact GLD Ideal source window and row range is repo-backed.
+- `accepted_proof_count=0`.
+- No accepted proof was created.
+- IWM Continuation and GLD Ideal remain missing-evidence/inconclusive until exact accepted proof exists.
+- Validation run for this docs-only task: `git diff --check` PASS; unit tests were not run by instruction.
+- Next objective: fill or accept completed setup-time review fields, then process through the completion intake helper.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
