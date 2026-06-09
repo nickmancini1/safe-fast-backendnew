@@ -7663,3 +7663,24 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No profitability claim was made.
 - Validation run for this docs-only task: `git diff --check` PASS with LF-to-CRLF working-copy warnings; unit tests were not run by instruction.
 - Next objective: create a bounded setup-time replay worksheet or replay request for lines 156-169, requiring completed trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal chart-only outcome fields before proof review.
+
+## Day 38 top 5 candidates deep batch review status
+
+- Latest committed baseline before this status: `1b318fe Add Day 38 SPY source window Continuation 002 review`.
+- New review file: `SAFE_FAST_DAY38_TOP_5_CANDIDATES_DEEP_BATCH_REVIEW.md`.
+- Result: deep-reviewed the five kept Day 38 candidates together.
+- Total reviewed: 5.
+- Keep count: 5.
+- Block count: 0.
+- Drop count: 0.
+- Replace count: 0.
+- Kept moving forward: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, `QQQ-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-IDEAL-001`, and `QQQ-REAL-HISTORICAL-IDEAL-001`.
+- Best candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Worst candidate among the five: `QQQ-REAL-HISTORICAL-IDEAL-001`, because wide chart risk and fast-swing freshness/hold usefulness remain unresolved.
+- Best symbol/setup pair: QQQ Clean Fast Break.
+- Weakest symbol/setup pair among the five: QQQ Ideal.
+- Fastest next action: build a bounded top-5 repeat-row packet, prioritizing more QQQ Clean Fast Break and QQQ Continuation rows while explicitly testing QQQ Continuation next-session freshness and QQQ Ideal wide-risk usefulness.
+- No accepted proof was created; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
+- Future chats must keep the five as review anchors only, not proof, until repeatability, accepted trading-usefulness proof, economics, option performance, spread/slippage/fill evidence, account risk, and entry/exit usefulness are resolved.

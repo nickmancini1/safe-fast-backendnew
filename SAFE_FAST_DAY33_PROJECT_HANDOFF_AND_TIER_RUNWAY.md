@@ -1487,6 +1487,31 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
 - The build-vs-docs rule remains preserved: do not hide behind docs-only work once the blocker is understood.
 
+## Day 38 top 5 candidates deep batch review status
+
+- Latest committed baseline before this status: `1b318fe Add Day 38 SPY source window Continuation 002 review`.
+- New review file: `SAFE_FAST_DAY38_TOP_5_CANDIDATES_DEEP_BATCH_REVIEW.md`.
+- Result: deep-reviewed the five kept Day 38 candidates together.
+- Total reviewed: 5.
+- Keep count: 5.
+- Block count: 0.
+- Drop count: 0.
+- Replace count: 0.
+- Kept moving forward: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, `QQQ-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-IDEAL-001`, and `QQQ-REAL-HISTORICAL-IDEAL-001`.
+- Best candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Worst candidate among the five: `QQQ-REAL-HISTORICAL-IDEAL-001`, because wide chart risk and fast-swing freshness/hold usefulness remain unresolved.
+- Best symbol/setup pair: QQQ Clean Fast Break.
+- Weakest symbol/setup pair among the five: QQQ Ideal.
+- Fastest next action: build a bounded top-5 repeat-row packet, prioritizing more QQQ Clean Fast Break and QQQ Continuation rows while explicitly testing QQQ Continuation next-session freshness and QQQ Ideal wide-risk usefulness.
+- No accepted proof was created; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
+- Future chats must keep the five as review anchors only, not proof, until repeatability, accepted trading-usefulness proof, economics, option performance, spread/slippage/fill evidence, account risk, and entry/exit usefulness are resolved.
+- Future chats must read `SAFE_FAST_PROFITABILITY_DEFINITION_AND_DECISION_POLICY_HARDENING_PLAN.md` when the hard strategic read rule applies.
+- Future chats must keep using: `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`.
+- The Day 37 holding-period rule remains preserved: SAFE-FAST is short-duration by default, not long-term, and exact hold rules remain unproven until evidence defines them.
+- The build-vs-docs rule remains preserved: do not hide behind docs-only work once the blocker is understood.
+
 ## Day 38 ready-candidate deeper batch review status
 
 - Latest committed baseline before this status: `83f297c Add Day 38 historical candidate batch triage review`.
