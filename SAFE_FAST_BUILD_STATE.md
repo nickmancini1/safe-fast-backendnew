@@ -7628,3 +7628,21 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No accepted proof was created; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Next objective: run bounded replay readiness/setup-time review on the three added source-window candidates, starting with `SPY-SOURCE-WINDOW-CONTINUATION-002`, and require exact trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal chart-only outcome fields before any proof review.
+
+## Day 38 full 20-candidate batch worklist status
+
+- Latest committed baseline before this status: `1fc1766 Add Day 38 SPY QQQ source window candidate pass`.
+- New review file: `SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md`.
+- Result: reviewed the full Day 38 20-candidate batch as a ranked worklist.
+- Batch result: `total_candidates=20`, `keep=5`, `drop=1`, `blocked=13`, `replace=1`.
+- Kept for deeper review: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, `QQQ-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-IDEAL-001`, and `QQQ-REAL-HISTORICAL-IDEAL-001`.
+- Dropped from current proof path: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Replace slot: `GLD-REPLACEMENT-IDEAL-CANDIDATE-002`.
+- Blocked candidates remain blocked where accepted trigger, invalidation, freshness/final-signal, blocker/caution review, no-hindsight handling, or terminal outcome is missing.
+- Best current pairs: QQQ Clean Fast Break, QQQ Continuation, SPY Continuation, SPY Ideal, and QQQ Ideal.
+- Weakest current pairs: SPY Clean Fast Break 2026-04-15 sample, GLD Ideal replacement slot 002, GLD Continuation, GLD Clean Fast Break, and IWM Clean Fast Break.
+- Next batch target size: 25 total candidates, only after the current blocked SPY/QQQ additions are resolved by bounded setup-time review or replaced.
+- No accepted proof was created; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Validation run for this docs-only task: `git diff --check` PASS; unit tests were not run by instruction.
+- Next objective: run bounded replay readiness/setup-time review on `SPY-SOURCE-WINDOW-CONTINUATION-002` using the exact 2026-04-16 through 2026-04-17 source rows, requiring exact trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and terminal chart-only outcome fields before any proof review.
