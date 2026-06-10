@@ -402,6 +402,25 @@ Day 39 runnable helper now exists for this screen:
 - No proof was accepted.
 - No profitability claim was made.
 
+## Strict source-pool intake helper
+
+Day 39 now also has a strict source-pool intake helper:
+
+- Helper: `watcher_foundation/candidate_source_pool_intake.py`
+- Tests: `tests/test_candidate_source_pool_intake.py`
+- Command: `python -B -m watcher_foundation.candidate_source_pool_intake`
+
+Why this handoff changed:
+
+- The workflow now separates the 24-candidate completeness screen from strict source-pool intake.
+- The intake helper rejects chart-shape-only rows and rows without repo-backed setup candle, trigger, invalidation, no-hindsight boundary, and outcome input.
+- The helper prints to stdout only and creates no generated report/log file.
+- Current intake result: source-pool rows inspected 24; accepted intake count 6; intake-ready count 0; blocked/drop/replace/duplicate counts 6/0/0/0; close-ready count 6.
+- Top remaining blocker family: freshness/final-signal plus blocker/caution unresolved.
+- Current exact blocker: local docs/data support only 6 strict source-backed candidates, not 20-50 strict candidates.
+- No proof was accepted.
+- No profitability claim was made.
+
 ## Faster workflow
 
 Use this order:

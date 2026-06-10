@@ -7960,3 +7960,37 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No profitability claim was made.
 - `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, deployment settings, and live-data paths were not changed.
 - Fastest next action: use the helper table to expand or repair source-backed setup-time evidence in batch; do not deep-review any candidate until the minimum completeness fields are present and duplicate/drop/replace rows remain excluded from ready promotion.
+
+## Day 39 source-backed field repair and strict source-pool intake helper status
+
+- Latest committed baseline before this corrective task: `f385f8d Add Day 39 candidate completeness screen`.
+- Corrective scope: build-only helper/test/doc work.
+- Duplicate/status repair was preserved and corrected: duplicate rows remain blocked from ready promotion.
+- Helper-pool evidence repair: six candidates now carry repo-backed setup-time/source fields instead of false `MISSING` values in setup candle, trigger, invalidation, and outcome input columns:
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`
+  - `QQQ-REAL-HISTORICAL-CONTINUATION-001`
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001`
+  - `SPY-REAL-HISTORICAL-IDEAL-001`
+  - `QQQ-REAL-HISTORICAL-IDEAL-001`
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`
+- These six remain blocked because freshness/final-signal and blocker/caution review remain `UNCLEAR` or incomplete; `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` also still needs terminal chart-only review completion.
+- 24-candidate screen counts: ready 0; blocked 20; replace 3; drop 1.
+- Close-ready count: 6 source-backed rows have setup candle, trigger, invalidation, no-hindsight boundary, and outcome input, but are not intake-ready because freshness/final-signal and blocker/caution remain unresolved.
+- New strict source-pool intake helper: `watcher_foundation/candidate_source_pool_intake.py`.
+- New strict source-pool intake tests: `tests/test_candidate_source_pool_intake.py`.
+- Source-pool intake result: source-pool rows inspected 24; accepted intake count 6; intake-ready count 0; blocked/drop/replace/duplicate counts 6/0/0/0; close-ready count 6.
+- Top remaining blocker family: freshness/final-signal plus blocker/caution unresolved.
+- Exact source-pool blocker: current local docs/data support only 6 strict candidates, not 20-50 strict candidates.
+- Smallest next evidence-backed fix: complete freshness/final-signal and blocker/caution review for the six source-backed rows, then add more strict rows only from accepted local source/replay material.
+- No generated report/log/CSV/JSON output file was created; both helpers print to stdout only.
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_completeness_screen.py"` PASS, 11 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 7 tests.
+  - `python -B -m unittest discover -s tests -p "test_historical_candidate_batch_triage.py"` PASS, 18 tests.
+  - `python -B -m watcher_foundation.candidate_completeness_screen` PASS and printed the ranked table to stdout only.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the strict source-pool intake report to stdout only.
+  - `git --no-pager diff --check` PASS.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: complete the unresolved freshness/final-signal and blocker/caution reviews for the six close-ready source-backed rows as one batch; only after that, run the intake helper again and admit any rows that become intake-ready.

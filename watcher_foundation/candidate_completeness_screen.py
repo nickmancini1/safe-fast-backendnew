@@ -30,6 +30,7 @@ REQUIRED_OUTPUT_FIELDS = (
     "invalidation",
     "freshness",
     "blocker",
+    "no_hindsight_boundary",
     "outcome_window",
     "duplicate",
     "status",
@@ -83,6 +84,7 @@ class Candidate:
             "invalidation": self.invalidation,
             "freshness": self.freshness,
             "blocker": self.blocker,
+            "no_hindsight_boundary": self.no_hindsight_boundary,
             "outcome_window": self.outcome_window,
             "duplicate": self.duplicate,
             "status": self.status,
@@ -144,7 +146,8 @@ def _parse_full_20_worklist() -> list[Candidate]:
         decision = cells[6].strip()
         next_action = cells[7].strip()
         source_lines = _known_source_lines(candidate_id, FULL_20_WORKLIST, line_number, next_action)
-        status = _screen_status(decision, worklist_status, duplicate=False)
+        duplicate = _duplicate_flag(candidate_id)
+        status = _screen_status(decision, worklist_status, duplicate=duplicate == "yes")
         missing = _missing_fields_for_full_20(worklist_status, proof_missing)
         candidates.append(
             Candidate(
@@ -159,9 +162,9 @@ def _parse_full_20_worklist() -> list[Candidate]:
                 blocker=_field_value("blocker", candidate_id, missing),
                 outcome_window=_field_value("outcome_window", candidate_id, missing),
                 no_hindsight_boundary=_field_value("no_hindsight_boundary", candidate_id, missing),
-                duplicate=_duplicate_flag(candidate_id),
+                duplicate=duplicate,
                 status=status,
-                reason=_reason(status, missing, worklist_status),
+                reason=_reason(status, missing, worklist_status, duplicate=duplicate == "yes", candidate_id=candidate_id),
                 next_action=next_action,
             )
         )
@@ -239,7 +242,7 @@ def _parse_added_4_current_review() -> list[Candidate]:
                 no_hindsight_boundary="MISSING",
                 duplicate="no",
                 status=status,
-                reason=_reason(status, missing, "fixture_ready_review"),
+                reason=_reason(status, missing, "fixture_ready_review", duplicate=False),
                 next_action=str(info["next_action"]),
             )
         )
@@ -260,6 +263,30 @@ def _markdown_table_candidate_lines(file_name: str) -> list[tuple[int, list[str]
 
 def _known_source_lines(candidate_id: str, file_name: str, line_number: int, next_action: str) -> str:
     known = {
+        "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": (
+            "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv "
+            "source CSV line 132; SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md"
+        ),
+        "QQQ-REAL-HISTORICAL-CONTINUATION-001": (
+            "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv "
+            "source CSV line 226; SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md"
+        ),
+        "SPY-REAL-HISTORICAL-CONTINUATION-001": (
+            "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv "
+            "source CSV line 229; SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md"
+        ),
+        "SPY-REAL-HISTORICAL-IDEAL-001": (
+            "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv "
+            "source CSV line 291; SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md"
+        ),
+        "QQQ-REAL-HISTORICAL-IDEAL-001": (
+            "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv "
+            "source CSV line 286; SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md"
+        ),
+        "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": (
+            "historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl "
+            "2026-04-13T12:30:00-04:00 signal row; SAFE_FAST_DAY38_SPY_QQQ_BATCH_CANDIDATE_EXPANSION_REVIEW.md"
+        ),
         "SPY-SOURCE-WINDOW-CONTINUATION-002": (
             "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv "
             "CSV lines 156-169"
@@ -276,7 +303,11 @@ def _known_source_lines(candidate_id: str, file_name: str, line_number: int, nex
     match = _SOURCE_LINE_RE.search(next_action)
     source = known.get(candidate_id, match.group(1) if match else "source rows MISSING")
     replacement_ref = ""
-    if candidate_id in known:
+    if candidate_id in {
+        "SPY-SOURCE-WINDOW-CONTINUATION-002",
+        "SPY-SOURCE-WINDOW-CONTINUATION-003",
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+    }:
         replacement_ref = f"; {REPLACEMENT_PASS}:{_replacement_line(candidate_id)}"
     return f"{source}; {file_name}:{line_number}{replacement_ref}"
 
@@ -325,6 +356,9 @@ def _missing_fields_for_full_20(worklist_status: str, proof_missing: str) -> lis
 
 
 def _field_value(field_name: str, candidate_id: str, missing: Sequence[str]) -> str:
+    repaired = _source_backed_candidate_fields().get(candidate_id)
+    if repaired and field_name in repaired:
+        return repaired[field_name]
     if field_name in missing:
         return "MISSING"
     known_values = {
@@ -338,6 +372,83 @@ def _field_value(field_name: str, candidate_id: str, missing: Sequence[str]) -> 
     return known_values.get(candidate_id, {}).get(field_name, "MISSING")
 
 
+def _source_backed_candidate_fields() -> dict[str, dict[str, str]]:
+    return {
+        "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": {
+            "setup_candle": "source line 132; replay row 3; 2026-04-13T12:30:00-04:00",
+            "trigger": "triggered at 613.67; final_verdict TRADE; initial_break_candidate",
+            "invalidation": "copied invalidation 609.58",
+            "freshness": "UNCLEAR: replay signal/stage exists; stale/spent and gap-context rules incomplete",
+            "blocker": "UNCLEAR: primary blocker null; complete context/caution review incomplete",
+            "outcome_window": (
+                "chart-only input: entry 2026-04-13T13:30:00-04:00; terminal "
+                "2026-04-13T15:30:00-04:00; same_day"
+            ),
+            "no_hindsight_boundary": "through 2026-04-13T12:30:00-04:00 only",
+        },
+        "QQQ-REAL-HISTORICAL-CONTINUATION-001": {
+            "setup_candle": "source line 226; replay row 5; 2026-04-30T15:30:00-04:00",
+            "trigger": "triggered at 664.51; final_verdict TRADE; signal_stage",
+            "invalidation": "copied invalidation 653.81",
+            "freshness": "UNCLEAR: next-session entry freshness/session-boundary unresolved",
+            "blocker": "UNCLEAR: primary blocker null; session-boundary and complete context/caution review incomplete",
+            "outcome_window": (
+                "chart-only input: entry 2026-05-01T09:30:00-04:00; terminal "
+                "2026-05-01T09:30:00-04:00; entry-session same_day"
+            ),
+            "no_hindsight_boundary": "through 2026-04-30T15:30:00-04:00 only",
+        },
+        "SPY-REAL-HISTORICAL-CONTINUATION-001": {
+            "setup_candle": "source line 229; replay row 5; 2026-04-30T12:30:00-04:00",
+            "trigger": "triggered at 715.61; final_verdict TRADE; signal_stage",
+            "invalidation": "copied pre-entry invalidation 708.37",
+            "freshness": "UNCLEAR: replay signal/stage exists; stale/spent and intrabar ordering rules incomplete",
+            "blocker": "UNCLEAR: primary blocker null; complete context/caution review incomplete",
+            "outcome_window": (
+                "chart-only input: entry 2026-04-30T13:30:00-04:00; terminal "
+                "2026-04-30T13:30:00-04:00; same_day"
+            ),
+            "no_hindsight_boundary": "through 2026-04-30T12:30:00-04:00 only",
+        },
+        "SPY-REAL-HISTORICAL-IDEAL-001": {
+            "setup_candle": "source line 291; replay row 5; 2026-05-13T11:30:00-04:00",
+            "trigger": "triggered at 740.75; final_verdict TRADE; ideal signal_stage",
+            "invalidation": "copied pre-entry invalidation 731.83",
+            "freshness": "UNCLEAR: replay signal/stage exists; setup-specific stale/spent rules incomplete",
+            "blocker": "UNCLEAR: primary blocker null; complete context/caution review incomplete",
+            "outcome_window": (
+                "chart-only input: entry 2026-05-13T12:30:00-04:00; terminal "
+                "2026-05-13T13:30:00-04:00; same_day"
+            ),
+            "no_hindsight_boundary": "through 2026-05-13T11:30:00-04:00 only",
+        },
+        "QQQ-REAL-HISTORICAL-IDEAL-001": {
+            "setup_candle": "source line 286; replay row 5; 2026-05-13T12:30:00-04:00",
+            "trigger": "triggered at 714.59; final_verdict TRADE; ideal signal_stage",
+            "invalidation": "copied invalidation 696.66",
+            "freshness": "UNCLEAR: fast-swing hold and setup-specific stale/spent rules incomplete",
+            "blocker": "UNCLEAR: primary blocker null; wide-risk and complete context/caution review incomplete",
+            "outcome_window": (
+                "chart-only input: entry 2026-05-13T13:30:00-04:00; terminal "
+                "2026-05-14T09:30:00-04:00; fast_swing"
+            ),
+            "no_hindsight_boundary": "through 2026-05-13T12:30:00-04:00 only",
+        },
+        "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": {
+            "setup_candle": "signal log row; 2026-04-13T12:30:00-04:00",
+            "trigger": "triggered at 682.03; final_verdict TRADE; initial_break_candidate",
+            "invalidation": "candidate invalidation 678.45",
+            "freshness": "UNCLEAR: signal/stage context exists; final freshness review incomplete",
+            "blocker": "UNCLEAR: primary blocker null; complete context/caution review incomplete",
+            "outcome_window": (
+                "source/replay input: following row 2026-04-13T15:30:00-04:00 "
+                "records same-session follow-through context; terminal chart-only review incomplete"
+            ),
+            "no_hindsight_boundary": "through 2026-04-13T12:30:00-04:00 replay row only",
+        },
+    }
+
+
 def _duplicate_flag(candidate_id: str) -> str:
     duplicates = {
         "SPY-SOURCE-WINDOW-CONTINUATION-002",
@@ -347,7 +458,21 @@ def _duplicate_flag(candidate_id: str) -> str:
     return "yes" if candidate_id in duplicates else "no"
 
 
-def _reason(status: str, missing: Sequence[str], prior_status: str) -> str:
+def _reason(
+    status: str,
+    missing: Sequence[str],
+    prior_status: str,
+    *,
+    duplicate: bool = False,
+    candidate_id: str | None = None,
+) -> str:
+    if duplicate:
+        suffix = f"; missing {', '.join(missing)}" if missing else ""
+        return f"duplicate/already counted; blocked from ready promotion{suffix}"
+    if candidate_id in _source_backed_candidate_fields():
+        if candidate_id == "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002":
+            return "blocked: freshness/final-signal, blocker/caution, and terminal chart-only review remain incomplete"
+        return "blocked: freshness/final-signal and blocker/caution remain unclear"
     if status == "drop":
         return f"drop/replace path only; prior status {prior_status}"
     if status == "replace":
