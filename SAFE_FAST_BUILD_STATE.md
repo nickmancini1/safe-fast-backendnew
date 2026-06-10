@@ -7816,3 +7816,24 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No proof was accepted.
 - No profitability claim was made.
 - Next objective: batch-level evidence work only, unless a single-candidate task is explicitly justified by the batch result.
+
+## Day 38 large SPY/QQQ source-pool expansion pass status
+
+- Latest committed baseline before this status: `f6cb08e Preserve Day 38 speed discipline rule`.
+- New review file: `SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md`.
+- Result: completed a large local SPY/QQQ source-pool expansion pass without crawling one candidate at a time.
+- Previous candidate count: 20.
+- New apparent SPY/QQQ source windows reviewed together: 8.
+- Clean source-backed candidates added to the pool: 4.
+- Added candidates: `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, `SPY-SOURCE-WINDOW-CONTINUATION-005`, and `QQQ-SOURCE-WINDOW-CONTINUATION-002`.
+- Blocked: all 4 added candidates remain proof-blocked until exact replay/setup-time fields exist.
+- Duplicates skipped: 1.
+- Dropped: 2.
+- Unavailable: 1.
+- New total pool size: 24.
+- Best symbol/setup pairs remain SPY Continuation, QQQ Continuation, SPY Clean Fast Break, and QQQ Clean Fast Break.
+- Weakest symbol/setup pairs remain QQQ Ideal wide-risk/late-source paths, SPY Ideal early choppy rebound paths, and QQQ 05-01 same-lifecycle Continuation context.
+- Fastest next action: create one bounded replay-readiness worksheet for the 4 new added source windows together, requiring exact setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution review, no-hindsight replay output, terminal chart-only outcome, economics/usefulness notes, and regression protection before any proof review.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
