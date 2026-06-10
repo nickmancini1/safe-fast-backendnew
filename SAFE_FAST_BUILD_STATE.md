@@ -7893,3 +7893,17 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No proof was accepted; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Unit tests were not run by instruction.
+
+## Day 38 added 4 fixture-ready replay review status
+
+- Latest committed baseline before this status: `94c1741 Add Day 38 added 4 fixture-ready replay request`.
+- New review file: `SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md`.
+- Result: reviewed all 4 added SPY/QQQ source-window candidates together using the fixture-ready replay request.
+- Candidates reviewed: `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, `SPY-SOURCE-WINDOW-CONTINUATION-005`, and `QQQ-SOURCE-WINDOW-CONTINUATION-002`.
+- Batch decision counts: keep 0, block 2, drop 0, replace 2.
+- Replaced for runway purposes: `SPY-SOURCE-WINDOW-CONTINUATION-005` and `QQQ-SOURCE-WINDOW-CONTINUATION-002`, because fresh/non-duplicate identity remains `UNCLEAR` and no accepted fixture output proves freshness.
+- Still blocked: `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003` and `SPY-SOURCE-WINDOW-CONTINUATION-004`, because setup candle, trigger, failure level, freshness/final-signal, blocker/caution review, no-hindsight replay output, terminal chart-only outcome, and regression protection remain missing or unclear.
+- Fastest next action: replace the two unclear freshness candidates with cleaner non-overlapping SPY/QQQ candidates, while keeping the remaining two blocked until a real replay fixture pass fills exact setup-time and no-hindsight fields.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
