@@ -7907,3 +7907,23 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No proof was accepted; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Unit tests were not run by instruction.
+
+## Day 38 replacement source-pool pass for bad added candidates status
+
+- Latest committed baseline before this status: `e74ab27 Add Day 38 added 4 fixture-ready replay review`.
+- New review file: `SAFE_FAST_DAY38_REPLACEMENT_SOURCE_POOL_PASS_FOR_BAD_ADDED_CANDIDATES.md`.
+- Result: searched for replacements for `SPY-SOURCE-WINDOW-CONTINUATION-005` and `QQQ-SOURCE-WINDOW-CONTINUATION-002` in one batch.
+- Replacement candidates reviewed: 6.
+- Replacements added: 0.
+- Add-as-replacement count: 0.
+- Duplicate count: 3.
+- Drop count: 2.
+- Unavailable count: 1.
+- Cleaner-looking candidates found but not added: `SPY-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-003`, and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002`.
+- Reason not added: all three are already counted in the Day 38 pool, so adding them again would violate the duplicate rule.
+- Unused reviewed ranges `SPY` CSV lines 51-78, `SPY` CSV lines 114-127, and `QQQ` CSV lines 45-65 did not provide cleaner non-duplicate setup identities.
+- `SPY-SOURCE-WINDOW-CONTINUATION-005` and `QQQ-SOURCE-WINDOW-CONTINUATION-002` remain removed from the replacement path because their fresh/non-duplicate identity stayed `UNCLEAR`.
+- Fastest next action: stop searching the exhausted current SPY/QQQ source pool for the same replacement slots; run the already-defined bounded setup-time replay work for `SPY-SOURCE-WINDOW-CONTINUATION-002` lines 156-169 and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002` lines 66-86, or add new non-duplicate replacements only if new repo-backed source rows become available.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.

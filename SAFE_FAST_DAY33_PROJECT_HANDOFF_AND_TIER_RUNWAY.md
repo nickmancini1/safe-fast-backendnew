@@ -1836,3 +1836,21 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - No proof was accepted; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Unit tests were not run by instruction.
+
+## Day 38 replacement source-pool pass for bad added candidates status
+
+- Latest committed baseline before this status: `e74ab27 Add Day 38 added 4 fixture-ready replay review`.
+- New review file: `SAFE_FAST_DAY38_REPLACEMENT_SOURCE_POOL_PASS_FOR_BAD_ADDED_CANDIDATES.md`.
+- Result: one batch replacement search was completed for `SPY-SOURCE-WINDOW-CONTINUATION-005` and `QQQ-SOURCE-WINDOW-CONTINUATION-002`.
+- Replacement candidates reviewed: 6.
+- Replacements added: 0.
+- Add-as-replacement count: 0.
+- Duplicate count: 3.
+- Drop count: 2.
+- Unavailable count: 1.
+- Cleaner-looking candidates found but not added: `SPY-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-003`, and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002`; all are already counted in the Day 38 pool and cannot be counted again.
+- Unused reviewed source ranges did not produce cleaner non-duplicate setup identities.
+- Fastest next action: stop repeating source-pool replacement searches until new repo-backed source rows exist; run bounded setup-time replay work for the already-counted cleaner candidates `SPY-SOURCE-WINDOW-CONTINUATION-002` lines 156-169 and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002` lines 66-86.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
