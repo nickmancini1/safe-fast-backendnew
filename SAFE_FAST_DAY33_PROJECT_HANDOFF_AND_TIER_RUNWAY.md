@@ -1809,3 +1809,17 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - No proof was accepted; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Unit tests were not run by instruction.
+
+## Day 38 added 4 fixture-ready replay request status
+
+- Latest committed baseline before this status: `6040059 Add Day 38 added 4 row-by-row replay readiness review`.
+- New request file: `SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REQUEST.md`.
+- Result: one fixture-ready replay request now covers all 4 added SPY/QQQ source-window candidates together.
+- Candidates covered: `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, `SPY-SOURCE-WINDOW-CONTINUATION-005`, and `QQQ-SOURCE-WINDOW-CONTINUATION-002`.
+- Batch decision counts: keep 0, block 4, drop 0, replace 0.
+- Focus order: `SPY-SOURCE-WINDOW-CONTINUATION-005` and `QQQ-SOURCE-WINDOW-CONTINUATION-002` first because fresh/non-duplicate identity remains `UNCLEAR`.
+- All 4 remain blocked from proof review until exact setup candle, trigger, failure/invalidation, freshness/final-signal, blocker/caution, no-hindsight replay output, terminal chart-only outcome, and regression protection are complete.
+- Fastest next action: run the fixture-ready replay build/review for all 4 together; if either focus candidate cannot prove fresh setup identity from accepted setup-time evidence, keep blocked and replace rather than doing single-candidate rescue work.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.

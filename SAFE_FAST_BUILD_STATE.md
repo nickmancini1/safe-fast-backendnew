@@ -7876,3 +7876,20 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No proof was accepted; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Unit tests were not run by instruction.
+
+## Day 38 added 4 fixture-ready replay request status
+
+- Latest committed baseline before this status: `6040059 Add Day 38 added 4 row-by-row replay readiness review`.
+- New request file: `SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REQUEST.md`.
+- Result: created one fixture-ready replay request for all 4 added SPY/QQQ source-window candidates together.
+- Candidates covered: `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, `SPY-SOURCE-WINDOW-CONTINUATION-005`, and `QQQ-SOURCE-WINDOW-CONTINUATION-002`.
+- Focus order preserved: review `SPY-SOURCE-WINDOW-CONTINUATION-005` and `QQQ-SOURCE-WINDOW-CONTINUATION-002` first because fresh/non-duplicate setup identity remains `UNCLEAR`.
+- Batch decision counts: keep 0, block 4, drop 0, replace 0.
+- `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`: exact rows are SPY source CSV lines 79-99; setup candle, trigger, failure level, freshness, blocker review, terminal outcome, and no-hindsight replay output remain `MISSING`; decision `block`.
+- `SPY-SOURCE-WINDOW-CONTINUATION-004`: exact rows are SPY source CSV lines 93-113; setup candle, trigger, failure level, outcome, no-hindsight replay output, and complete blocker review remain `MISSING`; freshness and 04-07 invalidation status remain `UNCLEAR`; decision `block`.
+- `SPY-SOURCE-WINDOW-CONTINUATION-005`: exact rows are SPY source CSV lines 233-253; setup candle, trigger, failure level, outcome, no-hindsight replay output, and complete blocker review remain `MISSING`; freshness/fresh non-duplicate identity remains `UNCLEAR`; decision `block`.
+- `QQQ-SOURCE-WINDOW-CONTINUATION-002`: exact rows are QQQ source CSV lines 87-107; setup candle, trigger, failure level, outcome, no-hindsight replay output, and complete blocker review remain `MISSING`; fresh Continuation versus same rebound context remains `UNCLEAR`; decision `block`.
+- Fastest next action: run one fixture-ready replay build/review for all 4 windows together, starting with fresh/non-duplicate identity for `SPY-SOURCE-WINDOW-CONTINUATION-005` and `QQQ-SOURCE-WINDOW-CONTINUATION-002`; replace either if freshness cannot be proven rather than spending single-candidate rescue work.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
