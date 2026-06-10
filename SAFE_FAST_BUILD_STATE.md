@@ -497,6 +497,17 @@ A bounded 1H/24H support-resistance and room-classification design/test plan is 
 - Tests: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"`.
 - Scope preserved: no main.py, engine logic, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 39 combined handoff and fast candidate funnel status
+
+- Latest committed baseline before this status: `0f2fe9a Add Day 38 replacement source pool pass for bad added candidates`.
+- New file: `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`.
+- Purpose: preserve the full Day 39 takeover handoff, hard profitability/trading-usefulness rules, holding-period rule, Codex unelevated/failure-recovery rule, current Day 38 candidate state, and the new fast candidate-discovery funnel.
+- Current evidence state: pool expanded to 24 candidates; no proof accepted; no profitability claim; IWM/GLD remain missing-evidence/inconclusive unless exact accepted setup-time, trigger, invalidation, freshness, blocker, no-hindsight, and outcome proof exists.
+- Candidate-discovery speedup rule: use a fast completeness screen before deep review; classify candidates as ready for deep review, blocked but maybe fixable, duplicate/already counted, or drop/replace; deep-review only the best batch.
+- Best available next work remains a batch setup-time replay review for `SPY-SOURCE-WINDOW-CONTINUATION-002` lines 156-169 and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002` lines 66-86, unless real local repo state says a newer objective supersedes it.
+- If both remain blocked, stop drilling them and expand the source pool again.
+- Scope preserved: docs-only preservation; no main.py, engine logic, live data, live trading, controlled shadow, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/production/deploy, generated reports/logs, secrets, live trade decisions, fake proof, hindsight filling, or profitability claim.
+
 ## Current baseline
 
 - **Current frozen baseline:** `patch8`

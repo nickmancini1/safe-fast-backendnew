@@ -1,4 +1,4 @@
-# REQUIRED TOP RULE: Day 38 speed discipline without quality loss
+ï»¿# REQUIRED TOP RULE: Day 38 speed discipline without quality loss
 
 SAFE-FAST has wasted user time by moving too slowly.
 
@@ -529,6 +529,17 @@ This mandate does not authorize:
 - Tests: `python -m unittest discover -s tests -p "test_replacement_source_row_packet*.py"`.
 - Scope preserved: no main.py, engine logic, live data, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/deploy/production, generated reports/logs, or live trade decisions.
 
+## Day 39 combined handoff and fast candidate funnel status
+
+- Latest committed baseline before this status: `0f2fe9a Add Day 38 replacement source pool pass for bad added candidates`.
+- New file: `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`.
+- Purpose: preserve the full Day 39 takeover handoff, hard profitability/trading-usefulness rules, holding-period rule, Codex unelevated/failure-recovery rule, current Day 38 candidate state, and the new fast candidate-discovery funnel.
+- Current evidence state: pool expanded to 24 candidates; no proof accepted; no profitability claim; IWM/GLD remain missing-evidence/inconclusive unless exact accepted setup-time, trigger, invalidation, freshness, blocker, no-hindsight, and outcome proof exists.
+- Candidate-discovery speedup rule: use a fast completeness screen before deep review; classify candidates as ready for deep review, blocked but maybe fixable, duplicate/already counted, or drop/replace; deep-review only the best batch.
+- Best available next work remains a batch setup-time replay review for `SPY-SOURCE-WINDOW-CONTINUATION-002` lines 156-169 and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002` lines 66-86, unless real local repo state says a newer objective supersedes it.
+- If both remain blocked, stop drilling them and expand the source pool again.
+- Scope preserved: docs-only preservation; no main.py, engine logic, live data, live trading, controlled shadow, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/production/deploy, generated reports/logs, secrets, live trade decisions, fake proof, hindsight filling, or profitability claim.
+
 ## Current update status
 
 - Baseline: patch8.
@@ -648,7 +659,7 @@ The user wants direct normal English.
 
 Do not add filler.
 Do not narrate internal thinking.
-Do not say “plain English.”
+Do not say ï¿½plain English.ï¿½
 Do not use copy blocks unless the user should paste them somewhere.
 Say what matters, what changed, what is next, and what is still unproven.
 
@@ -664,7 +675,7 @@ Do not plan around Day 90.
 
 The lower-tier handoff must be ready before the current $200 window ends.
 
-Future chats must not soften this into “maybe” or treat Day 90 as a planning target unless the user explicitly changes the tier plan.
+Future chats must not soften this into ï¿½maybeï¿½ or treat Day 90 as a planning target unless the user explicitly changes the tier plan.
 
 Use the current $200 window for:
 
@@ -850,7 +861,7 @@ Each setup type must be reviewable on its own.
 
 ## Worked or failed does not mean profitable
 
-For now, “worked” means the chart/setup behavior matched the plan expectation.
+For now, ï¿½workedï¿½ means the chart/setup behavior matched the plan expectation.
 
 It does not mean profitable.
 
@@ -1030,7 +1041,7 @@ This is local controlled evidence work, not live data.
 
 Concern:
 
-“Complete enough to trust” can become vague.
+ï¿½Complete enough to trustï¿½ can become vague.
 
 Required response:
 
@@ -1150,7 +1161,7 @@ After the next bounded IWM/GLD evidence packet work is accepted, reassess the sm
 
 The final UI is not a trade recommendation screen.
 
-It should not simply say “buy” or “trade this.”
+It should not simply say ï¿½buyï¿½ or ï¿½trade this.ï¿½
 
 It must show:
 
@@ -1218,7 +1229,7 @@ The UI should eventually include:
 
 The finish line is not:
 
-“The watcher works.”
+ï¿½The watcher works.ï¿½
 
 The finish line is:
 
