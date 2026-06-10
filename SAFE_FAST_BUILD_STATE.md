@@ -7938,3 +7938,25 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No proof was accepted; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Unit tests were not run by instruction.
+
+## Day 39 local candidate-completeness screen helper status
+
+- Latest verified baseline before this task: `dd6f160 Preserve Day 39 handoff and fast candidate funnel`.
+- New helper: `watcher_foundation/candidate_completeness_screen.py`.
+- New tests: `tests/test_candidate_completeness_screen.py`.
+- Result: built the smallest local stdout-only helper to batch-screen the Day 39 24-candidate pool from local Markdown source files.
+- Source pool represented: 24 candidates total, using the Day 38 full 20-candidate worklist plus the 4 counted SPY/QQQ added source-window candidates.
+- Output columns: candidate ID, symbol, setup type, source lines, setup candle, trigger, invalidation, freshness, blocker, outcome window, duplicate yes/no, status, reason, and next action.
+- Current screen result: ready 0; blocked 20; replace 3; drop 1.
+- Duplicate yes rows are preserved for `SPY-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-003`, and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002`; they are not promoted.
+- Replace rows are `GLD-REPLACEMENT-IDEAL-CANDIDATE-002`, `QQQ-SOURCE-WINDOW-CONTINUATION-002`, and `SPY-SOURCE-WINDOW-CONTINUATION-005`; they are not promoted.
+- Drop row is `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`; it is not promoted.
+- Missing setup-time evidence remains blocked, not low confidence.
+- Command run: `python -B -m unittest discover -s tests -p "test_candidate_completeness_screen.py"` PASS, 8 tests.
+- Command run: `python -B -m unittest discover -s tests -p "test_historical_candidate_batch_triage.py"` PASS, 18 tests.
+- Command run: `python -B -m watcher_foundation.candidate_completeness_screen` PASS and printed the ranked table to stdout only.
+- No generated report/log file was created.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, deployment settings, and live-data paths were not changed.
+- Fastest next action: use the helper table to expand or repair source-backed setup-time evidence in batch; do not deep-review any candidate until the minimum completeness fields are present and duplicate/drop/replace rows remain excluded from ready promotion.

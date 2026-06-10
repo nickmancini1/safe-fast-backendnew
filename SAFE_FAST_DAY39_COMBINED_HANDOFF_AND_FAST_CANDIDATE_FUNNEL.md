@@ -390,6 +390,18 @@ A candidate should not get deep review unless it already has:
 
 If those are missing, mark the candidate blocked fast and replace it.
 
+Day 39 runnable helper now exists for this screen:
+
+- Helper: `watcher_foundation/candidate_completeness_screen.py`
+- Tests: `tests/test_candidate_completeness_screen.py`
+- Command: `python -B -m watcher_foundation.candidate_completeness_screen`
+- Current helper result: 24 candidates represented; ready 0; blocked 20; replace 3; drop 1.
+- The helper prints the ranked table to stdout only and creates no generated report/log file.
+- Missing evidence remains blocked, not low confidence.
+- Duplicate, drop, and replace rows are not promoted.
+- No proof was accepted.
+- No profitability claim was made.
+
 ## Faster workflow
 
 Use this order:
