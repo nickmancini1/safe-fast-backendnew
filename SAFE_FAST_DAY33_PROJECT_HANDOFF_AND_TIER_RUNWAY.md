@@ -1793,3 +1793,19 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - No proof was accepted; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Unit tests were not run by instruction.
+
+## Day 38 added 4 row-by-row replay-readiness review status
+
+- Latest committed baseline before this status: `4c320fa Add Day 38 added 4 replay readiness worksheet`.
+- New review file: `SAFE_FAST_DAY38_ADDED_4_ROW_BY_ROW_REPLAY_READINESS_REVIEW.md`.
+- Result: all 4 newly added SPY/QQQ source-window candidates were reviewed together row by row.
+- Candidates reviewed: `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, `SPY-SOURCE-WINDOW-CONTINUATION-005`, and `QQQ-SOURCE-WINDOW-CONTINUATION-002`.
+- Batch decision counts: keep 0, block 4, drop 0, replace 0.
+- `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`: exact rows are SPY CSV lines 79-99; setup candle, trigger, failure level, freshness, blocker review, terminal outcome, and no-hindsight replay output remain `MISSING`; decision `block`.
+- `SPY-SOURCE-WINDOW-CONTINUATION-004`: exact rows are SPY CSV lines 93-113; setup candle, trigger, failure level, outcome, no-hindsight replay output, and complete blocker review remain `MISSING`; freshness and 04-07 invalidation status remain `UNCLEAR`; decision `block`.
+- `SPY-SOURCE-WINDOW-CONTINUATION-005`: exact rows are SPY CSV lines 233-253; prior SPY Continuation replay log marks the 04-30 trigger spent by `2026-04-30T15:30:00-04:00`, but no accepted session-boundary rule proves a fresh new setup; setup candle, trigger, failure level, outcome, no-hindsight replay output, and complete blocker review remain `MISSING`; freshness remains `UNCLEAR`; decision `block`.
+- `QQQ-SOURCE-WINDOW-CONTINUATION-002`: exact rows are QQQ CSV lines 87-107; fresh Continuation versus same rebound context after QQQ lines 66-86 remains `UNCLEAR`; setup candle, trigger, failure level, outcome, no-hindsight replay output, and complete blocker review remain `MISSING`; decision `block`.
+- Fastest next action: create one fixture-ready replay request for all 4 windows together, starting with fresh/non-duplicate identity for `SPY-SOURCE-WINDOW-CONTINUATION-005` and `QQQ-SOURCE-WINDOW-CONTINUATION-002`, then fill exact setup candle, trigger, failure/invalidation, freshness/final-signal, blocker/caution, no-hindsight output, terminal chart-only outcome, and regression protection before proof review.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
