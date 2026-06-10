@@ -1779,3 +1779,17 @@ Every next step must move toward evidence, diagnostics, regression protection, o
 - No proof was accepted; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Unit tests were not run by instruction.
+
+## Day 38 added 4 replay-readiness worksheet status
+
+- Latest committed baseline before this status: `c21642e Add Day 38 large SPY QQQ source pool expansion pass`.
+- New worksheet file: `SAFE_FAST_DAY38_ADDED_4_REPLAY_READINESS_WORKSHEET.md`.
+- Result: one bounded worksheet now covers the 4 newly added source-window candidates together.
+- Candidates covered: `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, `SPY-SOURCE-WINDOW-CONTINUATION-005`, and `QQQ-SOURCE-WINDOW-CONTINUATION-002`.
+- Batch decision counts: keep 0, block 4, drop 0, replace 0.
+- All 4 are blocked from proof review until exact setup candle, trigger, failure level, freshness/final-signal, blocker/caution review, no-hindsight replay output, terminal chart-only outcome, economics/usefulness notes, and regression protection are complete.
+- Freshness/same-lifecycle status is specifically `UNCLEAR` for `SPY-SOURCE-WINDOW-CONTINUATION-005` and `QQQ-SOURCE-WINDOW-CONTINUATION-002`.
+- Fastest next action: run one row-by-row replay-readiness review for all 4 added windows together, starting with fresh/non-duplicate setup identity checks before any proof review.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.

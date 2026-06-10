@@ -7837,3 +7837,23 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No proof was accepted; `accepted_proof_count=0` remains preserved.
 - No profitability claim was made.
 - Unit tests were not run by instruction.
+
+## Day 38 added 4 replay-readiness worksheet status
+
+- Latest committed baseline before this status: `c21642e Add Day 38 large SPY QQQ source pool expansion pass`.
+- New worksheet file: `SAFE_FAST_DAY38_ADDED_4_REPLAY_READINESS_WORKSHEET.md`.
+- Result: created one bounded replay-readiness worksheet for the 4 newly added SPY/QQQ source-window candidates together.
+- Candidates covered: `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, `SPY-SOURCE-WINDOW-CONTINUATION-005`, and `QQQ-SOURCE-WINDOW-CONTINUATION-002`.
+- Keep count: 0.
+- Block count: 4.
+- Drop count: 0.
+- Replace count: 0.
+- All 4 remain source-backed candidates only and are blocked from proof review.
+- `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`: exact setup candle, trigger, failure level, freshness, blocker check, terminal outcome, and no-hindsight replay output remain `MISSING`.
+- `SPY-SOURCE-WINDOW-CONTINUATION-004`: exact setup candle, trigger, failure level, freshness, blocker check, terminal outcome, no-hindsight replay output, and 04-07 invalidation decision remain `MISSING`.
+- `SPY-SOURCE-WINDOW-CONTINUATION-005`: exact setup candle, trigger, failure level, blocker check, terminal outcome, and no-hindsight replay output remain `MISSING`; fresh non-duplicate continuation status remains `UNCLEAR`.
+- `QQQ-SOURCE-WINDOW-CONTINUATION-002`: exact setup candle, trigger, failure level, blocker check, terminal outcome, and no-hindsight replay output remain `MISSING`; fresh continuation versus same rebound context remains `UNCLEAR`.
+- Fastest next action: run one bounded row-by-row replay-readiness review for all 4 added windows together, deciding fresh/non-duplicate setup identity first for `SPY-SOURCE-WINDOW-CONTINUATION-005` and `QQQ-SOURCE-WINDOW-CONTINUATION-002`, then exact setup candle, trigger, failure level, freshness/final-signal, blocker/caution, no-hindsight replay output, and terminal chart-only outcome for any survivor.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- Unit tests were not run by instruction.
