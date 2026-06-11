@@ -206,6 +206,7 @@ def build_source_pool_intake() -> dict[str, object]:
         "survival_parked_count": survival_map["parked_count"],
         "survival_intake_ready_count": survival_map["intake_ready_count"],
         "qqq_cfb_survival_action": rule_gate.qqq_cfb_survival_action(),
+        "spy_cfb_003_survival_action": rule_gate.spy_cfb_003_survival_action(),
         "accepted_rows": [row.as_row() for row in ranked],
         "no_generated_reports_or_logs": True,
         "proof_accepted": False,
@@ -254,6 +255,15 @@ def format_intake_report(result: dict[str, object]) -> str:
         (
             "QQQ CFB exact missing evidence: "
             + "; ".join(result["qqq_cfb_survival_action"]["exact_missing_evidence"])
+        ),
+        (
+            "SPY CFB 003 survival action applied: "
+            f"{'YES' if result['spy_cfb_003_survival_action']['action_applied'] else 'NO'}"
+        ),
+        f"SPY CFB 003 status: {result['spy_cfb_003_survival_action']['status']}",
+        (
+            "SPY CFB 003 exact missing evidence: "
+            + "; ".join(result["spy_cfb_003_survival_action"]["exact_missing_evidence"])
         ),
         "ranked intake table:",
         _format_table(result["accepted_rows"]),

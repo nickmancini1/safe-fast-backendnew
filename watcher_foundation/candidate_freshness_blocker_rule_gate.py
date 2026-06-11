@@ -89,10 +89,11 @@ STRICT_CANDIDATE_IDS = (
 )
 
 QQQ_CFB_CANDIDATE_ID = "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"
+SPY_CFB_003_CANDIDATE_ID = "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003"
 
 _CFB_IDS = (
     QQQ_CFB_CANDIDATE_ID,
-    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+    SPY_CFB_003_CANDIDATE_ID,
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
 )
 _CONTINUATION_IDS = (
@@ -120,6 +121,14 @@ QQQ_CFB_EXACT_MISSING_EVIDENCE = (
     "complete source-backed context/caution review fields",
 )
 QQQ_CFB_CLEAN_RULE_EVIDENCE = ()
+
+SPY_CFB_003_SURVIVAL_ACTION_APPLIED = True
+SPY_CFB_003_SURVIVAL_STATUS = "active_blocked"
+SPY_CFB_003_EXACT_MISSING_EVIDENCE = (
+    "tested Clean Fast Break higher-base/fresh-break expiry rule",
+    "complete source-backed context/caution review fields",
+)
+SPY_CFB_003_CLEAN_RULE_EVIDENCE = ()
 
 CFB_SOURCE_DATA_INSUFFICIENT_REASONS = {
     "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": (
@@ -593,6 +602,7 @@ def build_rule_gate_result() -> dict[str, object]:
         "survival_parked_count": survival["parked_count"],
         "survival_intake_ready_count": survival["intake_ready_count"],
         "qqq_cfb_survival_action": qqq_cfb_survival_action(),
+        "spy_cfb_003_survival_action": spy_cfb_003_survival_action(),
         "intake_ready_count": 0,
         "proof_accepted": False,
         "profitability_claimed": False,
@@ -653,6 +663,19 @@ def qqq_cfb_survival_action() -> dict[str, object]:
         "status": candidate_survival_status(QQQ_CFB_CANDIDATE_ID),
         "exact_missing_evidence": QQQ_CFB_EXACT_MISSING_EVIDENCE,
         "clean_rule_evidence": QQQ_CFB_CLEAN_RULE_EVIDENCE,
+        "proof_allowed": False,
+        "proof_accepted": False,
+        "profitability_claimed": False,
+    }
+
+
+def spy_cfb_003_survival_action() -> dict[str, object]:
+    return {
+        "candidate_id": SPY_CFB_003_CANDIDATE_ID,
+        "action_applied": SPY_CFB_003_SURVIVAL_ACTION_APPLIED,
+        "status": candidate_survival_status(SPY_CFB_003_CANDIDATE_ID),
+        "exact_missing_evidence": SPY_CFB_003_EXACT_MISSING_EVIDENCE,
+        "clean_rule_evidence": SPY_CFB_003_CLEAN_RULE_EVIDENCE,
         "proof_allowed": False,
         "proof_accepted": False,
         "profitability_claimed": False,
@@ -753,6 +776,15 @@ def format_rule_gate_report(result: dict[str, object]) -> str:
             (
                 "QQQ CFB exact missing evidence: "
                 + "; ".join(result["qqq_cfb_survival_action"]["exact_missing_evidence"])
+            ),
+            (
+                "SPY CFB 003 survival action applied: "
+                f"{'YES' if result['spy_cfb_003_survival_action']['action_applied'] else 'NO'}"
+            ),
+            f"SPY CFB 003 status: {result['spy_cfb_003_survival_action']['status']}",
+            (
+                "SPY CFB 003 exact missing evidence: "
+                + "; ".join(result["spy_cfb_003_survival_action"]["exact_missing_evidence"])
             ),
         )
     )

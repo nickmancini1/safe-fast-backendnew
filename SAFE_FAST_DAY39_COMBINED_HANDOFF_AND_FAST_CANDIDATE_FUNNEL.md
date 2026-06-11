@@ -494,6 +494,22 @@ Day 39 now has the final rule-decision survival map after applying Continuation,
 - Proof accepted: NO.
 - Profitability claim made: NO.
 
+## SPY Clean Fast Break 003 survival action
+
+- Candidate: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`.
+- Survival action applied: YES.
+- Status: `active_blocked`.
+- Repo-backed clean rule evidence found: none.
+- Exact missing evidence:
+  - tested Clean Fast Break higher-base/fresh-break expiry rule.
+  - complete source-backed context/caution review fields.
+- Applied result: SPY Clean Fast Break 003 cannot promote through missing higher-base/fresh-break expiry or incomplete context/caution.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Survival counts remain `active_blocked` 4, `replace` 3, `parked` 0, `intake_ready` 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+
 ## Faster workflow
 
 Use this order:

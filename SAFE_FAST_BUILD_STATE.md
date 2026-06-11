@@ -8569,3 +8569,47 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
   - `SAFE_FAST_BUILD_STATE.md`
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: source and regression-test QQQ gap-context completeness, Clean Fast Break expiry, and complete context/caution fields before any QQQ Clean Fast Break proof review.
+
+## Day 39 SPY Clean Fast Break 003 survival action result
+
+- Current task baseline stated by task file: `d75a346 Apply QQQ Clean Fast Break survival action`.
+- Corrective scope: build-only helper/test/doc work.
+- Candidate reviewed: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`.
+- Survival action applied: YES.
+- SPY Clean Fast Break 003 status: `active_blocked`.
+- Repo-backed clean rule evidence found: none.
+- Evidence inspected:
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl` line 5: completed 2026-04-15 14:30 fresh Clean Fast Break signal-stage candidate, `final_verdict=TRADE`, `trigger_state=triggered`, `trigger_level=698.65`, `invalidation=694.2801`, `primary_blocker=null`.
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl` line 6: later spent lifecycle row, not an accepted setup-time expiry rule.
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv` line 154: setup-time source row for the 2026-04-15 14:30 signal.
+- Exact missing evidence:
+  - tested Clean Fast Break higher-base/fresh-break expiry rule.
+  - complete source-backed context/caution review fields.
+- Applied result: SPY Clean Fast Break 003 cannot promote through missing higher-base/fresh-break expiry or incomplete context/caution.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Active blocked count: 4.
+- Replace count: 3.
+- Parked count: 0.
+- Proof allowed rows: 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Files updated:
+  - `watcher_foundation/candidate_freshness_blocker_rule_gate.py`
+  - `tests/test_candidate_freshness_blocker_rule_gate.py`
+  - `watcher_foundation/candidate_source_pool_intake.py`
+  - `tests/test_candidate_source_pool_intake.py`
+  - `SAFE_FAST_RULE_DECISION_SURVIVAL_MAP.md`
+  - `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`
+  - `SAFE_FAST_BUILD_STATE.md`
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_rule_gate.py"` PASS, 33 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 18 tests.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_rule_gate` PASS and printed the rule-gate report to stdout only.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the strict source-pool intake report to stdout only.
+  - `git --no-pager diff --check` PASS with Git line-ending warnings only.
+- Deleted one-time task file: `.codex_spy_cfb_003_survival_action_task.md`.
+- No `__pycache__`, `.pyc`, or `.pyo` artifacts were present after cleanup check.
+- No generated report/log/CSV/JSON output file was created.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: source and regression-test Clean Fast Break higher-base/fresh-break expiry and complete context/caution fields before any SPY Clean Fast Break 003 proof review.

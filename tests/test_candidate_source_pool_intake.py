@@ -90,6 +90,19 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertFalse(action["proof_accepted"])
         self.assertFalse(action["profitability_claimed"])
 
+    def test_spy_cfb_003_survival_action_is_exposed_by_source_pool_intake(self):
+        result = intake.build_source_pool_intake()
+        action = result["spy_cfb_003_survival_action"]
+
+        self.assertTrue(action["action_applied"])
+        self.assertEqual(action["candidate_id"], "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003")
+        self.assertEqual(action["status"], "active_blocked")
+        self.assertIn("higher-base/fresh-break expiry", " ".join(action["exact_missing_evidence"]))
+        self.assertIn("context/caution", " ".join(action["exact_missing_evidence"]))
+        self.assertEqual(action["clean_rule_evidence"], ())
+        self.assertFalse(action["proof_accepted"])
+        self.assertFalse(action["profitability_claimed"])
+
     def test_lowercase_incomplete_is_case_insensitive_unresolved_blocker(self):
         row = {
             "candidate_id": "STRICT-ROW-WITH-LOWERCASE-INCOMPLETE",
@@ -299,6 +312,8 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         )
         self.assertIn("QQQ CFB survival action applied: YES", report)
         self.assertIn("QQQ CFB status: active_blocked", report)
+        self.assertIn("SPY CFB 003 survival action applied: YES", report)
+        self.assertIn("SPY CFB 003 status: active_blocked", report)
         self.assertIn("ranked intake table:", report)
         self.assertIn("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001", report)
 
