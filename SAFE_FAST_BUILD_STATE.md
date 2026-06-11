@@ -8010,3 +8010,35 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No profitability claim was made.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: complete one bounded freshness/final-signal and blocker/caution pass for the six close-ready source-backed rows; if that does not produce enough intake-ready rows, stop drilling them and expand the source pool again.
+
+## Day 39 six-row freshness/blocker batch status
+
+- Current task baseline verified locally: `aa2cd37 Add architect control and intake marker hardening`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: ran the bounded freshness/final-signal and blocker/caution batch for the six close-ready rows using repo-backed evidence only.
+- Source-pool rows inspected: 24.
+- Accepted intake count: 6.
+- Intake-ready count: 0.
+- Close-ready count: 6.
+- Blocked/drop/replace/duplicate counts among accepted strict rows: 6/0/0/0.
+- Fewer than 5 intake-ready rows remain: YES.
+- Any row became intake-ready: NO.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: blocked; freshness remains `UNCLEAR` because replay signal/stage exists but stale/spent and gap-context rules are incomplete; blocker/caution remains `UNCLEAR` because primary blocker is null but complete context/caution review is incomplete; source: `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv` line 132 and `SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md`; next action: add more QQQ Clean Fast Break rows in batch form before proof review.
+- `QQQ-REAL-HISTORICAL-CONTINUATION-001`: blocked; freshness remains `UNCLEAR` because next-session entry freshness/session-boundary is unresolved; blocker/caution remains `UNCLEAR` because primary blocker is null but session-boundary and complete context/caution review are incomplete; source: `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv` line 226 and `SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md`; next action: define/review next-session Continuation freshness before any promotion.
+- `QQQ-REAL-HISTORICAL-IDEAL-001`: blocked; freshness remains `UNCLEAR` because fast-swing hold and setup-specific stale/spent rules are incomplete; blocker/caution remains `UNCLEAR` because primary blocker is null but wide-risk and complete context/caution review are incomplete; source: `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv` line 286 and `SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md`; next action: compare against additional QQQ Ideal rows and resolve wide-risk usefulness before proof review.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: blocked; freshness remains `UNCLEAR` because signal/stage context exists but final freshness review is incomplete; blocker/caution remains `UNCLEAR` because primary blocker is null but complete context/caution review is incomplete; source: `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl` row `2026-04-13T12:30:00-04:00` and `SAFE_FAST_DAY38_SPY_QQQ_BATCH_CANDIDATE_EXPANSION_REVIEW.md`; next action: run bounded chart-only outcome review for the exact 2026-04-13 row before proof review.
+- `SPY-REAL-HISTORICAL-CONTINUATION-001`: blocked; freshness remains `UNCLEAR` because replay signal/stage exists but stale/spent and intrabar ordering rules are incomplete; blocker/caution remains `UNCLEAR` because primary blocker is null but complete context/caution review is incomplete; source: `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv` line 229 and `SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md`; next action: keep only in the larger no-hindsight batch and require repeat rows before proof review.
+- `SPY-REAL-HISTORICAL-IDEAL-001`: blocked; freshness remains `UNCLEAR` because replay signal/stage exists but setup-specific stale/spent rules are incomplete; blocker/caution remains `UNCLEAR` because primary blocker is null but complete context/caution review is incomplete; source: `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv` line 291 and `SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md`; next action: require more SPY Ideal rows before treating it as more than one selected sample.
+- Helper update: `watcher_foundation/candidate_source_pool_intake.py` now reports `fewer_than_5_intake_ready_rows_remain` and preserves row-specific unresolved freshness/blocker reasons.
+- Test update: `tests/test_candidate_source_pool_intake.py` now verifies the fewer-than-5 batch result, source-pool expansion recommendation, and row-specific unresolved reasons.
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 10 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_completeness_screen.py"` PASS, 11 tests.
+  - `python -B -m unittest discover -s tests -p "test_historical_candidate_batch_triage.py"` PASS, 18 tests.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the strict source-pool intake report to stdout only.
+  - `python -B -m watcher_foundation.candidate_completeness_screen` PASS and printed the ranked table to stdout only.
+- No generated report/log/CSV/JSON output file was created.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: stop drilling these six rows because fewer than 5 became intake-ready; expand the source pool again, or build a smaller repo-backed freshness/blocker extractor only if it can resolve freshness/final-signal and blocker/caution without hindsight.

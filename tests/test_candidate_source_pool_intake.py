@@ -49,6 +49,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertEqual(result["replace_count"], 0)
         self.assertEqual(result["duplicate_count"], 0)
         self.assertEqual(result["close_ready_count"], 6)
+        self.assertTrue(result["fewer_than_5_intake_ready_rows_remain"])
         self.assertTrue(result["at_least_5_intake_ready_or_close_ready"])
         self.assertIn("freshness/final-signal", result["top_remaining_blocker_family"])
 
@@ -103,7 +104,25 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertEqual(result["maximum_strict_candidates_found"], 6)
         self.assertIn("do not support 20-50 strict candidates", result["exact_blocker"])
         self.assertGreaterEqual(len(result["source_files_inspected"]), 1)
-        self.assertIn("complete freshness/final-signal", result["smallest_next_evidence_backed_fix"])
+        self.assertIn("fewer than 5 rows became intake-ready", result["smallest_next_evidence_backed_fix"])
+        self.assertIn("expand the source pool", result["smallest_next_evidence_backed_fix"])
+
+    def test_blocked_row_reasons_preserve_specific_freshness_and_blocker_evidence(self):
+        result = intake.build_source_pool_intake()
+        by_id = {row["candidate_id"]: row for row in result["accepted_rows"]}
+
+        self.assertIn(
+            "next-session entry freshness/session-boundary unresolved",
+            by_id["QQQ-REAL-HISTORICAL-CONTINUATION-001"]["reason"],
+        )
+        self.assertIn(
+            "wide-risk and complete context/caution review incomplete",
+            by_id["QQQ-REAL-HISTORICAL-IDEAL-001"]["reason"],
+        )
+        self.assertIn(
+            "final freshness review incomplete",
+            by_id["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"]["reason"],
+        )
 
     def test_no_proof_or_profitability_claims_are_present(self):
         result = intake.build_source_pool_intake()
@@ -125,6 +144,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         report = output.getvalue()
         self.assertIn("source-pool rows inspected: 24", report)
         self.assertIn("accepted intake count: 6", report)
+        self.assertIn("fewer than 5 intake-ready rows remain: YES", report)
         self.assertIn("ranked intake table:", report)
         self.assertIn("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001", report)
 

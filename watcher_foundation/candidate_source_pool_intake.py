@@ -42,6 +42,12 @@ PROFITABILITY_CLAIMED = False
 
 UNRESOLVED_MARKERS = ("missing", "unclear", "incomplete")
 
+POST_BATCH_RECOMMENDED_NEXT_ACTION = (
+    "fewer than 5 rows became intake-ready after the bounded freshness/blocker pass; "
+    "stop drilling these six and expand the source pool again, or build a smaller "
+    "repo-backed freshness/blocker extractor only if it can resolve these fields without hindsight"
+)
+
 
 @dataclass(frozen=True)
 class IntakeRow:
@@ -101,6 +107,9 @@ def build_source_pool_intake() -> dict[str, object]:
         "replace_count": status_counts.get("replace", 0),
         "duplicate_count": duplicate_count,
         "close_ready_count": close_ready_count,
+        "fewer_than_5_intake_ready_rows_remain": (
+            status_counts.get("intake-ready", 0) < MINIMUM_CLOSE_READY_TARGET
+        ),
         "at_least_5_intake_ready_or_close_ready": (
             status_counts.get("intake-ready", 0) >= MINIMUM_CLOSE_READY_TARGET
             or close_ready_count >= MINIMUM_CLOSE_READY_TARGET
@@ -108,10 +117,7 @@ def build_source_pool_intake() -> dict[str, object]:
         "maximum_strict_candidates_found": len(ranked),
         "exact_blocker": _exact_blocker(len(ranked), top_blocker),
         "source_files_inspected": _source_files_inspected(inspected),
-        "smallest_next_evidence_backed_fix": (
-            "complete freshness/final-signal and blocker/caution review for the six source-backed rows, "
-            "then add more strict rows only from accepted local source/replay material"
-        ),
+        "smallest_next_evidence_backed_fix": POST_BATCH_RECOMMENDED_NEXT_ACTION,
         "top_remaining_blocker_family": top_blocker,
         "accepted_rows": [row.as_row() for row in ranked],
         "no_generated_reports_or_logs": True,
@@ -134,6 +140,10 @@ def format_intake_report(result: dict[str, object]) -> str:
         (
             "at least 5 intake-ready or close-ready candidates now exist: "
             f"{'YES' if result['at_least_5_intake_ready_or_close_ready'] else 'NO'}"
+        ),
+        (
+            "fewer than 5 intake-ready rows remain: "
+            f"{'YES' if result['fewer_than_5_intake_ready_rows_remain'] else 'NO'}"
         ),
         f"maximum strict candidates found: {result['maximum_strict_candidates_found']}",
         f"exact blocker: {result['exact_blocker']}",
@@ -203,7 +213,7 @@ def _reason(status: str, row: dict[str, str]) -> str:
     if row["duplicate"] == "yes":
         return "duplicate/already counted; not eligible for intake-ready"
     if _has_unresolved_marker(row["freshness"]) and _has_unresolved_marker(row["blocker"]):
-        return "blocked: freshness/final-signal and blocker/caution remain unclear"
+        return f"blocked: {row['freshness']}; {row['blocker']}"
     if _has_unresolved_marker(row["freshness"]):
         return "blocked: freshness/final-signal remains unclear"
     if _has_unresolved_marker(row["blocker"]):
