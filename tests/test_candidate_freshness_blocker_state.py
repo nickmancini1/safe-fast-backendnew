@@ -83,8 +83,8 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
                 self.assertTrue(row["freshness_state"] != "clean" or row["blocker_state"] != "clean")
 
         self.assertEqual(result["intake_ready_count"], 0)
-        self.assertEqual(result["blocked_count"], 6)
-        self.assertEqual(result["replace_count"], 1)
+        self.assertEqual(result["blocked_count"], 5)
+        self.assertEqual(result["replace_count"], 2)
 
     def test_decision_for_states_requires_both_clean(self):
         self.assertEqual(state_model.decision_for_states("clean", "clean"), "intake-ready")
@@ -118,6 +118,14 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
             by_id["QQQ-REAL-HISTORICAL-IDEAL-001"]["blocker_state"],
             "wide_risk_caution",
         )
+        self.assertEqual(
+            by_id["QQQ-REAL-HISTORICAL-IDEAL-001"]["decision"],
+            "replace",
+        )
+        self.assertEqual(
+            by_id["SPY-REAL-HISTORICAL-IDEAL-001"]["decision"],
+            "blocked",
+        )
 
     def test_state_family_missing_evidence_is_exact(self):
         by_id = state_model.build_freshness_blocker_states()["state_by_id"]
@@ -141,6 +149,10 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
         self.assertIn(
             "missing accepted wide-risk or room threshold",
             by_id["QQQ-REAL-HISTORICAL-IDEAL-001"]["blocker_missing_evidence"],
+        )
+        self.assertIn(
+            "applied Ideal narrowing excludes this fast-swing/wide-risk row",
+            by_id["QQQ-REAL-HISTORICAL-IDEAL-001"]["freshness_reason"],
         )
         self.assertIn(
             "CONTEXT_24H_DAILY_UNCONFIRMED",

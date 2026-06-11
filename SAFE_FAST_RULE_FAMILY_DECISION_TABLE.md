@@ -41,8 +41,11 @@ Profitability claim made: NO.
 - Applied Continuation narrowing result: next-session/session-boundary-dependent Continuation cannot be intake-ready unless a future source-backed carry-forward rule exists.
 - `QQQ-REAL-HISTORICAL-CONTINUATION-001`: `replace`; outside the narrowed Continuation path because next-session/session-boundary carry-forward remains unsupported.
 - `SPY-REAL-HISTORICAL-CONTINUATION-001`: `blocked`; same-session Continuation remains eligible only after intrabar ordering and complete context/caution evidence become clean.
-- Current source-pool counts after applying Continuation narrowing: accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 6/0/1/0; close-ready count 6.
+- Applied Ideal narrowing result: fast-swing / wide-risk Ideal cannot be intake-ready unless future source-backed rules define Ideal freshness expiry and room/risk thresholds.
+- `QQQ-REAL-HISTORICAL-IDEAL-001`: `replace`; outside the narrowed Ideal path because fast-swing freshness and wide-risk/room threshold remain unsupported.
+- `SPY-REAL-HISTORICAL-IDEAL-001`: `blocked`; same-session Ideal remains eligible only after stale/spent expiry and complete context/caution evidence become clean.
+- Current source-pool counts after applying Ideal narrowing: accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 5/0/2/0; close-ready count 5.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 
-Recommended next action: do not deep-review proof. Replace outside-path Continuation rows with same-session evidence or source and regression-test a next-session carry-forward rule, while repairing remaining source-backed blocker evidence in batch.
+Recommended next action: do not deep-review proof. Replace outside-path Continuation and Ideal rows with inside-path evidence or source and regression-test the missing carry-forward, fast-swing freshness, and room/risk threshold rules, while repairing remaining source-backed blocker evidence in batch.

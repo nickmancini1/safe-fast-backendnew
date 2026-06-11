@@ -95,6 +95,46 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
             )
         )
 
+    def test_fast_swing_ideal_is_outside_narrowed_path_without_source_backed_rule(self):
+        candidate_id = "QQQ-REAL-HISTORICAL-IDEAL-001"
+
+        self.assertTrue(gate.candidate_is_outside_narrowed_path(candidate_id))
+        self.assertEqual(gate.candidate_rule_gate_status(candidate_id), "outside_narrowed_path")
+        self.assertIn("fast-swing", gate.candidate_outside_narrowed_path_reason(candidate_id))
+        self.assertFalse(
+            gate.candidate_can_promote(
+                candidate_id,
+                final_verdict="TRADE",
+                primary_blocker="complete blocker review",
+                complete_context_caution_review=True,
+            )
+        )
+
+    def test_wide_risk_ideal_cannot_promote_without_room_risk_threshold(self):
+        candidate_id = "QQQ-REAL-HISTORICAL-IDEAL-001"
+        decisions = {
+            row["rule_family"]: row["hard_decision"]
+            for row in gate.build_rule_gate_result()["gate_by_candidate"][candidate_id]
+        }
+
+        self.assertEqual(decisions["Wide-risk / room threshold"], "KILL_OR_NARROW_SETUP_SYMBOL_PATH")
+        self.assertIn("room threshold", " ".join(decisions))
+        self.assertFalse(gate.candidate_can_promote(candidate_id))
+
+    def test_spy_ideal_stays_blocked_until_stale_spent_and_context_clean(self):
+        candidate_id = "SPY-REAL-HISTORICAL-IDEAL-001"
+
+        self.assertFalse(gate.candidate_is_outside_narrowed_path(candidate_id))
+        self.assertEqual(gate.candidate_rule_gate_status(candidate_id), "blocked")
+        self.assertFalse(
+            gate.candidate_can_promote(
+                candidate_id,
+                final_verdict="TRADE",
+                primary_blocker="complete blocker review",
+                complete_context_caution_review=True,
+            )
+        )
+
     def test_final_verdict_trade_alone_cannot_satisfy_rule_gate(self):
         self.assertFalse(
             gate.candidate_can_promote(
@@ -134,7 +174,11 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         for candidate_id in gate.STRICT_CANDIDATE_IDS:
             expected = (
                 "outside_narrowed_path"
-                if candidate_id == "QQQ-REAL-HISTORICAL-CONTINUATION-001"
+                if candidate_id
+                in {
+                    "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+                    "QQQ-REAL-HISTORICAL-IDEAL-001",
+                }
                 else "blocked"
             )
             self.assertEqual(gate.candidate_rule_gate_status(candidate_id), expected)
@@ -145,8 +189,8 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertEqual(result["source_pool_rows_inspected"], 60)
         self.assertEqual(result["accepted_intake_count"], 7)
         self.assertEqual(result["intake_ready_count"], 0)
-        self.assertEqual(result["close_ready_count"], 6)
-        self.assertEqual(result["replace_count"], 1)
+        self.assertEqual(result["close_ready_count"], 5)
+        self.assertEqual(result["replace_count"], 2)
         self.assertEqual(result["rule_gate_families_checked"], 9)
         self.assertEqual(result["rule_gate_source_backed_rule_count"], 0)
         self.assertEqual(result["rule_gate_missing_unresolved_rule_count"], 9)

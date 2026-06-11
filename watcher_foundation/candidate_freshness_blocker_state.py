@@ -258,7 +258,9 @@ _STATES: Mapping[str, CandidateState] = {
         blocker_source=f"{_TOP5_REVIEW}; wide chart-risk and complete caution review incomplete",
         freshness_reason=(
             "Replay line 5 proves a triggered Ideal signal and line 6 later marks the lifecycle spent, "
-            "but repo rules do not define the allowed Ideal stale/spent expiry or fast-swing hold freshness."
+            "but repo rules do not define the allowed Ideal stale/spent expiry or fast-swing hold freshness. "
+            "The applied Ideal narrowing excludes this fast-swing/wide-risk row from the normal "
+            "close-ready path until source-backed freshness and room/risk threshold rules exist."
         ),
         blocker_reason=(
             "Primary blocker is null, but wide-risk/room remains only a caution with no accepted "
@@ -271,7 +273,10 @@ _STATES: Mapping[str, CandidateState] = {
             "missing accepted wide-risk or room threshold for QQQ Ideal; "
             + _REPLAY_CONTEXT_LIMITATION
         ),
-        next_action="Compare against additional QQQ Ideal rows and resolve wide-risk usefulness before proof review.",
+        next_action=(
+            "Replace with Ideal evidence inside the narrowed path or source tested fast-swing "
+            "freshness plus room/risk threshold rules before restoring this path."
+        ),
     ),
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": _state(
         candidate_id="SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",

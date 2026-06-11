@@ -78,11 +78,23 @@ _IDEAL_IDS = (
 
 OUTSIDE_NARROWED_PATH_CANDIDATE_IDS = (
     "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+    "QQQ-REAL-HISTORICAL-IDEAL-001",
 )
 
 SAME_SESSION_CONTINUATION_CANDIDATE_IDS = (
     "SPY-REAL-HISTORICAL-CONTINUATION-001",
 )
+
+OUTSIDE_NARROWED_PATH_REASONS = {
+    "QQQ-REAL-HISTORICAL-CONTINUATION-001": (
+        "outside narrowed Continuation path; next-session/session-boundary carry-forward "
+        "freshness remains unsupported"
+    ),
+    "QQQ-REAL-HISTORICAL-IDEAL-001": (
+        "outside narrowed Ideal path; fast-swing freshness and wide-risk/room threshold "
+        "remain unsupported"
+    ),
+}
 
 
 _DECISIONS: tuple[RuleFamilyDecision, ...] = (
@@ -348,6 +360,12 @@ def candidate_rule_gate_status(candidate_id: str) -> str:
 def candidate_is_outside_narrowed_path(candidate_id: str) -> bool:
     decisions_for_candidate(candidate_id)
     return candidate_id in OUTSIDE_NARROWED_PATH_CANDIDATE_IDS
+
+
+def candidate_outside_narrowed_path_reason(candidate_id: str) -> str:
+    if not candidate_is_outside_narrowed_path(candidate_id):
+        raise ValueError(f"{candidate_id} is not outside the narrowed path")
+    return OUTSIDE_NARROWED_PATH_REASONS[candidate_id]
 
 
 def candidate_can_promote(

@@ -59,8 +59,9 @@ UNRESOLVED_MARKERS = ("missing", "unclear", "incomplete")
 
 POST_BATCH_RECOMMENDED_NEXT_ACTION = (
     "Continuation has been narrowed away from next-session/session-boundary-dependent entries; "
-    "replace outside-path Continuation rows with same-session evidence or source a tested "
-    "carry-forward rule, and repair remaining blocker evidence in batch without hindsight"
+    "Ideal has been narrowed away from fast-swing/wide-risk entries without source-backed "
+    "freshness and room/risk thresholds; replace outside-path rows or source tested rules, "
+    "and repair remaining blocker evidence in batch without hindsight"
 )
 
 REAL_HISTORICAL_SIGNAL_LOGS = (
@@ -307,7 +308,8 @@ def _reason(
         return "duplicate/already counted; not eligible for intake-ready"
     if status == "replace" and state is not None:
         return (
-            f"replace: outside narrowed Continuation path; {state.freshness_state}; "
+            f"replace: {rule_gate.candidate_outside_narrowed_path_reason(row['candidate_id'])}; "
+            f"{state.freshness_state}; "
             f"{state.blocker_state}; {state.freshness_reason}; {state.blocker_reason}"
         )
     if state is not None:

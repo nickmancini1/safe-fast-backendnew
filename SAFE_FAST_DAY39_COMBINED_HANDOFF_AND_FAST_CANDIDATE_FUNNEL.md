@@ -418,11 +418,13 @@ Why this handoff changed:
 - The workflow now separates the 24-candidate completeness screen from strict source-pool intake.
 - The intake helper rejects chart-shape-only rows and rows without repo-backed setup candle, trigger, invalidation, no-hindsight boundary, and outcome input.
 - The helper prints to stdout only and creates no generated report/log file.
-- Current intake result after Continuation narrowing: source-pool rows inspected 60; accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 6/0/1/0; close-ready count 6.
+- Current intake result after Ideal narrowing: source-pool rows inspected 60; accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 5/0/2/0; close-ready count 5.
 - `QQQ-REAL-HISTORICAL-CONTINUATION-001` is `replace` because it is next-session/session-boundary-dependent and outside the narrowed Continuation path without a source-backed carry-forward rule.
 - `SPY-REAL-HISTORICAL-CONTINUATION-001` remains `blocked`; same-session Continuation may remain eligible only if intrabar ordering and complete context/caution gates become clean.
+- `QQQ-REAL-HISTORICAL-IDEAL-001` is `replace` because it is fast-swing/wide-risk-dependent and outside the narrowed Ideal path without source-backed freshness and room/risk threshold rules.
+- `SPY-REAL-HISTORICAL-IDEAL-001` remains `blocked`; same-session Ideal may remain eligible only if stale/spent expiry and complete context/caution gates become clean.
 - Top remaining blocker family: freshness/final-signal plus blocker/caution unresolved.
-- Current exact blocker: local docs/data support only 7 strict source-backed candidates, not 20-50 strict candidates, and one accepted row is outside the narrowed Continuation path.
+- Current exact blocker: local docs/data support only 7 strict source-backed candidates, not 20-50 strict candidates, and two accepted rows are outside narrowed setup paths.
 - No proof was accepted.
 - No profitability claim was made.
 
@@ -438,6 +440,7 @@ Day 39 now has a hard decision table for the nine freshness/final-signal and blo
 - Current rule-family result: `DEFINE_FROM_REPO_EVIDENCE` 0, `SOURCE_DATA_INSUFFICIENT` 4, `KILL_OR_NARROW_SETUP_SYMBOL_PATH` 5.
 - Current intake-ready count remains 0.
 - Applied Continuation narrowing: cross-session / next-session Continuation cannot become intake-ready unless a future source-backed carry-forward rule exists.
+- Applied Ideal narrowing: fast-swing / wide-risk Ideal cannot become intake-ready unless future source-backed rules define Ideal freshness expiry and room/risk thresholds.
 
 ## Faster workflow
 
