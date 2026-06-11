@@ -8271,3 +8271,32 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: define and regression-test the missing source-backed rule/evidence families in batch before any proof review: Clean Fast Break initial/higher-base/fresh-break expiry, QQQ gap-context completeness, Continuation next-session/session-boundary freshness, Ideal stale/spent and fast-swing freshness, intrabar ordering evidence requirements, accepted wide-risk/room thresholds, and complete context/caution review fields.
+
+## Day 39 hard rule-family decision table result
+
+- Current task baseline stated by task file: `0324045 Add freshness blocker rule gate`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: created the hard rule-family decision table and updated the rule gate to use only the three allowed hard decisions.
+- Decision table path: `SAFE_FAST_RULE_FAMILY_DECISION_TABLE.md`.
+- This was rule clarification only, not deep proof review, not outcome review, not live trading, not a proof claim, and not a profitability claim.
+- Current rows/windows inspected: 60.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Close-ready count: 7.
+- Rule families checked: 9.
+- Rule-family decisions:
+  - Clean Fast Break expiry: `SOURCE_DATA_INSUFFICIENT`; affected setup-symbol paths: QQQ Clean Fast Break, SPY Clean Fast Break; affected candidates: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`.
+  - Clean Fast Break gap context: `SOURCE_DATA_INSUFFICIENT`; affected setup-symbol path: QQQ Clean Fast Break; affected candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+  - Continuation next-session freshness: `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; affected setup-symbol path: QQQ Continuation; affected candidate: `QQQ-REAL-HISTORICAL-CONTINUATION-001`.
+  - Continuation session-boundary freshness: `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; affected setup-symbol paths: QQQ Continuation, SPY Continuation; affected candidates: `QQQ-REAL-HISTORICAL-CONTINUATION-001`, `SPY-REAL-HISTORICAL-CONTINUATION-001`.
+  - Ideal stale/spent expiry: `SOURCE_DATA_INSUFFICIENT`; affected setup-symbol paths: QQQ Ideal, SPY Ideal; affected candidates: `QQQ-REAL-HISTORICAL-IDEAL-001`, `SPY-REAL-HISTORICAL-IDEAL-001`.
+  - Ideal fast-swing freshness: `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; affected setup-symbol path: QQQ Ideal; affected candidate: `QQQ-REAL-HISTORICAL-IDEAL-001`.
+  - Intrabar ordering: `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; affected setup-symbol path: SPY Continuation; affected candidate: `SPY-REAL-HISTORICAL-CONTINUATION-001`.
+  - Wide-risk / room threshold: `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; affected setup-symbol path: QQQ Ideal; affected candidate: `QQQ-REAL-HISTORICAL-IDEAL-001`.
+  - Context/caution review: `SOURCE_DATA_INSUFFICIENT`; affected setup-symbol paths: QQQ Clean Fast Break, QQQ Continuation, QQQ Ideal, SPY Clean Fast Break, SPY Continuation, SPY Ideal; affected candidates: all seven strict rows.
+- Decision summary: `DEFINE_FROM_REPO_EVIDENCE` 0; `SOURCE_DATA_INSUFFICIENT` 4; `KILL_OR_NARROW_SETUP_SYMBOL_PATH` 5.
+- Intake-ready promotion result: no row can promote from missing/source-insufficient rules, narrowed paths, `final_verdict=TRADE` alone, or primary blocker null alone.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: do not deep-review proof; either source and regression-test the missing rule/evidence families or expand the strict source pool while treating these hard decisions as blockers.

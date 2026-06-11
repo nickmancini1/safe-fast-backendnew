@@ -1,8 +1,9 @@
-"""Rule-gate checks for seven strict freshness/blocker rows.
+"""Hard rule-family decisions for the seven strict Day 39 rows.
 
-This module records whether the repo contains source-backed rule evidence for
-the freshness/final-signal and blocker/caution families that currently block
-Day 39 strict intake. It does not inspect outcomes and does not accept proof.
+This module mirrors SAFE_FAST_RULE_FAMILY_DECISION_TABLE.md. It records the
+trade-plan decision for each missing freshness/blocker family, blocks silent
+promotion through missing evidence, and does not inspect outcomes or accept
+proof.
 """
 
 from __future__ import annotations
@@ -11,42 +12,43 @@ from dataclasses import dataclass
 from typing import Iterable, Mapping
 
 
-GATE_STATUSES = (
-    "SOURCE_BACKED",
-    "MISSING_RULE",
+HARD_DECISIONS = (
+    "DEFINE_FROM_REPO_EVIDENCE",
     "SOURCE_DATA_INSUFFICIENT",
-    "LOWER_TIMEFRAME_REQUIRED",
-    "THRESHOLD_MISSING",
-    "UNRESOLVED",
+    "KILL_OR_NARROW_SETUP_SYMBOL_PATH",
 )
 
-PROMOTING_GATE_STATUSES = ("SOURCE_BACKED",)
+PROMOTING_DECISIONS = ("DEFINE_FROM_REPO_EVIDENCE",)
 
 NO_PROOF_ACCEPTED = True
 PROFITABILITY_CLAIMED = False
 
 
 @dataclass(frozen=True)
-class RuleGate:
+class RuleFamilyDecision:
     rule_family: str
+    hard_decision: str
     setup_type: str
     symbol_or_scope: str
-    gate_status: str
-    source_reference: str
-    reason: str
     affected_candidate_ids: tuple[str, ...]
-    next_action: str
+    repo_evidence_checked: str
+    exact_reason: str
+    intake_ready_effect: str
+    smallest_next_action: str
+    blocks_proof_review: bool
 
     def as_row(self) -> dict[str, object]:
         return {
             "rule_family": self.rule_family,
+            "hard_decision": self.hard_decision,
             "setup_type": self.setup_type,
             "symbol_or_scope": self.symbol_or_scope,
-            "gate_status": self.gate_status,
-            "source_reference": self.source_reference,
-            "reason": self.reason,
             "affected_candidate_ids": self.affected_candidate_ids,
-            "next_action": self.next_action,
+            "repo_evidence_checked": self.repo_evidence_checked,
+            "exact_reason": self.exact_reason,
+            "intake_ready_effect": self.intake_ready_effect,
+            "smallest_next_action": self.smallest_next_action,
+            "blocks_proof_review": self.blocks_proof_review,
         }
 
 
@@ -75,227 +77,257 @@ _IDEAL_IDS = (
 )
 
 
-_RULE_GATES: tuple[RuleGate, ...] = (
-    RuleGate(
-        rule_family="Clean Fast Break initial-break / higher-base / fresh-break expiry",
+_DECISIONS: tuple[RuleFamilyDecision, ...] = (
+    RuleFamilyDecision(
+        rule_family="Clean Fast Break expiry",
+        hard_decision="SOURCE_DATA_INSUFFICIENT",
         setup_type="Clean Fast Break",
         symbol_or_scope="QQQ/SPY",
-        gate_status="MISSING_RULE",
-        source_reference=(
+        affected_candidate_ids=_CFB_IDS,
+        repo_evidence_checked=(
             "SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md; "
             "SAFE_FAST_DAY38_SPY_QQQ_BATCH_CANDIDATE_EXPANSION_REVIEW.md; "
-            "historical_signal_replay/THIRD_REAL_HISTORICAL_REPLAY_V1_FIXTURE_DESIGN_REVIEW.md"
+            "historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl"
         ),
-        reason=(
-            "Repo replay rows label initial, higher-base, fresh-break, and spent states, "
-            "but no accepted stale/spent expiry rule defines when these Clean Fast Break "
-            "signals remain fresh enough for intake."
+        exact_reason=(
+            "Repo rows show initial-break, higher-base, fresh-break, and spent lifecycle labels, "
+            "but no accepted source-backed expiry rule defines when a Clean Fast Break signal "
+            "has become stale or spent for intake promotion."
         ),
-        affected_candidate_ids=_CFB_IDS,
-        next_action=(
-            "Define and regression-test the Clean Fast Break initial-break, higher-base, "
-            "and fresh-break stale/spent expiry rule before proof review."
+        intake_ready_effect=(
+            "All affected Clean Fast Break rows remain blocked; final_verdict TRADE cannot "
+            "satisfy expiry."
         ),
+        smallest_next_action=(
+            "Define a source-backed Clean Fast Break expiry rule with regression rows before "
+            "any Clean Fast Break proof review."
+        ),
+        blocks_proof_review=True,
     ),
-    RuleGate(
-        rule_family="Clean Fast Break gap-context completeness",
+    RuleFamilyDecision(
+        rule_family="Clean Fast Break gap context",
+        hard_decision="SOURCE_DATA_INSUFFICIENT",
         setup_type="Clean Fast Break",
         symbol_or_scope="QQQ",
-        gate_status="SOURCE_DATA_INSUFFICIENT",
-        source_reference=(
+        affected_candidate_ids=("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",),
+        repo_evidence_checked=(
             "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv; "
             "historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl"
         ),
-        reason=(
-            "The source CSV has OHLCV plus unconfirmed context columns, and the replay log "
-            "has shape/lifecycle labels only; no source-backed gap-context completeness field "
-            "or rule exists for the QQQ gap/impulse setup-time decision."
+        exact_reason=(
+            "The QQQ source data has OHLCV plus unconfirmed context fields and the replay log "
+            "has lifecycle labels, but no source-backed gap-context completeness field exists "
+            "for the setup-time decision."
         ),
-        affected_candidate_ids=("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",),
-        next_action=(
-            "Add source-backed gap-context completeness evidence or keep QQQ Clean Fast Break "
-            "gap-context rows blocked."
+        intake_ready_effect="The QQQ gap Clean Fast Break row remains blocked from intake-ready.",
+        smallest_next_action=(
+            "Add source-backed gap-context evidence fields or keep QQQ gap Clean Fast Break "
+            "out of proof review."
         ),
+        blocks_proof_review=True,
     ),
-    RuleGate(
-        rule_family="Continuation next-session carry-forward freshness",
+    RuleFamilyDecision(
+        rule_family="Continuation next-session freshness",
+        hard_decision="KILL_OR_NARROW_SETUP_SYMBOL_PATH",
         setup_type="Continuation",
         symbol_or_scope="QQQ",
-        gate_status="MISSING_RULE",
-        source_reference=(
+        affected_candidate_ids=("QQQ-REAL-HISTORICAL-CONTINUATION-001",),
+        repo_evidence_checked=(
             "SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md; "
             "historical_signal_replay/reports/first_real_qqq_continuation_replay_v1_signal_log.jsonl"
         ),
-        reason=(
-            "Repo evidence records a 2026-04-30 15:30 Continuation trigger and a later spent "
-            "row, but no accepted rule authorizes or rejects next-session entry freshness."
+        exact_reason=(
+            "The repo records a 2026-04-30 15:30 Continuation trigger and a later spent row, "
+            "but does not authorize next-session carry-forward freshness. The path is narrowed "
+            "away from next-session Continuation entries until source-backed rules exist."
         ),
-        affected_candidate_ids=("QQQ-REAL-HISTORICAL-CONTINUATION-001",),
-        next_action=(
-            "Define and test Continuation next-session carry-forward freshness before any "
-            "next-session candidate can become intake-ready."
+        intake_ready_effect=(
+            "QQQ next-session Continuation cannot become intake-ready under current repo evidence."
         ),
+        smallest_next_action=(
+            "Either source a tested next-session carry-forward rule or exclude next-session "
+            "Continuation rows from the intake-ready path."
+        ),
+        blocks_proof_review=True,
     ),
-    RuleGate(
+    RuleFamilyDecision(
         rule_family="Continuation session-boundary freshness",
+        hard_decision="KILL_OR_NARROW_SETUP_SYMBOL_PATH",
         setup_type="Continuation",
         symbol_or_scope="QQQ/SPY",
-        gate_status="MISSING_RULE",
-        source_reference=(
+        affected_candidate_ids=_CONTINUATION_IDS,
+        repo_evidence_checked=(
             "SAFE_FAST_ARCHITECT_CONTROL_AND_PROJECT_TIGHTENING.md; "
             "SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_PACKET.md"
         ),
-        reason=(
-            "Session-boundary ambiguity is documented as a blocker, but no machine-checkable "
-            "freshness rule exists for Continuation candidates at or across a session boundary."
+        exact_reason=(
+            "Session-boundary handling is a documented blocker and no source-backed rule "
+            "defines when Continuation signals survive the boundary. The setup-symbol path is "
+            "narrowed to Continuation rows without session-boundary dependency."
         ),
-        affected_candidate_ids=_CONTINUATION_IDS,
-        next_action=(
-            "Define session-boundary freshness requirements for Continuation rows and preserve "
-            "blocked behavior until the rule is source-backed."
+        intake_ready_effect=(
+            "Continuation rows with session-boundary dependency remain blocked from intake-ready."
         ),
+        smallest_next_action=(
+            "Source and test Continuation session-boundary requirements before reviewing these "
+            "rows as proof candidates."
+        ),
+        blocks_proof_review=True,
     ),
-    RuleGate(
+    RuleFamilyDecision(
         rule_family="Ideal stale/spent expiry",
+        hard_decision="SOURCE_DATA_INSUFFICIENT",
         setup_type="Ideal",
         symbol_or_scope="QQQ/SPY",
-        gate_status="MISSING_RULE",
-        source_reference=(
+        affected_candidate_ids=_IDEAL_IDS,
+        repo_evidence_checked=(
             "SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md; "
             "historical_signal_replay/reports/first_real_qqq_ideal_replay_v1_signal_log.jsonl; "
             "historical_signal_replay/reports/second_real_spy_ideal_replay_v1_signal_log.jsonl"
         ),
-        reason=(
-            "Ideal replay rows identify trigger and later spent lifecycle states, but no "
-            "accepted Ideal stale/spent expiry rule exists for setup-time intake."
+        exact_reason=(
+            "Ideal replay rows show triggers and later spent lifecycle states, but repo evidence "
+            "does not define the accepted stale/spent expiry rule at setup time."
         ),
-        affected_candidate_ids=_IDEAL_IDS,
-        next_action="Define and regression-test Ideal stale/spent expiry before promotion.",
+        intake_ready_effect="QQQ/SPY Ideal rows remain blocked from intake-ready.",
+        smallest_next_action=(
+            "Define and regression-test Ideal stale/spent expiry before Ideal proof review."
+        ),
+        blocks_proof_review=True,
     ),
-    RuleGate(
+    RuleFamilyDecision(
         rule_family="Ideal fast-swing freshness",
+        hard_decision="KILL_OR_NARROW_SETUP_SYMBOL_PATH",
         setup_type="Ideal",
         symbol_or_scope="QQQ",
-        gate_status="MISSING_RULE",
-        source_reference="SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md",
-        reason=(
-            "The QQQ Ideal packet marks fast-swing hold freshness as unfilled; no accepted "
-            "rule defines whether a fast-swing Ideal remains fresh."
-        ),
         affected_candidate_ids=("QQQ-REAL-HISTORICAL-IDEAL-001",),
-        next_action="Define fast-swing Ideal freshness before using the row for proof review.",
+        repo_evidence_checked="SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md",
+        exact_reason=(
+            "The QQQ Ideal packet leaves fast-swing hold freshness unfilled and no accepted "
+            "rule says the fast-swing path remains actionable. The QQQ fast-swing Ideal path "
+            "is narrowed out until it earns a source-backed rule."
+        ),
+        intake_ready_effect="QQQ fast-swing Ideal cannot become intake-ready under current evidence.",
+        smallest_next_action=(
+            "Either define tested fast-swing freshness or exclude fast-swing Ideal rows from "
+            "the proof-review pool."
+        ),
+        blocks_proof_review=True,
     ),
-    RuleGate(
-        rule_family="intrabar ordering / order-of-events inside 1H candles",
+    RuleFamilyDecision(
+        rule_family="Intrabar ordering",
+        hard_decision="KILL_OR_NARROW_SETUP_SYMBOL_PATH",
         setup_type="Continuation",
         symbol_or_scope="SPY",
-        gate_status="LOWER_TIMEFRAME_REQUIRED",
-        source_reference=(
+        affected_candidate_ids=("SPY-REAL-HISTORICAL-CONTINUATION-001",),
+        repo_evidence_checked=(
             "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv; "
             "SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md"
         ),
-        reason=(
-            "The available source is completed 1H OHLCV. It cannot prove the order of trigger, "
-            "pullback, and invalidation behavior inside the setup/entry candles."
+        exact_reason=(
+            "Available SPY source is completed 1H OHLCV and cannot prove the order of trigger, "
+            "pullback, and invalidation events inside the setup candles. The SPY Continuation "
+            "intrabar-dependent path is narrowed out unless lower-timeframe evidence exists."
         ),
-        affected_candidate_ids=("SPY-REAL-HISTORICAL-CONTINUATION-001",),
-        next_action=(
-            "Provide lower-timeframe source rows or a source-backed rule that explicitly does "
-            "not require intrabar ordering for this candidate family."
+        intake_ready_effect="SPY Continuation intrabar-dependent rows remain blocked from intake-ready.",
+        smallest_next_action=(
+            "Provide lower-timeframe source rows or exclude intrabar-dependent Continuation rows "
+            "from proof review."
         ),
+        blocks_proof_review=True,
     ),
-    RuleGate(
-        rule_family="wide-risk / room threshold",
+    RuleFamilyDecision(
+        rule_family="Wide-risk / room threshold",
+        hard_decision="KILL_OR_NARROW_SETUP_SYMBOL_PATH",
         setup_type="Ideal",
         symbol_or_scope="QQQ",
-        gate_status="THRESHOLD_MISSING",
-        source_reference=(
+        affected_candidate_ids=("QQQ-REAL-HISTORICAL-IDEAL-001",),
+        repo_evidence_checked=(
             "SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md; "
             "SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md"
         ),
-        reason=(
-            "QQQ Ideal wide chart-risk/room is called out as unresolved, but no accepted "
-            "risk/room threshold exists to decide whether the row is tradably useful."
+        exact_reason=(
+            "QQQ Ideal wide chart-risk and room are documented as unresolved trade-usefulness "
+            "problems, and no accepted threshold defines enough room after risk and costs. "
+            "The wide-risk QQQ Ideal path is narrowed out until thresholds exist."
         ),
-        affected_candidate_ids=("QQQ-REAL-HISTORICAL-IDEAL-001",),
-        next_action="Define accepted wide-risk and room thresholds before promotion.",
+        intake_ready_effect="QQQ wide-risk Ideal cannot become intake-ready under current evidence.",
+        smallest_next_action=(
+            "Define accepted room and wide-risk thresholds before restoring this path to proof review."
+        ),
+        blocks_proof_review=True,
     ),
-    RuleGate(
-        rule_family="complete context/caution review",
+    RuleFamilyDecision(
+        rule_family="Context/caution review",
+        hard_decision="SOURCE_DATA_INSUFFICIENT",
         setup_type="all",
         symbol_or_scope="QQQ/SPY",
-        gate_status="SOURCE_DATA_INSUFFICIENT",
-        source_reference=(
+        affected_candidate_ids=STRICT_CANDIDATE_IDS,
+        repo_evidence_checked=(
             "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv; "
             "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv; "
-            "historical_signal_replay/reports/*.jsonl used by the seven strict rows"
+            "historical_signal_replay/reports/*.jsonl used by the seven strict rows; "
+            "SAFE_FAST_ARCHITECT_CONTROL_AND_PROJECT_TIGHTENING.md"
         ),
-        reason=(
-            "The seven rows carry MACRO_UNCONFIRMED, IV_UNCONFIRMED, EVENT_UNCONFIRMED, "
-            "CONTEXT_24H_DAILY_UNCONFIRMED, room_status unconfirmed, and no complete "
-            "context/caution review field."
+        exact_reason=(
+            "Rows still carry unconfirmed 24H, macro, IV, event, room, headline, option, or "
+            "execution context. Primary blocker null is source-backed as insufficient because "
+            "blocker/caution must be complete and clean before intake-ready."
         ),
-        affected_candidate_ids=STRICT_CANDIDATE_IDS,
-        next_action=(
-            "Add complete source-backed context/caution review fields or keep all seven rows "
-            "blocked from intake-ready status."
+        intake_ready_effect=(
+            "All seven rows remain blocked; primary blocker null alone and final_verdict TRADE "
+            "alone cannot promote."
         ),
-    ),
-    RuleGate(
-        rule_family="primary blocker null is not enough",
-        setup_type="all",
-        symbol_or_scope="QQQ/SPY",
-        gate_status="SOURCE_BACKED",
-        source_reference=(
-            "SAFE_FAST_ARCHITECT_CONTROL_AND_PROJECT_TIGHTENING.md; "
-            "watcher_foundation/candidate_freshness_blocker_state.py"
+        smallest_next_action=(
+            "Add complete source-backed context/caution review fields before any of the seven "
+            "rows can enter proof review."
         ),
-        reason=(
-            "Repo guardrails require blocker/caution state to be clean before intake-ready; "
-            "the existing state helper classifies primary_blocker null without complete review "
-            "as context_incomplete."
-        ),
-        affected_candidate_ids=STRICT_CANDIDATE_IDS,
-        next_action=(
-            "Continue requiring complete blocker/caution review; do not promote from "
-            "primary_blocker null or final_verdict TRADE alone."
-        ),
+        blocks_proof_review=True,
     ),
 )
 
 
 def build_rule_gate_result() -> dict[str, object]:
-    rows = [gate.as_row() for gate in _RULE_GATES]
-    by_candidate = _gates_by_candidate(_RULE_GATES)
+    rows = [decision.as_row() for decision in _DECISIONS]
+    by_candidate = _decisions_by_candidate(_DECISIONS)
+    source_backed_count = sum(
+        1 for row in rows if row["hard_decision"] == "DEFINE_FROM_REPO_EVIDENCE"
+    )
+    blocking_count = sum(
+        1 for row in rows if row["hard_decision"] != "DEFINE_FROM_REPO_EVIDENCE"
+    )
     return {
         "rule_families_checked": len(rows),
-        "source_backed_rule_count": sum(
-            1 for row in rows if row["gate_status"] == "SOURCE_BACKED"
-        ),
-        "missing_unresolved_rule_count": sum(
-            1 for row in rows if row["gate_status"] != "SOURCE_BACKED"
-        ),
+        "source_backed_rule_count": source_backed_count,
+        "missing_unresolved_rule_count": blocking_count,
+        "hard_decision_counts": {
+            decision: sum(1 for row in rows if row["hard_decision"] == decision)
+            for decision in HARD_DECISIONS
+        },
         "affected_candidate_ids": STRICT_CANDIDATE_IDS,
         "gate_rows": rows,
         "gate_by_candidate": {
-            candidate_id: [gate.as_row() for gate in gates]
-            for candidate_id, gates in by_candidate.items()
+            candidate_id: [decision.as_row() for decision in decisions]
+            for candidate_id, decisions in by_candidate.items()
         },
+        "intake_ready_count": 0,
         "proof_accepted": False,
         "profitability_claimed": False,
     }
 
 
-def gates_for_candidate(candidate_id: str) -> tuple[RuleGate, ...]:
-    gates = tuple(gate for gate in _RULE_GATES if candidate_id in gate.affected_candidate_ids)
-    if not gates:
-        raise KeyError(f"no rule gates for {candidate_id}")
-    return gates
+def decisions_for_candidate(candidate_id: str) -> tuple[RuleFamilyDecision, ...]:
+    decisions = tuple(
+        decision for decision in _DECISIONS if candidate_id in decision.affected_candidate_ids
+    )
+    if not decisions:
+        raise KeyError(f"no rule-family decisions for {candidate_id}")
+    return decisions
 
 
 def candidate_rule_gate_status(candidate_id: str) -> str:
-    gates = gates_for_candidate(candidate_id)
-    if all(gate.gate_status in PROMOTING_GATE_STATUSES for gate in gates):
+    decisions = decisions_for_candidate(candidate_id)
+    if all(decision.hard_decision in PROMOTING_DECISIONS for decision in decisions):
         return "pass"
     return "blocked"
 
@@ -307,11 +339,7 @@ def candidate_can_promote(
     primary_blocker: object = None,
     complete_context_caution_review: bool = False,
 ) -> bool:
-    """Return whether rule gates permit promotion.
-
-    final_verdict and primary_blocker are intentionally insufficient without
-    source-backed gates and a complete context/caution review.
-    """
+    """Return whether hard rule decisions permit intake-ready promotion."""
 
     if str(final_verdict).strip().upper() == "TRADE" and not complete_context_caution_review:
         return False
@@ -323,22 +351,24 @@ def candidate_can_promote(
 def format_rule_gate_report(result: dict[str, object]) -> str:
     lines = [
         f"rule families checked: {result['rule_families_checked']}",
-        f"source-backed rule count: {result['source_backed_rule_count']}",
-        f"missing/unresolved rule count: {result['missing_unresolved_rule_count']}",
+        f"source-backed clean decision count: {result['source_backed_rule_count']}",
+        f"blocking decision count: {result['missing_unresolved_rule_count']}",
+        f"intake-ready count: {result['intake_ready_count']}",
         f"affected candidate IDs: {', '.join(result['affected_candidate_ids'])}",
-        "exact next fix per rule family:",
-        "rule-gate table:",
+        "hard decision table:",
     ]
     for row in result["gate_rows"]:
         lines.append(
             " | ".join(
                 (
                     str(row["rule_family"]),
+                    f"decision={row['hard_decision']}",
                     f"setup_type={row['setup_type']}",
                     f"scope={row['symbol_or_scope']}",
-                    f"gate_status={row['gate_status']}",
                     f"affected={', '.join(row['affected_candidate_ids'])}",
-                    f"next_fix={row['next_action']}",
+                    f"promotion={row['intake_ready_effect']}",
+                    f"next_action={row['smallest_next_action']}",
+                    f"blocks_proof_review={'YES' if row['blocks_proof_review'] else 'NO'}",
                 )
             )
         )
@@ -351,14 +381,21 @@ def format_rule_gate_report(result: dict[str, object]) -> str:
     return "\n".join(lines)
 
 
-def _gates_by_candidate(gates: Iterable[RuleGate]) -> Mapping[str, tuple[RuleGate, ...]]:
-    by_candidate: dict[str, list[RuleGate]] = {candidate_id: [] for candidate_id in STRICT_CANDIDATE_IDS}
-    for gate in gates:
-        if gate.gate_status not in GATE_STATUSES:
-            raise ValueError(f"unsupported gate_status: {gate.gate_status}")
-        for candidate_id in gate.affected_candidate_ids:
-            by_candidate[candidate_id].append(gate)
-    return {candidate_id: tuple(candidate_gates) for candidate_id, candidate_gates in by_candidate.items()}
+def _decisions_by_candidate(
+    decisions: Iterable[RuleFamilyDecision],
+) -> Mapping[str, tuple[RuleFamilyDecision, ...]]:
+    by_candidate: dict[str, list[RuleFamilyDecision]] = {
+        candidate_id: [] for candidate_id in STRICT_CANDIDATE_IDS
+    }
+    for decision in decisions:
+        if decision.hard_decision not in HARD_DECISIONS:
+            raise ValueError(f"unsupported hard_decision: {decision.hard_decision}")
+        for candidate_id in decision.affected_candidate_ids:
+            by_candidate[candidate_id].append(decision)
+    return {
+        candidate_id: tuple(candidate_decisions)
+        for candidate_id, candidate_decisions in by_candidate.items()
+    }
 
 
 def _primary_blocker_is_nullish(value: object) -> bool:

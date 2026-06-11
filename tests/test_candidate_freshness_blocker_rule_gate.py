@@ -7,76 +7,65 @@ from watcher_foundation import candidate_source_pool_intake as intake
 
 
 EXPECTED_RULE_FAMILIES = {
-    "Clean Fast Break initial-break / higher-base / fresh-break expiry",
-    "Clean Fast Break gap-context completeness",
-    "Continuation next-session carry-forward freshness",
+    "Clean Fast Break expiry",
+    "Clean Fast Break gap context",
+    "Continuation next-session freshness",
     "Continuation session-boundary freshness",
     "Ideal stale/spent expiry",
     "Ideal fast-swing freshness",
-    "intrabar ordering / order-of-events inside 1H candles",
-    "wide-risk / room threshold",
-    "complete context/caution review",
-    "primary blocker null is not enough",
+    "Intrabar ordering",
+    "Wide-risk / room threshold",
+    "Context/caution review",
 }
 
 
 class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
-    def test_rule_gate_covers_all_known_missing_rule_families(self):
+    def test_rule_gate_covers_exactly_the_nine_decision_families(self):
         result = gate.build_rule_gate_result()
         families = {row["rule_family"] for row in result["gate_rows"]}
 
         self.assertEqual(families, EXPECTED_RULE_FAMILIES)
-        self.assertEqual(result["rule_families_checked"], len(EXPECTED_RULE_FAMILIES))
+        self.assertEqual(result["rule_families_checked"], 9)
 
-    def test_every_seven_row_candidate_maps_to_at_least_one_rule_gate(self):
+    def test_each_family_has_one_allowed_hard_decision(self):
+        result = gate.build_rule_gate_result()
+
+        for row in result["gate_rows"]:
+            self.assertIn(row["hard_decision"], gate.HARD_DECISIONS)
+            self.assertNotIn("maybe", row["hard_decision"].lower())
+            self.assertNotIn("unclear", row["hard_decision"].lower())
+            self.assertNotIn("unresolved", row["hard_decision"].lower())
+
+    def test_every_seven_row_candidate_maps_to_at_least_one_decision(self):
         result = gate.build_rule_gate_result()
 
         self.assertEqual(tuple(result["affected_candidate_ids"]), gate.STRICT_CANDIDATE_IDS)
         for candidate_id in gate.STRICT_CANDIDATE_IDS:
             self.assertGreaterEqual(len(result["gate_by_candidate"][candidate_id]), 1)
 
-    def test_missing_rule_cannot_promote_candidate(self):
-        self.assertEqual(
-            gate.candidate_rule_gate_status("SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"),
-            "blocked",
-        )
-        self.assertFalse(
-            gate.candidate_can_promote("SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002")
-        )
-
     def test_source_data_insufficient_cannot_promote_candidate(self):
         self.assertFalse(
             gate.candidate_can_promote("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001")
         )
-        statuses = {
-            row["gate_status"]
+        decisions = {
+            row["hard_decision"]
             for row in gate.build_rule_gate_result()["gate_by_candidate"][
                 "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"
             ]
         }
-        self.assertIn("SOURCE_DATA_INSUFFICIENT", statuses)
+        self.assertIn("SOURCE_DATA_INSUFFICIENT", decisions)
 
-    def test_lower_timeframe_required_cannot_promote_candidate(self):
+    def test_kill_or_narrow_cannot_promote_candidate(self):
         self.assertFalse(
             gate.candidate_can_promote("SPY-REAL-HISTORICAL-CONTINUATION-001")
         )
-        statuses = {
-            row["gate_status"]
+        decisions = {
+            row["hard_decision"]
             for row in gate.build_rule_gate_result()["gate_by_candidate"][
                 "SPY-REAL-HISTORICAL-CONTINUATION-001"
             ]
         }
-        self.assertIn("LOWER_TIMEFRAME_REQUIRED", statuses)
-
-    def test_threshold_missing_cannot_promote_candidate(self):
-        self.assertFalse(gate.candidate_can_promote("QQQ-REAL-HISTORICAL-IDEAL-001"))
-        statuses = {
-            row["gate_status"]
-            for row in gate.build_rule_gate_result()["gate_by_candidate"][
-                "QQQ-REAL-HISTORICAL-IDEAL-001"
-            ]
-        }
-        self.assertIn("THRESHOLD_MISSING", statuses)
+        self.assertIn("KILL_OR_NARROW_SETUP_SYMBOL_PATH", decisions)
 
     def test_final_verdict_trade_alone_cannot_satisfy_rule_gate(self):
         self.assertFalse(
@@ -108,6 +97,15 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertNotIn("proof accepted: yes", report)
         self.assertNotIn("profitability claim made: yes", report)
 
+    def test_intake_ready_remains_zero_without_source_backed_clean_rules(self):
+        result = gate.build_rule_gate_result()
+
+        self.assertEqual(result["source_backed_rule_count"], 0)
+        self.assertEqual(result["missing_unresolved_rule_count"], 9)
+        self.assertEqual(result["intake_ready_count"], 0)
+        for candidate_id in gate.STRICT_CANDIDATE_IDS:
+            self.assertEqual(gate.candidate_rule_gate_status(candidate_id), "blocked")
+
     def test_source_pool_intake_counts_remain_blocked(self):
         result = intake.build_source_pool_intake()
 
@@ -115,18 +113,18 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertEqual(result["accepted_intake_count"], 7)
         self.assertEqual(result["intake_ready_count"], 0)
         self.assertEqual(result["close_ready_count"], 7)
-        self.assertEqual(result["rule_gate_families_checked"], len(EXPECTED_RULE_FAMILIES))
-        self.assertEqual(result["rule_gate_source_backed_rule_count"], 1)
+        self.assertEqual(result["rule_gate_families_checked"], 9)
+        self.assertEqual(result["rule_gate_source_backed_rule_count"], 0)
         self.assertEqual(result["rule_gate_missing_unresolved_rule_count"], 9)
 
-    def test_rule_gate_report_prints_required_summary(self):
+    def test_rule_gate_report_prints_the_nine_decisions(self):
         report = gate.format_rule_gate_report(gate.build_rule_gate_result())
 
-        self.assertIn("rule families checked: 10", report)
-        self.assertIn("source-backed rule count: 1", report)
-        self.assertIn("missing/unresolved rule count: 9", report)
-        self.assertIn("exact", report.lower())
-        self.assertIn("next_fix=", report)
+        self.assertIn("rule families checked: 9", report)
+        self.assertIn("source-backed clean decision count: 0", report)
+        self.assertIn("blocking decision count: 9", report)
+        self.assertIn("decision=SOURCE_DATA_INSUFFICIENT", report)
+        self.assertIn("decision=KILL_OR_NARROW_SETUP_SYMBOL_PATH", report)
 
 
 if __name__ == "__main__":

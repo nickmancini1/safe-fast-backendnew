@@ -424,6 +424,18 @@ Why this handoff changed:
 - No proof was accepted.
 - No profitability claim was made.
 
+## Rule-family decision table
+
+Day 39 now has a hard decision table for the nine freshness/final-signal and blocker/caution rule families that block the seven strict rows:
+
+- Decision table: `SAFE_FAST_RULE_FAMILY_DECISION_TABLE.md`
+- This is rule clarification only.
+- It is not proof review.
+- It does not accept proof.
+- It does not claim profitability.
+- Current rule-family result: `DEFINE_FROM_REPO_EVIDENCE` 0, `SOURCE_DATA_INSUFFICIENT` 4, `KILL_OR_NARROW_SETUP_SYMBOL_PATH` 5.
+- Current intake-ready count remains 0.
+
 ## Faster workflow
 
 Use this order:
