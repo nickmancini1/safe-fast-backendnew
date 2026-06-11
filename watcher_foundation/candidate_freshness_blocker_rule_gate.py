@@ -91,6 +91,7 @@ STRICT_CANDIDATE_IDS = (
 QQQ_CFB_CANDIDATE_ID = "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"
 SPY_CFB_003_CANDIDATE_ID = "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003"
 SPY_CFB_002_CANDIDATE_ID = "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"
+SPY_IDEAL_CANDIDATE_ID = "SPY-REAL-HISTORICAL-IDEAL-001"
 
 _CFB_IDS = (
     QQQ_CFB_CANDIDATE_ID,
@@ -138,6 +139,14 @@ SPY_CFB_002_EXACT_MISSING_EVIDENCE = (
     "complete source-backed context/caution review fields",
 )
 SPY_CFB_002_CLEAN_RULE_EVIDENCE = ()
+
+SPY_IDEAL_SURVIVAL_ACTION_APPLIED = True
+SPY_IDEAL_SURVIVAL_STATUS = "active_blocked"
+SPY_IDEAL_EXACT_MISSING_EVIDENCE = (
+    "tested SPY Ideal stale/spent expiry rule",
+    "complete source-backed context/caution review fields",
+)
+SPY_IDEAL_CLEAN_RULE_EVIDENCE = ()
 
 CFB_SOURCE_DATA_INSUFFICIENT_REASONS = {
     "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": (
@@ -335,8 +344,10 @@ _SURVIVAL_MAP_ROWS: tuple[SurvivalMapRow, ...] = (
         blocking_rule_family="Ideal stale/spent expiry; Context/caution review",
         rule_decision_applied="SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT",
         exact_reason=(
-            "Same-session Ideal remains eligible only after source-backed stale/spent expiry and "
-            "complete context/caution evidence become clean; primary blocker null cannot promote."
+            "Applied survival action: active_blocked. Same-session Ideal has a triggered "
+            "signal-stage row and later spent lifecycle row, but no tested SPY Ideal "
+            "stale/spent expiry rule and no complete source-backed context/caution review; "
+            "primary blocker null cannot promote."
         ),
         next_evidence_fix=(
             "Define and regression-test SPY Ideal stale/spent expiry and add complete "
@@ -613,6 +624,7 @@ def build_rule_gate_result() -> dict[str, object]:
         "qqq_cfb_survival_action": qqq_cfb_survival_action(),
         "spy_cfb_003_survival_action": spy_cfb_003_survival_action(),
         "spy_cfb_002_survival_action": spy_cfb_002_survival_action(),
+        "spy_ideal_survival_action": spy_ideal_survival_action(),
         "intake_ready_count": 0,
         "proof_accepted": False,
         "profitability_claimed": False,
@@ -699,6 +711,19 @@ def spy_cfb_002_survival_action() -> dict[str, object]:
         "status": candidate_survival_status(SPY_CFB_002_CANDIDATE_ID),
         "exact_missing_evidence": SPY_CFB_002_EXACT_MISSING_EVIDENCE,
         "clean_rule_evidence": SPY_CFB_002_CLEAN_RULE_EVIDENCE,
+        "proof_allowed": False,
+        "proof_accepted": False,
+        "profitability_claimed": False,
+    }
+
+
+def spy_ideal_survival_action() -> dict[str, object]:
+    return {
+        "candidate_id": SPY_IDEAL_CANDIDATE_ID,
+        "action_applied": SPY_IDEAL_SURVIVAL_ACTION_APPLIED,
+        "status": candidate_survival_status(SPY_IDEAL_CANDIDATE_ID),
+        "exact_missing_evidence": SPY_IDEAL_EXACT_MISSING_EVIDENCE,
+        "clean_rule_evidence": SPY_IDEAL_CLEAN_RULE_EVIDENCE,
         "proof_allowed": False,
         "proof_accepted": False,
         "profitability_claimed": False,
@@ -817,6 +842,15 @@ def format_rule_gate_report(result: dict[str, object]) -> str:
             (
                 "SPY CFB 002 exact missing evidence: "
                 + "; ".join(result["spy_cfb_002_survival_action"]["exact_missing_evidence"])
+            ),
+            (
+                "SPY Ideal survival action applied: "
+                f"{'YES' if result['spy_ideal_survival_action']['action_applied'] else 'NO'}"
+            ),
+            f"SPY Ideal status: {result['spy_ideal_survival_action']['status']}",
+            (
+                "SPY Ideal exact missing evidence: "
+                + "; ".join(result["spy_ideal_survival_action"]["exact_missing_evidence"])
             ),
         )
     )

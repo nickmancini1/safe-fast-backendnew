@@ -116,6 +116,34 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertFalse(action["proof_accepted"])
         self.assertFalse(action["profitability_claimed"])
 
+    def test_spy_ideal_survival_action_is_exposed_by_source_pool_intake(self):
+        result = intake.build_source_pool_intake()
+        action = result["spy_ideal_survival_action"]
+
+        self.assertTrue(action["action_applied"])
+        self.assertEqual(action["candidate_id"], "SPY-REAL-HISTORICAL-IDEAL-001")
+        self.assertEqual(action["status"], "active_blocked")
+        self.assertIn("SPY Ideal stale/spent expiry", " ".join(action["exact_missing_evidence"]))
+        self.assertIn("context/caution", " ".join(action["exact_missing_evidence"]))
+        self.assertEqual(action["clean_rule_evidence"], ())
+        self.assertFalse(action["proof_accepted"])
+        self.assertFalse(action["profitability_claimed"])
+
+    def test_spy_ideal_missing_evidence_keeps_intake_ready_zero(self):
+        result = intake.build_source_pool_intake()
+        by_id = {row["candidate_id"]: row for row in result["accepted_rows"]}
+
+        self.assertEqual(by_id["SPY-REAL-HISTORICAL-IDEAL-001"]["status"], "blocked")
+        self.assertIn(
+            "missing Ideal-specific stale/spent expiry rule",
+            by_id["SPY-REAL-HISTORICAL-IDEAL-001"]["freshness_missing_evidence"],
+        )
+        self.assertIn(
+            "complete Ideal gap/headline/room caution review missing",
+            by_id["SPY-REAL-HISTORICAL-IDEAL-001"]["blocker_missing_evidence"],
+        )
+        self.assertEqual(result["intake_ready_count"], 0)
+
     def test_lowercase_incomplete_is_case_insensitive_unresolved_blocker(self):
         row = {
             "candidate_id": "STRICT-ROW-WITH-LOWERCASE-INCOMPLETE",
@@ -329,6 +357,8 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertIn("SPY CFB 003 status: active_blocked", report)
         self.assertIn("SPY CFB 002 survival action applied: YES", report)
         self.assertIn("SPY CFB 002 status: active_blocked", report)
+        self.assertIn("SPY Ideal survival action applied: YES", report)
+        self.assertIn("SPY Ideal status: active_blocked", report)
         self.assertIn("ranked intake table:", report)
         self.assertIn("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001", report)
 

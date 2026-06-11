@@ -446,6 +446,63 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
             )
         )
 
+    def test_spy_ideal_survival_action_is_applied_as_active_blocked(self):
+        action = gate.spy_ideal_survival_action()
+
+        self.assertTrue(action["action_applied"])
+        self.assertEqual(action["candidate_id"], "SPY-REAL-HISTORICAL-IDEAL-001")
+        self.assertEqual(action["status"], "active_blocked")
+        self.assertFalse(action["proof_allowed"])
+        self.assertFalse(action["proof_accepted"])
+        self.assertFalse(action["profitability_claimed"])
+        self.assertEqual(action["clean_rule_evidence"], ())
+
+    def test_spy_ideal_stale_spent_expiry_missing_evidence_blocks_intake_ready(self):
+        candidate_id = "SPY-REAL-HISTORICAL-IDEAL-001"
+        decisions = {
+            row["rule_family"]: row["hard_decision"]
+            for row in gate.build_rule_gate_result()["gate_by_candidate"][candidate_id]
+        }
+
+        self.assertEqual(decisions["Ideal stale/spent expiry"], "SOURCE_DATA_INSUFFICIENT")
+        self.assertIn(
+            "SPY Ideal stale/spent expiry",
+            " ".join(gate.spy_ideal_survival_action()["exact_missing_evidence"]),
+        )
+        self.assertFalse(
+            gate.candidate_can_promote(
+                candidate_id,
+                final_verdict="TRADE",
+                primary_blocker="complete blocker review",
+                complete_context_caution_review=True,
+            )
+        )
+
+    def test_spy_ideal_context_caution_missing_evidence_blocks_intake_ready(self):
+        candidate_id = "SPY-REAL-HISTORICAL-IDEAL-001"
+        decisions = {
+            row["rule_family"]: row["hard_decision"]
+            for row in gate.build_rule_gate_result()["gate_by_candidate"][candidate_id]
+        }
+
+        self.assertEqual(decisions["Context/caution review"], "SOURCE_DATA_INSUFFICIENT")
+        self.assertIn(
+            "complete context/caution source-data insufficiency",
+            gate.candidate_context_caution_source_data_insufficiency_reason(candidate_id),
+        )
+        self.assertIn(
+            "context/caution",
+            " ".join(gate.spy_ideal_survival_action()["exact_missing_evidence"]),
+        )
+        self.assertFalse(
+            gate.candidate_can_promote(
+                candidate_id,
+                final_verdict="TRADE",
+                primary_blocker=None,
+                complete_context_caution_review=False,
+            )
+        )
+
     def test_context_caution_source_data_insufficiency_blocks_intake_ready(self):
         for candidate_id in gate.CONTEXT_CAUTION_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS:
             decisions = {
@@ -549,6 +606,8 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertIn("SPY CFB 003 status: active_blocked", report)
         self.assertIn("SPY CFB 002 survival action applied: YES", report)
         self.assertIn("SPY CFB 002 status: active_blocked", report)
+        self.assertIn("SPY Ideal survival action applied: YES", report)
+        self.assertIn("SPY Ideal status: active_blocked", report)
 
 
 if __name__ == "__main__":

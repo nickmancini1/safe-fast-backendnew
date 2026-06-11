@@ -8648,3 +8648,47 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
   - `SAFE_FAST_BUILD_STATE.md`
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: source and regression-test Clean Fast Break initial-break expiry and complete context/caution fields before any SPY Clean Fast Break 002 proof review.
+
+## Day 39 SPY Ideal survival action result
+
+- Current task baseline stated by task file: `e09b2ac Apply SPY Clean Fast Break 002 survival action`.
+- Corrective scope: build-only helper/test/doc work.
+- Candidate reviewed: `SPY-REAL-HISTORICAL-IDEAL-001`.
+- Survival action applied: YES.
+- SPY Ideal status: `active_blocked`.
+- Repo-backed clean rule evidence found: none.
+- Evidence inspected:
+  - `historical_signal_replay/reports/second_real_spy_ideal_replay_v1_signal_log.jsonl` line 5: completed 2026-05-13 11:30 same-session Ideal signal-stage candidate, `final_verdict=TRADE`, `trigger_state=triggered`, `trigger_level=740.75`, `invalidation=731.83`, `primary_blocker=null`.
+  - `historical_signal_replay/reports/second_real_spy_ideal_replay_v1_signal_log.jsonl` line 6: later spent lifecycle row, not an accepted setup-time stale/spent expiry rule.
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv` line 291: setup-time source row for the 2026-05-13 11:30 signal, with 24H, macro, IV, and event context unconfirmed.
+- Exact missing evidence:
+  - tested SPY Ideal stale/spent expiry rule.
+  - complete source-backed context/caution review fields.
+- Applied result: SPY Ideal cannot promote through missing same-session Ideal stale/spent expiry or incomplete context/caution.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Active blocked count: 4.
+- Replace count: 3.
+- Parked count: 0.
+- Proof allowed rows: 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Files updated:
+  - `watcher_foundation/candidate_freshness_blocker_rule_gate.py`
+  - `tests/test_candidate_freshness_blocker_rule_gate.py`
+  - `watcher_foundation/candidate_source_pool_intake.py`
+  - `tests/test_candidate_source_pool_intake.py`
+  - `SAFE_FAST_RULE_DECISION_SURVIVAL_MAP.md`
+  - `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`
+  - `SAFE_FAST_BUILD_STATE.md`
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_rule_gate.py"` PASS, 39 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 21 tests.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_rule_gate` PASS and printed the rule-gate report to stdout only.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the strict source-pool intake report to stdout only.
+  - `git --no-pager diff --check` PASS with Git line-ending warnings only.
+- Deleted one-time task file: `.codex_spy_ideal_survival_action_task.md`.
+- No `__pycache__`, `.pyc`, or `.pyo` artifacts were present after cleanup check.
+- No generated report/log/CSV/JSON output file was created.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: source and regression-test SPY Ideal stale/spent expiry and complete context/caution fields before any SPY Ideal proof review.
