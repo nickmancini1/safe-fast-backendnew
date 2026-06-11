@@ -58,9 +58,9 @@ PROFITABILITY_CLAIMED = False
 UNRESOLVED_MARKERS = ("missing", "unclear", "incomplete")
 
 POST_BATCH_RECOMMENDED_NEXT_ACTION = (
-    "fewer than 5 rows became intake-ready after the repo-backed freshness/final-signal "
-    "and blocker/caution state extractor; expand or repair source-backed freshness/blocker "
-    "evidence in batch without hindsight"
+    "Continuation has been narrowed away from next-session/session-boundary-dependent entries; "
+    "replace outside-path Continuation rows with same-session evidence or source a tested "
+    "carry-forward rule, and repair remaining blocker evidence in batch without hindsight"
 )
 
 REAL_HISTORICAL_SIGNAL_LOGS = (
@@ -305,6 +305,11 @@ def _reason(
         return "strict source-backed fields complete for intake only; not proof"
     if row["duplicate"] == "yes":
         return "duplicate/already counted; not eligible for intake-ready"
+    if status == "replace" and state is not None:
+        return (
+            f"replace: outside narrowed Continuation path; {state.freshness_state}; "
+            f"{state.blocker_state}; {state.freshness_reason}; {state.blocker_reason}"
+        )
     if state is not None:
         return (
             f"blocked: {state.freshness_state}; {state.blocker_state}; "

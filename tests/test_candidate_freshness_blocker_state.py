@@ -83,7 +83,8 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
                 self.assertTrue(row["freshness_state"] != "clean" or row["blocker_state"] != "clean")
 
         self.assertEqual(result["intake_ready_count"], 0)
-        self.assertEqual(result["blocked_count"], 7)
+        self.assertEqual(result["blocked_count"], 6)
+        self.assertEqual(result["replace_count"], 1)
 
     def test_decision_for_states_requires_both_clean(self):
         self.assertEqual(state_model.decision_for_states("clean", "clean"), "intake-ready")
@@ -102,8 +103,16 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
             "session_boundary_unclear",
         )
         self.assertEqual(
+            by_id["QQQ-REAL-HISTORICAL-CONTINUATION-001"]["decision"],
+            "replace",
+        )
+        self.assertEqual(
             by_id["SPY-REAL-HISTORICAL-CONTINUATION-001"]["freshness_state"],
             "intrabar_ordering_incomplete",
+        )
+        self.assertEqual(
+            by_id["SPY-REAL-HISTORICAL-CONTINUATION-001"]["decision"],
+            "blocked",
         )
         self.assertEqual(
             by_id["QQQ-REAL-HISTORICAL-IDEAL-001"]["blocker_state"],
@@ -120,6 +129,10 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
         self.assertIn(
             "missing next-session Continuation freshness/carry-forward rule",
             by_id["QQQ-REAL-HISTORICAL-CONTINUATION-001"]["freshness_missing_evidence"],
+        )
+        self.assertIn(
+            "excludes this next-session/session-boundary-dependent row",
+            by_id["QQQ-REAL-HISTORICAL-CONTINUATION-001"]["freshness_reason"],
         )
         self.assertIn(
             "missing lower-timeframe or order-of-events evidence",

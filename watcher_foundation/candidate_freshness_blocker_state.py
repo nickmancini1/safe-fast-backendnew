@@ -114,6 +114,8 @@ def decision_for_states(freshness_state: str, blocker_state: str) -> str:
 
 
 def decision_for_candidate(candidate_id: str, freshness_state: str, blocker_state: str) -> str:
+    if rule_gate.candidate_is_outside_narrowed_path(candidate_id):
+        return "replace"
     state_decision = decision_for_states(freshness_state, blocker_state)
     if state_decision != "intake-ready":
         return state_decision
@@ -227,7 +229,9 @@ _STATES: Mapping[str, CandidateState] = {
         freshness_reason=(
             "Replay line 5 proves a 2026-04-30 15:30 triggered Continuation signal and line 6 proves the "
             "same lifecycle was spent on 2026-05-01, but the repo has no next-session carry-forward rule "
-            "that says a 15:30 signal remains fresh for a next-session entry."
+            "that says a 15:30 signal remains fresh for a next-session entry. The applied Continuation "
+            "narrowing excludes this next-session/session-boundary-dependent row from the normal "
+            "close-ready path."
         ),
         blocker_reason=(
             "Primary blocker is null at the trigger row, but session-boundary handling plus broader "
@@ -238,7 +242,10 @@ _STATES: Mapping[str, CandidateState] = {
             "session-boundary evidence that authorizes 2026-05-01 entry freshness from the 2026-04-30 15:30 signal"
         ),
         blocker_missing_evidence=_REPLAY_CONTEXT_LIMITATION + "; session-boundary caution review missing",
-        next_action="Define/review next-session Continuation freshness before promotion.",
+        next_action=(
+            "Replace with same-session Continuation evidence or source a tested next-session "
+            "carry-forward rule before restoring this path."
+        ),
     ),
     "QQQ-REAL-HISTORICAL-IDEAL-001": _state(
         candidate_id="QQQ-REAL-HISTORICAL-IDEAL-001",
@@ -366,6 +373,7 @@ def format_state_report(result: dict[str, object]) -> str:
         f"accepted state count: {result['accepted_state_count']}",
         f"intake-ready count: {result['intake_ready_count']}",
         f"blocked count: {result['blocked_count']}",
+        f"replace count: {result['replace_count']}",
         f"top remaining blocker family: {result['top_remaining_blocker_family']}",
         "state table:",
     ]

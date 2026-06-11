@@ -76,6 +76,14 @@ _IDEAL_IDS = (
     "SPY-REAL-HISTORICAL-IDEAL-001",
 )
 
+OUTSIDE_NARROWED_PATH_CANDIDATE_IDS = (
+    "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+)
+
+SAME_SESSION_CONTINUATION_CANDIDATE_IDS = (
+    "SPY-REAL-HISTORICAL-CONTINUATION-001",
+)
+
 
 _DECISIONS: tuple[RuleFamilyDecision, ...] = (
     RuleFamilyDecision(
@@ -142,7 +150,8 @@ _DECISIONS: tuple[RuleFamilyDecision, ...] = (
             "away from next-session Continuation entries until source-backed rules exist."
         ),
         intake_ready_effect=(
-            "QQQ next-session Continuation cannot become intake-ready under current repo evidence."
+            "QQQ next-session Continuation is outside the narrowed Continuation path and cannot "
+            "become intake-ready under current repo evidence."
         ),
         smallest_next_action=(
             "Either source a tested next-session carry-forward rule or exclude next-session "
@@ -166,7 +175,9 @@ _DECISIONS: tuple[RuleFamilyDecision, ...] = (
             "narrowed to Continuation rows without session-boundary dependency."
         ),
         intake_ready_effect=(
-            "Continuation rows with session-boundary dependency remain blocked from intake-ready."
+            "Continuation rows with session-boundary dependency cannot become intake-ready; "
+            "next-session rows are outside the narrowed path and same-session rows must still "
+            "pass intrabar ordering plus complete context/caution gates."
         ),
         smallest_next_action=(
             "Source and test Continuation session-boundary requirements before reviewing these "
@@ -326,10 +337,17 @@ def decisions_for_candidate(candidate_id: str) -> tuple[RuleFamilyDecision, ...]
 
 
 def candidate_rule_gate_status(candidate_id: str) -> str:
+    if candidate_id in OUTSIDE_NARROWED_PATH_CANDIDATE_IDS:
+        return "outside_narrowed_path"
     decisions = decisions_for_candidate(candidate_id)
     if all(decision.hard_decision in PROMOTING_DECISIONS for decision in decisions):
         return "pass"
     return "blocked"
+
+
+def candidate_is_outside_narrowed_path(candidate_id: str) -> bool:
+    decisions_for_candidate(candidate_id)
+    return candidate_id in OUTSIDE_NARROWED_PATH_CANDIDATE_IDS
 
 
 def candidate_can_promote(

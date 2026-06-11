@@ -8300,3 +8300,46 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: do not deep-review proof; either source and regression-test the missing rule/evidence families or expand the strict source pool while treating these hard decisions as blockers.
+
+## Day 39 Continuation narrowing applied result
+
+- Current task baseline stated by task file: `b8e8980 Add rule family decision table`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: applied the hard rule-family decision for Continuation narrowing.
+- Continuation next-session freshness decision applied: `KILL_OR_NARROW_SETUP_SYMBOL_PATH`.
+- Continuation session-boundary freshness decision applied: `KILL_OR_NARROW_SETUP_SYMBOL_PATH`.
+- Required narrowed path: cross-session / next-session Continuation cannot be intake-ready unless a future source-backed carry-forward rule exists.
+- Same-session Continuation may remain eligible for future review only if all other gates pass.
+- `QQQ-REAL-HISTORICAL-CONTINUATION-001`: `replace`; outside the narrowed Continuation path because it depends on unsupported next-session/session-boundary carry-forward freshness.
+- `SPY-REAL-HISTORICAL-CONTINUATION-001`: `blocked`; same-session but still blocked by intrabar ordering and complete context/caution evidence.
+- Source-pool rows/windows inspected: 60.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Blocked/drop/replace/duplicate counts among accepted strict rows: 6/0/1/0.
+- Close-ready count: 6.
+- Any row became intake-ready: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Files updated:
+  - `watcher_foundation/candidate_freshness_blocker_rule_gate.py`
+  - `tests/test_candidate_freshness_blocker_rule_gate.py`
+  - `watcher_foundation/candidate_freshness_blocker_state.py`
+  - `tests/test_candidate_freshness_blocker_state.py`
+  - `watcher_foundation/candidate_source_pool_intake.py`
+  - `tests/test_candidate_source_pool_intake.py`
+  - `SAFE_FAST_RULE_FAMILY_DECISION_TABLE.md`
+  - `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`
+  - `SAFE_FAST_BUILD_STATE.md`
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_rule_gate.py"` PASS, 13 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_state.py"` PASS, 10 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 13 tests.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_rule_gate` PASS and printed the rule-gate report to stdout only.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_state` PASS and printed the state report to stdout only.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the strict source-pool intake report to stdout only.
+  - `git --no-pager diff --check` PASS with Git line-ending warnings only.
+- Deleted one-time task file: `.codex_apply_continuation_narrowing_task.md`.
+- No `__pycache__`, `.pyc`, or `.pyo` artifacts were present after cleanup check.
+- No generated report/log/CSV/JSON output file was created.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: replace outside-path Continuation rows with same-session evidence or source and regression-test a next-session carry-forward rule before restoring cross-session Continuation; keep SPY Continuation blocked until intrabar ordering and complete context/caution evidence are clean.

@@ -67,6 +67,34 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         }
         self.assertIn("KILL_OR_NARROW_SETUP_SYMBOL_PATH", decisions)
 
+    def test_next_session_continuation_is_outside_narrowed_path(self):
+        candidate_id = "QQQ-REAL-HISTORICAL-CONTINUATION-001"
+
+        self.assertTrue(gate.candidate_is_outside_narrowed_path(candidate_id))
+        self.assertEqual(gate.candidate_rule_gate_status(candidate_id), "outside_narrowed_path")
+        self.assertFalse(
+            gate.candidate_can_promote(
+                candidate_id,
+                final_verdict="TRADE",
+                primary_blocker="complete blocker review",
+                complete_context_caution_review=True,
+            )
+        )
+
+    def test_same_session_continuation_still_requires_other_clean_gates(self):
+        candidate_id = "SPY-REAL-HISTORICAL-CONTINUATION-001"
+
+        self.assertFalse(gate.candidate_is_outside_narrowed_path(candidate_id))
+        self.assertEqual(gate.candidate_rule_gate_status(candidate_id), "blocked")
+        self.assertFalse(
+            gate.candidate_can_promote(
+                candidate_id,
+                final_verdict="TRADE",
+                primary_blocker="complete blocker review",
+                complete_context_caution_review=True,
+            )
+        )
+
     def test_final_verdict_trade_alone_cannot_satisfy_rule_gate(self):
         self.assertFalse(
             gate.candidate_can_promote(
@@ -104,7 +132,12 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertEqual(result["missing_unresolved_rule_count"], 9)
         self.assertEqual(result["intake_ready_count"], 0)
         for candidate_id in gate.STRICT_CANDIDATE_IDS:
-            self.assertEqual(gate.candidate_rule_gate_status(candidate_id), "blocked")
+            expected = (
+                "outside_narrowed_path"
+                if candidate_id == "QQQ-REAL-HISTORICAL-CONTINUATION-001"
+                else "blocked"
+            )
+            self.assertEqual(gate.candidate_rule_gate_status(candidate_id), expected)
 
     def test_source_pool_intake_counts_remain_blocked(self):
         result = intake.build_source_pool_intake()
@@ -112,7 +145,8 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertEqual(result["source_pool_rows_inspected"], 60)
         self.assertEqual(result["accepted_intake_count"], 7)
         self.assertEqual(result["intake_ready_count"], 0)
-        self.assertEqual(result["close_ready_count"], 7)
+        self.assertEqual(result["close_ready_count"], 6)
+        self.assertEqual(result["replace_count"], 1)
         self.assertEqual(result["rule_gate_families_checked"], 9)
         self.assertEqual(result["rule_gate_source_backed_rule_count"], 0)
         self.assertEqual(result["rule_gate_missing_unresolved_rule_count"], 9)
