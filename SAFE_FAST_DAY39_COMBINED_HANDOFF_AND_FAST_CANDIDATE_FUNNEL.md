@@ -510,6 +510,26 @@ Day 39 now has the final rule-decision survival map after applying Continuation,
 - Proof accepted: NO.
 - Profitability claim made: NO.
 
+## SPY Clean Fast Break 002 survival action
+
+- Candidate: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`.
+- Survival action applied: YES.
+- Status: `active_blocked`.
+- Repo-backed clean rule evidence found: none.
+- Exact missing evidence:
+  - tested Clean Fast Break initial-break expiry rule.
+  - complete source-backed context/caution review fields.
+- Evidence inspected:
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl` line 2: completed 2026-04-13 12:30 initial-break signal-stage candidate, `final_verdict=TRADE`, `trigger_state=triggered`, `trigger_level=682.03`, `invalidation=678.45`, `primary_blocker=null`.
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl` line 3: same-session follow-through/spent lifecycle context, not an accepted setup-time expiry rule.
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv` line 138: setup-time source row for the 2026-04-13 12:30 signal.
+- Applied result: SPY Clean Fast Break 002 cannot promote through missing initial-break expiry or incomplete context/caution.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Survival counts remain `active_blocked` 4, `replace` 3, `parked` 0, `intake_ready` 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+
 ## Faster workflow
 
 Use this order:

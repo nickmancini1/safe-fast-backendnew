@@ -8613,3 +8613,38 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No generated report/log/CSV/JSON output file was created.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: source and regression-test Clean Fast Break higher-base/fresh-break expiry and complete context/caution fields before any SPY Clean Fast Break 003 proof review.
+
+## Day 39 SPY Clean Fast Break 002 survival action result
+
+- Current task baseline stated by task file: `a753d06 Apply SPY Clean Fast Break 003 survival action`.
+- Corrective scope: build-only helper/test/doc work.
+- Candidate reviewed: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`.
+- Survival action applied: YES.
+- SPY Clean Fast Break 002 status: `active_blocked`.
+- Repo-backed clean rule evidence found: none.
+- Evidence inspected:
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl` line 2: completed 2026-04-13 12:30 initial-break signal-stage candidate, `final_verdict=TRADE`, `trigger_state=triggered`, `trigger_level=682.03`, `invalidation=678.45`, `primary_blocker=null`.
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl` line 3: same-session follow-through/spent lifecycle context, not an accepted setup-time expiry rule.
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv` line 138: setup-time source row for the 2026-04-13 12:30 signal.
+- Exact missing evidence:
+  - tested Clean Fast Break initial-break expiry rule.
+  - complete source-backed context/caution review fields.
+- Applied result: SPY Clean Fast Break 002 cannot promote through missing initial-break expiry or incomplete context/caution.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Active blocked count: 4.
+- Replace count: 3.
+- Parked count: 0.
+- Proof allowed rows: 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Files updated:
+  - `watcher_foundation/candidate_freshness_blocker_rule_gate.py`
+  - `tests/test_candidate_freshness_blocker_rule_gate.py`
+  - `watcher_foundation/candidate_source_pool_intake.py`
+  - `tests/test_candidate_source_pool_intake.py`
+  - `SAFE_FAST_RULE_DECISION_SURVIVAL_MAP.md`
+  - `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`
+  - `SAFE_FAST_BUILD_STATE.md`
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: source and regression-test Clean Fast Break initial-break expiry and complete context/caution fields before any SPY Clean Fast Break 002 proof review.

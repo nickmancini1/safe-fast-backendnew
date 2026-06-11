@@ -74,6 +74,25 @@ Decision counts:
 - Proof accepted: NO.
 - Profitability claim made: NO.
 
+## Applied SPY Clean Fast Break 002 Action
+
+- Candidate: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`.
+- Survival action applied: YES.
+- Status: `active_blocked`.
+- Repo-backed clean rule evidence found: none.
+- Exact missing evidence:
+  - tested Clean Fast Break initial-break expiry rule.
+  - complete source-backed context/caution review fields.
+- Evidence inspected:
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl` line 2 proves the 2026-04-13 12:30 initial-break signal-stage candidate.
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl` line 3 marks same-session follow-through/spent lifecycle context, but does not define an accepted setup-time expiry rule for intake promotion.
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv` line 138 is the setup-time source row for the 2026-04-13 12:30 signal.
+  - primary blocker is null on the signal row, but 24H, macro, IV, event, room, option, headline, execution, and complete caution context remain unconfirmed/incomplete.
+- Intake-ready result: NO.
+- Proof allowed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+
 ## Survival Map
 
 | Candidate ID | Symbol | Setup type | Current status | Blocking rule family | Rule decision applied | Exact reason | Next evidence fix | Proof allowed |
