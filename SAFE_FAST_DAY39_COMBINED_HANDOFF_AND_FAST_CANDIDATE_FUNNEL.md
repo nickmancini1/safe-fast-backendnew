@@ -421,9 +421,11 @@ Why this handoff changed:
 - Current intake result after Ideal narrowing: source-pool rows inspected 60; accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 5/0/2/0; close-ready count 5.
 - Current intake result after applying Clean Fast Break source-data insufficiency decisions: source-pool rows inspected 60; accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 5/0/2/0; close-ready count 5.
 - Current intake result after applying intrabar ordering narrowing: source-pool rows inspected 60; accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 4/0/3/0; close-ready count 4.
+- Current intake result after applying context/caution source-data insufficiency: source-pool rows inspected 60; accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 4/0/3/0; close-ready count 4.
 - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` remains `blocked` by gap-context and CFB expiry source insufficiency.
 - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` remains `blocked` by CFB expiry and context/caution rule insufficiency.
 - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` remains `blocked` by CFB expiry and context/caution rule insufficiency.
+- Context/caution review is now applied as `SOURCE_DATA_INSUFFICIENT`: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`, `SPY-REAL-HISTORICAL-IDEAL-001`, and `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` stay blocked unless future source-backed context/caution rules exist.
 - `QQQ-REAL-HISTORICAL-CONTINUATION-001` is `replace` because it is next-session/session-boundary-dependent and outside the narrowed Continuation path without a source-backed carry-forward rule.
 - `SPY-REAL-HISTORICAL-CONTINUATION-001` is `replace` because it is intrabar-ordering-dependent and outside the narrowed Continuation path without lower-timeframe/order-of-events evidence.
 - `QQQ-REAL-HISTORICAL-IDEAL-001` is `replace` because it is fast-swing/wide-risk-dependent and outside the narrowed Ideal path without source-backed freshness and room/risk threshold rules.
@@ -448,6 +450,7 @@ Day 39 now has a hard decision table for the nine freshness/final-signal and blo
 - Applied Continuation narrowing: cross-session / next-session Continuation cannot become intake-ready unless a future source-backed carry-forward rule exists.
 - Applied Ideal narrowing: fast-swing / wide-risk Ideal cannot become intake-ready unless future source-backed rules define Ideal freshness expiry and room/risk thresholds.
 - Applied intrabar ordering narrowing: SPY Continuation cannot become intake-ready while it depends on unresolved order-of-events inside completed 1H candles.
+- Applied context/caution source-data insufficiency: rows needing complete context/caution review cannot become intake-ready from primary blocker null alone.
 
 ## Faster workflow
 

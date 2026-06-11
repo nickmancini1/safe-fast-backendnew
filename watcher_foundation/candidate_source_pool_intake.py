@@ -60,6 +60,8 @@ UNRESOLVED_MARKERS = ("missing", "unclear", "incomplete")
 POST_BATCH_RECOMMENDED_NEXT_ACTION = (
     "Clean Fast Break remains blocked until future source-backed expiry and gap-context "
     "rules exist; "
+    "context/caution review remains source-data insufficient, so primary blocker null "
+    "cannot promote any affected row; "
     "Continuation has been narrowed away from next-session/session-boundary-dependent entries; "
     "SPY Continuation intrabar-dependent rows have been narrowed away unless lower-timeframe "
     "order-of-events evidence exists; "

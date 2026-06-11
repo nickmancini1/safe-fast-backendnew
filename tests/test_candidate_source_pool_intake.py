@@ -111,6 +111,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertIn("SPY Continuation intrabar-dependent rows", result["smallest_next_evidence_backed_fix"])
         self.assertIn("Ideal has been narrowed", result["smallest_next_evidence_backed_fix"])
         self.assertIn("Clean Fast Break remains blocked", result["smallest_next_evidence_backed_fix"])
+        self.assertIn("context/caution review remains source-data insufficient", result["smallest_next_evidence_backed_fix"])
         self.assertIn("room/risk thresholds", result["smallest_next_evidence_backed_fix"])
 
     def test_real_historical_expansion_adds_one_non_duplicate_strict_blocked_row(self):
@@ -188,6 +189,27 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
             self.assertIn(reason_part, by_id[candidate_id]["reason"])
 
         self.assertEqual(result["intake_ready_count"], 0)
+
+    def test_context_caution_decision_keeps_affected_rows_blocked(self):
+        result = intake.build_source_pool_intake()
+        by_id = {row["candidate_id"]: row for row in result["accepted_rows"]}
+        affected = {
+            "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+            "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+            "SPY-REAL-HISTORICAL-IDEAL-001",
+            "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+        }
+
+        for candidate_id in affected:
+            self.assertEqual(by_id[candidate_id]["status"], "blocked")
+            self.assertIn(
+                "applied context/caution source-data insufficiency decision",
+                by_id[candidate_id]["reason"],
+            )
+
+        self.assertEqual(result["accepted_intake_count"], 7)
+        self.assertEqual(result["intake_ready_count"], 0)
+        self.assertEqual(result["close_ready_count"], 4)
 
     def test_integrated_rows_preserve_exact_missing_state_evidence(self):
         result = intake.build_source_pool_intake()

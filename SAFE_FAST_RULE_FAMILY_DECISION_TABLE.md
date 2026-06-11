@@ -42,6 +42,11 @@ Profitability claim made: NO.
 - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: `blocked`; blocked by gap-context and CFB expiry source insufficiency.
 - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: `blocked`; blocked by CFB expiry and context/caution rule insufficiency.
 - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: `blocked`; blocked by CFB expiry and context/caution rule insufficiency.
+- Applied context/caution source-data insufficiency result: rows needing complete context/caution review stay blocked unless future source-backed context/caution rules exist; primary blocker null alone cannot promote.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: `blocked`; still blocked by complete context/caution source-data insufficiency.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: `blocked`; still blocked by complete context/caution source-data insufficiency.
+- `SPY-REAL-HISTORICAL-IDEAL-001`: `blocked`; still blocked by complete context/caution source-data insufficiency.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: `blocked`; still blocked by complete context/caution source-data insufficiency.
 - Applied Continuation narrowing result: next-session/session-boundary-dependent Continuation cannot be intake-ready unless a future source-backed carry-forward rule exists.
 - `QQQ-REAL-HISTORICAL-CONTINUATION-001`: `replace`; outside the narrowed Continuation path because next-session/session-boundary carry-forward remains unsupported.
 - Applied intrabar ordering narrowing result: intrabar-dependent SPY Continuation cannot be intake-ready unless future lower-timeframe/order-of-events evidence exists.
@@ -49,8 +54,8 @@ Profitability claim made: NO.
 - Applied Ideal narrowing result: fast-swing / wide-risk Ideal cannot be intake-ready unless future source-backed rules define Ideal freshness expiry and room/risk thresholds.
 - `QQQ-REAL-HISTORICAL-IDEAL-001`: `replace`; outside the narrowed Ideal path because fast-swing freshness and wide-risk/room threshold remain unsupported.
 - `SPY-REAL-HISTORICAL-IDEAL-001`: `blocked`; same-session Ideal remains eligible only after stale/spent expiry and complete context/caution evidence become clean.
-- Current source-pool counts after applying intrabar ordering narrowing: accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 4/0/3/0; close-ready count 4.
+- Current source-pool counts after applying context/caution source-data insufficiency: accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 4/0/3/0; close-ready count 4.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 
-Recommended next action: do not deep-review proof. Source and regression-test Clean Fast Break expiry plus QQQ gap-context evidence, replace outside-path Continuation and Ideal rows with inside-path evidence or source and regression-test the missing carry-forward, intrabar order-of-events, fast-swing freshness, and room/risk threshold rules, while repairing remaining source-backed blocker evidence in batch.
+Recommended next action: do not deep-review proof. Source and regression-test complete context/caution review fields plus Clean Fast Break expiry and QQQ gap-context evidence, replace outside-path Continuation and Ideal rows with inside-path evidence or source and regression-test the missing carry-forward, intrabar order-of-events, fast-swing freshness, and room/risk threshold rules.

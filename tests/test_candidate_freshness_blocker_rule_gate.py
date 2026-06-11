@@ -191,6 +191,31 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
             )
         )
 
+    def test_context_caution_source_data_insufficiency_blocks_intake_ready(self):
+        for candidate_id in gate.CONTEXT_CAUTION_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS:
+            decisions = {
+                row["rule_family"]: row["hard_decision"]
+                for row in gate.build_rule_gate_result()["gate_by_candidate"][candidate_id]
+            }
+
+            self.assertEqual(decisions["Context/caution review"], "SOURCE_DATA_INSUFFICIENT")
+            self.assertFalse(
+                gate.candidate_can_promote(
+                    candidate_id,
+                    final_verdict="TRADE",
+                    primary_blocker="complete blocker review",
+                    complete_context_caution_review=True,
+                )
+            )
+
+    def test_active_context_caution_rows_remain_blocked(self):
+        for candidate_id in gate.ACTIVE_CONTEXT_CAUTION_BLOCKED_CANDIDATE_IDS:
+            self.assertEqual(gate.candidate_rule_gate_status(candidate_id), "blocked")
+            self.assertIn(
+                "complete context/caution source-data insufficiency",
+                gate.candidate_context_caution_source_data_insufficiency_reason(candidate_id),
+            )
+
     def test_final_verdict_trade_alone_cannot_satisfy_rule_gate(self):
         self.assertFalse(
             gate.candidate_can_promote(

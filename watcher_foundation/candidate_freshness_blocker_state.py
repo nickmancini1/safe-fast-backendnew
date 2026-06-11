@@ -210,7 +210,8 @@ _STATES: Mapping[str, CandidateState] = {
         ),
         blocker_reason=(
             "Primary blocker is null at replay line 3, but null is not a complete blocker/caution review; "
-            "24H, macro, IV, event, gap, room, and complete caution context remain unconfirmed."
+            "24H, macro, IV, event, gap, room, and complete caution context remain unconfirmed. "
+            "The applied context/caution source-data insufficiency decision keeps this row blocked."
         ),
         freshness_missing_evidence=(
             "missing source-backed gap_context field/rule before or at 2026-04-13T12:30:00-04:00; "
@@ -240,7 +241,8 @@ _STATES: Mapping[str, CandidateState] = {
         ),
         blocker_reason=(
             "Primary blocker is null at the trigger row, but session-boundary handling plus broader "
-            "24H/macro/IV/event/room/caution context is still unconfirmed."
+            "24H/macro/IV/event/room/caution context is still unconfirmed. The applied context/caution "
+            "source-data insufficiency decision confirms primary blocker null alone cannot promote."
         ),
         freshness_missing_evidence=(
             "missing next-session Continuation freshness/carry-forward rule; missing source-backed "
@@ -269,7 +271,9 @@ _STATES: Mapping[str, CandidateState] = {
         ),
         blocker_reason=(
             "Primary blocker is null, but wide-risk/room remains only a caution with no accepted "
-            "risk/room threshold; 24H, macro, IV, event, option/execution, and complete caution context remain unconfirmed."
+            "risk/room threshold; 24H, macro, IV, event, option/execution, and complete caution context "
+            "remain unconfirmed. The applied context/caution source-data insufficiency decision confirms "
+            "this row cannot promote from primary blocker null."
         ),
         freshness_missing_evidence=(
             "missing Ideal-specific stale/spent expiry rule; missing source-backed fast-swing hold freshness rule"
@@ -300,7 +304,8 @@ _STATES: Mapping[str, CandidateState] = {
         ),
         blocker_reason=(
             "Primary blocker is null, but the row still has unconfirmed macro/IV/event/24H/room context and "
-            "no complete blocker/caution review."
+            "no complete blocker/caution review. The applied context/caution source-data insufficiency "
+            "decision keeps this row blocked."
         ),
         freshness_missing_evidence=(
             "missing Clean Fast Break higher-base/fresh-break stale/spent expiry rule for the 2026-04-15 14:30 signal"
@@ -324,7 +329,9 @@ _STATES: Mapping[str, CandidateState] = {
             "narrowing excludes this intrabar-dependent row from the normal close-ready path."
         ),
         blocker_reason=(
-            "Primary blocker is null, but complete 24H/macro/IV/event/headline/room/caution context remains unconfirmed."
+            "Primary blocker is null, but complete 24H/macro/IV/event/headline/room/caution context "
+            "remains unconfirmed. The applied context/caution source-data insufficiency decision confirms "
+            "primary blocker null alone cannot promote."
         ),
         freshness_missing_evidence=(
             "missing lower-timeframe or order-of-events evidence inside the 2026-04-30 12:30/13:30 1H candles"
@@ -350,7 +357,8 @@ _STATES: Mapping[str, CandidateState] = {
         ),
         blocker_reason=(
             "Primary blocker is null, but 24H, macro, IV, event, gap/headline, room, option/execution, and "
-            "complete caution context remain unconfirmed."
+            "complete caution context remain unconfirmed. The applied context/caution source-data "
+            "insufficiency decision keeps this row blocked."
         ),
         freshness_missing_evidence="missing Ideal-specific stale/spent expiry rule for SPY same-session Ideal signals",
         blocker_missing_evidence=_REPLAY_CONTEXT_LIMITATION + "; complete Ideal gap/headline/room caution review missing",
@@ -373,7 +381,8 @@ _STATES: Mapping[str, CandidateState] = {
         ),
         blocker_reason=(
             "Primary blocker is null, but the replay and source context still leave 24H/macro/IV/event/room "
-            "and complete caution review unconfirmed."
+            "and complete caution review unconfirmed. The applied context/caution source-data "
+            "insufficiency decision keeps this row blocked."
         ),
         freshness_missing_evidence=(
             "missing Clean Fast Break initial-break stale/spent expiry rule for the 2026-04-13 12:30 signal"

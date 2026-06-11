@@ -99,6 +99,49 @@ CFB_SOURCE_DATA_INSUFFICIENT_REASONS = {
     ),
 }
 
+CONTEXT_CAUTION_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS = STRICT_CANDIDATE_IDS
+
+ACTIVE_CONTEXT_CAUTION_BLOCKED_CANDIDATE_IDS = (
+    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+    "SPY-REAL-HISTORICAL-IDEAL-001",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+)
+
+CONTEXT_CAUTION_SOURCE_DATA_INSUFFICIENT_REASONS = {
+    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": (
+        "blocked by complete context/caution source-data insufficiency; "
+        "primary blocker null does not prove gap, room, 24H, macro, IV, event, "
+        "option, headline, or execution context is complete"
+    ),
+    "QQQ-REAL-HISTORICAL-CONTINUATION-001": (
+        "outside narrowed Continuation path and also lacks complete context/caution "
+        "source data"
+    ),
+    "QQQ-REAL-HISTORICAL-IDEAL-001": (
+        "outside narrowed Ideal path and also lacks complete context/caution source data"
+    ),
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": (
+        "blocked by complete context/caution source-data insufficiency; "
+        "primary blocker null does not prove 24H, macro, IV, event, room, "
+        "option, headline, or execution context is complete"
+    ),
+    "SPY-REAL-HISTORICAL-CONTINUATION-001": (
+        "outside narrowed Continuation path and also lacks complete context/caution "
+        "source data"
+    ),
+    "SPY-REAL-HISTORICAL-IDEAL-001": (
+        "blocked by complete context/caution source-data insufficiency; "
+        "primary blocker null does not prove gap, headline, room, 24H, macro, IV, "
+        "event, option, or execution context is complete"
+    ),
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": (
+        "blocked by complete context/caution source-data insufficiency; "
+        "primary blocker null does not prove 24H, macro, IV, event, room, "
+        "option, headline, or execution context is complete"
+    ),
+}
+
 SAME_SESSION_CONTINUATION_CANDIDATE_IDS = (
     "SPY-REAL-HISTORICAL-CONTINUATION-001",
 )
@@ -386,6 +429,12 @@ def candidate_cfb_source_data_insufficiency_reason(candidate_id: str) -> str:
     if candidate_id not in CLEAN_FAST_BREAK_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS:
         raise ValueError(f"{candidate_id} is not a Clean Fast Break insufficiency row")
     return CFB_SOURCE_DATA_INSUFFICIENT_REASONS[candidate_id]
+
+
+def candidate_context_caution_source_data_insufficiency_reason(candidate_id: str) -> str:
+    if candidate_id not in CONTEXT_CAUTION_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS:
+        raise ValueError(f"{candidate_id} is not a context/caution insufficiency row")
+    return CONTEXT_CAUTION_SOURCE_DATA_INSUFFICIENT_REASONS[candidate_id]
 
 
 def candidate_is_outside_narrowed_path(candidate_id: str) -> bool:

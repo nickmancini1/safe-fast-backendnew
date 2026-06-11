@@ -155,6 +155,23 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
             by_id["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"]["freshness_reason"],
         )
 
+    def test_context_caution_decision_blocks_active_rows(self):
+        by_id = state_model.build_freshness_blocker_states()["state_by_id"]
+        active_blocked_ids = {
+            "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+            "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+            "SPY-REAL-HISTORICAL-IDEAL-001",
+            "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+        }
+
+        for candidate_id in active_blocked_ids:
+            self.assertEqual(by_id[candidate_id]["decision"], "blocked")
+            self.assertEqual(by_id[candidate_id]["blocker_state"], "context_incomplete")
+            self.assertIn(
+                "applied context/caution source-data insufficiency decision",
+                by_id[candidate_id]["blocker_reason"],
+            )
+
     def test_state_family_missing_evidence_is_exact(self):
         by_id = state_model.build_freshness_blocker_states()["state_by_id"]
 
