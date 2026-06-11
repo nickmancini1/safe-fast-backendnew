@@ -51,16 +51,19 @@ Future chats must read repo files directly.
 Required first repo reads:
 
 1. SAFE_FAST_BUILD_STATE.md
-2. SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md
-3. SAFE_FAST_PROFITABILITY_DEFINITION_AND_DECISION_POLICY_HARDENING_PLAN.md when strategic/profitability decisions are involved
-4. Latest Day 38 / Day 39 review files referenced by git log
-5. Relevant watcher_foundation modules and tests for the active build task
+2. SAFE_FAST_ARCHITECT_CONTROL_AND_PROJECT_TIGHTENING.md
+3. SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md
+4. SAFE_FAST_PROFITABILITY_DEFINITION_AND_DECISION_POLICY_HARDENING_PLAN.md when strategic/profitability decisions are involved
+5. Latest Day 38 / Day 39 review files referenced by git log
+6. Relevant watcher_foundation modules and tests for the active build task
 
 Living handoff:
 
 - SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md is still the living handoff file.
 - Day 33 in the filename is historical.
 - Current working day is Day 39.
+- SAFE_FAST_ARCHITECT_CONTROL_AND_PROJECT_TIGHTENING.md is durable project-control guidance for tightening the candidate funnel, preventing chart-explanation drift, and preserving the 24 architect Q&A.
+- Current strict intake state remains: source-pool rows inspected 24; accepted intake count 6; intake-ready count 0; close-ready count 6; top blocker family is freshness/final-signal plus blocker/caution unresolved.
 
 ## Codex rule
 

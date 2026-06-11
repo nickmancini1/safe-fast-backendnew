@@ -7994,3 +7994,19 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: complete the unresolved freshness/final-signal and blocker/caution reviews for the six close-ready source-backed rows as one batch; only after that, run the intake helper again and admit any rows that become intake-ready.
+
+## Day 39 architect-control tightening and intake unresolved-marker hardening status
+
+- Current task baseline stated by task file: `4731d9f Add Day 39 source-pool intake hardening`.
+- Corrective scope: build-only helper/test/doc work.
+- Required future read added: `SAFE_FAST_ARCHITECT_CONTROL_AND_PROJECT_TIGHTENING.md`.
+- Architect-control file purpose: preserve the ultimate trading-plan goal, hard chart-explanation warning, candidate discovery / candidate qualification / proof review workflow, close-ready / intake-ready / proof-ready / proof accepted definitions, freshness/final-signal state-model requirement, blocker/caution state-model requirement, kill/narrow rule, Day 60 evidence package requirement, stop/expand rule, forced task question, and all 24 architect Q&A.
+- Intake unresolved-marker hardening: unresolved markers are now case-insensitive; empty values, `None`, `missing`, `unclear`, and `incomplete` in any casing remain unresolved blockers.
+- Regression protection added: lowercase `incomplete` cannot make a row intake-ready.
+- Source-pool behavior preserved: source-pool rows inspected 24; accepted intake count 6; intake-ready count 0; close-ready count 6.
+- Missing or unresolved evidence remains blocked, not low confidence.
+- Handoff pointers updated in `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md` and `SAFE_FAST_DAY33_PROJECT_HANDOFF_AND_TIER_RUNWAY.md`.
+- No proof was accepted; `accepted_proof_count=0` remains preserved.
+- No profitability claim was made.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: complete one bounded freshness/final-signal and blocker/caution pass for the six close-ready source-backed rows; if that does not produce enough intake-ready rows, stop drilling them and expand the source pool again.

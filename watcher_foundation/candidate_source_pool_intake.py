@@ -40,6 +40,8 @@ MINIMUM_CLOSE_READY_TARGET = 5
 NO_PROOF_ACCEPTED = True
 PROFITABILITY_CLAIMED = False
 
+UNRESOLVED_MARKERS = ("missing", "unclear", "incomplete")
+
 
 @dataclass(frozen=True)
 class IntakeRow:
@@ -200,11 +202,11 @@ def _reason(status: str, row: dict[str, str]) -> str:
         return "strict source-backed fields complete for intake only; not proof"
     if row["duplicate"] == "yes":
         return "duplicate/already counted; not eligible for intake-ready"
-    if "UNCLEAR" in row["freshness"] and "UNCLEAR" in row["blocker"]:
+    if _has_unresolved_marker(row["freshness"]) and _has_unresolved_marker(row["blocker"]):
         return "blocked: freshness/final-signal and blocker/caution remain unclear"
-    if "UNCLEAR" in row["freshness"]:
+    if _has_unresolved_marker(row["freshness"]):
         return "blocked: freshness/final-signal remains unclear"
-    if "UNCLEAR" in row["blocker"]:
+    if _has_unresolved_marker(row["blocker"]):
         return "blocked: blocker/caution remains unclear"
     return "blocked: strict source intake accepted but proof remains unavailable"
 
@@ -236,15 +238,15 @@ def _is_close_ready(row: IntakeRow) -> bool:
         and _has_strict_value(row.invalidation)
         and _has_strict_value(row.no_hindsight_boundary)
         and _has_strict_value(row.outcome_window)
-        and ("UNCLEAR" in row.freshness or "UNCLEAR" in row.blocker)
+        and (_has_unresolved_marker(row.freshness) or _has_unresolved_marker(row.blocker))
     )
 
 
 def _top_remaining_blocker_family(rows: Sequence[IntakeRow], inspected_count: int) -> str:
     if not rows:
         return f"strict_intake_gap: 0 accepted from {inspected_count} inspected rows"
-    unclear_freshness = sum(1 for row in rows if "UNCLEAR" in row.freshness)
-    unclear_blocker = sum(1 for row in rows if "UNCLEAR" in row.blocker)
+    unclear_freshness = sum(1 for row in rows if _has_unresolved_marker(row.freshness))
+    unclear_blocker = sum(1 for row in rows if _has_unresolved_marker(row.blocker))
     if unclear_freshness and unclear_blocker:
         return "freshness/final-signal plus blocker/caution unresolved"
     if unclear_freshness:
@@ -293,13 +295,24 @@ def _source_section(source_file: str, source_section: str) -> str:
     return source_section
 
 
-def _has_strict_value(value: str) -> bool:
-    text = value.strip()
-    return bool(text) and "MISSING" not in text and "source rows MISSING" not in text
+def _has_strict_value(value: object) -> bool:
+    text = _normalized_text(value)
+    return bool(text) and "missing" not in text and "source rows missing" not in text
 
 
-def _has_resolved_value(value: str) -> bool:
-    return _has_strict_value(value) and "UNCLEAR" not in value and "INCOMPLETE" not in value
+def _has_resolved_value(value: object) -> bool:
+    return _has_strict_value(value) and not _has_unresolved_marker(value)
+
+
+def _has_unresolved_marker(value: object) -> bool:
+    text = _normalized_text(value)
+    return not text or any(marker in text for marker in UNRESOLVED_MARKERS)
+
+
+def _normalized_text(value: object) -> str:
+    if value is None:
+        return ""
+    return str(value).strip().lower()
 
 
 def _format_table(rows: object) -> str:

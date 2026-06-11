@@ -52,6 +52,25 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertTrue(result["at_least_5_intake_ready_or_close_ready"])
         self.assertIn("freshness/final-signal", result["top_remaining_blocker_family"])
 
+    def test_lowercase_incomplete_is_case_insensitive_unresolved_blocker(self):
+        row = {
+            "candidate_id": "STRICT-ROW-WITH-LOWERCASE-INCOMPLETE",
+            "source_lines": "source.csv lines 1-2",
+            "setup_candle": "2026-01-01T09:30:00-05:00",
+            "trigger": "trigger recorded",
+            "invalidation": "invalidation recorded",
+            "freshness": "incomplete",
+            "blocker": "clean blocker/caution review recorded",
+            "no_hindsight_boundary": "boundary recorded",
+            "outcome_window": "terminal input recorded",
+            "duplicate": "no",
+            "status": "blocked",
+        }
+
+        self.assertFalse(intake._has_resolved_value(row["freshness"]))
+        self.assertEqual(intake._intake_status(row), "blocked")
+        self.assertNotEqual(intake._intake_status(row), "intake-ready")
+
     def test_duplicate_drop_replace_and_chart_shape_only_rows_are_rejected_at_intake(self):
         result = intake.build_source_pool_intake()
         accepted_ids = {row["candidate_id"] for row in result["accepted_rows"]}

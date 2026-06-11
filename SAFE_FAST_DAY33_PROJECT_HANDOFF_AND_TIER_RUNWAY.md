@@ -42,6 +42,9 @@ Tiny Codex connectivity tests that do not use the unelevated sandbox are not val
 Hard strategic read rule:
 Future chats must read SAFE_FAST_PROFITABILITY_DEFINITION_AND_DECISION_POLICY_HARDENING_PLAN.md before answering questions about project vagueness, profitability definition, usefulness gates, strategic improvement questions, owner self-questions, final scoring, UI readiness, execution reality, build-vs-docs discipline, or next strategic build direction.
 
+Architect-control read rule:
+Future chats must read SAFE_FAST_ARCHITECT_CONTROL_AND_PROJECT_TIGHTENING.md as durable project-control guidance before candidate-funnel work, source-pool intake work, freshness/blocker qualification, proof-readiness decisions, Day 60 evidence-package decisions, or any task that could drift into chart explanation instead of evidence-backed trading usefulness.
+
 ## Highest-priority active rule: profitability mandate and diagnosis loop
 
 SAFE-FAST is not being built merely to test whether an idea might work. SAFE-FAST's required build target is a profitable trading plan. The goal is to make SAFE-FAST excellent at making money, not merely excellent at explaining charts.
