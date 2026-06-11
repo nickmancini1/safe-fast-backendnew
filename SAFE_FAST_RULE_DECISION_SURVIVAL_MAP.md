@@ -40,6 +40,9 @@ Decision counts:
 - `parked`: 0.
 - `intake_ready`: 0.
 - Proof allowed rows: 0.
+- Active-path evidence requirement table: `SAFE_FAST_ACTIVE_PATH_EVIDENCE_REQUIREMENTS.md`.
+- Active-path requirement rows: 9.
+- Current repo has enough data for active-path promotion: NO.
 
 ## Applied QQQ Clean Fast Break Action
 
@@ -126,6 +129,7 @@ Decision counts:
 
 ## Next Evidence Fixes
 
+- Active-path requirement table: `SAFE_FAST_ACTIVE_PATH_EVIDENCE_REQUIREMENTS.md`.
 - QQQ Clean Fast Break: source-backed QQQ gap-context evidence, tested Clean Fast Break expiry, and complete context/caution fields.
 - SPY Clean Fast Break 003: tested higher-base/fresh-break expiry and complete context/caution fields.
 - SPY Clean Fast Break 002: tested initial-break expiry and complete context/caution fields.

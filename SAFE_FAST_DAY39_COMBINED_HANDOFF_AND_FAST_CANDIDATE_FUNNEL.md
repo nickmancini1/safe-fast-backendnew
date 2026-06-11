@@ -478,6 +478,24 @@ Day 39 now has the final rule-decision survival map after applying Continuation,
 - No proof was accepted.
 - No profitability claim was made.
 
+## Active-path evidence requirements
+
+Day 39 now has the active-path evidence requirement table for the four `active_blocked` rows:
+
+- Requirement table: `SAFE_FAST_ACTIVE_PATH_EVIDENCE_REQUIREMENTS.md`.
+- Active rows covered: 4.
+- Requirement rows: 9.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: missing source-backed QQQ gap-context evidence, tested Clean Fast Break stale/spent expiry, and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: missing tested higher-base/fresh-break expiry and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: missing tested initial-break expiry and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-IDEAL-001`: missing tested SPY Ideal stale/spent expiry and complete context/caution fields.
+- Current repo has enough data for each active row: NO.
+- Proof allowed rows: 0.
+- Rule-gate CLI now prints active-path evidence requirements.
+- Source-pool intake CLI now prints active-path coverage, proof-allowed count, and current repo data availability by active row.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+
 ## QQQ Clean Fast Break survival action
 
 - Candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.

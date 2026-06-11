@@ -78,6 +78,34 @@ class SurvivalMapRow:
         }
 
 
+@dataclass(frozen=True)
+class ActivePathEvidenceRequirement:
+    candidate_id: str
+    symbol: str
+    setup_type: str
+    exact_missing_rule_or_evidence: str
+    required_source_field_or_log_evidence: str
+    source_file_or_doc: str
+    current_repo_has_enough_data: bool
+    decision_if_missing: str
+    smallest_next_action: str
+    proof_allowed: bool
+
+    def as_row(self) -> dict[str, object]:
+        return {
+            "candidate_id": self.candidate_id,
+            "symbol": self.symbol,
+            "setup_type": self.setup_type,
+            "exact_missing_rule_or_evidence": self.exact_missing_rule_or_evidence,
+            "required_source_field_or_log_evidence": self.required_source_field_or_log_evidence,
+            "source_file_or_doc": self.source_file_or_doc,
+            "current_repo_has_enough_data": self.current_repo_has_enough_data,
+            "decision_if_missing": self.decision_if_missing,
+            "smallest_next_action": self.smallest_next_action,
+            "proof_allowed": self.proof_allowed,
+        }
+
+
 STRICT_CANDIDATE_IDS = (
     "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
     "QQQ-REAL-HISTORICAL-CONTINUATION-001",
@@ -147,6 +175,13 @@ SPY_IDEAL_EXACT_MISSING_EVIDENCE = (
     "complete source-backed context/caution review fields",
 )
 SPY_IDEAL_CLEAN_RULE_EVIDENCE = ()
+
+ACTIVE_BLOCKED_CANDIDATE_IDS = (
+    QQQ_CFB_CANDIDATE_ID,
+    SPY_CFB_003_CANDIDATE_ID,
+    SPY_CFB_002_CANDIDATE_ID,
+    SPY_IDEAL_CANDIDATE_ID,
+)
 
 CFB_SOURCE_DATA_INSUFFICIENT_REASONS = {
     "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": (
@@ -225,6 +260,210 @@ OUTSIDE_NARROWED_PATH_REASONS = {
         "1H candles remains unsupported without lower-timeframe evidence"
     ),
 }
+
+_ACTIVE_PATH_EVIDENCE_REQUIREMENTS: tuple[ActivePathEvidenceRequirement, ...] = (
+    ActivePathEvidenceRequirement(
+        candidate_id=QQQ_CFB_CANDIDATE_ID,
+        symbol="QQQ",
+        setup_type="Clean Fast Break",
+        exact_missing_rule_or_evidence="source-backed QQQ gap-context completeness field/rule",
+        required_source_field_or_log_evidence=(
+            "setup-time gap_context completeness field, or replay-log evidence proving gap "
+            "context was reviewed before the signal"
+        ),
+        source_file_or_doc=(
+            "historical_signal_replay/source_data/incoming/"
+            "first_real_historical_replay_v1_QQQ_source.csv; "
+            "historical_signal_replay/reports/"
+            "first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl"
+        ),
+        current_repo_has_enough_data=False,
+        decision_if_missing="repair-source",
+        smallest_next_action=(
+            "Add source-backed QQQ gap-context completeness evidence before any QQQ Clean "
+            "Fast Break proof review."
+        ),
+        proof_allowed=False,
+    ),
+    ActivePathEvidenceRequirement(
+        candidate_id=QQQ_CFB_CANDIDATE_ID,
+        symbol="QQQ",
+        setup_type="Clean Fast Break",
+        exact_missing_rule_or_evidence="tested Clean Fast Break stale/spent expiry rule",
+        required_source_field_or_log_evidence=(
+            "accepted setup-time expiry rule plus regression rows distinguishing fresh, "
+            "stale, and spent Clean Fast Break signals"
+        ),
+        source_file_or_doc=(
+            "SAFE_FAST_RULE_FAMILY_DECISION_TABLE.md; "
+            "historical_signal_replay/reports/"
+            "first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl; "
+            "tests/test_candidate_freshness_blocker_rule_gate.py"
+        ),
+        current_repo_has_enough_data=False,
+        decision_if_missing="add-validator",
+        smallest_next_action=(
+            "Define and regression-test Clean Fast Break stale/spent expiry before promotion."
+        ),
+        proof_allowed=False,
+    ),
+    ActivePathEvidenceRequirement(
+        candidate_id=QQQ_CFB_CANDIDATE_ID,
+        symbol="QQQ",
+        setup_type="Clean Fast Break",
+        exact_missing_rule_or_evidence="complete source-backed context/caution review fields",
+        required_source_field_or_log_evidence=(
+            "complete 24H, macro, IV, event, room, option, headline, execution, and caution "
+            "review fields at setup time"
+        ),
+        source_file_or_doc=(
+            "historical_signal_replay/source_data/incoming/"
+            "first_real_historical_replay_v1_QQQ_source.csv; "
+            "SAFE_FAST_ARCHITECT_CONTROL_AND_PROJECT_TIGHTENING.md"
+        ),
+        current_repo_has_enough_data=False,
+        decision_if_missing="repair-source",
+        smallest_next_action=(
+            "Add complete source-backed context/caution fields; primary blocker null is not enough."
+        ),
+        proof_allowed=False,
+    ),
+    ActivePathEvidenceRequirement(
+        candidate_id=SPY_CFB_003_CANDIDATE_ID,
+        symbol="SPY",
+        setup_type="Clean Fast Break",
+        exact_missing_rule_or_evidence="tested Clean Fast Break higher-base/fresh-break expiry rule",
+        required_source_field_or_log_evidence=(
+            "accepted setup-time expiry rule covering higher-base/fresh-break signals, with "
+            "line 5 fresh signal and line 6 later spent lifecycle treated as regression evidence"
+        ),
+        source_file_or_doc=(
+            "historical_signal_replay/reports/"
+            "third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl; "
+            "historical_signal_replay/source_data/incoming/"
+            "first_real_historical_replay_v1_SPY_source.csv; "
+            "tests/test_candidate_freshness_blocker_rule_gate.py"
+        ),
+        current_repo_has_enough_data=False,
+        decision_if_missing="add-validator",
+        smallest_next_action=(
+            "Define and regression-test higher-base/fresh-break expiry before promotion."
+        ),
+        proof_allowed=False,
+    ),
+    ActivePathEvidenceRequirement(
+        candidate_id=SPY_CFB_003_CANDIDATE_ID,
+        symbol="SPY",
+        setup_type="Clean Fast Break",
+        exact_missing_rule_or_evidence="complete source-backed context/caution review fields",
+        required_source_field_or_log_evidence=(
+            "complete 24H, macro, IV, event, room, option, headline, execution, and caution "
+            "review fields for the 2026-04-15 14:30 setup-time row"
+        ),
+        source_file_or_doc=(
+            "historical_signal_replay/source_data/incoming/"
+            "first_real_historical_replay_v1_SPY_source.csv line 154; "
+            "historical_signal_replay/reports/"
+            "third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl line 5"
+        ),
+        current_repo_has_enough_data=False,
+        decision_if_missing="repair-source",
+        smallest_next_action=(
+            "Repair source/context fields for the 2026-04-15 14:30 setup-time row."
+        ),
+        proof_allowed=False,
+    ),
+    ActivePathEvidenceRequirement(
+        candidate_id=SPY_CFB_002_CANDIDATE_ID,
+        symbol="SPY",
+        setup_type="Clean Fast Break",
+        exact_missing_rule_or_evidence="tested Clean Fast Break initial-break expiry rule",
+        required_source_field_or_log_evidence=(
+            "accepted setup-time expiry rule covering initial-break signals, with line 2 "
+            "signal-stage and line 3 follow-through/spent lifecycle treated as regression evidence"
+        ),
+        source_file_or_doc=(
+            "historical_signal_replay/reports/"
+            "third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl; "
+            "historical_signal_replay/source_data/incoming/"
+            "first_real_historical_replay_v1_SPY_source.csv line 138; "
+            "tests/test_candidate_freshness_blocker_rule_gate.py"
+        ),
+        current_repo_has_enough_data=False,
+        decision_if_missing="add-validator",
+        smallest_next_action=(
+            "Define and regression-test Clean Fast Break initial-break expiry before promotion."
+        ),
+        proof_allowed=False,
+    ),
+    ActivePathEvidenceRequirement(
+        candidate_id=SPY_CFB_002_CANDIDATE_ID,
+        symbol="SPY",
+        setup_type="Clean Fast Break",
+        exact_missing_rule_or_evidence="complete source-backed context/caution review fields",
+        required_source_field_or_log_evidence=(
+            "complete 24H, macro, IV, event, room, option, headline, execution, and caution "
+            "review fields for the 2026-04-13 12:30 setup-time row"
+        ),
+        source_file_or_doc=(
+            "historical_signal_replay/source_data/incoming/"
+            "first_real_historical_replay_v1_SPY_source.csv line 138; "
+            "historical_signal_replay/reports/"
+            "third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl line 2"
+        ),
+        current_repo_has_enough_data=False,
+        decision_if_missing="repair-source",
+        smallest_next_action=(
+            "Repair source/context fields for the 2026-04-13 12:30 setup-time row."
+        ),
+        proof_allowed=False,
+    ),
+    ActivePathEvidenceRequirement(
+        candidate_id=SPY_IDEAL_CANDIDATE_ID,
+        symbol="SPY",
+        setup_type="Ideal",
+        exact_missing_rule_or_evidence="tested SPY Ideal stale/spent expiry rule",
+        required_source_field_or_log_evidence=(
+            "accepted setup-time stale/spent expiry rule covering same-session SPY Ideal, "
+            "with line 5 triggered signal and line 6 later spent lifecycle as regression evidence"
+        ),
+        source_file_or_doc=(
+            "historical_signal_replay/reports/"
+            "second_real_spy_ideal_replay_v1_signal_log.jsonl; "
+            "historical_signal_replay/source_data/incoming/"
+            "first_real_historical_replay_v1_SPY_source.csv line 291; "
+            "tests/test_candidate_freshness_blocker_rule_gate.py"
+        ),
+        current_repo_has_enough_data=False,
+        decision_if_missing="add-validator",
+        smallest_next_action=(
+            "Define and regression-test SPY Ideal stale/spent expiry before promotion."
+        ),
+        proof_allowed=False,
+    ),
+    ActivePathEvidenceRequirement(
+        candidate_id=SPY_IDEAL_CANDIDATE_ID,
+        symbol="SPY",
+        setup_type="Ideal",
+        exact_missing_rule_or_evidence="complete source-backed context/caution review fields",
+        required_source_field_or_log_evidence=(
+            "complete gap, headline, room, 24H, macro, IV, event, option, execution, and "
+            "caution review fields for the 2026-05-13 11:30 setup-time row"
+        ),
+        source_file_or_doc=(
+            "historical_signal_replay/source_data/incoming/"
+            "first_real_historical_replay_v1_SPY_source.csv line 291; "
+            "historical_signal_replay/reports/"
+            "second_real_spy_ideal_replay_v1_signal_log.jsonl line 5"
+        ),
+        current_repo_has_enough_data=False,
+        decision_if_missing="repair-source",
+        smallest_next_action=(
+            "Repair source/context fields for the 2026-05-13 11:30 Ideal setup-time row."
+        ),
+        proof_allowed=False,
+    ),
+)
 
 _SURVIVAL_MAP_ROWS: tuple[SurvivalMapRow, ...] = (
     SurvivalMapRow(
@@ -621,11 +860,45 @@ def build_rule_gate_result() -> dict[str, object]:
         "survival_replace_count": survival["replace_count"],
         "survival_parked_count": survival["parked_count"],
         "survival_intake_ready_count": survival["intake_ready_count"],
+        "active_path_evidence_requirements": build_active_path_evidence_requirements(),
         "qqq_cfb_survival_action": qqq_cfb_survival_action(),
         "spy_cfb_003_survival_action": spy_cfb_003_survival_action(),
         "spy_cfb_002_survival_action": spy_cfb_002_survival_action(),
         "spy_ideal_survival_action": spy_ideal_survival_action(),
         "intake_ready_count": 0,
+        "proof_accepted": False,
+        "profitability_claimed": False,
+    }
+
+
+def build_active_path_evidence_requirements() -> dict[str, object]:
+    rows = [requirement.as_row() for requirement in _ACTIVE_PATH_EVIDENCE_REQUIREMENTS]
+    covered_ids = tuple(
+        candidate_id
+        for candidate_id in ACTIVE_BLOCKED_CANDIDATE_IDS
+        if any(row["candidate_id"] == candidate_id for row in rows)
+    )
+    return {
+        "requirements_rows": rows,
+        "active_blocked_candidate_ids": ACTIVE_BLOCKED_CANDIDATE_IDS,
+        "covered_candidate_ids": covered_ids,
+        "covered_count": len(covered_ids),
+        "requirements_count": len(rows),
+        "current_repo_has_enough_data_by_candidate": {
+            candidate_id: all(
+                bool(row["current_repo_has_enough_data"])
+                for row in rows
+                if row["candidate_id"] == candidate_id
+            )
+            for candidate_id in ACTIVE_BLOCKED_CANDIDATE_IDS
+        },
+        "proof_allowed_by_candidate": {
+            candidate_id: any(
+                bool(row["proof_allowed"]) for row in rows if row["candidate_id"] == candidate_id
+            )
+            for candidate_id in ACTIVE_BLOCKED_CANDIDATE_IDS
+        },
+        "proof_allowed_count": sum(1 for row in rows if row["proof_allowed"]),
         "proof_accepted": False,
         "profitability_claimed": False,
     }
@@ -676,6 +949,19 @@ def candidate_survival_status(candidate_id: str) -> str:
         return str(survival_map["status_by_candidate"][candidate_id])
     except KeyError as exc:
         raise KeyError(f"no survival-map status for {candidate_id}") from exc
+
+
+def active_path_requirements_for_candidate(
+    candidate_id: str,
+) -> tuple[ActivePathEvidenceRequirement, ...]:
+    requirements = tuple(
+        requirement
+        for requirement in _ACTIVE_PATH_EVIDENCE_REQUIREMENTS
+        if requirement.candidate_id == candidate_id
+    )
+    if not requirements:
+        raise KeyError(f"no active-path evidence requirements for {candidate_id}")
+    return requirements
 
 
 def qqq_cfb_survival_action() -> dict[str, object]:
@@ -806,6 +1092,28 @@ def format_rule_gate_report(result: dict[str, object]) -> str:
                     f"rule_decision_applied={row['rule_decision_applied']}",
                     f"reason={row['exact_reason']}",
                     f"next_evidence_fix={row['next_evidence_fix']}",
+                    f"proof_allowed={'YES' if row['proof_allowed'] else 'NO'}",
+                )
+            )
+        )
+    requirements = result["active_path_evidence_requirements"]
+    lines.append("active-path evidence requirements:")
+    for row in requirements["requirements_rows"]:
+        lines.append(
+            " | ".join(
+                (
+                    str(row["candidate_id"]),
+                    f"symbol={row['symbol']}",
+                    f"setup_type={row['setup_type']}",
+                    f"missing={row['exact_missing_rule_or_evidence']}",
+                    f"required_evidence={row['required_source_field_or_log_evidence']}",
+                    f"source={row['source_file_or_doc']}",
+                    (
+                        "current_repo_has_enough_data="
+                        f"{'YES' if row['current_repo_has_enough_data'] else 'NO'}"
+                    ),
+                    f"decision_if_missing={row['decision_if_missing']}",
+                    f"smallest_next_action={row['smallest_next_action']}",
                     f"proof_allowed={'YES' if row['proof_allowed'] else 'NO'}",
                 )
             )

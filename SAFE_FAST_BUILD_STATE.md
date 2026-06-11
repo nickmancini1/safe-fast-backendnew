@@ -8692,3 +8692,28 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No generated report/log/CSV/JSON output file was created.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: source and regression-test SPY Ideal stale/spent expiry and complete context/caution fields before any SPY Ideal proof review.
+
+## Day 39 active-path evidence requirements result
+
+- Current task baseline stated by task file: `a51f503 Apply SPY Ideal survival action`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: created the active-path evidence requirement table for the four `active_blocked` rows.
+- Requirement table path: `SAFE_FAST_ACTIVE_PATH_EVIDENCE_REQUIREMENTS.md`.
+- Active rows covered: 4.
+- Requirement rows: 9.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: current repo has enough data: NO; missing source-backed QQQ gap-context evidence, tested Clean Fast Break stale/spent expiry, and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: current repo has enough data: NO; missing tested Clean Fast Break higher-base/fresh-break expiry and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: current repo has enough data: NO; missing tested Clean Fast Break initial-break expiry and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-IDEAL-001`: current repo has enough data: NO; missing tested SPY Ideal stale/spent expiry and complete context/caution fields.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Active blocked count: 4.
+- Replace count: 3.
+- Parked count: 0.
+- Proof allowed rows: 0.
+- Rule-gate CLI now prints active-path evidence requirements.
+- Source-pool intake CLI now prints active-path coverage, proof-allowed count, and current repo data availability by active row.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: repair/source the missing active-path evidence and add validators/regression tests for Clean Fast Break expiry and SPY Ideal stale/spent expiry before any active row can enter proof review.

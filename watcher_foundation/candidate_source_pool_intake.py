@@ -205,6 +205,7 @@ def build_source_pool_intake() -> dict[str, object]:
         "survival_replace_count": survival_map["replace_count"],
         "survival_parked_count": survival_map["parked_count"],
         "survival_intake_ready_count": survival_map["intake_ready_count"],
+        "active_path_evidence_requirements": gate_result["active_path_evidence_requirements"],
         "qqq_cfb_survival_action": rule_gate.qqq_cfb_survival_action(),
         "spy_cfb_003_survival_action": rule_gate.spy_cfb_003_survival_action(),
         "spy_cfb_002_survival_action": rule_gate.spy_cfb_002_survival_action(),
@@ -248,6 +249,24 @@ def format_intake_report(result: dict[str, object]) -> str:
             f"{result['survival_replace_count']}/"
             f"{result['survival_parked_count']}/"
             f"{result['survival_intake_ready_count']}"
+        ),
+        (
+            "active-path evidence rows covered: "
+            f"{result['active_path_evidence_requirements']['covered_count']}"
+        ),
+        (
+            "active-path proof allowed count: "
+            f"{result['active_path_evidence_requirements']['proof_allowed_count']}"
+        ),
+        (
+            "active-path current repo has enough data by candidate: "
+            + "; ".join(
+                f"{candidate_id}="
+                f"{'YES' if has_enough else 'NO'}"
+                for candidate_id, has_enough in result[
+                    "active_path_evidence_requirements"
+                ]["current_repo_has_enough_data_by_candidate"].items()
+            )
         ),
         (
             "QQQ CFB survival action applied: "

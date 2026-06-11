@@ -25,6 +25,13 @@ EXPECTED_SURVIVAL_STATUSES = {
     "SPY-REAL-HISTORICAL-IDEAL-001": "active_blocked",
 }
 
+EXPECTED_ACTIVE_BLOCKED_IDS = {
+    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+    "SPY-REAL-HISTORICAL-IDEAL-001",
+}
+
 
 class CandidateSourcePoolIntakeTests(unittest.TestCase):
     def test_inspects_full_24_row_pool_but_accepts_only_strict_source_backed_rows(self):
@@ -75,6 +82,40 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertEqual(result["survival_parked_count"], 0)
         self.assertEqual(result["survival_intake_ready_count"], 0)
         self.assertEqual(len(result["survival_map_rows"]), 7)
+
+    def test_active_path_evidence_requirements_are_exposed_without_changing_counts(self):
+        result = intake.build_source_pool_intake()
+        requirements = result["active_path_evidence_requirements"]
+
+        self.assertEqual(set(requirements["covered_candidate_ids"]), EXPECTED_ACTIVE_BLOCKED_IDS)
+        self.assertEqual(requirements["covered_count"], 4)
+        self.assertEqual(requirements["requirements_count"], 9)
+        self.assertEqual(requirements["proof_allowed_count"], 0)
+        self.assertEqual(result["accepted_intake_count"], 7)
+        self.assertEqual(result["intake_ready_count"], 0)
+        self.assertEqual(result["survival_active_blocked_count"], 4)
+        self.assertEqual(result["survival_replace_count"], 3)
+
+    def test_active_path_evidence_requirements_have_no_current_data_by_row(self):
+        result = intake.build_source_pool_intake()
+        requirements = result["active_path_evidence_requirements"]
+
+        self.assertEqual(
+            set(requirements["current_repo_has_enough_data_by_candidate"]),
+            EXPECTED_ACTIVE_BLOCKED_IDS,
+        )
+        self.assertTrue(
+            all(
+                has_enough is False
+                for has_enough in requirements[
+                    "current_repo_has_enough_data_by_candidate"
+                ].values()
+            )
+        )
+        for row in requirements["requirements_rows"]:
+            self.assertNotEqual(row["exact_missing_rule_or_evidence"], "")
+            self.assertNotEqual(row["source_file_or_doc"], "")
+            self.assertFalse(row["proof_allowed"])
 
     def test_qqq_cfb_survival_action_is_exposed_by_source_pool_intake(self):
         result = intake.build_source_pool_intake()
@@ -349,6 +390,12 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertIn("fewer than 5 intake-ready rows remain: YES", report)
         self.assertIn(
             "survival active_blocked/replace/parked/intake_ready counts: 4/3/0/0",
+            report,
+        )
+        self.assertIn("active-path evidence rows covered: 4", report)
+        self.assertIn("active-path proof allowed count: 0", report)
+        self.assertIn(
+            "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001=NO",
             report,
         )
         self.assertIn("QQQ CFB survival action applied: YES", report)

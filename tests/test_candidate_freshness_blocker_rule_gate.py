@@ -28,6 +28,13 @@ EXPECTED_SURVIVAL_STATUSES = {
     "SPY-REAL-HISTORICAL-IDEAL-001": "active_blocked",
 }
 
+EXPECTED_ACTIVE_BLOCKED_IDS = {
+    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+    "SPY-REAL-HISTORICAL-IDEAL-001",
+}
+
 
 class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
     def test_rule_gate_covers_exactly_the_nine_decision_families(self):
@@ -90,6 +97,103 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
     def test_survival_status_helper_matches_expected_statuses(self):
         for candidate_id, expected_status in EXPECTED_SURVIVAL_STATUSES.items():
             self.assertEqual(gate.candidate_survival_status(candidate_id), expected_status)
+
+    def test_active_path_requirements_cover_all_four_active_blocked_rows(self):
+        requirements = gate.build_active_path_evidence_requirements()
+
+        self.assertEqual(
+            set(requirements["active_blocked_candidate_ids"]),
+            EXPECTED_ACTIVE_BLOCKED_IDS,
+        )
+        self.assertEqual(set(requirements["covered_candidate_ids"]), EXPECTED_ACTIVE_BLOCKED_IDS)
+        self.assertEqual(requirements["covered_count"], 4)
+        self.assertEqual(requirements["requirements_count"], 9)
+
+    def test_each_active_path_requirement_has_source_mapping_and_no_proof_allowed(self):
+        requirements = gate.build_active_path_evidence_requirements()
+
+        for row in requirements["requirements_rows"]:
+            self.assertIn(row["candidate_id"], EXPECTED_ACTIVE_BLOCKED_IDS)
+            self.assertNotEqual(row["exact_missing_rule_or_evidence"], "")
+            self.assertNotEqual(row["required_source_field_or_log_evidence"], "")
+            self.assertNotEqual(row["source_file_or_doc"], "")
+            self.assertTrue(
+                any(
+                    marker in row["source_file_or_doc"]
+                    for marker in (".csv", ".jsonl", ".md", ".py")
+                )
+            )
+            self.assertIn(row["decision_if_missing"], {"repair-source", "add-validator"})
+            self.assertFalse(row["current_repo_has_enough_data"])
+            self.assertFalse(row["proof_allowed"])
+
+    def test_active_path_requirements_name_exact_missing_evidence_by_row(self):
+        expected_parts = {
+            "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": (
+                "gap-context",
+                "Clean Fast Break stale/spent expiry",
+                "context/caution",
+            ),
+            "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": (
+                "higher-base/fresh-break expiry",
+                "context/caution",
+            ),
+            "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": (
+                "initial-break expiry",
+                "context/caution",
+            ),
+            "SPY-REAL-HISTORICAL-IDEAL-001": (
+                "SPY Ideal stale/spent expiry",
+                "context/caution",
+            ),
+        }
+
+        for candidate_id, parts in expected_parts.items():
+            missing = " ".join(
+                requirement.exact_missing_rule_or_evidence
+                for requirement in gate.active_path_requirements_for_candidate(candidate_id)
+            )
+            for part in parts:
+                self.assertIn(part, missing)
+
+    def test_active_path_requirements_keep_data_and_proof_unavailable_by_candidate(self):
+        requirements = gate.build_active_path_evidence_requirements()
+
+        self.assertEqual(
+            set(requirements["current_repo_has_enough_data_by_candidate"]),
+            EXPECTED_ACTIVE_BLOCKED_IDS,
+        )
+        self.assertTrue(
+            all(
+                has_enough is False
+                for has_enough in requirements[
+                    "current_repo_has_enough_data_by_candidate"
+                ].values()
+            )
+        )
+        self.assertEqual(requirements["proof_allowed_count"], 0)
+        self.assertTrue(
+            all(
+                proof_allowed is False
+                for proof_allowed in requirements["proof_allowed_by_candidate"].values()
+            )
+        )
+        self.assertFalse(requirements["proof_accepted"])
+        self.assertFalse(requirements["profitability_claimed"])
+
+    def test_active_path_rows_cannot_promote_while_requirements_are_unmet(self):
+        requirements = gate.build_active_path_evidence_requirements()
+
+        for candidate_id in requirements["active_blocked_candidate_ids"]:
+            self.assertEqual(gate.candidate_survival_status(candidate_id), "active_blocked")
+            self.assertFalse(
+                gate.candidate_can_promote(
+                    candidate_id,
+                    final_verdict="TRADE",
+                    primary_blocker="complete blocker review",
+                    complete_context_caution_review=True,
+                )
+            )
 
     def test_qqq_cfb_survival_action_is_applied_as_active_blocked(self):
         action = gate.qqq_cfb_survival_action()
@@ -608,6 +712,9 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertIn("SPY CFB 002 status: active_blocked", report)
         self.assertIn("SPY Ideal survival action applied: YES", report)
         self.assertIn("SPY Ideal status: active_blocked", report)
+        self.assertIn("active-path evidence requirements:", report)
+        self.assertIn("current_repo_has_enough_data=NO", report)
+        self.assertIn("proof_allowed=NO", report)
 
 
 if __name__ == "__main__":
