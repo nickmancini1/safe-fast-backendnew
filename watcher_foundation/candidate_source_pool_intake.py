@@ -162,6 +162,7 @@ def build_source_pool_intake() -> dict[str, object]:
     inspected = screen.build_candidate_pool()
     expansion = _inspect_real_historical_replay_logs()
     gate_result = rule_gate.build_rule_gate_result()
+    survival_map = rule_gate.build_survival_map()
     accepted = [_to_intake_row(row) for row in inspected if _strictly_source_backed(row)]
     accepted.extend(expansion["accepted_rows"])
     ranked = sorted(accepted, key=_rank_key)
@@ -198,6 +199,12 @@ def build_source_pool_intake() -> dict[str, object]:
         "rule_gate_source_backed_rule_count": gate_result["source_backed_rule_count"],
         "rule_gate_missing_unresolved_rule_count": gate_result["missing_unresolved_rule_count"],
         "rule_gate_families_checked": gate_result["rule_families_checked"],
+        "survival_map_rows": survival_map["survival_map_rows"],
+        "survival_status_by_candidate": survival_map["status_by_candidate"],
+        "survival_active_blocked_count": survival_map["active_blocked_count"],
+        "survival_replace_count": survival_map["replace_count"],
+        "survival_parked_count": survival_map["parked_count"],
+        "survival_intake_ready_count": survival_map["intake_ready_count"],
         "accepted_rows": [row.as_row() for row in ranked],
         "no_generated_reports_or_logs": True,
         "proof_accepted": False,
@@ -231,6 +238,13 @@ def format_intake_report(result: dict[str, object]) -> str:
         "rejected row families: " + "; ".join(result["rejected_row_families"]),
         f"smallest next evidence-backed fix: {result['smallest_next_evidence_backed_fix']}",
         f"top remaining blocker family: {result['top_remaining_blocker_family']}",
+        (
+            "survival active_blocked/replace/parked/intake_ready counts: "
+            f"{result['survival_active_blocked_count']}/"
+            f"{result['survival_replace_count']}/"
+            f"{result['survival_parked_count']}/"
+            f"{result['survival_intake_ready_count']}"
+        ),
         "ranked intake table:",
         _format_table(result["accepted_rows"]),
     ]

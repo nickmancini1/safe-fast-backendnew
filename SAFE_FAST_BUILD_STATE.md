@@ -8509,3 +8509,31 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No generated report/log/CSV/JSON output file was created.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: do not deep-review proof. Source and regression-test complete context/caution review fields plus Clean Fast Break expiry and QQQ gap-context evidence, while replacing outside-path Continuation and Ideal rows with inside-path evidence or source-backed rules before any proof review.
+
+## Day 39 rule-decision survival map result
+
+- Current task baseline stated by task file: `100ad31 Apply context caution decision`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: created the final rule-decision survival map after applying Continuation, Ideal, Clean Fast Break, intrabar ordering, and context/caution decisions.
+- Survival map path: `SAFE_FAST_RULE_DECISION_SURVIVAL_MAP.md`.
+- All 9 rule-family decisions are applied.
+- Strict rows covered: 7.
+- `active_blocked`: 4.
+- `replace`: 3.
+- `parked`: 0.
+- `intake_ready`: 0.
+- Proof allowed rows: 0.
+- `QQQ-REAL-HISTORICAL-CONTINUATION-001`: `replace`; next evidence fix is same-session Continuation evidence or tested next-session/session-boundary carry-forward rule plus complete context/caution fields.
+- `QQQ-REAL-HISTORICAL-IDEAL-001`: `replace`; next evidence fix is inside-path Ideal evidence or tested fast-swing freshness, stale/spent expiry, room/risk thresholds, and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-CONTINUATION-001`: `replace`; next evidence fix is lower-timeframe/order-of-events evidence or excluding intrabar-dependent Continuation rows from proof review.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: `active_blocked`; next evidence fix is source-backed QQQ gap-context evidence, tested Clean Fast Break expiry, and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: `active_blocked`; next evidence fix is tested Clean Fast Break higher-base/fresh-break expiry and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: `active_blocked`; next evidence fix is tested Clean Fast Break initial-break expiry and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-IDEAL-001`: `active_blocked`; next evidence fix is tested SPY Ideal stale/spent expiry and complete context/caution fields.
+- Rule-gate CLI now prints the survival summary.
+- Source-pool intake CLI now prints survival active_blocked/replace/parked/intake_ready counts.
+- Intake-ready count remains 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: source and regression-test the active blocked evidence families, and replace outside-path rows with inside-path evidence before any proof review.

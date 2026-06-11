@@ -52,6 +52,32 @@ class RuleFamilyDecision:
         }
 
 
+@dataclass(frozen=True)
+class SurvivalMapRow:
+    candidate_id: str
+    symbol: str
+    setup_type: str
+    current_status: str
+    blocking_rule_family: str
+    rule_decision_applied: str
+    exact_reason: str
+    next_evidence_fix: str
+    proof_allowed: bool
+
+    def as_row(self) -> dict[str, object]:
+        return {
+            "candidate_id": self.candidate_id,
+            "symbol": self.symbol,
+            "setup_type": self.setup_type,
+            "current_status": self.current_status,
+            "blocking_rule_family": self.blocking_rule_family,
+            "rule_decision_applied": self.rule_decision_applied,
+            "exact_reason": self.exact_reason,
+            "next_evidence_fix": self.next_evidence_fix,
+            "proof_allowed": self.proof_allowed,
+        }
+
+
 STRICT_CANDIDATE_IDS = (
     "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
     "QQQ-REAL-HISTORICAL-CONTINUATION-001",
@@ -160,6 +186,151 @@ OUTSIDE_NARROWED_PATH_REASONS = {
         "1H candles remains unsupported without lower-timeframe evidence"
     ),
 }
+
+_SURVIVAL_MAP_ROWS: tuple[SurvivalMapRow, ...] = (
+    SurvivalMapRow(
+        candidate_id="QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+        symbol="QQQ",
+        setup_type="Clean Fast Break",
+        current_status="active_blocked",
+        blocking_rule_family=(
+            "Clean Fast Break expiry; Clean Fast Break gap context; Context/caution review"
+        ),
+        rule_decision_applied=(
+            "SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT"
+        ),
+        exact_reason=(
+            "Gap-context, Clean Fast Break expiry, and complete context/caution source-backed "
+            "evidence are insufficient; final_verdict TRADE and primary blocker null cannot promote."
+        ),
+        next_evidence_fix=(
+            "Add source-backed QQQ gap-context evidence, define a tested Clean Fast Break expiry "
+            "rule, and add complete context/caution review fields before proof review."
+        ),
+        proof_allowed=False,
+    ),
+    SurvivalMapRow(
+        candidate_id="QQQ-REAL-HISTORICAL-CONTINUATION-001",
+        symbol="QQQ",
+        setup_type="Continuation",
+        current_status="replace",
+        blocking_rule_family=(
+            "Continuation next-session freshness; Continuation session-boundary freshness; "
+            "Context/caution review"
+        ),
+        rule_decision_applied=(
+            "KILL_OR_NARROW_SETUP_SYMBOL_PATH; KILL_OR_NARROW_SETUP_SYMBOL_PATH; "
+            "SOURCE_DATA_INSUFFICIENT"
+        ),
+        exact_reason=(
+            "Next-session/session-boundary carry-forward freshness is outside the narrowed "
+            "Continuation path and complete context/caution evidence is still insufficient."
+        ),
+        next_evidence_fix=(
+            "Replace with same-session Continuation evidence or source and regression-test a "
+            "next-session/session-boundary carry-forward rule plus complete context/caution fields."
+        ),
+        proof_allowed=False,
+    ),
+    SurvivalMapRow(
+        candidate_id="QQQ-REAL-HISTORICAL-IDEAL-001",
+        symbol="QQQ",
+        setup_type="Ideal",
+        current_status="replace",
+        blocking_rule_family=(
+            "Ideal stale/spent expiry; Ideal fast-swing freshness; Wide-risk / room threshold; "
+            "Context/caution review"
+        ),
+        rule_decision_applied=(
+            "SOURCE_DATA_INSUFFICIENT; KILL_OR_NARROW_SETUP_SYMBOL_PATH; "
+            "KILL_OR_NARROW_SETUP_SYMBOL_PATH; SOURCE_DATA_INSUFFICIENT"
+        ),
+        exact_reason=(
+            "Fast-swing/wide-risk Ideal is outside the narrowed Ideal path; stale/spent expiry, "
+            "room/risk threshold, and complete context/caution evidence are not source-backed."
+        ),
+        next_evidence_fix=(
+            "Replace with Ideal evidence inside the narrowed path or source and regression-test "
+            "fast-swing freshness, stale/spent expiry, room/risk thresholds, and complete "
+            "context/caution fields."
+        ),
+        proof_allowed=False,
+    ),
+    SurvivalMapRow(
+        candidate_id="SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+        symbol="SPY",
+        setup_type="Clean Fast Break",
+        current_status="active_blocked",
+        blocking_rule_family="Clean Fast Break expiry; Context/caution review",
+        rule_decision_applied="SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT",
+        exact_reason=(
+            "Clean Fast Break higher-base/fresh-break expiry is not source-backed and complete "
+            "context/caution review remains insufficient."
+        ),
+        next_evidence_fix=(
+            "Define and regression-test Clean Fast Break higher-base/fresh-break expiry and add "
+            "complete context/caution review fields before proof review."
+        ),
+        proof_allowed=False,
+    ),
+    SurvivalMapRow(
+        candidate_id="SPY-REAL-HISTORICAL-CONTINUATION-001",
+        symbol="SPY",
+        setup_type="Continuation",
+        current_status="replace",
+        blocking_rule_family=(
+            "Continuation session-boundary freshness; Intrabar ordering; Context/caution review"
+        ),
+        rule_decision_applied=(
+            "KILL_OR_NARROW_SETUP_SYMBOL_PATH; KILL_OR_NARROW_SETUP_SYMBOL_PATH; "
+            "SOURCE_DATA_INSUFFICIENT"
+        ),
+        exact_reason=(
+            "Intrabar order-of-events inside completed 1H candles cannot be proven from current "
+            "source rows, so this Continuation row is outside the narrowed path; complete "
+            "context/caution evidence is also insufficient."
+        ),
+        next_evidence_fix=(
+            "Replace with lower-timeframe/order-of-events evidence or exclude intrabar-dependent "
+            "Continuation rows from proof review; add complete context/caution fields if restored."
+        ),
+        proof_allowed=False,
+    ),
+    SurvivalMapRow(
+        candidate_id="SPY-REAL-HISTORICAL-IDEAL-001",
+        symbol="SPY",
+        setup_type="Ideal",
+        current_status="active_blocked",
+        blocking_rule_family="Ideal stale/spent expiry; Context/caution review",
+        rule_decision_applied="SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT",
+        exact_reason=(
+            "Same-session Ideal remains eligible only after source-backed stale/spent expiry and "
+            "complete context/caution evidence become clean; primary blocker null cannot promote."
+        ),
+        next_evidence_fix=(
+            "Define and regression-test SPY Ideal stale/spent expiry and add complete "
+            "context/caution review fields before proof review."
+        ),
+        proof_allowed=False,
+    ),
+    SurvivalMapRow(
+        candidate_id="SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+        symbol="SPY",
+        setup_type="Clean Fast Break",
+        current_status="active_blocked",
+        blocking_rule_family="Clean Fast Break expiry; Context/caution review",
+        rule_decision_applied="SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT",
+        exact_reason=(
+            "Clean Fast Break initial-break expiry is not source-backed and complete "
+            "context/caution review remains insufficient."
+        ),
+        next_evidence_fix=(
+            "Define and regression-test Clean Fast Break initial-break expiry and add complete "
+            "context/caution review fields before proof review."
+        ),
+        proof_allowed=False,
+    ),
+)
 
 
 _DECISIONS: tuple[RuleFamilyDecision, ...] = (
@@ -381,6 +552,7 @@ _DECISIONS: tuple[RuleFamilyDecision, ...] = (
 def build_rule_gate_result() -> dict[str, object]:
     rows = [decision.as_row() for decision in _DECISIONS]
     by_candidate = _decisions_by_candidate(_DECISIONS)
+    survival = build_survival_map()
     source_backed_count = sum(
         1 for row in rows if row["hard_decision"] == "DEFINE_FROM_REPO_EVIDENCE"
     )
@@ -401,7 +573,34 @@ def build_rule_gate_result() -> dict[str, object]:
             candidate_id: [decision.as_row() for decision in decisions]
             for candidate_id, decisions in by_candidate.items()
         },
+        "survival_map_rows": survival["survival_map_rows"],
+        "survival_status_by_candidate": survival["status_by_candidate"],
+        "survival_active_blocked_count": survival["active_blocked_count"],
+        "survival_replace_count": survival["replace_count"],
+        "survival_parked_count": survival["parked_count"],
+        "survival_intake_ready_count": survival["intake_ready_count"],
         "intake_ready_count": 0,
+        "proof_accepted": False,
+        "profitability_claimed": False,
+    }
+
+
+def build_survival_map() -> dict[str, object]:
+    rows = [row.as_row() for row in _SURVIVAL_MAP_ROWS]
+    status_counts = {
+        status: sum(1 for row in rows if row["current_status"] == status)
+        for status in ("active_blocked", "replace", "parked", "intake_ready")
+    }
+    return {
+        "survival_map_rows": rows,
+        "status_by_candidate": {
+            str(row["candidate_id"]): str(row["current_status"]) for row in rows
+        },
+        "active_blocked_count": status_counts["active_blocked"],
+        "replace_count": status_counts["replace"],
+        "parked_count": status_counts["parked"],
+        "intake_ready_count": status_counts["intake_ready"],
+        "proof_allowed_count": sum(1 for row in rows if row["proof_allowed"]),
         "proof_accepted": False,
         "profitability_claimed": False,
     }
@@ -423,6 +622,14 @@ def candidate_rule_gate_status(candidate_id: str) -> str:
     if all(decision.hard_decision in PROMOTING_DECISIONS for decision in decisions):
         return "pass"
     return "blocked"
+
+
+def candidate_survival_status(candidate_id: str) -> str:
+    survival_map = build_survival_map()
+    try:
+        return str(survival_map["status_by_candidate"][candidate_id])
+    except KeyError as exc:
+        raise KeyError(f"no survival-map status for {candidate_id}") from exc
 
 
 def candidate_cfb_source_data_insufficiency_reason(candidate_id: str) -> str:
@@ -488,6 +695,31 @@ def format_rule_gate_report(result: dict[str, object]) -> str:
                 )
             )
         )
+    lines.append("survival summary:")
+    for row in result["survival_map_rows"]:
+        lines.append(
+            " | ".join(
+                (
+                    str(row["candidate_id"]),
+                    f"symbol={row['symbol']}",
+                    f"setup_type={row['setup_type']}",
+                    f"status={row['current_status']}",
+                    f"blocking_rule_family={row['blocking_rule_family']}",
+                    f"rule_decision_applied={row['rule_decision_applied']}",
+                    f"reason={row['exact_reason']}",
+                    f"next_evidence_fix={row['next_evidence_fix']}",
+                    f"proof_allowed={'YES' if row['proof_allowed'] else 'NO'}",
+                )
+            )
+        )
+    lines.extend(
+        (
+            f"active_blocked count: {result['survival_active_blocked_count']}",
+            f"replace count: {result['survival_replace_count']}",
+            f"parked count: {result['survival_parked_count']}",
+            f"survival intake-ready count: {result['survival_intake_ready_count']}",
+        )
+    )
     lines.extend(
         (
             "proof accepted: NO",

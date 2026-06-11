@@ -452,6 +452,32 @@ Day 39 now has a hard decision table for the nine freshness/final-signal and blo
 - Applied intrabar ordering narrowing: SPY Continuation cannot become intake-ready while it depends on unresolved order-of-events inside completed 1H candles.
 - Applied context/caution source-data insufficiency: rows needing complete context/caution review cannot become intake-ready from primary blocker null alone.
 
+## Rule-decision survival map
+
+Day 39 now has the final rule-decision survival map after applying Continuation, Ideal, Clean Fast Break, intrabar ordering, and context/caution decisions:
+
+- Survival map: `SAFE_FAST_RULE_DECISION_SURVIVAL_MAP.md`.
+- Strict rows covered: 7.
+- All 9 rule-family decisions are applied.
+- `active_blocked`: 4.
+- `replace`: 3.
+- `parked`: 0.
+- `intake_ready`: 0.
+- Proof allowed rows: 0.
+- `QQQ-REAL-HISTORICAL-CONTINUATION-001`: `replace`.
+- `QQQ-REAL-HISTORICAL-IDEAL-001`: `replace`.
+- `SPY-REAL-HISTORICAL-CONTINUATION-001`: `replace`.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: `active_blocked`.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: `active_blocked`.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: `active_blocked`.
+- `SPY-REAL-HISTORICAL-IDEAL-001`: `active_blocked`.
+- Active blocked next evidence fixes: source-backed QQQ gap-context evidence; Clean Fast Break expiry rules; SPY Ideal stale/spent expiry; complete context/caution review fields.
+- Replacement next evidence fixes: same-session Continuation evidence or tested carry-forward rule; lower-timeframe/order-of-events Continuation evidence; inside-path Ideal evidence or tested fast-swing freshness plus room/risk thresholds.
+- Rule-gate CLI now prints the survival summary.
+- Source-pool intake CLI now prints survival active_blocked/replace/parked/intake_ready counts.
+- No proof was accepted.
+- No profitability claim was made.
+
 ## Faster workflow
 
 Use this order:

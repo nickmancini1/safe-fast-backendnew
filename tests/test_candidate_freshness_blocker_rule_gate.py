@@ -18,6 +18,16 @@ EXPECTED_RULE_FAMILIES = {
     "Context/caution review",
 }
 
+EXPECTED_SURVIVAL_STATUSES = {
+    "QQQ-REAL-HISTORICAL-CONTINUATION-001": "replace",
+    "QQQ-REAL-HISTORICAL-IDEAL-001": "replace",
+    "SPY-REAL-HISTORICAL-CONTINUATION-001": "replace",
+    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": "active_blocked",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": "active_blocked",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": "active_blocked",
+    "SPY-REAL-HISTORICAL-IDEAL-001": "active_blocked",
+}
+
 
 class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
     def test_rule_gate_covers_exactly_the_nine_decision_families(self):
@@ -42,6 +52,44 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertEqual(tuple(result["affected_candidate_ids"]), gate.STRICT_CANDIDATE_IDS)
         for candidate_id in gate.STRICT_CANDIDATE_IDS:
             self.assertGreaterEqual(len(result["gate_by_candidate"][candidate_id]), 1)
+
+    def test_survival_map_covers_all_seven_strict_rows_with_expected_statuses(self):
+        survival_map = gate.build_survival_map()
+
+        self.assertEqual(
+            set(survival_map["status_by_candidate"]),
+            set(gate.STRICT_CANDIDATE_IDS),
+        )
+        self.assertEqual(survival_map["status_by_candidate"], EXPECTED_SURVIVAL_STATUSES)
+        self.assertEqual(survival_map["active_blocked_count"], 4)
+        self.assertEqual(survival_map["replace_count"], 3)
+        self.assertEqual(survival_map["parked_count"], 0)
+        self.assertEqual(survival_map["intake_ready_count"], 0)
+
+    def test_survival_map_rows_include_required_fields_and_no_proof_allowed(self):
+        survival_map = gate.build_survival_map()
+        required_fields = {
+            "candidate_id",
+            "symbol",
+            "setup_type",
+            "current_status",
+            "blocking_rule_family",
+            "rule_decision_applied",
+            "exact_reason",
+            "next_evidence_fix",
+            "proof_allowed",
+        }
+
+        for row in survival_map["survival_map_rows"]:
+            self.assertEqual(set(row), required_fields)
+            self.assertIn(row["current_status"], {"active_blocked", "replace"})
+            self.assertFalse(row["proof_allowed"])
+            self.assertIn("SOURCE_DATA_INSUFFICIENT", row["rule_decision_applied"])
+            self.assertNotEqual(row["next_evidence_fix"], "")
+
+    def test_survival_status_helper_matches_expected_statuses(self):
+        for candidate_id, expected_status in EXPECTED_SURVIVAL_STATUSES.items():
+            self.assertEqual(gate.candidate_survival_status(candidate_id), expected_status)
 
     def test_source_data_insufficient_cannot_promote_candidate(self):
         self.assertFalse(
@@ -116,6 +164,34 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
             ]
         }
         self.assertIn("KILL_OR_NARROW_SETUP_SYMBOL_PATH", decisions)
+
+    def test_replaced_survival_rows_cannot_become_intake_ready(self):
+        for candidate_id, status in EXPECTED_SURVIVAL_STATUSES.items():
+            if status != "replace":
+                continue
+            self.assertFalse(
+                gate.candidate_can_promote(
+                    candidate_id,
+                    final_verdict="TRADE",
+                    primary_blocker="complete blocker review",
+                    complete_context_caution_review=True,
+                )
+            )
+            self.assertEqual(gate.candidate_survival_status(candidate_id), "replace")
+
+    def test_active_blocked_rows_cannot_promote_without_source_backed_evidence(self):
+        for candidate_id, status in EXPECTED_SURVIVAL_STATUSES.items():
+            if status != "active_blocked":
+                continue
+            self.assertFalse(
+                gate.candidate_can_promote(
+                    candidate_id,
+                    final_verdict="TRADE",
+                    primary_blocker="complete blocker review",
+                    complete_context_caution_review=True,
+                )
+            )
+            self.assertEqual(gate.candidate_survival_status(candidate_id), "active_blocked")
 
     def test_next_session_continuation_is_outside_narrowed_path(self):
         candidate_id = "QQQ-REAL-HISTORICAL-CONTINUATION-001"
@@ -285,6 +361,9 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertIn("blocking decision count: 9", report)
         self.assertIn("decision=SOURCE_DATA_INSUFFICIENT", report)
         self.assertIn("decision=KILL_OR_NARROW_SETUP_SYMBOL_PATH", report)
+        self.assertIn("survival summary:", report)
+        self.assertIn("active_blocked count: 4", report)
+        self.assertIn("replace count: 3", report)
 
 
 if __name__ == "__main__":

@@ -15,6 +15,16 @@ STRICT_SOURCE_BACKED_IDS = {
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
 }
 
+EXPECTED_SURVIVAL_STATUSES = {
+    "QQQ-REAL-HISTORICAL-CONTINUATION-001": "replace",
+    "QQQ-REAL-HISTORICAL-IDEAL-001": "replace",
+    "SPY-REAL-HISTORICAL-CONTINUATION-001": "replace",
+    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": "active_blocked",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": "active_blocked",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": "active_blocked",
+    "SPY-REAL-HISTORICAL-IDEAL-001": "active_blocked",
+}
+
 
 class CandidateSourcePoolIntakeTests(unittest.TestCase):
     def test_inspects_full_24_row_pool_but_accepts_only_strict_source_backed_rows(self):
@@ -55,6 +65,16 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertTrue(result["fewer_than_5_intake_ready_rows_remain"])
         self.assertFalse(result["at_least_5_intake_ready_or_close_ready"])
         self.assertIn("freshness/final-signal", result["top_remaining_blocker_family"])
+
+    def test_survival_status_counts_match_source_pool_intake_result(self):
+        result = intake.build_source_pool_intake()
+
+        self.assertEqual(result["survival_status_by_candidate"], EXPECTED_SURVIVAL_STATUSES)
+        self.assertEqual(result["survival_active_blocked_count"], 4)
+        self.assertEqual(result["survival_replace_count"], 3)
+        self.assertEqual(result["survival_parked_count"], 0)
+        self.assertEqual(result["survival_intake_ready_count"], 0)
+        self.assertEqual(len(result["survival_map_rows"]), 7)
 
     def test_lowercase_incomplete_is_case_insensitive_unresolved_blocker(self):
         row = {
@@ -259,6 +279,10 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertIn("blocked/drop/replace/duplicate counts: 4/0/3/0", report)
         self.assertIn("new strict candidates added: SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003", report)
         self.assertIn("fewer than 5 intake-ready rows remain: YES", report)
+        self.assertIn(
+            "survival active_blocked/replace/parked/intake_ready counts: 4/3/0/0",
+            report,
+        )
         self.assertIn("ranked intake table:", report)
         self.assertIn("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001", report)
 
