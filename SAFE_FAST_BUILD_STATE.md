@@ -8790,3 +8790,48 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: source the missing gap-context, setup-specific expiry-rule, and complete context/caution fields before any parked row can be reactivated.
+
+## Day 39 source-evidence acquisition request result
+
+- Current task baseline stated by task file: `b84ca05 Add source evidence gap scanner`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: converted the source-evidence gap map into an exact acquisition request for the four parked/source-data-insufficient paths.
+- Acquisition request path: `SAFE_FAST_SOURCE_EVIDENCE_ACQUISITION_REQUEST.md`.
+- Scanner path: `watcher_foundation/source_evidence_gap_scanner.py`.
+- Test path: `tests/test_source_evidence_gap_scanner.py`.
+- Gap map path: `SAFE_FAST_SOURCE_EVIDENCE_GAP_MAP.md`.
+- Parked rows covered: 4.
+- Gap rows covered: 9.
+- Acquisition request rows: 9.
+- Required evidence families represented: 6.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: acquisition requests cover QQQ gap-context completeness, Clean Fast Break stale/spent expiry, and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: acquisition requests cover Clean Fast Break higher-base/fresh-break expiry and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: acquisition requests cover Clean Fast Break initial-break expiry and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-IDEAL-001`: acquisition requests cover SPY Ideal stale/spent expiry and gap/headline/option/execution/complete caution fields.
+- Each request names evidence name, candidate ID, setup type, symbol, required source/export type, timestamp/session/window, required fields, reason needed, rule resolved, current-data availability, and expected post-acquisition action.
+- Current repo data sufficient for parked rows: NO.
+- Current repo data can supply requested acquisition evidence now: NO.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Active blocked count: 0.
+- Parked count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Files updated:
+  - `SAFE_FAST_SOURCE_EVIDENCE_ACQUISITION_REQUEST.md`
+  - `SAFE_FAST_SOURCE_EVIDENCE_GAP_MAP.md`
+  - `SAFE_FAST_ACTIVE_PATH_EVIDENCE_REQUIREMENTS.md`
+  - `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`
+  - `SAFE_FAST_BUILD_STATE.md`
+  - `watcher_foundation/source_evidence_gap_scanner.py`
+  - `tests/test_source_evidence_gap_scanner.py`
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_source_evidence_gap_scanner.py"` PASS, 11 tests.
+  - `python -B -m watcher_foundation.source_evidence_gap_scanner` PASS and printed the gap plus acquisition request summary to stdout only.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the strict source-pool intake report to stdout only.
+  - `git --no-pager diff --check` PASS with Git line-ending warnings only.
+- Deleted one-time task file: `.codex_source_evidence_acquisition_request_task.md`.
+- No `__pycache__`, `.pyc`, or `.pyo` artifacts were present after cleanup check.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: acquire the requested source-backed evidence or rule/regression rows, then rerun the gap scanner and source-pool intake helper before considering any parked-row reactivation.

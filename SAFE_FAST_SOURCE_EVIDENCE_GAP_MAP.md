@@ -16,10 +16,13 @@ Current intake-ready count: 0.
 
 - Gap scanner: `watcher_foundation/source_evidence_gap_scanner.py`.
 - Scanner test: `tests/test_source_evidence_gap_scanner.py`.
+- Acquisition request: `SAFE_FAST_SOURCE_EVIDENCE_ACQUISITION_REQUEST.md`.
 - Parked rows covered: 4.
 - Gap rows: 9.
+- Acquisition request rows: 9.
 - Required evidence families represented: 6.
 - Current repo data sufficient for any parked row: NO.
+- Current repo data can supply acquisition request evidence now: NO.
 - Intake-ready count: 0.
 - Parked/source_data_insufficient count: 4.
 - Replace count: 3.
@@ -61,6 +64,17 @@ Current intake-ready count: 0.
 - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: current repo data sufficient: NO; required missing fields/rules are Clean Fast Break higher-base/fresh-break expiry and complete context/caution fields.
 - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: current repo data sufficient: NO; required missing fields/rules are Clean Fast Break initial-break expiry and complete context/caution fields.
 - `SPY-REAL-HISTORICAL-IDEAL-001`: current repo data sufficient: NO; required missing fields/rules are SPY Ideal stale/spent expiry and complete context/caution fields.
+
+## Acquisition Request Result
+
+- Acquisition request path: `SAFE_FAST_SOURCE_EVIDENCE_ACQUISITION_REQUEST.md`.
+- Acquisition request rows: 9.
+- All 4 parked rows covered: YES.
+- Every gap row has an acquisition request: YES.
+- Current repo data can supply requested evidence now: NO.
+- Expected action after acquisition: rerun `python -B -m watcher_foundation.source_evidence_gap_scanner` and `python -B -m watcher_foundation.candidate_source_pool_intake`; keep rows parked unless source-backed fields/rules and required regressions are present.
+- Proof accepted: NO.
+- Profitability claim made: NO.
 
 ## Guardrail Result
 

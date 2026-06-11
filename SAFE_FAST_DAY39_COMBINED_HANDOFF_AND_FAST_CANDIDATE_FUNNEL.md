@@ -505,10 +505,13 @@ Day 39 now has a build-only source-evidence gap scanner for the four parked/sour
 - Scanner: `watcher_foundation/source_evidence_gap_scanner.py`.
 - Tests: `tests/test_source_evidence_gap_scanner.py`.
 - Gap map: `SAFE_FAST_SOURCE_EVIDENCE_GAP_MAP.md`.
+- Acquisition request: `SAFE_FAST_SOURCE_EVIDENCE_ACQUISITION_REQUEST.md`.
 - Parked rows covered: 4.
 - Gap rows covered: 9.
+- Acquisition request rows: 9.
 - Required evidence families represented: QQQ gap-context completeness; Clean Fast Break stale/spent expiry; Clean Fast Break higher-base/fresh-break expiry; Clean Fast Break initial-break expiry; SPY Ideal stale/spent expiry; complete context/caution fields.
 - Current repo data sufficient by parked row: NO for all four.
+- Current repo data can supply requested acquisition evidence now: NO.
 - Intake-ready count remains 0.
 - Parked/source_data_insufficient count remains 4.
 - Replace count remains 3.
@@ -516,6 +519,8 @@ Day 39 now has a build-only source-evidence gap scanner for the four parked/sour
 - Profitability claim made: NO.
 
 The scanner checks current local source CSV/log schemas only and prints its table to stdout. It does not create generated report/log/CSV/JSON output files, reactivate parked rows, accept proof, or claim profitability.
+
+The acquisition request converts each gap row into an exact source/export request with the affected candidate, setup type, symbol, timestamp/session/window, required fields, reason, rule resolved, current-data availability, and expected post-acquisition action. It is a sourcing checklist only; it does not prove or promote any row.
 
 ## QQQ Clean Fast Break survival action
 

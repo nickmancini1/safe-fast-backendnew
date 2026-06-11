@@ -21,6 +21,18 @@ EXPECTED_FAMILIES = {
     "complete context/caution fields",
 }
 
+EXPECTED_REQUEST_NAMES = {
+    "QQQ CFB gap-context completeness fields/rule",
+    "QQQ CFB stale/spent expiry rule/regressions",
+    "QQQ CFB complete context/caution fields",
+    "SPY CFB 003 higher-base/fresh-break expiry rule/regressions",
+    "SPY CFB 003 complete context/caution fields",
+    "SPY CFB 002 initial-break expiry rule/regressions",
+    "SPY CFB 002 complete context/caution fields",
+    "SPY Ideal stale/spent expiry rule/regressions",
+    "SPY Ideal gap/headline/option/execution/complete caution fields",
+}
+
 
 class SourceEvidenceGapScannerTests(unittest.TestCase):
     def test_all_four_parked_rows_are_covered(self):
@@ -46,6 +58,43 @@ class SourceEvidenceGapScannerTests(unittest.TestCase):
             self.assertNotEqual(row["missing_field_names_or_rule_names"], ())
             self.assertNotEqual(row["source_files_checked"], ())
             self.assertFalse(row["proof_allowed"])
+
+    def test_every_missing_evidence_item_has_an_acquisition_request(self):
+        result = scanner.build_gap_scan()
+        requests_by_key = {
+            (request["candidate_id"], request["rule_resolved"], request["evidence_name"]): request
+            for request in result["acquisition_requests"]
+        }
+        request_pairs = {
+            (request["candidate_id"], tuple(request["required_fields"]))
+            for request in result["acquisition_requests"]
+        }
+
+        self.assertEqual(result["acquisition_request_count"], 9)
+        self.assertEqual(set(result["acquisition_request_candidate_ids"]), EXPECTED_PARKED_IDS)
+        self.assertEqual(set(result["acquisition_request_evidence_names"]), EXPECTED_REQUEST_NAMES)
+        self.assertEqual(len(requests_by_key), 9)
+        for row in result["gap_rows"]:
+            self.assertIn(
+                (row["candidate_id"], tuple(row["missing_field_names_or_rule_names"])),
+                request_pairs,
+            )
+
+    def test_acquisition_requests_include_required_task_fields(self):
+        result = scanner.build_gap_scan()
+
+        for request in result["acquisition_requests"]:
+            self.assertIn(request["candidate_id"], EXPECTED_PARKED_IDS)
+            self.assertIn(request["symbol"], {"QQQ", "SPY"})
+            self.assertIn(request["setup_type"], {"Clean Fast Break", "Ideal"})
+            self.assertNotEqual(request["evidence_name"], "")
+            self.assertNotEqual(request["required_source_export_type"], "")
+            self.assertNotEqual(request["required_timestamp_session_window"], "")
+            self.assertNotEqual(request["required_fields"], ())
+            self.assertNotEqual(request["why_needed"], "")
+            self.assertNotEqual(request["rule_resolved"], "")
+            self.assertFalse(request["current_repo_data_can_supply"])
+            self.assertIn("rerun", request["expected_action_after_acquisition"].lower())
 
     def test_current_repo_data_is_not_sufficient_for_any_parked_row(self):
         result = scanner.build_gap_scan()
@@ -114,6 +163,8 @@ class SourceEvidenceGapScannerTests(unittest.TestCase):
         self.assertFalse(scanner.PROFITABILITY_CLAIMED)
         self.assertFalse(result["proof_accepted"])
         self.assertFalse(result["profitability_claimed"])
+        for request in result["acquisition_requests"]:
+            self.assertFalse(request["current_repo_data_can_supply"])
         self.assertNotIn("proof accepted: yes", report.lower())
         self.assertNotIn("profitability claim made: yes", report.lower())
 
@@ -129,6 +180,9 @@ class SourceEvidenceGapScannerTests(unittest.TestCase):
         self.assertIn("intake-ready count: 0", report)
         self.assertIn("parked count: 4", report)
         self.assertIn("replace count: 3", report)
+        self.assertIn("acquisition request path: SAFE_FAST_SOURCE_EVIDENCE_ACQUISITION_REQUEST.md", report)
+        self.assertIn("acquisition requests: 9", report)
+        self.assertIn("acquisition request summary:", report)
         self.assertIn("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001=NO", report)
         self.assertIn("SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003=NO", report)
         self.assertIn("proof accepted: NO", report)

@@ -47,10 +47,13 @@ Current intake-ready count: 0.
 
 - Scanner path: `watcher_foundation/source_evidence_gap_scanner.py`.
 - Gap map path: `SAFE_FAST_SOURCE_EVIDENCE_GAP_MAP.md`.
+- Acquisition request path: `SAFE_FAST_SOURCE_EVIDENCE_ACQUISITION_REQUEST.md`.
 - Scanner result: all 4 parked rows covered.
 - Gap rows covered: 9.
+- Acquisition request rows: 9.
 - Required evidence families represented: QQQ gap-context completeness; Clean Fast Break stale/spent expiry; Clean Fast Break higher-base/fresh-break expiry; Clean Fast Break initial-break expiry; SPY Ideal stale/spent expiry; complete context/caution fields.
 - Current repo data sufficient for each parked row: NO.
+- Current repo data can supply requested acquisition evidence now: NO.
 - Intake-ready count remains: 0.
 - Parked/source_data_insufficient count remains: 4.
 - Replace count remains: 3.
@@ -58,6 +61,8 @@ Current intake-ready count: 0.
 - Profitability claim made: NO.
 
 The scanner checked the current local QQQ/SPY source CSV headers and the QQQ Clean Fast Break, SPY Clean Fast Break, and SPY Ideal replay-log schemas. Current source rows contain OHLCV and unconfirmed 24H/macro/IV/event context fields, while replay logs contain lifecycle labels, `context_24h`, `room_status`, `wall_thesis_fit`, and cautions. They do not contain the missing gap-context fields, setup-specific expiry-rule names, option context, execution context, headline context, or complete caution-review fields required to reactivate parked rows.
+
+The acquisition request converts those 9 gap rows into exact requests for source/export type, timestamp/session/window, required fields, reason, rule resolved, current-data availability, and post-acquisition action. It does not reactivate any row.
 
 ## Guardrail Result
 
