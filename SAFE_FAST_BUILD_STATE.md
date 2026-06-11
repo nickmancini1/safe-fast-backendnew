@@ -8537,3 +8537,35 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: source and regression-test the active blocked evidence families, and replace outside-path rows with inside-path evidence before any proof review.
+
+## Day 39 QQQ Clean Fast Break survival action result
+
+- Current task baseline stated by task file: `a088d74 Add rule decision survival map`.
+- Corrective scope: build-only helper/test/doc work.
+- Candidate reviewed: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Survival action applied: YES.
+- QQQ Clean Fast Break status: `active_blocked`.
+- Repo-backed clean rule evidence found: none.
+- Exact missing evidence:
+  - source-backed QQQ gap-context completeness field/rule.
+  - tested Clean Fast Break stale/spent expiry rule.
+  - complete source-backed context/caution review fields.
+- Applied result: QQQ Clean Fast Break cannot promote through missing gap context, missing Clean Fast Break expiry, or incomplete context/caution.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Active blocked count: 4.
+- Replace count: 3.
+- Parked count: 0.
+- Proof allowed rows: 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Files updated:
+  - `watcher_foundation/candidate_freshness_blocker_rule_gate.py`
+  - `tests/test_candidate_freshness_blocker_rule_gate.py`
+  - `watcher_foundation/candidate_source_pool_intake.py`
+  - `tests/test_candidate_source_pool_intake.py`
+  - `SAFE_FAST_RULE_DECISION_SURVIVAL_MAP.md`
+  - `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`
+  - `SAFE_FAST_BUILD_STATE.md`
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: source and regression-test QQQ gap-context completeness, Clean Fast Break expiry, and complete context/caution fields before any QQQ Clean Fast Break proof review.

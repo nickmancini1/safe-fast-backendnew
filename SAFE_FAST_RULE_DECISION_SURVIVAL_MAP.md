@@ -41,11 +41,26 @@ Decision counts:
 - `intake_ready`: 0.
 - Proof allowed rows: 0.
 
+## Applied QQQ Clean Fast Break Action
+
+- Candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Survival action applied: YES.
+- Status: `active_blocked`.
+- Exact missing evidence:
+  - source-backed QQQ gap-context completeness field/rule.
+  - tested Clean Fast Break stale/spent expiry rule.
+  - complete source-backed context/caution review fields.
+- Clean rule evidence found: none.
+- Intake-ready result: NO.
+- Proof allowed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+
 ## Survival Map
 
 | Candidate ID | Symbol | Setup type | Current status | Blocking rule family | Rule decision applied | Exact reason | Next evidence fix | Proof allowed |
 |---|---|---|---|---|---|---|---|---|
-| `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` | QQQ | Clean Fast Break | `active_blocked` | Clean Fast Break expiry; Clean Fast Break gap context; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT` | Gap-context, Clean Fast Break expiry, and complete context/caution source-backed evidence are insufficient; `final_verdict=TRADE` and primary blocker null cannot promote. | Add source-backed QQQ gap-context evidence, define a tested Clean Fast Break expiry rule, and add complete context/caution review fields before proof review. | NO |
+| `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` | QQQ | Clean Fast Break | `active_blocked` | Clean Fast Break expiry; Clean Fast Break gap context; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT` | Applied survival action: active_blocked. QQQ gap-context, Clean Fast Break expiry, and complete context/caution source-backed evidence are insufficient; `final_verdict=TRADE` and primary blocker null cannot promote. | Add source-backed QQQ gap-context evidence, define a tested Clean Fast Break expiry rule, and add complete context/caution review fields before proof review. | NO |
 | `QQQ-REAL-HISTORICAL-CONTINUATION-001` | QQQ | Continuation | `replace` | Continuation next-session freshness; Continuation session-boundary freshness; Context/caution review | `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; `SOURCE_DATA_INSUFFICIENT` | Next-session/session-boundary carry-forward freshness is outside the narrowed Continuation path and complete context/caution evidence is still insufficient. | Replace with same-session Continuation evidence or source and regression-test a next-session/session-boundary carry-forward rule plus complete context/caution fields. | NO |
 | `QQQ-REAL-HISTORICAL-IDEAL-001` | QQQ | Ideal | `replace` | Ideal stale/spent expiry; Ideal fast-swing freshness; Wide-risk / room threshold; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; `SOURCE_DATA_INSUFFICIENT` | Fast-swing/wide-risk Ideal is outside the narrowed Ideal path; stale/spent expiry, room/risk threshold, and complete context/caution evidence are not source-backed. | Replace with Ideal evidence inside the narrowed path or source and regression-test fast-swing freshness, stale/spent expiry, room/risk thresholds, and complete context/caution fields. | NO |
 | `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` | SPY | Clean Fast Break | `active_blocked` | Clean Fast Break expiry; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT` | Clean Fast Break higher-base/fresh-break expiry is not source-backed and complete context/caution review remains insufficient. | Define and regression-test Clean Fast Break higher-base/fresh-break expiry and add complete context/caution review fields before proof review. | NO |

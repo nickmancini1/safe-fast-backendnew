@@ -91,6 +91,25 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         for candidate_id, expected_status in EXPECTED_SURVIVAL_STATUSES.items():
             self.assertEqual(gate.candidate_survival_status(candidate_id), expected_status)
 
+    def test_qqq_cfb_survival_action_is_applied_as_active_blocked(self):
+        action = gate.qqq_cfb_survival_action()
+
+        self.assertTrue(action["action_applied"])
+        self.assertEqual(action["candidate_id"], "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001")
+        self.assertEqual(action["status"], "active_blocked")
+        self.assertFalse(action["proof_allowed"])
+        self.assertFalse(action["proof_accepted"])
+        self.assertFalse(action["profitability_claimed"])
+        self.assertEqual(action["clean_rule_evidence"], ())
+
+    def test_qqq_cfb_survival_action_names_all_exact_missing_evidence(self):
+        action = gate.qqq_cfb_survival_action()
+        missing = " ".join(action["exact_missing_evidence"])
+
+        self.assertIn("gap-context", missing)
+        self.assertIn("Clean Fast Break stale/spent expiry", missing)
+        self.assertIn("context/caution", missing)
+
     def test_source_data_insufficient_cannot_promote_candidate(self):
         self.assertFalse(
             gate.candidate_can_promote("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001")
@@ -121,6 +140,27 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
                 )
             )
 
+    def test_qqq_cfb_cfb_expiry_missing_evidence_blocks_intake_ready(self):
+        candidate_id = "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"
+        decisions = {
+            row["rule_family"]: row["hard_decision"]
+            for row in gate.build_rule_gate_result()["gate_by_candidate"][candidate_id]
+        }
+
+        self.assertEqual(decisions["Clean Fast Break expiry"], "SOURCE_DATA_INSUFFICIENT")
+        self.assertIn(
+            "Clean Fast Break stale/spent expiry rule",
+            " ".join(gate.qqq_cfb_survival_action()["exact_missing_evidence"]),
+        )
+        self.assertFalse(
+            gate.candidate_can_promote(
+                candidate_id,
+                final_verdict="TRADE",
+                primary_blocker="complete blocker review",
+                complete_context_caution_review=True,
+            )
+        )
+
     def test_cfb_gap_context_source_data_insufficiency_blocks_intake_ready(self):
         candidate_id = "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"
         decisions = {
@@ -136,6 +176,27 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
                 final_verdict="TRADE",
                 primary_blocker="complete blocker review",
                 complete_context_caution_review=True,
+            )
+        )
+
+    def test_qqq_cfb_context_caution_missing_evidence_blocks_intake_ready(self):
+        candidate_id = "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"
+        decisions = {
+            row["rule_family"]: row["hard_decision"]
+            for row in gate.build_rule_gate_result()["gate_by_candidate"][candidate_id]
+        }
+
+        self.assertEqual(decisions["Context/caution review"], "SOURCE_DATA_INSUFFICIENT")
+        self.assertIn(
+            "complete context/caution source-data insufficiency",
+            gate.candidate_context_caution_source_data_insufficiency_reason(candidate_id),
+        )
+        self.assertFalse(
+            gate.candidate_can_promote(
+                candidate_id,
+                final_verdict="TRADE",
+                primary_blocker=None,
+                complete_context_caution_review=False,
             )
         )
 
@@ -364,6 +425,8 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertIn("survival summary:", report)
         self.assertIn("active_blocked count: 4", report)
         self.assertIn("replace count: 3", report)
+        self.assertIn("QQQ CFB survival action applied: YES", report)
+        self.assertIn("QQQ CFB status: active_blocked", report)
 
 
 if __name__ == "__main__":

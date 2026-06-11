@@ -88,8 +88,10 @@ STRICT_CANDIDATE_IDS = (
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
 )
 
+QQQ_CFB_CANDIDATE_ID = "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"
+
 _CFB_IDS = (
-    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+    QQQ_CFB_CANDIDATE_ID,
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
 )
@@ -110,10 +112,20 @@ OUTSIDE_NARROWED_PATH_CANDIDATE_IDS = (
 
 CLEAN_FAST_BREAK_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS = _CFB_IDS
 
+QQQ_CFB_SURVIVAL_ACTION_APPLIED = True
+QQQ_CFB_SURVIVAL_STATUS = "active_blocked"
+QQQ_CFB_EXACT_MISSING_EVIDENCE = (
+    "source-backed QQQ gap-context completeness field/rule",
+    "tested Clean Fast Break stale/spent expiry rule",
+    "complete source-backed context/caution review fields",
+)
+QQQ_CFB_CLEAN_RULE_EVIDENCE = ()
+
 CFB_SOURCE_DATA_INSUFFICIENT_REASONS = {
     "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": (
-        "blocked by Clean Fast Break expiry source-data insufficiency and "
-        "gap-context source-data insufficiency"
+        "blocked by QQQ gap-context source-data insufficiency, Clean Fast Break "
+        "expiry source-data insufficiency, and complete context/caution "
+        "source-data insufficiency"
     ),
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": (
         "blocked by Clean Fast Break expiry source-data insufficiency and "
@@ -200,8 +212,9 @@ _SURVIVAL_MAP_ROWS: tuple[SurvivalMapRow, ...] = (
             "SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT"
         ),
         exact_reason=(
-            "Gap-context, Clean Fast Break expiry, and complete context/caution source-backed "
-            "evidence are insufficient; final_verdict TRADE and primary blocker null cannot promote."
+            "Applied survival action: active_blocked. QQQ gap-context, Clean Fast "
+            "Break expiry, and complete context/caution source-backed evidence are "
+            "insufficient; final_verdict TRADE and primary blocker null cannot promote."
         ),
         next_evidence_fix=(
             "Add source-backed QQQ gap-context evidence, define a tested Clean Fast Break expiry "
@@ -579,6 +592,7 @@ def build_rule_gate_result() -> dict[str, object]:
         "survival_replace_count": survival["replace_count"],
         "survival_parked_count": survival["parked_count"],
         "survival_intake_ready_count": survival["intake_ready_count"],
+        "qqq_cfb_survival_action": qqq_cfb_survival_action(),
         "intake_ready_count": 0,
         "proof_accepted": False,
         "profitability_claimed": False,
@@ -630,6 +644,19 @@ def candidate_survival_status(candidate_id: str) -> str:
         return str(survival_map["status_by_candidate"][candidate_id])
     except KeyError as exc:
         raise KeyError(f"no survival-map status for {candidate_id}") from exc
+
+
+def qqq_cfb_survival_action() -> dict[str, object]:
+    return {
+        "candidate_id": QQQ_CFB_CANDIDATE_ID,
+        "action_applied": QQQ_CFB_SURVIVAL_ACTION_APPLIED,
+        "status": candidate_survival_status(QQQ_CFB_CANDIDATE_ID),
+        "exact_missing_evidence": QQQ_CFB_EXACT_MISSING_EVIDENCE,
+        "clean_rule_evidence": QQQ_CFB_CLEAN_RULE_EVIDENCE,
+        "proof_allowed": False,
+        "proof_accepted": False,
+        "profitability_claimed": False,
+    }
 
 
 def candidate_cfb_source_data_insufficiency_reason(candidate_id: str) -> str:
@@ -718,6 +745,15 @@ def format_rule_gate_report(result: dict[str, object]) -> str:
             f"replace count: {result['survival_replace_count']}",
             f"parked count: {result['survival_parked_count']}",
             f"survival intake-ready count: {result['survival_intake_ready_count']}",
+            (
+                "QQQ CFB survival action applied: "
+                f"{'YES' if result['qqq_cfb_survival_action']['action_applied'] else 'NO'}"
+            ),
+            f"QQQ CFB status: {result['qqq_cfb_survival_action']['status']}",
+            (
+                "QQQ CFB exact missing evidence: "
+                + "; ".join(result["qqq_cfb_survival_action"]["exact_missing_evidence"])
+            ),
         )
     )
     lines.extend(

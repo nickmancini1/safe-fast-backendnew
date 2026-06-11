@@ -478,6 +478,22 @@ Day 39 now has the final rule-decision survival map after applying Continuation,
 - No proof was accepted.
 - No profitability claim was made.
 
+## QQQ Clean Fast Break survival action
+
+- Candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Survival action applied: YES.
+- Status: `active_blocked`.
+- Exact missing evidence:
+  - source-backed QQQ gap-context completeness field/rule.
+  - tested Clean Fast Break stale/spent expiry rule.
+  - complete source-backed context/caution review fields.
+- Clean rule evidence found: none.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Survival counts remain `active_blocked` 4, `replace` 3, `parked` 0, `intake_ready` 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+
 ## Faster workflow
 
 Use this order:
