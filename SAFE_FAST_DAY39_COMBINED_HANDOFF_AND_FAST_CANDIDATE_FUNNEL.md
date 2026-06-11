@@ -498,6 +498,25 @@ Day 39 now has the active-path evidence requirement table and final parked actio
 - Proof accepted: NO.
 - Profitability claim made: NO.
 
+## Source-evidence gap scanner
+
+Day 39 now has a build-only source-evidence gap scanner for the four parked/source-data-insufficient rows:
+
+- Scanner: `watcher_foundation/source_evidence_gap_scanner.py`.
+- Tests: `tests/test_source_evidence_gap_scanner.py`.
+- Gap map: `SAFE_FAST_SOURCE_EVIDENCE_GAP_MAP.md`.
+- Parked rows covered: 4.
+- Gap rows covered: 9.
+- Required evidence families represented: QQQ gap-context completeness; Clean Fast Break stale/spent expiry; Clean Fast Break higher-base/fresh-break expiry; Clean Fast Break initial-break expiry; SPY Ideal stale/spent expiry; complete context/caution fields.
+- Current repo data sufficient by parked row: NO for all four.
+- Intake-ready count remains 0.
+- Parked/source_data_insufficient count remains 4.
+- Replace count remains 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+
+The scanner checks current local source CSV/log schemas only and prints its table to stdout. It does not create generated report/log/CSV/JSON output files, reactivate parked rows, accept proof, or claim profitability.
+
 ## QQQ Clean Fast Break survival action
 
 - Candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.

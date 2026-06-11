@@ -8761,3 +8761,32 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No proof was accepted.
 - No profitability claim was made.
 - Recommended next action: source new evidence for the parked rows or replace them with source-backed rows before proof review; preserve the three replace rows until inside-path evidence or tested restoring rules exist.
+
+## Day 39 source-evidence gap scanner result
+
+- Current task baseline stated by task file: `b6269cb Park source insufficient active paths`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: created the source-evidence gap scanner for the four parked/source-data-insufficient paths.
+- Scanner path: `watcher_foundation/source_evidence_gap_scanner.py`.
+- Test path: `tests/test_source_evidence_gap_scanner.py`.
+- Gap map path: `SAFE_FAST_SOURCE_EVIDENCE_GAP_MAP.md`.
+- Parked rows covered: 4.
+- Gap rows covered: 9.
+- Required evidence families represented: 6.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: current repo data sufficient: NO; missing `gap_context_status`, `gap_context_as_of`, `gap_context_reviewed_before_signal`, `clean_fast_break_stale_spent_expiry_rule`, `clean_fast_break_expiry_regression_rows`, `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status`.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: current repo data sufficient: NO; missing `clean_fast_break_higher_base_fresh_break_expiry_rule`, `higher_base_fresh_break_expiry_regression_rows`, `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status`.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: current repo data sufficient: NO; missing `clean_fast_break_initial_break_expiry_rule`, `initial_break_expiry_regression_rows`, `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status`.
+- `SPY-REAL-HISTORICAL-IDEAL-001`: current repo data sufficient: NO; missing `spy_ideal_stale_spent_expiry_rule`, `spy_ideal_expiry_regression_rows`, `gap_context_status`, `headline_context_status`, `option_context_status`, `execution_context_status`, and `complete_caution_review_status`.
+- Existing source schema checked:
+  - QQQ/SPY source CSVs contain OHLCV plus unconfirmed 24H, macro, IV, and event context fields.
+  - QQQ/SPY replay logs contain lifecycle labels and unconfirmed context fields.
+  - Current repo data does not define accepted setup-time expiry rules or complete source-backed context/caution fields.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Active blocked count: 0.
+- Parked count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: source the missing gap-context, setup-specific expiry-rule, and complete context/caution fields before any parked row can be reactivated.
