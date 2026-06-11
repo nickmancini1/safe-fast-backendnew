@@ -8427,3 +8427,42 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No generated report/log/CSV/JSON output file was created.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: do not deep-review proof. Source and regression-test Clean Fast Break expiry plus QQQ gap-context evidence, while keeping all affected Clean Fast Break rows blocked until those rules exist.
+
+## Day 39 intrabar ordering narrowing applied result
+
+- Current task baseline stated by task file: `3434382 Apply Clean Fast Break rule decisions`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: applied the hard rule-family decision for intrabar ordering.
+- Intrabar ordering decision applied: `KILL_OR_NARROW_SETUP_SYMBOL_PATH`.
+- Required narrowed path: SPY Continuation cannot become intake-ready while it depends on unresolved order-of-events inside completed 1H candles.
+- `SPY-REAL-HISTORICAL-CONTINUATION-001`: `replace`; outside the narrowed Continuation path because intrabar order-of-events inside completed 1H candles remains unsupported without lower-timeframe evidence.
+- Source-pool rows inspected: 60.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Blocked/drop/replace/duplicate counts among accepted strict rows: 4/0/3/0.
+- Close-ready count: 4.
+- At least 5 intake-ready or close-ready candidates now exist: NO.
+- Any row became intake-ready: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Files updated:
+  - `watcher_foundation/candidate_freshness_blocker_rule_gate.py`
+  - `tests/test_candidate_freshness_blocker_rule_gate.py`
+  - `watcher_foundation/candidate_freshness_blocker_state.py`
+  - `tests/test_candidate_freshness_blocker_state.py`
+  - `watcher_foundation/candidate_source_pool_intake.py`
+  - `tests/test_candidate_source_pool_intake.py`
+  - `SAFE_FAST_RULE_FAMILY_DECISION_TABLE.md`
+  - `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`
+  - `SAFE_FAST_BUILD_STATE.md`
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_rule_gate.py"` PASS, 19 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_state.py"` PASS, 11 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 14 tests.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_rule_gate` PASS and printed the rule-gate report to stdout only.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_state` PASS and printed the state report to stdout only.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the strict source-pool intake report to stdout only.
+  - `git --no-pager diff --check` PASS.
+- No generated report/log/CSV/JSON output file was created.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: do not deep-review proof. Replace SPY Continuation with lower-timeframe/order-of-events evidence or exclude intrabar-dependent Continuation rows from proof review; continue sourcing and regression-testing the remaining Clean Fast Break expiry, QQQ gap-context, carry-forward, fast-swing freshness, room/risk threshold, and complete context/caution evidence families.

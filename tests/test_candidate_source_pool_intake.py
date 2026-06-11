@@ -47,13 +47,13 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         result = intake.build_source_pool_intake()
 
         self.assertEqual(result["intake_ready_count"], 0)
-        self.assertEqual(result["blocked_count"], 5)
+        self.assertEqual(result["blocked_count"], 4)
         self.assertEqual(result["drop_count"], 0)
-        self.assertEqual(result["replace_count"], 2)
+        self.assertEqual(result["replace_count"], 3)
         self.assertEqual(result["duplicate_count"], 0)
-        self.assertEqual(result["close_ready_count"], 5)
+        self.assertEqual(result["close_ready_count"], 4)
         self.assertTrue(result["fewer_than_5_intake_ready_rows_remain"])
-        self.assertTrue(result["at_least_5_intake_ready_or_close_ready"])
+        self.assertFalse(result["at_least_5_intake_ready_or_close_ready"])
         self.assertIn("freshness/final-signal", result["top_remaining_blocker_family"])
 
     def test_lowercase_incomplete_is_case_insensitive_unresolved_blocker(self):
@@ -108,6 +108,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertIn("do not support 20-50 strict candidates", result["exact_blocker"])
         self.assertGreaterEqual(len(result["source_files_inspected"]), 1)
         self.assertIn("Continuation has been narrowed", result["smallest_next_evidence_backed_fix"])
+        self.assertIn("SPY Continuation intrabar-dependent rows", result["smallest_next_evidence_backed_fix"])
         self.assertIn("Ideal has been narrowed", result["smallest_next_evidence_backed_fix"])
         self.assertIn("Clean Fast Break remains blocked", result["smallest_next_evidence_backed_fix"])
         self.assertIn("room/risk thresholds", result["smallest_next_evidence_backed_fix"])
@@ -144,7 +145,11 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
             by_id["QQQ-REAL-HISTORICAL-CONTINUATION-001"]["reason"],
         )
         self.assertEqual(by_id["QQQ-REAL-HISTORICAL-CONTINUATION-001"]["status"], "replace")
-        self.assertEqual(by_id["SPY-REAL-HISTORICAL-CONTINUATION-001"]["status"], "blocked")
+        self.assertEqual(by_id["SPY-REAL-HISTORICAL-CONTINUATION-001"]["status"], "replace")
+        self.assertIn(
+            "outside narrowed Continuation path",
+            by_id["SPY-REAL-HISTORICAL-CONTINUATION-001"]["reason"],
+        )
         self.assertIn(
             "only 1H OHLCV source rows exist",
             by_id["SPY-REAL-HISTORICAL-CONTINUATION-001"]["reason"],
@@ -229,7 +234,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         report = output.getvalue()
         self.assertIn("source-pool rows inspected: 60", report)
         self.assertIn("accepted intake count: 7", report)
-        self.assertIn("blocked/drop/replace/duplicate counts: 5/0/2/0", report)
+        self.assertIn("blocked/drop/replace/duplicate counts: 4/0/3/0", report)
         self.assertIn("new strict candidates added: SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003", report)
         self.assertIn("fewer than 5 intake-ready rows remain: YES", report)
         self.assertIn("ranked intake table:", report)

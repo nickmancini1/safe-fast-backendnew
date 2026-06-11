@@ -320,7 +320,8 @@ _STATES: Mapping[str, CandidateState] = {
         freshness_reason=(
             "Replay line 5 proves a triggered signal at 2026-04-30 12:30 and line 6 later marks it spent, "
             "but only 1H OHLCV source rows exist; they cannot prove the order of trigger, pullback, and "
-            "invalidation behavior inside the setup/entry candle."
+            "invalidation behavior inside the setup/entry candle. The applied intrabar ordering "
+            "narrowing excludes this intrabar-dependent row from the normal close-ready path."
         ),
         blocker_reason=(
             "Primary blocker is null, but complete 24H/macro/IV/event/headline/room/caution context remains unconfirmed."
@@ -329,7 +330,10 @@ _STATES: Mapping[str, CandidateState] = {
             "missing lower-timeframe or order-of-events evidence inside the 2026-04-30 12:30/13:30 1H candles"
         ),
         blocker_missing_evidence=_REPLAY_CONTEXT_LIMITATION + "; headline and finer intrabar caution context missing",
-        next_action="Keep only in larger no-hindsight batch and require repeat rows before proof review.",
+        next_action=(
+            "Replace with lower-timeframe/order-of-events evidence or exclude intrabar-dependent "
+            "Continuation rows from proof review."
+        ),
     ),
     "SPY-REAL-HISTORICAL-IDEAL-001": _state(
         candidate_id="SPY-REAL-HISTORICAL-IDEAL-001",

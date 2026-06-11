@@ -79,6 +79,7 @@ _IDEAL_IDS = (
 OUTSIDE_NARROWED_PATH_CANDIDATE_IDS = (
     "QQQ-REAL-HISTORICAL-CONTINUATION-001",
     "QQQ-REAL-HISTORICAL-IDEAL-001",
+    "SPY-REAL-HISTORICAL-CONTINUATION-001",
 )
 
 CLEAN_FAST_BREAK_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS = _CFB_IDS
@@ -110,6 +111,10 @@ OUTSIDE_NARROWED_PATH_REASONS = {
     "QQQ-REAL-HISTORICAL-IDEAL-001": (
         "outside narrowed Ideal path; fast-swing freshness and wide-risk/room threshold "
         "remain unsupported"
+    ),
+    "SPY-REAL-HISTORICAL-CONTINUATION-001": (
+        "outside narrowed Continuation path; intrabar order-of-events inside completed "
+        "1H candles remains unsupported without lower-timeframe evidence"
     ),
 }
 
@@ -269,7 +274,10 @@ _DECISIONS: tuple[RuleFamilyDecision, ...] = (
             "pullback, and invalidation events inside the setup candles. The SPY Continuation "
             "intrabar-dependent path is narrowed out unless lower-timeframe evidence exists."
         ),
-        intake_ready_effect="SPY Continuation intrabar-dependent rows remain blocked from intake-ready.",
+        intake_ready_effect=(
+            "SPY Continuation intrabar-dependent rows are outside the narrowed path and cannot "
+            "become intake-ready under current repo evidence."
+        ),
         smallest_next_action=(
             "Provide lower-timeframe source rows or exclude intrabar-dependent Continuation rows "
             "from proof review."

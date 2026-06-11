@@ -131,11 +131,17 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
             )
         )
 
-    def test_same_session_continuation_still_requires_other_clean_gates(self):
+    def test_intrabar_ordering_narrows_spy_continuation_outside_path(self):
         candidate_id = "SPY-REAL-HISTORICAL-CONTINUATION-001"
+        decisions = {
+            row["rule_family"]: row["hard_decision"]
+            for row in gate.build_rule_gate_result()["gate_by_candidate"][candidate_id]
+        }
 
-        self.assertFalse(gate.candidate_is_outside_narrowed_path(candidate_id))
-        self.assertEqual(gate.candidate_rule_gate_status(candidate_id), "blocked")
+        self.assertEqual(decisions["Intrabar ordering"], "KILL_OR_NARROW_SETUP_SYMBOL_PATH")
+        self.assertTrue(gate.candidate_is_outside_narrowed_path(candidate_id))
+        self.assertEqual(gate.candidate_rule_gate_status(candidate_id), "outside_narrowed_path")
+        self.assertIn("order-of-events", gate.candidate_outside_narrowed_path_reason(candidate_id))
         self.assertFalse(
             gate.candidate_can_promote(
                 candidate_id,
@@ -228,6 +234,7 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
                 in {
                     "QQQ-REAL-HISTORICAL-CONTINUATION-001",
                     "QQQ-REAL-HISTORICAL-IDEAL-001",
+                    "SPY-REAL-HISTORICAL-CONTINUATION-001",
                 }
                 else "blocked"
             )
@@ -239,8 +246,8 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertEqual(result["source_pool_rows_inspected"], 60)
         self.assertEqual(result["accepted_intake_count"], 7)
         self.assertEqual(result["intake_ready_count"], 0)
-        self.assertEqual(result["close_ready_count"], 5)
-        self.assertEqual(result["replace_count"], 2)
+        self.assertEqual(result["close_ready_count"], 4)
+        self.assertEqual(result["replace_count"], 3)
         self.assertEqual(result["rule_gate_families_checked"], 9)
         self.assertEqual(result["rule_gate_source_backed_rule_count"], 0)
         self.assertEqual(result["rule_gate_missing_unresolved_rule_count"], 9)

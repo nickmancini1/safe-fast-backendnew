@@ -83,8 +83,8 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
                 self.assertTrue(row["freshness_state"] != "clean" or row["blocker_state"] != "clean")
 
         self.assertEqual(result["intake_ready_count"], 0)
-        self.assertEqual(result["blocked_count"], 5)
-        self.assertEqual(result["replace_count"], 2)
+        self.assertEqual(result["blocked_count"], 4)
+        self.assertEqual(result["replace_count"], 3)
 
     def test_decision_for_states_requires_both_clean(self):
         self.assertEqual(state_model.decision_for_states("clean", "clean"), "intake-ready")
@@ -112,7 +112,7 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
         )
         self.assertEqual(
             by_id["SPY-REAL-HISTORICAL-CONTINUATION-001"]["decision"],
-            "blocked",
+            "replace",
         )
         self.assertEqual(
             by_id["QQQ-REAL-HISTORICAL-IDEAL-001"]["blocker_state"],
@@ -173,6 +173,10 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
         self.assertIn(
             "missing lower-timeframe or order-of-events evidence",
             by_id["SPY-REAL-HISTORICAL-CONTINUATION-001"]["freshness_missing_evidence"],
+        )
+        self.assertIn(
+            "applied intrabar ordering narrowing excludes this intrabar-dependent row",
+            by_id["SPY-REAL-HISTORICAL-CONTINUATION-001"]["freshness_reason"],
         )
         self.assertIn(
             "missing accepted wide-risk or room threshold",
