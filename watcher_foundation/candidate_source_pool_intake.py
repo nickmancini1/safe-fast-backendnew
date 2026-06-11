@@ -38,6 +38,8 @@ INTAKE_OUTPUT_FIELDS = (
     "blocker_source",
     "freshness_reason",
     "blocker_reason",
+    "freshness_missing_evidence",
+    "blocker_missing_evidence",
     "no_hindsight_boundary",
     "outcome_window",
     "duplicate",
@@ -110,6 +112,8 @@ class IntakeRow:
     blocker_source: str
     freshness_reason: str
     blocker_reason: str
+    freshness_missing_evidence: str
+    blocker_missing_evidence: str
     no_hindsight_boundary: str
     outcome_window: str
     duplicate: str
@@ -135,6 +139,8 @@ class IntakeRow:
             "blocker_source": self.blocker_source,
             "freshness_reason": self.freshness_reason,
             "blocker_reason": self.blocker_reason,
+            "freshness_missing_evidence": self.freshness_missing_evidence,
+            "blocker_missing_evidence": self.blocker_missing_evidence,
             "no_hindsight_boundary": self.no_hindsight_boundary,
             "outcome_window": self.outcome_window,
             "duplicate": self.duplicate,
@@ -258,6 +264,8 @@ def _to_intake_row(row: dict[str, str]) -> IntakeRow:
         blocker_source=state.blocker_source,
         freshness_reason=state.freshness_reason,
         blocker_reason=state.blocker_reason,
+        freshness_missing_evidence=state.freshness_missing_evidence,
+        blocker_missing_evidence=state.blocker_missing_evidence,
         no_hindsight_boundary=row["no_hindsight_boundary"],
         outcome_window=row["outcome_window"],
         duplicate=row["duplicate"],
@@ -431,6 +439,8 @@ def _signal_to_intake_row(
         blocker_source=state.blocker_source,
         freshness_reason=state.freshness_reason,
         blocker_reason=state.blocker_reason,
+        freshness_missing_evidence=state.freshness_missing_evidence,
+        blocker_missing_evidence=state.blocker_missing_evidence,
         blocker=(
             "UNCLEAR: primary blocker null; complete blocker/caution review incomplete"
             + (f"; cautions {cautions}" if cautions else "")

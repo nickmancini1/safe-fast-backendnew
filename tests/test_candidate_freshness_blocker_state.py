@@ -55,6 +55,8 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
             self.assertNotEqual(row["blocker_source"], "")
             self.assertNotEqual(row["freshness_reason"], "")
             self.assertNotEqual(row["blocker_reason"], "")
+            self.assertNotEqual(row["freshness_missing_evidence"], "")
+            self.assertNotEqual(row["blocker_missing_evidence"], "")
 
     def test_unresolved_and_incomplete_markers_block_case_insensitively(self):
         for value in ("UNCLEAR", "unclear", "Incomplete", "incomplete", "MISSING", None, ""):
@@ -107,6 +109,39 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
             by_id["QQQ-REAL-HISTORICAL-IDEAL-001"]["blocker_state"],
             "wide_risk_caution",
         )
+
+    def test_state_family_missing_evidence_is_exact(self):
+        by_id = state_model.build_freshness_blocker_states()["state_by_id"]
+
+        self.assertIn(
+            "missing source-backed gap_context field/rule",
+            by_id["QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"]["freshness_missing_evidence"],
+        )
+        self.assertIn(
+            "missing next-session Continuation freshness/carry-forward rule",
+            by_id["QQQ-REAL-HISTORICAL-CONTINUATION-001"]["freshness_missing_evidence"],
+        )
+        self.assertIn(
+            "missing lower-timeframe or order-of-events evidence",
+            by_id["SPY-REAL-HISTORICAL-CONTINUATION-001"]["freshness_missing_evidence"],
+        )
+        self.assertIn(
+            "missing accepted wide-risk or room threshold",
+            by_id["QQQ-REAL-HISTORICAL-IDEAL-001"]["blocker_missing_evidence"],
+        )
+        self.assertIn(
+            "CONTEXT_24H_DAILY_UNCONFIRMED",
+            by_id["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003"]["blocker_missing_evidence"],
+        )
+
+    def test_command_line_stdout_report_path_works(self):
+        result = state_model.build_freshness_blocker_states()
+        report = state_model.format_state_report(result)
+
+        self.assertIn("accepted state count: 7", report)
+        self.assertIn("intake-ready count: 0", report)
+        self.assertIn("freshness_missing=", report)
+        self.assertIn("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001", report)
 
     def test_no_proof_or_profitability_claims(self):
         result = state_model.build_freshness_blocker_states()

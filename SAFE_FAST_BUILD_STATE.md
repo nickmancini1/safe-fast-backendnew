@@ -8140,3 +8140,72 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: stop treating the seven strict rows as intake-ready candidates until source-backed clean freshness and clean blocker states exist; expand or repair source-backed freshness/blocker evidence in batch, starting with next-session Continuation freshness, gap-context rules, intrabar ordering, setup-specific stale/spent rules, and wide-risk/context/caution review.
+
+## Day 39 seven-row freshness/blocker evidence repair result
+
+- Current task baseline stated by task file: `2e2839b Add seven-row freshness blocker state extractor`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: inspected repo-backed source/docs/log fields for the seven strict rows and repaired the extractor to record exact missing state evidence. No row had enough source-backed evidence to move to clean freshness plus clean blocker/caution.
+- This was not deep proof review, not outcome review, not live trading, not a proof claim, and not a profitability claim.
+- Source-pool rows/windows inspected: 60.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Close-ready count: 7.
+- Blocked/drop/replace/duplicate counts among accepted strict rows: 7/0/0/0.
+- Any row became intake-ready: NO.
+- Fewer than 5 intake-ready rows remain: YES.
+- Maximum strict candidates found: 7.
+- Exact blocker: only 7 strict candidates found; current local docs/data do not support 20-50 strict candidates; freshness/final-signal plus blocker/caution remains unresolved.
+- State-model repair: `watcher_foundation/candidate_freshness_blocker_state.py` now carries `freshness_missing_evidence` and `blocker_missing_evidence` for each strict row and has a stdout-only command report.
+- Intake integration: `watcher_foundation/candidate_source_pool_intake.py` now carries the exact missing state evidence into the ranked intake table.
+- Per-row state decisions:
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: remains blocked; `freshness_state=gap_context_incomplete`; `blocker_state=context_incomplete`; missing freshness evidence is a source-backed gap-context field/rule before or at `2026-04-13T12:30:00-04:00` plus a Clean Fast Break stale/spent expiry rule for gap/impulse context; missing blocker evidence is that primary blocker null is not enough while replay cautions remain `MACRO_UNCONFIRMED`, `IV_UNCONFIRMED`, `EVENT_UNCONFIRMED`, context_24h remains `CONTEXT_24H_DAILY_UNCONFIRMED`, and the source CSV has no complete caution/context review field.
+  - `QQQ-REAL-HISTORICAL-CONTINUATION-001`: remains blocked; `freshness_state=session_boundary_unclear`; `blocker_state=context_incomplete`; missing freshness evidence is a next-session Continuation freshness/carry-forward rule and source-backed session-boundary evidence authorizing a `2026-05-01` entry from the `2026-04-30T15:30:00-04:00` signal; missing blocker evidence is primary blocker null only plus missing session-boundary caution review and unconfirmed 24H/macro/IV/event context.
+  - `QQQ-REAL-HISTORICAL-IDEAL-001`: remains blocked; `freshness_state=setup_specific_rules_incomplete`; `blocker_state=wide_risk_caution`; missing freshness evidence is an Ideal-specific stale/spent expiry rule and source-backed fast-swing hold freshness rule; missing blocker evidence is an accepted wide-risk or room threshold for QQQ Ideal plus unconfirmed 24H/macro/IV/event context.
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: remains blocked; `freshness_state=setup_specific_rules_incomplete`; `blocker_state=context_incomplete`; missing freshness evidence is a Clean Fast Break higher-base/fresh-break stale/spent expiry rule for the `2026-04-15T14:30:00-04:00` signal; missing blocker evidence is primary blocker null only plus unconfirmed 24H/macro/IV/event/room context and no complete added-row caution review.
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001`: remains blocked; `freshness_state=intrabar_ordering_incomplete`; `blocker_state=context_incomplete`; missing freshness evidence is lower-timeframe or order-of-events evidence inside the `2026-04-30T12:30:00-04:00` and `2026-04-30T13:30:00-04:00` 1H candles; missing blocker evidence is primary blocker null only plus unconfirmed 24H/macro/IV/event/headline/room/caution context.
+  - `SPY-REAL-HISTORICAL-IDEAL-001`: remains blocked; `freshness_state=setup_specific_rules_incomplete`; `blocker_state=context_incomplete`; missing freshness evidence is an Ideal-specific stale/spent expiry rule for SPY same-session Ideal signals; missing blocker evidence is primary blocker null only plus unconfirmed 24H/macro/IV/event/gap/headline/room/option/execution and complete caution context.
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: remains blocked; `freshness_state=setup_specific_rules_incomplete`; `blocker_state=context_incomplete`; missing freshness evidence is a Clean Fast Break initial-break stale/spent expiry rule for the `2026-04-13T12:30:00-04:00` signal; missing blocker evidence is primary blocker null only plus unconfirmed 24H/macro/IV/event/room and complete caution review.
+- Source files inspected:
+  - `SAFE_FAST_ARCHITECT_CONTROL_AND_PROJECT_TIGHTENING.md`
+  - `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`
+  - `SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md`
+  - `SAFE_FAST_DAY38_SPY_QQQ_BATCH_CANDIDATE_EXPANSION_REVIEW.md`
+  - `watcher_foundation/candidate_freshness_blocker_state.py`
+  - `watcher_foundation/candidate_source_pool_intake.py`
+  - `watcher_foundation/candidate_completeness_screen.py`
+  - `tests/test_candidate_freshness_blocker_state.py`
+  - `tests/test_candidate_source_pool_intake.py`
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+  - `historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/first_real_qqq_continuation_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/first_real_qqq_ideal_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/first_real_spy_continuation_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/second_real_spy_ideal_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl`
+- Intake helper reported source files inspected:
+  - `historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/first_real_qqq_continuation_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/first_real_qqq_ideal_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/first_real_spy_continuation_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/second_real_spy_ideal_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv`
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+- `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md` was read but not edited because this build-state entry preserves the bounded repair result.
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_state.py"` PASS, 10 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 13 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_completeness_screen.py"` PASS, 11 tests.
+  - `python -B -m unittest discover -s tests -p "test_historical_candidate_batch_triage.py"` PASS, 18 tests.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_state` PASS and printed the state report to stdout only.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the strict source-pool intake report to stdout only.
+  - `python -B -m watcher_foundation.candidate_completeness_screen` PASS and printed the ranked table to stdout only.
+- No generated report/log/CSV/JSON output file was created.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: because fewer than 5 rows became intake-ready, do not deep-review; repair or add source-backed freshness/blocker evidence in batch by defining and testing the missing rules/fields: Clean Fast Break gap/higher-base/initial-break stale-spent expiry, Continuation next-session carry-forward, Ideal stale-spent/fast-swing freshness, intrabar ordering evidence requirements, accepted wide-risk/room thresholds, and complete context/caution review fields.

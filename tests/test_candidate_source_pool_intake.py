@@ -124,7 +124,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertIn("694.2801", added["invalidation"])
         self.assertEqual(added["status"], "blocked")
         self.assertEqual(added["duplicate"], "no")
-        self.assertIn("freshness/final-signal", added["reason"])
+        self.assertIn("higher-base/fresh-break stale/spent expiry rule", added["reason"])
 
     def test_expansion_rejected_families_are_reported_without_promoting_no_trade_rows(self):
         result = intake.build_source_pool_intake()
@@ -138,16 +138,41 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         by_id = {row["candidate_id"]: row for row in result["accepted_rows"]}
 
         self.assertIn(
-            "next-session entry freshness/session-boundary unresolved",
+            "no next-session carry-forward rule",
             by_id["QQQ-REAL-HISTORICAL-CONTINUATION-001"]["reason"],
         )
         self.assertIn(
-            "wide-risk and complete context/caution review incomplete",
+            "no accepted risk/room threshold",
             by_id["QQQ-REAL-HISTORICAL-IDEAL-001"]["reason"],
         )
         self.assertIn(
-            "final freshness review incomplete",
+            "Clean Fast Break initial-break expiry threshold",
             by_id["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"]["reason"],
+        )
+
+    def test_integrated_rows_preserve_exact_missing_state_evidence(self):
+        result = intake.build_source_pool_intake()
+        by_id = {row["candidate_id"]: row for row in result["accepted_rows"]}
+
+        self.assertIn(
+            "missing source-backed gap_context field/rule",
+            by_id["QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"]["freshness_missing_evidence"],
+        )
+        self.assertIn(
+            "missing next-session Continuation freshness/carry-forward rule",
+            by_id["QQQ-REAL-HISTORICAL-CONTINUATION-001"]["freshness_missing_evidence"],
+        )
+        self.assertIn(
+            "missing Ideal-specific stale/spent expiry rule",
+            by_id["SPY-REAL-HISTORICAL-IDEAL-001"]["freshness_missing_evidence"],
+        )
+        self.assertIn(
+            "missing accepted wide-risk or room threshold",
+            by_id["QQQ-REAL-HISTORICAL-IDEAL-001"]["blocker_missing_evidence"],
+        )
+        self.assertIn(
+            "CONTEXT_24H_DAILY_UNCONFIRMED",
+            by_id["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"]["blocker_missing_evidence"],
         )
 
     def test_no_proof_or_profitability_claims_are_present(self):
