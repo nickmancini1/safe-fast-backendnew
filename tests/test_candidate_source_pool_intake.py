@@ -19,13 +19,13 @@ EXPECTED_SURVIVAL_STATUSES = {
     "QQQ-REAL-HISTORICAL-CONTINUATION-001": "replace",
     "QQQ-REAL-HISTORICAL-IDEAL-001": "replace",
     "SPY-REAL-HISTORICAL-CONTINUATION-001": "replace",
-    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": "active_blocked",
-    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": "active_blocked",
-    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": "active_blocked",
-    "SPY-REAL-HISTORICAL-IDEAL-001": "active_blocked",
+    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": "parked/source_data_insufficient",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": "parked/source_data_insufficient",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": "parked/source_data_insufficient",
+    "SPY-REAL-HISTORICAL-IDEAL-001": "parked/source_data_insufficient",
 }
 
-EXPECTED_ACTIVE_BLOCKED_IDS = {
+EXPECTED_PARKED_SOURCE_DATA_INSUFFICIENT_IDS = {
     "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
@@ -77,9 +77,9 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         result = intake.build_source_pool_intake()
 
         self.assertEqual(result["survival_status_by_candidate"], EXPECTED_SURVIVAL_STATUSES)
-        self.assertEqual(result["survival_active_blocked_count"], 4)
+        self.assertEqual(result["survival_active_blocked_count"], 0)
         self.assertEqual(result["survival_replace_count"], 3)
-        self.assertEqual(result["survival_parked_count"], 0)
+        self.assertEqual(result["survival_parked_count"], 4)
         self.assertEqual(result["survival_intake_ready_count"], 0)
         self.assertEqual(len(result["survival_map_rows"]), 7)
 
@@ -87,14 +87,23 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         result = intake.build_source_pool_intake()
         requirements = result["active_path_evidence_requirements"]
 
-        self.assertEqual(set(requirements["covered_candidate_ids"]), EXPECTED_ACTIVE_BLOCKED_IDS)
+        self.assertEqual(
+            set(requirements["covered_candidate_ids"]),
+            EXPECTED_PARKED_SOURCE_DATA_INSUFFICIENT_IDS,
+        )
+        self.assertEqual(requirements["active_blocked_candidate_ids"], ())
+        self.assertEqual(
+            set(requirements["parked_source_data_insufficient_candidate_ids"]),
+            EXPECTED_PARKED_SOURCE_DATA_INSUFFICIENT_IDS,
+        )
         self.assertEqual(requirements["covered_count"], 4)
         self.assertEqual(requirements["requirements_count"], 9)
         self.assertEqual(requirements["proof_allowed_count"], 0)
         self.assertEqual(result["accepted_intake_count"], 7)
         self.assertEqual(result["intake_ready_count"], 0)
-        self.assertEqual(result["survival_active_blocked_count"], 4)
+        self.assertEqual(result["survival_active_blocked_count"], 0)
         self.assertEqual(result["survival_replace_count"], 3)
+        self.assertEqual(result["survival_parked_count"], 4)
 
     def test_active_path_evidence_requirements_have_no_current_data_by_row(self):
         result = intake.build_source_pool_intake()
@@ -102,7 +111,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
 
         self.assertEqual(
             set(requirements["current_repo_has_enough_data_by_candidate"]),
-            EXPECTED_ACTIVE_BLOCKED_IDS,
+            EXPECTED_PARKED_SOURCE_DATA_INSUFFICIENT_IDS,
         )
         self.assertTrue(
             all(
@@ -123,7 +132,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
 
         self.assertTrue(action["action_applied"])
         self.assertEqual(action["candidate_id"], "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001")
-        self.assertEqual(action["status"], "active_blocked")
+        self.assertEqual(action["status"], "parked/source_data_insufficient")
         self.assertIn("gap-context", " ".join(action["exact_missing_evidence"]))
         self.assertIn("Clean Fast Break stale/spent expiry", " ".join(action["exact_missing_evidence"]))
         self.assertIn("context/caution", " ".join(action["exact_missing_evidence"]))
@@ -137,7 +146,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
 
         self.assertTrue(action["action_applied"])
         self.assertEqual(action["candidate_id"], "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003")
-        self.assertEqual(action["status"], "active_blocked")
+        self.assertEqual(action["status"], "parked/source_data_insufficient")
         self.assertIn("higher-base/fresh-break expiry", " ".join(action["exact_missing_evidence"]))
         self.assertIn("context/caution", " ".join(action["exact_missing_evidence"]))
         self.assertEqual(action["clean_rule_evidence"], ())
@@ -150,7 +159,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
 
         self.assertTrue(action["action_applied"])
         self.assertEqual(action["candidate_id"], "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002")
-        self.assertEqual(action["status"], "active_blocked")
+        self.assertEqual(action["status"], "parked/source_data_insufficient")
         self.assertIn("initial-break expiry", " ".join(action["exact_missing_evidence"]))
         self.assertIn("context/caution", " ".join(action["exact_missing_evidence"]))
         self.assertEqual(action["clean_rule_evidence"], ())
@@ -163,7 +172,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
 
         self.assertTrue(action["action_applied"])
         self.assertEqual(action["candidate_id"], "SPY-REAL-HISTORICAL-IDEAL-001")
-        self.assertEqual(action["status"], "active_blocked")
+        self.assertEqual(action["status"], "parked/source_data_insufficient")
         self.assertIn("SPY Ideal stale/spent expiry", " ".join(action["exact_missing_evidence"]))
         self.assertIn("context/caution", " ".join(action["exact_missing_evidence"]))
         self.assertEqual(action["clean_rule_evidence"], ())
@@ -239,7 +248,10 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertIn("Continuation has been narrowed", result["smallest_next_evidence_backed_fix"])
         self.assertIn("SPY Continuation intrabar-dependent rows", result["smallest_next_evidence_backed_fix"])
         self.assertIn("Ideal has been narrowed", result["smallest_next_evidence_backed_fix"])
-        self.assertIn("Clean Fast Break remains blocked", result["smallest_next_evidence_backed_fix"])
+        self.assertIn(
+            "parked/source_data_insufficient",
+            result["smallest_next_evidence_backed_fix"],
+        )
         self.assertIn("context/caution review remains source-data insufficient", result["smallest_next_evidence_backed_fix"])
         self.assertIn("room/risk thresholds", result["smallest_next_evidence_backed_fix"])
 
@@ -389,7 +401,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertIn("new strict candidates added: SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003", report)
         self.assertIn("fewer than 5 intake-ready rows remain: YES", report)
         self.assertIn(
-            "survival active_blocked/replace/parked/intake_ready counts: 4/3/0/0",
+            "survival active_blocked/replace/parked/intake_ready counts: 0/3/4/0",
             report,
         )
         self.assertIn("active-path evidence rows covered: 4", report)
@@ -399,13 +411,13 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
             report,
         )
         self.assertIn("QQQ CFB survival action applied: YES", report)
-        self.assertIn("QQQ CFB status: active_blocked", report)
+        self.assertIn("QQQ CFB status: parked/source_data_insufficient", report)
         self.assertIn("SPY CFB 003 survival action applied: YES", report)
-        self.assertIn("SPY CFB 003 status: active_blocked", report)
+        self.assertIn("SPY CFB 003 status: parked/source_data_insufficient", report)
         self.assertIn("SPY CFB 002 survival action applied: YES", report)
-        self.assertIn("SPY CFB 002 status: active_blocked", report)
+        self.assertIn("SPY CFB 002 status: parked/source_data_insufficient", report)
         self.assertIn("SPY Ideal survival action applied: YES", report)
-        self.assertIn("SPY Ideal status: active_blocked", report)
+        self.assertIn("SPY Ideal status: parked/source_data_insufficient", report)
         self.assertIn("ranked intake table:", report)
         self.assertIn("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001", report)
 

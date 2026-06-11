@@ -35,9 +35,9 @@ Decision counts:
 ## Survival Summary
 
 - Strict rows covered: 7.
-- `active_blocked`: 4.
+- `active_blocked`: 0.
 - `replace`: 3.
-- `parked`: 0.
+- `parked`: 4.
 - `intake_ready`: 0.
 - Proof allowed rows: 0.
 - Active-path evidence requirement table: `SAFE_FAST_ACTIVE_PATH_EVIDENCE_REQUIREMENTS.md`.
@@ -48,7 +48,7 @@ Decision counts:
 
 - Candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
 - Survival action applied: YES.
-- Status: `active_blocked`.
+- Status: `parked/source_data_insufficient`.
 - Exact missing evidence:
   - source-backed QQQ gap-context completeness field/rule.
   - tested Clean Fast Break stale/spent expiry rule.
@@ -63,7 +63,7 @@ Decision counts:
 
 - Candidate: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`.
 - Survival action applied: YES.
-- Status: `active_blocked`.
+- Status: `parked/source_data_insufficient`.
 - Repo-backed clean rule evidence found: none.
 - Exact missing evidence:
   - tested Clean Fast Break higher-base/fresh-break expiry rule.
@@ -81,7 +81,7 @@ Decision counts:
 
 - Candidate: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`.
 - Survival action applied: YES.
-- Status: `active_blocked`.
+- Status: `parked/source_data_insufficient`.
 - Repo-backed clean rule evidence found: none.
 - Exact missing evidence:
   - tested Clean Fast Break initial-break expiry rule.
@@ -100,7 +100,7 @@ Decision counts:
 
 - Candidate: `SPY-REAL-HISTORICAL-IDEAL-001`.
 - Survival action applied: YES.
-- Status: `active_blocked`.
+- Status: `parked/source_data_insufficient`.
 - Repo-backed clean rule evidence found: none.
 - Exact missing evidence:
   - tested SPY Ideal stale/spent expiry rule.
@@ -119,13 +119,13 @@ Decision counts:
 
 | Candidate ID | Symbol | Setup type | Current status | Blocking rule family | Rule decision applied | Exact reason | Next evidence fix | Proof allowed |
 |---|---|---|---|---|---|---|---|---|
-| `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` | QQQ | Clean Fast Break | `active_blocked` | Clean Fast Break expiry; Clean Fast Break gap context; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT` | Applied survival action: active_blocked. QQQ gap-context, Clean Fast Break expiry, and complete context/caution source-backed evidence are insufficient; `final_verdict=TRADE` and primary blocker null cannot promote. | Add source-backed QQQ gap-context evidence, define a tested Clean Fast Break expiry rule, and add complete context/caution review fields before proof review. | NO |
+| `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` | QQQ | Clean Fast Break | `parked/source_data_insufficient` | Clean Fast Break expiry; Clean Fast Break gap context; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT` | Applied final pool action: parked/source_data_insufficient. QQQ gap-context, Clean Fast Break expiry, and complete context/caution source-backed evidence are insufficient; `final_verdict=TRADE` and primary blocker null cannot promote. | Add source-backed QQQ gap-context evidence, define a tested Clean Fast Break expiry rule, and add complete context/caution review fields before proof review. | NO |
 | `QQQ-REAL-HISTORICAL-CONTINUATION-001` | QQQ | Continuation | `replace` | Continuation next-session freshness; Continuation session-boundary freshness; Context/caution review | `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; `SOURCE_DATA_INSUFFICIENT` | Next-session/session-boundary carry-forward freshness is outside the narrowed Continuation path and complete context/caution evidence is still insufficient. | Replace with same-session Continuation evidence or source and regression-test a next-session/session-boundary carry-forward rule plus complete context/caution fields. | NO |
 | `QQQ-REAL-HISTORICAL-IDEAL-001` | QQQ | Ideal | `replace` | Ideal stale/spent expiry; Ideal fast-swing freshness; Wide-risk / room threshold; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; `SOURCE_DATA_INSUFFICIENT` | Fast-swing/wide-risk Ideal is outside the narrowed Ideal path; stale/spent expiry, room/risk threshold, and complete context/caution evidence are not source-backed. | Replace with Ideal evidence inside the narrowed path or source and regression-test fast-swing freshness, stale/spent expiry, room/risk thresholds, and complete context/caution fields. | NO |
-| `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` | SPY | Clean Fast Break | `active_blocked` | Clean Fast Break expiry; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT` | Clean Fast Break higher-base/fresh-break expiry is not source-backed and complete context/caution review remains insufficient. | Define and regression-test Clean Fast Break higher-base/fresh-break expiry and add complete context/caution review fields before proof review. | NO |
+| `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` | SPY | Clean Fast Break | `parked/source_data_insufficient` | Clean Fast Break expiry; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT` | Applied final pool action: parked/source_data_insufficient. Clean Fast Break higher-base/fresh-break expiry is not source-backed and complete context/caution review remains insufficient. | Define and regression-test Clean Fast Break higher-base/fresh-break expiry and add complete context/caution review fields before proof review. | NO |
 | `SPY-REAL-HISTORICAL-CONTINUATION-001` | SPY | Continuation | `replace` | Continuation session-boundary freshness; Intrabar ordering; Context/caution review | `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; `KILL_OR_NARROW_SETUP_SYMBOL_PATH`; `SOURCE_DATA_INSUFFICIENT` | Intrabar order-of-events inside completed 1H candles cannot be proven from current source rows, so this Continuation row is outside the narrowed path; complete context/caution evidence is also insufficient. | Replace with lower-timeframe/order-of-events evidence or exclude intrabar-dependent Continuation rows from proof review; add complete context/caution fields if restored. | NO |
-| `SPY-REAL-HISTORICAL-IDEAL-001` | SPY | Ideal | `active_blocked` | Ideal stale/spent expiry; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT` | Applied survival action: active_blocked. Same-session Ideal has a triggered signal-stage row and later spent lifecycle row, but no tested SPY Ideal stale/spent expiry rule and no complete source-backed context/caution review; primary blocker null cannot promote. | Define and regression-test SPY Ideal stale/spent expiry and add complete context/caution review fields before proof review. | NO |
-| `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` | SPY | Clean Fast Break | `active_blocked` | Clean Fast Break expiry; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT` | Clean Fast Break initial-break expiry is not source-backed and complete context/caution review remains insufficient. | Define and regression-test Clean Fast Break initial-break expiry and add complete context/caution review fields before proof review. | NO |
+| `SPY-REAL-HISTORICAL-IDEAL-001` | SPY | Ideal | `parked/source_data_insufficient` | Ideal stale/spent expiry; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT` | Applied final pool action: parked/source_data_insufficient. Same-session Ideal has a triggered signal-stage row and later spent lifecycle row, but no tested SPY Ideal stale/spent expiry rule and no complete source-backed context/caution review; primary blocker null cannot promote. | Define and regression-test SPY Ideal stale/spent expiry and add complete context/caution review fields before proof review. | NO |
+| `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` | SPY | Clean Fast Break | `parked/source_data_insufficient` | Clean Fast Break expiry; Context/caution review | `SOURCE_DATA_INSUFFICIENT`; `SOURCE_DATA_INSUFFICIENT` | Applied final pool action: parked/source_data_insufficient. Clean Fast Break initial-break expiry is not source-backed and complete context/caution review remains insufficient. | Define and regression-test Clean Fast Break initial-break expiry and add complete context/caution review fields before proof review. | NO |
 
 ## Next Evidence Fixes
 

@@ -22,13 +22,13 @@ EXPECTED_SURVIVAL_STATUSES = {
     "QQQ-REAL-HISTORICAL-CONTINUATION-001": "replace",
     "QQQ-REAL-HISTORICAL-IDEAL-001": "replace",
     "SPY-REAL-HISTORICAL-CONTINUATION-001": "replace",
-    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": "active_blocked",
-    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": "active_blocked",
-    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": "active_blocked",
-    "SPY-REAL-HISTORICAL-IDEAL-001": "active_blocked",
+    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": "parked/source_data_insufficient",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": "parked/source_data_insufficient",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": "parked/source_data_insufficient",
+    "SPY-REAL-HISTORICAL-IDEAL-001": "parked/source_data_insufficient",
 }
 
-EXPECTED_ACTIVE_BLOCKED_IDS = {
+EXPECTED_PARKED_SOURCE_DATA_INSUFFICIENT_IDS = {
     "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
@@ -68,9 +68,9 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
             set(gate.STRICT_CANDIDATE_IDS),
         )
         self.assertEqual(survival_map["status_by_candidate"], EXPECTED_SURVIVAL_STATUSES)
-        self.assertEqual(survival_map["active_blocked_count"], 4)
+        self.assertEqual(survival_map["active_blocked_count"], 0)
         self.assertEqual(survival_map["replace_count"], 3)
-        self.assertEqual(survival_map["parked_count"], 0)
+        self.assertEqual(survival_map["parked_count"], 4)
         self.assertEqual(survival_map["intake_ready_count"], 0)
 
     def test_survival_map_rows_include_required_fields_and_no_proof_allowed(self):
@@ -89,7 +89,7 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
 
         for row in survival_map["survival_map_rows"]:
             self.assertEqual(set(row), required_fields)
-            self.assertIn(row["current_status"], {"active_blocked", "replace"})
+            self.assertIn(row["current_status"], {"parked/source_data_insufficient", "replace"})
             self.assertFalse(row["proof_allowed"])
             self.assertIn("SOURCE_DATA_INSUFFICIENT", row["rule_decision_applied"])
             self.assertNotEqual(row["next_evidence_fix"], "")
@@ -98,14 +98,18 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         for candidate_id, expected_status in EXPECTED_SURVIVAL_STATUSES.items():
             self.assertEqual(gate.candidate_survival_status(candidate_id), expected_status)
 
-    def test_active_path_requirements_cover_all_four_active_blocked_rows(self):
+    def test_active_path_requirements_cover_all_four_parked_rows(self):
         requirements = gate.build_active_path_evidence_requirements()
 
+        self.assertEqual(requirements["active_blocked_candidate_ids"], ())
         self.assertEqual(
-            set(requirements["active_blocked_candidate_ids"]),
-            EXPECTED_ACTIVE_BLOCKED_IDS,
+            set(requirements["parked_source_data_insufficient_candidate_ids"]),
+            EXPECTED_PARKED_SOURCE_DATA_INSUFFICIENT_IDS,
         )
-        self.assertEqual(set(requirements["covered_candidate_ids"]), EXPECTED_ACTIVE_BLOCKED_IDS)
+        self.assertEqual(
+            set(requirements["covered_candidate_ids"]),
+            EXPECTED_PARKED_SOURCE_DATA_INSUFFICIENT_IDS,
+        )
         self.assertEqual(requirements["covered_count"], 4)
         self.assertEqual(requirements["requirements_count"], 9)
 
@@ -113,7 +117,7 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         requirements = gate.build_active_path_evidence_requirements()
 
         for row in requirements["requirements_rows"]:
-            self.assertIn(row["candidate_id"], EXPECTED_ACTIVE_BLOCKED_IDS)
+            self.assertIn(row["candidate_id"], EXPECTED_PARKED_SOURCE_DATA_INSUFFICIENT_IDS)
             self.assertNotEqual(row["exact_missing_rule_or_evidence"], "")
             self.assertNotEqual(row["required_source_field_or_log_evidence"], "")
             self.assertNotEqual(row["source_file_or_doc"], "")
@@ -123,7 +127,7 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
                     for marker in (".csv", ".jsonl", ".md", ".py")
                 )
             )
-            self.assertIn(row["decision_if_missing"], {"repair-source", "add-validator"})
+            self.assertEqual(row["decision_if_missing"], "parked/source_data_insufficient")
             self.assertFalse(row["current_repo_has_enough_data"])
             self.assertFalse(row["proof_allowed"])
 
@@ -161,7 +165,7 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
 
         self.assertEqual(
             set(requirements["current_repo_has_enough_data_by_candidate"]),
-            EXPECTED_ACTIVE_BLOCKED_IDS,
+            EXPECTED_PARKED_SOURCE_DATA_INSUFFICIENT_IDS,
         )
         self.assertTrue(
             all(
@@ -181,11 +185,14 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertFalse(requirements["proof_accepted"])
         self.assertFalse(requirements["profitability_claimed"])
 
-    def test_active_path_rows_cannot_promote_while_requirements_are_unmet(self):
+    def test_parked_source_data_insufficient_rows_cannot_promote(self):
         requirements = gate.build_active_path_evidence_requirements()
 
-        for candidate_id in requirements["active_blocked_candidate_ids"]:
-            self.assertEqual(gate.candidate_survival_status(candidate_id), "active_blocked")
+        for candidate_id in requirements["parked_source_data_insufficient_candidate_ids"]:
+            self.assertEqual(
+                gate.candidate_survival_status(candidate_id),
+                "parked/source_data_insufficient",
+            )
             self.assertFalse(
                 gate.candidate_can_promote(
                     candidate_id,
@@ -195,12 +202,12 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
                 )
             )
 
-    def test_qqq_cfb_survival_action_is_applied_as_active_blocked(self):
+    def test_qqq_cfb_survival_action_is_applied_as_parked(self):
         action = gate.qqq_cfb_survival_action()
 
         self.assertTrue(action["action_applied"])
         self.assertEqual(action["candidate_id"], "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001")
-        self.assertEqual(action["status"], "active_blocked")
+        self.assertEqual(action["status"], "parked/source_data_insufficient")
         self.assertFalse(action["proof_allowed"])
         self.assertFalse(action["proof_accepted"])
         self.assertFalse(action["profitability_claimed"])
@@ -214,14 +221,14 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertIn("Clean Fast Break stale/spent expiry", missing)
         self.assertIn("context/caution", missing)
 
-    def test_spy_cfb_003_survival_action_is_applied_as_active_blocked(self):
+    def test_spy_cfb_003_survival_action_is_applied_as_parked(self):
         action = gate.spy_cfb_003_survival_action()
 
         self.assertTrue(action["action_applied"])
         self.assertEqual(
             action["candidate_id"], "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003"
         )
-        self.assertEqual(action["status"], "active_blocked")
+        self.assertEqual(action["status"], "parked/source_data_insufficient")
         self.assertFalse(action["proof_allowed"])
         self.assertFalse(action["proof_accepted"])
         self.assertFalse(action["profitability_claimed"])
@@ -273,14 +280,14 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
             )
         )
 
-    def test_spy_cfb_002_survival_action_is_applied_as_active_blocked(self):
+    def test_spy_cfb_002_survival_action_is_applied_as_parked(self):
         action = gate.spy_cfb_002_survival_action()
 
         self.assertTrue(action["action_applied"])
         self.assertEqual(
             action["candidate_id"], "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"
         )
-        self.assertEqual(action["status"], "active_blocked")
+        self.assertEqual(action["status"], "parked/source_data_insufficient")
         self.assertFalse(action["proof_allowed"])
         self.assertFalse(action["proof_accepted"])
         self.assertFalse(action["profitability_claimed"])
@@ -462,9 +469,9 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
             )
             self.assertEqual(gate.candidate_survival_status(candidate_id), "replace")
 
-    def test_active_blocked_rows_cannot_promote_without_source_backed_evidence(self):
+    def test_parked_rows_cannot_promote_without_source_backed_evidence(self):
         for candidate_id, status in EXPECTED_SURVIVAL_STATUSES.items():
-            if status != "active_blocked":
+            if status != "parked/source_data_insufficient":
                 continue
             self.assertFalse(
                 gate.candidate_can_promote(
@@ -474,7 +481,10 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
                     complete_context_caution_review=True,
                 )
             )
-            self.assertEqual(gate.candidate_survival_status(candidate_id), "active_blocked")
+            self.assertEqual(
+                gate.candidate_survival_status(candidate_id),
+                "parked/source_data_insufficient",
+            )
 
     def test_next_session_continuation_is_outside_narrowed_path(self):
         candidate_id = "QQQ-REAL-HISTORICAL-CONTINUATION-001"
@@ -550,12 +560,12 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
             )
         )
 
-    def test_spy_ideal_survival_action_is_applied_as_active_blocked(self):
+    def test_spy_ideal_survival_action_is_applied_as_parked(self):
         action = gate.spy_ideal_survival_action()
 
         self.assertTrue(action["action_applied"])
         self.assertEqual(action["candidate_id"], "SPY-REAL-HISTORICAL-IDEAL-001")
-        self.assertEqual(action["status"], "active_blocked")
+        self.assertEqual(action["status"], "parked/source_data_insufficient")
         self.assertFalse(action["proof_allowed"])
         self.assertFalse(action["proof_accepted"])
         self.assertFalse(action["profitability_claimed"])
@@ -702,16 +712,17 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         self.assertIn("decision=SOURCE_DATA_INSUFFICIENT", report)
         self.assertIn("decision=KILL_OR_NARROW_SETUP_SYMBOL_PATH", report)
         self.assertIn("survival summary:", report)
-        self.assertIn("active_blocked count: 4", report)
+        self.assertIn("active_blocked count: 0", report)
         self.assertIn("replace count: 3", report)
+        self.assertIn("parked count: 4", report)
         self.assertIn("QQQ CFB survival action applied: YES", report)
-        self.assertIn("QQQ CFB status: active_blocked", report)
+        self.assertIn("QQQ CFB status: parked/source_data_insufficient", report)
         self.assertIn("SPY CFB 003 survival action applied: YES", report)
-        self.assertIn("SPY CFB 003 status: active_blocked", report)
+        self.assertIn("SPY CFB 003 status: parked/source_data_insufficient", report)
         self.assertIn("SPY CFB 002 survival action applied: YES", report)
-        self.assertIn("SPY CFB 002 status: active_blocked", report)
+        self.assertIn("SPY CFB 002 status: parked/source_data_insufficient", report)
         self.assertIn("SPY Ideal survival action applied: YES", report)
-        self.assertIn("SPY Ideal status: active_blocked", report)
+        self.assertIn("SPY Ideal status: parked/source_data_insufficient", report)
         self.assertIn("active-path evidence requirements:", report)
         self.assertIn("current_repo_has_enough_data=NO", report)
         self.assertIn("proof_allowed=NO", report)

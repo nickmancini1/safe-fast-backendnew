@@ -459,19 +459,19 @@ Day 39 now has the final rule-decision survival map after applying Continuation,
 - Survival map: `SAFE_FAST_RULE_DECISION_SURVIVAL_MAP.md`.
 - Strict rows covered: 7.
 - All 9 rule-family decisions are applied.
-- `active_blocked`: 4.
+- `active_blocked`: 0.
 - `replace`: 3.
-- `parked`: 0.
+- `parked`: 4.
 - `intake_ready`: 0.
 - Proof allowed rows: 0.
 - `QQQ-REAL-HISTORICAL-CONTINUATION-001`: `replace`.
 - `QQQ-REAL-HISTORICAL-IDEAL-001`: `replace`.
 - `SPY-REAL-HISTORICAL-CONTINUATION-001`: `replace`.
-- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: `active_blocked`.
-- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: `active_blocked`.
-- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: `active_blocked`.
-- `SPY-REAL-HISTORICAL-IDEAL-001`: `active_blocked`.
-- Active blocked next evidence fixes: source-backed QQQ gap-context evidence; Clean Fast Break expiry rules; SPY Ideal stale/spent expiry; complete context/caution review fields.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: `parked/source_data_insufficient`.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: `parked/source_data_insufficient`.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: `parked/source_data_insufficient`.
+- `SPY-REAL-HISTORICAL-IDEAL-001`: `parked/source_data_insufficient`.
+- Parked/source-data-insufficient next evidence fixes: source-backed QQQ gap-context evidence; Clean Fast Break expiry rules; SPY Ideal stale/spent expiry; complete context/caution review fields.
 - Replacement next evidence fixes: same-session Continuation evidence or tested carry-forward rule; lower-timeframe/order-of-events Continuation evidence; inside-path Ideal evidence or tested fast-swing freshness plus room/risk thresholds.
 - Rule-gate CLI now prints the survival summary.
 - Source-pool intake CLI now prints survival active_blocked/replace/parked/intake_ready counts.
@@ -480,19 +480,21 @@ Day 39 now has the final rule-decision survival map after applying Continuation,
 
 ## Active-path evidence requirements
 
-Day 39 now has the active-path evidence requirement table for the four `active_blocked` rows:
+Day 39 now has the active-path evidence requirement table and final parked action for the four formerly `active_blocked` rows:
 
 - Requirement table: `SAFE_FAST_ACTIVE_PATH_EVIDENCE_REQUIREMENTS.md`.
 - Active rows covered: 4.
 - Requirement rows: 9.
+- Final active_blocked count: 0.
+- Final parked/source_data_insufficient count: 4.
 - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: missing source-backed QQQ gap-context evidence, tested Clean Fast Break stale/spent expiry, and complete context/caution fields.
 - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: missing tested higher-base/fresh-break expiry and complete context/caution fields.
 - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: missing tested initial-break expiry and complete context/caution fields.
 - `SPY-REAL-HISTORICAL-IDEAL-001`: missing tested SPY Ideal stale/spent expiry and complete context/caution fields.
-- Current repo has enough data for each active row: NO.
+- Current repo has enough data for each formerly active row: NO.
 - Proof allowed rows: 0.
 - Rule-gate CLI now prints active-path evidence requirements.
-- Source-pool intake CLI now prints active-path coverage, proof-allowed count, and current repo data availability by active row.
+- Source-pool intake CLI now prints active-path coverage, proof-allowed count, and current repo data availability by formerly active row.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 
@@ -500,7 +502,7 @@ Day 39 now has the active-path evidence requirement table for the four `active_b
 
 - Candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
 - Survival action applied: YES.
-- Status: `active_blocked`.
+- Status: `parked/source_data_insufficient`.
 - Exact missing evidence:
   - source-backed QQQ gap-context completeness field/rule.
   - tested Clean Fast Break stale/spent expiry rule.
@@ -508,7 +510,7 @@ Day 39 now has the active-path evidence requirement table for the four `active_b
 - Clean rule evidence found: none.
 - Accepted intake count: 7.
 - Intake-ready count: 0.
-- Survival counts remain `active_blocked` 4, `replace` 3, `parked` 0, `intake_ready` 0.
+- Survival counts now `active_blocked` 0, `replace` 3, `parked` 4, `intake_ready` 0.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 
@@ -516,7 +518,7 @@ Day 39 now has the active-path evidence requirement table for the four `active_b
 
 - Candidate: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`.
 - Survival action applied: YES.
-- Status: `active_blocked`.
+- Status: `parked/source_data_insufficient`.
 - Repo-backed clean rule evidence found: none.
 - Exact missing evidence:
   - tested Clean Fast Break higher-base/fresh-break expiry rule.
@@ -524,7 +526,7 @@ Day 39 now has the active-path evidence requirement table for the four `active_b
 - Applied result: SPY Clean Fast Break 003 cannot promote through missing higher-base/fresh-break expiry or incomplete context/caution.
 - Accepted intake count: 7.
 - Intake-ready count: 0.
-- Survival counts remain `active_blocked` 4, `replace` 3, `parked` 0, `intake_ready` 0.
+- Survival counts now `active_blocked` 0, `replace` 3, `parked` 4, `intake_ready` 0.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 
@@ -532,7 +534,7 @@ Day 39 now has the active-path evidence requirement table for the four `active_b
 
 - Candidate: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`.
 - Survival action applied: YES.
-- Status: `active_blocked`.
+- Status: `parked/source_data_insufficient`.
 - Repo-backed clean rule evidence found: none.
 - Exact missing evidence:
   - tested Clean Fast Break initial-break expiry rule.
@@ -544,7 +546,7 @@ Day 39 now has the active-path evidence requirement table for the four `active_b
 - Applied result: SPY Clean Fast Break 002 cannot promote through missing initial-break expiry or incomplete context/caution.
 - Accepted intake count: 7.
 - Intake-ready count: 0.
-- Survival counts remain `active_blocked` 4, `replace` 3, `parked` 0, `intake_ready` 0.
+- Survival counts now `active_blocked` 0, `replace` 3, `parked` 4, `intake_ready` 0.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 
@@ -552,7 +554,7 @@ Day 39 now has the active-path evidence requirement table for the four `active_b
 
 - Candidate: `SPY-REAL-HISTORICAL-IDEAL-001`.
 - Survival action applied: YES.
-- Status: `active_blocked`.
+- Status: `parked/source_data_insufficient`.
 - Repo-backed clean rule evidence found: none.
 - Exact missing evidence:
   - tested SPY Ideal stale/spent expiry rule.
@@ -564,7 +566,7 @@ Day 39 now has the active-path evidence requirement table for the four `active_b
 - Applied result: SPY Ideal cannot promote through missing same-session Ideal stale/spent expiry or incomplete context/caution.
 - Accepted intake count: 7.
 - Intake-ready count: 0.
-- Survival counts remain `active_blocked` 4, `replace` 3, `parked` 0, `intake_ready` 0.
+- Survival counts now `active_blocked` 0, `replace` 3, `parked` 4, `intake_ready` 0.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 

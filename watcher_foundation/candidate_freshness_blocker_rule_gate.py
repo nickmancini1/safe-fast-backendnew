@@ -144,7 +144,8 @@ OUTSIDE_NARROWED_PATH_CANDIDATE_IDS = (
 CLEAN_FAST_BREAK_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS = _CFB_IDS
 
 QQQ_CFB_SURVIVAL_ACTION_APPLIED = True
-QQQ_CFB_SURVIVAL_STATUS = "active_blocked"
+SOURCE_DATA_INSUFFICIENT_PARKED_STATUS = "parked/source_data_insufficient"
+QQQ_CFB_SURVIVAL_STATUS = SOURCE_DATA_INSUFFICIENT_PARKED_STATUS
 QQQ_CFB_EXACT_MISSING_EVIDENCE = (
     "source-backed QQQ gap-context completeness field/rule",
     "tested Clean Fast Break stale/spent expiry rule",
@@ -153,7 +154,7 @@ QQQ_CFB_EXACT_MISSING_EVIDENCE = (
 QQQ_CFB_CLEAN_RULE_EVIDENCE = ()
 
 SPY_CFB_003_SURVIVAL_ACTION_APPLIED = True
-SPY_CFB_003_SURVIVAL_STATUS = "active_blocked"
+SPY_CFB_003_SURVIVAL_STATUS = SOURCE_DATA_INSUFFICIENT_PARKED_STATUS
 SPY_CFB_003_EXACT_MISSING_EVIDENCE = (
     "tested Clean Fast Break higher-base/fresh-break expiry rule",
     "complete source-backed context/caution review fields",
@@ -161,7 +162,7 @@ SPY_CFB_003_EXACT_MISSING_EVIDENCE = (
 SPY_CFB_003_CLEAN_RULE_EVIDENCE = ()
 
 SPY_CFB_002_SURVIVAL_ACTION_APPLIED = True
-SPY_CFB_002_SURVIVAL_STATUS = "active_blocked"
+SPY_CFB_002_SURVIVAL_STATUS = SOURCE_DATA_INSUFFICIENT_PARKED_STATUS
 SPY_CFB_002_EXACT_MISSING_EVIDENCE = (
     "tested Clean Fast Break initial-break expiry rule",
     "complete source-backed context/caution review fields",
@@ -169,14 +170,16 @@ SPY_CFB_002_EXACT_MISSING_EVIDENCE = (
 SPY_CFB_002_CLEAN_RULE_EVIDENCE = ()
 
 SPY_IDEAL_SURVIVAL_ACTION_APPLIED = True
-SPY_IDEAL_SURVIVAL_STATUS = "active_blocked"
+SPY_IDEAL_SURVIVAL_STATUS = SOURCE_DATA_INSUFFICIENT_PARKED_STATUS
 SPY_IDEAL_EXACT_MISSING_EVIDENCE = (
     "tested SPY Ideal stale/spent expiry rule",
     "complete source-backed context/caution review fields",
 )
 SPY_IDEAL_CLEAN_RULE_EVIDENCE = ()
 
-ACTIVE_BLOCKED_CANDIDATE_IDS = (
+ACTIVE_BLOCKED_CANDIDATE_IDS: tuple[str, ...] = ()
+
+PARKED_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS = (
     QQQ_CFB_CANDIDATE_ID,
     SPY_CFB_003_CANDIDATE_ID,
     SPY_CFB_002_CANDIDATE_ID,
@@ -278,7 +281,7 @@ _ACTIVE_PATH_EVIDENCE_REQUIREMENTS: tuple[ActivePathEvidenceRequirement, ...] = 
             "first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl"
         ),
         current_repo_has_enough_data=False,
-        decision_if_missing="repair-source",
+        decision_if_missing=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         smallest_next_action=(
             "Add source-backed QQQ gap-context completeness evidence before any QQQ Clean "
             "Fast Break proof review."
@@ -301,7 +304,7 @@ _ACTIVE_PATH_EVIDENCE_REQUIREMENTS: tuple[ActivePathEvidenceRequirement, ...] = 
             "tests/test_candidate_freshness_blocker_rule_gate.py"
         ),
         current_repo_has_enough_data=False,
-        decision_if_missing="add-validator",
+        decision_if_missing=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         smallest_next_action=(
             "Define and regression-test Clean Fast Break stale/spent expiry before promotion."
         ),
@@ -322,7 +325,7 @@ _ACTIVE_PATH_EVIDENCE_REQUIREMENTS: tuple[ActivePathEvidenceRequirement, ...] = 
             "SAFE_FAST_ARCHITECT_CONTROL_AND_PROJECT_TIGHTENING.md"
         ),
         current_repo_has_enough_data=False,
-        decision_if_missing="repair-source",
+        decision_if_missing=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         smallest_next_action=(
             "Add complete source-backed context/caution fields; primary blocker null is not enough."
         ),
@@ -345,7 +348,7 @@ _ACTIVE_PATH_EVIDENCE_REQUIREMENTS: tuple[ActivePathEvidenceRequirement, ...] = 
             "tests/test_candidate_freshness_blocker_rule_gate.py"
         ),
         current_repo_has_enough_data=False,
-        decision_if_missing="add-validator",
+        decision_if_missing=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         smallest_next_action=(
             "Define and regression-test higher-base/fresh-break expiry before promotion."
         ),
@@ -367,7 +370,7 @@ _ACTIVE_PATH_EVIDENCE_REQUIREMENTS: tuple[ActivePathEvidenceRequirement, ...] = 
             "third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl line 5"
         ),
         current_repo_has_enough_data=False,
-        decision_if_missing="repair-source",
+        decision_if_missing=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         smallest_next_action=(
             "Repair source/context fields for the 2026-04-15 14:30 setup-time row."
         ),
@@ -390,7 +393,7 @@ _ACTIVE_PATH_EVIDENCE_REQUIREMENTS: tuple[ActivePathEvidenceRequirement, ...] = 
             "tests/test_candidate_freshness_blocker_rule_gate.py"
         ),
         current_repo_has_enough_data=False,
-        decision_if_missing="add-validator",
+        decision_if_missing=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         smallest_next_action=(
             "Define and regression-test Clean Fast Break initial-break expiry before promotion."
         ),
@@ -412,7 +415,7 @@ _ACTIVE_PATH_EVIDENCE_REQUIREMENTS: tuple[ActivePathEvidenceRequirement, ...] = 
             "third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl line 2"
         ),
         current_repo_has_enough_data=False,
-        decision_if_missing="repair-source",
+        decision_if_missing=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         smallest_next_action=(
             "Repair source/context fields for the 2026-04-13 12:30 setup-time row."
         ),
@@ -435,7 +438,7 @@ _ACTIVE_PATH_EVIDENCE_REQUIREMENTS: tuple[ActivePathEvidenceRequirement, ...] = 
             "tests/test_candidate_freshness_blocker_rule_gate.py"
         ),
         current_repo_has_enough_data=False,
-        decision_if_missing="add-validator",
+        decision_if_missing=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         smallest_next_action=(
             "Define and regression-test SPY Ideal stale/spent expiry before promotion."
         ),
@@ -457,7 +460,7 @@ _ACTIVE_PATH_EVIDENCE_REQUIREMENTS: tuple[ActivePathEvidenceRequirement, ...] = 
             "second_real_spy_ideal_replay_v1_signal_log.jsonl line 5"
         ),
         current_repo_has_enough_data=False,
-        decision_if_missing="repair-source",
+        decision_if_missing=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         smallest_next_action=(
             "Repair source/context fields for the 2026-05-13 11:30 Ideal setup-time row."
         ),
@@ -470,7 +473,7 @@ _SURVIVAL_MAP_ROWS: tuple[SurvivalMapRow, ...] = (
         candidate_id="QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
         symbol="QQQ",
         setup_type="Clean Fast Break",
-        current_status="active_blocked",
+        current_status=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         blocking_rule_family=(
             "Clean Fast Break expiry; Clean Fast Break gap context; Context/caution review"
         ),
@@ -478,7 +481,7 @@ _SURVIVAL_MAP_ROWS: tuple[SurvivalMapRow, ...] = (
             "SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT"
         ),
         exact_reason=(
-            "Applied survival action: active_blocked. QQQ gap-context, Clean Fast "
+            "Applied final pool action: parked/source_data_insufficient. QQQ gap-context, Clean Fast "
             "Break expiry, and complete context/caution source-backed evidence are "
             "insufficient; final_verdict TRADE and primary blocker null cannot promote."
         ),
@@ -539,12 +542,13 @@ _SURVIVAL_MAP_ROWS: tuple[SurvivalMapRow, ...] = (
         candidate_id="SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
         symbol="SPY",
         setup_type="Clean Fast Break",
-        current_status="active_blocked",
+        current_status=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         blocking_rule_family="Clean Fast Break expiry; Context/caution review",
         rule_decision_applied="SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT",
         exact_reason=(
-            "Clean Fast Break higher-base/fresh-break expiry is not source-backed and complete "
-            "context/caution review remains insufficient."
+            "Applied final pool action: parked/source_data_insufficient. Clean Fast Break "
+            "higher-base/fresh-break expiry is not source-backed and complete context/caution "
+            "review remains insufficient."
         ),
         next_evidence_fix=(
             "Define and regression-test Clean Fast Break higher-base/fresh-break expiry and add "
@@ -579,11 +583,11 @@ _SURVIVAL_MAP_ROWS: tuple[SurvivalMapRow, ...] = (
         candidate_id="SPY-REAL-HISTORICAL-IDEAL-001",
         symbol="SPY",
         setup_type="Ideal",
-        current_status="active_blocked",
+        current_status=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         blocking_rule_family="Ideal stale/spent expiry; Context/caution review",
         rule_decision_applied="SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT",
         exact_reason=(
-            "Applied survival action: active_blocked. Same-session Ideal has a triggered "
+            "Applied final pool action: parked/source_data_insufficient. Same-session Ideal has a triggered "
             "signal-stage row and later spent lifecycle row, but no tested SPY Ideal "
             "stale/spent expiry rule and no complete source-backed context/caution review; "
             "primary blocker null cannot promote."
@@ -598,12 +602,13 @@ _SURVIVAL_MAP_ROWS: tuple[SurvivalMapRow, ...] = (
         candidate_id="SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
         symbol="SPY",
         setup_type="Clean Fast Break",
-        current_status="active_blocked",
+        current_status=SOURCE_DATA_INSUFFICIENT_PARKED_STATUS,
         blocking_rule_family="Clean Fast Break expiry; Context/caution review",
         rule_decision_applied="SOURCE_DATA_INSUFFICIENT; SOURCE_DATA_INSUFFICIENT",
         exact_reason=(
-            "Clean Fast Break initial-break expiry is not source-backed and complete "
-            "context/caution review remains insufficient."
+            "Applied final pool action: parked/source_data_insufficient. Clean Fast Break "
+            "initial-break expiry is not source-backed and complete context/caution review "
+            "remains insufficient."
         ),
         next_evidence_fix=(
             "Define and regression-test Clean Fast Break initial-break expiry and add complete "
@@ -875,12 +880,15 @@ def build_active_path_evidence_requirements() -> dict[str, object]:
     rows = [requirement.as_row() for requirement in _ACTIVE_PATH_EVIDENCE_REQUIREMENTS]
     covered_ids = tuple(
         candidate_id
-        for candidate_id in ACTIVE_BLOCKED_CANDIDATE_IDS
+        for candidate_id in PARKED_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS
         if any(row["candidate_id"] == candidate_id for row in rows)
     )
     return {
         "requirements_rows": rows,
         "active_blocked_candidate_ids": ACTIVE_BLOCKED_CANDIDATE_IDS,
+        "parked_source_data_insufficient_candidate_ids": (
+            PARKED_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS
+        ),
         "covered_candidate_ids": covered_ids,
         "covered_count": len(covered_ids),
         "requirements_count": len(rows),
@@ -890,13 +898,13 @@ def build_active_path_evidence_requirements() -> dict[str, object]:
                 for row in rows
                 if row["candidate_id"] == candidate_id
             )
-            for candidate_id in ACTIVE_BLOCKED_CANDIDATE_IDS
+            for candidate_id in PARKED_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS
         },
         "proof_allowed_by_candidate": {
             candidate_id: any(
                 bool(row["proof_allowed"]) for row in rows if row["candidate_id"] == candidate_id
             )
-            for candidate_id in ACTIVE_BLOCKED_CANDIDATE_IDS
+            for candidate_id in PARKED_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS
         },
         "proof_allowed_count": sum(1 for row in rows if row["proof_allowed"]),
         "proof_accepted": False,
@@ -907,7 +915,12 @@ def build_active_path_evidence_requirements() -> dict[str, object]:
 def build_survival_map() -> dict[str, object]:
     rows = [row.as_row() for row in _SURVIVAL_MAP_ROWS]
     status_counts = {
-        status: sum(1 for row in rows if row["current_status"] == status)
+        status: sum(
+            1
+            for row in rows
+            if row["current_status"] == status
+            or (status == "parked" and str(row["current_status"]).startswith("parked/"))
+        )
         for status in ("active_blocked", "replace", "parked", "intake_ready")
     }
     return {

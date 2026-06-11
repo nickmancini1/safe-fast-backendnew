@@ -8717,3 +8717,47 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: repair/source the missing active-path evidence and add validators/regression tests for Clean Fast Break expiry and SPY Ideal stale/spent expiry before any active row can enter proof review.
+
+## Day 39 active-path source-data-insufficient parking result
+
+- Current task baseline stated by task file: `16c9f79 Add active path evidence requirements`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: applied the active-path evidence requirement result.
+- Current repo has enough data for all four active rows: NO.
+- Four formerly active rows parked: YES.
+- Final action applied: `parked/source_data_insufficient`.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: `parked/source_data_insufficient`; missing source-backed QQQ gap-context evidence, tested Clean Fast Break stale/spent expiry, and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: `parked/source_data_insufficient`; missing tested Clean Fast Break higher-base/fresh-break expiry and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: `parked/source_data_insufficient`; missing tested Clean Fast Break initial-break expiry and complete context/caution fields.
+- `SPY-REAL-HISTORICAL-IDEAL-001`: `parked/source_data_insufficient`; missing tested SPY Ideal stale/spent expiry and complete context/caution fields.
+- Replace rows preserved:
+  - `QQQ-REAL-HISTORICAL-CONTINUATION-001`: `replace`.
+  - `QQQ-REAL-HISTORICAL-IDEAL-001`: `replace`.
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001`: `replace`.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Active blocked count: 0.
+- Parked count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Files updated:
+  - `SAFE_FAST_ACTIVE_PATH_EVIDENCE_REQUIREMENTS.md`
+  - `SAFE_FAST_RULE_DECISION_SURVIVAL_MAP.md`
+  - `SAFE_FAST_BUILD_STATE.md`
+  - `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`
+  - `watcher_foundation/candidate_freshness_blocker_rule_gate.py`
+  - `tests/test_candidate_freshness_blocker_rule_gate.py`
+  - `watcher_foundation/candidate_source_pool_intake.py`
+  - `tests/test_candidate_source_pool_intake.py`
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_rule_gate.py"` PASS, 44 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 23 tests.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_rule_gate` PASS and printed the rule-gate report to stdout only.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the strict source-pool intake report to stdout only.
+  - `git --no-pager diff --check` PASS with Git line-ending warnings only.
+- Deleted one-time task file: `.codex_park_source_insufficient_active_paths_task.md`.
+- No `__pycache__`, `.pyc`, or `.pyo` artifacts were present after cleanup check.
+- No proof was accepted.
+- No profitability claim was made.
+- Recommended next action: source new evidence for the parked rows or replace them with source-backed rows before proof review; preserve the three replace rows until inside-path evidence or tested restoring rules exist.

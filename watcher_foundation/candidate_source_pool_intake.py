@@ -58,8 +58,8 @@ PROFITABILITY_CLAIMED = False
 UNRESOLVED_MARKERS = ("missing", "unclear", "incomplete")
 
 POST_BATCH_RECOMMENDED_NEXT_ACTION = (
-    "Clean Fast Break remains blocked until future source-backed expiry and gap-context "
-    "rules exist; "
+    "formerly active Clean Fast Break and SPY Ideal rows are parked/source_data_insufficient "
+    "until future source-backed expiry, gap-context, and context/caution rules exist; "
     "context/caution review remains source-data insufficient, so primary blocker null "
     "cannot promote any affected row; "
     "Continuation has been narrowed away from next-session/session-boundary-dependent entries; "
@@ -67,7 +67,7 @@ POST_BATCH_RECOMMENDED_NEXT_ACTION = (
     "order-of-events evidence exists; "
     "Ideal has been narrowed away from fast-swing/wide-risk entries without source-backed "
     "freshness and room/risk thresholds; replace outside-path rows or source tested rules, "
-    "and repair remaining blocker evidence in batch without hindsight"
+    "and source new evidence or replace parked rows without hindsight"
 )
 
 REAL_HISTORICAL_SIGNAL_LOGS = (
