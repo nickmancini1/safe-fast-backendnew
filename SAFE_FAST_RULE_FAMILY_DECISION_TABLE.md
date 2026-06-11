@@ -38,14 +38,18 @@ Profitability claim made: NO.
 - `SOURCE_DATA_INSUFFICIENT`: 4 families.
 - `KILL_OR_NARROW_SETUP_SYMBOL_PATH`: 5 families.
 - Intake-ready count: 0.
+- Applied Clean Fast Break source-data insufficiency result: CFB rows remain blocked unless future source-backed expiry and gap-context rules exist.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: `blocked`; blocked by gap-context and CFB expiry source insufficiency.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: `blocked`; blocked by CFB expiry and context/caution rule insufficiency.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: `blocked`; blocked by CFB expiry and context/caution rule insufficiency.
 - Applied Continuation narrowing result: next-session/session-boundary-dependent Continuation cannot be intake-ready unless a future source-backed carry-forward rule exists.
 - `QQQ-REAL-HISTORICAL-CONTINUATION-001`: `replace`; outside the narrowed Continuation path because next-session/session-boundary carry-forward remains unsupported.
 - `SPY-REAL-HISTORICAL-CONTINUATION-001`: `blocked`; same-session Continuation remains eligible only after intrabar ordering and complete context/caution evidence become clean.
 - Applied Ideal narrowing result: fast-swing / wide-risk Ideal cannot be intake-ready unless future source-backed rules define Ideal freshness expiry and room/risk thresholds.
 - `QQQ-REAL-HISTORICAL-IDEAL-001`: `replace`; outside the narrowed Ideal path because fast-swing freshness and wide-risk/room threshold remain unsupported.
 - `SPY-REAL-HISTORICAL-IDEAL-001`: `blocked`; same-session Ideal remains eligible only after stale/spent expiry and complete context/caution evidence become clean.
-- Current source-pool counts after applying Ideal narrowing: accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 5/0/2/0; close-ready count 5.
+- Current source-pool counts after applying Clean Fast Break decisions: accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 5/0/2/0; close-ready count 5.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 
-Recommended next action: do not deep-review proof. Replace outside-path Continuation and Ideal rows with inside-path evidence or source and regression-test the missing carry-forward, fast-swing freshness, and room/risk threshold rules, while repairing remaining source-backed blocker evidence in batch.
+Recommended next action: do not deep-review proof. Source and regression-test Clean Fast Break expiry plus QQQ gap-context evidence, replace outside-path Continuation and Ideal rows with inside-path evidence or source and regression-test the missing carry-forward, fast-swing freshness, and room/risk threshold rules, while repairing remaining source-backed blocker evidence in batch.

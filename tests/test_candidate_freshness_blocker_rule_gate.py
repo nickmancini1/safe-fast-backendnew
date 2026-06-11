@@ -55,6 +55,56 @@ class CandidateFreshnessBlockerRuleGateTests(unittest.TestCase):
         }
         self.assertIn("SOURCE_DATA_INSUFFICIENT", decisions)
 
+    def test_cfb_expiry_source_data_insufficiency_blocks_intake_ready(self):
+        for candidate_id in gate.CLEAN_FAST_BREAK_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS:
+            decisions = {
+                row["rule_family"]: row["hard_decision"]
+                for row in gate.build_rule_gate_result()["gate_by_candidate"][candidate_id]
+            }
+
+            self.assertEqual(decisions["Clean Fast Break expiry"], "SOURCE_DATA_INSUFFICIENT")
+            self.assertEqual(gate.candidate_rule_gate_status(candidate_id), "blocked")
+            self.assertFalse(
+                gate.candidate_can_promote(
+                    candidate_id,
+                    final_verdict="TRADE",
+                    primary_blocker="complete blocker review",
+                    complete_context_caution_review=True,
+                )
+            )
+
+    def test_cfb_gap_context_source_data_insufficiency_blocks_intake_ready(self):
+        candidate_id = "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"
+        decisions = {
+            row["rule_family"]: row["hard_decision"]
+            for row in gate.build_rule_gate_result()["gate_by_candidate"][candidate_id]
+        }
+
+        self.assertEqual(decisions["Clean Fast Break gap context"], "SOURCE_DATA_INSUFFICIENT")
+        self.assertIn("gap-context", gate.candidate_cfb_source_data_insufficiency_reason(candidate_id))
+        self.assertFalse(
+            gate.candidate_can_promote(
+                candidate_id,
+                final_verdict="TRADE",
+                primary_blocker="complete blocker review",
+                complete_context_caution_review=True,
+            )
+        )
+
+    def test_specific_clean_fast_break_rows_stay_blocked(self):
+        expected_reason_parts = {
+            "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": "gap-context",
+            "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": "context/caution",
+            "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": "context/caution",
+        }
+
+        for candidate_id, reason_part in expected_reason_parts.items():
+            self.assertEqual(gate.candidate_rule_gate_status(candidate_id), "blocked")
+            self.assertIn(
+                reason_part,
+                gate.candidate_cfb_source_data_insufficiency_reason(candidate_id),
+            )
+
     def test_kill_or_narrow_cannot_promote_candidate(self):
         self.assertFalse(
             gate.candidate_can_promote("SPY-REAL-HISTORICAL-CONTINUATION-001")

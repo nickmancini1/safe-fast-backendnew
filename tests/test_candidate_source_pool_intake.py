@@ -109,6 +109,7 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         self.assertGreaterEqual(len(result["source_files_inspected"]), 1)
         self.assertIn("Continuation has been narrowed", result["smallest_next_evidence_backed_fix"])
         self.assertIn("Ideal has been narrowed", result["smallest_next_evidence_backed_fix"])
+        self.assertIn("Clean Fast Break remains blocked", result["smallest_next_evidence_backed_fix"])
         self.assertIn("room/risk thresholds", result["smallest_next_evidence_backed_fix"])
 
     def test_real_historical_expansion_adds_one_non_duplicate_strict_blocked_row(self):
@@ -162,6 +163,26 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
             "Clean Fast Break initial-break expiry threshold",
             by_id["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"]["reason"],
         )
+
+    def test_clean_fast_break_rows_remain_blocked_after_rule_decisions(self):
+        result = intake.build_source_pool_intake()
+        by_id = {row["candidate_id"]: row for row in result["accepted_rows"]}
+
+        expected_reason_parts = {
+            "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": "gap-context and CFB expiry source insufficiency",
+            "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": (
+                "CFB expiry and context/caution rule insufficiency"
+            ),
+            "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": (
+                "CFB expiry and context/caution rule insufficiency"
+            ),
+        }
+
+        for candidate_id, reason_part in expected_reason_parts.items():
+            self.assertEqual(by_id[candidate_id]["status"], "blocked")
+            self.assertIn(reason_part, by_id[candidate_id]["reason"])
+
+        self.assertEqual(result["intake_ready_count"], 0)
 
     def test_integrated_rows_preserve_exact_missing_state_evidence(self):
         result = intake.build_source_pool_intake()

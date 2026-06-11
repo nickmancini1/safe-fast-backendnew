@@ -419,6 +419,10 @@ Why this handoff changed:
 - The intake helper rejects chart-shape-only rows and rows without repo-backed setup candle, trigger, invalidation, no-hindsight boundary, and outcome input.
 - The helper prints to stdout only and creates no generated report/log file.
 - Current intake result after Ideal narrowing: source-pool rows inspected 60; accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 5/0/2/0; close-ready count 5.
+- Current intake result after applying Clean Fast Break source-data insufficiency decisions: source-pool rows inspected 60; accepted intake count 7; intake-ready count 0; blocked/drop/replace/duplicate counts 5/0/2/0; close-ready count 5.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` remains `blocked` by gap-context and CFB expiry source insufficiency.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` remains `blocked` by CFB expiry and context/caution rule insufficiency.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` remains `blocked` by CFB expiry and context/caution rule insufficiency.
 - `QQQ-REAL-HISTORICAL-CONTINUATION-001` is `replace` because it is next-session/session-boundary-dependent and outside the narrowed Continuation path without a source-backed carry-forward rule.
 - `SPY-REAL-HISTORICAL-CONTINUATION-001` remains `blocked`; same-session Continuation may remain eligible only if intrabar ordering and complete context/caution gates become clean.
 - `QQQ-REAL-HISTORICAL-IDEAL-001` is `replace` because it is fast-swing/wide-risk-dependent and outside the narrowed Ideal path without source-backed freshness and room/risk threshold rules.
@@ -439,6 +443,7 @@ Day 39 now has a hard decision table for the nine freshness/final-signal and blo
 - It does not claim profitability.
 - Current rule-family result: `DEFINE_FROM_REPO_EVIDENCE` 0, `SOURCE_DATA_INSUFFICIENT` 4, `KILL_OR_NARROW_SETUP_SYMBOL_PATH` 5.
 - Current intake-ready count remains 0.
+- Applied Clean Fast Break source-data insufficiency: Clean Fast Break rows cannot become intake-ready unless future source-backed expiry and gap-context rules exist.
 - Applied Continuation narrowing: cross-session / next-session Continuation cannot become intake-ready unless a future source-backed carry-forward rule exists.
 - Applied Ideal narrowing: fast-swing / wide-risk Ideal cannot become intake-ready unless future source-backed rules define Ideal freshness expiry and room/risk thresholds.
 

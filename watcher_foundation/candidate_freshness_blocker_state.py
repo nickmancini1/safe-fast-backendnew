@@ -204,7 +204,9 @@ _STATES: Mapping[str, CandidateState] = {
         freshness_reason=(
             "Replay line 3 proves a triggered signal at the setup-time boundary and line 4 later proves "
             "the same lifecycle became spent, but the setup-time source has no source-backed gap-context "
-            "field or rule that can decide whether the 04-13 gap/impulse context was fresh enough at intake."
+            "field or rule that can decide whether the 04-13 gap/impulse context was fresh enough at intake. "
+            "The applied Clean Fast Break decision keeps this row blocked by gap-context and CFB expiry "
+            "source insufficiency."
         ),
         blocker_reason=(
             "Primary blocker is null at replay line 3, but null is not a complete blocker/caution review; "
@@ -215,7 +217,10 @@ _STATES: Mapping[str, CandidateState] = {
             "missing Clean Fast Break stale/spent expiry rule for gap/impulse context"
         ),
         blocker_missing_evidence=_REPLAY_CONTEXT_LIMITATION + "; " + _CSV_CONTEXT_LIMITATION,
-        next_action="Add repeat QQQ Clean Fast Break rows in batch form before proof review.",
+        next_action=(
+            "Add source-backed QQQ gap-context evidence and a tested Clean Fast Break expiry rule "
+            "before proof review."
+        ),
     ),
     "QQQ-REAL-HISTORICAL-CONTINUATION-001": _state(
         candidate_id="QQQ-REAL-HISTORICAL-CONTINUATION-001",
@@ -290,7 +295,8 @@ _STATES: Mapping[str, CandidateState] = {
         freshness_reason=(
             "Replay line 5 proves a fresh break signal candidate at 2026-04-15 14:30 and line 6 later marks "
             "it spent, but the repo does not define the Clean Fast Break higher-base/fresh-break stale/spent "
-            "expiry rule needed to clean the added row."
+            "expiry rule needed to clean the added row. The applied Clean Fast Break decision keeps this "
+            "row blocked by CFB expiry and context/caution rule insufficiency."
         ),
         blocker_reason=(
             "Primary blocker is null, but the row still has unconfirmed macro/IV/event/24H/room context and "
@@ -358,7 +364,8 @@ _STATES: Mapping[str, CandidateState] = {
         freshness_reason=(
             "Replay line 2 proves a triggered initial-break signal and line 3 later marks same-session "
             "follow-through/spent context, but repo rules do not define the Clean Fast Break initial-break "
-            "expiry threshold for intake."
+            "expiry threshold for intake. The applied Clean Fast Break decision keeps this row blocked by "
+            "CFB expiry and context/caution rule insufficiency."
         ),
         blocker_reason=(
             "Primary blocker is null, but the replay and source context still leave 24H/macro/IV/event/room "

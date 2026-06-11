@@ -58,6 +58,8 @@ PROFITABILITY_CLAIMED = False
 UNRESOLVED_MARKERS = ("missing", "unclear", "incomplete")
 
 POST_BATCH_RECOMMENDED_NEXT_ACTION = (
+    "Clean Fast Break remains blocked until future source-backed expiry and gap-context "
+    "rules exist; "
     "Continuation has been narrowed away from next-session/session-boundary-dependent entries; "
     "Ideal has been narrowed away from fast-swing/wide-risk entries without source-backed "
     "freshness and room/risk thresholds; replace outside-path rows or source tested rules, "

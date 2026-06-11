@@ -81,6 +81,23 @@ OUTSIDE_NARROWED_PATH_CANDIDATE_IDS = (
     "QQQ-REAL-HISTORICAL-IDEAL-001",
 )
 
+CLEAN_FAST_BREAK_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS = _CFB_IDS
+
+CFB_SOURCE_DATA_INSUFFICIENT_REASONS = {
+    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": (
+        "blocked by Clean Fast Break expiry source-data insufficiency and "
+        "gap-context source-data insufficiency"
+    ),
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": (
+        "blocked by Clean Fast Break expiry source-data insufficiency and "
+        "complete context/caution source-data insufficiency"
+    ),
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": (
+        "blocked by Clean Fast Break expiry source-data insufficiency and "
+        "complete context/caution source-data insufficiency"
+    ),
+}
+
 SAME_SESSION_CONTINUATION_CANDIDATE_IDS = (
     "SPY-REAL-HISTORICAL-CONTINUATION-001",
 )
@@ -355,6 +372,12 @@ def candidate_rule_gate_status(candidate_id: str) -> str:
     if all(decision.hard_decision in PROMOTING_DECISIONS for decision in decisions):
         return "pass"
     return "blocked"
+
+
+def candidate_cfb_source_data_insufficiency_reason(candidate_id: str) -> str:
+    if candidate_id not in CLEAN_FAST_BREAK_SOURCE_DATA_INSUFFICIENT_CANDIDATE_IDS:
+        raise ValueError(f"{candidate_id} is not a Clean Fast Break insufficiency row")
+    return CFB_SOURCE_DATA_INSUFFICIENT_REASONS[candidate_id]
 
 
 def candidate_is_outside_narrowed_path(candidate_id: str) -> bool:

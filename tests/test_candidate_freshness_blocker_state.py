@@ -127,6 +127,34 @@ class CandidateFreshnessBlockerStateTests(unittest.TestCase):
             "blocked",
         )
 
+    def test_clean_fast_break_rows_stay_blocked_by_applied_rule_decisions(self):
+        by_id = state_model.build_freshness_blocker_states()["state_by_id"]
+
+        self.assertEqual(
+            by_id["QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"]["decision"],
+            "blocked",
+        )
+        self.assertIn(
+            "gap-context and CFB expiry source insufficiency",
+            by_id["QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"]["freshness_reason"],
+        )
+        self.assertEqual(
+            by_id["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003"]["decision"],
+            "blocked",
+        )
+        self.assertIn(
+            "CFB expiry and context/caution rule insufficiency",
+            by_id["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003"]["freshness_reason"],
+        )
+        self.assertEqual(
+            by_id["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"]["decision"],
+            "blocked",
+        )
+        self.assertIn(
+            "CFB expiry and context/caution rule insufficiency",
+            by_id["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"]["freshness_reason"],
+        )
+
     def test_state_family_missing_evidence_is_exact(self):
         by_id = state_model.build_freshness_blocker_states()["state_by_id"]
 

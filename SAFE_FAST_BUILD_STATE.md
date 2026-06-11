@@ -8386,3 +8386,44 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - No generated report/log/CSV/JSON output file was created.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: do not deep-review proof. Replace outside-path Continuation and Ideal rows with inside-path evidence or source and regression-test the missing carry-forward, fast-swing freshness, and room/risk threshold rules, while keeping SPY Ideal blocked until stale/spent expiry and complete context/caution evidence are clean.
+
+## Day 39 Clean Fast Break rule decisions applied result
+
+- Current task baseline stated by task file: `9c894a3 Apply Ideal narrowing`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: applied the hard rule-family decisions for Clean Fast Break.
+- Clean Fast Break expiry decision applied: `SOURCE_DATA_INSUFFICIENT`.
+- Clean Fast Break gap context decision applied: `SOURCE_DATA_INSUFFICIENT`.
+- Required blocked path: Clean Fast Break rows cannot be intake-ready unless future source-backed expiry and gap-context rules exist.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: `blocked`; blocked by gap-context and CFB expiry source insufficiency.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: `blocked`; blocked by CFB expiry and context/caution rule insufficiency.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: `blocked`; blocked by CFB expiry and context/caution rule insufficiency.
+- Source-pool rows inspected: 60.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Blocked/drop/replace/duplicate counts among accepted strict rows: 5/0/2/0.
+- Close-ready count: 5.
+- Any row became intake-ready: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Files updated:
+  - `watcher_foundation/candidate_freshness_blocker_rule_gate.py`
+  - `tests/test_candidate_freshness_blocker_rule_gate.py`
+  - `watcher_foundation/candidate_freshness_blocker_state.py`
+  - `tests/test_candidate_freshness_blocker_state.py`
+  - `watcher_foundation/candidate_source_pool_intake.py`
+  - `tests/test_candidate_source_pool_intake.py`
+  - `SAFE_FAST_RULE_FAMILY_DECISION_TABLE.md`
+  - `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`
+  - `SAFE_FAST_BUILD_STATE.md`
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_rule_gate.py"` PASS, 19 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_state.py"` PASS, 11 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 14 tests.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_rule_gate` PASS and printed the rule-gate report to stdout only.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_state` PASS and printed the state report to stdout only.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the strict source-pool intake report to stdout only.
+  - `git --no-pager diff --check` PASS with Git line-ending warnings only.
+- No generated report/log/CSV/JSON output file was created.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: do not deep-review proof. Source and regression-test Clean Fast Break expiry plus QQQ gap-context evidence, while keeping all affected Clean Fast Break rows blocked until those rules exist.
