@@ -8095,3 +8095,48 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: build the smallest repo-backed freshness/final-signal and blocker/caution state extractor for the 7 strict rows, then rerun intake; do not deep-review proof/outcome until rows become intake-ready without hindsight.
+
+## Day 39 freshness/blocker state extractor status
+
+- Current task baseline stated by task file: `354e3fa Expand strict source pool to seven rows`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: built the smallest repo-backed freshness/final-signal and blocker/caution state extractor for the 7 strict source-backed rows, then reran source-pool intake.
+- New extractor: `watcher_foundation/candidate_freshness_blocker_state.py`.
+- New tests: `tests/test_candidate_freshness_blocker_state.py`.
+- Intake helper now includes explicit `freshness_state`, `blocker_state`, state sources, and state reasons in the stdout-only ranked intake table.
+- Allowed freshness states are explicit: `clean`, `stale`, `spent`, `session_boundary_unclear`, `gap_context_incomplete`, `intrabar_ordering_incomplete`, `setup_specific_rules_incomplete`, `unresolved`, and `missing`.
+- Allowed blocker states are explicit: `clean`, `blocker_present`, `caution_incomplete`, `context_incomplete`, `wide_risk_caution`, `unresolved`, and `missing`.
+- Promotion rule preserved: a row may become intake-ready only when `freshness_state == clean` and `blocker_state == clean`.
+- Primary blocker null alone remains insufficient for clean blocker state.
+- Lowercase/uppercase missing, unclear, incomplete, and unresolved markers remain blockers.
+- Source-pool rows/windows inspected: 60.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Close-ready count: 7.
+- Any row became intake-ready: NO.
+- Blocked/drop/replace/duplicate counts among accepted strict rows: 7/0/0/0.
+- Maximum strict candidates found: 7.
+- Top remaining blocker family: freshness/final-signal plus blocker/caution unresolved.
+- Exact blocker: only 7 strict candidates found; current local docs/data do not support 20-50 strict candidates; freshness/final-signal plus blocker/caution unresolved.
+- Per-row state summary:
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: `freshness_state=gap_context_incomplete`; `blocker_state=context_incomplete`; reason: stale/spent and gap-context freshness rules plus complete context/caution review remain incomplete.
+  - `QQQ-REAL-HISTORICAL-CONTINUATION-001`: `freshness_state=session_boundary_unclear`; `blocker_state=context_incomplete`; reason: next-session entry freshness/session-boundary and complete context/caution review remain incomplete.
+  - `QQQ-REAL-HISTORICAL-IDEAL-001`: `freshness_state=setup_specific_rules_incomplete`; `blocker_state=wide_risk_caution`; reason: fast-swing/setup-specific stale/spent rules and wide-risk/context/caution review remain incomplete.
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: `freshness_state=setup_specific_rules_incomplete`; `blocker_state=context_incomplete`; reason: added-row fresh/non-duplicate state-model review and complete blocker/caution review remain incomplete.
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001`: `freshness_state=intrabar_ordering_incomplete`; `blocker_state=context_incomplete`; reason: stale/spent plus finer intrabar ordering rules and complete context/caution review remain incomplete.
+  - `SPY-REAL-HISTORICAL-IDEAL-001`: `freshness_state=setup_specific_rules_incomplete`; `blocker_state=context_incomplete`; reason: setup-specific stale/spent rules and complete context/caution review remain incomplete.
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: `freshness_state=setup_specific_rules_incomplete`; `blocker_state=context_incomplete`; reason: final freshness review and complete context/caution review remain incomplete.
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_state.py"` PASS, 8 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 12 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_completeness_screen.py"` PASS, 11 tests.
+  - `python -B -m unittest discover -s tests -p "test_historical_candidate_batch_triage.py"` PASS, 18 tests.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the expanded strict source-pool intake report to stdout only.
+  - `python -B -m watcher_foundation.candidate_completeness_screen` PASS and printed the ranked table to stdout only.
+  - `git --no-pager diff --check` PASS with a Git line-ending warning for `watcher_foundation/candidate_source_pool_intake.py`.
+- No generated report/log/CSV/JSON output file was created.
+- `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md` was not edited because this build-state entry preserves the workflow/result state.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: stop treating the seven strict rows as intake-ready candidates until source-backed clean freshness and clean blocker states exist; expand or repair source-backed freshness/blocker evidence in batch, starting with next-session Continuation freshness, gap-context rules, intrabar ordering, setup-specific stale/spent rules, and wide-risk/context/caution review.

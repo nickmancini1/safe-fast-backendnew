@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Sequence
 
 from watcher_foundation import candidate_completeness_screen as screen
+from watcher_foundation import candidate_freshness_blocker_state as state_model
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,7 +31,13 @@ INTAKE_OUTPUT_FIELDS = (
     "trigger",
     "invalidation",
     "freshness",
+    "freshness_state",
     "blocker",
+    "blocker_state",
+    "freshness_source",
+    "blocker_source",
+    "freshness_reason",
+    "blocker_reason",
     "no_hindsight_boundary",
     "outcome_window",
     "duplicate",
@@ -48,9 +55,9 @@ PROFITABILITY_CLAIMED = False
 UNRESOLVED_MARKERS = ("missing", "unclear", "incomplete")
 
 POST_BATCH_RECOMMENDED_NEXT_ACTION = (
-    "fewer than 5 rows became intake-ready after strict source-pool expansion; "
-    "build a repo-backed freshness/final-signal and blocker/caution state extractor, "
-    "then rerun intake without hindsight"
+    "fewer than 5 rows became intake-ready after the repo-backed freshness/final-signal "
+    "and blocker/caution state extractor; expand or repair source-backed freshness/blocker "
+    "evidence in batch without hindsight"
 )
 
 REAL_HISTORICAL_SIGNAL_LOGS = (
@@ -96,7 +103,13 @@ class IntakeRow:
     trigger: str
     invalidation: str
     freshness: str
+    freshness_state: str
     blocker: str
+    blocker_state: str
+    freshness_source: str
+    blocker_source: str
+    freshness_reason: str
+    blocker_reason: str
     no_hindsight_boundary: str
     outcome_window: str
     duplicate: str
@@ -115,7 +128,13 @@ class IntakeRow:
             "trigger": self.trigger,
             "invalidation": self.invalidation,
             "freshness": self.freshness,
+            "freshness_state": self.freshness_state,
             "blocker": self.blocker,
+            "blocker_state": self.blocker_state,
+            "freshness_source": self.freshness_source,
+            "blocker_source": self.blocker_source,
+            "freshness_reason": self.freshness_reason,
+            "blocker_reason": self.blocker_reason,
             "no_hindsight_boundary": self.no_hindsight_boundary,
             "outcome_window": self.outcome_window,
             "duplicate": self.duplicate,
@@ -220,7 +239,8 @@ def _strictly_source_backed(row: dict[str, str]) -> bool:
 
 def _to_intake_row(row: dict[str, str]) -> IntakeRow:
     source_file, source_section = _split_source(row["source_lines"])
-    status = _intake_status(row)
+    state = state_model.state_for_candidate(row["candidate_id"])
+    status = state.decision if row["status"] not in {"drop", "replace"} else row["status"]
     return IntakeRow(
         candidate_id=row["candidate_id"],
         symbol=row["symbol"],
@@ -231,13 +251,19 @@ def _to_intake_row(row: dict[str, str]) -> IntakeRow:
         trigger=row["trigger"],
         invalidation=row["invalidation"],
         freshness=row["freshness"],
+        freshness_state=state.freshness_state,
         blocker=row["blocker"],
+        blocker_state=state.blocker_state,
+        freshness_source=state.freshness_source,
+        blocker_source=state.blocker_source,
+        freshness_reason=state.freshness_reason,
+        blocker_reason=state.blocker_reason,
         no_hindsight_boundary=row["no_hindsight_boundary"],
         outcome_window=row["outcome_window"],
         duplicate=row["duplicate"],
         status=status,
-        reason=_reason(status, row),
-        next_action=row["next_action"],
+        reason=_reason(status, row, state),
+        next_action=state.next_action,
     )
 
 
@@ -251,11 +277,20 @@ def _intake_status(row: dict[str, str]) -> str:
     return "blocked"
 
 
-def _reason(status: str, row: dict[str, str]) -> str:
+def _reason(
+    status: str,
+    row: dict[str, str],
+    state: state_model.CandidateState | None = None,
+) -> str:
     if status == "intake-ready":
         return "strict source-backed fields complete for intake only; not proof"
     if row["duplicate"] == "yes":
         return "duplicate/already counted; not eligible for intake-ready"
+    if state is not None:
+        return (
+            f"blocked: {state.freshness_state}; {state.blocker_state}; "
+            f"{state.freshness_reason}; {state.blocker_reason}"
+        )
     if _has_unresolved_marker(row["freshness"]) and _has_unresolved_marker(row["blocker"]):
         return f"blocked: {row['freshness']}; {row['blocker']}"
     if _has_unresolved_marker(row["freshness"]):
@@ -368,6 +403,7 @@ def _signal_to_intake_row(
     invalidation = signal["invalidation"]
     cautions = ", ".join(str(item) for item in signal.get("cautions_watchouts", []))
     candidate_id = NEW_REAL_HISTORICAL_IDS[(symbol, setup_type, timestamp)]
+    state = state_model.state_for_candidate(candidate_id)
     return IntakeRow(
         candidate_id=candidate_id,
         symbol=symbol,
@@ -385,10 +421,16 @@ def _signal_to_intake_row(
             f"{signal.get('stage')} / {signal.get('setup_state')}"
         ),
         invalidation=f"copied replay invalidation {invalidation}",
+        freshness_state=state.freshness_state,
         freshness=(
             "UNCLEAR: replay final_verdict TRADE and trigger_state triggered; "
             "fresh/non-duplicate state-model review incomplete for added source-pool row"
         ),
+        blocker_state=state.blocker_state,
+        freshness_source=state.freshness_source,
+        blocker_source=state.blocker_source,
+        freshness_reason=state.freshness_reason,
+        blocker_reason=state.blocker_reason,
         blocker=(
             "UNCLEAR: primary blocker null; complete blocker/caution review incomplete"
             + (f"; cautions {cautions}" if cautions else "")
@@ -400,14 +442,12 @@ def _signal_to_intake_row(
             "terminal chart-only review not performed"
         ),
         duplicate="no",
-        status="blocked",
+        status=state.decision,
         reason=(
-            "blocked: added strict source-backed row, but freshness/final-signal and "
-            "blocker/caution remain unclear"
+            f"blocked: {state.freshness_state}; {state.blocker_state}; "
+            f"{state.freshness_reason}; {state.blocker_reason}"
         ),
-        next_action=(
-            "Run the repo-backed freshness/final-signal and blocker/caution extractor before any proof review."
-        ),
+        next_action=state.next_action,
     )
 
 
