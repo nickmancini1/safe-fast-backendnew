@@ -10,6 +10,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Mapping
 
+from watcher_foundation import candidate_freshness_blocker_rule_gate as rule_gate
+
 
 ALLOWED_FRESHNESS_STATES = (
     "clean",
@@ -76,9 +78,13 @@ class CandidateState:
 
 def build_freshness_blocker_states() -> dict[str, object]:
     rows = [state.as_row() for state in _STATES.values()]
+    gate_result = rule_gate.build_rule_gate_result()
     return {
         "state_rows": rows,
         "state_by_id": {row["candidate_id"]: row for row in rows},
+        "rule_gate_by_candidate": gate_result["gate_by_candidate"],
+        "rule_gate_source_backed_rule_count": gate_result["source_backed_rule_count"],
+        "rule_gate_missing_unresolved_rule_count": gate_result["missing_unresolved_rule_count"],
         "accepted_state_count": len(rows),
         "intake_ready_count": sum(1 for row in rows if row["decision"] == "intake-ready"),
         "blocked_count": sum(1 for row in rows if row["decision"] == "blocked"),
@@ -107,6 +113,15 @@ def decision_for_states(freshness_state: str, blocker_state: str) -> str:
     return "blocked"
 
 
+def decision_for_candidate(candidate_id: str, freshness_state: str, blocker_state: str) -> str:
+    state_decision = decision_for_states(freshness_state, blocker_state)
+    if state_decision != "intake-ready":
+        return state_decision
+    if not rule_gate.candidate_can_promote(candidate_id):
+        return "blocked"
+    return state_decision
+
+
 def unresolved_marker_blocks(value: object) -> bool:
     text = "" if value is None else str(value).strip().lower()
     return text in UNRESOLVED_MARKERS or any(marker in text for marker in UNRESOLVED_MARKERS[2:])
@@ -133,7 +148,7 @@ def _state(
     blocker_missing_evidence: str,
     next_action: str,
 ) -> CandidateState:
-    decision = decision_for_states(freshness_state, blocker_state)
+    decision = decision_for_candidate(candidate_id, freshness_state, blocker_state)
     return CandidateState(
         candidate_id=candidate_id,
         freshness_state=freshness_state,

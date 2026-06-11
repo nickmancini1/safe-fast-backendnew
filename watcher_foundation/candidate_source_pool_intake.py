@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Sequence
 
 from watcher_foundation import candidate_completeness_screen as screen
+from watcher_foundation import candidate_freshness_blocker_rule_gate as rule_gate
 from watcher_foundation import candidate_freshness_blocker_state as state_model
 
 
@@ -153,6 +154,7 @@ class IntakeRow:
 def build_source_pool_intake() -> dict[str, object]:
     inspected = screen.build_candidate_pool()
     expansion = _inspect_real_historical_replay_logs()
+    gate_result = rule_gate.build_rule_gate_result()
     accepted = [_to_intake_row(row) for row in inspected if _strictly_source_backed(row)]
     accepted.extend(expansion["accepted_rows"])
     ranked = sorted(accepted, key=_rank_key)
@@ -186,6 +188,9 @@ def build_source_pool_intake() -> dict[str, object]:
         "rejected_row_families": expansion["rejected_row_families"],
         "smallest_next_evidence_backed_fix": POST_BATCH_RECOMMENDED_NEXT_ACTION,
         "top_remaining_blocker_family": top_blocker,
+        "rule_gate_source_backed_rule_count": gate_result["source_backed_rule_count"],
+        "rule_gate_missing_unresolved_rule_count": gate_result["missing_unresolved_rule_count"],
+        "rule_gate_families_checked": gate_result["rule_families_checked"],
         "accepted_rows": [row.as_row() for row in ranked],
         "no_generated_reports_or_logs": True,
         "proof_accepted": False,
@@ -247,6 +252,12 @@ def _to_intake_row(row: dict[str, str]) -> IntakeRow:
     source_file, source_section = _split_source(row["source_lines"])
     state = state_model.state_for_candidate(row["candidate_id"])
     status = state.decision if row["status"] not in {"drop", "replace"} else row["status"]
+    if status == "intake-ready" and not rule_gate.candidate_can_promote(
+        row["candidate_id"],
+        final_verdict=row.get("final_verdict"),
+        primary_blocker=row.get("blocker"),
+    ):
+        status = "blocked"
     return IntakeRow(
         candidate_id=row["candidate_id"],
         symbol=row["symbol"],
@@ -452,7 +463,15 @@ def _signal_to_intake_row(
             "terminal chart-only review not performed"
         ),
         duplicate="no",
-        status=state.decision,
+        status=(
+            state.decision
+            if rule_gate.candidate_can_promote(
+                candidate_id,
+                final_verdict=signal.get("final_verdict"),
+                primary_blocker=signal.get("primary_blocker"),
+            )
+            else "blocked"
+        ),
         reason=(
             f"blocked: {state.freshness_state}; {state.blocker_state}; "
             f"{state.freshness_reason}; {state.blocker_reason}"

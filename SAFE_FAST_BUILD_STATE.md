@@ -8209,3 +8209,65 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: because fewer than 5 rows became intake-ready, do not deep-review; repair or add source-backed freshness/blocker evidence in batch by defining and testing the missing rules/fields: Clean Fast Break gap/higher-base/initial-break stale-spent expiry, Continuation next-session carry-forward, Ideal stale-spent/fast-swing freshness, intrabar ordering evidence requirements, accepted wide-risk/room thresholds, and complete context/caution review fields.
+
+## Day 39 freshness/blocker rule-gate layer result
+
+- Current task baseline stated by task file: `7b04fe9 Record seven-row freshness blocker evidence repair`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: built the smallest repo-backed freshness/blocker rule-gate layer for the seven strict rows and integrated it only enough to prevent promotion through unresolved rules.
+- New rule-gate path: `watcher_foundation/candidate_freshness_blocker_rule_gate.py`.
+- New tests: `tests/test_candidate_freshness_blocker_rule_gate.py`.
+- Existing integration paths updated:
+  - `watcher_foundation/candidate_freshness_blocker_state.py`
+  - `watcher_foundation/candidate_source_pool_intake.py`
+- Rule families checked:
+  - Clean Fast Break initial-break / higher-base / fresh-break expiry
+  - Clean Fast Break gap-context completeness
+  - Continuation next-session carry-forward freshness
+  - Continuation session-boundary freshness
+  - Ideal stale/spent expiry
+  - Ideal fast-swing freshness
+  - intrabar ordering / order-of-events inside 1H candles
+  - wide-risk / room threshold
+  - complete context/caution review
+  - primary blocker null is not enough
+- Source-backed rule count: 1.
+- Source-backed rule family: primary blocker null is not enough.
+- Missing/unresolved rule count: 9.
+- Missing/unresolved status split:
+  - `MISSING_RULE`: Clean Fast Break expiry, Continuation next-session carry-forward freshness, Continuation session-boundary freshness, Ideal stale/spent expiry, Ideal fast-swing freshness.
+  - `SOURCE_DATA_INSUFFICIENT`: Clean Fast Break gap-context completeness, complete context/caution review.
+  - `LOWER_TIMEFRAME_REQUIRED`: intrabar ordering / order-of-events inside 1H candles.
+  - `THRESHOLD_MISSING`: wide-risk / room threshold.
+- Affected candidates:
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`
+  - `QQQ-REAL-HISTORICAL-CONTINUATION-001`
+  - `QQQ-REAL-HISTORICAL-IDEAL-001`
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001`
+  - `SPY-REAL-HISTORICAL-IDEAL-001`
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`
+- Current rows/windows inspected: 60.
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Close-ready count: 7.
+- Any row became intake-ready: NO.
+- The rule gate explicitly blocks promotion from `final_verdict=TRADE` alone.
+- The rule gate explicitly blocks promotion from primary blocker null alone.
+- This was not deep proof review, not outcome review, not live trading, not a proof claim, and not a profitability claim.
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_rule_gate.py"` PASS, 11 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker_state.py"` PASS, 10 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 13 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_completeness_screen.py"` PASS, 11 tests.
+  - `python -B -m unittest discover -s tests -p "test_historical_candidate_batch_triage.py"` PASS, 18 tests.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_rule_gate` PASS and printed the rule-gate report to stdout only.
+  - `python -B -m watcher_foundation.candidate_freshness_blocker_state` PASS and printed the state report to stdout only.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the strict source-pool intake report to stdout only.
+  - `python -B -m watcher_foundation.candidate_completeness_screen` PASS and printed the ranked table to stdout only.
+  - `git --no-pager diff --check` PASS with Git line-ending warnings for `watcher_foundation/candidate_freshness_blocker_state.py` and `watcher_foundation/candidate_source_pool_intake.py`.
+- No generated report/log/CSV/JSON output file was created.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: define and regression-test the missing source-backed rule/evidence families in batch before any proof review: Clean Fast Break initial/higher-base/fresh-break expiry, QQQ gap-context completeness, Continuation next-session/session-boundary freshness, Ideal stale/spent and fast-swing freshness, intrabar ordering evidence requirements, accepted wide-risk/room thresholds, and complete context/caution review fields.
