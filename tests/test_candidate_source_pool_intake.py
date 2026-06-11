@@ -12,6 +12,7 @@ STRICT_SOURCE_BACKED_IDS = {
     "SPY-REAL-HISTORICAL-IDEAL-001",
     "QQQ-REAL-HISTORICAL-IDEAL-001",
     "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
 }
 
 
@@ -19,8 +20,10 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
     def test_inspects_full_24_row_pool_but_accepts_only_strict_source_backed_rows(self):
         result = intake.build_source_pool_intake()
 
-        self.assertEqual(result["source_pool_rows_inspected"], 24)
-        self.assertEqual(result["accepted_intake_count"], 6)
+        self.assertEqual(result["existing_screen_rows_inspected"], 24)
+        self.assertEqual(result["expansion_signal_rows_inspected"], 36)
+        self.assertEqual(result["source_pool_rows_inspected"], 60)
+        self.assertEqual(result["accepted_intake_count"], 7)
         self.assertEqual({row["candidate_id"] for row in result["accepted_rows"]}, STRICT_SOURCE_BACKED_IDS)
 
     def test_accepted_rows_have_required_intake_fields_without_missing_values(self):
@@ -44,11 +47,11 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
         result = intake.build_source_pool_intake()
 
         self.assertEqual(result["intake_ready_count"], 0)
-        self.assertEqual(result["blocked_count"], 6)
+        self.assertEqual(result["blocked_count"], 7)
         self.assertEqual(result["drop_count"], 0)
         self.assertEqual(result["replace_count"], 0)
         self.assertEqual(result["duplicate_count"], 0)
-        self.assertEqual(result["close_ready_count"], 6)
+        self.assertEqual(result["close_ready_count"], 7)
         self.assertTrue(result["fewer_than_5_intake_ready_rows_remain"])
         self.assertTrue(result["at_least_5_intake_ready_or_close_ready"])
         self.assertIn("freshness/final-signal", result["top_remaining_blocker_family"])
@@ -101,11 +104,34 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
     def test_reports_exact_blocker_when_local_sources_do_not_support_20_to_50_strict_rows(self):
         result = intake.build_source_pool_intake()
 
-        self.assertEqual(result["maximum_strict_candidates_found"], 6)
+        self.assertEqual(result["maximum_strict_candidates_found"], 7)
         self.assertIn("do not support 20-50 strict candidates", result["exact_blocker"])
         self.assertGreaterEqual(len(result["source_files_inspected"]), 1)
         self.assertIn("fewer than 5 rows became intake-ready", result["smallest_next_evidence_backed_fix"])
-        self.assertIn("expand the source pool", result["smallest_next_evidence_backed_fix"])
+        self.assertIn("freshness/final-signal", result["smallest_next_evidence_backed_fix"])
+
+    def test_real_historical_expansion_adds_one_non_duplicate_strict_blocked_row(self):
+        result = intake.build_source_pool_intake()
+        by_id = {row["candidate_id"]: row for row in result["accepted_rows"]}
+        added = by_id["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003"]
+
+        self.assertEqual(result["new_candidates_added"], ["SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003"])
+        self.assertIn("third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl", added["source_file"])
+        self.assertIn("signal log line 5", added["source_lines_section"])
+        self.assertIn("source CSV line 154", added["source_lines_section"])
+        self.assertIn("2026-04-15T14:30:00-04:00", added["setup_candle"])
+        self.assertIn("698.65", added["trigger"])
+        self.assertIn("694.2801", added["invalidation"])
+        self.assertEqual(added["status"], "blocked")
+        self.assertEqual(added["duplicate"], "no")
+        self.assertIn("freshness/final-signal", added["reason"])
+
+    def test_expansion_rejected_families_are_reported_without_promoting_no_trade_rows(self):
+        result = intake.build_source_pool_intake()
+        rejected = "; ".join(result["rejected_row_families"])
+
+        self.assertIn("already-blocked six-row anchor preserved, not re-drilled: 6", rejected)
+        self.assertIn("no-trade/rejected signal-log rows without completed trigger: 29", rejected)
 
     def test_blocked_row_reasons_preserve_specific_freshness_and_blocker_evidence(self):
         result = intake.build_source_pool_intake()
@@ -142,8 +168,9 @@ class CandidateSourcePoolIntakeTests(unittest.TestCase):
             intake.main()
 
         report = output.getvalue()
-        self.assertIn("source-pool rows inspected: 24", report)
-        self.assertIn("accepted intake count: 6", report)
+        self.assertIn("source-pool rows inspected: 60", report)
+        self.assertIn("accepted intake count: 7", report)
+        self.assertIn("new strict candidates added: SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003", report)
         self.assertIn("fewer than 5 intake-ready rows remain: YES", report)
         self.assertIn("ranked intake table:", report)
         self.assertIn("QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001", report)

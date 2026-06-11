@@ -8042,3 +8042,56 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: stop drilling these six rows because fewer than 5 became intake-ready; expand the source pool again, or build a smaller repo-backed freshness/blocker extractor only if it can resolve freshness/final-signal and blocker/caution without hindsight.
+
+## Day 39 strict source-pool expansion status
+
+- Current task baseline verified locally: `749129a Record six-row freshness blocker batch`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: expanded the strict source-pool intake helper from local repo-backed source/replay material without drilling the same six blocked anchors and without deep proof/outcome review.
+- Existing 24-row completeness screen was preserved.
+- Real historical replay signal-log rows inspected: 36.
+- Source-pool rows inspected: 60 total, made from 24 existing screen rows plus 36 real historical signal-log rows.
+- Source files inspected:
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv`
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv`
+  - `historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/first_real_qqq_continuation_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/first_real_qqq_ideal_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/first_real_spy_continuation_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/second_real_spy_ideal_replay_v1_signal_log.jsonl`
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl`
+- Accepted intake count: 7.
+- Intake-ready count: 0.
+- Close-ready count: 7.
+- Blocked/drop/replace/duplicate counts among accepted strict rows: 7/0/0/0.
+- New strict candidate added: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: blocked; source is `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl` line 5 plus exact source CSV line `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv` line 154; setup candle `2026-04-15T14:30:00-04:00`; trigger `698.65`; invalidation `694.2801`; no-hindsight boundary through the signal/source row only; outcome input is following source row 155 at `2026-04-15T15:30:00-04:00`; terminal chart-only review was not performed.
+- Any row became intake-ready: NO.
+- Fewer than 5 intake-ready rows remain: YES.
+- Rejected row families:
+  - already-blocked six-row anchor preserved, not re-drilled: 6.
+  - no-trade/rejected signal-log rows without completed trigger: 29.
+- Maximum strict candidates found: 7.
+- Exact source-pool blocker: current local docs/data support only 7 strict candidates, not 20-50 strict candidates; freshness/final-signal plus blocker/caution remains unresolved.
+- Top blocker family: freshness/final-signal plus blocker/caution unresolved.
+- Bottleneck classification: B. freshness/final-signal state model and C. blocker/caution state model.
+- The local source material produced only one additional non-duplicate strict row; it did not support 5 intake-ready rows.
+- Missing or unresolved evidence remains blocked, not low confidence.
+- Intake-ready still means eligible for later proof review only; it is not proof accepted.
+- Helper update: `watcher_foundation/candidate_source_pool_intake.py` now scans the real historical signal logs, matches the added row to exact local source CSV context, reports expansion row counts, new candidates added, and rejected row families.
+- Test update: `tests/test_candidate_source_pool_intake.py` now verifies 60 inspected rows, 7 accepted strict rows, the new SPY Clean Fast Break source references, and rejected row families.
+- `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md` was not edited because this build-state entry preserves the bounded expansion result without changing the durable handoff rules.
+- Commands run:
+  - `python -B -m unittest discover -s tests -p "test_candidate_source_pool_intake.py"` PASS, 12 tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_completeness_screen.py"` PASS, 11 tests.
+  - `python -B -m unittest discover -s tests -p "test_historical_candidate_batch_triage.py"` PASS, 18 tests.
+  - `python -B -m watcher_foundation.candidate_completeness_screen` PASS and printed the ranked table to stdout only.
+  - `python -B -m watcher_foundation.candidate_source_pool_intake` PASS and printed the expanded strict source-pool intake report to stdout only.
+  - `git --no-pager diff --check` PASS.
+- No generated report/log/CSV/JSON output file was created.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: build the smallest repo-backed freshness/final-signal and blocker/caution state extractor for the 7 strict rows, then rerun intake; do not deep-review proof/outcome until rows become intake-ready without hindsight.

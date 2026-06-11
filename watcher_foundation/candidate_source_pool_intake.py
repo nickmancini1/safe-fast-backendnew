@@ -8,12 +8,17 @@ only and does not create reports.
 
 from __future__ import annotations
 
+import csv
+import json
 from collections import Counter
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Sequence
 
 from watcher_foundation import candidate_completeness_screen as screen
 
+
+ROOT = Path(__file__).resolve().parents[1]
 
 INTAKE_OUTPUT_FIELDS = (
     "candidate_id",
@@ -43,10 +48,41 @@ PROFITABILITY_CLAIMED = False
 UNRESOLVED_MARKERS = ("missing", "unclear", "incomplete")
 
 POST_BATCH_RECOMMENDED_NEXT_ACTION = (
-    "fewer than 5 rows became intake-ready after the bounded freshness/blocker pass; "
-    "stop drilling these six and expand the source pool again, or build a smaller "
-    "repo-backed freshness/blocker extractor only if it can resolve these fields without hindsight"
+    "fewer than 5 rows became intake-ready after strict source-pool expansion; "
+    "build a repo-backed freshness/final-signal and blocker/caution state extractor, "
+    "then rerun intake without hindsight"
 )
+
+REAL_HISTORICAL_SIGNAL_LOGS = (
+    "historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl",
+    "historical_signal_replay/reports/first_real_qqq_continuation_replay_v1_signal_log.jsonl",
+    "historical_signal_replay/reports/first_real_qqq_ideal_replay_v1_signal_log.jsonl",
+    "historical_signal_replay/reports/first_real_spy_continuation_replay_v1_signal_log.jsonl",
+    "historical_signal_replay/reports/second_real_spy_ideal_replay_v1_signal_log.jsonl",
+    "historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl",
+)
+
+SOURCE_CSV_BY_SYMBOL = {
+    "SPY": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+    "QQQ": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+    "IWM": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+    "GLD": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
+}
+
+EXISTING_ANCHOR_KEYS = {
+    ("QQQ", "Clean Fast Break", "2026-04-13T12:30:00-04:00"),
+    ("QQQ", "Continuation", "2026-04-30T15:30:00-04:00"),
+    ("QQQ", "Ideal", "2026-05-13T12:30:00-04:00"),
+    ("SPY", "Continuation", "2026-04-30T12:30:00-04:00"),
+    ("SPY", "Ideal", "2026-05-13T11:30:00-04:00"),
+    ("SPY", "Clean Fast Break", "2026-04-13T12:30:00-04:00"),
+}
+
+NEW_REAL_HISTORICAL_IDS = {
+    ("SPY", "Clean Fast Break", "2026-04-15T14:30:00-04:00"): (
+        "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003"
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -91,7 +127,9 @@ class IntakeRow:
 
 def build_source_pool_intake() -> dict[str, object]:
     inspected = screen.build_candidate_pool()
+    expansion = _inspect_real_historical_replay_logs()
     accepted = [_to_intake_row(row) for row in inspected if _strictly_source_backed(row)]
+    accepted.extend(expansion["accepted_rows"])
     ranked = sorted(accepted, key=_rank_key)
     status_counts = Counter(row.status for row in ranked)
     duplicate_count = sum(1 for row in ranked if row.duplicate == "yes")
@@ -99,7 +137,9 @@ def build_source_pool_intake() -> dict[str, object]:
     top_blocker = _top_remaining_blocker_family(ranked, len(inspected))
 
     return {
-        "source_pool_rows_inspected": len(inspected),
+        "source_pool_rows_inspected": len(inspected) + expansion["rows_inspected"],
+        "existing_screen_rows_inspected": len(inspected),
+        "expansion_signal_rows_inspected": expansion["rows_inspected"],
         "accepted_intake_count": len(ranked),
         "intake_ready_count": status_counts.get("intake-ready", 0),
         "blocked_count": status_counts.get("blocked", 0),
@@ -116,7 +156,9 @@ def build_source_pool_intake() -> dict[str, object]:
         ),
         "maximum_strict_candidates_found": len(ranked),
         "exact_blocker": _exact_blocker(len(ranked), top_blocker),
-        "source_files_inspected": _source_files_inspected(inspected),
+        "source_files_inspected": _source_files_inspected(inspected, expansion["source_files_inspected"]),
+        "new_candidates_added": [row.candidate_id for row in expansion["accepted_rows"]],
+        "rejected_row_families": expansion["rejected_row_families"],
         "smallest_next_evidence_backed_fix": POST_BATCH_RECOMMENDED_NEXT_ACTION,
         "top_remaining_blocker_family": top_blocker,
         "accepted_rows": [row.as_row() for row in ranked],
@@ -148,6 +190,8 @@ def format_intake_report(result: dict[str, object]) -> str:
         f"maximum strict candidates found: {result['maximum_strict_candidates_found']}",
         f"exact blocker: {result['exact_blocker']}",
         f"source files inspected: {', '.join(result['source_files_inspected'])}",
+        f"new strict candidates added: {', '.join(result['new_candidates_added']) or 'none'}",
+        "rejected row families: " + "; ".join(result["rejected_row_families"]),
         f"smallest next evidence-backed fix: {result['smallest_next_evidence_backed_fix']}",
         f"top remaining blocker family: {result['top_remaining_blocker_family']}",
         "ranked intake table:",
@@ -266,6 +310,131 @@ def _top_remaining_blocker_family(rows: Sequence[IntakeRow], inspected_count: in
     return "no blocker family among accepted strict rows"
 
 
+def _inspect_real_historical_replay_logs() -> dict[str, object]:
+    accepted: list[IntakeRow] = []
+    rejected = Counter()
+    rows_inspected = 0
+    source_files = set(REAL_HISTORICAL_SIGNAL_LOGS)
+    source_files.update(SOURCE_CSV_BY_SYMBOL.values())
+
+    for relative_path in REAL_HISTORICAL_SIGNAL_LOGS:
+        path = ROOT / relative_path
+        for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            if not line.strip():
+                continue
+            rows_inspected += 1
+            signal = json.loads(line)
+            key = (
+                str(signal.get("symbol", "")),
+                str(signal.get("setup_type", "")),
+                str(signal.get("timestamp", "")),
+            )
+            if key in EXISTING_ANCHOR_KEYS:
+                rejected["already-blocked six-row anchor preserved, not re-drilled"] += 1
+                continue
+            if signal.get("final_verdict") != "TRADE":
+                rejected["no-trade/rejected signal-log rows without completed trigger"] += 1
+                continue
+            if key not in NEW_REAL_HISTORICAL_IDS:
+                rejected["trade row lacks approved non-duplicate source-pool identity"] += 1
+                continue
+
+            source_context = _source_context_for_signal(signal)
+            if source_context is None:
+                rejected["trade row missing exact source CSV row or after-signal input row"] += 1
+                continue
+            accepted.append(_signal_to_intake_row(signal, relative_path, line_number, source_context))
+
+    return {
+        "rows_inspected": rows_inspected,
+        "source_files_inspected": sorted(source_files),
+        "accepted_rows": accepted,
+        "rejected_row_families": [
+            f"{reason}: {count}" for reason, count in sorted(rejected.items())
+        ],
+    }
+
+
+def _signal_to_intake_row(
+    signal: dict[str, object],
+    signal_log_path: str,
+    signal_log_line: int,
+    source_context: dict[str, object],
+) -> IntakeRow:
+    symbol = str(signal["symbol"])
+    setup_type = str(signal["setup_type"])
+    timestamp = str(signal["timestamp"])
+    trigger = signal["trigger_level"]
+    invalidation = signal["invalidation"]
+    cautions = ", ".join(str(item) for item in signal.get("cautions_watchouts", []))
+    candidate_id = NEW_REAL_HISTORICAL_IDS[(symbol, setup_type, timestamp)]
+    return IntakeRow(
+        candidate_id=candidate_id,
+        symbol=symbol,
+        setup_type=setup_type,
+        source_file=signal_log_path,
+        source_lines_section=(
+            f"signal log line {signal_log_line}; "
+            f"{source_context['csv_path']} source CSV line {source_context['source_line']}"
+        ),
+        setup_candle=(
+            f"source line {source_context['source_line']}; replay signal row {signal_log_line}; {timestamp}"
+        ),
+        trigger=(
+            f"triggered at {trigger}; final_verdict TRADE; "
+            f"{signal.get('stage')} / {signal.get('setup_state')}"
+        ),
+        invalidation=f"copied replay invalidation {invalidation}",
+        freshness=(
+            "UNCLEAR: replay final_verdict TRADE and trigger_state triggered; "
+            "fresh/non-duplicate state-model review incomplete for added source-pool row"
+        ),
+        blocker=(
+            "UNCLEAR: primary blocker null; complete blocker/caution review incomplete"
+            + (f"; cautions {cautions}" if cautions else "")
+        ),
+        no_hindsight_boundary=f"through {timestamp} signal/source row only",
+        outcome_window=(
+            "source/replay input: following source row "
+            f"{source_context['after_line']} at {source_context['after_timestamp']}; "
+            "terminal chart-only review not performed"
+        ),
+        duplicate="no",
+        status="blocked",
+        reason=(
+            "blocked: added strict source-backed row, but freshness/final-signal and "
+            "blocker/caution remain unclear"
+        ),
+        next_action=(
+            "Run the repo-backed freshness/final-signal and blocker/caution extractor before any proof review."
+        ),
+    )
+
+
+def _source_context_for_signal(signal: dict[str, object]) -> dict[str, object] | None:
+    symbol = str(signal.get("symbol", ""))
+    timestamp = str(signal.get("timestamp", ""))
+    csv_path = SOURCE_CSV_BY_SYMBOL.get(symbol)
+    if not csv_path:
+        return None
+    path = ROOT / csv_path
+    with path.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+    for index, row in enumerate(rows, start=2):
+        if row.get("timestamp") != timestamp:
+            continue
+        after_index = index - 1
+        if after_index >= len(rows):
+            return None
+        return {
+            "csv_path": csv_path,
+            "source_line": index,
+            "after_line": index + 1,
+            "after_timestamp": rows[after_index]["timestamp"],
+        }
+    return None
+
+
 def _exact_blocker(accepted_count: int, top_blocker: str) -> str:
     if accepted_count < MINIMUM_STRICT_INTAKE_TARGET:
         return (
@@ -275,8 +444,12 @@ def _exact_blocker(accepted_count: int, top_blocker: str) -> str:
     return top_blocker
 
 
-def _source_files_inspected(rows: Sequence[dict[str, str]]) -> list[str]:
+def _source_files_inspected(
+    rows: Sequence[dict[str, str]],
+    additional_files: Sequence[str],
+) -> list[str]:
     files = {_source_file_only(_split_source(row["source_lines"])[0]) for row in rows}
+    files.update(additional_files)
     files.discard("")
     return sorted(files)
 
