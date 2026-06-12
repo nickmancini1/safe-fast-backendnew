@@ -68,11 +68,26 @@ Work package validation does not:
 - accept proof,
 - claim profitability.
 
+Validate work package content:
+
+- `python -B -m watcher_foundation.source_evidence_work_package_content_validator`
+
+Content validation checks whether each of the 9 work files contains at least one real evidence row. It checks required headers, non-empty required fields, non-placeholder `fill_status`, matching `candidate_id`, matching `rule_family`, and resolved `source_time`, `source_session`, and `source_window` fields.
+
+The current work package is header-only, so content validation currently reports:
+
+- content passed requests: 0.
+- content failed requests: 9.
+
+Content validation does not count as proof review, reactivate parked rows, make rows intake-ready, accept proof, or claim profitability.
+
 ## Current Counts
 
 - Work package files represented: 9.
 - Work package validates structurally: YES.
 - Work package counts as real evidence: NO.
+- Work package content passed requests: 0.
+- Work package content failed requests: 9.
 - Intake-ready count: 0.
 - Parked/source_data_insufficient count: 4.
 - Replace count: 3.

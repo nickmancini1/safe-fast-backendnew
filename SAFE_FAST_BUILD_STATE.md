@@ -9004,3 +9004,29 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: fill the work package with source-backed evidence, then run `python -B -m watcher_foundation.source_evidence_package_intake <package_path>` before rerunning the acquisition validator, gap scanner, and source-pool intake helper.
+
+## Day 41 richer historical export work package content validator result
+
+- Current task baseline stated by task file: `e590e45 Add richer historical export work package`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: created the content validator for the richer historical export work package.
+- Content validator path: `watcher_foundation/source_evidence_work_package_content_validator.py`.
+- Content validator test path: `tests/test_source_evidence_work_package_content_validator.py`.
+- Content validator doc path: `SAFE_FAST_RICHER_HISTORICAL_EXPORT_WORK_PACKAGE_CONTENT_VALIDATOR.md`.
+- Work package folder checked: `historical_signal_replay/source_data/richer_export_package_work/`.
+- Work files checked: 9.
+- Current work package content passed requests: 0.
+- Current work package content failed requests: 9.
+- Current structural work package validation still passes: 9 files passed, 0 files failed.
+- Content validation requires file presence, required headers, at least one real evidence row, non-empty required evidence fields, non-placeholder `fill_status`, matching `candidate_id`, matching `rule_family`, and resolved `source_time`, `source_session`, and `source_window`.
+- Header-only work files fail content validation as intended.
+- Placeholder `fill_status` fails content validation.
+- Missing required fields fail content validation.
+- Complete synthetic rows can pass content validation for their matching request only.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: fill the richer historical export work package with source-backed evidence rows, then rerun the content validator, work-package structure validator, acquisition validator, gap scanner, and source-pool intake helper before considering any parked-row reassessment.

@@ -830,3 +830,21 @@ Read the repo.
 - Replace count: 3.
 - Proof accepted: NO.
 - Profitability claim made: NO.
+
+## Day 41 richer historical export work package content validator result
+
+- Content validator path: `watcher_foundation/source_evidence_work_package_content_validator.py`.
+- Content validator test path: `tests/test_source_evidence_work_package_content_validator.py`.
+- Content validator doc path: `SAFE_FAST_RICHER_HISTORICAL_EXPORT_WORK_PACKAGE_CONTENT_VALIDATOR.md`.
+- Work package folder checked: `historical_signal_replay/source_data/richer_export_package_work/`.
+- Work files checked: 9.
+- Current work package content passed requests: 0.
+- Current work package content failed requests: 9.
+- Structural work package validation still passes: 9 files passed, 0 files failed.
+- Content validation requires real evidence rows with non-placeholder `fill_status`, matching `candidate_id`, matching `rule_family`, resolved `source_time`, `source_session`, `source_window`, and non-empty required request fields.
+- Current work files are header-only, so they remain content blockers.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.

@@ -217,6 +217,8 @@ def validate_template_path(template_path: str | Path = TEMPLATE_PACKAGE_DIR) -> 
 def validate_work_package_path(
     work_package_path: str | Path = WORK_PACKAGE_DIR,
 ) -> dict[str, object]:
+    from watcher_foundation import source_evidence_work_package_content_validator
+
     root = Path(work_package_path)
     manifest_path = root / MANIFEST_FILE_NAME
     requirements = build_package_requirements()
@@ -239,6 +241,11 @@ def validate_work_package_path(
         for requirement in requirements
     )
     manifest_passed = not manifest_errors
+    content_result = (
+        source_evidence_work_package_content_validator.validate_work_package_content_path(
+            root
+        )
+    )
     return {
         "work_package_dir": str(root),
         "work_package_dir_exists": root.exists(),
@@ -249,6 +256,8 @@ def validate_work_package_path(
         "work_results": [row.as_row() for row in rows],
         "passed_work_file_count": sum(1 for row in rows if row.passed),
         "failed_work_file_count": sum(1 for row in rows if not row.passed),
+        "content_passed_request_count": content_result["passed_request_count"],
+        "content_failed_request_count": content_result["failed_request_count"],
         "work_package_counts_as_real_evidence": False,
         "intake_ready_count": INTAKE_READY_COUNT,
         "parked_count": PARKED_COUNT,
@@ -345,6 +354,8 @@ def format_work_package_validation(result: dict[str, object]) -> str:
         + ("; ".join(result["manifest_errors"]) or "none"),
         f"work files passed: {result['passed_work_file_count']}",
         f"work files failed: {result['failed_work_file_count']}",
+        f"content requests passed: {result['content_passed_request_count']}",
+        f"content requests failed: {result['content_failed_request_count']}",
         "work package validation only: does not count as real evidence",
         f"intake-ready count: {result['intake_ready_count']}",
         f"parked count: {result['parked_count']}",

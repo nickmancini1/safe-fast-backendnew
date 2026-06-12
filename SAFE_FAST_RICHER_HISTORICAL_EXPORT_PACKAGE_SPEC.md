@@ -68,6 +68,10 @@ The work package can be checked with:
 
 - `python -B -m watcher_foundation.source_evidence_package_intake --validate-work-package`
 
+The work package content can be checked with:
+
+- `python -B -m watcher_foundation.source_evidence_work_package_content_validator`
+
 Work package validation means only:
 
 - the work package directory exists,
@@ -76,6 +80,8 @@ Work package validation means only:
 - all 9 work files exist,
 - required headers are present,
 - every group is clearly unfilled.
+
+Work package content validation checks whether the 9 files contain real evidence rows. Each row must include non-placeholder `fill_status`, matching `candidate_id`, matching `rule_family`, resolved `source_time`, `source_session`, and `source_window`, and non-empty required fields for the evidence request.
 
 Work package validation does not count as real evidence. A real future package still needs source-backed resolved evidence values before real package structural validation can pass.
 
@@ -95,6 +101,8 @@ Template counts:
 - Template counts as real evidence: NO.
 - Work package files represented: 9.
 - Work package counts as real evidence: NO.
+- Work package content passed requests: 0.
+- Work package content failed requests: 9.
 - Intake-ready count: 0.
 - Parked/source_data_insufficient count: 4.
 - Replace count: 3.
