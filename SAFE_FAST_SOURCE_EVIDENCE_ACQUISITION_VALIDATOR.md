@@ -10,6 +10,26 @@ Proof accepted: NO.
 
 Profitability claim made: NO.
 
+## Richer Historical Export Package Intake
+
+- Export package spec: `SAFE_FAST_RICHER_HISTORICAL_EXPORT_PACKAGE_SPEC.md`.
+- Package-intake helper: `watcher_foundation/source_evidence_package_intake.py`.
+- Package-intake test: `tests/test_source_evidence_package_intake.py`.
+- Required manifest: `manifest.json`.
+- Manifest schema version: `safe-fast-richer-historical-export-package-v1`.
+- Accepted file formats: CSV or JSONL.
+- Required package file groups: 9, matching the 9 acquisition requests.
+- No-package CLI behavior: prints the required package checklist to stdout only.
+- Future package-path CLI behavior: validates manifest, required file entries, accepted formats, and required fields.
+- Structural package validation does not reactivate parked rows, allow proof review, accept proof, or claim profitability.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+
+Proof accepted: NO.
+
+Profitability claim made: NO.
+
 Current intake-ready count: 0.
 
 ## Summary

@@ -10,6 +10,29 @@ Proof accepted: NO.
 
 Profitability claim made: NO.
 
+## Export Package Spec Follow-Up
+
+The next build-only layer now defines the exact richer historical export package needed after this inventory found 0 of 9 requests satisfied.
+
+- Export package spec: `SAFE_FAST_RICHER_HISTORICAL_EXPORT_PACKAGE_SPEC.md`.
+- Package-intake helper: `watcher_foundation/source_evidence_package_intake.py`.
+- Package-intake test: `tests/test_source_evidence_package_intake.py`.
+- Required manifest: `manifest.json`.
+- Manifest schema version: `safe-fast-richer-historical-export-package-v1`.
+- Accepted file formats: CSV or JSONL.
+- Required evidence file groups: 9.
+- Required file groups cover QQQ CFB gap context, QQQ CFB expiry/regressions, QQQ CFB context/caution, SPY CFB 003 expiry/regressions, SPY CFB 003 context/caution, SPY CFB 002 expiry/regressions, SPY CFB 002 context/caution, SPY Ideal expiry/regressions, and SPY Ideal context/caution.
+- With no package supplied, the helper prints the package checklist to stdout only.
+- With a package path supplied later, the helper validates structure only.
+- Structural validation alone does not reactivate parked rows, make rows intake-ready, allow proof review, accept proof, or claim profitability.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+
+Proof accepted: NO.
+
+Profitability claim made: NO.
+
 ## Files Inspected
 
 - `historical_signal_replay/source_data`.

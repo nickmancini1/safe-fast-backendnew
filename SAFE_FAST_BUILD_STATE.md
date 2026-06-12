@@ -8900,3 +8900,42 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: acquire the exact request-shaped source exports or rule/regression files, then rerun the acquisition validator, gap scanner, and source-pool intake helper before considering any parked-row reassessment.
+
+## Day 40 richer historical export package result
+
+- Current task baseline stated by task file: `04f5a00 Add richer historical evidence inventory`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: created the exact richer historical export package spec and local package-intake validator for future evidence exports.
+- Export package spec path: `SAFE_FAST_RICHER_HISTORICAL_EXPORT_PACKAGE_SPEC.md`.
+- Package-intake helper path: `watcher_foundation/source_evidence_package_intake.py`.
+- Package-intake test path: `tests/test_source_evidence_package_intake.py`.
+- Acquisition validator path reused: `watcher_foundation/source_evidence_acquisition_validator.py`.
+- Required manifest: `manifest.json`.
+- Manifest schema version: `safe-fast-richer-historical-export-package-v1`.
+- Accepted file formats: CSV or JSONL.
+- Required evidence file groups represented: 9.
+- Required groups covered:
+  - QQQ CFB gap context.
+  - QQQ CFB expiry/regression rows.
+  - QQQ CFB context/caution.
+  - SPY CFB 003 expiry/regression rows.
+  - SPY CFB 003 context/caution.
+  - SPY CFB 002 expiry/regression rows.
+  - SPY CFB 002 context/caution.
+  - SPY Ideal expiry/regression rows.
+  - SPY Ideal context/caution.
+- The package-intake helper does not require actual new evidence to exist.
+- No-package CLI behavior: prints the required package checklist to stdout only.
+- Future package-path behavior: validates manifest structure, required file entries, accepted formats, and required fields.
+- Missing manifest fails validation.
+- Missing required file entry fails validation.
+- Missing required field fails validation.
+- Complete synthetic in-memory package passes structural validation.
+- Structural package validation alone does not reactivate parked rows, make rows intake-ready, allow proof review, accept proof, or claim profitability.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: export a package matching `SAFE_FAST_RICHER_HISTORICAL_EXPORT_PACKAGE_SPEC.md`, then run `python -B -m watcher_foundation.source_evidence_package_intake <package_path>` before rerunning the acquisition validator, gap scanner, and source-pool intake helper.
