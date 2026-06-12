@@ -8971,3 +8971,36 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: copy the template into a future package folder, fill the required fields with source-backed evidence, rename/use `manifest.json`, then run `python -B -m watcher_foundation.source_evidence_package_intake <package_path>` before rerunning the acquisition validator, gap scanner, and source-pool intake helper.
+
+## Day 40 richer historical export work package result
+
+- Current task baseline stated by task file: `e90b7d3 Add richer historical export package template`.
+- Corrective scope: build-only helper/test/doc/template work.
+- Result: created the fillable richer historical export work package for future source-backed evidence exports.
+- Work package doc path: `SAFE_FAST_RICHER_HISTORICAL_EXPORT_WORK_PACKAGE.md`.
+- Work package folder path: `historical_signal_replay/source_data/richer_export_package_work/`.
+- Manifest path: `historical_signal_replay/source_data/richer_export_package_work/manifest.json`.
+- Manifest `package_status`: `needs_real_evidence`.
+- Work files created: 9.
+- Work files are header-only and include `fill_status`.
+- Required evidence groups covered:
+  - QQQ CFB gap context.
+  - QQQ CFB expiry/regressions.
+  - QQQ CFB context/caution.
+  - SPY CFB 003 expiry/regressions.
+  - SPY CFB 003 context/caution.
+  - SPY CFB 002 expiry/regressions.
+  - SPY CFB 002 context/caution.
+  - SPY Ideal expiry/regressions.
+  - SPY Ideal context/caution.
+- Package-intake helper now prints work package checklist metadata and validates work package structure with `--validate-work-package`.
+- Work package structure validates: YES.
+- Work package counts as real evidence: NO.
+- Work package validation does not reactivate parked rows, make rows intake-ready, allow proof review, accept proof, or claim profitability.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: fill the work package with source-backed evidence, then run `python -B -m watcher_foundation.source_evidence_package_intake <package_path>` before rerunning the acquisition validator, gap scanner, and source-pool intake helper.

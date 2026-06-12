@@ -44,6 +44,41 @@ The template can be checked with:
 
 - `python -B -m watcher_foundation.source_evidence_package_intake --validate-template`
 
+## Work Package
+
+The repo now includes a fillable header-only work package for future evidence exports:
+
+- `historical_signal_replay/source_data/richer_export_package_work/`
+- `historical_signal_replay/source_data/richer_export_package_work/manifest.json`
+- 9 required work files using the real package filenames.
+
+The work package manifest must include:
+
+- `package_status`: `needs_real_evidence`
+- `proof_accepted`: `false`
+- `profitability_claimed`: `false`
+
+Each evidence file entry must include:
+
+- `fill_status`: `unfilled`
+
+Each work file must include `fill_status` plus the evidence group's required headers. The work files are intentionally header-only.
+
+The work package can be checked with:
+
+- `python -B -m watcher_foundation.source_evidence_package_intake --validate-work-package`
+
+Work package validation means only:
+
+- the work package directory exists,
+- `manifest.json` exists,
+- all 9 work file entries are represented,
+- all 9 work files exist,
+- required headers are present,
+- every group is clearly unfilled.
+
+Work package validation does not count as real evidence. A real future package still needs source-backed resolved evidence values before real package structural validation can pass.
+
 Template validation means only:
 
 - the template directory exists,
@@ -58,6 +93,8 @@ Template counts:
 
 - Template files represented: 9.
 - Template counts as real evidence: NO.
+- Work package files represented: 9.
+- Work package counts as real evidence: NO.
 - Intake-ready count: 0.
 - Parked/source_data_insufficient count: 4.
 - Replace count: 3.

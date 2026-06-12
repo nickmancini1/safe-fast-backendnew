@@ -42,6 +42,10 @@ Validate the template structure:
 
 - `python -B -m watcher_foundation.source_evidence_package_intake --validate-template`
 
+Validate the fillable work package structure:
+
+- `python -B -m watcher_foundation.source_evidence_package_intake --validate-work-package`
+
 Validate a future filled package:
 
 - `python -B -m watcher_foundation.source_evidence_package_intake <package_path>`
@@ -56,9 +60,16 @@ Template validation does not:
 - accept proof,
 - claim profitability.
 
+Work package validation checks `historical_signal_replay/source_data/richer_export_package_work/`, `manifest.json`, all 9 work files, required headers, `package_status: "needs_real_evidence"`, and `fill_status: "unfilled"` entries.
+
+Work package validation does not count as real evidence and does not reactivate parked rows, make any row intake-ready, allow proof review, accept proof, or claim profitability.
+
 ## Current Counts
 
 - Template files represented: 9.
+- Work package files represented: 9.
+- Work package validates structurally: YES.
+- Work package counts as real evidence: NO.
 - Intake-ready count: 0.
 - Parked/source_data_insufficient count: 4.
 - Replace count: 3.

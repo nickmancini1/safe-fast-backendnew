@@ -1,0 +1,92 @@
+{
+  "schema_version": "safe-fast-richer-historical-export-package-v1",
+  "package_name": "safe-fast-richer-historical-export-package-work",
+  "created_utc": "WORK_PACKAGE_FILL_CREATED_UTC",
+  "source_system": "WORK_PACKAGE_FILL_SOURCE_SYSTEM",
+  "package_status": "needs_real_evidence",
+  "evidence_files": [
+    {
+      "evidence_name": "QQQ CFB gap-context completeness fields/rule",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "file_name": "qqq_cfb_gap_context_completeness_fields_rule.jsonl",
+      "format": "csv",
+      "source_export_type": "setup-time QQQ source CSV export or replay-log enrichment",
+      "timestamp_session_window": "2026-04 QQQ Clean Fast Break setup window; source CSV line 132; replay log lines 3-4",
+      "fill_status": "unfilled"
+    },
+    {
+      "evidence_name": "QQQ CFB stale/spent expiry rule/regressions",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "file_name": "qqq_cfb_stale_spent_expiry_rule_regressions.jsonl",
+      "format": "csv",
+      "source_export_type": "rule document plus regression fixture rows for QQQ Clean Fast Break",
+      "timestamp_session_window": "QQQ Clean Fast Break log lines 3-6, including fresh and later spent lifecycle rows",
+      "fill_status": "unfilled"
+    },
+    {
+      "evidence_name": "QQQ CFB complete context/caution fields",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "file_name": "qqq_cfb_complete_context_caution_fields.jsonl",
+      "format": "csv",
+      "source_export_type": "setup-time QQQ source CSV export or replay-log enrichment",
+      "timestamp_session_window": "QQQ Clean Fast Break setup-time row at source CSV line 132 and replay log line 3",
+      "fill_status": "unfilled"
+    },
+    {
+      "evidence_name": "SPY CFB 003 higher-base/fresh-break expiry rule/regressions",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "file_name": "spy_cfb_003_higher_base_fresh_break_expiry_rule_regressions.jsonl",
+      "format": "csv",
+      "source_export_type": "rule document plus regression fixture rows for SPY Clean Fast Break",
+      "timestamp_session_window": "2026-04-15 14:30 SPY signal row and later spent lifecycle row; log lines 5-6",
+      "fill_status": "unfilled"
+    },
+    {
+      "evidence_name": "SPY CFB 003 complete context/caution fields",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "file_name": "spy_cfb_003_complete_context_caution_fields.jsonl",
+      "format": "csv",
+      "source_export_type": "setup-time SPY source CSV export or replay-log enrichment",
+      "timestamp_session_window": "2026-04-15 14:30 SPY setup-time row; source CSV line 154; replay log line 5",
+      "fill_status": "unfilled"
+    },
+    {
+      "evidence_name": "SPY CFB 002 initial-break expiry rule/regressions",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "file_name": "spy_cfb_002_initial_break_expiry_rule_regressions.jsonl",
+      "format": "csv",
+      "source_export_type": "rule document plus regression fixture rows for SPY Clean Fast Break",
+      "timestamp_session_window": "2026-04-13 12:30 SPY signal row and same-session follow-through/spent row; log lines 2-3",
+      "fill_status": "unfilled"
+    },
+    {
+      "evidence_name": "SPY CFB 002 complete context/caution fields",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "file_name": "spy_cfb_002_complete_context_caution_fields.jsonl",
+      "format": "csv",
+      "source_export_type": "setup-time SPY source CSV export or replay-log enrichment",
+      "timestamp_session_window": "2026-04-13 12:30 SPY setup-time row; source CSV line 138; replay log line 2",
+      "fill_status": "unfilled"
+    },
+    {
+      "evidence_name": "SPY Ideal stale/spent expiry rule/regressions",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "file_name": "spy_ideal_stale_spent_expiry_rule_regressions.jsonl",
+      "format": "csv",
+      "source_export_type": "rule document plus regression fixture rows for SPY Ideal",
+      "timestamp_session_window": "2026-05-13 11:30 SPY Ideal signal row and later spent lifecycle row; log lines 5-6",
+      "fill_status": "unfilled"
+    },
+    {
+      "evidence_name": "SPY Ideal gap/headline/option/execution/complete caution fields",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "file_name": "spy_ideal_gap_headline_option_execution_complete_caution_fields.jsonl",
+      "format": "csv",
+      "source_export_type": "setup-time SPY source CSV export or replay-log enrichment",
+      "timestamp_session_window": "2026-05-13 11:30 SPY Ideal setup-time row; source CSV line 291; replay log line 5",
+      "fill_status": "unfilled"
+    }
+  ],
+  "proof_accepted": false,
+  "profitability_claimed": false
+}

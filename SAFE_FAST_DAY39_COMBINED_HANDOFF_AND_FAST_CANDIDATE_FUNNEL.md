@@ -811,3 +811,22 @@ Read the repo.
 - Replace count: 3.
 - Proof accepted: NO.
 - Profitability claim made: NO.
+
+## Day 40 richer historical export work package result
+
+- Work package doc path: `SAFE_FAST_RICHER_HISTORICAL_EXPORT_WORK_PACKAGE.md`.
+- Work package folder path: `historical_signal_replay/source_data/richer_export_package_work/`.
+- Manifest path: `historical_signal_replay/source_data/richer_export_package_work/manifest.json`.
+- Manifest `package_status`: `needs_real_evidence`.
+- Work files created: 9.
+- Work files are header-only and include `fill_status`.
+- Required evidence groups covered: all 9 acquisition requests.
+- Package-intake helper now validates work package structure with `--validate-work-package`.
+- Work package structure validates: YES.
+- Work package counts as real evidence: NO.
+- Work package validation does not reactivate parked rows, make rows intake-ready, allow proof review, accept proof, or claim profitability.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.

@@ -25,6 +25,10 @@ MANIFEST_SCHEMA_VERSION = "safe-fast-richer-historical-export-package-v1"
 TEMPLATE_PACKAGE_DIR = Path(
     "historical_signal_replay/source_data/richer_export_package_template"
 )
+WORK_PACKAGE_DIR = Path(
+    "historical_signal_replay/source_data/richer_export_package_work"
+)
+WORK_PACKAGE_STATUS = "needs_real_evidence"
 ACCEPTED_FORMATS = ("csv", "jsonl")
 INTAKE_READY_COUNT = validator.INTAKE_READY_COUNT
 PARKED_COUNT = validator.PARKED_COUNT
@@ -150,6 +154,8 @@ def build_required_package_checklist() -> dict[str, object]:
     return {
         "manifest_schema": build_manifest_schema(),
         "template_package_dir": str(TEMPLATE_PACKAGE_DIR),
+        "work_package_dir": str(WORK_PACKAGE_DIR),
+        "work_package_status": WORK_PACKAGE_STATUS,
         "manifest_example_file_name": MANIFEST_EXAMPLE_FILE_NAME,
         "request_count": len(requirements),
         "file_requirements": [requirement.as_row() for requirement in requirements],
@@ -208,6 +214,51 @@ def validate_template_path(template_path: str | Path = TEMPLATE_PACKAGE_DIR) -> 
     }
 
 
+def validate_work_package_path(
+    work_package_path: str | Path = WORK_PACKAGE_DIR,
+) -> dict[str, object]:
+    root = Path(work_package_path)
+    manifest_path = root / MANIFEST_FILE_NAME
+    requirements = build_package_requirements()
+    manifest_errors: list[str] = []
+    if not root.exists():
+        manifest_errors.append(f"missing work package directory {root}")
+    if not manifest_path.exists():
+        manifest_errors.append(f"missing {MANIFEST_FILE_NAME}")
+        manifest = {}
+    else:
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            manifest_errors.append(f"invalid work package manifest json: {exc}")
+            manifest = {}
+
+    manifest_errors.extend(_work_manifest_errors(manifest))
+    rows = tuple(
+        _validate_work_requirement(requirement, manifest, root)
+        for requirement in requirements
+    )
+    manifest_passed = not manifest_errors
+    return {
+        "work_package_dir": str(root),
+        "work_package_dir_exists": root.exists(),
+        "manifest_present": manifest_path.exists(),
+        "manifest_errors": tuple(manifest_errors),
+        "manifest_passed": manifest_passed,
+        "request_count": len(rows),
+        "work_results": [row.as_row() for row in rows],
+        "passed_work_file_count": sum(1 for row in rows if row.passed),
+        "failed_work_file_count": sum(1 for row in rows if not row.passed),
+        "work_package_counts_as_real_evidence": False,
+        "intake_ready_count": INTAKE_READY_COUNT,
+        "parked_count": PARKED_COUNT,
+        "replace_count": REPLACE_COUNT,
+        "proof_accepted": False,
+        "profitability_claimed": False,
+        "no_generated_reports_or_logs": True,
+    }
+
+
 def validate_package_path(package_path: str | Path) -> dict[str, object]:
     root = Path(package_path)
     manifest_path = root / MANIFEST_FILE_NAME
@@ -248,6 +299,8 @@ def format_package_checklist(result: dict[str, object]) -> str:
         "accepted formats: CSV or JSONL",
         f"requests represented: {result['request_count']}",
         f"template directory: {result['template_package_dir']}",
+        f"work package directory: {result['work_package_dir']}",
+        f"work package status: {result['work_package_status']}",
         f"manifest example: {result['manifest_example_file_name']}",
         f"intake-ready count: {result['intake_ready_count']}",
         f"parked count: {result['parked_count']}",
@@ -283,6 +336,27 @@ def format_template_validation(result: dict[str, object]) -> str:
     return "\n".join(lines)
 
 
+def format_work_package_validation(result: dict[str, object]) -> str:
+    lines = [
+        "SAFE-FAST richer historical export work package validation",
+        f"work package directory exists: {'YES' if result['work_package_dir_exists'] else 'NO'}",
+        f"manifest present: {'YES' if result['manifest_present'] else 'NO'}",
+        "manifest errors: "
+        + ("; ".join(result["manifest_errors"]) or "none"),
+        f"work files passed: {result['passed_work_file_count']}",
+        f"work files failed: {result['failed_work_file_count']}",
+        "work package validation only: does not count as real evidence",
+        f"intake-ready count: {result['intake_ready_count']}",
+        f"parked count: {result['parked_count']}",
+        f"replace count: {result['replace_count']}",
+        "file validation table:",
+        _format_validation_table(result["work_results"]),
+        "proof accepted: NO",
+        "profitability claim made: NO",
+    ]
+    return "\n".join(lines)
+
+
 def format_package_validation(result: dict[str, object]) -> str:
     lines = [
         "SAFE-FAST richer historical export package validation",
@@ -307,10 +381,13 @@ def main(argv: Sequence[str] | None = None) -> None:
     parser = argparse.ArgumentParser(add_help=True)
     parser.add_argument("package_path", nargs="?")
     parser.add_argument("--validate-template", action="store_true")
+    parser.add_argument("--validate-work-package", action="store_true")
     args = parser.parse_args(argv)
 
     if args.validate_template:
         print(format_template_validation(validate_template_path(args.package_path or TEMPLATE_PACKAGE_DIR)))
+    elif args.validate_work_package:
+        print(format_work_package_validation(validate_work_package_path(args.package_path or WORK_PACKAGE_DIR)))
     elif args.package_path:
         print(format_package_validation(validate_package_path(args.package_path)))
     else:
@@ -428,6 +505,46 @@ def _validate_template_requirement(
         evidence_name=requirement.evidence_name,
         candidate_id=requirement.candidate_id,
         required_file_name=expected_file_name,
+        passed=passed,
+        file_present=file_present,
+        format_valid=format_valid,
+        missing_fields=missing,
+        blocker_fields=missing,
+        parked_status=requirement.parked_status,
+        would_reactivate_parked_row=False,
+        proof_allowed=False,
+    )
+
+
+def _validate_work_requirement(
+    requirement: PackageFileRequirement,
+    manifest: Mapping[str, object],
+    work_root: Path,
+) -> PackageValidationRow:
+    entry = _manifest_entry(requirement, manifest)
+    if entry is None:
+        return _missing_file_row(requirement)
+
+    file_name = str(entry.get("file_name", ""))
+    file_format = str(entry.get("format", "")).lower()
+    format_valid = (
+        file_format == "csv"
+        and file_name == requirement.required_file_name
+        and str(entry.get("source_export_type", ""))
+        == requirement.required_source_type
+        and str(entry.get("timestamp_session_window", ""))
+        == requirement.required_timestamp_session_window
+        and entry.get("fill_status") == "unfilled"
+    )
+    header_fields = _csv_headers(work_root / file_name)
+    required_headers = ("fill_status", *requirement.required_fields)
+    missing = tuple(field for field in required_headers if field not in header_fields)
+    file_present = bool(header_fields)
+    passed = format_valid and file_present and not missing
+    return PackageValidationRow(
+        evidence_name=requirement.evidence_name,
+        candidate_id=requirement.candidate_id,
+        required_file_name=requirement.required_file_name,
         passed=passed,
         file_present=file_present,
         format_valid=format_valid,
@@ -619,6 +736,21 @@ def _template_manifest_errors(manifest: Mapping[str, object]) -> tuple[str, ...]
         if entry.get("template_only") is not True:
             errors.append(f"template_only must be true for {requirement.evidence_name}")
     return tuple(error for error in errors if not error.startswith("missing evidence file entry "))
+
+
+def _work_manifest_errors(manifest: Mapping[str, object]) -> tuple[str, ...]:
+    if not manifest:
+        return ()
+    errors = list(_manifest_errors(manifest))
+    if manifest.get("package_status") != WORK_PACKAGE_STATUS:
+        errors.append(f"manifest package_status must be {WORK_PACKAGE_STATUS}")
+    for requirement in build_package_requirements():
+        entry = _manifest_entry(requirement, manifest)
+        if entry is None:
+            continue
+        if entry.get("fill_status") != "unfilled":
+            errors.append(f"fill_status must be unfilled for {requirement.evidence_name}")
+    return tuple(errors)
 
 
 def _format_requirements_table(rows: object) -> str:

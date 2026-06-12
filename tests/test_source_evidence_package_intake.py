@@ -192,6 +192,59 @@ class SourceEvidencePackageIntakeTests(unittest.TestCase):
         self.assertIn("proof accepted: NO", report)
         self.assertIn("profitability claim made: NO", report)
 
+    def test_work_package_folder_and_manifest_exist(self):
+        result = intake.validate_work_package_path()
+
+        self.assertTrue(result["work_package_dir_exists"])
+        self.assertTrue(result["manifest_present"])
+        self.assertEqual(result["request_count"], 9)
+
+    def test_all_nine_work_package_files_exist_with_required_headers(self):
+        result = intake.validate_work_package_path()
+
+        self.assertEqual(result["passed_work_file_count"], 9)
+        self.assertEqual(result["failed_work_file_count"], 0)
+        for row in result["work_results"]:
+            self.assertTrue(row["passed"])
+            self.assertTrue(row["file_present"])
+            self.assertTrue(row["format_valid"])
+            self.assertEqual(row["missing_fields"], ())
+
+    def test_work_package_structure_does_not_count_as_real_evidence(self):
+        result = intake.validate_work_package_path()
+
+        self.assertTrue(result["manifest_passed"])
+        self.assertFalse(result["work_package_counts_as_real_evidence"])
+        self.assertEqual(result["intake_ready_count"], 0)
+        self.assertEqual(result["parked_count"], 4)
+        self.assertEqual(result["replace_count"], 3)
+        self.assertFalse(result["proof_accepted"])
+        self.assertFalse(result["profitability_claimed"])
+        for row in result["work_results"]:
+            self.assertFalse(row["would_reactivate_parked_row"])
+            self.assertFalse(row["proof_allowed"])
+
+    def test_work_package_cli_runs_stdout_only(self):
+        output = io.StringIO()
+
+        with redirect_stdout(output):
+            intake.main(["--validate-work-package"])
+
+        report = output.getvalue()
+        self.assertIn(
+            "SAFE-FAST richer historical export work package validation",
+            report,
+        )
+        self.assertIn("work package directory exists: YES", report)
+        self.assertIn("manifest present: YES", report)
+        self.assertIn("work files passed: 9", report)
+        self.assertIn("work package validation only: does not count as real evidence", report)
+        self.assertIn("intake-ready count: 0", report)
+        self.assertIn("parked count: 4", report)
+        self.assertIn("replace count: 3", report)
+        self.assertIn("proof accepted: NO", report)
+        self.assertIn("profitability claim made: NO", report)
+
 
 def _complete_package(*, include_inline_fields=True):
     entries = []
