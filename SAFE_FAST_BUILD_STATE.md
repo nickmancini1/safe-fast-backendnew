@@ -9263,3 +9263,26 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - No evidence package files, `main.py`, engine/live trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, or live-data paths were changed.
+
+## Day 41 QQQ gap-context rule definition result
+
+- Current task baseline stated by task file: `f0a4535 Record QQQ gap context rule gap`.
+- Corrective scope: docs-only rule definition.
+- Result: defined the no-hindsight QQQ Clean Fast Break gap-context rule shape without filling evidence or creating calculator work.
+- Rule definition path: `SAFE_FAST_DAY41_QQQ_GAP_CONTEXT_RULE_DEFINITION.md`.
+- Threshold-gap path: `SAFE_FAST_DAY41_QQQ_GAP_CONTEXT_THRESHOLD_GAP.md`.
+- Accepted status vocabulary defined: `clean`, `caution`, `fail`, and `unknown`.
+- Previous close rule defined: latest source-backed QQQ regular-session final candle before the signal-day regular session, using `611.02` at `2026-04-10T15:30:00-04:00` for the target candidate.
+- Signal-day open rule defined: first source-backed QQQ regular-session candle on the signal date, using `609.455` at `2026-04-13T09:30:00-04:00` for the target candidate.
+- Raw gap formula defined: signal-day open minus previous regular-session close; target raw gap remains `-1.565` points, about `-0.2561%`, direction `down`.
+- No-hindsight boundary defined: no candles after `2026-04-13T12:30:00-04:00`, no replay log line 4, and no outcome evidence may affect setup-time gap context.
+- Timestamp rule defined: `gap_context_as_of` is the latest allowed candle timestamp used by the rule, not the later export `source_as_of`.
+- Reviewed-before-signal rule defined: true only when `gap_context_as_of` is at or before the setup/signal time and regressions prove future candles cannot affect the result.
+- Threshold decision: repo evidence is still not enough to honestly define numeric clean/caution/fail thresholds, so the target measured gap must not be labeled clean, caution, or fail yet.
+- Exact regression cases required before calculator work are documented.
+- QQQ CFB gap-context evidence filled: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count: 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No calculator code, tests, evidence package files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
