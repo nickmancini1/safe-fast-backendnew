@@ -9239,3 +9239,27 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - No evidence files, helper/source code, `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account endpoints, options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated live reports/logs, or live-data paths were changed.
+
+## Day 41 QQQ gap-context calculation rule-gap result
+
+- Current task baseline: `0f3d706 Record Day 41 tastytrade raw data capability review`.
+- Corrective scope: docs-only rule-gap review.
+- Result: reviewed whether a separate data-only QQQ gap-context calculator could be built from existing QQQ candles.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Candidate signal/setup time found: `2026-04-13T12:30:00-04:00`.
+- Raw QQQ candle inputs found:
+  - Previous regular-session final exported close: `611.02` at `2026-04-10T15:30:00-04:00`.
+  - Signal-day open: `609.455` at `2026-04-13T09:30:00-04:00`.
+  - Through-signal candles available through `2026-04-13T12:30:00-04:00`.
+  - Source `source_as_of`: `2026-05-15T18:48:44Z`.
+- Existing repo rule search result: chart-gap measurement language exists, but no accepted SAFE-FAST rule defines `gap_context_status`, `gap_context_as_of`, or `gap_context_reviewed_before_signal`.
+- Calculator created: NO.
+- Test file created: NO.
+- Rule-gap doc created: `SAFE_FAST_DAY41_QQQ_GAP_CONTEXT_RULE_GAP.md`.
+- Review doc created: `SAFE_FAST_DAY41_QQQ_GAP_CONTEXT_CALCULATION_REVIEW.md`.
+- QQQ CFB gap-context evidence filled: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count: 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence package files, `main.py`, engine/live trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, or live-data paths were changed.
