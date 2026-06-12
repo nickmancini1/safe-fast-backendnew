@@ -30,6 +30,8 @@ PLACEHOLDER_FILL_STATUSES = (
     "needs_real_evidence",
     "unfilled",
 )
+PARTIAL_FILL_STATUS = "partial_missing_required_evidence"
+UNRESOLVED_MARKERS = (*intake.UNRESOLVED_MARKERS, "missing_required_evidence")
 CONTENT_METADATA_FIELDS = (
     "fill_status",
     "candidate_id",
@@ -56,6 +58,9 @@ class ContentValidationRow:
     candidate_id_valid: bool
     rule_family_valid: bool
     source_time_session_window_present: bool
+    partial_row_present: bool
+    header_only: bool
+    row_status: str
     missing_headers: tuple[str, ...]
     missing_required_fields: tuple[str, ...]
     blocker_fields: tuple[str, ...]
@@ -81,6 +86,9 @@ class ContentValidationRow:
             "source_time_session_window_present": (
                 self.source_time_session_window_present
             ),
+            "partial_row_present": self.partial_row_present,
+            "header_only": self.header_only,
+            "row_status": self.row_status,
             "missing_headers": self.missing_headers,
             "missing_required_fields": self.missing_required_fields,
             "blocker_fields": self.blocker_fields,
@@ -122,6 +130,8 @@ def format_content_validation(result: dict[str, object]) -> str:
         f"work files checked: {result['request_count']}",
         f"passed requests: {result['passed_request_count']}",
         f"failed requests: {result['failed_request_count']}",
+        f"partial rows: {result['partial_row_count']}",
+        f"header-only rows: {result['header_only_count']}",
         "content validation only: parked rows stay parked",
         f"intake-ready count: {result['intake_ready_count']}",
         f"parked count: {result['parked_count']}",
@@ -198,6 +208,11 @@ def _validate_requirement_rows(
         not _is_unresolved(row.get(field))
         for field in ("source_time", "source_session", "source_window")
     )
+    partial_row_present = (
+        row_present
+        and str(row.get("fill_status", "")).strip().lower() == PARTIAL_FILL_STATUS
+    )
+    header_only = not row_present
     required_fields_present = not missing_required
     required_fields_non_empty = required_fields_present and not unresolved_required
     blocker_fields = tuple(
@@ -230,6 +245,14 @@ def _validate_requirement_rows(
         and rule_family_valid
         and source_present
     )
+    if partial_row_present:
+        row_status = PARTIAL_FILL_STATUS
+    elif header_only:
+        row_status = "header_only"
+    elif passed:
+        row_status = "complete"
+    else:
+        row_status = "failed"
     return ContentValidationRow(
         evidence_name=requirement.evidence_name,
         candidate_id=requirement.candidate_id,
@@ -245,6 +268,9 @@ def _validate_requirement_rows(
         candidate_id_valid=candidate_id_valid,
         rule_family_valid=rule_family_valid,
         source_time_session_window_present=source_present,
+        partial_row_present=partial_row_present,
+        header_only=header_only,
+        row_status=row_status,
         missing_headers=missing_headers,
         missing_required_fields=missing_required,
         blocker_fields=blocker_fields,
@@ -264,6 +290,8 @@ def _content_result(
         "content_results": [row.as_row() for row in rows],
         "passed_request_count": sum(1 for row in rows if row.passed),
         "failed_request_count": sum(1 for row in rows if not row.passed),
+        "partial_row_count": sum(1 for row in rows if row.partial_row_present),
+        "header_only_count": sum(1 for row in rows if row.header_only),
         "intake_ready_count": INTAKE_READY_COUNT,
         "parked_count": PARKED_COUNT,
         "replace_count": REPLACE_COUNT,
@@ -300,7 +328,7 @@ def _first_real_row(
 
 def _is_unresolved(value: object) -> bool:
     text = "" if value is None else str(value).strip().lower()
-    return text in intake.UNRESOLVED_MARKERS
+    return text in UNRESOLVED_MARKERS
 
 
 def _format_content_table(rows: object) -> str:
@@ -311,6 +339,7 @@ def _format_content_table(rows: object) -> str:
         "passed",
         "real_row",
         "fill_status",
+        "row_status",
         "candidate_id",
         "rule_family",
         "blocker_fields",
@@ -322,6 +351,7 @@ def _format_content_table(rows: object) -> str:
             "YES" if row["passed"] else "NO",
             "YES" if row["real_evidence_row_present"] else "NO",
             "YES" if row["fill_status_valid"] else "NO",
+            str(row["row_status"]),
             "YES" if row["candidate_id_valid"] else "NO",
             "YES" if row["rule_family_valid"] else "NO",
             "; ".join(row["blocker_fields"]),

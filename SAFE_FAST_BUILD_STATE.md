@@ -9059,3 +9059,45 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: fill the richer historical export work package with source-backed evidence rows, then rerun the content validator, bridge, work-package structure validator, acquisition validator, gap scanner, and source-pool intake helper before considering any parked-row reassessment.
+
+## Day 41 richer historical work-package prefill result
+
+- Current task baseline stated by task file: `16d4789 Add evidence package to intake bridge`.
+- Corrective scope: build-only helper/test/doc/work-package work.
+- Result: prefilled the richer historical export work package with repo-known metadata for the four parked paths while preserving true missing acquisition evidence as blockers.
+- Work package folder path: `historical_signal_replay/source_data/richer_export_package_work/`.
+- Work files handled: 9.
+- Prefill result: YES.
+- Each work file now has one partial row.
+- `fill_status`: `partial_missing_required_evidence`.
+- Repo-known fields filled where available:
+  - candidate ID.
+  - symbol.
+  - setup type.
+  - setup candle/time.
+  - known trigger.
+  - known invalidation.
+  - known source file.
+  - known source line/section.
+  - known no-hindsight boundary.
+  - known outcome-window/lifecycle input.
+  - known rule family.
+  - known request ID.
+- Missing required acquisition fields remain `MISSING_REQUIRED_EVIDENCE`.
+- Content validator path updated: `watcher_foundation/source_evidence_work_package_content_validator.py`.
+- Content validator test path updated: `tests/test_source_evidence_work_package_content_validator.py`.
+- Bridge test path updated: `tests/test_source_evidence_package_to_intake_bridge.py`.
+- Content validator now treats `MISSING_REQUIRED_EVIDENCE` as unresolved.
+- Content validator now reports partial rows separately from header-only rows.
+- Current partial rows: 9.
+- Current header-only rows: 0.
+- Current work package content passed requests: 0.
+- Current work package content failed requests: 9.
+- Bridge reconsideration-eligible candidates: 0.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: acquire the still-missing request-shaped source exports or rule/regression evidence, then rerun the content validator, bridge, work-package structure validator, acquisition validator, gap scanner, and source-pool intake helper before considering any parked-row reassessment.

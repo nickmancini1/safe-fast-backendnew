@@ -868,3 +868,24 @@ Read the repo.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - The bridge prints to stdout only and creates no generated report/log file.
+
+## Day 41 richer historical work-package prefill result
+
+- Work package folder path: `historical_signal_replay/source_data/richer_export_package_work/`.
+- Work files handled: 9.
+- Prefill result: all 9 work files now contain one repo-known partial row.
+- `fill_status`: `partial_missing_required_evidence`.
+- Repo-known fields filled where available: candidate ID, symbol, setup type, setup candle/time, known trigger, known invalidation, known source file, known source line/section, no-hindsight boundary, outcome-window/lifecycle input, rule family, and request ID.
+- Missing required acquisition fields remain `MISSING_REQUIRED_EVIDENCE`.
+- Content validator now treats `MISSING_REQUIRED_EVIDENCE` as unresolved and reports partial rows separately from header-only rows.
+- Current partial rows: 9.
+- Current header-only rows: 0.
+- Current work package content passed requests: 0.
+- Current work package content failed requests: 9.
+- Current reconsideration-eligible candidates: 0.
+- Intake-ready count remains 0.
+- Parked/source_data_insufficient count remains 4.
+- Replace count remains 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.

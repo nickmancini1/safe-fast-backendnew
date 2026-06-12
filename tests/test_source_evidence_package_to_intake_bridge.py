@@ -61,7 +61,7 @@ class SourceEvidencePackageToIntakeBridgeTests(unittest.TestCase):
         self.assertFalse(qqq_cfb["all_required_requests_passed"])
         self.assertEqual(qqq_cfb["decision"], bridge.PARKED_STATUS)
 
-    def test_current_empty_work_package_has_zero_reconsideration_eligible_candidates(self):
+    def test_current_partial_work_package_has_zero_reconsideration_eligible_candidates(self):
         result = bridge.bridge_work_package_path()
 
         self.assertEqual(result["passed_request_count"], 0)

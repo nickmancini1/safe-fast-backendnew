@@ -14,9 +14,11 @@ Profitability claim made: NO.
 
 - `historical_signal_replay/source_data/richer_export_package_work/`
 - `manifest.json`
-- 9 header-only working CSV-format files using the required real package filenames.
+- 9 working CSV-format files using the required real package filenames.
 
-The work files are intentionally header-only and include `fill_status` as the first header. They validate as work-package structure only and do not count as real evidence.
+The work files now include one repo-known prefill row each with `fill_status` set to `partial_missing_required_evidence`. Known candidate metadata, setup time, trigger, invalidation, source file, source line/section, no-hindsight boundary, outcome-window input, rule family, and request ID are filled where local docs/source rows/logs support them.
+
+Missing required evidence fields remain explicitly marked `MISSING_REQUIRED_EVIDENCE`. These rows validate as work-package structure only and do not count as complete evidence.
 
 ## Manifest
 
@@ -72,12 +74,14 @@ Validate work package content:
 
 - `python -B -m watcher_foundation.source_evidence_work_package_content_validator`
 
-Content validation checks whether each of the 9 work files contains at least one real evidence row. It checks required headers, non-empty required fields, non-placeholder `fill_status`, matching `candidate_id`, matching `rule_family`, and resolved `source_time`, `source_session`, and `source_window` fields.
+Content validation checks whether each of the 9 work files contains at least one real evidence row. It checks required headers, non-empty required fields, non-placeholder `fill_status`, matching `candidate_id`, matching `rule_family`, and resolved `source_time`, `source_session`, and `source_window` fields. It reports partial rows separately from header-only rows.
 
-The current work package is header-only, so content validation currently reports:
+The current work package has partial prefilled rows, so content validation currently reports:
 
 - content passed requests: 0.
 - content failed requests: 9.
+- partial rows: 9.
+- header-only rows: 0.
 
 Content validation does not count as proof review, reactivate parked rows, make rows intake-ready, accept proof, or claim profitability.
 
@@ -94,6 +98,8 @@ The bridge maps all 9 evidence requests to 4 parked candidates. A candidate beco
 - Work package counts as real evidence: NO.
 - Work package content passed requests: 0.
 - Work package content failed requests: 9.
+- Partial rows: 9.
+- Header-only rows: 0.
 - Evidence-package-to-intake bridge requests mapped: 9.
 - Evidence-package-to-intake bridge parked candidates mapped: 4.
 - Reconsideration-eligible candidates: 0.

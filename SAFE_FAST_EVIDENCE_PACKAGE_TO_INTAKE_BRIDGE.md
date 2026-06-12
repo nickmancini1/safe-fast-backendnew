@@ -44,7 +44,7 @@ Reconsideration eligibility does not make a row intake-ready, allow proof review
 
 ## Current Result
 
-The current work package is intentionally header-only.
+The current work package is intentionally partial: all 9 files have repo-known prefill rows, and all 9 still fail content validation because required acquisition evidence remains `MISSING_REQUIRED_EVIDENCE`.
 
 - Passed requests: 0.
 - Failed requests: 9.

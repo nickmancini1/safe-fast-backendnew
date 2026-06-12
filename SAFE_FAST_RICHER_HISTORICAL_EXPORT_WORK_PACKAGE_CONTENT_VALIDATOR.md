@@ -26,6 +26,9 @@ The CLI prints the content validation table to stdout only.
 Each content result now exposes the mapped `rule_family` value used by the
 evidence-package-to-intake bridge.
 
+Each content result also reports whether the row is `header_only`,
+`partial_missing_required_evidence`, `complete`, or another failed row shape.
+
 ## Content Rules
 
 For each of the 9 work files, content validation checks:
@@ -39,15 +42,17 @@ For each of the 9 work files, content validation checks:
 - row `rule_family` matches the request rule family,
 - `source_time`, `source_session`, and `source_window` are present with resolved values.
 
-Unresolved values remain blockers when they are empty, `None`, `missing`, `unclear`, or `incomplete` in any casing.
+Unresolved values remain blockers when they are empty, `None`, `missing`, `unclear`, `incomplete`, or `MISSING_REQUIRED_EVIDENCE` in any casing.
 
 ## Current Result
 
-The current work package is intentionally header-only. It validates structurally but does not contain real evidence rows.
+The current work package is intentionally partial. It validates structurally and contains one repo-known prefill row per work file, but every row leaves required acquisition evidence as `MISSING_REQUIRED_EVIDENCE`.
 
 - Work files checked: 9.
 - Current work package content passed requests: 0.
 - Current work package content failed requests: 9.
+- Partial rows: 9.
+- Header-only rows: 0.
 - Intake-ready count: 0.
 - Parked/source_data_insufficient count: 4.
 - Replace count: 3.
@@ -68,7 +73,7 @@ The content validator is the input for `watcher_foundation/source_evidence_packa
 
 The bridge aggregates the 9 request results by parked candidate and allows reconsideration eligibility only when every required request for that candidate passes.
 
-Current bridge result from the header-only work package:
+Current bridge result from the partial work package:
 
 - Requests mapped: 9.
 - Parked candidates mapped: 4.
