@@ -9030,3 +9030,32 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: fill the richer historical export work package with source-backed evidence rows, then rerun the content validator, work-package structure validator, acquisition validator, gap scanner, and source-pool intake helper before considering any parked-row reassessment.
+
+## Day 41 evidence package to intake bridge result
+
+- Current task baseline stated by task file: `dd8a452 Add richer historical work package content validator`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: created the bridge from validated richer historical evidence-package content to parked-candidate intake decisions.
+- Bridge path: `watcher_foundation/source_evidence_package_to_intake_bridge.py`.
+- Bridge test path: `tests/test_source_evidence_package_to_intake_bridge.py`.
+- Bridge doc path: `SAFE_FAST_EVIDENCE_PACKAGE_TO_INTAKE_BRIDGE.md`.
+- Content validator path updated: `watcher_foundation/source_evidence_work_package_content_validator.py`.
+- Content validator now exposes `rule_family` in each content result row.
+- Work package folder checked: `historical_signal_replay/source_data/richer_export_package_work/`.
+- Evidence requests mapped: 9.
+- Parked candidates mapped: 4.
+- Candidate bridge rule: a parked candidate may become reconsideration-eligible only when all required evidence requests for that candidate pass content validation.
+- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` requires QQQ CFB gap context, QQQ CFB expiry, and QQQ CFB context/caution.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` requires SPY CFB 003 expiry and SPY CFB 003 context/caution.
+- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` requires SPY CFB 002 expiry and SPY CFB 002 context/caution.
+- `SPY-REAL-HISTORICAL-IDEAL-001` requires SPY Ideal expiry and SPY Ideal context/caution.
+- Current header-only work package passed requests: 0.
+- Current header-only work package failed requests: 9.
+- Current reconsideration-eligible candidate count: 0.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: fill the richer historical export work package with source-backed evidence rows, then rerun the content validator, bridge, work-package structure validator, acquisition validator, gap scanner, and source-pool intake helper before considering any parked-row reassessment.

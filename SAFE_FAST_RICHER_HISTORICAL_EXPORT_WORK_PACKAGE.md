@@ -81,6 +81,12 @@ The current work package is header-only, so content validation currently reports
 
 Content validation does not count as proof review, reactivate parked rows, make rows intake-ready, accept proof, or claim profitability.
 
+Bridge content validation into parked-candidate reconsideration decisions:
+
+- `python -B -m watcher_foundation.source_evidence_package_to_intake_bridge`
+
+The bridge maps all 9 evidence requests to 4 parked candidates. A candidate becomes reconsideration-eligible only when every required request for that candidate passes content validation. Reconsideration eligibility does not make the candidate intake-ready, allow proof review, accept proof, or claim profitability.
+
 ## Current Counts
 
 - Work package files represented: 9.
@@ -88,6 +94,9 @@ Content validation does not count as proof review, reactivate parked rows, make 
 - Work package counts as real evidence: NO.
 - Work package content passed requests: 0.
 - Work package content failed requests: 9.
+- Evidence-package-to-intake bridge requests mapped: 9.
+- Evidence-package-to-intake bridge parked candidates mapped: 4.
+- Reconsideration-eligible candidates: 0.
 - Intake-ready count: 0.
 - Parked/source_data_insufficient count: 4.
 - Replace count: 3.

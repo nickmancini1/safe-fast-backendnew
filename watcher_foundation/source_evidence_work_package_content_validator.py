@@ -44,6 +44,7 @@ CONTENT_METADATA_FIELDS = (
 class ContentValidationRow:
     evidence_name: str
     candidate_id: str
+    rule_family: str
     required_file_name: str
     passed: bool
     file_present: bool
@@ -66,6 +67,7 @@ class ContentValidationRow:
         return {
             "evidence_name": self.evidence_name,
             "candidate_id": self.candidate_id,
+            "rule_family": self.rule_family,
             "required_file_name": self.required_file_name,
             "passed": self.passed,
             "file_present": self.file_present,
@@ -231,6 +233,7 @@ def _validate_requirement_rows(
     return ContentValidationRow(
         evidence_name=requirement.evidence_name,
         candidate_id=requirement.candidate_id,
+        rule_family=requirement.rule_resolved,
         required_file_name=requirement.required_file_name,
         passed=passed,
         file_present=file_present,

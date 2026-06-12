@@ -23,6 +23,9 @@ Run:
 
 The CLI prints the content validation table to stdout only.
 
+Each content result now exposes the mapped `rule_family` value used by the
+evidence-package-to-intake bridge.
+
 ## Content Rules
 
 For each of the 9 work files, content validation checks:
@@ -58,3 +61,22 @@ Passing content validation for a work file would only show that the file contain
 Proof accepted: NO.
 
 Profitability claim made: NO.
+
+## Bridge Use
+
+The content validator is the input for `watcher_foundation/source_evidence_package_to_intake_bridge.py`.
+
+The bridge aggregates the 9 request results by parked candidate and allows reconsideration eligibility only when every required request for that candidate passes.
+
+Current bridge result from the header-only work package:
+
+- Requests mapped: 9.
+- Parked candidates mapped: 4.
+- Passed requests: 0.
+- Failed requests: 9.
+- Reconsideration-eligible candidates: 0.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.

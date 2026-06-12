@@ -848,3 +848,23 @@ Read the repo.
 - Replace count: 3.
 - Proof accepted: NO.
 - Profitability claim made: NO.
+
+## Day 41 evidence package to intake bridge result
+
+- Bridge path: `watcher_foundation/source_evidence_package_to_intake_bridge.py`.
+- Bridge test path: `tests/test_source_evidence_package_to_intake_bridge.py`.
+- Bridge doc path: `SAFE_FAST_EVIDENCE_PACKAGE_TO_INTAKE_BRIDGE.md`.
+- Input validator: `watcher_foundation/source_evidence_work_package_content_validator.py`.
+- Content validator now exposes `rule_family` in each result row for bridge mapping.
+- Evidence requests mapped: 9.
+- Parked candidates mapped: 4.
+- Candidate decision rule: reconsideration-eligible only if all required evidence requests for that candidate pass.
+- Current header-only work package passed requests: 0.
+- Current header-only work package failed requests: 9.
+- Current reconsideration-eligible candidates: 0.
+- Intake-ready count remains 0.
+- Parked/source_data_insufficient count remains 4.
+- Replace count remains 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- The bridge prints to stdout only and creates no generated report/log file.
