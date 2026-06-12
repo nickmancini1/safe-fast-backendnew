@@ -9219,3 +9219,23 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No Yahoo, public OHLC fallback, `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: acquire a source-backed evidence package that includes the unavailable request-shaped fields or accepted SAFE-FAST rule/regression artifact rows, then rerun the work-package content validator, bridge, and structure validator before considering any parked-row reassessment.
+
+## Day 41 tastytrade raw data capability review result
+
+- Current task baseline from local git: `6f1fff4 Add Day 41 raw tastytrade handoff`.
+- Corrective scope: docs-only raw-data capability review.
+- Review doc created: `SAFE_FAST_DAY41_TASTYTRADE_RAW_DATA_CAPABILITY_REVIEW.md`.
+- Current allowed tastytrade/dxLink helpers found: `dxlink_candles.py` and `historical_signal_replay/export_dxlink_source_csv.py`.
+- Environment variable presence check only: `TT_CLIENT_ID`, `TT_CLIENT_SECRET`, `TT_REDIRECT_URI`, and `TT_REFRESH_TOKEN` were missing; no values or secrets were printed.
+- Current local QQQ dxLink source CSV contains underlying 1h RTH OHLCV rows around `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, including previous regular-session final exported close, signal-day open, and bars through `2026-04-13T12:30:00-04:00`.
+- Raw QQQ fields found from local source CSV: previous exported RTH close `611.02` at `2026-04-10T15:30:00-04:00`, signal-day open `609.455` at `2026-04-13T09:30:00-04:00`, and setup candle OHLCV at `2026-04-13T12:30:00-04:00` with source_as_of `2026-05-15T18:48:44Z`.
+- Current allowed helpers do not fetch historical option chain data, historical option bid/ask quotes, option quote timestamps, historical spreads, expiration/strike metadata for the target window, or option volume/open interest.
+- Existing `main.py` current/live option-chain and quote helpers were inspected only as code inventory; no endpoints were called and no edits were made.
+- QQQ CFB gap-context evidence can be filled now: NO.
+- Exact blocker: raw underlying candles exist, but accepted SAFE-FAST labels `gap_context_status`, `gap_context_as_of`, and `gap_context_reviewed_before_signal` are not yet calculated/stored by a tested no-hindsight gap-context rule.
+- Content validator result after review: 0 passed requests, 9 failed requests, 9 partial rows, 0 header-only rows.
+- Evidence-package-to-intake bridge result after review: 0 reconsideration-eligible candidates.
+- Intake-ready count: 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence files, helper/source code, `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account endpoints, options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated live reports/logs, or live-data paths were changed.
