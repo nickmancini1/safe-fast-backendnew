@@ -23,6 +23,51 @@ PARKED_STATUS = gap_scanner.PARKED_STATUS
 
 UNRESOLVED_MARKERS = ("", "none", "missing", "unclear", "incomplete")
 
+FILES_INSPECTED = (
+    "historical_signal_replay/source_data",
+    "historical_signal_replay/reports",
+    "SAFE_FAST_DAY38_*.md",
+    "SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md",
+    "SAFE_FAST_ACTIVE_PATH_EVIDENCE_REQUIREMENTS.md",
+    "SAFE_FAST_RULE_FAMILY_DECISION_TABLE.md",
+    "SAFE_FAST_SOURCE_EVIDENCE_GAP_MAP.md",
+    "watcher_foundation/candidate_freshness_blocker_rule_gate.py",
+    "watcher_foundation/candidate_freshness_blocker_state.py",
+    "watcher_foundation/candidate_source_pool_intake.py",
+    "watcher_foundation/replacement_source_row_packet.py",
+    "watcher_foundation/replacement_source_row_packet_builder.py",
+    "watcher_foundation/replacement_source_row_packet_template.py",
+    "watcher_foundation/replacement_source_row_window_extractor.py",
+    "watcher_foundation/source_evidence_gap_scanner.py",
+)
+
+LOCAL_SOURCE_OBSERVATIONS = {
+    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001": (
+        "QQQ source CSV line 132 and QQQ Clean Fast Break replay log lines 3-6 "
+        "exist, but they contain OHLCV/lifecycle labels and unconfirmed context "
+        "only; no gap-context completeness fields, no accepted expiry rule, and "
+        "no complete context/caution fields are present."
+    ),
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003": (
+        "SPY source CSV line 154 and SPY Clean Fast Break replay log lines 5-6 "
+        "exist, but they contain OHLCV/lifecycle labels and unconfirmed context "
+        "only; no higher-base/fresh-break expiry rule/regressions and no complete "
+        "context/caution fields are present."
+    ),
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002": (
+        "SPY source CSV line 138 and SPY Clean Fast Break replay log lines 2-3 "
+        "exist, but they contain OHLCV/lifecycle labels and unconfirmed context "
+        "only; no initial-break expiry rule/regressions and no complete "
+        "context/caution fields are present."
+    ),
+    "SPY-REAL-HISTORICAL-IDEAL-001": (
+        "SPY source CSV line 291 and SPY Ideal replay log lines 5-6 exist, but "
+        "they contain OHLCV/lifecycle labels and unconfirmed context only; no "
+        "SPY Ideal stale/spent expiry rule/regressions and no complete "
+        "context/caution fields are present."
+    ),
+}
+
 
 @dataclass(frozen=True)
 class AcquisitionRequestDefinition:
@@ -88,6 +133,38 @@ class ValidationResult:
         }
 
 
+@dataclass(frozen=True)
+class LocalEvidenceInventoryResult:
+    evidence_name: str
+    candidate_id: str
+    setup_type: str
+    symbol: str
+    local_sources_inspected: str
+    local_evidence_found: bool
+    validator_passed: bool
+    exact_export_or_file_still_needed: str
+    parked_status: str
+    would_reactivate_parked_row: bool
+    proof_allowed: bool
+
+    def as_row(self) -> dict[str, object]:
+        return {
+            "evidence_name": self.evidence_name,
+            "candidate_id": self.candidate_id,
+            "setup_type": self.setup_type,
+            "symbol": self.symbol,
+            "local_sources_inspected": self.local_sources_inspected,
+            "local_evidence_found": self.local_evidence_found,
+            "validator_passed": self.validator_passed,
+            "exact_export_or_file_still_needed": (
+                self.exact_export_or_file_still_needed
+            ),
+            "parked_status": self.parked_status,
+            "would_reactivate_parked_row": self.would_reactivate_parked_row,
+            "proof_allowed": self.proof_allowed,
+        }
+
+
 def build_request_definitions() -> tuple[AcquisitionRequestDefinition, ...]:
     scan = gap_scanner.build_gap_scan()
     return tuple(
@@ -139,6 +216,34 @@ def validate_evidence_package(
     }
 
 
+def build_richer_historical_evidence_inventory() -> dict[str, object]:
+    validation = validate_evidence_package()
+    request_results = {
+        str(row["evidence_name"]): row for row in validation["validation_results"]
+    }
+    rows = tuple(
+        _local_inventory_row(definition, request_results[definition.evidence_name])
+        for definition in build_request_definitions()
+    )
+    return {
+        "files_inspected": FILES_INSPECTED,
+        "request_count": len(rows),
+        "inventory_results": [row.as_row() for row in rows],
+        "local_evidence_found_count": sum(1 for row in rows if row.local_evidence_found),
+        "passed_request_count": sum(1 for row in rows if row.validator_passed),
+        "failed_request_count": sum(1 for row in rows if not row.validator_passed),
+        "exact_missing_export_file_list": tuple(
+            row.exact_export_or_file_still_needed for row in rows
+        ),
+        "intake_ready_count": INTAKE_READY_COUNT,
+        "parked_count": PARKED_COUNT,
+        "replace_count": REPLACE_COUNT,
+        "proof_accepted": False,
+        "profitability_claimed": False,
+        "no_generated_reports_or_logs": True,
+    }
+
+
 def format_validator_report(result: dict[str, object]) -> str:
     lines = [
         "SAFE-FAST source-evidence acquisition validator",
@@ -160,8 +265,66 @@ def format_validator_report(result: dict[str, object]) -> str:
     return "\n".join(lines)
 
 
+def format_richer_historical_evidence_inventory(result: dict[str, object]) -> str:
+    lines = [
+        "SAFE-FAST richer historical evidence inventory",
+        "files inspected:",
+        *[f"- {path}" for path in result["files_inspected"]],
+        f"acquisition requests checked: {result['request_count']}",
+        f"local evidence found count: {result['local_evidence_found_count']}",
+        f"passed requests: {result['passed_request_count']}",
+        f"failed requests: {result['failed_request_count']}",
+        f"intake-ready count: {result['intake_ready_count']}",
+        f"parked count: {result['parked_count']}",
+        f"replace count: {result['replace_count']}",
+        "inventory table:",
+        _format_local_inventory_table(result["inventory_results"]),
+        "exact missing export/file list:",
+        *[
+            f"- {missing}"
+            for missing in result["exact_missing_export_file_list"]
+        ],
+        "proof accepted: NO",
+        "profitability claim made: NO",
+    ]
+    return "\n".join(lines)
+
+
 def main() -> None:
     print(format_validator_report(validate_evidence_package()))
+    print()
+    print(
+        format_richer_historical_evidence_inventory(
+            build_richer_historical_evidence_inventory()
+        )
+    )
+
+
+def _local_inventory_row(
+    definition: AcquisitionRequestDefinition,
+    validation_row: Mapping[str, object],
+) -> LocalEvidenceInventoryResult:
+    return LocalEvidenceInventoryResult(
+        evidence_name=definition.evidence_name,
+        candidate_id=definition.candidate_id,
+        setup_type=definition.setup_type,
+        symbol=definition.symbol,
+        local_sources_inspected=LOCAL_SOURCE_OBSERVATIONS[definition.candidate_id],
+        local_evidence_found=False,
+        validator_passed=bool(validation_row["passed"]),
+        exact_export_or_file_still_needed=_needed_export_or_file(definition),
+        parked_status=definition.parked_status,
+        would_reactivate_parked_row=False,
+        proof_allowed=False,
+    )
+
+
+def _needed_export_or_file(definition: AcquisitionRequestDefinition) -> str:
+    return (
+        f"{definition.evidence_name}: {definition.accepted_source_type} for "
+        f"{definition.required_timestamp_session_window}, containing "
+        f"{'; '.join(definition.required_fields)}"
+    )
 
 
 def _validate_request(
@@ -286,6 +449,40 @@ def _format_validation_table(rows: object) -> str:
             "YES" if row["passed"] else "NO",
             "; ".join(row["missing_fields"]),
             "; ".join(row["blocker_fields"]),
+            str(row["parked_status"]),
+            "YES" if row["proof_allowed"] else "NO",
+        ]
+        for row in table_rows
+    ]
+    widths = [
+        max(len(header), *(len(value_row[index]) for value_row in values))
+        for index, header in enumerate(headers)
+    ]
+    header_line = " | ".join(header.ljust(widths[index]) for index, header in enumerate(headers))
+    separator = " | ".join("-" * widths[index] for index in range(len(headers)))
+    body = [
+        " | ".join(value.ljust(widths[index]) for index, value in enumerate(value_row))
+        for value_row in values
+    ]
+    return "\n".join([header_line, separator, *body])
+
+
+def _format_local_inventory_table(rows: object) -> str:
+    table_rows = list(rows) if isinstance(rows, list) else []
+    headers = (
+        "evidence_name",
+        "candidate_id",
+        "local_evidence_found",
+        "validator_passed",
+        "parked_status",
+        "proof_allowed",
+    )
+    values = [
+        [
+            str(row["evidence_name"]),
+            str(row["candidate_id"]),
+            "YES" if row["local_evidence_found"] else "NO",
+            "YES" if row["validator_passed"] else "NO",
             str(row["parked_status"]),
             "YES" if row["proof_allowed"] else "NO",
         ]

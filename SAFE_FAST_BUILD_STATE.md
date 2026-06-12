@@ -8869,3 +8869,34 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: acquire source-backed evidence packages for the nine requests, validate them with `python -B -m watcher_foundation.source_evidence_acquisition_validator`, then rerun the gap scanner and source-pool intake helper before considering any parked-row reactivation.
+
+## Day 40 richer historical evidence inventory result
+
+- Current task baseline stated by task file: `fc7c411 Add source evidence acquisition validator`.
+- Corrective scope: build-only helper/test/doc work.
+- Result: inventoried whether the local repo already contains richer historical evidence packages satisfying any of the 9 acquisition requests.
+- Inventory path: `SAFE_FAST_RICHER_HISTORICAL_EVIDENCE_INVENTORY.md`.
+- Validator path updated: `watcher_foundation/source_evidence_acquisition_validator.py`.
+- Validator test path updated: `tests/test_source_evidence_acquisition_validator.py`.
+- Files inspected: `historical_signal_replay/source_data`, `historical_signal_replay/reports`, SAFE-FAST Day 38/Day 39 docs, active-path/gap/rule docs, and watcher helpers that produce or validate source-row packets.
+- Acquisition requests checked: 9.
+- Local evidence found that satisfies a request: 0.
+- Validator-passed local requests: 0.
+- Failed requests: 9.
+- Exact missing export/file list:
+  - QQQ CFB gap-context completeness fields/rule: setup-time QQQ source CSV export or replay-log enrichment for 2026-04 QQQ Clean Fast Break setup window, source CSV line 132, replay log lines 3-4, containing `gap_context_status`, `gap_context_as_of`, and `gap_context_reviewed_before_signal`.
+  - QQQ CFB stale/spent expiry rule/regressions: rule document plus regression fixture rows for QQQ Clean Fast Break log lines 3-6, containing `clean_fast_break_stale_spent_expiry_rule` and `clean_fast_break_expiry_regression_rows`.
+  - QQQ CFB complete context/caution fields: setup-time QQQ source CSV export or replay-log enrichment for source CSV line 132 and replay log line 3, containing `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status`.
+  - SPY CFB 003 higher-base/fresh-break expiry rule/regressions: rule document plus regression fixture rows for the 2026-04-15 14:30 SPY signal row and later spent lifecycle row, log lines 5-6, containing `clean_fast_break_higher_base_fresh_break_expiry_rule` and `higher_base_fresh_break_expiry_regression_rows`.
+  - SPY CFB 003 complete context/caution fields: setup-time SPY source CSV export or replay-log enrichment for source CSV line 154 and replay log line 5, containing `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status`.
+  - SPY CFB 002 initial-break expiry rule/regressions: rule document plus regression fixture rows for the 2026-04-13 12:30 SPY signal row and same-session follow-through/spent row, log lines 2-3, containing `clean_fast_break_initial_break_expiry_rule` and `initial_break_expiry_regression_rows`.
+  - SPY CFB 002 complete context/caution fields: setup-time SPY source CSV export or replay-log enrichment for source CSV line 138 and replay log line 2, containing `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status`.
+  - SPY Ideal stale/spent expiry rule/regressions: rule document plus regression fixture rows for the 2026-05-13 11:30 SPY Ideal signal row and later spent lifecycle row, log lines 5-6, containing `spy_ideal_stale_spent_expiry_rule` and `spy_ideal_expiry_regression_rows`.
+  - SPY Ideal gap/headline/option/execution/complete caution fields: setup-time SPY source CSV export or replay-log enrichment for source CSV line 291 and replay log line 5, containing `gap_context_status`, `headline_context_status`, `option_context_status`, `execution_context_status`, and `complete_caution_review_status`.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: acquire the exact request-shaped source exports or rule/regression files, then rerun the acquisition validator, gap scanner, and source-pool intake helper before considering any parked-row reassessment.

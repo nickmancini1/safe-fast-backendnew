@@ -109,6 +109,46 @@ class SourceEvidenceAcquisitionValidatorTests(unittest.TestCase):
             self.assertEqual(row["parked_status"], "parked/source_data_insufficient")
             self.assertFalse(row["proof_allowed"])
 
+    def test_richer_historical_inventory_checks_all_requests_explicitly(self):
+        result = validator.build_richer_historical_evidence_inventory()
+
+        self.assertEqual(result["request_count"], 9)
+        self.assertEqual(
+            {row["evidence_name"] for row in result["inventory_results"]},
+            EXPECTED_REQUEST_NAMES,
+        )
+        for row in result["inventory_results"]:
+            self.assertIn(row["candidate_id"], EXPECTED_PARKED_IDS)
+            self.assertIn("exist, but", row["local_sources_inspected"])
+            self.assertFalse(row["local_evidence_found"])
+            self.assertFalse(row["validator_passed"])
+
+    def test_failed_inventory_requests_name_needed_export_or_file(self):
+        result = validator.build_richer_historical_evidence_inventory()
+
+        self.assertEqual(result["passed_request_count"], 0)
+        self.assertEqual(result["failed_request_count"], 9)
+        self.assertEqual(len(result["exact_missing_export_file_list"]), 9)
+        for row in result["inventory_results"]:
+            needed = row["exact_export_or_file_still_needed"]
+            self.assertIn(row["evidence_name"], needed)
+            self.assertIn("containing", needed)
+            self.assertNotIn("proof accepted", needed.lower())
+            self.assertNotIn("profitability", needed.lower())
+
+    def test_inventory_does_not_reactivate_parked_rows_or_change_counts(self):
+        result = validator.build_richer_historical_evidence_inventory()
+
+        self.assertEqual(result["intake_ready_count"], 0)
+        self.assertEqual(result["parked_count"], 4)
+        self.assertEqual(result["replace_count"], 3)
+        self.assertFalse(result["proof_accepted"])
+        self.assertFalse(result["profitability_claimed"])
+        for row in result["inventory_results"]:
+            self.assertFalse(row["would_reactivate_parked_row"])
+            self.assertEqual(row["parked_status"], "parked/source_data_insufficient")
+            self.assertFalse(row["proof_allowed"])
+
     def test_counts_and_claims_remain_unchanged(self):
         result = validator.validate_evidence_package()
 
@@ -133,9 +173,17 @@ class SourceEvidenceAcquisitionValidatorTests(unittest.TestCase):
         self.assertIn("intake-ready count: 0", report)
         self.assertIn("parked count: 4", report)
         self.assertIn("replace count: 3", report)
+        self.assertIn("SAFE-FAST richer historical evidence inventory", report)
+        self.assertIn("acquisition requests checked: 9", report)
+        self.assertIn("local evidence found count: 0", report)
         self.assertIn("proof accepted: NO", report)
         self.assertIn("profitability claim made: NO", report)
         self.assertTrue(validator.validate_evidence_package()["no_generated_reports_or_logs"])
+        self.assertTrue(
+            validator.build_richer_historical_evidence_inventory()[
+                "no_generated_reports_or_logs"
+            ]
+        )
 
 
 def _complete_record_for(definition):

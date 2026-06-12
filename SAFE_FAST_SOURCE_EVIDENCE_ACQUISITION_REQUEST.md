@@ -79,3 +79,17 @@ Profitability claim made: NO.
 - Replace count: 3.
 - Proof accepted: NO.
 - Profitability claim made: NO.
+
+## Richer Historical Evidence Inventory Result
+
+- Inventory path: `SAFE_FAST_RICHER_HISTORICAL_EVIDENCE_INVENTORY.md`.
+- Local repo files inspected: historical source data, replay reports, SAFE-FAST Day 38/Day 39 docs, active-path/gap/rule docs, and watcher source-row packet helpers.
+- Acquisition requests checked: 9.
+- Local evidence found that satisfies a request: NO for all 9 requests.
+- Validator result: FAIL for all 9 requests when limited to existing local repo evidence.
+- Exact exports/files still needed: the 9 request-shaped source exports or rule/regression files listed in the acquisition table above.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.

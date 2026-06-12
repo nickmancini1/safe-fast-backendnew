@@ -76,3 +76,20 @@ No parked row can be reactivated without a supplied source-backed evidence packa
 Proof accepted: NO.
 
 Profitability claim made: NO.
+
+## Richer Historical Evidence Inventory Result
+
+- Inventory path: `SAFE_FAST_RICHER_HISTORICAL_EVIDENCE_INVENTORY.md`.
+- Local repo files inspected: `historical_signal_replay/source_data`, `historical_signal_replay/reports`, SAFE-FAST Day 38/Day 39 docs, active-path/gap/rule docs, and watcher helpers that produce or validate source-row packets.
+- Acquisition requests checked: 9.
+- Local evidence packages found that satisfy a request: 0.
+- Validator-passed local requests: 0.
+- Failed requests: 9.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Result: the repo contains useful source CSV rows, replay lifecycle logs, review docs, and helper definitions, but no full gap-context, setup-specific expiry-rule/regression, or complete context/caution evidence package required by the 9 acquisition requests.
+
+Proof accepted: NO.
+
+Profitability claim made: NO.

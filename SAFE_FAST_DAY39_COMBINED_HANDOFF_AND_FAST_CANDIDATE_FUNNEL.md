@@ -755,3 +755,20 @@ Future chats must start by verifying repo state, then reading the repo docs dire
 Do not rely on this file alone.
 
 Read the repo.
+
+## Day 40 richer historical evidence inventory result
+
+- Inventory path: `SAFE_FAST_RICHER_HISTORICAL_EVIDENCE_INVENTORY.md`.
+- Validator updated: `watcher_foundation/source_evidence_acquisition_validator.py`.
+- Validator test updated: `tests/test_source_evidence_acquisition_validator.py`.
+- Acquisition requests checked: 9.
+- Local evidence found that satisfies a request: 0.
+- Validator-passed local requests: 0.
+- Failed requests: 9.
+- Files inspected: `historical_signal_replay/source_data`, `historical_signal_replay/reports`, SAFE-FAST Day 38/Day 39 docs, active-path/gap/rule docs, and watcher helpers that produce or validate source-row packets.
+- Result: existing local CSV/log/docs/helper evidence does not satisfy any acquisition request; the repo still needs the exact request-shaped source exports or rule/regression files.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
