@@ -143,6 +143,55 @@ class SourceEvidencePackageIntakeTests(unittest.TestCase):
             intake.build_required_package_checklist()["no_generated_reports_or_logs"]
         )
 
+    def test_template_folder_and_manifest_example_exist(self):
+        result = intake.validate_template_path()
+
+        self.assertTrue(result["template_dir_exists"])
+        self.assertTrue(result["manifest_example_present"])
+        self.assertEqual(result["request_count"], 9)
+
+    def test_all_nine_template_files_exist_with_required_headers(self):
+        result = intake.validate_template_path()
+
+        self.assertEqual(result["passed_template_file_count"], 9)
+        self.assertEqual(result["failed_template_file_count"], 0)
+        for row in result["template_results"]:
+            self.assertTrue(row["passed"])
+            self.assertTrue(row["file_present"])
+            self.assertTrue(row["format_valid"])
+            self.assertEqual(row["missing_fields"], ())
+
+    def test_template_structure_does_not_reactivate_or_claim_proof(self):
+        result = intake.validate_template_path()
+
+        self.assertFalse(result["template_counts_as_real_evidence"])
+        self.assertEqual(result["intake_ready_count"], 0)
+        self.assertEqual(result["parked_count"], 4)
+        self.assertEqual(result["replace_count"], 3)
+        self.assertFalse(result["proof_accepted"])
+        self.assertFalse(result["profitability_claimed"])
+        for row in result["template_results"]:
+            self.assertFalse(row["would_reactivate_parked_row"])
+            self.assertFalse(row["proof_allowed"])
+
+    def test_template_cli_runs_stdout_only(self):
+        output = io.StringIO()
+
+        with redirect_stdout(output):
+            intake.main(["--validate-template"])
+
+        report = output.getvalue()
+        self.assertIn(
+            "SAFE-FAST richer historical export package template validation",
+            report,
+        )
+        self.assertIn("template directory exists: YES", report)
+        self.assertIn("manifest example present: YES", report)
+        self.assertIn("template files passed: 9", report)
+        self.assertIn("intake-ready count: 0", report)
+        self.assertIn("proof accepted: NO", report)
+        self.assertIn("profitability claim made: NO", report)
+
 
 def _complete_package(*, include_inline_fields=True):
     entries = []

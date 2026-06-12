@@ -32,6 +32,38 @@ With a package path supplied later, the helper structurally validates the manife
 
 - `python -B -m watcher_foundation.source_evidence_package_intake <package_path>`
 
+## Template Package
+
+The repo now includes a header-only package template for future evidence exports:
+
+- `historical_signal_replay/source_data/richer_export_package_template/`
+- `historical_signal_replay/source_data/richer_export_package_template/manifest.example.json`
+- 9 `.template.csv` files, one per required evidence group.
+
+The template can be checked with:
+
+- `python -B -m watcher_foundation.source_evidence_package_intake --validate-template`
+
+Template validation means only:
+
+- the template directory exists,
+- the manifest example exists,
+- all 9 template file entries are represented,
+- all 9 template files exist,
+- each template file contains the required headers.
+
+Template validation does not count as real evidence. A real future package still needs `manifest.json`, accepted file entries, and resolved evidence values before package structural validation can pass.
+
+Template counts:
+
+- Template files represented: 9.
+- Template counts as real evidence: NO.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+
 ## Manifest Schema
 
 Required manifest file:

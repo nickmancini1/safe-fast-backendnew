@@ -8939,3 +8939,35 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: export a package matching `SAFE_FAST_RICHER_HISTORICAL_EXPORT_PACKAGE_SPEC.md`, then run `python -B -m watcher_foundation.source_evidence_package_intake <package_path>` before rerunning the acquisition validator, gap scanner, and source-pool intake helper.
+
+## Day 40 richer historical export package template result
+
+- Current task baseline stated by task file: `e2361a6 Add richer historical export package spec`.
+- Corrective scope: build-only helper/test/doc/template work.
+- Result: created the richer historical export package template for future source-backed evidence exports.
+- Template doc path: `SAFE_FAST_RICHER_HISTORICAL_EXPORT_PACKAGE_TEMPLATE.md`.
+- Template folder path: `historical_signal_replay/source_data/richer_export_package_template/`.
+- Manifest example path: `historical_signal_replay/source_data/richer_export_package_template/manifest.example.json`.
+- Template files created: 9.
+- Template files are header-only CSV templates.
+- Required evidence groups covered:
+  - QQQ CFB gap context.
+  - QQQ CFB expiry/regressions.
+  - QQQ CFB context/caution.
+  - SPY CFB 003 expiry/regressions.
+  - SPY CFB 003 context/caution.
+  - SPY CFB 002 expiry/regressions.
+  - SPY CFB 002 context/caution.
+  - SPY Ideal expiry/regressions.
+  - SPY Ideal context/caution.
+- Package-intake helper now prints template checklist metadata and validates template structure with `--validate-template`.
+- Template structure validates: YES.
+- Template counts as real evidence: NO.
+- Template validation does not reactivate parked rows, make rows intake-ready, allow proof review, accept proof, or claim profitability.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: copy the template into a future package folder, fill the required fields with source-backed evidence, rename/use `manifest.json`, then run `python -B -m watcher_foundation.source_evidence_package_intake <package_path>` before rerunning the acquisition validator, gap scanner, and source-pool intake helper.

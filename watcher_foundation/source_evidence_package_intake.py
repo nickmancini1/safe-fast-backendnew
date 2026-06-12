@@ -20,7 +20,11 @@ from watcher_foundation import source_evidence_acquisition_validator as validato
 
 
 MANIFEST_FILE_NAME = "manifest.json"
+MANIFEST_EXAMPLE_FILE_NAME = "manifest.example.json"
 MANIFEST_SCHEMA_VERSION = "safe-fast-richer-historical-export-package-v1"
+TEMPLATE_PACKAGE_DIR = Path(
+    "historical_signal_replay/source_data/richer_export_package_template"
+)
 ACCEPTED_FORMATS = ("csv", "jsonl")
 INTAKE_READY_COUNT = validator.INTAKE_READY_COUNT
 PARKED_COUNT = validator.PARKED_COUNT
@@ -145,8 +149,56 @@ def build_required_package_checklist() -> dict[str, object]:
     requirements = build_package_requirements()
     return {
         "manifest_schema": build_manifest_schema(),
+        "template_package_dir": str(TEMPLATE_PACKAGE_DIR),
+        "manifest_example_file_name": MANIFEST_EXAMPLE_FILE_NAME,
         "request_count": len(requirements),
         "file_requirements": [requirement.as_row() for requirement in requirements],
+        "template_files": [
+            _template_requirement_row(requirement) for requirement in requirements
+        ],
+        "intake_ready_count": INTAKE_READY_COUNT,
+        "parked_count": PARKED_COUNT,
+        "replace_count": REPLACE_COUNT,
+        "proof_accepted": False,
+        "profitability_claimed": False,
+        "no_generated_reports_or_logs": True,
+    }
+
+
+def validate_template_path(template_path: str | Path = TEMPLATE_PACKAGE_DIR) -> dict[str, object]:
+    root = Path(template_path)
+    manifest_path = root / MANIFEST_EXAMPLE_FILE_NAME
+    requirements = build_package_requirements()
+    manifest_errors: list[str] = []
+    if not root.exists():
+        manifest_errors.append(f"missing template directory {root}")
+    if not manifest_path.exists():
+        manifest_errors.append(f"missing {MANIFEST_EXAMPLE_FILE_NAME}")
+        manifest = {}
+    else:
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            manifest_errors.append(f"invalid manifest example json: {exc}")
+            manifest = {}
+
+    manifest_errors.extend(_template_manifest_errors(manifest))
+    rows = tuple(
+        _validate_template_requirement(requirement, manifest, root)
+        for requirement in requirements
+    )
+    manifest_passed = not manifest_errors
+    return {
+        "template_dir": str(root),
+        "template_dir_exists": root.exists(),
+        "manifest_example_present": manifest_path.exists(),
+        "manifest_errors": tuple(manifest_errors),
+        "manifest_passed": manifest_passed,
+        "request_count": len(rows),
+        "template_results": [row.as_row() for row in rows],
+        "passed_template_file_count": sum(1 for row in rows if row.passed),
+        "failed_template_file_count": sum(1 for row in rows if not row.passed),
+        "template_counts_as_real_evidence": False,
         "intake_ready_count": INTAKE_READY_COUNT,
         "parked_count": PARKED_COUNT,
         "replace_count": REPLACE_COUNT,
@@ -195,11 +247,36 @@ def format_package_checklist(result: dict[str, object]) -> str:
         f"manifest schema version: {MANIFEST_SCHEMA_VERSION}",
         "accepted formats: CSV or JSONL",
         f"requests represented: {result['request_count']}",
+        f"template directory: {result['template_package_dir']}",
+        f"manifest example: {result['manifest_example_file_name']}",
         f"intake-ready count: {result['intake_ready_count']}",
         f"parked count: {result['parked_count']}",
         f"replace count: {result['replace_count']}",
         "required files:",
         _format_requirements_table(result["file_requirements"]),
+        "template files:",
+        _format_template_table(result["template_files"]),
+        "proof accepted: NO",
+        "profitability claim made: NO",
+    ]
+    return "\n".join(lines)
+
+
+def format_template_validation(result: dict[str, object]) -> str:
+    lines = [
+        "SAFE-FAST richer historical export package template validation",
+        f"template directory exists: {'YES' if result['template_dir_exists'] else 'NO'}",
+        f"manifest example present: {'YES' if result['manifest_example_present'] else 'NO'}",
+        "manifest errors: "
+        + ("; ".join(result["manifest_errors"]) or "none"),
+        f"template files passed: {result['passed_template_file_count']}",
+        f"template files failed: {result['failed_template_file_count']}",
+        "template validation only: does not count as real evidence",
+        f"intake-ready count: {result['intake_ready_count']}",
+        f"parked count: {result['parked_count']}",
+        f"replace count: {result['replace_count']}",
+        "file validation table:",
+        _format_validation_table(result["template_results"]),
         "proof accepted: NO",
         "profitability claim made: NO",
     ]
@@ -229,9 +306,12 @@ def format_package_validation(result: dict[str, object]) -> str:
 def main(argv: Sequence[str] | None = None) -> None:
     parser = argparse.ArgumentParser(add_help=True)
     parser.add_argument("package_path", nargs="?")
+    parser.add_argument("--validate-template", action="store_true")
     args = parser.parse_args(argv)
 
-    if args.package_path:
+    if args.validate_template:
+        print(format_template_validation(validate_template_path(args.package_path or TEMPLATE_PACKAGE_DIR)))
+    elif args.package_path:
         print(format_package_validation(validate_package_path(args.package_path)))
     else:
         print(format_package_checklist(build_required_package_checklist()))
@@ -318,6 +398,47 @@ def _validate_file_requirement(
     )
 
 
+def _validate_template_requirement(
+    requirement: PackageFileRequirement,
+    manifest: Mapping[str, object],
+    template_root: Path,
+) -> PackageValidationRow:
+    entry = _template_manifest_entry(requirement, manifest)
+    if entry is None:
+        return _missing_file_row(requirement)
+
+    file_name = str(entry.get("file_name", ""))
+    file_format = str(entry.get("format", "")).lower()
+    expected_file_name = _template_file_name_for(requirement.evidence_name)
+    format_valid = (
+        file_format == "csv"
+        and file_name == expected_file_name
+        and str(entry.get("source_export_type", ""))
+        == requirement.required_source_type
+        and str(entry.get("timestamp_session_window", ""))
+        == requirement.required_timestamp_session_window
+    )
+    header_fields = _csv_headers(template_root / file_name)
+    missing = tuple(
+        field for field in requirement.required_fields if field not in header_fields
+    )
+    file_present = bool(header_fields)
+    passed = format_valid and file_present and not missing
+    return PackageValidationRow(
+        evidence_name=requirement.evidence_name,
+        candidate_id=requirement.candidate_id,
+        required_file_name=expected_file_name,
+        passed=passed,
+        file_present=file_present,
+        format_valid=format_valid,
+        missing_fields=missing,
+        blocker_fields=missing,
+        parked_status=requirement.parked_status,
+        would_reactivate_parked_row=False,
+        proof_allowed=False,
+    )
+
+
 def _validation_result(
     *,
     manifest_present: bool,
@@ -394,6 +515,23 @@ def _manifest_entry(
     return None
 
 
+def _template_manifest_entry(
+    requirement: PackageFileRequirement, manifest: Mapping[str, object]
+) -> Mapping[str, object] | None:
+    entries = manifest.get("evidence_files", ())
+    if not isinstance(entries, Sequence) or isinstance(entries, (str, bytes)):
+        return None
+    for entry in entries:
+        if (
+            isinstance(entry, Mapping)
+            and entry.get("evidence_name") == requirement.evidence_name
+            and entry.get("candidate_id") == requirement.candidate_id
+            and entry.get("template_only") is True
+        ):
+            return entry
+    return None
+
+
 def _fields_for_entry(
     entry: Mapping[str, object], package_root: Path | None
 ) -> Mapping[str, object]:
@@ -418,6 +556,17 @@ def _csv_fields(path: Path) -> Mapping[str, object]:
     with path.open(newline="", encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle))
     return rows[0] if rows else {}
+
+
+def _csv_headers(path: Path) -> tuple[str, ...]:
+    if not path.exists():
+        return ()
+    with path.open(newline="", encoding="utf-8") as handle:
+        reader = csv.reader(handle)
+        try:
+            return tuple(next(reader))
+        except StopIteration:
+            return ()
 
 
 def _jsonl_fields(path: Path) -> Mapping[str, object]:
@@ -445,6 +594,33 @@ def _file_name_for(evidence_name: str) -> str:
     return f"{slug}.jsonl"
 
 
+def _template_file_name_for(evidence_name: str) -> str:
+    return _file_name_for(evidence_name).removesuffix(".jsonl") + ".template.csv"
+
+
+def _template_requirement_row(
+    requirement: PackageFileRequirement,
+) -> dict[str, object]:
+    row = requirement.as_row()
+    row["template_file_name"] = _template_file_name_for(requirement.evidence_name)
+    row["template_format"] = "csv"
+    return row
+
+
+def _template_manifest_errors(manifest: Mapping[str, object]) -> tuple[str, ...]:
+    if not manifest:
+        return ()
+    errors = list(_manifest_errors(manifest))
+    for requirement in build_package_requirements():
+        entry = _template_manifest_entry(requirement, manifest)
+        if entry is None:
+            errors.append(f"missing template evidence file entry {requirement.evidence_name}")
+            continue
+        if entry.get("template_only") is not True:
+            errors.append(f"template_only must be true for {requirement.evidence_name}")
+    return tuple(error for error in errors if not error.startswith("missing evidence file entry "))
+
+
 def _format_requirements_table(rows: object) -> str:
     table_rows = list(rows) if isinstance(rows, list) else []
     headers = ("evidence_name", "required_file_name", "required_fields")
@@ -452,6 +628,20 @@ def _format_requirements_table(rows: object) -> str:
         [
             str(row["evidence_name"]),
             str(row["required_file_name"]),
+            "; ".join(row["required_fields"]),
+        ]
+        for row in table_rows
+    ]
+    return _plain_table(headers, values)
+
+
+def _format_template_table(rows: object) -> str:
+    table_rows = list(rows) if isinstance(rows, list) else []
+    headers = ("evidence_name", "template_file_name", "required_fields")
+    values = [
+        [
+            str(row["evidence_name"]),
+            str(row["template_file_name"]),
             "; ".join(row["required_fields"]),
         ]
         for row in table_rows

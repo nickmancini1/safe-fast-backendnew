@@ -791,3 +791,23 @@ Read the repo.
 - Replace count: 3.
 - Proof accepted: NO.
 - Profitability claim made: NO.
+
+## Day 40 richer historical export package template result
+
+- Template doc path: `SAFE_FAST_RICHER_HISTORICAL_EXPORT_PACKAGE_TEMPLATE.md`.
+- Template folder path: `historical_signal_replay/source_data/richer_export_package_template/`.
+- Manifest example path: `historical_signal_replay/source_data/richer_export_package_template/manifest.example.json`.
+- Template files created: 9.
+- Template format: header-only CSV templates.
+- Required evidence groups covered: all 9 acquisition requests.
+- Package-intake helper path: `watcher_foundation/source_evidence_package_intake.py`.
+- Package-intake test path: `tests/test_source_evidence_package_intake.py`.
+- Template checklist/validation command: `python -B -m watcher_foundation.source_evidence_package_intake --validate-template`.
+- Template structure validates: YES.
+- Template counts as real evidence: NO.
+- Template validation does not reactivate parked rows, make rows intake-ready, allow proof review, accept proof, or claim profitability.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
