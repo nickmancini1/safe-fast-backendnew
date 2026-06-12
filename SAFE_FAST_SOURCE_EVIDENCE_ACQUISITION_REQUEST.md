@@ -17,9 +17,13 @@ Current intake-ready count: 0.
 - Acquisition request path: `SAFE_FAST_SOURCE_EVIDENCE_ACQUISITION_REQUEST.md`.
 - Gap scanner: `watcher_foundation/source_evidence_gap_scanner.py`.
 - Scanner test: `tests/test_source_evidence_gap_scanner.py`.
+- Acquisition validator: `watcher_foundation/source_evidence_acquisition_validator.py`.
+- Acquisition validator test: `tests/test_source_evidence_acquisition_validator.py`.
 - Parked rows covered: 4.
 - Acquisition request rows: 9.
 - Gap rows covered: 9.
+- Acquisition validator requests represented: 9.
+- Acquisition validator current no-evidence result: 9 failed requests; parked rows stay parked.
 - Current repo data sufficient for any parked row: NO.
 - Current repo data can supply requested evidence now: NO.
 - Intake-ready count: 0.
@@ -61,3 +65,17 @@ No parked row can be reactivated from this request alone. Acquisition must add s
 Proof accepted: NO.
 
 Profitability claim made: NO.
+
+## Acquisition Validator Result
+
+- Validator path: `watcher_foundation/source_evidence_acquisition_validator.py`.
+- Validator doc: `SAFE_FAST_SOURCE_EVIDENCE_ACQUISITION_VALIDATOR.md`.
+- Validator test: `tests/test_source_evidence_acquisition_validator.py`.
+- Requests represented: 9.
+- Parked rows covered: 4.
+- Current no-evidence validation result: all acquisition requests fail validation as blockers; parked rows stay parked.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.

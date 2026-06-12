@@ -522,6 +522,25 @@ The scanner checks current local source CSV/log schemas only and prints its tabl
 
 The acquisition request converts each gap row into an exact source/export request with the affected candidate, setup type, symbol, timestamp/session/window, required fields, reason, rule resolved, current-data availability, and expected post-acquisition action. It is a sourcing checklist only; it does not prove or promote any row.
 
+## Source-evidence acquisition validator
+
+Day 40 now has a build-only validator for future acquired source-evidence packages:
+
+- Validator: `watcher_foundation/source_evidence_acquisition_validator.py`.
+- Tests: `tests/test_source_evidence_acquisition_validator.py`.
+- Validator doc: `SAFE_FAST_SOURCE_EVIDENCE_ACQUISITION_VALIDATOR.md`.
+- Source request definitions: loaded from `watcher_foundation/source_evidence_gap_scanner.py`.
+- Acquisition requests represented: 9.
+- Parked rows covered: 4.
+- Current no-evidence validation result: 0 passed requests, 9 failed requests, 28 blocker fields.
+- Intake-ready count remains 0.
+- Parked/source_data_insufficient count remains 4.
+- Replace count remains 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+
+The validator accepts in-memory evidence packages only. A complete synthetic record can pass its matching request, but that does not reactivate a parked row, allow proof review, or claim profitability.
+
 ## QQQ Clean Fast Break survival action
 
 - Candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
