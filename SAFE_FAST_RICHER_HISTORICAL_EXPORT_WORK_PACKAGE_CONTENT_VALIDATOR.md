@@ -1,5 +1,15 @@
 # SAFE-FAST Richer Historical Export Work Package Content Validator
 
+## Day 41 Raw Tastytrade Correction
+
+tastytrade should be treated as a raw-data source, not a SAFE-FAST label source.
+
+The content validator should only pass rows when the work package contains real evidence sufficient for the required request fields. Raw tastytrade fields may support calculated SAFE-FAST labels, but tastytrade is not expected to directly provide labels such as fresh/stale, expired/valid, context clean/blocked, gap context complete, CFB expiry, Ideal stale/spent, option context usable, execution context usable, or caution clean.
+
+The next data-only capability test should determine whether tastytrade can provide raw underlying candles, option chain snapshot/history, bid/ask quotes, spread, quote timestamps, volume/open interest if available, expiration/strike metadata, underlying price around signal, and data through signal time only. Those raw fields must then be mapped to the 9 evidence requests before any content row can pass.
+
+For the first target, `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` QQQ CFB gap context, SAFE-FAST must calculate `gap_context_status`, `gap_context_as_of`, `gap_context_reviewed_before_signal`, `option_context_status`, `execution_context_status`, and `caution_context_status` from raw evidence if available.
+
 ## Scope
 
 This build-only validator checks whether the richer historical export work package contains real filled evidence rows.

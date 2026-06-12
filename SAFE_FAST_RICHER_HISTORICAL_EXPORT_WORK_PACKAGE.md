@@ -1,5 +1,19 @@
 # SAFE-FAST Richer Historical Export Work Package
 
+## Day 41 Raw Tastytrade Correction
+
+tastytrade is not expected to provide SAFE-FAST labels. tastytrade is expected to provide raw market and option data, and SAFE-FAST must calculate trade-plan labels from that raw data.
+
+Do not ask whether tastytrade provides labels such as fresh/stale, expired/valid, context clean/blocked, gap context complete, CFB expiry, Ideal stale/spent, option context usable, execution context usable, or caution clean. Test whether tastytrade can provide the raw fields needed to calculate those labels.
+
+The next useful work must test raw tastytrade availability for underlying candles, option chain snapshot/history, option bid/ask quotes, spread, quote timestamps, volume/open interest if available, expiration/strike metadata, underlying price around signal, and data through signal time only.
+
+First target: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, QQQ CFB gap context.
+
+Raw fields needed first: prior session close, signal-day open, intraday OHLC through signal time, quote timestamps, source timestamps proving data was available before or at signal, option chain/quote context around signal if available, and spread/quote quality around signal if available.
+
+Labels to calculate from raw data: `gap_context_status`, `gap_context_as_of`, `gap_context_reviewed_before_signal`, `option_context_status`, `execution_context_status`, and `caution_context_status`.
+
 ## Scope
 
 This build-only work package creates a fillable local package directory for the 9 richer historical evidence exports.

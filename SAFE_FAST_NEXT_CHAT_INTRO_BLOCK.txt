@@ -1,175 +1,60 @@
-You are taking over SAFE-FAST build work. This is not live trade chat.
+Baseline:
+SAFE-FAST Day 41 tastytrade raw data capability and first evidence fill.
+Repo path: C:\Users\nickm\Desktop\New folder\safe-fast-backendnew
+Latest known local HEAD when this intro was written: 46c0a92 Record tastytrade evidence availability check
+Branch when written: main
 
-Repo: nickmancini1/safe-fast-backendnew
-Branch: main
-Baseline: patch8
-Current working day context: Day 31
+Fixed:
+tastytrade is the raw-data source.
+SAFE-FAST must calculate its own labels from raw market and option data.
+Do not ask whether tastytrade provides SAFE-FAST labels like fresh/stale, expired/valid, context clean/blocked, gap context complete, CFB expiry, Ideal stale/spent, option context usable, execution context usable, or caution clean.
+Test whether tastytrade can provide the raw fields needed to calculate those labels.
 
-LATEST CHECKPOINT:
-fc64232 Sync build state after post-handoff Day 31 addendum
+Blocked:
+Existing repo evidence is insufficient.
+The work package was prefilled from repo-known data.
+Before tastytrade proof, content validation was 0 passed / 9 failed.
+tastytrade access was found.
+Helpers found: dxlink_candles.py and historical_signal_replay/export_dxlink_source_csv.py.
+The first tastytrade evidence availability check found local dxLink/OHLCV-style data only and did not satisfy the 9 richer evidence requests.
+Parked count: 4.
+Replace count: 3.
+Intake-ready count: 0.
+Proof accepted: NO.
+Profitability claim made: NO.
 
-IMPORTANT STATE RULE:
-Day 28 file names are historical labels only.
-Current working context is Day 31.
-The strict Day 28 handoff is still valid, but the Day 31 post-handoff addendum supersedes it for latest status and objective.
+Next:
+Start with local git output.
+Read SAFE_FAST_BUILD_STATE.md.
+Read SAFE_FAST_DAY41_RAW_TASTYTRADE_NEXT_CHAT_HANDOFF.md.
+First candidate target: QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001.
+First evidence target: QQQ CFB gap context.
+Test raw tastytrade availability for prior session close, signal-day open, intraday OHLC through signal time, quote timestamps, source timestamps, option chain/quote context around signal, and spread/quote quality around signal if available.
+Map raw fields to the 9 evidence requests.
+Fill work-package files only with real tastytrade-backed raw evidence.
+Run the content validator and evidence-package-to-intake bridge.
+If every request for a parked path passes, mark reconsideration-eligible only. Intake-ready still requires later SAFE-FAST gates.
 
-IMPORTANT COMMIT RULE:
-fc64232 is the latest checkpoint.
-0d23423 is the post-handoff Day 31 addendum milestone before the fc64232 build-state sync.
-This is not a conflict.
-Build-state sync commits are bookkeeping commits and may be Git HEAD without being the latest completed build milestone.
+Command:
+First run:
+git --no-pager status --short
+git --no-pager log -1 --oneline
+git --no-pager branch --show-current
 
-MANDATORY FIRST READS:
-1. SAFE_FAST_BUILD_STATE.md
-2. SAFE_FAST_POST_HANDOFF_DAY31_DISCRETION_AUDIT_INVENTORY_ADDENDUM.md
-3. SAFE_FAST_STRICT_HANDOFF_DAY28_AFTER_DISCRETION_AUDIT_COVERAGE.md
-4. SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt
-5. SAFE_FAST_HANDOFF_READINESS_PLAN_AFTER_HISTORICAL_OPTIMIZATION_READINESS.md
-6. SAFE_FAST_DAY28_PHONE_DISCUSSION_PRESERVATION_ADDENDUM.md
-7. SAFE_FAST_DAY28_MISSING_CONVERSATION_RECOVERY_ADDENDUM.md
-8. SAFE_FAST_LOCAL_NEXT_STEP_PLAN_AFTER_DISCRETION_AUDIT_COVERAGE.md
-9. Latest relevant local next-step plan
-10. Relevant watcher_foundation code/tests
-11. Older docs as background only
+User workflow:
+Assistant gives one task-file block.
+User pastes it into PowerShell.
+Assistant waits.
+Assistant gives one separate Codex launch line only after the task file is created.
+Never put task creation and Codex launch in the same pasted block.
+Never pass huge task text as a command-line argument. Use task files.
+Local git output controls.
 
-CURRENT OBJECTIVE:
-Next local-only step planning after the discretion audit inventory validator.
-
-LATEST COMPLETED POST-HANDOFF WORK:
-- 660c334 Add discretion audit inventory validator
-- 3a0db39 Sync build state after discretion audit inventory validator
-- 0d23423 Add post-handoff Day 31 discretion audit inventory addendum
-- fc64232 Sync build state after post-handoff Day 31 addendum
-
-WORKING PROCEDURE:
-Use the local repo only.
-Do not write directly to GitHub.
-Do not create GitHub blobs.
-Do not use GitHub edit/write tools.
-
-All work happens through local PowerShell and Codex.
-
-Local repo path:
-C:\Users\nickm\Desktop\New folder\safe-fast-backendnew
-
-The assistant gives the user one complete PowerShell block.
-The user pastes that block into PowerShell.
-The block should:
-1. Set-Location into the repo.
-2. Put the Codex prompt on the clipboard.
-3. Open Codex with the unelevated sandbox.
-4. Show git status after Codex exits.
-
-Codex command:
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never
-
-Do not use codex resume when diagnosing sandbox problems.
-If Codex fails, direct PowerShell may be used only for tightly scoped docs/status/git tasks.
-
-The user sends the Codex output back.
-The assistant reviews the output before any commit.
-Do not commit until the assistant reviews:
-- files changed
-- scope confirmation
-- test results if any
-- git diff --check
-- git status --short --untracked-files=all
-
-Before every commit, use a guarded PowerShell block that checks only expected files changed.
-If unexpected files appear, stop and send the output back.
-
-ZIP / DIRTY TREE RULE:
-Use a fresh zip made from the current clean repo.
-Do not reuse an older zip.
-If an extracted zip shows line-ending noise, __pycache__, or old dirty-tree output, do not treat that as a project blocker unless the real local repo git status confirms it.
-The real local repo git status is the source of truth.
-Old pasted dirty-tree output is not current state.
-
-CURRENT FIXED LOCAL FOUNDATION:
-- replay/regression foundation
-- shadow review/export bundle foundation
-- Day 60 input-contract validator
-- Day 60 shadow session dry-run adapter
-- Day 60 review/diagnostics packet builder
-- Day 60 diagnostics readiness evaluator
-- Day 60 outcome scoring contract validator
-- Day 60 outcome scoring summary evaluator
-- Day 60 outcome diagnostics evaluator
-- Day 60 optimization readiness gate
-- historical outcome proof preflight validator
-- historical outcome proof summary evaluator
-- historical outcome diagnostics evaluator
-- historical optimization readiness gate
-- trading-plan discretion audit evaluator
-- discretion audit coverage evaluator
-- discretion audit inventory validator
-- strict Day 28 handoff package
-- post-handoff Day 31 addendum
-
-STILL NOT PROVEN:
-- final trading-plan viability
-- actual historical success
-- controlled shadow data
-- live data
-- alerts
-- generated logs/reports
-- trading success
-- broker/order execution
-- option P&L
-- account sizing
-- production readiness
-- Railway/deploy readiness
-- live backend readiness
-- live trade decisions
-
-VIABILITY PRIORITY:
-Viability proof is the highest priority.
-Detection alone is not enough.
-A watcher alone is not enough.
-SAFE-FAST must prove whether the trading plan is viable under no-hindsight review.
-If results are weak, diagnose deeply before optimizing.
-Optimization must be evidence-backed and regression-tested.
-
-REQUIRED VIABILITY LOOP:
-detect -> score outcome -> diagnose deeply -> analyze whole system -> decide fix path -> adjust rule/contract/test -> run regression -> review again
-
-DIAGNOSTICS RULE:
-Diagnostics must be in-depth.
-Shallow labels like failed setup, bad alert, weak signal, or bad trade are not enough.
-Diagnostics must identify evidence, likely cause, affected setup type, affected symbol when available, affected stage, trigger/invalidation/freshness relationship, affected system area, and next fix path.
-
-DISCRETION RULE:
-Hidden discretion should be removed from signal rules.
-Setup recognition, trigger, invalidation, fresh/stale/spent, blocker/caution, ranking/focus, outcome scoring, diagnostics, and user workflow should be rule-based.
-Human discretion may exist only as:
-- no-trade veto
-- review note
-- safety pause
-
-Human discretion must not:
-- create a signal
-- approve a trade
-- override missing proof
-- move triggers
-- hide failures
-- change outcome review after the fact
-
-NO-GO BOUNDARIES:
-Do not modify main.py.
-Do not modify engine logic.
-Do not touch Railway/deploy files.
-Do not touch production files.
-Do not touch live backend.
-Do not fetch or start live data.
-Do not start controlled shadow data unless explicitly authorized later.
-Do not create watcher loops.
-Do not create alerts.
-Do not create generated reports/logs unless explicitly authorized later.
-Do not touch broker/order/account/options/P&L behavior.
-Do not touch account sizing.
-Do not make live trade decisions.
-Do not edit secrets, .env files, credentials, tokens, or deployment settings.
-
-NEXT TASK:
-Start with docs-only next-step planning after the discretion audit inventory validator.
-Do not start code work until git status from the real local repo is clean.
+Warnings:
+Do not use Yahoo.
+Do not use public OHLC fallback.
+Do not use broker/order/account actions.
+Do not print secrets.
+Do not claim proof.
+Do not claim profitability.
+Do not modify main.py, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, .env, credentials, tokens, generated report/log files, or live-data paths.

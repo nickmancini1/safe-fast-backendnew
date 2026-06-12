@@ -1,5 +1,15 @@
 # SAFE-FAST Evidence Package to Intake Bridge
 
+## Day 41 Raw Tastytrade Correction
+
+tastytrade is a raw-data source. SAFE-FAST must calculate its own trade-plan labels from raw market and option data.
+
+The bridge must not treat a tastytrade capability check as proof by itself. Raw tastytrade evidence can only affect reconsideration eligibility after the work-package content validator passes every required request for a parked candidate.
+
+The next task should test tastytrade raw data availability for underlying candles, option chain snapshot/history, bid/ask quotes, spread, quote timestamps, volume/open interest if available, expiration/strike metadata, underlying price around signal, and data through signal time only. The raw fields must then be mapped to the 9 evidence requests.
+
+First target: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`, QQQ CFB gap context. Even if all QQQ CFB requests pass later, the bridge may only mark the candidate reconsideration-eligible. Intake-ready still requires later SAFE-FAST gates. Proof remains NO.
+
 ## Scope
 
 This build-only bridge maps richer historical export work-package content validation into parked-candidate intake decisions.

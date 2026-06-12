@@ -1,5 +1,38 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 raw tastytrade next-chat handoff result
+
+- Current task baseline from local git: `46c0a92 Record tastytrade evidence availability check`.
+- Branch checked while writing this handoff: `main`.
+- Corrective scope: docs-only handoff update.
+- Result: created the Day 41 raw tastytrade next-chat handoff and updated the compact intro/handoff docs so the next chat starts with the correct raw-data framing.
+- Handoff path: `SAFE_FAST_DAY41_RAW_TASTYTRADE_NEXT_CHAT_HANDOFF.md`.
+- Next-chat intro path: `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`.
+- Updated handoff/doc paths:
+  - `SAFE_FAST_BUILD_STATE.md`.
+  - `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`.
+  - `SAFE_FAST_RICHER_HISTORICAL_EXPORT_WORK_PACKAGE.md`.
+  - `SAFE_FAST_RICHER_HISTORICAL_EXPORT_WORK_PACKAGE_CONTENT_VALIDATOR.md`.
+  - `SAFE_FAST_EVIDENCE_PACKAGE_TO_INTAKE_BRIDGE.md`.
+- Raw-data correction preserved: tastytrade is expected to provide raw market/option data, not SAFE-FAST labels.
+- SAFE-FAST label rule preserved: SAFE-FAST must calculate labels such as `gap_context_status`, `gap_context_as_of`, `gap_context_reviewed_before_signal`, `option_context_status`, `execution_context_status`, and `caution_context_status` from raw evidence if available.
+- Next task name preserved: SAFE-FAST Day 41 tastytrade raw data capability and first evidence fill.
+- First candidate target preserved: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- First evidence target preserved: QQQ CFB gap context.
+- Next workflow preserved: verify local git, read the raw tastytrade handoff, locate tastytrade/dxLink helpers, run a safe data-only capability test, do not print secrets, test raw fields, map raw fields to the 9 evidence requests, fill work-package files only with real tastytrade-backed raw evidence, run the content validator, run the bridge, mark reconsideration-eligible only if all required requests pass, keep later SAFE-FAST gates before intake-ready.
+- Current repo evidence remains insufficient.
+- Current work package was prefilled from repo-known data.
+- Current work-package content validator result before tastytrade proof: 0 passed requests, 9 failed requests.
+- tastytrade access found: YES.
+- Existing helper paths found: `dxlink_candles.py` and `historical_signal_replay/export_dxlink_source_csv.py`.
+- First tastytrade evidence availability check found local dxLink/OHLCV-style data only and did not satisfy the 9 richer evidence requests.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Intake-ready count: 0.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+
 ## Highest-priority active rule: profitability mandate and diagnosis loop
 
 SAFE-FAST is not being built merely to test whether an idea might work. SAFE-FAST's required build target is a profitable trading plan. The goal is to make SAFE-FAST excellent at making money, not merely excellent at explaining charts.
