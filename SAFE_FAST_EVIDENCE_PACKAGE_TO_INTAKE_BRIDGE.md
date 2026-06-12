@@ -44,7 +44,9 @@ Reconsideration eligibility does not make a row intake-ready, allow proof review
 
 ## Current Result
 
-The current work package is intentionally partial: all 9 files have repo-known prefill rows, and all 9 still fail content validation because required acquisition evidence remains `MISSING_REQUIRED_EVIDENCE`.
+The current work package is intentionally partial: all 9 files have repo-known prefill rows, and all 9 still fail content validation because required acquisition evidence remains unresolved. After the local tastytrade/dxLink evidence pull attempt, unsupported request fields are marked `TASTYTRADE_DATA_NOT_AVAILABLE` and remain blockers.
+
+The QQQ Clean Fast Break gap-context row has been rechecked against source CSV line 132 and replay log lines 3-4. Its three required gap-context fields are now named as annotated `MISSING_REQUIRED_EVIDENCE` blockers, so the request still fails and the QQQ candidate stays parked.
 
 - Passed requests: 0.
 - Failed requests: 9.

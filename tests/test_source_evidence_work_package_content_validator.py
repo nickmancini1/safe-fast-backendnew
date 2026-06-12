@@ -93,6 +93,40 @@ class SourceEvidenceWorkPackageContentValidatorTests(unittest.TestCase):
         self.assertEqual(first_row["row_status"], validator.PARTIAL_FILL_STATUS)
         self.assertIn(first_requirement.required_fields[0], first_row["blocker_fields"])
 
+    def test_annotated_missing_required_evidence_fails_validation(self):
+        first_requirement = intake.build_package_requirements()[0]
+        row = _complete_row(first_requirement)
+        row["fill_status"] = validator.PARTIAL_FILL_STATUS
+        row[first_requirement.required_fields[0]] = (
+            "MISSING_REQUIRED_EVIDENCE: gap_context_status absent from source"
+        )
+
+        result = validator.validate_in_memory_rows(
+            {first_requirement.required_file_name: [row]}
+        )
+        first_row = result["content_results"][0]
+
+        self.assertFalse(first_row["passed"])
+        self.assertTrue(first_row["partial_row_present"])
+        self.assertIn(first_requirement.required_fields[0], first_row["blocker_fields"])
+
+    def test_tastytrade_data_not_available_fails_validation(self):
+        first_requirement = intake.build_package_requirements()[0]
+        row = _complete_row(first_requirement)
+        row["fill_status"] = validator.PARTIAL_FILL_STATUS
+        row[first_requirement.required_fields[0]] = (
+            "TASTYTRADE_DATA_NOT_AVAILABLE: dxLink source CSV has OHLCV only"
+        )
+
+        result = validator.validate_in_memory_rows(
+            {first_requirement.required_file_name: [row]}
+        )
+        first_row = result["content_results"][0]
+
+        self.assertFalse(first_row["passed"])
+        self.assertTrue(first_row["partial_row_present"])
+        self.assertIn(first_requirement.required_fields[0], first_row["blocker_fields"])
+
     def test_complete_synthetic_row_passes_content_validation_for_its_request(self):
         first_requirement = intake.build_package_requirements()[0]
         rows_by_file = {

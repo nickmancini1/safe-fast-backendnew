@@ -20,6 +20,18 @@ The work files now include one repo-known prefill row each with `fill_status` se
 
 Missing required evidence fields remain explicitly marked `MISSING_REQUIRED_EVIDENCE`. These rows validate as work-package structure only and do not count as complete evidence.
 
+The QQQ Clean Fast Break gap-context work row was checked against source CSV line 132 and QQQ Clean Fast Break replay log lines 3-4. The repo does not contain `gap_context_status`, `gap_context_as_of`, or `gap_context_reviewed_before_signal`, so those exact missing field names are annotated in the row and remain blocking.
+
+A local tastytrade/dxLink evidence pull attempt checked the existing QQQ and SPY source CSV exports:
+
+- `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`.
+- `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`.
+- tastytrade helper/config path found: `dxlink_candles.py` and `historical_signal_replay/export_dxlink_source_csv.py`.
+- Local exports source: `dxlink_candles.get_1h_ema50_snapshot`.
+- Local exports vendor: `dxFeed via tastytrade dxLink`.
+
+The local exports support OHLCV, source, vendor, source-as-of, and unconfirmed macro/IV/event context fields. They do not provide the requested gap, headline, option, execution, complete-caution, or SAFE-FAST rule/regression artifact fields. Those unsupported request fields are now marked `TASTYTRADE_DATA_NOT_AVAILABLE` and remain blockers.
+
 ## Manifest
 
 The work package manifest uses:
@@ -100,6 +112,10 @@ The bridge maps all 9 evidence requests to 4 parked candidates. A candidate beco
 - Work package content failed requests: 9.
 - Partial rows: 9.
 - Header-only rows: 0.
+- tastytrade/dxLink evidence pull attempted: YES.
+- Work files annotated from tastytrade/dxLink local exports: 9.
+- QQQ CFB gap-context fill attempted: YES.
+- QQQ CFB gap-context request passed: NO.
 - Evidence-package-to-intake bridge requests mapped: 9.
 - Evidence-package-to-intake bridge parked candidates mapped: 4.
 - Reconsideration-eligible candidates: 0.

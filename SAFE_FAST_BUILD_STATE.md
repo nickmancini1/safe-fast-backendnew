@@ -9101,3 +9101,88 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
 - Recommended next action: acquire the still-missing request-shaped source exports or rule/regression evidence, then rerun the content validator, bridge, work-package structure validator, acquisition validator, gap scanner, and source-pool intake helper before considering any parked-row reassessment.
+
+## Day 41 QQQ CFB gap-context evidence fill attempt result
+
+- Current task baseline stated by task file: `81ddb8e Prefill richer historical work package`.
+- Corrective scope: build-only work-package/helper/test/doc work.
+- Result: attempted the first real evidence gap fill for `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` gap-context completeness.
+- Target work file: `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_gap_context_completeness_fields_rule.jsonl`.
+- Source CSV inspected: `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`.
+- Source CSV row inspected: line 132, `2026-04-13T12:30:00-04:00`.
+- Replay log inspected: `historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl`.
+- Replay log rows inspected: lines 3-4.
+- Day 38/active-path/richer-inventory docs inspected for candidate evidence and missing-field conclusions.
+- Fields confirmed from repo evidence and already represented in the work row:
+  - `candidate_id`: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+  - `symbol`: `QQQ`.
+  - `setup_type`: `Clean Fast Break`.
+  - `source_time`: `2026-04-13T12:30:00-04:00`.
+  - `source_session`: `2026-04-13 regular session`.
+  - `source_window`: `2026-04 QQQ Clean Fast Break setup window; source CSV line 132; replay log lines 3-4`.
+  - `rule_family`: `Clean Fast Break gap context`.
+  - `request_id`: `qqq_cfb_gap_context_completeness_fields_rule`.
+  - `setup_candle_time`: `2026-04-13T12:30:00-04:00`.
+  - `known_trigger`: `613.67`.
+  - `known_invalidation`: `609.58`.
+  - `known_source_file`, `known_source_line_section`, `known_no_hindsight_boundary`, and `known_outcome_window_input`.
+- Required gap-context fields not found in the inspected repo evidence:
+  - `gap_context_status`.
+  - `gap_context_as_of`.
+  - `gap_context_reviewed_before_signal`.
+- Work row update: each missing gap-context field is now annotated as `MISSING_REQUIRED_EVIDENCE: <field> absent from QQQ source CSV line 132 and QQQ CFB replay log lines 3-4`.
+- Validator update: annotated `MISSING_REQUIRED_EVIDENCE: ...` values still count as unresolved blockers.
+- QQQ CFB gap-context request passed: NO.
+- Content validator result: 0 passed requests, 9 failed requests, 9 partial rows, 0 header-only rows.
+- Bridge result: 0 reconsideration-eligible candidates.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: acquire source-backed QQQ gap-context evidence containing `gap_context_status`, `gap_context_as_of`, and `gap_context_reviewed_before_signal`; keep the QQQ CFB candidate parked until all three QQQ CFB requests pass content validation.
+
+## Day 41 tastytrade/dxLink richer evidence pull attempt result
+
+- Current task baseline: local git HEAD as source of truth; Day 41 continuation.
+- Corrective scope: build-only work-package/helper/test/doc work.
+- tastytrade access found: YES.
+- tastytrade helper/config path found:
+  - `dxlink_candles.py`.
+  - `historical_signal_replay/export_dxlink_source_csv.py`.
+- No secrets printed: YES.
+- Local tastytrade/dxLink exports checked:
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`.
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`.
+- Target source rows checked:
+  - QQQ source CSV line 132, source `dxlink_candles.get_1h_ema50_snapshot`, source_as_of `2026-05-15T18:48:44Z`, vendor `dxFeed via tastytrade dxLink`.
+  - SPY source CSV line 138, source `dxlink_candles.get_1h_ema50_snapshot`, source_as_of `2026-05-13T18:43:00Z`, vendor `dxFeed via tastytrade dxLink`.
+  - SPY source CSV line 154, source `dxlink_candles.get_1h_ema50_snapshot`, source_as_of `2026-05-13T18:43:00Z`, vendor `dxFeed via tastytrade dxLink`.
+  - SPY source CSV line 291, source `dxlink_candles.get_1h_ema50_snapshot`, source_as_of `2026-05-13T18:43:00Z`, vendor `dxFeed via tastytrade dxLink`.
+- Related replay logs checked:
+  - `historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl`.
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl`.
+  - `historical_signal_replay/reports/second_real_spy_ideal_replay_v1_signal_log.jsonl`.
+- Work files filled/annotated from tastytrade: 9.
+- Fields still missing/unavailable from local tastytrade/dxLink exports:
+  - QQQ CFB gap context: `gap_context_status`, `gap_context_as_of`, `gap_context_reviewed_before_signal`.
+  - QQQ CFB expiry/regression: `clean_fast_break_stale_spent_expiry_rule`, `clean_fast_break_expiry_regression_rows`.
+  - QQQ CFB context/caution: `option_context_status`, `headline_context_status`, `execution_context_status`, `complete_caution_review_status`.
+  - SPY CFB 003 expiry/regression: `clean_fast_break_higher_base_fresh_break_expiry_rule`, `higher_base_fresh_break_expiry_regression_rows`.
+  - SPY CFB 003 context/caution: `option_context_status`, `headline_context_status`, `execution_context_status`, `complete_caution_review_status`.
+  - SPY CFB 002 expiry/regression: `clean_fast_break_initial_break_expiry_rule`, `initial_break_expiry_regression_rows`.
+  - SPY CFB 002 context/caution: `option_context_status`, `headline_context_status`, `execution_context_status`, `complete_caution_review_status`.
+  - SPY Ideal expiry/regression: `spy_ideal_stale_spent_expiry_rule`, `spy_ideal_expiry_regression_rows`.
+  - SPY Ideal context/caution: `gap_context_status`, `headline_context_status`, `option_context_status`, `execution_context_status`, `complete_caution_review_status`.
+- Validator update: `TASTYTRADE_DATA_NOT_AVAILABLE` and annotated `TASTYTRADE_DATA_NOT_AVAILABLE: ...` values are unresolved blockers.
+- Content validator passed requests: 0.
+- Content validator failed requests: 9.
+- Bridge reconsideration-eligible candidates: 0.
+- Intake-ready count: 0.
+- Parked/source_data_insufficient count: 4.
+- Replace count: 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No Yahoo, public OHLC fallback, `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+- Recommended next action: acquire a source-backed evidence package that includes the unavailable request-shaped fields or accepted SAFE-FAST rule/regression artifact rows, then rerun the work-package content validator, bridge, and structure validator before considering any parked-row reassessment.

@@ -86,6 +86,11 @@ Profitability claim made: NO.
 - Local repo files inspected: historical source data, replay reports, SAFE-FAST Day 38/Day 39 docs, active-path/gap/rule docs, and watcher source-row packet helpers.
 - Acquisition requests checked: 9.
 - Local evidence found that satisfies a request: NO for all 9 requests.
+- Local tastytrade/dxLink evidence pull attempted: YES.
+- tastytrade helper/config path found: `dxlink_candles.py` and `historical_signal_replay/export_dxlink_source_csv.py`.
+- Local tastytrade/dxLink exports checked: QQQ source CSV line 132; SPY source CSV lines 138, 154, and 291; related replay log rows.
+- Local tastytrade/dxLink exports provide OHLCV/source/vendor/as-of evidence, but do not provide the required gap, headline, option, execution, complete-caution, or SAFE-FAST rule/regression artifact fields.
+- Unsupported request fields are marked `TASTYTRADE_DATA_NOT_AVAILABLE` in the richer export work package and remain blockers.
 - Validator result: FAIL for all 9 requests when limited to existing local repo evidence.
 - Exact exports/files still needed: the 9 request-shaped source exports or rule/regression files listed in the acquisition table above.
 - Intake-ready count: 0.

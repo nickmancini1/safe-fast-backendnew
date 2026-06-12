@@ -889,3 +889,29 @@ Read the repo.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated report/log files, or live-data paths were changed.
+
+## Day 41 tastytrade/dxLink richer evidence pull attempt result
+
+- tastytrade access found: YES.
+- tastytrade helper/config path found: `dxlink_candles.py`; `historical_signal_replay/export_dxlink_source_csv.py`.
+- Local tastytrade/dxLink exports checked:
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv`.
+  - `historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv`.
+- Target source rows checked: QQQ source CSV line 132; SPY source CSV lines 138, 154, and 291.
+- Related replay logs checked:
+  - `historical_signal_replay/reports/first_real_qqq_clean_fast_break_replay_v1_signal_log.jsonl`.
+  - `historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl`.
+  - `historical_signal_replay/reports/second_real_spy_ideal_replay_v1_signal_log.jsonl`.
+- Local dxLink exports provide OHLCV, source, vendor, source-as-of, and unconfirmed macro/IV/event context fields.
+- Local dxLink exports do not provide the 9 request-shaped gap, headline, option, execution, complete-caution, or SAFE-FAST rule/regression artifact fields.
+- Work files filled/annotated from tastytrade: 9.
+- Unsupported required fields are marked `TASTYTRADE_DATA_NOT_AVAILABLE` and remain blockers.
+- Content validator passed requests: 0.
+- Content validator failed requests: 9.
+- Bridge reconsideration-eligible candidates: 0.
+- Intake-ready count remains 0.
+- Parked/source_data_insufficient count remains 4.
+- Replace count remains 3.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No secrets, tokens, passwords, account numbers, credentials, `.env`, generated reports/logs, main engine logic, Railway/deploy files, broker/order/account/options/P&L, alerts, sizing, or live-data paths were changed.

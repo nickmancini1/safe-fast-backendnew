@@ -42,17 +42,22 @@ For each of the 9 work files, content validation checks:
 - row `rule_family` matches the request rule family,
 - `source_time`, `source_session`, and `source_window` are present with resolved values.
 
-Unresolved values remain blockers when they are empty, `None`, `missing`, `unclear`, `incomplete`, or `MISSING_REQUIRED_EVIDENCE` in any casing.
+Unresolved values remain blockers when they are empty, `None`, `missing`, `unclear`, `incomplete`, `MISSING_REQUIRED_EVIDENCE`, or `TASTYTRADE_DATA_NOT_AVAILABLE` in any casing.
+
+Annotated missing-evidence values such as `MISSING_REQUIRED_EVIDENCE: gap_context_status absent from source` also remain blockers. This allows a work row to name the exact missing field while preventing annotated blockers from being treated as completed evidence.
+
+Annotated tastytrade-unavailable values such as `TASTYTRADE_DATA_NOT_AVAILABLE: option_context_status not present in local dxLink source CSV` also remain blockers. This prevents local tastytrade/dxLink unsupported fields from being treated as completed evidence.
 
 ## Current Result
 
-The current work package is intentionally partial. It validates structurally and contains one repo-known prefill row per work file, but every row leaves required acquisition evidence as `MISSING_REQUIRED_EVIDENCE`.
+The current work package is intentionally partial. It validates structurally and contains one repo-known prefill row per work file. A local tastytrade/dxLink evidence pull attempt checked the existing QQQ and SPY source CSV exports and replay logs, but every row still leaves required acquisition evidence unresolved as `TASTYTRADE_DATA_NOT_AVAILABLE` where local dxLink OHLCV exports cannot provide the requested field or rule artifact.
 
 - Work files checked: 9.
 - Current work package content passed requests: 0.
 - Current work package content failed requests: 9.
 - Partial rows: 9.
 - Header-only rows: 0.
+- QQQ CFB gap-context row now names the exact fields not available from local tastytrade/dxLink data: `gap_context_status`, `gap_context_as_of`, and `gap_context_reviewed_before_signal`.
 - Intake-ready count: 0.
 - Parked/source_data_insufficient count: 4.
 - Replace count: 3.

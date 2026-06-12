@@ -31,7 +31,11 @@ PLACEHOLDER_FILL_STATUSES = (
     "unfilled",
 )
 PARTIAL_FILL_STATUS = "partial_missing_required_evidence"
-UNRESOLVED_MARKERS = (*intake.UNRESOLVED_MARKERS, "missing_required_evidence")
+UNRESOLVED_MARKERS = (
+    *intake.UNRESOLVED_MARKERS,
+    "missing_required_evidence",
+    "tastytrade_data_not_available",
+)
 CONTENT_METADATA_FIELDS = (
     "fill_status",
     "candidate_id",
@@ -328,7 +332,11 @@ def _first_real_row(
 
 def _is_unresolved(value: object) -> bool:
     text = "" if value is None else str(value).strip().lower()
-    return text in UNRESOLVED_MARKERS
+    return (
+        text in UNRESOLVED_MARKERS
+        or text.startswith("missing_required_evidence:")
+        or text.startswith("tastytrade_data_not_available:")
+    )
 
 
 def _format_content_table(rows: object) -> str:
