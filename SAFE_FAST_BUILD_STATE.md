@@ -9286,3 +9286,29 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - No calculator code, tests, evidence package files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
+## Day 41 QQQ gap-context threshold fixtures decision-needed result
+
+- Current task baseline stated by task file: `25a77ac Define QQQ gap context rule shape`.
+- Corrective scope: docs-only threshold fixture search/decision note.
+- Result: searched existing docs, tests, work-package files, and QQQ CFB gap-context artifacts for accepted numeric QQQ Clean Fast Break clean/caution/fail gap-context thresholds.
+- Accepted numeric QQQ Clean Fast Break gap-context thresholds found: NO.
+- Decision-needed doc created: `SAFE_FAST_DAY41_QQQ_GAP_CONTEXT_THRESHOLD_DECISION_NEEDED.md`.
+- Fixture doc created: NO.
+- Previous close fixture preserved: QQQ regular-session close `611.02` at `2026-04-10T15:30:00-04:00`.
+- Signal-day open fixture preserved: QQQ regular-session open `609.455` at `2026-04-13T09:30:00-04:00`.
+- Gap amount fixture preserved: `-1.565` points.
+- Gap percent fixture preserved: about `-0.2561%`.
+- Status expected until thresholds are accepted: `unknown`.
+- As-of expected after regression proof: `2026-04-13T12:30:00-04:00`.
+- Reviewed-before-signal expected: true only after regressions prove no future candle or replay future row can affect the result.
+- Missing-data case documented: missing or ambiguous prior close, signal-day open, source/session identity, timestamps, symbol, or no-hindsight clip must produce `unknown` and cannot pass evidence validation.
+- Future-data rejection case documented: the `2026-04-13T13:30:00-04:00` candle, replay log line 4, later rows, outcome data, option/broker/account/order/P&L/live data, and inferred gap cause must not affect setup-time gap context.
+- Exact regression cases needed next were documented, including happy path raw measurement, missing threshold decision, missing inputs, future-bar exclusion, replay future exclusion, non-RTH contamination, wrong-symbol contamination, source timestamp distinction, and later threshold boundary fixtures.
+- QQQ CFB gap-context calculator authorized: NO.
+- QQQ CFB gap-context evidence filled: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No calculator code, tests, evidence package files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
