@@ -15,12 +15,13 @@
 | Databento OPRA normalizer scope | accepted/current | The local Databento OPRA normalizer may parse, join, timestamp-normalize, select no-hindsight quotes, and derive quote inspection fields only; it must not infer fills, trade choice, P&L, proof, profitability, or readiness. |
 | No proof / no profitability claim | accepted/current | Current docs must not claim proof, profitability, candidate readiness, or intake-ready status. |
 | QQQ CFB rule decision package | accepted/current | `SAFE_FAST_DAY41_QQQ_CFB_RULE_DECISION_PACKAGE.md` is the current inventory of missing QQQ Clean Fast Break decisions before evidence fill or backtest; it does not accept unsupported rules. |
+| QQQ CFB gap-context threshold fixture set | accepted/current | `SAFE_FAST_DAY41_QQQ_GAP_THRESHOLD_FIXTURE_DECISION.md` accepts the first QQQ Clean Fast Break gap-context regression fixture thresholds: `clean` when absolute gap percent is `<= 0.30%`, `caution` when `> 0.30%` and `<= 0.75%`, `fail` when `> 0.75%`, and `unknown` when required data or no-hindsight proof is missing. This is a test-fixture decision only, not proof or profitability. |
 
 ## Missing / Needs Decision
 
 | Rule | Status | Missing decision |
 | --- | --- | --- |
-| QQQ gap thresholds | missing/needs decision | Numeric clean/caution/fail thresholds for QQQ Clean Fast Break gap context. |
+| QQQ gap threshold validation beyond first fixture | missing/needs decision | The first QQQ CFB gap-context test fixture thresholds are accepted for regression work, but profitable-plan calibration, sample-size validation, and promotion-grade threshold review remain undecided. |
 | Contract selection | missing/needs decision | Exact option side, expiration, strike, and contract-selection rule for each setup path. |
 | Entry rule | missing/needs decision | Exact entry timing and quote/fill rule. |
 | Exit rule | missing/needs decision | Exact profit exit, time exit, invalidation exit, and end-of-day handling. |
@@ -41,7 +42,7 @@
 | Databento QQQ OPRA normalizer | pending validation | `historical_signal_replay/databento_opra_normalizer.py` and `tests/test_databento_opra_normalizer.py` support local read-only raw OPRA normalization, joins, no-hindsight quote selection, spread inspection, statistics mapping, and refusal to infer fills/P&L/readiness. |
 | QQQ CFB rule decision package | pending validation | `SAFE_FAST_DAY41_QQQ_CFB_RULE_DECISION_PACKAGE.md` lists the smallest ordered path from raw data to valid backtest, but the listed decisions, tests, evidence fills, and backtest path remain unimplemented. |
 | Tastytrade historical option capability | pending validation | Existing local dxLink helpers provide underlying OHLCV only; historical option fields were not proven from current helpers. |
-| QQQ gap-context calculator | pending validation | Calculator remains unauthorized until thresholds and regression cases are accepted. |
+| QQQ gap-context calculator | pending validation | Calculator remains unauthorized until regression cases for the accepted QQQ CFB threshold fixture set are added and passing. |
 | Richer work-package requests | pending validation | Current content validation remains failed/partial; no request is accepted as proof. |
 
 ## Superseded
@@ -56,6 +57,6 @@
 
 | Item | Status | Decision needed |
 | --- | --- | --- |
-| Exact QQQ gap threshold label for `-0.2561%` | conflicting/needs human decision | Repo evidence permits measurement but not clean/caution/fail classification. |
+| Promotion-grade QQQ gap threshold label for `-0.2561%` | conflicting/needs human decision | The first regression fixture labels the measured `-0.2561%` QQQ CFB gap as `clean`, but promotion-grade proof, profitability calibration, and sample-backed validation remain undecided. |
 | Whether current validated Databento fields are sufficient for every SAFE-FAST evidence field | conflicting/needs human decision | Mapping shows raw option/liquidity support only; SAFE-FAST label rules, contract selection, execution proof, and complete caution aggregation remain undecided. |
 | How much failed/no-trade sample evidence is enough for promotion | conflicting/needs human decision | The project requires failures and no-trades, but sample-size gates are not fixed. |

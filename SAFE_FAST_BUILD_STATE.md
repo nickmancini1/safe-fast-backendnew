@@ -1,5 +1,47 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ gap threshold fixture decision result
+
+- Current task baseline stated by task file and confirmed by git: `2691a47 Record QQQ CFB rule decision package`.
+- Corrective scope: docs-only QQQ Clean Fast Break gap-context threshold fixture decision before calculator work.
+- Fixture decision doc created: `SAFE_FAST_DAY41_QQQ_GAP_THRESHOLD_FIXTURE_DECISION.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Target setup/signal time: `2026-04-13T12:30:00-04:00`.
+- Accepted first test-fixture threshold set:
+  - `clean`: source-backed QQQ regular-session inputs, no-hindsight clipping proven, and absolute gap percent `<= 0.30%`.
+  - `caution`: source-backed QQQ regular-session inputs, no-hindsight clipping proven, and absolute gap percent `> 0.30%` and `<= 0.75%`.
+  - `fail`: source-backed QQQ regular-session inputs, no-hindsight clipping proven, and absolute gap percent `> 0.75%`.
+  - `unknown`: required input, source/session identity, symbol match, timestamp parsing, no-hindsight clipping, or threshold fixture metadata missing/ambiguous/unproven.
+- Boundary behavior accepted for regression fixtures:
+  - exactly `0.30%` is `clean`.
+  - just above `0.30%` is `caution`.
+  - exactly `0.75%` is `caution`.
+  - just above `0.75%` is `fail`.
+- Direction is recorded as `up`, `down`, `flat`, or `unknown`, but the first fixture set classifies by absolute gap-percent size.
+- Known QQQ raw values preserved:
+  - previous regular-session close `611.02` at `2026-04-10T15:30:00-04:00`.
+  - signal-day open `609.455` at `2026-04-13T09:30:00-04:00`.
+  - gap amount `-1.565`.
+  - gap percent about `-0.2561%`.
+  - direction `down`.
+- Expected status for the known QQQ gap under this fixture set: `clean`, only after required no-hindsight regression proof.
+- Expected `gap_context_as_of` after regression proof: `2026-04-13T12:30:00-04:00`.
+- Expected `gap_context_reviewed_before_signal` after regression proof: `true`.
+- Missing-data behavior documented: missing/ambiguous previous close, signal-day open, source/session identity, timestamps, symbol, no-hindsight clip, or threshold fixture metadata must produce `unknown` and cannot pass completed evidence validation.
+- Future-data rejection behavior documented: post-signal candles, replay future rows, outcomes, option data, fills, P&L, broker/account/order data, and profitability must not affect setup-time gap context.
+- Required regression fixture groups documented before calculator work: real target, boundary cases, flat gap, missing inputs, wrong symbol, non-RTH contamination, future-bar exclusion, replay future exclusion, timestamp distinction, and label independence.
+- QQQ CFB calculator authorized now: NO, regression fixtures must be added first.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No calculator code, tests, evidence package files, raw data files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, trade-selection code, backtest code, or P&L files were changed.
+
 ## Day 41 QQQ CFB rule decision package result
 
 - Current task baseline stated by task file and confirmed by git: `9f3364a Add Databento OPRA normalizer`.
