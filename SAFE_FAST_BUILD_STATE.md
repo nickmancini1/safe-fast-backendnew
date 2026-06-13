@@ -1,5 +1,40 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ gap threshold decision package result
+
+- Current task baseline stated by task file: `ad716ef Record QQQ gap threshold decision needed`.
+- Corrective scope: docs-only threshold decision package.
+- Result: created the smallest useful QQQ Clean Fast Break gap-threshold decision package without choosing thresholds, writing calculator code, writing tests, or filling evidence.
+- Decision package path: `SAFE_FAST_DAY41_QQQ_GAP_THRESHOLD_DECISION_PACKAGE.md`.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Target setup/signal time: `2026-04-13T12:30:00-04:00`.
+- Direct target raw gap measurement preserved:
+  - previous QQQ regular-session close `611.02` at `2026-04-10T15:30:00-04:00`.
+  - signal-day open `609.455` at `2026-04-13T09:30:00-04:00`.
+  - gap points `-1.5650`.
+  - gap percent about `-0.2561%`.
+  - direction `down`.
+- Examples reviewed/calculated from source-backed previous close and signal-day open where present:
+  - QQQ Clean Fast Break target.
+  - SPY Clean Fast Break 002.
+  - SPY Clean Fast Break 003.
+  - QQQ Ideal.
+  - QQQ Continuation.
+  - SPY Ideal.
+  - SPY Continuation.
+- Chart outcome gap-context artifacts reviewed as raw gap examples, not accepted threshold labels.
+- Repo evidence supports raw gap measurement: YES.
+- Repo evidence supports numeric QQQ Clean Fast Break clean/caution/fail thresholds: NO.
+- Exact blocker: only one direct QQQ Clean Fast Break target measurement exists, and the repo lacks enough accepted QQQ CFB clean/caution/fail/no-trade/failure/boundary examples to map measured gap percent/direction to threshold labels.
+- Threshold options accepted: NO.
+- Calculator authorized: NO.
+- QQQ CFB gap-context evidence filled: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No calculator code, tests, evidence package files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 raw tastytrade next-chat handoff result
 
 - Current task baseline from local git: `46c0a92 Record tastytrade evidence availability check`.
