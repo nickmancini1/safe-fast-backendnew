@@ -26,13 +26,14 @@
 | Stage transitions | missing/needs decision | Project-wide state transitions among watch, candidate, signal, spent, stale, invalidated, blocked, no-trade, and review. |
 | Sample-size requirements | missing/needs decision | Minimum accepted sample counts by setup type, symbol, and failure/no-trade category. |
 | Promotion gates | missing/needs decision | Exact criteria for moving from evidence review to reconsideration-eligible, intake-ready, shadow planning, and later money stages. |
-| Option-field mapping | missing/needs decision | Mapping from Databento option fields into SAFE-FAST option, execution, caution, liquidity, and trade-plan evidence fields. |
+| Option-field label rules | missing/needs decision | Exact SAFE-FAST rules for turning Databento raw option, quote, spread, volume, open-interest, and liquidity inputs into `option_context_status`, `execution_context_status`, and `complete_caution_review_status`. |
 
 ## Pending Validation
 
 | Rule or artifact | Status | Validation needed |
 | --- | --- | --- |
-| Databento QQQ OPRA validation | pending validation | Structural validation found definitions, bid/ask, timestamps, expirations, strikes, side, trade volume, and open interest/statistics. SAFE-FAST field mapping still needs validation. |
+| Databento QQQ OPRA validation | pending validation | Structural validation found definitions, bid/ask, timestamps, expirations, strikes, side, trade volume, and open interest/statistics. SAFE-FAST field mapping is documented, but code/tests and label rules remain missing. |
+| Databento QQQ evidence field mapping | pending validation | `SAFE_FAST_DAY41_DATABENTO_QQQ_EVIDENCE_FIELD_MAPPING.md` maps validated Databento columns to raw option/liquidity inputs, but implementation tests and SAFE-FAST label rules are still missing. |
 | Tastytrade historical option capability | pending validation | Existing local dxLink helpers provide underlying OHLCV only; historical option fields were not proven from current helpers. |
 | QQQ gap-context calculator | pending validation | Calculator remains unauthorized until thresholds and regression cases are accepted. |
 | Richer work-package requests | pending validation | Current content validation remains failed/partial; no request is accepted as proof. |
@@ -50,5 +51,5 @@
 | Item | Status | Decision needed |
 | --- | --- | --- |
 | Exact QQQ gap threshold label for `-0.2561%` | conflicting/needs human decision | Repo evidence permits measurement but not clean/caution/fail classification. |
-| Whether current validated Databento fields are sufficient for every SAFE-FAST evidence field | conflicting/needs human decision | The files validate structurally, but exact mapping and sufficiency rules are not accepted. |
+| Whether current validated Databento fields are sufficient for every SAFE-FAST evidence field | conflicting/needs human decision | Mapping shows raw option/liquidity support only; SAFE-FAST label rules, contract selection, execution proof, and complete caution aggregation remain undecided. |
 | How much failed/no-trade sample evidence is enough for promotion | conflicting/needs human decision | The project requires failures and no-trades, but sample-size gates are not fixed. |

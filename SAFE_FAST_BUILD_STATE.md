@@ -1,5 +1,36 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 Databento QQQ evidence field mapping result
+
+- Current task baseline from local git: `6f1eac1 Add project control consolidation audit`.
+- Corrective scope: docs-only Databento QQQ evidence-field mapping.
+- Result doc created: `SAFE_FAST_DAY41_DATABENTO_QQQ_EVIDENCE_FIELD_MAPPING.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- QQQ work-package evidence fields identified:
+  - `gap_context_status`.
+  - `gap_context_as_of`.
+  - `gap_context_reviewed_before_signal`.
+  - `clean_fast_break_stale_spent_expiry_rule`.
+  - `clean_fast_break_expiry_regression_rows`.
+  - `option_context_status`.
+  - `headline_context_status`.
+  - `execution_context_status`.
+  - `complete_caution_review_status`.
+- Databento raw-supported areas mapped: option contract identifier, underlying, expiration, strike, side, quote timestamps, bid, ask, bid size, ask size, derived midpoint/spread/spread percent, quote age, trade timestamps/prices/sizes, volume/statistics, open interest/statistics, contract multiplier, and tick/increment metadata.
+- Raw-supported but not label-supported fields: `option_context_status`, `execution_context_status`, and the option/liquidity slice of `complete_caution_review_status`.
+- Fields not supported by validated Databento OPRA files: `gap_context_status`, `gap_context_as_of`, `gap_context_reviewed_before_signal`, `clean_fast_break_stale_spent_expiry_rule`, `clean_fast_break_expiry_regression_rows`, `headline_context_status`, fills, P&L, profitability, and readiness.
+- Fields requiring SAFE-FAST rules before fill: QQQ gap-context labels, Clean Fast Break stale/spent lifecycle, option-context status, execution-context status, complete caution aggregation, contract selection, entry, fill assumption, spread/liquidity thresholds, exit, stop/invalidation translation, time exit/EOD handling, costs/slippage, and failure conditions.
+- Minimum next code/tests identified: read-only local Databento OPRA normalizer, OPRA symbol parser, definition/quote/trade/statistics join, nearest-at-or-before-signal quote selector, derived quote/liquidity inspection fields, and tests for symbol parsing, timestamp/no-hindsight handling, joins, statistics interpretation, missing data, and refusal to infer fills/P&L/profitability.
+- Evidence filled: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw data files, evidence files, calculator code, tests, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, or raw vendor files were changed.
+
 ## Day 41 project control consolidation audit result
 
 - Current task baseline from local git: `219be31 Validate QQQ Databento option data download`.
