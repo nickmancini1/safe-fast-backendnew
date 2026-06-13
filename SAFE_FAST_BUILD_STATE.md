@@ -9347,3 +9347,36 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - No calculator code, tests, evidence package files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
+## Day 41 QQQ external option data request package result
+
+- Current task baseline stated by task file: `0707543 Record QQQ gap threshold decision package`.
+- Corrective scope: docs-only external option data request package.
+- Result: created the smallest QQQ historical option-data request package for the missing external option evidence without downloading data, buying data, calling paid APIs, using credentials, writing ingestion code, filling evidence, or promoting the candidate.
+- Request package path: `SAFE_FAST_DAY41_QQQ_EXTERNAL_OPTION_DATA_REQUEST_PACKAGE.md`.
+- External option data drop folder path: `historical_signal_replay/source_data/external_option_data_drop/`.
+- Drop folder README path: `historical_signal_replay/source_data/external_option_data_drop/README.md`.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Target signal/setup time: `2026-04-13T12:30:00-04:00`.
+- Underlying symbol: `QQQ`.
+- Trigger level: `613.67`.
+- Invalidation: `609.58`.
+- Existing candidate option side, expiration, strike, and option contract symbol: none found.
+- Minimum requested option quote window: `2026-04-13T12:25:00-04:00` through `2026-04-13T12:35:00-04:00`.
+- Requested option expiration range: `2026-04-27` through `2026-05-13`, inclusive, or all QQQ expirations if vendor filtering is not available.
+- Requested strike range: QQQ strikes `590` through `640`, inclusive, or full chain if vendor filtering is not available.
+- Accepted user-provided formats: CSV, JSON, JSONL, and ZIP containing CSV/JSON/JSONL.
+- Databento-first request plan documented: YES.
+- ThetaData fallback request plan documented: YES.
+- Post-download validation plan documented: YES.
+- What still cannot be proven after files arrive documented: YES.
+- External data downloaded: NO.
+- Paid API called: NO.
+- Credentials used: NO.
+- Ingestion code written: NO.
+- Evidence files filled: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No calculator code, tests, evidence files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
