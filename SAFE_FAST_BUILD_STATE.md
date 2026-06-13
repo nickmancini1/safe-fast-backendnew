@@ -9398,3 +9398,31 @@ Do not implement watcher code, proceed into deeper watcher design, implement new
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - No calculator code, tests, evidence files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
+## Day 41 Databento QQQ download validation result
+
+- Current task baseline from local git: `76ee698`.
+- Corrective scope: docs-only/local-ignore validation of already-downloaded Databento QQQ OPRA files.
+- Result doc created: `SAFE_FAST_DAY41_DATABENTO_QQQ_DOWNLOAD_VALIDATION.md`.
+- Raw vendor data downloaded during this task: NO.
+- Vendor API called during this task: NO.
+- Downloaded QQQ_OPRA files found in `historical_signal_replay/source_data/external_option_data_drop/`: YES.
+- File names and sizes recorded: YES.
+- CSV headers and row counts recorded: YES.
+- Option definitions/chain file found: YES.
+- Bid/ask quote fields found: YES, in `QQQ_OPRA_tcbbo_1225_1235_et.csv`.
+- Quote timestamp fields found: YES, via `ts_event` and `ts_recv`.
+- Spread-calculable fields found: YES, from bid/ask for inspection only.
+- Expiration, strike, and option side found: YES; direct in definitions and parseable from QQQ OPRA symbols in quote/trade/statistics rows.
+- Trade volume found: YES.
+- Open interest/statistics found: YES, statistics `stat_type` includes Databento `OPEN_INTEREST`.
+- Quote/trade timestamp window covers the requested `2026-04-13T12:25:00-04:00` through just before `2026-04-13T12:35:00-04:00`: YES.
+- Contracts near QQQ signal-day open price `609.455` identified: YES.
+- Local-only ignore added: `historical_signal_replay/source_data/external_option_data_drop/.gitignore`.
+- Evidence filled: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw data edits, evidence files, calculator code, tests, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
