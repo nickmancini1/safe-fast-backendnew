@@ -1,5 +1,49 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ CFB rule decision package result
+
+- Current task baseline stated by task file and confirmed by git: `9f3364a Add Databento OPRA normalizer`.
+- Corrective scope: docs-only QQQ Clean Fast Break rule-decision package before evidence fill/backtest.
+- Decision package created: `SAFE_FAST_DAY41_QQQ_CFB_RULE_DECISION_PACKAGE.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Target setup/signal time: `2026-04-13T12:30:00-04:00`.
+- Repo-supported inputs preserved:
+  - trigger `613.67`.
+  - invalidation `609.58`.
+  - QQQ previous regular-session close `611.02` at `2026-04-10T15:30:00-04:00`.
+  - QQQ signal-day open `609.455` at `2026-04-13T09:30:00-04:00`.
+  - raw gap `-1.5650`, about `-0.2561%`, direction `down`.
+  - Databento OPRA raw support for option definitions, bid/ask, bid/ask sizes, timestamps, trades, volume/statistics, open interest/statistics, and spread inspection.
+- Missing or unresolved decisions inventoried before evidence fill/backtest:
+  - QQQ CFB gap thresholds.
+  - gap-context as-of/reviewed-before-signal regression proof.
+  - stale/spent lifecycle rule.
+  - CFB expiry rule.
+  - stage transitions and precedence.
+  - contract selection.
+  - entry rule.
+  - fill assumption.
+  - spread/liquidity limits.
+  - exit rule.
+  - option stop/invalidation translation.
+  - time exit.
+  - cost/slippage assumptions.
+  - QQQ CFB failure diagnosis labels.
+  - sample-size requirement.
+  - promotion gate.
+  - option-context, execution-context, headline-context, and complete-caution label rules.
+- Smallest ordered implementation plan documented from raw data to valid backtest path: decisions first, regression cases before calculators/fills, evidence validation before backtest, trade-plan completeness before counting, and sample/promotion gates before readiness.
+- Evidence filled: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- Backtest authorized: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence files, calculator code, backtest code, trade-selection code, raw data files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, or raw vendor files were changed.
+
 ## Day 41 Databento QQQ OPRA normalizer result
 
 - Current task baseline stated by task file: `7304497 Map QQQ Databento fields to evidence requirements`.
