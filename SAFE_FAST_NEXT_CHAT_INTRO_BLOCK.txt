@@ -1,39 +1,38 @@
 Baseline:
-SAFE-FAST Day 41 tastytrade raw data capability and first evidence fill.
+SAFE-FAST Day 41 project control consolidation after Databento QQQ download validation.
 Repo path: C:\Users\nickm\Desktop\New folder\safe-fast-backendnew
-Latest known local HEAD when this intro was written: 46c0a92 Record tastytrade evidence availability check
+Latest known local HEAD when this intro was written: 219be31 Validate QQQ Databento option data download
 Branch when written: main
 
 Fixed:
-tastytrade is the raw-data source.
-SAFE-FAST must calculate its own labels from raw market and option data.
-Do not ask whether tastytrade provides SAFE-FAST labels like fresh/stale, expired/valid, context clean/blocked, gap context complete, CFB expiry, Ideal stale/spent, option context usable, execution context usable, or caution clean.
-Test whether tastytrade can provide the raw fields needed to calculate those labels.
+SAFE-FAST is not dead when evidence is weak, failed, missing, unclear, or unprofitable. Those outcomes trigger diagnosis and repair.
+SAFE-FAST is still being turned from setup recognition into a full trade plan.
+The project-wide proof pipeline is now documented in SAFE_FAST_PROJECT_PROOF_PIPELINE.md.
+The trade-plan completeness gate is now documented in SAFE_FAST_TRADE_PLAN_COMPLETENESS_GATE.md.
+Phone Q&A clarifications are now documented in SAFE_FAST_PROJECT_PHONE_QA_CLARIFICATIONS.md.
+The current rule index is now documented in SAFE_FAST_PROJECT_RULE_INDEX.md.
+Databento QQQ OPRA files are present locally and structurally validated for definitions, bid/ask, timestamps, expiration, strike, side, volume, and open interest/statistics.
 
 Blocked:
-Existing repo evidence is insufficient.
-The work package was prefilled from repo-known data.
-Before tastytrade proof, content validation was 0 passed / 9 failed.
-tastytrade access was found.
-Helpers found: dxlink_candles.py and historical_signal_replay/export_dxlink_source_csv.py.
-The first tastytrade evidence availability check found local dxLink/OHLCV-style data only and did not satisfy the 9 richer evidence requests.
-Parked count: 4.
-Replace count: 3.
-Intake-ready count: 0.
 Proof accepted: NO.
 Profitability claim made: NO.
+Intake-ready count: 0.
+QQQ gap thresholds are still missing.
+Contract-selection rules are still missing.
+Exact entry and exit rules are still missing.
+Stale/spent rules, stage transitions, sample-size requirements, and promotion gates still need decisions and regressions.
+Databento-to-SAFE-FAST field mapping is not yet validated.
+Trade-plan completeness is not satisfied for any candidate.
+Tastytrade current helpers supplied underlying OHLCV only and did not satisfy historical option-field needs.
 
 Next:
 Start with local git output.
 Read SAFE_FAST_BUILD_STATE.md.
-Read SAFE_FAST_DAY41_RAW_TASTYTRADE_NEXT_CHAT_HANDOFF.md.
-First candidate target: QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001.
-First evidence target: QQQ CFB gap context.
-Test raw tastytrade availability for prior session close, signal-day open, intraday OHLC through signal time, quote timestamps, source timestamps, option chain/quote context around signal, and spread/quote quality around signal if available.
-Map raw fields to the 9 evidence requests.
-Fill work-package files only with real tastytrade-backed raw evidence.
-Run the content validator and evidence-package-to-intake bridge.
-If every request for a parked path passes, mark reconsideration-eligible only. Intake-ready still requires later SAFE-FAST gates.
+Read SAFE_FAST_PROJECT_CONTROL_CONSOLIDATION_AUDIT.md.
+Read SAFE_FAST_PROJECT_PROOF_PIPELINE.md.
+Read SAFE_FAST_TRADE_PLAN_COMPLETENESS_GATE.md.
+Read SAFE_FAST_PROJECT_RULE_INDEX.md.
+Next single useful action: map the structurally validated Databento QQQ option fields into SAFE-FAST evidence-field requirements without filling evidence, choosing a trade, claiming proof, or promoting the candidate unless a later task explicitly authorizes that scope.
 
 Command:
 First run:
@@ -57,4 +56,6 @@ Do not use broker/order/account actions.
 Do not print secrets.
 Do not claim proof.
 Do not claim profitability.
+Do not mark any candidate ready.
+Do not commit raw Databento files.
 Do not modify main.py, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, .env, credentials, tokens, generated report/log files, or live-data paths.

@@ -1,5 +1,34 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 project control consolidation audit result
+
+- Current task baseline from local git: `219be31 Validate QQQ Databento option data download`.
+- Older user-pasted baseline `f460e91 Record QQQ external option data request package` is explainable from local history because `76ee698` and `219be31` follow it.
+- Corrective scope: docs-only project-control consolidation and ambiguity audit.
+- Result: created project-wide consolidation docs and updated the next-chat intro to current Databento-validation framing.
+- Audit path: `SAFE_FAST_PROJECT_CONTROL_CONSOLIDATION_AUDIT.md`.
+- Proof pipeline path: `SAFE_FAST_PROJECT_PROOF_PIPELINE.md`.
+- Trade-plan completeness gate path: `SAFE_FAST_TRADE_PLAN_COMPLETENESS_GATE.md`.
+- Rule index path: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Phone Q&A clarification path: `SAFE_FAST_PROJECT_PHONE_QA_CLARIFICATIONS.md`.
+- Updated intro path: `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`.
+- Project-dead wording clarified: weak, failed, unclear, missing, or unprofitable results are diagnosis-and-repair triggers, not permission to call the whole project dead.
+- Full proof pipeline documented: raw data, calculated labels, setup recognition, stage transitions, trade-plan completeness, replay, regression, evidence review, failure diagnosis, and promotion decision.
+- Trade-plan completeness gate documented as project-wide and requiring contract selection, side, expiration, strike, entry timing, fill assumption, bid/ask/mid/spread rule, volume/open-interest/liquidity minimums, exit, stop/invalidation, time exit/EOD if applicable, cost/slippage assumptions, and failure conditions.
+- Known unclear items preserved: QQQ gap thresholds, contract-selection rules, exact entry rule, exact exit rule, stale/spent rules by setup type, stage-transition rules, sample-size requirements, promotion gates, Databento file validation status, and whether every needed option field maps cleanly into SAFE-FAST evidence fields.
+- Data-source clarification updated: tastytrade current helpers supplied underlying OHLCV only; Databento is now the likely historical option data source for QQQ, and local QQQ OPRA files validate structurally for key option fields, but SAFE-FAST field mapping and trade-plan proof remain unproven.
+- Rule index classifications created for accepted/current, missing/needs decision, pending validation, superseded, and conflicting/needs human decision rules.
+- Direct Q&A preserved in `SAFE_FAST_PROJECT_PHONE_QA_CLARIFICATIONS.md`.
+- Raw Databento files modified: NO.
+- Evidence files filled: NO.
+- Calculator code written: NO.
+- Tests written: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated live reports/logs, generated market data files, or raw vendor data files were changed.
+
 ## Day 41 Databento QQQ cost/access test result
 
 - Current task baseline stated by task file: `f460e91 Record QQQ external option data request package`.
