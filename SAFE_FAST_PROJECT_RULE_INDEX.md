@@ -12,6 +12,7 @@
 | Trade-plan completeness gate | accepted/current | Contract, side, expiration, strike, entry, fill, spread, liquidity, exit, stop, cost, slippage, and failure rules are required before counting results. |
 | Vendor data role | accepted/current | Vendors provide raw fields; SAFE-FAST must calculate labels under accepted rules. |
 | Raw Databento files | accepted/current | Raw QQQ OPRA files are local-only and must not be committed by this task. |
+| Databento OPRA normalizer scope | accepted/current | The local Databento OPRA normalizer may parse, join, timestamp-normalize, select no-hindsight quotes, and derive quote inspection fields only; it must not infer fills, trade choice, P&L, proof, profitability, or readiness. |
 | No proof / no profitability claim | accepted/current | Current docs must not claim proof, profitability, candidate readiness, or intake-ready status. |
 
 ## Missing / Needs Decision
@@ -33,7 +34,8 @@
 | Rule or artifact | Status | Validation needed |
 | --- | --- | --- |
 | Databento QQQ OPRA validation | pending validation | Structural validation found definitions, bid/ask, timestamps, expirations, strikes, side, trade volume, and open interest/statistics. SAFE-FAST field mapping is documented, but code/tests and label rules remain missing. |
-| Databento QQQ evidence field mapping | pending validation | `SAFE_FAST_DAY41_DATABENTO_QQQ_EVIDENCE_FIELD_MAPPING.md` maps validated Databento columns to raw option/liquidity inputs, but implementation tests and SAFE-FAST label rules are still missing. |
+| Databento QQQ evidence field mapping | pending validation | `SAFE_FAST_DAY41_DATABENTO_QQQ_EVIDENCE_FIELD_MAPPING.md` maps validated Databento columns to raw option/liquidity inputs, and the local normalizer now has focused tests. SAFE-FAST label rules remain missing. |
+| Databento QQQ OPRA normalizer | pending validation | `historical_signal_replay/databento_opra_normalizer.py` and `tests/test_databento_opra_normalizer.py` support local read-only raw OPRA normalization, joins, no-hindsight quote selection, spread inspection, statistics mapping, and refusal to infer fills/P&L/readiness. |
 | Tastytrade historical option capability | pending validation | Existing local dxLink helpers provide underlying OHLCV only; historical option fields were not proven from current helpers. |
 | QQQ gap-context calculator | pending validation | Calculator remains unauthorized until thresholds and regression cases are accepted. |
 | Richer work-package requests | pending validation | Current content validation remains failed/partial; no request is accepted as proof. |

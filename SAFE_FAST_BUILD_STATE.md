@@ -1,5 +1,36 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 Databento QQQ OPRA normalizer result
+
+- Current task baseline stated by task file: `7304497 Map QQQ Databento fields to evidence requirements`.
+- Corrective scope: local read-only Databento QQQ OPRA normalizer, focused tests, and docs/state updates.
+- Normalizer created: `historical_signal_replay/databento_opra_normalizer.py`.
+- Tests created: `tests/test_databento_opra_normalizer.py`.
+- Review doc created: `SAFE_FAST_DAY41_DATABENTO_QQQ_OPRA_NORMALIZER_REVIEW.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Supported local raw-data operations:
+  - load definitions, TCBBO quotes, trades, and statistics CSVs.
+  - parse Databento OPRA/OCC-style option symbols.
+  - normalize timestamps to timezone-aware UTC.
+  - join quote/trade/statistics rows to definitions by `instrument_id`, with `symbol` fallback.
+  - select nearest quote at or before signal time without post-signal rows.
+  - derive bid, ask, bid size, ask size, midpoint, spread, and spread percent inspection fields.
+  - map Databento statistics type `6` to cleared volume and type `9` to open interest.
+  - fail clearly on missing required columns.
+  - refuse fill, trade-choice, P&L, proof, and readiness inference.
+- Focused test command run: `python -m unittest tests.test_databento_opra_normalizer`.
+- Focused test result: PASS, 9 tests.
+- Compile check run: `python -m py_compile .\historical_signal_replay\databento_opra_normalizer.py .\tests\test_databento_opra_normalizer.py`.
+- Compile check result: PASS.
+- Evidence filled: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw data files, evidence files, calculator gap labels, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, or raw vendor files were changed.
+
 ## Day 41 Databento QQQ evidence field mapping result
 
 - Current task baseline from local git: `6f1eac1 Add project control consolidation audit`.
