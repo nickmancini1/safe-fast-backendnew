@@ -46,7 +46,6 @@
 
 ## Current Blockers
 
-- QQQ Clean Fast Break lifecycle evidence is not filled yet; the first lifecycle rule is decided for testing, fixtures exist, and the focused calculator passes all 18 accepted lifecycle fixtures.
 - Option-context, execution-context, headline-context, and complete-caution labels are not decided.
 - Contract selection, entry, fill, spread/liquidity, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided.
 
@@ -64,6 +63,9 @@
 - Lifecycle calculator: `historical_signal_replay/cfb_lifecycle_calculator.py`.
 - Lifecycle calculator tests: `tests/test_cfb_lifecycle_calculator.py`.
 - Lifecycle calculator review: `SAFE_FAST_DAY41_QQQ_CFB_LIFECYCLE_CALCULATOR_REVIEW.md`.
+- Lifecycle evidence fill review: `SAFE_FAST_DAY41_QQQ_CFB_LIFECYCLE_EVIDENCE_FILL_REVIEW.md`.
+- Work-package lifecycle evidence row: filled in `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_stale_spent_expiry_rule_regressions.jsonl`.
+- Content validator status for this request: passed.
 - Accepted first lifecycle rule: YES, for testing only.
 - Freshness window: exact completed initial-break signal candle decision timestamp only.
 - Spent behavior: a completed break or follow-through consumes the trigger path; later reuse of the same trigger path is spent.
@@ -71,6 +73,7 @@
 - Missing-data and future-data behavior: missing or ambiguous required lifecycle fields produce `unknown`; future rows, option data, fills, P&L, profitability, and readiness cannot affect setup-time lifecycle state.
 - Lifecycle regression rows added: YES.
 - Lifecycle calculator created and tested: YES; all 18 accepted fixtures pass.
+- Lifecycle evidence filled: YES.
 
 ## Next Needed Rule/Test
 
@@ -94,11 +97,12 @@ Current tested lifecycle behavior:
 - Prove no-hindsight behavior by ignoring future candles, future replay rows, option/fill/P&L/profitability/readiness fields.
 - Apply accepted state precedence and higher-base refresh rules.
 
-The next useful step is a focused QQQ CFB lifecycle evidence-fill task, only when explicitly authorized.
+The next useful step is a focused QQQ CFB complete context/caution rule or evidence task, only when explicitly authorized.
 
 ## No Proof / No Readiness Status
 
 - Gap-context evidence filled: YES.
+- Lifecycle evidence filled: YES.
 - All required QQQ CFB evidence filled: NO.
 - Backtest authorized: NO.
 - Trade chosen: NO.

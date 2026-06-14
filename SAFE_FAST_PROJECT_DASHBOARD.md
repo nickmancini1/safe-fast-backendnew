@@ -2,8 +2,8 @@
 
 ## Current Checkpoint
 
-- Baseline commit for this lifecycle calculator task: `3a26ca8 Add QQQ CFB lifecycle regression fixtures`.
-- Current Day 41 checkpoint: QQQ Clean Fast Break lifecycle calculator now exists for the accepted first stale/spent/expiry testing rule and passes all 18 lifecycle regression fixtures, but no lifecycle evidence fill exists yet.
+- Baseline commit for this lifecycle evidence-fill task: `81bee9a Add QQQ CFB lifecycle calculator`.
+- Current Day 41 checkpoint: QQQ Clean Fast Break lifecycle evidence is filled for the stale/spent/expiry request from the accepted lifecycle decision, fixtures, and calculator. Content validation now has `2` passed requests and `7` failed requests; QQQ remains parked because complete context/caution evidence is still missing.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - Intake-ready count changed: NO.
@@ -31,10 +31,10 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 - QQQ CFB stale/spent expiry first testing decision is accepted in `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_DECISION.md`: same-candle initial-break freshness, spent preservation after completed break/follow-through, higher-base refresh only with new source-backed trigger/invalidation and completed breakout, explicit stale/expired/unknown behavior, state precedence, missing-data behavior, future-data rejection, and required regression fixture cases.
 - QQQ CFB lifecycle regression fixtures exist at `historical_signal_replay/fixtures/qqq_cfb_lifecycle_regression_fixtures.json` and cover fresh, stale, spent, expired, unknown, missing-data, future-data rejection, higher-base refresh allowed/rejected, and precedence cases.
 - QQQ CFB lifecycle calculator exists at `historical_signal_replay/cfb_lifecycle_calculator.py` with focused fixture-driven tests at `tests/test_cfb_lifecycle_calculator.py`; all 18 accepted lifecycle fixtures pass.
+- QQQ CFB stale/spent/expiry work-package request now passes content validation with the accepted lifecycle rule and regression rows filled from the decision doc, fixture file, and calculator.
 
 ## Current Blockers
 
-- QQQ Clean Fast Break lifecycle evidence has not been filled yet; the calculator/test step exists, but evidence fill still requires a separate explicit task.
 - QQQ Clean Fast Break complete context/caution fields remain missing.
 - Contract selection, entry, fill assumption, spread/liquidity limits, exit, stop/invalidation translation, time exit, cost/slippage, failure labels, sample-size requirement, and promotion gates remain undecided.
 - Option-context, execution-context, headline-context, and complete-caution label rules remain undecided.
@@ -42,7 +42,7 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 
 ## Next Single Action
 
-Use the filled QQQ gap-context request, accepted lifecycle decision, lifecycle regression fixtures, and lifecycle calculator only as prerequisites. The next useful bounded step is a focused lifecycle evidence-fill task, only when explicitly authorized; do not treat the gap-context row, lifecycle labels, lifecycle decision, lifecycle fixtures, or lifecycle calculator as proof, a backtest, a trade choice, P&L, or readiness.
+Use the filled QQQ gap-context request and filled lifecycle request only as prerequisites. The next useful bounded step is a focused complete context/caution rule or evidence task, only when explicitly authorized; do not treat the gap-context row, lifecycle row, lifecycle decision, lifecycle fixtures, or lifecycle calculator as proof, a backtest, a trade choice, P&L, or readiness.
 
 ## Data-Source Status
 
@@ -63,8 +63,8 @@ Use the filled QQQ gap-context request, accepted lifecycle decision, lifecycle r
 - Gap percent: about `-0.2561%`.
 - Direction: down.
 - Calculator fixture status under first QQQ CFB threshold set: `clean` with no-hindsight future-data rejection covered by focused tests.
-- Evidence status: gap-context request filled and content-validator passed; QQQ still parked, not proof, not ready.
-- Lifecycle status: first QQQ CFB testing rule accepted; replay rows identify a fresh initial-break target, later spent follow-through, higher-base watch requiring a fresh completed breakout, and later spent/no-fresh-trigger context. Lifecycle regression rows added: YES. Lifecycle calculator created and tested: YES.
+- Evidence status: gap-context request and stale/spent/expiry lifecycle request filled and content-validator passed; QQQ still parked, not proof, not ready.
+- Lifecycle status: first QQQ CFB testing rule accepted; replay rows identify a fresh initial-break target, later spent follow-through, higher-base watch requiring a fresh completed breakout, and later spent/no-fresh-trigger context. Lifecycle regression rows added: YES. Lifecycle calculator created and tested: YES. Lifecycle evidence filled: YES.
 
 ## Remaining Project-Wide Rules
 
