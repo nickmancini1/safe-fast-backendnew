@@ -16,6 +16,7 @@
 | No proof / no profitability claim | accepted/current | Current docs must not claim proof, profitability, candidate readiness, or intake-ready status. |
 | QQQ CFB rule decision package | accepted/current | `SAFE_FAST_DAY41_QQQ_CFB_RULE_DECISION_PACKAGE.md` is the current inventory of missing QQQ Clean Fast Break decisions before evidence fill or backtest; it does not accept unsupported rules. |
 | QQQ CFB gap-context threshold fixture set | accepted/current | `SAFE_FAST_DAY41_QQQ_GAP_THRESHOLD_FIXTURE_DECISION.md` accepts the first QQQ Clean Fast Break gap-context regression fixture thresholds: `clean` when absolute gap percent is `<= 0.30%`, `caution` when `> 0.30%` and `<= 0.75%`, `fail` when `> 0.75%`, and `unknown` when required data or no-hindsight proof is missing. This is a test-fixture decision only, not proof or profitability. |
+| QQQ CFB gap-context regression fixtures | accepted/current | `historical_signal_replay/fixtures/qqq_gap_context_regression_fixtures.json` records data-only regression fixtures for clean, caution lower boundary, caution upper boundary, fail, missing-input unknowns, future-data rejection, and the known `2026-04-13` QQQ target. The fixture file does not create calculator logic, fill evidence, authorize backtests, choose trades, calculate P&L, prove profitability, or mark readiness. |
 
 ## Missing / Needs Decision
 

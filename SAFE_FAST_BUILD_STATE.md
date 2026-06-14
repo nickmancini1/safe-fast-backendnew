@@ -1,5 +1,46 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ gap-context regression fixtures result
+
+- Current task baseline stated by task file and confirmed by git: `fcb8d0e Accept QQQ gap threshold fixtures`.
+- Corrective scope: data-only QQQ Clean Fast Break gap-context regression fixtures before calculator work.
+- Fixture file created: `historical_signal_replay/fixtures/qqq_gap_context_regression_fixtures.json`.
+- Review doc created: `SAFE_FAST_DAY41_QQQ_GAP_CONTEXT_REGRESSION_FIXTURES_REVIEW.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Accepted first QQQ CFB gap-context fixture thresholds preserved:
+  - `clean`: absolute gap percent `<= 0.30%`.
+  - `caution`: absolute gap percent `> 0.30%` and `<= 0.75%`.
+  - `fail`: absolute gap percent `> 0.75%`.
+  - `unknown`: required input, source/session identity, symbol match, timestamp parsing, no-hindsight clipping, or threshold fixture metadata missing/ambiguous/unproven.
+- Regression fixtures added:
+  - clean example at exactly `+0.30%`.
+  - caution lower-boundary example at just above `+0.30%`.
+  - caution upper-boundary example at exactly `+0.75%`.
+  - fail example at just above `+0.75%`.
+  - unknown missing previous close.
+  - unknown missing signal-day open.
+  - future-data rejection using forbidden future source time `2026-04-13T13:30:00-04:00`.
+  - known QQQ target example for `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Known QQQ target fixture preserved:
+  - previous regular-session close `611.02`.
+  - signal-day open `609.455`.
+  - signal/setup time `2026-04-13T12:30:00-04:00`.
+  - gap amount `-1.565`.
+  - gap percent `-0.2561290956106183%`, about `-0.2561%`.
+  - expected status under the first fixture threshold set: `clean`.
+  - expected latest allowed source time `2026-04-13T12:30:00-04:00`.
+  - expected reviewed-before-signal: `true`, only after the no-hindsight regression path proves future data cannot affect the result.
+- Calculator logic created: NO.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No calculator code, tests, evidence package files, raw data files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, trade-selection code, backtest code, or P&L files were changed.
+
 ## Day 41 QQQ gap threshold fixture decision result
 
 - Current task baseline stated by task file and confirmed by git: `2691a47 Record QQQ CFB rule decision package`.

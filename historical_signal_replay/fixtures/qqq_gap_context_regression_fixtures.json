@@ -1,0 +1,124 @@
+{
+  "fixture_name": "qqq_gap_context_regression_fixtures",
+  "fixture_version": 1,
+  "purpose": "Regression fixtures for the accepted QQQ Clean Fast Break gap-context threshold fixture set. These fixtures are data-only and do not implement calculator logic, fill evidence, choose trades, backtest, calculate P&L, prove profitability, or mark a candidate ready.",
+  "threshold_rule": {
+    "formula": "gap_percent = (signal_day_open - previous_close) / previous_close * 100",
+    "status_basis": "absolute gap percent after source-backed QQQ regular-session inputs and no-hindsight clipping are proven",
+    "clean": "abs(gap_percent) <= 0.30",
+    "caution": "abs(gap_percent) > 0.30 and abs(gap_percent) <= 0.75",
+    "fail": "abs(gap_percent) > 0.75",
+    "unknown": "missing or unproven required inputs, source/session identity, symbol match, timestamp parsing, no-hindsight clipping, or threshold fixture metadata"
+  },
+  "fixtures": [
+    {
+      "fixture_id": "qqq_gap_clean_exact_030_up",
+      "previous_close": 100.0,
+      "signal_day_open": 100.3,
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "latest_allowed_source_time": "2026-04-13T12:30:00-04:00",
+      "forbidden_future_source_time": null,
+      "expected_gap_amount": 0.3,
+      "expected_gap_percent": 0.3,
+      "expected_status": "clean",
+      "expected_reviewed_before_signal": true,
+      "reason": "Clean example: exactly +0.30% is inclusive on the lower-risk side and remains clean when no-hindsight clipping is proven."
+    },
+    {
+      "fixture_id": "qqq_gap_caution_lower_boundary_just_over_030_up",
+      "previous_close": 100.0,
+      "signal_day_open": 100.3001,
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "latest_allowed_source_time": "2026-04-13T12:30:00-04:00",
+      "forbidden_future_source_time": null,
+      "expected_gap_amount": 0.3001,
+      "expected_gap_percent": 0.3001,
+      "expected_status": "caution",
+      "expected_reviewed_before_signal": true,
+      "reason": "Caution lower-boundary example: just above 0.30% must classify as caution after required inputs and no-hindsight clipping are proven."
+    },
+    {
+      "fixture_id": "qqq_gap_caution_upper_boundary_exact_075_up",
+      "previous_close": 100.0,
+      "signal_day_open": 100.75,
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "latest_allowed_source_time": "2026-04-13T12:30:00-04:00",
+      "forbidden_future_source_time": null,
+      "expected_gap_amount": 0.75,
+      "expected_gap_percent": 0.75,
+      "expected_status": "caution",
+      "expected_reviewed_before_signal": true,
+      "reason": "Caution upper-boundary example: exactly 0.75% remains caution because the fail threshold begins above 0.75%."
+    },
+    {
+      "fixture_id": "qqq_gap_fail_just_over_075_up",
+      "previous_close": 100.0,
+      "signal_day_open": 100.7501,
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "latest_allowed_source_time": "2026-04-13T12:30:00-04:00",
+      "forbidden_future_source_time": null,
+      "expected_gap_amount": 0.7501,
+      "expected_gap_percent": 0.7501,
+      "expected_status": "fail",
+      "expected_reviewed_before_signal": true,
+      "reason": "Fail example: just above 0.75% must classify as fail after required inputs and no-hindsight clipping are proven."
+    },
+    {
+      "fixture_id": "qqq_gap_unknown_missing_previous_close",
+      "previous_close": null,
+      "signal_day_open": 100.3,
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "latest_allowed_source_time": "2026-04-13T12:30:00-04:00",
+      "forbidden_future_source_time": null,
+      "expected_gap_amount": null,
+      "expected_gap_percent": null,
+      "expected_status": "unknown",
+      "expected_reviewed_before_signal": false,
+      "reason": "Unknown missing previous close: missing prior regular-session close blocks gap amount, gap percent, and completed evidence validation."
+    },
+    {
+      "fixture_id": "qqq_gap_unknown_missing_signal_day_open",
+      "previous_close": 100.0,
+      "signal_day_open": null,
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "latest_allowed_source_time": "2026-04-13T12:30:00-04:00",
+      "forbidden_future_source_time": null,
+      "expected_gap_amount": null,
+      "expected_gap_percent": null,
+      "expected_status": "unknown",
+      "expected_reviewed_before_signal": false,
+      "reason": "Unknown missing signal-day open: missing first regular-session opening candle blocks gap amount, gap percent, and completed evidence validation."
+    },
+    {
+      "fixture_id": "qqq_gap_future_data_rejection_2026_04_13",
+      "previous_close": 611.02,
+      "signal_day_open": 609.455,
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "latest_allowed_source_time": "2026-04-13T12:30:00-04:00",
+      "forbidden_future_source_time": "2026-04-13T13:30:00-04:00",
+      "expected_gap_amount": -1.565,
+      "expected_gap_percent": -0.2561290956106183,
+      "expected_status": "clean",
+      "expected_reviewed_before_signal": true,
+      "reason": "Future-data rejection example: adding, changing, or deleting the first post-signal 13:30 candle must not change setup-time gap amount, percent, status, as-of, or reviewed-before-signal."
+    },
+    {
+      "fixture_id": "qqq_gap_known_target_2026_04_13_clean",
+      "previous_close": 611.02,
+      "signal_day_open": 609.455,
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "latest_allowed_source_time": "2026-04-13T12:30:00-04:00",
+      "forbidden_future_source_time": null,
+      "expected_gap_amount": -1.565,
+      "expected_gap_percent": -0.2561290956106183,
+      "expected_status": "clean",
+      "expected_reviewed_before_signal": true,
+      "reason": "Known QQQ 2026-04-13 fixture: previous regular-session close 611.02 and signal-day open 609.455 produce about -0.2561%, which is clean under the accepted first fixture threshold set only after no-hindsight regression proof."
+    }
+  ],
+  "explicit_non_goals": [
+    "No calculator logic is created by this fixture file.",
+    "No evidence package row is filled by this fixture file.",
+    "No backtest, trade selection, P&L, proof, profitability, readiness, live, broker, order, account, or Railway behavior is authorized by this fixture file."
+  ]
+}
