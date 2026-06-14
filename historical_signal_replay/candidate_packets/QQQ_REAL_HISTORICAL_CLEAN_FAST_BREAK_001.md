@@ -19,6 +19,9 @@
 - Gap percent: about `-0.2561%`.
 - Direction: down.
 - Expected latest allowed source time after regression proof: `2026-04-13T12:30:00-04:00`.
+- Filled gap-context status: `clean`.
+- Filled gap-context as-of: `2026-04-13T12:30:00-04:00`.
+- Filled reviewed-before-signal: `true`.
 
 ## Databento Data Status
 
@@ -38,10 +41,11 @@
   - `fail`: absolute gap percent `> 0.75%`.
   - `unknown`: required data, source/session identity, symbol match, timestamp parsing, no-hindsight clipping, or threshold fixture metadata missing/ambiguous/unproven.
 - Known target calculator fixture status: `clean`, with no-hindsight future-data rejection covered by focused tests.
+- Work-package gap-context evidence row: filled in `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_gap_context_completeness_fields_rule.jsonl`.
+- Content validator status for this request: passed.
 
 ## Current Blockers
 
-- QQQ gap-context evidence fields are not filled.
 - QQQ Clean Fast Break stale/spent lifecycle rule is not decided.
 - Option-context, execution-context, headline-context, and complete-caution labels are not decided.
 - Contract selection, entry, fill, spread/liquidity, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided.
@@ -58,11 +62,12 @@ Current tested behavior:
 - Prove no-hindsight behavior by ignoring future candles and replay future rows after `2026-04-13T12:30:00-04:00`.
 - Preserve `gap_context_as_of` as the latest allowed candle timestamp used by the rule, not the later export timestamp.
 
-The next useful step is evidence-fill planning or the next missing QQQ CFB rule decision only when explicitly authorized.
+The next useful step is the next missing QQQ CFB rule decision only when explicitly authorized.
 
 ## No Proof / No Readiness Status
 
-- Evidence filled: NO.
+- Gap-context evidence filled: YES.
+- All required QQQ CFB evidence filled: NO.
 - Backtest authorized: NO.
 - Trade chosen: NO.
 - P&L calculated: NO.
