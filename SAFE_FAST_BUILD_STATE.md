@@ -1,5 +1,37 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ CFB context/caution missing decisions result
+
+- Current task baseline stated by task file and confirmed by git: `3ce6409 Add QQQ CFB context caution regression fixtures`.
+- Corrective scope: docs-only QQQ Clean Fast Break context/caution missing-decision defaults and allowed state/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Missing-decisions doc created: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_MISSING_DECISIONS.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Conservative defaults accepted for calculator work:
+  - no selected option contract or reviewed-contract-universe policy means `option_context_status=unknown`;
+  - no source-confirmed historical headline/news/event/no-headline source means `headline_context_status=unknown`;
+  - no accepted execution entry/fill/quote-age/spread/liquidity/slippage/no-fill rule means `execution_context_status=unknown`;
+  - `complete_caution_review_status` cannot pass as `clean` or `caution` if any required component is `unknown`;
+  - accepted complete aggregation precedence remains `fail`, then `unknown`, then `caution`, then `clean`.
+- Numeric option thresholds accepted: NO.
+- Reason numeric option thresholds remain blocked: raw Databento OPRA fields support inspection, but no selected-contract or reviewed-universe policy exists.
+- Numeric execution thresholds accepted: NO.
+- Reason numeric execution thresholds remain blocked: no accepted entry timing, selected quote, fill assumption, no-fill, slippage, or cost rule exists.
+- Historical headline clean/caution/fail source-category mapping accepted: NO.
+- Reason headline mapping remains blocked: no source-confirmed historical headline/news/event/no-headline feed exists for the target row.
+- Context/caution calculator authorized next: YES, only for blocker-preserving status calculation under the accepted defaults.
+- Evidence fill authorized: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence package rows, calculator code, backtest code, trade-selection code, P&L files, raw Databento files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB context/caution regression fixtures result
 
 - Current task baseline stated by task file and confirmed by git: `9ecc166 Accept QQQ CFB context caution framework`.

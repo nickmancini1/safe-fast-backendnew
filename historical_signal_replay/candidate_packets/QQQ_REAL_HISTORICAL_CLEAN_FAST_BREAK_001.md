@@ -58,6 +58,7 @@
 - Regression fixture file: `historical_signal_replay/fixtures/qqq_cfb_context_caution_regression_fixtures.json`.
 - Regression fixture review: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_REGRESSION_FIXTURES_REVIEW.md`.
 - Blocked fixture doc: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_FIXTURES_BLOCKED.md`.
+- Missing-decisions doc: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_MISSING_DECISIONS.md`.
 - Work-package context/caution row: `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`.
 - Content validator status for this request: failed.
 - Missing fields:
@@ -70,7 +71,8 @@
 - Regression fixture status: data-only framework fixtures added for option, headline, and execution component statuses; complete-caution precedence; missing-data behavior; no-hindsight future-data rejection; wrong identity rejection; and forbidden fill/P&L/profitability/readiness rejection.
 - Databento support: raw option, quote, spread, volume, and open-interest inputs are available for inspection, but no accepted label rule maps them to option or execution context status.
 - Headline support: no source-confirmed headline/news/event feed is available for this historical row.
-- Aggregation support: precedence is accepted for fixtures, but complete caution evidence remains blocked because option thresholds, execution trade-plan rules, headline source policy, and unknown-as-pass policy remain undecided.
+- Missing-decision defaults: no selected contract or reviewed-universe policy keeps option context `unknown`; no source-confirmed historical headline/no-headline source keeps headline context `unknown`; no accepted execution entry/fill rule keeps execution context `unknown`; complete caution review cannot pass if any required component is `unknown`.
+- Aggregation support: precedence is accepted for fixtures and blocker-preserving calculator work, but complete caution evidence remains blocked because option thresholds, selected-contract/reviewed-universe policy, execution trade-plan rules, and headline source/category policy remain undecided for clean/caution/fail evidence fills.
 
 ## Stale/Spent Expiry Status
 
@@ -120,7 +122,7 @@ Current tested lifecycle behavior:
 - Prove no-hindsight behavior by ignoring future candles, future replay rows, option/fill/P&L/profitability/readiness fields.
 - Apply accepted state precedence and higher-base refresh rules.
 
-The next useful step is to resolve the still-blocked QQQ CFB option threshold, selected-contract, execution trade-plan, historical headline source, and unknown-as-pass decisions before any context/caution calculator or evidence fill.
+The next useful step is to build a context/caution calculator that preserves blockers under `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_MISSING_DECISIONS.md`, returning `unknown` for target option/headline/execution/complete caution statuses unless later source/rule decisions are accepted. Evidence fill remains unauthorized.
 
 ## No Proof / No Readiness Status
 
