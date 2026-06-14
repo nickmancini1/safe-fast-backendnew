@@ -2,8 +2,8 @@
 
 ## Current Checkpoint
 
-- Baseline commit for this context/caution rule task: `f984e35 Fill QQQ CFB lifecycle evidence`.
-- Current Day 41 checkpoint: QQQ Clean Fast Break context/caution rule review found no accepted honest rule for the remaining fields. Content validation remains at `2` passed requests and `7` failed requests; QQQ remains parked because `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status` are still unresolved.
+- Baseline commit for this context/caution decision task: `5dec718 Record QQQ CFB context caution decision needed`.
+- Current Day 41 checkpoint: QQQ Clean Fast Break context/caution framework decision exists at `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_DECISION.md`. It accepts the shared `clean`/`caution`/`fail`/`unknown` vocabulary, setup-time no-hindsight rules, missing-data behavior, and complete-caution aggregation precedence for regression work only. Evidence fill remains blocked by the still-missing option threshold, execution trade-plan, and historical headline source decisions recorded in `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_DECISION_STILL_BLOCKED.md`.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - Intake-ready count changed: NO.
@@ -36,14 +36,15 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 
 ## Current Blockers
 
-- QQQ Clean Fast Break complete context/caution fields remain missing: `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status`.
+- QQQ Clean Fast Break complete context/caution fields remain unfilled: `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status`.
+- Context/caution framework is accepted for fixtures only, but option numeric thresholds, selected-contract policy, execution entry/fill/quote-age/spread/liquidity rules, and the historical headline/no-headline source policy remain blocked.
 - Contract selection, entry, fill assumption, spread/liquidity limits, exit, stop/invalidation translation, time exit, cost/slippage, failure labels, sample-size requirement, and promotion gates remain undecided.
 - Option-context, execution-context, headline-context, and complete-caution label rules remain undecided.
 - No complete trade plan exists for any candidate.
 
 ## Next Single Action
 
-Use the filled QQQ gap-context request, filled lifecycle request, and context/caution decision-needed note only as prerequisites. The next useful bounded step is to accept a QQQ CFB context/caution decision and regression fixture package before any context/caution evidence fill; do not treat the gap-context row, lifecycle row, lifecycle decision, lifecycle fixtures, lifecycle calculator, or context/caution review as proof, a backtest, a trade choice, P&L, or readiness.
+Use the filled QQQ gap-context request, filled lifecycle request, and context/caution framework decision only as prerequisites. The next useful bounded step is a QQQ CFB context/caution regression fixture package that encodes the accepted framework and the blocked threshold/source decisions explicitly; do not fill context/caution evidence until the still-blocked option, execution, headline, and complete-caution decisions are resolved.
 
 ## Data-Source Status
 
@@ -64,7 +65,7 @@ Use the filled QQQ gap-context request, filled lifecycle request, and context/ca
 - Gap percent: about `-0.2561%`.
 - Direction: down.
 - Calculator fixture status under first QQQ CFB threshold set: `clean` with no-hindsight future-data rejection covered by focused tests.
-- Evidence status: gap-context request and stale/spent/expiry lifecycle request filled and content-validator passed; context/caution request still fails on four fields; QQQ still parked, not proof, not ready.
+- Evidence status: gap-context request and stale/spent/expiry lifecycle request filled and content-validator passed; context/caution request remains unfilled on four fields pending regression fixtures and blocked human decisions; QQQ still parked, not proof, not ready.
 - Lifecycle status: first QQQ CFB testing rule accepted; replay rows identify a fresh initial-break target, later spent follow-through, higher-base watch requiring a fresh completed breakout, and later spent/no-fresh-trigger context. Lifecycle regression rows added: YES. Lifecycle calculator created and tested: YES. Lifecycle evidence filled: YES.
 
 ## Remaining Project-Wide Rules

@@ -1,5 +1,38 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ CFB context/caution framework decision result
+
+- Current task baseline stated by task file: `5dec718 Record QQQ CFB context caution decision needed`.
+- Corrective scope: docs-only QQQ Clean Fast Break context/caution decision and allowed state/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Decision created: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_DECISION.md`.
+- Still-blocked doc created: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_DECISION_STILL_BLOCKED.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- First accepted framework for regression work:
+  - shared statuses: `clean`, `caution`, `fail`, and `unknown`;
+  - setup-time source and timestamp rules;
+  - forbidden future-data behavior;
+  - missing-data behavior where missing or unsupported required inputs produce `unknown`;
+  - complete-caution aggregation precedence: `fail`, then `unknown`, then `caution`, then `clean`.
+- Exact still-blocked human decisions:
+  - option selected-contract or reviewed-universe policy;
+  - option quote-age, spread, spread-percent, size, volume, open-interest, minimum-price, caution, and hard-block thresholds;
+  - headline/news/event source requirement and absent-headline behavior;
+  - execution entry timing, selected quote rule, fill assumption, slippage/cost interaction, quote-age, spread/liquidity thresholds, and no-fill behavior;
+  - whether any `unknown` component can pass complete caution review and whether 24H room, wall thesis, macro, IV, event, or other blocker fields remain required components.
+- Exact regression fixture cases needed next are documented before calculator or evidence fill.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence package rows, calculator code, backtest code, trade-selection code, P&L files, raw Databento files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB context/caution rule review result
 
 - Current task baseline stated by task file: `f984e35 Fill QQQ CFB lifecycle evidence`.
