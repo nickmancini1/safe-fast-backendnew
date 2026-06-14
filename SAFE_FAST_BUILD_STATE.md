@@ -1,6 +1,66 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB option-context rerun with wider quotes result
+
+- Current task baseline stated by task file: `3c754f1 Audit QQQ CFB top contract quote coverage`.
+- Corrective scope: rerun the existing QQQ Clean Fast Break option-context selector using the newly downloaded local wider top-contract TCBBO file and update allowed review/state/candidate/work-package docs only.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Top-ranked contract rerun: `QQQ   260427C00615000`.
+- Instrument id: `1023411456`.
+- Wider quote file checked: `historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_tcbbo_0930_1230_et.csv`.
+- Wider quote file exists: YES.
+- Wider quote file raw rows for `instrument_id=1023411456`: `28`.
+- Wider quote rows at or before `2026-04-13T16:30:00Z`: `28`.
+- Wider quote rows after `2026-04-13T16:30:00Z`: `0`.
+- Nearest wider TCBBO quote at or before signal:
+  - CSV line `29`;
+  - `ts_event=2026-04-13T16:06:30.640301037Z`;
+  - `ts_recv=2026-04-13T16:06:30.640503901Z`;
+  - bid `7.760000000`;
+  - ask `7.800000000`;
+  - bid size `3`;
+  - ask size `31`;
+  - midpoint `7.780000000`;
+  - spread `0.040000000`;
+  - spread percent about `0.5141%`.
+- Prior quote timestamp blocker cured: YES.
+- Selector rerun input result:
+  - reviewed-universe definitions loaded: `280`;
+  - reviewed symbols with setup-time-safe quotes after adding wider top-contract rows: `76`;
+  - top-ranked contract remains `QQQ   260427C00615000`, expiration `2026-04-27`, strike `615`, side call, DTE `14`.
+- Existing selector result: `abstain`.
+- Existing selector rejection reason: `top_ranked_contract_failed_no_fallback`.
+- Immediate remaining accepted-rule blockers:
+  - through-setup trade volume from existing trade file is `0`, below required `1`;
+  - timestamp-safe same-contract open interest/statistics are missing because all `88` existing same-contract statistics rows are after setup time.
+- Option-context evidence result:
+  - `option_context_status` remains `unknown`;
+  - `headline_context_status` remains `unknown`;
+  - `execution_context_status` remains `unknown`;
+  - `complete_caution_review_status` remains `unknown`.
+- Review doc created: `SAFE_FAST_DAY41_QQQ_CFB_OPTION_CONTEXT_RERUN_WITH_WIDER_QUOTES_REVIEW.md`.
+- Work-package row source notes updated: `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Focused test command run: `python -m unittest tests.test_cfb_contract_selector`.
+- Focused test result: PASS.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Content validator command run: `python -B -m watcher_foundation.source_evidence_work_package_content_validator`.
+- Content validator result: PASS command; `3` passed requests, `6` failed requests, `6` partial rows, `0` header-only rows.
+- Bridge command run: `python -B -m watcher_foundation.source_evidence_package_to_intake_bridge`.
+- Bridge result: PASS command; QQQ reconsideration-eligible count `1`, intake-ready count `0`, proof allowed `NO`.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw Databento files, selector code, normalizer code, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB top-contract quote coverage audit result
 
 - Current task baseline stated by task file: `7d1c45d Test QQQ CFB option context selector evidence`.

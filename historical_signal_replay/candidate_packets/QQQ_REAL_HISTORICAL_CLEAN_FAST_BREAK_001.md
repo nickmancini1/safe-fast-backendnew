@@ -46,7 +46,10 @@
 - Local Databento selector result: abstain. Top-ranked contract `QQQ   260427C00615000` expiring `2026-04-27` at strike `615` and call side has no TCBBO quote at or before `2026-04-13T12:30:00-04:00` in the local quote window. The accepted no-fallback rule prevents selecting another contract.
 - Top-contract quote coverage audit: `SAFE_FAST_DAY41_QQQ_CFB_TOP_CONTRACT_QUOTE_COVERAGE_AUDIT.md`.
 - Audit result: `QQQ   260427C00615000` maps consistently to `instrument_id=1023411456`; the local TCBBO file has `2` exact rows for that contract and both are after the setup boundary, beginning at `2026-04-13T16:31:13.931412942Z`. No symbol/instrument-id mismatch was found. The blocker is real inside the downloaded ten-minute window; a cost-checked single-contract wider TCBBO pull is the smallest possible follow-up if more data is authorized.
-- Filled option-context status after selector evidence: `unknown`.
+- Option-context rerun with wider quotes: `SAFE_FAST_DAY41_QQQ_CFB_OPTION_CONTEXT_RERUN_WITH_WIDER_QUOTES_REVIEW.md`.
+- Wider top-contract quote result: `historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_tcbbo_0930_1230_et.csv` exists and contains `28` TCBBO rows for `instrument_id=1023411456`, all at or before setup time. The nearest at-or-before quote is `2026-04-13T16:06:30.640301037Z` with bid `7.76`, ask `7.80`, spread `0.04`, bid size `3`, and ask size `31`.
+- Selector rerun result: the old quote timestamp blocker is cured, but the accepted selector still abstains because the top-ranked contract has `trade_volume_through_setup=0` from the existing trade file and no timestamp-safe same-contract open-interest/statistics row. No fallback is allowed.
+- Filled option-context status after wider-quote selector rerun: `unknown`.
 - One selected real trade remains unchosen. The accepted selector still does not authorize evidence fill, backtest, P&L, proof, profitability, or readiness.
 
 ## Gap Fixture Status
@@ -98,8 +101,8 @@
 - Calculator status: created and tested against all 22 accepted framework fixtures. It classifies option, headline, execution, and complete-caution statuses, applies precedence `fail`, then `unknown`, then `caution`, then `clean`, rejects wrong identity and future/forbidden inputs, and refuses trade/P&L/proof/readiness inference.
 - Aggregation support: precedence is accepted and calculator-backed. Complete caution is filled as `unknown` because option thresholds, selected-contract one-contract ranking, execution trade-plan rules, and headline source/category policy remain undecided for clean/caution/fail evidence fills.
 - Selected-contract policy update: first reviewed-universe, quote-eligibility, one-contract selection rules, contract-selection fixtures, and contract-selection selector are accepted for regression work only. Complete caution remains `unknown` because evidence fill, execution entry/fill rule, broader option-context labels, and headline source/category policy remain missing.
-- Option-context selector evidence update: the selector was applied to local Databento QQQ OPRA files and abstained on the top-ranked contract because no setup-time-safe quote was available. Option context remains `unknown`; headline, execution, and complete caution remain `unknown`.
-- Top-contract quote coverage audit update: the exact top contract mapping is consistent, and local TCBBO/trade rows for the contract exist only after signal time. This diagnoses the local-window blocker without filling evidence or changing the accepted selector rule.
+- Option-context selector evidence update: the selector was applied to local Databento QQQ OPRA files and initially abstained on the top-ranked contract because no setup-time-safe quote was available. The wider quote rerun found setup-time-safe quotes but still abstained because required through-setup trade volume and timestamp-safe open-interest/statistics support remain missing under the accepted selector. Option context remains `unknown`; headline, execution, and complete caution remain `unknown`.
+- Top-contract quote coverage audit update: the exact top contract mapping is consistent, and local ten-minute TCBBO/trade rows for the contract exist only after signal time. The wider quote rerun cures the quote-only blocker without filling evidence or changing the accepted selector rule.
 
 ## Stale/Spent Expiry Status
 
