@@ -1,5 +1,49 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ CFB contract selection decision result
+
+- Current task baseline stated by task file and confirmed by git: `869d0ef Record QQQ CFB selected contract policy blocker`.
+- Corrective scope: docs-only QQQ Clean Fast Break contract-selection decision and allowed state/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Decision doc created: `SAFE_FAST_DAY41_QQQ_CFB_CONTRACT_SELECTION_DECISION.md`.
+- Still-blocked doc created: `SAFE_FAST_DAY41_QQQ_CFB_CONTRACT_SELECTION_DECISION_STILL_BLOCKED.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- First conservative contract-selection rule accepted for regression work:
+  - side: long calls only;
+  - expiration: nearest reviewed-universe expiration with DTE at least `14`;
+  - strike: lowest reviewed-universe call strike greater than or equal to trigger `613.67`;
+  - moneyness: nearest out-of-the-money call by trigger reference;
+  - quote: nearest TCBBO quote at or before setup time by `ts_event`;
+  - maximum absolute spread: `0.15`;
+  - maximum spread percent: `2.00%`;
+  - minimum bid size: `1`;
+  - minimum ask size: `1`;
+  - minimum through-setup trade volume: `1`;
+  - minimum open interest: `1`;
+  - statistics timestamp rule: same-contract statistics only with `ts_event` at or before setup time, and `ts_ref` at or before setup time when available;
+  - missing-data behavior: abstain/unknown;
+  - rejected top-ranked contract behavior: abstain with no fallback scan.
+- Exact regression cases needed next are documented in the decision doc.
+- Still blocked before evidence fill or trade-plan counting:
+  - contract-selection regression fixtures;
+  - selector/calculator implementation;
+  - normalizer `ts_ref` preservation if the stricter statistics branch is tested directly;
+  - option-context labels beyond the one-contract gate;
+  - entry, fill, exit, stop/invalidation, time-exit, cost/slippage, failure-label, headline-source, sample-size, and promotion-gate decisions.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, 3 checks.
+- No evidence package rows, calculator code, backtest code, trade-selection code, P&L files, raw Databento files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB selected-contract policy result
 
 - Current task baseline stated by task file: `809bd5e Fill QQQ CFB context caution evidence`.
