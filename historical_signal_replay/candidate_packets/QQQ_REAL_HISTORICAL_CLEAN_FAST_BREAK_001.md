@@ -55,6 +55,9 @@
 - Decision-needed doc: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_DECISION_NEEDED.md`.
 - Framework decision doc: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_DECISION.md`.
 - Still-blocked doc: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_DECISION_STILL_BLOCKED.md`.
+- Regression fixture file: `historical_signal_replay/fixtures/qqq_cfb_context_caution_regression_fixtures.json`.
+- Regression fixture review: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_REGRESSION_FIXTURES_REVIEW.md`.
+- Blocked fixture doc: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_FIXTURES_BLOCKED.md`.
 - Work-package context/caution row: `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`.
 - Content validator status for this request: failed.
 - Missing fields:
@@ -64,6 +67,7 @@
   - `complete_caution_review_status`.
 - Current rule result: first conservative framework accepted for regression work only; evidence fill remains blocked.
 - Accepted framework: statuses `clean`, `caution`, `fail`, and `unknown`; setup-time source/timestamp rules; forbidden future-data behavior; missing-data behavior; and complete-caution aggregation precedence of `fail`, then `unknown`, then `caution`, then `clean`.
+- Regression fixture status: data-only framework fixtures added for option, headline, and execution component statuses; complete-caution precedence; missing-data behavior; no-hindsight future-data rejection; wrong identity rejection; and forbidden fill/P&L/profitability/readiness rejection.
 - Databento support: raw option, quote, spread, volume, and open-interest inputs are available for inspection, but no accepted label rule maps them to option or execution context status.
 - Headline support: no source-confirmed headline/news/event feed is available for this historical row.
 - Aggregation support: precedence is accepted for fixtures, but complete caution evidence remains blocked because option thresholds, execution trade-plan rules, headline source policy, and unknown-as-pass policy remain undecided.
@@ -116,7 +120,7 @@ Current tested lifecycle behavior:
 - Prove no-hindsight behavior by ignoring future candles, future replay rows, option/fill/P&L/profitability/readiness fields.
 - Apply accepted state precedence and higher-base refresh rules.
 
-The next useful step is a focused QQQ CFB complete context/caution regression fixture task that encodes the accepted framework and the still-blocked option, execution, headline, and complete-caution threshold/source decisions, only when explicitly authorized.
+The next useful step is to resolve the still-blocked QQQ CFB option threshold, selected-contract, execution trade-plan, historical headline source, and unknown-as-pass decisions before any context/caution calculator or evidence fill.
 
 ## No Proof / No Readiness Status
 

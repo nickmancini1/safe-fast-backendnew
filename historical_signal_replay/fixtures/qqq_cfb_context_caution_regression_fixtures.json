@@ -1,0 +1,505 @@
+{
+  "fixture_name": "qqq_cfb_context_caution_regression_fixtures",
+  "fixture_version": 1,
+  "purpose": "Data-only regression fixtures for the accepted first QQQ Clean Fast Break context/caution framework. These fixtures do not decide missing option thresholds, selected-contract policy, execution fill rules, headline source policy, calculator logic, evidence fill, trade selection, backtests, P&L, proof, profitability, or readiness.",
+  "accepted_rule_source": "SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_DECISION.md",
+  "still_blocked_source": "SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_DECISION_STILL_BLOCKED.md",
+  "target_candidate": {
+    "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+    "symbol": "QQQ",
+    "setup_type": "Clean Fast Break",
+    "setup_time": "2026-04-13T12:30:00-04:00"
+  },
+  "framework_summary": {
+    "statuses": [
+      "clean",
+      "caution",
+      "fail",
+      "unknown"
+    ],
+    "component_status_meaning": {
+      "clean": "Required source-backed setup-time inputs are present and pass an accepted component rule.",
+      "caution": "Required source-backed setup-time inputs are present, no fail condition is triggered, and an accepted caution condition is present.",
+      "fail": "Required source-backed setup-time inputs are present and an accepted hard-block/no-trade condition is triggered.",
+      "unknown": "Required input, accepted threshold, source confirmation, timestamp proof, or no-hindsight proof is missing or ambiguous."
+    },
+    "complete_caution_precedence": [
+      "fail",
+      "unknown",
+      "caution",
+      "clean"
+    ],
+    "no_hindsight_boundary": "Setup-time context/caution fixtures may use only accepted source evidence at or before 2026-04-13T12:30:00-04:00. Future candles, future replay rows, post-signal option data unless pre-accepted by a later entry rule, future headlines/events, actual fills, broker/order/account data, outcomes, P&L, profitability, readiness, and promotion labels are forbidden."
+  },
+  "fixtures": [
+    {
+      "fixture_id": "qqq_cfb_option_context_framework_clean",
+      "component": "option_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "clean",
+        "missing_required_input": false,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "clean",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Framework-only option clean case: a clean label is allowed only when a later accepted option rule and all required setup-time inputs support it."
+    },
+    {
+      "fixture_id": "qqq_cfb_option_context_framework_caution",
+      "component": "option_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "caution",
+        "missing_required_input": false,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "caution",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Framework-only option caution case: caution requires an accepted threshold or categorical option rule, not invented numbers in this fixture package."
+    },
+    {
+      "fixture_id": "qqq_cfb_option_context_framework_fail",
+      "component": "option_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "fail",
+        "missing_required_input": false,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "fail",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Framework-only option fail case: fail requires a later accepted hard-block option rule and source-backed setup-time inputs."
+    },
+    {
+      "fixture_id": "qqq_cfb_option_context_unknown_missing_contract_selection",
+      "component": "option_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": false,
+        "accepted_component_rule_present": false,
+        "missing_required_input": true,
+        "missing_input_name": "selected_contract_policy",
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "missing_selected_contract_policy",
+      "reason": "Missing selected-contract or reviewed-universe policy keeps option context unknown."
+    },
+    {
+      "fixture_id": "qqq_cfb_headline_context_framework_clean",
+      "component": "headline_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "clean",
+        "missing_required_input": false,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "clean",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Framework-only headline clean case: clean requires a later accepted historical headline/no-headline source policy."
+    },
+    {
+      "fixture_id": "qqq_cfb_headline_context_framework_caution",
+      "component": "headline_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "caution",
+        "missing_required_input": false,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "caution",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Framework-only headline caution case: caution requires a later accepted source-backed category mapping."
+    },
+    {
+      "fixture_id": "qqq_cfb_headline_context_framework_fail",
+      "component": "headline_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "fail",
+        "missing_required_input": false,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "fail",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Framework-only headline fail case: fail requires a later accepted source-backed hard-block headline/event category."
+    },
+    {
+      "fixture_id": "qqq_cfb_headline_context_unknown_missing_source_policy",
+      "component": "headline_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": false,
+        "accepted_component_rule_present": false,
+        "missing_required_input": true,
+        "missing_input_name": "historical_headline_source_policy",
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "missing_historical_headline_source_policy",
+      "reason": "Missing historical headline/news/event source policy keeps headline context unknown."
+    },
+    {
+      "fixture_id": "qqq_cfb_execution_context_framework_clean",
+      "component": "execution_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "clean",
+        "missing_required_input": false,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "clean",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Framework-only execution clean case: clean requires later accepted entry, quote, fill, quote-age, spread, liquidity, slippage, and no-fill rules."
+    },
+    {
+      "fixture_id": "qqq_cfb_execution_context_framework_caution",
+      "component": "execution_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "caution",
+        "missing_required_input": false,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "caution",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Framework-only execution caution case: caution requires a later accepted execution threshold or tradability warning rule."
+    },
+    {
+      "fixture_id": "qqq_cfb_execution_context_framework_fail",
+      "component": "execution_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "fail",
+        "missing_required_input": false,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "fail",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Framework-only execution fail case: fail requires a later accepted execution hard-block rule."
+    },
+    {
+      "fixture_id": "qqq_cfb_execution_context_unknown_missing_entry_fill_rules",
+      "component": "execution_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": false,
+        "accepted_component_rule_present": false,
+        "missing_required_input": true,
+        "missing_input_name": "entry_timing_and_fill_assumption",
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "missing_entry_timing_and_fill_assumption",
+      "reason": "Missing entry/fill/quote-age/spread/liquidity rules keep execution context unknown."
+    },
+    {
+      "fixture_id": "qqq_cfb_complete_caution_all_clean",
+      "component": "complete_caution_review_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "gap_context_status": "clean",
+        "lifecycle_status": "fresh",
+        "option_context_status": "clean",
+        "headline_context_status": "clean",
+        "execution_context_status": "clean",
+        "additional_required_components_status": "none_required_by_this_framework_fixture",
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "clean",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Aggregation framework case: all required components clean produces complete clean."
+    },
+    {
+      "fixture_id": "qqq_cfb_complete_caution_one_caution_no_fail_unknown",
+      "component": "complete_caution_review_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "gap_context_status": "clean",
+        "lifecycle_status": "fresh",
+        "option_context_status": "caution",
+        "headline_context_status": "clean",
+        "execution_context_status": "clean",
+        "additional_required_components_status": "none_required_by_this_framework_fixture",
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "caution",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Aggregation framework case: one caution and no fail or unknown produces complete caution."
+    },
+    {
+      "fixture_id": "qqq_cfb_complete_caution_fail_beats_unknown_caution_clean",
+      "component": "complete_caution_review_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "gap_context_status": "clean",
+        "lifecycle_status": "fresh",
+        "option_context_status": "fail",
+        "headline_context_status": "unknown",
+        "execution_context_status": "caution",
+        "additional_required_components_status": "none_required_by_this_framework_fixture",
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "fail",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Aggregation framework case: fail has highest precedence even when another component is unknown or caution."
+    },
+    {
+      "fixture_id": "qqq_cfb_complete_caution_unknown_beats_caution_clean",
+      "component": "complete_caution_review_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "gap_context_status": "clean",
+        "lifecycle_status": "fresh",
+        "option_context_status": "unknown",
+        "headline_context_status": "caution",
+        "execution_context_status": "clean",
+        "additional_required_components_status": "none_required_by_this_framework_fixture",
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "required_component_unknown",
+      "reason": "Aggregation framework case: unknown has precedence over caution and clean unless a later human decision changes unknown-as-pass behavior."
+    },
+    {
+      "fixture_id": "qqq_cfb_complete_caution_missing_component_unknown",
+      "component": "complete_caution_review_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "gap_context_status": "clean",
+        "lifecycle_status": "fresh",
+        "option_context_status": null,
+        "headline_context_status": "clean",
+        "execution_context_status": "clean",
+        "additional_required_components_status": "none_required_by_this_framework_fixture",
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "missing_required_component_option_context_status",
+      "reason": "Aggregation framework case: a missing required component produces complete unknown."
+    },
+    {
+      "fixture_id": "qqq_cfb_context_wrong_symbol_unknown",
+      "component": "context_caution_identity",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "SPY",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "clean",
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "wrong_symbol",
+      "reason": "Wrong-symbol contamination must not become QQQ context/caution evidence."
+    },
+    {
+      "fixture_id": "qqq_cfb_context_wrong_setup_unknown",
+      "component": "context_caution_identity",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Continuation",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "clean",
+        "forbidden_future_inputs_present": false
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "wrong_setup_type",
+      "reason": "Wrong setup type contamination must not become QQQ Clean Fast Break context/caution evidence."
+    },
+    {
+      "fixture_id": "qqq_cfb_context_future_option_quote_rejected",
+      "component": "option_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status_from_allowed_inputs": "unknown",
+        "forbidden_future_inputs_present": true,
+        "forbidden_future_option_quote_time": "2026-04-13T12:30:01-04:00",
+        "forbidden_future_option_quote_claimed_status": "clean"
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "ignored_future_option_quote",
+      "reason": "A post-setup option quote cannot improve setup-time option context status."
+    },
+    {
+      "fixture_id": "qqq_cfb_context_future_headline_rejected",
+      "component": "headline_context_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": false,
+        "accepted_component_rule_present": false,
+        "forbidden_future_inputs_present": true,
+        "forbidden_future_headline_time": "2026-04-13T12:31:00-04:00",
+        "forbidden_future_headline_claimed_status": "clean"
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "ignored_future_headline",
+      "reason": "A future headline or event payload cannot supply setup-time headline context."
+    },
+    {
+      "fixture_id": "qqq_cfb_context_forbidden_fill_pnl_profitability_readiness_rejected",
+      "component": "complete_caution_review_status",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "gap_context_status": "clean",
+        "lifecycle_status": "fresh",
+        "option_context_status": "unknown",
+        "headline_context_status": "unknown",
+        "execution_context_status": "unknown",
+        "forbidden_future_inputs_present": true,
+        "actual_fill_data": "present_but_forbidden",
+        "broker_order_account_data": "present_but_forbidden",
+        "outcome_data": "present_but_forbidden",
+        "pnl": "present_but_forbidden",
+        "profitability_label": "present_but_forbidden",
+        "readiness_label": "present_but_forbidden"
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "ignored_fill_broker_order_account_outcome_pnl_profitability_readiness",
+      "reason": "Fills, broker/order/account data, outcome, P&L, profitability, and readiness cannot convert unknown setup-time context into a passing complete caution review."
+    }
+  ],
+  "blocked_fixture_categories": [
+    "Numeric option threshold boundary fixtures for quote age, spread, spread percent, bid/ask size, volume, open interest, and minimum option price are blocked until threshold decisions are accepted.",
+    "Selected-contract and reviewed-universe fixtures are blocked until the selected-contract policy is accepted.",
+    "Execution fill, quote-age, spread/liquidity, no-fill, slippage, and cost boundary fixtures are blocked until execution trade-plan decisions are accepted.",
+    "Headline clean/caution/fail source-category fixtures are blocked until a historical headline/news/event source policy and category map are accepted.",
+    "Unknown-as-pass complete-review fixtures are blocked until the human decision on whether any unknown component can pass is accepted."
+  ],
+  "explicit_non_goals": [
+    "No option thresholds, selected contract, entry, fill, quote-age, spread/liquidity, headline-source, or unknown-as-pass policy is decided by this fixture file.",
+    "No context/caution calculator logic is created by this fixture file.",
+    "No evidence package row is filled by this fixture file.",
+    "No backtest, trade selection, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized by this fixture file."
+  ]
+}

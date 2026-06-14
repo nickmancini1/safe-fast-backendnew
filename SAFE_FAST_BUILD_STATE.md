@@ -1,5 +1,46 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ CFB context/caution regression fixtures result
+
+- Current task baseline stated by task file and confirmed by git: `9ecc166 Accept QQQ CFB context caution framework`.
+- Corrective scope: data-only QQQ Clean Fast Break context/caution regression fixtures, review doc, blocked fixture doc, and allowed state/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Fixture file created: `historical_signal_replay/fixtures/qqq_cfb_context_caution_regression_fixtures.json`.
+- Review doc created: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_REGRESSION_FIXTURES_REVIEW.md`.
+- Blocked fixture doc created: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_FIXTURES_BLOCKED.md`.
+- Fixture count: `22`.
+- Fixtures cover:
+  - option-context framework statuses `clean`, `caution`, `fail`, and `unknown`;
+  - headline-context framework statuses `clean`, `caution`, `fail`, and `unknown`;
+  - execution-context framework statuses `clean`, `caution`, `fail`, and `unknown`;
+  - complete-caution aggregation precedence where `fail` beats everything, `unknown` beats `caution` and `clean`, `caution` beats `clean`, and all clean becomes `clean`;
+  - missing-data behavior;
+  - wrong-symbol and wrong-setup rejection;
+  - future option quote and future headline rejection;
+  - fill, broker/order/account, outcome, P&L, profitability, and readiness rejection.
+- Exact fixture categories still blocked:
+  - numeric option threshold boundaries for quote age, spread, spread percent, size, volume, open interest, and minimum option price;
+  - selected-contract and reviewed-universe cases;
+  - execution entry/fill/quote-age/spread/liquidity/no-fill/slippage/cost boundaries;
+  - headline clean/caution/fail source-category cases;
+  - unknown-as-pass complete-review cases.
+- JSON parse and required-field validation: PASS, 22 fixtures.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, 3 checks.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Context/caution calculator created: NO.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence package rows, calculator code, backtest code, trade-selection code, P&L files, raw Databento files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB context/caution framework decision result
 
 - Current task baseline stated by task file: `5dec718 Record QQQ CFB context caution decision needed`.
