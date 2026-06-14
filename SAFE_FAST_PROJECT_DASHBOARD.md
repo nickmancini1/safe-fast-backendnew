@@ -2,8 +2,8 @@
 
 ## Current Checkpoint
 
-- Baseline commit for this speed-layer task: `5ebc7cb Add QQQ gap context regression fixtures`.
-- Current Day 41 checkpoint: QQQ Clean Fast Break gap-context regression fixtures exist as data-only fixtures.
+- Baseline commit for this calculator task: `b03976c Add SAFE-FAST project speed layer`.
+- Current Day 41 checkpoint: QQQ Clean Fast Break gap-context calculator and focused tests exist against the accepted regression fixtures.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - Intake-ready count changed: NO.
@@ -25,10 +25,10 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
   - `fail`: absolute gap percent `> 0.75%`.
   - `unknown`: missing or unproven required inputs, source/session identity, symbol match, timestamp parsing, no-hindsight clipping, or threshold metadata.
 - QQQ gap-context regression fixtures exist at `historical_signal_replay/fixtures/qqq_gap_context_regression_fixtures.json`.
+- QQQ gap-context calculator exists at `historical_signal_replay/gap_context_calculator.py` with focused fixture-driven tests at `tests/test_gap_context_calculator.py`.
 
 ## Current Blockers
 
-- QQQ gap-context calculator logic is not created yet.
 - QQQ gap-context fixture evidence is not filled into work-package rows.
 - QQQ Clean Fast Break stale/spent lifecycle rule remains undecided.
 - Contract selection, entry, fill assumption, spread/liquidity limits, exit, stop/invalidation translation, time exit, cost/slippage, failure labels, sample-size requirement, and promotion gates remain undecided.
@@ -37,7 +37,7 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 
 ## Next Single Action
 
-Implement the QQQ Clean Fast Break gap-context calculator and focused tests against the accepted regression fixtures, only if a future task explicitly authorizes calculator code. Before that implementation, run `.\scripts\safe_fast_run_safe_checks.ps1`; after implementation, run it again plus focused tests.
+Use the tested QQQ Clean Fast Break gap-context calculator only as a calculator artifact. The next useful bounded step is evidence-fill planning or the next missing QQQ CFB rule decision, only when explicitly authorized; do not treat the calculator result as proof, a backtest, a trade choice, P&L, or readiness.
 
 ## Data-Source Status
 
@@ -57,7 +57,7 @@ Implement the QQQ Clean Fast Break gap-context calculator and focused tests agai
 - Gap amount: `-1.565`.
 - Gap percent: about `-0.2561%`.
 - Direction: down.
-- Fixture status under first QQQ CFB threshold set: expected `clean` only after no-hindsight regression proof.
+- Calculator fixture status under first QQQ CFB threshold set: `clean` with no-hindsight future-data rejection covered by focused tests.
 - Evidence status: not filled, not proof, not ready.
 
 ## Remaining Project-Wide Rules

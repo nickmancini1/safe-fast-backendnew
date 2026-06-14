@@ -1,5 +1,48 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ gap-context calculator result
+
+- Current task baseline stated by task file: `b03976c Add SAFE-FAST project speed layer`.
+- Corrective scope: QQQ Clean Fast Break gap-context calculator, focused fixture-driven tests, and allowed state/review docs only.
+- Calculator created: `historical_signal_replay/gap_context_calculator.py`.
+- Tests created: `tests/test_gap_context_calculator.py`.
+- Review doc created: `SAFE_FAST_DAY41_QQQ_GAP_CONTEXT_CALCULATOR_REVIEW.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Calculator behavior:
+  - calculates gap amount as signal-day open minus previous regular-session close.
+  - calculates gap percent as gap amount divided by previous close times `100`.
+  - classifies `clean`, `caution`, `fail`, or `unknown` using the accepted QQQ CFB fixture thresholds.
+  - returns `gap_context_as_of` from the latest allowed setup-time source timestamp.
+  - returns `gap_context_reviewed_before_signal` only when required inputs and no-hindsight timing pass.
+  - reports post-signal source timestamps in `rejected_future_source_times` and does not let them change setup-time context.
+  - returns clear missing-data errors for missing previous close and missing signal-day open.
+  - refuses trade choice, P&L, proof, profitability, and readiness inference.
+- Known QQQ target fixture result:
+  - previous close `611.02`.
+  - signal-day open `609.455`.
+  - signal/setup time `2026-04-13T12:30:00-04:00`.
+  - gap amount `-1.565`.
+  - gap percent about `-0.2561290956106183%`.
+  - direction `down`.
+  - status `clean` under the accepted first fixture threshold set.
+  - `gap_context_as_of` `2026-04-13T12:30:00-04:00`.
+  - reviewed-before-signal `true`.
+- Focused test command run: `python -m unittest tests.test_gap_context_calculator`.
+- Focused test result: PASS, 8 tests.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, 3 checks.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence package files, backtest code, trade-selection code, P&L files, raw Databento files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 project speed layer result
 
 - Current task baseline stated by task file and confirmed by git: `5ebc7cb Add QQQ gap context regression fixtures`.

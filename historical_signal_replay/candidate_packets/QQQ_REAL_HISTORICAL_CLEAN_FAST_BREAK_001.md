@@ -30,16 +30,17 @@
 ## Gap Fixture Status
 
 - Fixture file: `historical_signal_replay/fixtures/qqq_gap_context_regression_fixtures.json`.
+- Calculator file: `historical_signal_replay/gap_context_calculator.py`.
+- Calculator test file: `tests/test_gap_context_calculator.py`.
 - Accepted first QQQ CFB threshold fixture set:
   - `clean`: absolute gap percent `<= 0.30%`.
   - `caution`: absolute gap percent `> 0.30%` and `<= 0.75%`.
   - `fail`: absolute gap percent `> 0.75%`.
   - `unknown`: required data, source/session identity, symbol match, timestamp parsing, no-hindsight clipping, or threshold fixture metadata missing/ambiguous/unproven.
-- Known target expected fixture status: `clean`, only after the no-hindsight regression path proves future data cannot affect the result.
+- Known target calculator fixture status: `clean`, with no-hindsight future-data rejection covered by focused tests.
 
 ## Current Blockers
 
-- QQQ gap-context calculator logic is not created.
 - QQQ gap-context evidence fields are not filled.
 - QQQ Clean Fast Break stale/spent lifecycle rule is not decided.
 - Option-context, execution-context, headline-context, and complete-caution labels are not decided.
@@ -47,15 +48,17 @@
 
 ## Next Needed Rule/Test
 
-The next useful implementation step is a QQQ Clean Fast Break gap-context calculator with focused tests against the accepted fixture file, but only when a future task explicitly authorizes calculator code.
+The QQQ Clean Fast Break gap-context calculator now exists with focused tests against the accepted fixture file.
 
-Required behavior for that future step:
+Current tested behavior:
 
 - Calculate raw gap amount and percent from source-backed previous close and signal-day open.
 - Classify by the accepted fixture threshold set.
 - Return `unknown` for missing/ambiguous required inputs.
 - Prove no-hindsight behavior by ignoring future candles and replay future rows after `2026-04-13T12:30:00-04:00`.
 - Preserve `gap_context_as_of` as the latest allowed candle timestamp used by the rule, not the later export timestamp.
+
+The next useful step is evidence-fill planning or the next missing QQQ CFB rule decision only when explicitly authorized.
 
 ## No Proof / No Readiness Status
 
