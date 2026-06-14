@@ -59,6 +59,9 @@
 - Regression fixture review: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_REGRESSION_FIXTURES_REVIEW.md`.
 - Blocked fixture doc: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_FIXTURES_BLOCKED.md`.
 - Missing-decisions doc: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_MISSING_DECISIONS.md`.
+- Calculator file: `historical_signal_replay/context_caution_calculator.py`.
+- Calculator test file: `tests/test_context_caution_calculator.py`.
+- Calculator review: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_CALCULATOR_REVIEW.md`.
 - Work-package context/caution row: `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`.
 - Content validator status for this request: failed.
 - Missing fields:
@@ -72,7 +75,8 @@
 - Databento support: raw option, quote, spread, volume, and open-interest inputs are available for inspection, but no accepted label rule maps them to option or execution context status.
 - Headline support: no source-confirmed headline/news/event feed is available for this historical row.
 - Missing-decision defaults: no selected contract or reviewed-universe policy keeps option context `unknown`; no source-confirmed historical headline/no-headline source keeps headline context `unknown`; no accepted execution entry/fill rule keeps execution context `unknown`; complete caution review cannot pass if any required component is `unknown`.
-- Aggregation support: precedence is accepted for fixtures and blocker-preserving calculator work, but complete caution evidence remains blocked because option thresholds, selected-contract/reviewed-universe policy, execution trade-plan rules, and headline source/category policy remain undecided for clean/caution/fail evidence fills.
+- Calculator status: created and tested against all 22 accepted framework fixtures. It classifies option, headline, execution, and complete-caution statuses, applies precedence `fail`, then `unknown`, then `caution`, then `clean`, rejects wrong identity and future/forbidden inputs, and refuses trade/P&L/proof/readiness inference.
+- Aggregation support: precedence is accepted and calculator-backed for fixture work, but complete caution evidence remains blocked because option thresholds, selected-contract/reviewed-universe policy, execution trade-plan rules, and headline source/category policy remain undecided for clean/caution/fail evidence fills.
 
 ## Stale/Spent Expiry Status
 
@@ -122,7 +126,17 @@ Current tested lifecycle behavior:
 - Prove no-hindsight behavior by ignoring future candles, future replay rows, option/fill/P&L/profitability/readiness fields.
 - Apply accepted state precedence and higher-base refresh rules.
 
-The next useful step is to build a context/caution calculator that preserves blockers under `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_MISSING_DECISIONS.md`, returning `unknown` for target option/headline/execution/complete caution statuses unless later source/rule decisions are accepted. Evidence fill remains unauthorized.
+The QQQ CFB context/caution calculator now exists with focused tests against the accepted fixture file.
+
+Current tested context/caution behavior:
+
+- Classify option, headline, execution, and complete-caution statuses.
+- Apply complete-caution precedence: `fail`, then `unknown`, then `caution`, then `clean`.
+- Preserve blocker defaults so target option, headline, execution, and complete caution remain `unknown` without later accepted source/rule decisions.
+- Reject wrong identity, future option/headline data, and forbidden fill/P&L/profitability/readiness fields.
+- Refuse trade choice, P&L, proof, profitability, and readiness inference.
+
+Evidence fill remains unauthorized.
 
 ## No Proof / No Readiness Status
 
