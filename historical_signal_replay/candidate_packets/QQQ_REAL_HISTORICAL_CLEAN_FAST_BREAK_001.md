@@ -49,6 +49,22 @@
 - Option-context, execution-context, headline-context, and complete-caution labels are not decided.
 - Contract selection, entry, fill, spread/liquidity, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided.
 
+## Context/Caution Status
+
+- Rule review doc: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_RULE.md`.
+- Decision-needed doc: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_DECISION_NEEDED.md`.
+- Work-package context/caution row: `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`.
+- Content validator status for this request: failed.
+- Missing fields:
+  - `option_context_status`.
+  - `headline_context_status`.
+  - `execution_context_status`.
+  - `complete_caution_review_status`.
+- Current rule result: no accepted honest QQQ CFB complete context/caution rule exists yet.
+- Databento support: raw option, quote, spread, volume, and open-interest inputs are available for inspection, but no accepted label rule maps them to option or execution context status.
+- Headline support: no source-confirmed headline/news/event feed is available for this historical row.
+- Aggregation support: complete caution aggregation is not accepted because option, execution, headline, missing-data, timestamp, and precedence rules remain undecided.
+
 ## Stale/Spent Expiry Status
 
 - Rule review doc: `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_RULE.md`.
@@ -97,7 +113,7 @@ Current tested lifecycle behavior:
 - Prove no-hindsight behavior by ignoring future candles, future replay rows, option/fill/P&L/profitability/readiness fields.
 - Apply accepted state precedence and higher-base refresh rules.
 
-The next useful step is a focused QQQ CFB complete context/caution rule or evidence task, only when explicitly authorized.
+The next useful step is a focused QQQ CFB complete context/caution decision and regression fixture task, only when explicitly authorized.
 
 ## No Proof / No Readiness Status
 

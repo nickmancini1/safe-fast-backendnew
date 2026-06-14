@@ -1,5 +1,40 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ CFB context/caution rule review result
+
+- Current task baseline stated by task file: `f984e35 Fill QQQ CFB lifecycle evidence`.
+- Corrective scope: docs-only QQQ Clean Fast Break context/caution rule review and allowed state/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Rule review created: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_RULE.md`.
+- Decision-needed doc created: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_DECISION_NEEDED.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Current content validator state before edits: `2` passed requests, `7` failed requests, `7` partial rows, `0` header-only rows.
+- Remaining failed QQQ CFB request after gap context and lifecycle passed: `QQQ CFB complete context/caution fields`.
+- Work-package file inspected: `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`.
+- Exact missing QQQ CFB context/caution fields:
+  - `option_context_status`;
+  - `headline_context_status`;
+  - `execution_context_status`;
+  - `complete_caution_review_status`.
+- Existing repo evidence supports raw Databento option/quote/spread/volume/open-interest inspection inputs, but not SAFE-FAST option/execution labels.
+- Existing repo evidence does not provide a source-confirmed historical headline/news/event field for the target QQQ row.
+- Honest rule result: repo evidence is not enough to accept a complete reusable QQQ CFB context/caution rule yet.
+- Exact decision still needed: status vocabularies, raw input requirements, timestamp and quote-age rules, forbidden future-data behavior, missing-data behavior, option-context label logic, headline-context label logic, execution-context label logic, and complete-caution aggregation precedence.
+- Exact regression fixture cases needed next are documented before context/caution evidence fill.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, 3 checks.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence package rows, calculator code, backtest code, trade-selection code, P&L files, raw Databento files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB lifecycle evidence fill result
 
 - Current task baseline stated by task file: `81bee9a Add QQQ CFB lifecycle calculator`.
