@@ -1,6 +1,67 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB top-contract quote coverage audit result
+
+- Current task baseline stated by task file: `7d1c45d Test QQQ CFB option context selector evidence`.
+- Corrective scope: audit local Databento quote coverage for the already top-ranked QQQ Clean Fast Break contract and update allowed review/state/candidate docs only.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Top-ranked contract audited: `QQQ   260427C00615000`.
+- Definition mapping:
+  - definition line `10022`;
+  - `instrument_id=1023411456`;
+  - expiration `2026-04-27`;
+  - side call;
+  - strike `615.000000000`.
+- Exact local TCBBO coverage for the top contract:
+  - row count `2`;
+  - rows at or before `2026-04-13T16:30:00Z`: `0`;
+  - rows after `2026-04-13T16:30:00Z`: `2`;
+  - nearest before signal: none;
+  - nearest after signal: line `18631`, `ts_event=2026-04-13T16:31:13.931412942Z`, `ts_recv=2026-04-13T16:31:13.931613555Z`, bid `8.560000000`, ask `8.630000000`, bid size `22`, ask size `25`.
+- Exact local trade coverage for the top contract:
+  - row count `2`;
+  - rows at or before signal: `0`;
+  - rows after signal: `2`;
+  - nearest after signal: line `18631`, `ts_event=2026-04-13T16:31:13.931412942Z`, price `8.580000000`, size `1`.
+- Exact local statistics coverage for the top contract:
+  - row count `88`;
+  - rows at or before signal: `0`;
+  - rows after signal: `88`;
+  - nearest after signal: line `204434`, `ts_event=2026-04-13T20:40:35.574100224Z`.
+- Symbol/instrument mapping problem found: NO.
+- Real no-quote blocker inside the downloaded ten-minute local TCBBO window: YES.
+- Downloaded time-window limitation: YES, because the local TCBBO file starts at `2026-04-13T16:25:00Z` and cannot prove whether the top contract had an earlier same-day quote before that start.
+- Nearby same-expiration coverage inspected:
+  - `QQQ   260427C00610000` has `2` TCBBO rows, all after signal;
+  - `QQQ   260427P00610000` has `5` TCBBO rows, including `1` before signal;
+  - `QQQ   260427C00615000` has `2` TCBBO rows, all after signal;
+  - `QQQ   260427P00615000`, `QQQ   260427C00620000`, and `QQQ   260427P00620000` have `0` local TCBBO rows.
+- Audit doc created: `SAFE_FAST_DAY41_QQQ_CFB_TOP_CONTRACT_QUOTE_COVERAGE_AUDIT.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Exact next Databento request if wider quote data is later authorized:
+  - dataset `OPRA.PILLAR`;
+  - schema `tcbbo`;
+  - symbol `QQQ   260427C00615000` or instrument id `1023411456`;
+  - start `2026-04-13T13:30:00Z`;
+  - end `2026-04-13T16:30:00Z`;
+  - cost-check first;
+  - no full download without accepted cost check.
+- Evidence filled: NO.
+- Selector rule changed: NO.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw Databento files, selector code, normalizer code, evidence package rows, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB option-context selector evidence result
 
 - Current task baseline stated by task file: `fc1782c Add QQQ CFB contract selector`.
