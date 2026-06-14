@@ -2,8 +2,8 @@
 
 ## Current Checkpoint
 
-- Baseline commit for this context/caution evidence fill task: `a61e734 Add QQQ CFB context caution calculator`.
-- Current Day 41 checkpoint: QQQ Clean Fast Break context/caution work-package evidence is filled with calculator-backed blocker-preserving `unknown` statuses in `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`. It preserves blocker defaults from `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_MISSING_DECISIONS.md`: missing selected contract/reviewed universe keeps option context `unknown`, missing historical headline/no-headline source keeps headline context `unknown`, missing execution entry/fill rules keep execution context `unknown`, and complete caution review cannot pass with any required `unknown` component.
+- Baseline commit for this selected-contract policy task: `809bd5e Fill QQQ CFB context caution evidence`.
+- Current Day 41 checkpoint: QQQ Clean Fast Break first reviewed option-universe and selected-contract eligibility policy is documented in `SAFE_FAST_DAY41_QQQ_CFB_SELECTED_CONTRACT_POLICY.md`. It accepts a bounded Databento-backed reviewed universe and no-hindsight quote eligibility filter for regression work only, while preserving blockers for call/put direction, one-contract ranking, numeric spread thresholds, liquidity thresholds, entry/fill rules, P&L, proof, profitability, and readiness.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - Intake-ready count changed: NO.
@@ -39,18 +39,19 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 - QQQ CFB context/caution missing-decision defaults are accepted at `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_MISSING_DECISIONS.md`: option, headline, and execution remain `unknown` when their source/rule prerequisites are missing, and `unknown` blocks complete caution review.
 - QQQ CFB context/caution calculator exists at `historical_signal_replay/context_caution_calculator.py` with focused fixture-driven tests at `tests/test_context_caution_calculator.py`; all 22 accepted context/caution fixtures pass.
 - QQQ CFB context/caution work-package request is filled with `option_context_status=unknown`, `headline_context_status=unknown`, `execution_context_status=unknown`, and `complete_caution_review_status=unknown` from the accepted missing-decision defaults and calculator. This is blocker-preserving evidence, not a clean/caution/fail pass.
+- QQQ CFB first selected-contract policy exists at `SAFE_FAST_DAY41_QQQ_CFB_SELECTED_CONTRACT_POLICY.md`: reviewed universe is QQQ options listed on `2026-04-13` with expirations `2026-04-27` through `2026-05-13`, strikes `590` through `640`, both calls and puts retained while side is blocked, and eligible quotes selected nearest-at-or-before `2026-04-13T12:30:00-04:00` by Databento `ts_event`. `SAFE_FAST_DAY41_QQQ_CFB_SELECTED_CONTRACT_POLICY_DECISION_NEEDED.md` records the exact remaining human decisions for side, expiration ranking, strike ranking, moneyness, spread thresholds, liquidity thresholds, statistics timestamp handling, and tie-breakers.
 
 ## Current Blockers
 
 - QQQ Clean Fast Break complete context/caution fields are filled only as calculator-backed `unknown`; clean/caution/fail context labels remain blocked.
-- Context/caution framework fixtures and missing-decision defaults are accepted, but option numeric thresholds, selected-contract/reviewed-universe policy, execution entry/fill/quote-age/spread/liquidity/slippage rules, and the historical headline/no-headline source/category policy remain blocked for clean/caution/fail evidence fills.
-- Contract selection, entry, fill assumption, spread/liquidity limits, exit, stop/invalidation translation, time exit, cost/slippage, failure labels, sample-size requirement, and promotion gates remain undecided.
+- Context/caution framework fixtures, missing-decision defaults, and the first reviewed option-universe/eligibility policy are accepted, but one selected contract, option numeric thresholds, execution entry/fill/quote-age/spread/liquidity/slippage rules, and the historical headline/no-headline source/category policy remain blocked for clean/caution/fail evidence fills.
+- Call/put side, exact expiration ranking, exact strike ranking, moneyness preference, spread/liquidity limits, entry, fill assumption, exit, stop/invalidation translation, time exit, cost/slippage, failure labels, sample-size requirement, and promotion gates remain undecided.
 - Option-context, execution-context, headline-context, and complete-caution label rules remain undecided.
 - No complete trade plan exists for any candidate.
 
 ## Next Single Action
 
-Address the remaining trade-plan and clean/caution/fail decision blockers before any backtest or trade-plan evidence step: selected contract/reviewed universe, entry/fill rule, headline source/category mapping, execution thresholds, exit, stop, cost/slippage, sample size, and promotion gates.
+Address the next selected-contract blocker before any backtest or trade-plan evidence step: decide QQQ CFB call/put side, one-contract expiration and strike ranking, moneyness preference, spread thresholds, liquidity thresholds, and Databento statistics timestamp handling.
 
 ## Data-Source Status
 
@@ -74,6 +75,7 @@ Address the remaining trade-plan and clean/caution/fail decision blockers before
 - Evidence status: gap-context request, stale/spent/expiry lifecycle request, and context/caution request pass content validation; context/caution remains four blocker-preserving `unknown` statuses; QQQ is not proof and not ready.
 - Context/caution fixture status: framework fixture package added; threshold/source boundary fixtures remain blocked by missing human decisions.
 - Context/caution calculator status: created and tested against all 22 accepted framework fixtures; target option, headline, execution, and complete caution statuses are filled as blocker-preserving `unknown` unless later source/rule decisions are accepted.
+- Selected-contract policy status: first reviewed-universe and quote-eligibility policy accepted for regression work only. One selected contract is still not chosen because side, expiration ranking, strike ranking, moneyness preference, spread thresholds, liquidity thresholds, and statistics timestamp rules remain human decisions.
 - Lifecycle status: first QQQ CFB testing rule accepted; replay rows identify a fresh initial-break target, later spent follow-through, higher-base watch requiring a fresh completed breakout, and later spent/no-fresh-trigger context. Lifecycle regression rows added: YES. Lifecycle calculator created and tested: YES. Lifecycle evidence filled: YES.
 
 ## Remaining Project-Wide Rules

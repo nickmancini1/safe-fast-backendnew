@@ -29,6 +29,10 @@
 - Definitions, bid/ask quotes, quote timestamps, expiration, strike, side, trades/volume, and open interest/statistics are available for inspection.
 - `historical_signal_replay/databento_opra_normalizer.py` exists for read-only normalization and quote inspection support.
 - Databento raw data does not by itself decide contract selection, entry, fill, exit, P&L, proof, profitability, or readiness.
+- First selected-contract policy doc: `SAFE_FAST_DAY41_QQQ_CFB_SELECTED_CONTRACT_POLICY.md`.
+- Reviewed-universe policy accepted for regression work only: QQQ options listed on `2026-04-13`, expirations `2026-04-27` through `2026-05-13` when present, strikes `590` through `640`, both calls and puts retained while side is blocked, and valid Databento TCBBO quote nearest-at-or-before setup time by `ts_event`.
+- Decision-needed doc: `SAFE_FAST_DAY41_QQQ_CFB_SELECTED_CONTRACT_POLICY_DECISION_NEEDED.md`.
+- One selected contract remains blocked by missing side, expiration ranking, strike ranking, moneyness, spread threshold, liquidity threshold, statistics timestamp, and tie-breaker decisions.
 
 ## Gap Fixture Status
 
@@ -46,8 +50,8 @@
 
 ## Current Blockers
 
-- Option-context, execution-context, headline-context, and complete-caution labels are not decided.
-- Contract selection, entry, fill, spread/liquidity, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided.
+- Option-context, execution-context, headline-context, and complete-caution clean/caution/fail labels are not decided.
+- Reviewed option-universe and quote eligibility are partially accepted for regression work, but one selected contract, entry, fill, spread/liquidity thresholds, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided.
 
 ## Context/Caution Status
 
@@ -75,9 +79,10 @@
 - Regression fixture status: data-only framework fixtures added for option, headline, and execution component statuses; complete-caution precedence; missing-data behavior; no-hindsight future-data rejection; wrong identity rejection; and forbidden fill/P&L/profitability/readiness rejection.
 - Databento support: raw option, quote, spread, volume, and open-interest inputs are available for inspection, but no accepted label rule maps them to option or execution context status.
 - Headline support: no source-confirmed headline/news/event feed is available for this historical row.
-- Missing-decision defaults: no selected contract or reviewed-universe policy keeps option context `unknown`; no source-confirmed historical headline/no-headline source keeps headline context `unknown`; no accepted execution entry/fill rule keeps execution context `unknown`; complete caution review cannot pass if any required component is `unknown`.
+- Missing-decision defaults: no selected contract policy kept option context `unknown`; no source-confirmed historical headline/no-headline source keeps headline context `unknown`; no accepted execution entry/fill rule keeps execution context `unknown`; complete caution review cannot pass if any required component is `unknown`. The first reviewed-universe/eligibility policy is now accepted, but one-contract ranking and option thresholds remain blocked.
 - Calculator status: created and tested against all 22 accepted framework fixtures. It classifies option, headline, execution, and complete-caution statuses, applies precedence `fail`, then `unknown`, then `caution`, then `clean`, rejects wrong identity and future/forbidden inputs, and refuses trade/P&L/proof/readiness inference.
-- Aggregation support: precedence is accepted and calculator-backed. Complete caution is filled as `unknown` because option thresholds, selected-contract/reviewed-universe policy, execution trade-plan rules, and headline source/category policy remain undecided for clean/caution/fail evidence fills.
+- Aggregation support: precedence is accepted and calculator-backed. Complete caution is filled as `unknown` because option thresholds, selected-contract one-contract ranking, execution trade-plan rules, and headline source/category policy remain undecided for clean/caution/fail evidence fills.
+- Selected-contract policy update: first reviewed-universe and quote-eligibility policy is accepted for regression work only. Complete caution remains `unknown` because no call/put side, one-contract ranking, numeric option thresholds, execution entry/fill rule, or headline source/category policy is accepted.
 
 ## Stale/Spent Expiry Status
 

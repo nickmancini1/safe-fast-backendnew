@@ -1,5 +1,48 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ CFB selected-contract policy result
+
+- Current task baseline stated by task file: `809bd5e Fill QQQ CFB context caution evidence`.
+- Corrective scope: docs-only QQQ Clean Fast Break selected-contract reviewed-universe and eligibility policy, decision-needed doc, and allowed state/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Policy doc created: `SAFE_FAST_DAY41_QQQ_CFB_SELECTED_CONTRACT_POLICY.md`.
+- Decision-needed doc created: `SAFE_FAST_DAY41_QQQ_CFB_SELECTED_CONTRACT_POLICY_DECISION_NEEDED.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- First reviewed option-universe policy accepted for regression work:
+  - QQQ options listed on `2026-04-13`;
+  - expirations `2026-04-27` through `2026-05-13`, inclusive, when present in Databento definitions;
+  - strikes `590` through `640`, inclusive;
+  - both calls and puts retained while side is blocked;
+  - valid definition metadata required;
+  - Databento TCBBO quote selected nearest at or before `2026-04-13T12:30:00-04:00` by `ts_event`;
+  - post-signal quotes, future candles, future replay rows, outcome, fills, P&L, profitability, and readiness rejected.
+- Selected-contract eligibility filter accepted for regression work:
+  - source-backed definition metadata;
+  - valid non-crossed bid/ask quote;
+  - parseable bid/ask size;
+  - calculable midpoint, spread, and spread percent;
+  - no one-contract ranking or trade selection.
+- Exact decisions still needed:
+  - call/put side or abstain/spread direction;
+  - one-expiration ranking and fallback;
+  - one-strike ranking and reference price;
+  - moneyness preference;
+  - numeric spread and spread-percent thresholds;
+  - bid/ask-size, volume, open-interest, and missing-statistics behavior;
+  - Databento statistics timestamp/reference rule;
+  - selected-contract tie-breaker and rejected-contract status behavior.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence package rows, calculator code, backtest code, trade-selection code, P&L files, raw Databento files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB context/caution evidence fill result
 
 - Current task baseline stated by task file: `a61e734 Add QQQ CFB context caution calculator`.
