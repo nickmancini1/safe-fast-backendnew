@@ -2,8 +2,8 @@
 
 ## Current Checkpoint
 
-- Baseline commit for this contract-selection decision task: `869d0ef Record QQQ CFB selected contract policy blocker`.
-- Current Day 41 checkpoint: QQQ Clean Fast Break first one-contract selection rule is documented in `SAFE_FAST_DAY41_QQQ_CFB_CONTRACT_SELECTION_DECISION.md`. It accepts a regression-only long-call rule with nearest reviewed-universe expiration at least `14` DTE, lowest call strike greater than or equal to trigger `613.67`, nearest OTM-by-trigger moneyness, strict no-hindsight quote/statistics timestamp handling, spread cap `0.15`, spread-percent cap `2.00%`, minimum bid size/ask size/trade volume/open interest of `1`, missing-data abstain behavior, and no fallback after a top-ranked contract fails a gate. It does not apply the rule to choose a real trade, fill evidence, backtest, calculate P&L, claim proof/profitability, or mark readiness.
+- Baseline commit for this contract-selection fixture task: `362972a Accept QQQ CFB contract selection rule`.
+- Current Day 41 checkpoint: QQQ Clean Fast Break contract-selection regression fixtures now exist at `historical_signal_replay/fixtures/qqq_cfb_contract_selection_regression_fixtures.json`. They cover the accepted regression-only long-call rule with nearest reviewed-universe expiration at least `14` DTE, lowest call strike greater than or equal to trigger `613.67`, nearest OTM-by-trigger moneyness, strict no-hindsight quote/statistics timestamp handling, spread cap `0.15`, spread-percent cap `2.00%`, minimum bid size/ask size/trade volume/open interest of `1`, missing-data abstain behavior, no fallback after a top-ranked contract fails a gate, and abstain when no contract passes. They do not create selector code, choose a real trade, fill evidence, backtest, calculate P&L, claim proof/profitability, or mark readiness.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - Intake-ready count changed: NO.
@@ -41,18 +41,19 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 - QQQ CFB context/caution work-package request is filled with `option_context_status=unknown`, `headline_context_status=unknown`, `execution_context_status=unknown`, and `complete_caution_review_status=unknown` from the accepted missing-decision defaults and calculator. This is blocker-preserving evidence, not a clean/caution/fail pass.
 - QQQ CFB first selected-contract policy exists at `SAFE_FAST_DAY41_QQQ_CFB_SELECTED_CONTRACT_POLICY.md`: reviewed universe is QQQ options listed on `2026-04-13` with expirations `2026-04-27` through `2026-05-13`, strikes `590` through `640`, both calls and puts retained while side was still blocked, and eligible quotes selected nearest-at-or-before `2026-04-13T12:30:00-04:00` by Databento `ts_event`. `SAFE_FAST_DAY41_QQQ_CFB_SELECTED_CONTRACT_POLICY_DECISION_NEEDED.md` records the now-superseded blocker list that led to the first contract-selection decision.
 - QQQ CFB first contract-selection decision exists at `SAFE_FAST_DAY41_QQQ_CFB_CONTRACT_SELECTION_DECISION.md`: long calls only, nearest reviewed-universe expiration with DTE at least `14`, lowest reviewed-universe call strike greater than or equal to trigger `613.67`, nearest OTM-by-trigger moneyness, quote nearest-at-or-before setup by `ts_event`, maximum spread `0.15`, maximum spread percent `2.00%`, minimum bid size/ask size/trade volume/open interest of `1`, strict statistics timestamp handling, abstain/unknown missing-data behavior, and no fallback scan after a top-ranked contract fails a gate.
+- QQQ CFB contract-selection regression fixtures exist at `historical_signal_replay/fixtures/qqq_cfb_contract_selection_regression_fixtures.json` and cover valid selection, wrong side, DTE, expiration ranking, strike ranking, spread, spread percent, bid/ask, bid/ask size, volume, open interest, quote/statistics timestamp rejection, no fallback, and no-pass abstain cases.
 
 ## Current Blockers
 
 - QQQ Clean Fast Break complete context/caution fields are filled only as calculator-backed `unknown`; clean/caution/fail context labels remain blocked.
 - Context/caution framework fixtures, missing-decision defaults, and the first reviewed option-universe/eligibility policy are accepted, but one selected contract, option numeric thresholds, execution entry/fill/quote-age/spread/liquidity/slippage rules, and the historical headline/no-headline source/category policy remain blocked for clean/caution/fail evidence fills.
-- Contract-selection regression fixtures and selector/calculator implementation remain missing. Entry, fill assumption, exit, stop/invalidation translation, time exit, cost/slippage, failure labels, sample-size requirement, and promotion gates remain undecided.
+- Contract-selection selector/calculator implementation remains missing. Entry, fill assumption, exit, stop/invalidation translation, time exit, cost/slippage, failure labels, sample-size requirement, and promotion gates remain undecided.
 - Option-context, execution-context, headline-context, and complete-caution label rules remain undecided.
 - No complete trade plan exists for any candidate.
 
 ## Next Single Action
 
-Build the next bounded regression fixture package for the accepted QQQ CFB contract-selection decision before any backtest, evidence fill, or trade-plan result counting.
+Build the next bounded selector/calculator implementation against the accepted QQQ CFB contract-selection fixtures before any backtest, evidence fill, or trade-plan result counting.
 
 ## Data-Source Status
 
@@ -77,12 +78,12 @@ Build the next bounded regression fixture package for the accepted QQQ CFB contr
 - Context/caution fixture status: framework fixture package added; threshold/source boundary fixtures remain blocked by missing human decisions.
 - Context/caution calculator status: created and tested against all 22 accepted framework fixtures; target option, headline, execution, and complete caution statuses are filled as blocker-preserving `unknown` unless later source/rule decisions are accepted.
 - Selected-contract policy status: first reviewed-universe and quote-eligibility policy accepted for regression work only.
-- Contract-selection decision status: first one-contract rule accepted for regression work only. The rule is long calls only, nearest reviewed-universe expiration at least `14` DTE, lowest reviewed-universe call strike greater than or equal to trigger `613.67`, nearest OTM-by-trigger moneyness, strict quote/statistics timestamp handling, maximum spread `0.15`, maximum spread percent `2.00%`, minimum bid size/ask size/trade volume/open interest of `1`, abstain/unknown missing-data behavior, and no fallback after a gate failure. It has not been implemented as fixtures/calculator and has not been applied to choose a real trade.
+- Contract-selection decision status: first one-contract rule accepted for regression work only. The rule is long calls only, nearest reviewed-universe expiration at least `14` DTE, lowest reviewed-universe call strike greater than or equal to trigger `613.67`, nearest OTM-by-trigger moneyness, strict quote/statistics timestamp handling, maximum spread `0.15`, maximum spread percent `2.00%`, minimum bid size/ask size/trade volume/open interest of `1`, abstain/unknown missing-data behavior, and no fallback after a gate failure. Regression fixtures now exist; selector/calculator implementation is still missing and the rule has not been applied to choose a real trade.
 - Lifecycle status: first QQQ CFB testing rule accepted; replay rows identify a fresh initial-break target, later spent follow-through, higher-base watch requiring a fresh completed breakout, and later spent/no-fresh-trigger context. Lifecycle regression rows added: YES. Lifecycle calculator created and tested: YES. Lifecycle evidence filled: YES.
 
 ## Remaining Project-Wide Rules
 
-- Contract-selection regression fixtures and selector implementation.
+- Contract-selection selector implementation.
 - Entry rule.
 - Fill assumption.
 - Spread and liquidity limits.
@@ -104,7 +105,7 @@ Build the next bounded regression fixture package for the accepted QQQ CFB contr
 
 - No profitable trading plan is proven.
 - No backtest is authorized from the current QQQ gap fixtures alone.
-- No option contract selection is accepted.
+- No option contract has been selected as a real trade.
 - No entry or exit rule is accepted.
 - No fill, slippage, cost, or P&L assumption is accepted.
 - No candidate is ready for intake, shadow planning, live action, broker/order activity, or money stages.

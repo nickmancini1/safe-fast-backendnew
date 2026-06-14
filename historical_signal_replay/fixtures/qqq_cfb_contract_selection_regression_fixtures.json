@@ -1,0 +1,784 @@
+{
+  "fixture_name": "qqq_cfb_contract_selection_regression_fixtures",
+  "fixture_version": 1,
+  "purpose": "Data-only regression fixtures for the accepted first QQQ Clean Fast Break one-contract selection rule. These fixtures do not implement selector logic, fill evidence, choose a real trade, backtest, calculate P&L, prove profitability, or mark a candidate ready.",
+  "accepted_rule_source": "SAFE_FAST_DAY41_QQQ_CFB_CONTRACT_SELECTION_DECISION.md",
+  "target_candidate": {
+    "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+    "symbol": "QQQ",
+    "setup_type": "Clean Fast Break",
+    "signal_time": "2026-04-13T12:30:00-04:00",
+    "trigger_price": 613.67
+  },
+  "rule_summary": {
+    "side": "long_calls_only",
+    "expiration": "nearest reviewed-universe expiration with DTE >= 14",
+    "strike": "lowest reviewed-universe call strike >= 613.67",
+    "moneyness": "nearest OTM call by trigger reference",
+    "quote_timestamp": "nearest TCBBO quote at or before signal time by ts_event",
+    "statistics_timestamp": "same-contract statistics only with ts_event at or before signal time and ts_ref at or before signal time when available",
+    "spread_cap": 0.15,
+    "spread_pct_cap": 0.02,
+    "minimum_bid_size": 1,
+    "minimum_ask_size": 1,
+    "minimum_trade_volume_through_setup": 1,
+    "minimum_open_interest": 1,
+    "missing_data": "abstain",
+    "fallback": "none after top-ranked contract fails a gate"
+  },
+  "fixtures": [
+    {
+      "fixture_id": "qqq_cfb_contract_selection_valid_selected_contract",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.15,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.075,
+            "spread": 0.15,
+            "spread_pct": 0.018576
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": "QQQ   260427C00614000",
+      "expected_status": "selected",
+      "expected_rejection_reason": null,
+      "reason": "Happy path: long call, nearest DTE-14 expiration, lowest call strike above trigger, setup-safe quote/statistics, spread, size, volume, and open interest all pass."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_wrong_side_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427P00614000",
+          "underlying": "QQQ",
+          "side": "P",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.10,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.05,
+            "spread": 0.10,
+            "spread_pct": 0.012422
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "wrong_side_non_call",
+      "reason": "The first contract-selection rule is long calls only, so a put cannot be selected."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_dte_below_14_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260424C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-24",
+          "dte": 11,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.10,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.05,
+            "spread": 0.10,
+            "spread_pct": 0.012422
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "expiration_dte_below_14",
+      "reason": "Reviewed expirations below 14 DTE are rejected before strike or quote gates."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_nearest_valid_expiration_selected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260430C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-30",
+          "dte": 17,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:58-04:00",
+            "ts_recv": "2026-04-13T12:29:58.100000-04:00",
+            "bid": 9.00,
+            "ask": 9.10,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 9.05,
+            "spread": 0.10,
+            "spread_pct": 0.01105
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        },
+        {
+          "contract_symbol": "QQQ   260501C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-05-01",
+          "dte": 18,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 9.25,
+            "ask": 9.35,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 9.30,
+            "spread": 0.10,
+            "spread_pct": 0.010753
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": "QQQ   260430C00614000",
+      "expected_status": "selected",
+      "expected_rejection_reason": null,
+      "reason": "When the nearest reviewed expiration is unavailable from the candidate set, the next later reviewed expiration with DTE at least 14 is selected before later expirations."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_strike_below_trigger_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00613000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 613,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.50,
+            "ask": 8.60,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.55,
+            "spread": 0.10,
+            "spread_pct": 0.011696
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "no_call_strike_at_or_above_trigger",
+      "reason": "The first rule does not fall back to ITM calls below the 613.67 trigger."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_lowest_strike_at_or_above_trigger_selected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:58-04:00",
+            "ts_recv": "2026-04-13T12:29:58.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.12,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.06,
+            "spread": 0.12,
+            "spread_pct": 0.014888
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        },
+        {
+          "contract_symbol": "QQQ   260427C00615000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 615,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 7.60,
+            "ask": 7.70,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 7.65,
+            "spread": 0.10,
+            "spread_pct": 0.013072
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": "QQQ   260427C00614000",
+      "expected_status": "selected",
+      "expected_rejection_reason": null,
+      "reason": "Strike ranking chooses the lowest call strike greater than or equal to the 613.67 trigger, even when a later strike has a newer quote."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_spread_above_absolute_cap_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.16,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.08,
+            "spread": 0.16,
+            "spread_pct": 0.019802
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "spread_above_0_15",
+      "reason": "The top-ranked contract fails when absolute spread is greater than 0.15, even if spread percent is below 2.00%."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_spread_percent_above_cap_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 2.90,
+            "ask": 2.96,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 2.93,
+            "spread": 0.06,
+            "spread_pct": 0.020478
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "spread_pct_above_2_percent",
+      "reason": "The top-ranked contract fails when spread percent exceeds 2.00%, even if absolute spread is below 0.15."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_missing_bid_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": null,
+            "ask": 8.15,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": null,
+            "spread": null,
+            "spread_pct": null
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "missing_bid",
+      "reason": "Missing bid prevents midpoint, spread, and spread-percent calculation and causes abstain."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_missing_ask_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": null,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": null,
+            "spread": null,
+            "spread_pct": null
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "missing_ask",
+      "reason": "Missing ask prevents midpoint, spread, and spread-percent calculation and causes abstain."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_bid_size_below_minimum_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.10,
+            "bid_size": 0,
+            "ask_size": 1,
+            "midpoint": 8.05,
+            "spread": 0.10,
+            "spread_pct": 0.012422
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "bid_size_below_1",
+      "reason": "Bid size must be at least 1."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_ask_size_below_minimum_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.10,
+            "bid_size": 1,
+            "ask_size": 0,
+            "midpoint": 8.05,
+            "spread": 0.10,
+            "spread_pct": 0.012422
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "ask_size_below_1",
+      "reason": "Ask size must be at least 1."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_volume_below_minimum_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.10,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.05,
+            "spread": 0.10,
+            "spread_pct": 0.012422
+          },
+          "trade_volume_through_setup": 0,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "trade_volume_below_1",
+      "reason": "Same-contract trade volume through setup time must be at least 1."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_open_interest_below_minimum_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.10,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.05,
+            "spread": 0.10,
+            "spread_pct": 0.012422
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 0,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "open_interest_below_1",
+      "reason": "Same-contract open interest must be at least 1 under the strict statistics timestamp rule."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_quote_after_signal_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:30:01-04:00",
+            "ts_recv": "2026-04-13T12:30:01.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.10,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.05,
+            "spread": 0.10,
+            "spread_pct": 0.012422
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "quote_ts_event_after_signal",
+      "reason": "A quote with ts_event after setup time is rejected even if all price and liquidity fields pass."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_statistics_after_signal_rejected",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.10,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.05,
+            "spread": 0.10,
+            "spread_pct": 0.012422
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:30:01-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "statistics_ts_event_after_signal",
+      "reason": "Statistics rows with ts_event after setup time are rejected by the strict no-hindsight statistics rule."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_no_fallback_if_top_ranked_fails",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260427C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.16,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.08,
+            "spread": 0.16,
+            "spread_pct": 0.019802
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        },
+        {
+          "contract_symbol": "QQQ   260427C00615000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 615,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 7.60,
+            "ask": 7.70,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 7.65,
+            "spread": 0.10,
+            "spread_pct": 0.013072
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "top_ranked_contract_failed_no_fallback",
+      "reason": "The top-ranked 614 call fails the spread gate, so the rule abstains and must not scan to the otherwise passing 615 call."
+    },
+    {
+      "fixture_id": "qqq_cfb_contract_selection_abstain_when_no_contract_passes",
+      "signal_time": "2026-04-13T12:30:00-04:00",
+      "trigger_price": 613.67,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260424C00614000",
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-04-24",
+          "dte": 11,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.10,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.05,
+            "spread": 0.10,
+            "spread_pct": 0.012422
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        },
+        {
+          "contract_symbol": "QQQ   260427P00614000",
+          "underlying": "QQQ",
+          "side": "P",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 614,
+          "quote": {
+            "ts_event": "2026-04-13T12:29:59-04:00",
+            "ts_recv": "2026-04-13T12:29:59.100000-04:00",
+            "bid": 8.00,
+            "ask": 8.10,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 8.05,
+            "spread": 0.10,
+            "spread_pct": 0.012422
+          },
+          "trade_volume_through_setup": 1,
+          "open_interest": 1,
+          "statistics": {
+            "ts_event": "2026-04-13T12:00:00-04:00",
+            "ts_ref": "2026-04-13T00:00:00-04:00"
+          }
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "no_contract_passes",
+      "reason": "If every candidate is rejected before or during selection, the result is abstain rather than a forced trade."
+    }
+  ],
+  "explicit_non_goals": [
+    "No selector or calculator code is created by this fixture file.",
+    "No evidence package row is filled by this fixture file.",
+    "No backtest, real trade selection, fill, exit, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized by this fixture file."
+  ]
+}
