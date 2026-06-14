@@ -1,5 +1,47 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ CFB stale/spent expiry decision result
+
+- Current task baseline stated by task file and confirmed by git: `07ea738 Record QQQ CFB stale spent expiry decision needed`.
+- Corrective scope: docs-only QQQ Clean Fast Break stale/spent expiry lifecycle decision and allowed state/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Decision created: `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_DECISION.md`.
+- Still-blocked doc created: NO.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Accepted first QQQ CFB lifecycle rule for testing:
+  - Freshness window: exact completed initial-break signal candle decision timestamp only.
+  - Target fresh timestamp: `2026-04-13T12:30:00-04:00`.
+  - Stale timing: watch/candidate paths with trigger/invalidation context but no completed breakout remain stale/watch-only until a fresh completed breakout is source-backed or the path is replaced.
+  - Spent behavior: a completed initial break, follow-through context, or prior-completed-break blocker consumes the trigger path; later reuse is spent.
+  - Expiry clock: starts at the initial-break signal decision timestamp; the exact timestamp boundary is fresh, and later timestamps are outside the freshness window unless higher-precedence spent evidence applies.
+  - Higher-base refresh: a later higher base can become fresh only with a new source-backed stage, trigger, invalidation, completed breakout, and unspent trigger path.
+  - State precedence: `unknown`, then `spent`, then `fresh`, then `expired`, then `stale`.
+  - Missing symbol/setup/timestamp/stage/trigger/invalidation/prior-state/rule metadata/source ordering produces `unknown`.
+  - Future candles, future replay rows, later follow-through, outcome evidence, option data, fills, P&L, profitability, readiness, and promotion labels are rejected for setup-time lifecycle decisions.
+- Required lifecycle regression fixture cases documented before evidence fill:
+  - fresh target at `2026-04-13T12:30:00-04:00`;
+  - spent same-session follow-through at `2026-04-13T15:30:00-04:00`;
+  - stale/watch-only higher-base context at `2026-04-16T13:30:00-04:00`;
+  - spent prior completed break/no-fresh-trigger at `2026-04-17T15:30:00-04:00`;
+  - exact-boundary fresh versus later non-fresh;
+  - expired later review without spent evidence;
+  - missing-data and wrong-symbol/wrong-setup unknowns;
+  - future-data rejection;
+  - option/fill/P&L/profitability/readiness ignored;
+  - precedence cases.
+- Lifecycle regression rows added: NO.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence package rows, calculator code, backtest code, trade-selection code, P&L files, raw Databento files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB stale/spent expiry rule review result
 
 - Current task baseline stated by task file and confirmed by git: `17d433e Fill QQQ CFB gap context evidence`.
