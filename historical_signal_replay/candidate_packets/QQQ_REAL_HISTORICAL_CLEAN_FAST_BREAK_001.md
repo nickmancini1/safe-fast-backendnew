@@ -38,7 +38,11 @@
 - Contract-selection fixture file: `historical_signal_replay/fixtures/qqq_cfb_contract_selection_regression_fixtures.json`.
 - Contract-selection fixture review: `SAFE_FAST_DAY41_QQQ_CFB_CONTRACT_SELECTION_FIXTURES_REVIEW.md`.
 - Contract-selection regression fixtures added: YES, covering valid selection, wrong side, DTE, expiration ranking, strike ranking, spread, spread percent, bid/ask, bid/ask size, volume, open interest, quote/statistics timestamp rejection, no fallback, and no-pass abstain cases.
-- One selected real trade remains unchosen. The accepted rule still needs selector/calculator implementation before any evidence fill, backtest, P&L, proof, profitability, or readiness step.
+- Contract-selection selector: `historical_signal_replay/cfb_contract_selector.py`.
+- Contract-selection selector tests: `tests/test_cfb_contract_selector.py`.
+- Contract-selection selector review: `SAFE_FAST_DAY41_QQQ_CFB_CONTRACT_SELECTOR_REVIEW.md`.
+- Contract-selection selector status: implemented for regression work only; all `18` accepted fixtures pass.
+- One selected real trade remains unchosen. The accepted selector still does not authorize evidence fill, backtest, P&L, proof, profitability, or readiness.
 
 ## Gap Fixture Status
 
@@ -57,7 +61,7 @@
 ## Current Blockers
 
 - Option-context, execution-context, headline-context, and complete-caution clean/caution/fail labels are not decided.
-- Reviewed option-universe, quote eligibility, the first one-contract selection rule, and contract-selection regression fixtures are accepted for regression work, but selector/calculator implementation, entry, fill, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided or not implemented.
+- Reviewed option-universe, quote eligibility, the first one-contract selection rule, contract-selection regression fixtures, and selector/calculator implementation are accepted for regression work, but evidence fill, entry, fill, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided or not implemented.
 
 ## Context/Caution Status
 
@@ -88,7 +92,7 @@
 - Missing-decision defaults: no selected contract policy kept option context `unknown`; no source-confirmed historical headline/no-headline source keeps headline context `unknown`; no accepted execution entry/fill rule keeps execution context `unknown`; complete caution review cannot pass if any required component is `unknown`. The first reviewed-universe/eligibility policy is now accepted, but one-contract ranking and option thresholds remain blocked.
 - Calculator status: created and tested against all 22 accepted framework fixtures. It classifies option, headline, execution, and complete-caution statuses, applies precedence `fail`, then `unknown`, then `caution`, then `clean`, rejects wrong identity and future/forbidden inputs, and refuses trade/P&L/proof/readiness inference.
 - Aggregation support: precedence is accepted and calculator-backed. Complete caution is filled as `unknown` because option thresholds, selected-contract one-contract ranking, execution trade-plan rules, and headline source/category policy remain undecided for clean/caution/fail evidence fills.
-- Selected-contract policy update: first reviewed-universe, quote-eligibility, one-contract selection rules, and contract-selection fixtures are accepted for regression work only. Complete caution remains `unknown` because contract-selection implementation, execution entry/fill rule, broader option-context labels, and headline source/category policy remain missing.
+- Selected-contract policy update: first reviewed-universe, quote-eligibility, one-contract selection rules, contract-selection fixtures, and contract-selection selector are accepted for regression work only. Complete caution remains `unknown` because evidence fill, execution entry/fill rule, broader option-context labels, and headline source/category policy remain missing.
 
 ## Stale/Spent Expiry Status
 
@@ -150,7 +154,7 @@ Current tested context/caution behavior:
 
 Context/caution evidence fill is completed only as blocker-preserving `unknown` statuses.
 
-The QQQ CFB contract-selection regression fixture file now exists.
+The QQQ CFB contract-selection regression fixture file and selector now exist.
 
 Current fixture coverage:
 
@@ -160,7 +164,7 @@ Current fixture coverage:
 - no fallback after a top-ranked contract fails;
 - abstain when no contract passes.
 
-Contract-selection selector/calculator implementation is still missing. No evidence fill, backtest, real trade choice, P&L, proof, profitability, or readiness is authorized from the fixture file alone.
+Contract-selection selector/calculator implementation now exists and passes all `18` accepted fixtures. No evidence fill, backtest, real trade choice, P&L, proof, profitability, or readiness is authorized from the fixture file or selector alone.
 
 ## No Proof / No Readiness Status
 

@@ -1,6 +1,41 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB contract selector result
+
+- Current task baseline stated by task file: `3115468 Add QQQ CFB contract selection fixtures`.
+- Corrective scope: QQQ Clean Fast Break contract selector, focused fixture-driven tests, review doc, and allowed state/candidate doc updates only.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Selector created: `historical_signal_replay/cfb_contract_selector.py`.
+- Tests created: `tests/test_cfb_contract_selector.py`.
+- Review doc created: `SAFE_FAST_DAY41_QQQ_CFB_CONTRACT_SELECTOR_REVIEW.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Selector behavior:
+  - applies long-calls-only side rule;
+  - ranks nearest reviewed expiration with DTE at least `14`;
+  - ranks lowest call strike greater than or equal to trigger `613.67`;
+  - rejects quotes and statistics after setup time;
+  - enforces spread `<= 0.15` and spread percent `<= 2.00%`;
+  - enforces bid size, ask size, through-setup trade volume, and open interest of at least `1`;
+  - treats missing bid/ask and missing/unsafe required data as abstain;
+  - refuses fallback selection after the top-ranked contract fails a gate;
+  - refuses trade choice, P&L, proof, profitability, and readiness inference.
+- Focused test command run: `python -m unittest tests.test_cfb_contract_selector`.
+- Focused test result: PASS, 6 tests covering all 18 accepted contract-selection fixtures.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, 3 checks.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence package rows, backtest code, trade-selection code, P&L files, raw Databento files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB contract selection regression fixtures result
 
 - Current task baseline stated by task file and confirmed by git: `362972a Accept QQQ CFB contract selection rule`.
