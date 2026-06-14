@@ -1,38 +1,38 @@
 Baseline:
-SAFE-FAST Day 41 project control consolidation after Databento QQQ download validation.
+SAFE-FAST Day 41 project speed layer after QQQ gap-context regression fixtures.
 Repo path: C:\Users\nickm\Desktop\New folder\safe-fast-backendnew
-Latest known local HEAD when this intro was written: 219be31 Validate QQQ Databento option data download
+Latest known local HEAD when this intro was written: 5ebc7cb Add QQQ gap context regression fixtures
 Branch when written: main
 
 Fixed:
+SAFE-FAST now has a speed-and-efficiency layer for future chats.
+SAFE_FAST_PROJECT_DASHBOARD.md is the current fast orientation file after build state.
+SAFE_FAST_CODEX_TASK_TEMPLATES.md contains reusable bounded task templates.
+scripts/safe_fast_run_safe_checks.ps1 runs safe local checks only.
+historical_signal_replay/candidate_packets/ contains candidate summaries to avoid repeated discovery.
+QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001 now has a candidate packet.
 SAFE-FAST is not dead when evidence is weak, failed, missing, unclear, or unprofitable. Those outcomes trigger diagnosis and repair.
-SAFE-FAST is still being turned from setup recognition into a full trade plan.
-The project-wide proof pipeline is now documented in SAFE_FAST_PROJECT_PROOF_PIPELINE.md.
-The trade-plan completeness gate is now documented in SAFE_FAST_TRADE_PLAN_COMPLETENESS_GATE.md.
-Phone Q&A clarifications are now documented in SAFE_FAST_PROJECT_PHONE_QA_CLARIFICATIONS.md.
-The current rule index is now documented in SAFE_FAST_PROJECT_RULE_INDEX.md.
-Databento QQQ OPRA files are present locally and structurally validated for definitions, bid/ask, timestamps, expiration, strike, side, volume, and open interest/statistics.
 
 Blocked:
 Proof accepted: NO.
 Profitability claim made: NO.
 Intake-ready count: 0.
-QQQ gap thresholds are still missing.
-Contract-selection rules are still missing.
-Exact entry and exit rules are still missing.
-Stale/spent rules, stage transitions, sample-size requirements, and promotion gates still need decisions and regressions.
-Databento-to-SAFE-FAST field mapping is not yet validated.
-Trade-plan completeness is not satisfied for any candidate.
-Tastytrade current helpers supplied underlying OHLCV only and did not satisfy historical option-field needs.
+QQQ gap-context calculator logic is not created.
+QQQ gap-context evidence fields are not filled.
+QQQ candidate readiness is not proven.
+Contract-selection, entry, fill, spread/liquidity, exit, stop/invalidation, time-exit, cost/slippage, failure-label, sample-size, promotion-gate, stale/spent, stage-transition, headline, option-context, execution-context, and complete-caution rules still need decisions and regressions.
+Databento supports raw option/liquidity inspection fields, but raw fields are not trade proof.
 
 Next:
 Start with local git output.
-Read SAFE_FAST_BUILD_STATE.md.
-Read SAFE_FAST_PROJECT_CONTROL_CONSOLIDATION_AUDIT.md.
-Read SAFE_FAST_PROJECT_PROOF_PIPELINE.md.
-Read SAFE_FAST_TRADE_PLAN_COMPLETENESS_GATE.md.
-Read SAFE_FAST_PROJECT_RULE_INDEX.md.
-Next single useful action: map the structurally validated Databento QQQ option fields into SAFE-FAST evidence-field requirements without filling evidence, choosing a trade, claiming proof, or promoting the candidate unless a later task explicitly authorizes that scope.
+Read SAFE_FAST_BUILD_STATE.md first.
+Read SAFE_FAST_PROJECT_DASHBOARD.md second.
+Read SAFE_FAST_PROJECT_RULE_INDEX.md third.
+Read SAFE_FAST_CODEX_TASK_TEMPLATES.md before writing a new task.
+Read the relevant file in historical_signal_replay/candidate_packets/ before candidate work.
+Use .\scripts\safe_fast_run_safe_checks.ps1 before and after code changes.
+Do not restart old discovery if the repo already records the answer.
+Next single useful action: implement the QQQ Clean Fast Break gap-context calculator and focused tests against the accepted regression fixtures only if a future task explicitly authorizes calculator code.
 
 Command:
 First run:

@@ -1,0 +1,69 @@
+# QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001
+
+## Identity
+
+- Candidate id: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Symbol: `QQQ`.
+- Setup type: Clean Fast Break.
+- Signal/setup time: `2026-04-13T12:30:00-04:00`.
+- Trigger: `613.67`.
+- Invalidation: `609.58`.
+
+## Gap Inputs
+
+- Previous regular-session close: `611.02`.
+- Previous close timestamp: `2026-04-10T15:30:00-04:00`.
+- Signal-day open: `609.455`.
+- Signal-day open timestamp: `2026-04-13T09:30:00-04:00`.
+- Gap amount: `-1.565`.
+- Gap percent: about `-0.2561%`.
+- Direction: down.
+- Expected latest allowed source time after regression proof: `2026-04-13T12:30:00-04:00`.
+
+## Databento Data Status
+
+- QQQ OPRA raw files are locally present and structurally validated.
+- Definitions, bid/ask quotes, quote timestamps, expiration, strike, side, trades/volume, and open interest/statistics are available for inspection.
+- `historical_signal_replay/databento_opra_normalizer.py` exists for read-only normalization and quote inspection support.
+- Databento raw data does not by itself decide contract selection, entry, fill, exit, P&L, proof, profitability, or readiness.
+
+## Gap Fixture Status
+
+- Fixture file: `historical_signal_replay/fixtures/qqq_gap_context_regression_fixtures.json`.
+- Accepted first QQQ CFB threshold fixture set:
+  - `clean`: absolute gap percent `<= 0.30%`.
+  - `caution`: absolute gap percent `> 0.30%` and `<= 0.75%`.
+  - `fail`: absolute gap percent `> 0.75%`.
+  - `unknown`: required data, source/session identity, symbol match, timestamp parsing, no-hindsight clipping, or threshold fixture metadata missing/ambiguous/unproven.
+- Known target expected fixture status: `clean`, only after the no-hindsight regression path proves future data cannot affect the result.
+
+## Current Blockers
+
+- QQQ gap-context calculator logic is not created.
+- QQQ gap-context evidence fields are not filled.
+- QQQ Clean Fast Break stale/spent lifecycle rule is not decided.
+- Option-context, execution-context, headline-context, and complete-caution labels are not decided.
+- Contract selection, entry, fill, spread/liquidity, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided.
+
+## Next Needed Rule/Test
+
+The next useful implementation step is a QQQ Clean Fast Break gap-context calculator with focused tests against the accepted fixture file, but only when a future task explicitly authorizes calculator code.
+
+Required behavior for that future step:
+
+- Calculate raw gap amount and percent from source-backed previous close and signal-day open.
+- Classify by the accepted fixture threshold set.
+- Return `unknown` for missing/ambiguous required inputs.
+- Prove no-hindsight behavior by ignoring future candles and replay future rows after `2026-04-13T12:30:00-04:00`.
+- Preserve `gap_context_as_of` as the latest allowed candle timestamp used by the rule, not the later export timestamp.
+
+## No Proof / No Readiness Status
+
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Candidate ready: NO.
+- Intake-ready count changed: NO.

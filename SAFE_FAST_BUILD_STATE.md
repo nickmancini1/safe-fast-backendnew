@@ -1,5 +1,39 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 project speed layer result
+
+- Current task baseline stated by task file and confirmed by git: `5ebc7cb Add QQQ gap context regression fixtures`.
+- Corrective scope: docs and safe local check runner only.
+- Safe-check runner created: `scripts/safe_fast_run_safe_checks.ps1`.
+- Codex task templates created: `SAFE_FAST_CODEX_TASK_TEMPLATES.md`.
+- Project dashboard created: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Speed-layer review created: `SAFE_FAST_DAY41_PROJECT_SPEED_LAYER_REVIEW.md`.
+- Candidate packet directory created: `historical_signal_replay/candidate_packets/`.
+- Candidate packet README created: `historical_signal_replay/candidate_packets/README.md`.
+- QQQ CFB candidate packet created: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Next-chat intro updated: `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Future-chat order clarified: read build state, dashboard, rule index, templates, and candidate packets before repeating old discovery.
+- Safe-check runner behavior:
+  - runs `tests.test_databento_opra_normalizer` if present.
+  - validates JSON fixtures in `historical_signal_replay/fixtures` if present.
+  - runs Python compile checks for configured helper modules if present.
+  - prints PASS / FAIL / SKIPPED summary.
+  - does not touch live, broker, order, account, Railway, secrets, paid/vendor calls, or raw-data mutation.
+- Current dashboard status preserved:
+  - proof accepted: NO.
+  - profitability claim made: NO.
+  - QQQ candidate ready: NO.
+  - intake-ready count changed: NO.
+  - QQQ gap-context calculator created: NO.
+  - evidence filled: NO.
+  - trade chosen: NO.
+  - P&L calculated: NO.
+  - backtest authorized: NO.
+- QQQ CFB packet preserves candidate id, symbol, setup type, signal time, previous close, open, gap, Databento data status, gap fixture status, blockers, next needed rule/test, and no-proof/no-readiness status.
+- No existing docs were erased.
+- No evidence files, calculator code, backtest code, trade-selection code, raw data files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, P&L files, or raw vendor files were changed.
+
 ## Day 41 QQQ gap-context regression fixtures result
 
 - Current task baseline stated by task file and confirmed by git: `fcb8d0e Accept QQQ gap threshold fixtures`.
