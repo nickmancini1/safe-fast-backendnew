@@ -2,12 +2,14 @@
 
 ## Current Checkpoint
 
-- Baseline commit for this context/caution calculator task: `c1877a4 Accept QQQ CFB context caution blocker defaults`.
-- Current Day 41 checkpoint: QQQ Clean Fast Break context/caution calculator exists at `historical_signal_replay/context_caution_calculator.py` with focused tests at `tests/test_context_caution_calculator.py`. It preserves blocker defaults from `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_MISSING_DECISIONS.md`: missing selected contract/reviewed universe keeps option context `unknown`, missing historical headline/no-headline source keeps headline context `unknown`, missing execution entry/fill rules keep execution context `unknown`, and complete caution review cannot pass with any required `unknown` component.
+- Baseline commit for this context/caution evidence fill task: `a61e734 Add QQQ CFB context caution calculator`.
+- Current Day 41 checkpoint: QQQ Clean Fast Break context/caution work-package evidence is filled with calculator-backed blocker-preserving `unknown` statuses in `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`. It preserves blocker defaults from `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_MISSING_DECISIONS.md`: missing selected contract/reviewed universe keeps option context `unknown`, missing historical headline/no-headline source keeps headline context `unknown`, missing execution entry/fill rules keep execution context `unknown`, and complete caution review cannot pass with any required `unknown` component.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - Intake-ready count changed: NO.
 - QQQ candidate ready: NO.
+- Content validation result after context/caution fill: `3` passed requests, `6` failed requests.
+- Bridge result after context/caution fill: QQQ reconsideration-eligible, intake-ready `NO`, proof allowed `NO`.
 
 ## Active Objective
 
@@ -36,10 +38,11 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 - QQQ CFB context/caution regression fixtures exist at `historical_signal_replay/fixtures/qqq_cfb_context_caution_regression_fixtures.json` and cover framework-level component statuses, complete-caution precedence, missing-data behavior, future-data rejection, wrong identity rejection, and forbidden fill/P&L/profitability/readiness rejection. Threshold/source boundary fixtures that would require missing human decisions are documented as blocked in `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_FIXTURES_BLOCKED.md`.
 - QQQ CFB context/caution missing-decision defaults are accepted at `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_MISSING_DECISIONS.md`: option, headline, and execution remain `unknown` when their source/rule prerequisites are missing, and `unknown` blocks complete caution review.
 - QQQ CFB context/caution calculator exists at `historical_signal_replay/context_caution_calculator.py` with focused fixture-driven tests at `tests/test_context_caution_calculator.py`; all 22 accepted context/caution fixtures pass.
+- QQQ CFB context/caution work-package request is filled with `option_context_status=unknown`, `headline_context_status=unknown`, `execution_context_status=unknown`, and `complete_caution_review_status=unknown` from the accepted missing-decision defaults and calculator. This is blocker-preserving evidence, not a clean/caution/fail pass.
 
 ## Current Blockers
 
-- QQQ Clean Fast Break complete context/caution fields remain unfilled: `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status`.
+- QQQ Clean Fast Break complete context/caution fields are filled only as calculator-backed `unknown`; clean/caution/fail context labels remain blocked.
 - Context/caution framework fixtures and missing-decision defaults are accepted, but option numeric thresholds, selected-contract/reviewed-universe policy, execution entry/fill/quote-age/spread/liquidity/slippage rules, and the historical headline/no-headline source/category policy remain blocked for clean/caution/fail evidence fills.
 - Contract selection, entry, fill assumption, spread/liquidity limits, exit, stop/invalidation translation, time exit, cost/slippage, failure labels, sample-size requirement, and promotion gates remain undecided.
 - Option-context, execution-context, headline-context, and complete-caution label rules remain undecided.
@@ -47,7 +50,7 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 
 ## Next Single Action
 
-Use the filled QQQ gap-context request, filled lifecycle request, context/caution regression fixtures, missing-decision defaults, and tested context/caution calculator only as prerequisites. Evidence fill remains unauthorized until a bounded task explicitly requests blocker-preserving evidence-row updates or the missing clean/caution/fail decisions are accepted.
+Address the remaining trade-plan and clean/caution/fail decision blockers before any backtest or trade-plan evidence step: selected contract/reviewed universe, entry/fill rule, headline source/category mapping, execution thresholds, exit, stop, cost/slippage, sample size, and promotion gates.
 
 ## Data-Source Status
 
@@ -68,9 +71,9 @@ Use the filled QQQ gap-context request, filled lifecycle request, context/cautio
 - Gap percent: about `-0.2561%`.
 - Direction: down.
 - Calculator fixture status under first QQQ CFB threshold set: `clean` with no-hindsight future-data rejection covered by focused tests.
-- Evidence status: gap-context request and stale/spent/expiry lifecycle request filled and content-validator passed; context/caution request remains unfilled on four fields pending blocked human decisions; QQQ still parked, not proof, not ready.
+- Evidence status: gap-context request, stale/spent/expiry lifecycle request, and context/caution request pass content validation; context/caution remains four blocker-preserving `unknown` statuses; QQQ is not proof and not ready.
 - Context/caution fixture status: framework fixture package added; threshold/source boundary fixtures remain blocked by missing human decisions.
-- Context/caution calculator status: created and tested against all 22 accepted framework fixtures; target option, headline, execution, and complete caution statuses remain blocker-preserving `unknown` unless later source/rule decisions are accepted.
+- Context/caution calculator status: created and tested against all 22 accepted framework fixtures; target option, headline, execution, and complete caution statuses are filled as blocker-preserving `unknown` unless later source/rule decisions are accepted.
 - Lifecycle status: first QQQ CFB testing rule accepted; replay rows identify a fresh initial-break target, later spent follow-through, higher-base watch requiring a fresh completed breakout, and later spent/no-fresh-trigger context. Lifecycle regression rows added: YES. Lifecycle calculator created and tested: YES. Lifecycle evidence filled: YES.
 
 ## Remaining Project-Wide Rules
