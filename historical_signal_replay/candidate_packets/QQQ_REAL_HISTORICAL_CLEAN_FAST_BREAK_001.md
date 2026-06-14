@@ -42,6 +42,9 @@
 - Contract-selection selector tests: `tests/test_cfb_contract_selector.py`.
 - Contract-selection selector review: `SAFE_FAST_DAY41_QQQ_CFB_CONTRACT_SELECTOR_REVIEW.md`.
 - Contract-selection selector status: implemented for regression work only; all `18` accepted fixtures pass.
+- Option-context selector evidence review: `SAFE_FAST_DAY41_QQQ_CFB_OPTION_CONTEXT_SELECTOR_EVIDENCE_REVIEW.md`.
+- Local Databento selector result: abstain. Top-ranked contract `QQQ   260427C00615000` expiring `2026-04-27` at strike `615` and call side has no TCBBO quote at or before `2026-04-13T12:30:00-04:00` in the local quote window. The accepted no-fallback rule prevents selecting another contract.
+- Filled option-context status after selector evidence: `unknown`.
 - One selected real trade remains unchosen. The accepted selector still does not authorize evidence fill, backtest, P&L, proof, profitability, or readiness.
 
 ## Gap Fixture Status
@@ -93,6 +96,7 @@
 - Calculator status: created and tested against all 22 accepted framework fixtures. It classifies option, headline, execution, and complete-caution statuses, applies precedence `fail`, then `unknown`, then `caution`, then `clean`, rejects wrong identity and future/forbidden inputs, and refuses trade/P&L/proof/readiness inference.
 - Aggregation support: precedence is accepted and calculator-backed. Complete caution is filled as `unknown` because option thresholds, selected-contract one-contract ranking, execution trade-plan rules, and headline source/category policy remain undecided for clean/caution/fail evidence fills.
 - Selected-contract policy update: first reviewed-universe, quote-eligibility, one-contract selection rules, contract-selection fixtures, and contract-selection selector are accepted for regression work only. Complete caution remains `unknown` because evidence fill, execution entry/fill rule, broader option-context labels, and headline source/category policy remain missing.
+- Option-context selector evidence update: the selector was applied to local Databento QQQ OPRA files and abstained on the top-ranked contract because no setup-time-safe quote was available. Option context remains `unknown`; headline, execution, and complete caution remain `unknown`.
 
 ## Stale/Spent Expiry Status
 

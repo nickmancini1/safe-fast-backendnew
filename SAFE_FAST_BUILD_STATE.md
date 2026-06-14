@@ -1,6 +1,58 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB option-context selector evidence result
+
+- Current task baseline stated by task file: `fc1782c Add QQQ CFB contract selector`.
+- Corrective scope: apply the tested QQQ Clean Fast Break contract selector to local Databento QQQ files and update allowed review/state/candidate/work-package docs only.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Local Databento files loaded through `historical_signal_replay/databento_opra_normalizer.py`:
+  - `QQQ_OPRA_definitions_full_day.csv`;
+  - `QQQ_OPRA_tcbbo_1225_1235_et.csv`;
+  - `QQQ_OPRA_trades_1225_1235_et.csv`;
+  - `QQQ_OPRA_statistics_full_day.csv`.
+- Reviewed-universe load result: `280` definitions, `111` reviewed symbols with local-window quotes, `75` reviewed symbols with through-setup trades, and `9916` latest statistic pairs at or before setup.
+- Selector applied: `historical_signal_replay/cfb_contract_selector.py`.
+- Top-ranked contract under accepted rule:
+  - contract `QQQ   260427C00615000`;
+  - expiration `2026-04-27`;
+  - strike `615`;
+  - side call;
+  - DTE `14`.
+- Selector result: `abstain`.
+- Exact rejection reason: `quote_ts_event_after_signal`, because the top-ranked contract had no TCBBO quote at or before `2026-04-13T12:30:00-04:00` in the local quote window.
+- Raw local rows found for the top-ranked contract:
+  - first TCBBO quote row begins at `2026-04-13T16:31:13.931613555Z`, after setup;
+  - first trade row begins at `2026-04-13T16:31:13.931613555Z`, after setup;
+  - first statistics row begins at `2026-04-13T20:40:35.573660839Z`, after setup.
+- No fallback selection was allowed after the top-ranked contract failed the quote timestamp gate.
+- Review doc created: `SAFE_FAST_DAY41_QQQ_CFB_OPTION_CONTEXT_SELECTOR_EVIDENCE_REVIEW.md`.
+- Work-package row updated: `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Evidence field result:
+  - `option_context_status` remains `unknown`.
+  - `headline_context_status` remains `unknown`.
+  - `execution_context_status` remains `unknown`.
+  - `complete_caution_review_status` remains `unknown`.
+- Focused test command run: `python -m unittest tests.test_cfb_contract_selector`.
+- Focused test result: PASS.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS.
+- Content validator command run: `python -B -m watcher_foundation.source_evidence_work_package_content_validator`.
+- Content validator result: PASS command; `3` passed requests, `6` failed requests, `6` partial rows, `0` header-only rows.
+- Bridge command run: `python -B -m watcher_foundation.source_evidence_package_to_intake_bridge`.
+- Bridge result: PASS command; QQQ reconsideration-eligible count `1`, intake-ready count `0`, proof allowed `NO`.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw Databento files, selector code, normalizer code, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB contract selector result
 
 - Current task baseline stated by task file: `3115468 Add QQQ CFB contract selection fixtures`.
