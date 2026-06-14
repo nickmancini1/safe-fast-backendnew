@@ -1,5 +1,35 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ CFB stale/spent expiry rule review result
+
+- Current task baseline stated by task file and confirmed by git: `17d433e Fill QQQ CFB gap context evidence`.
+- Corrective scope: docs-only QQQ Clean Fast Break stale/spent expiry rule review and allowed state/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Rule review created: `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_RULE.md`.
+- Decision-needed doc created: `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_DECISION_NEEDED.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Existing repo language found:
+  - `SAFE_FAST_RULE_FAMILY_DECISION_TABLE.md` still marks `Clean Fast Break expiry` as `SOURCE_DATA_INSUFFICIENT`.
+  - `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_stale_spent_expiry_rule_regressions.jsonl` still has unresolved `clean_fast_break_stale_spent_expiry_rule` and `clean_fast_break_expiry_regression_rows`.
+  - QQQ replay line 3 is the target initial-break signal candidate at `2026-04-13T12:30:00-04:00`.
+  - QQQ replay line 4 is same-session follow-through context marked spent at `2026-04-13T15:30:00-04:00`.
+  - QQQ replay line 5 is higher-base watch requiring a fresh completed breakout at `2026-04-16T13:30:00-04:00`.
+  - QQQ replay line 6 is prior completed break spent/no-fresh-trigger context at `2026-04-17T15:30:00-04:00`.
+- Honest rule result: repo evidence is not enough to accept a complete reusable QQQ CFB stale/spent/expiry rule yet.
+- Exact decision still needed: freshness window, stale timing, spent behavior, expiry clock, higher-base refresh behavior, and precedence among fresh/stale/spent/expired/invalidated/blocked/unknown states.
+- Exact regression fixture cases needed next are documented before lifecycle evidence fill.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence package rows, calculator code, backtest code, trade-selection code, P&L files, raw Databento files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ gap-context evidence fill result
 
 - Current task baseline stated by task file and confirmed by git: `1e4e7f2 Add QQQ gap context calculator`.

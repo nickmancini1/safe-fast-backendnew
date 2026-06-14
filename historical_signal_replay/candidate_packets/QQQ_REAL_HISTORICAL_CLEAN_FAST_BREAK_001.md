@@ -46,9 +46,20 @@
 
 ## Current Blockers
 
-- QQQ Clean Fast Break stale/spent lifecycle rule is not decided.
+- QQQ Clean Fast Break stale/spent lifecycle rule is not decided; `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_RULE.md` records the known lifecycle labels and `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_DECISION_NEEDED.md` records the exact decision needed.
 - Option-context, execution-context, headline-context, and complete-caution labels are not decided.
 - Contract selection, entry, fill, spread/liquidity, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided.
+
+## Stale/Spent Expiry Status
+
+- Rule review doc: `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_RULE.md`.
+- Decision-needed doc: `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_DECISION_NEEDED.md`.
+- Replay line 3: initial-break signal candidate at `2026-04-13T12:30:00-04:00`.
+- Replay line 4: later same-session follow-through marked spent at `2026-04-13T15:30:00-04:00`.
+- Replay line 5: higher-base watch requires a fresh completed breakout at `2026-04-16T13:30:00-04:00`.
+- Replay line 6: prior completed break remains spent/no-fresh-trigger at `2026-04-17T15:30:00-04:00`.
+- Accepted lifecycle rule: NO.
+- Lifecycle regression rows added: NO.
 
 ## Next Needed Rule/Test
 
@@ -62,7 +73,7 @@ Current tested behavior:
 - Prove no-hindsight behavior by ignoring future candles and replay future rows after `2026-04-13T12:30:00-04:00`.
 - Preserve `gap_context_as_of` as the latest allowed candle timestamp used by the rule, not the later export timestamp.
 
-The next useful step is the next missing QQQ CFB rule decision only when explicitly authorized.
+The next useful step is choosing the QQQ CFB stale/spent expiry lifecycle decision and then adding data-only regression fixtures, only when explicitly authorized.
 
 ## No Proof / No Readiness Status
 

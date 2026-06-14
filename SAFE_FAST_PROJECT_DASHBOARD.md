@@ -2,8 +2,8 @@
 
 ## Current Checkpoint
 
-- Baseline commit for this evidence-fill task: `1e4e7f2 Add QQQ gap context calculator`.
-- Current Day 41 checkpoint: QQQ Clean Fast Break gap-context evidence fields are filled for the target request from the accepted calculator and regression fixtures.
+- Baseline commit for this stale/spent expiry rule task: `17d433e Fill QQQ CFB gap context evidence`.
+- Current Day 41 checkpoint: QQQ Clean Fast Break stale/spent expiry rule review is documented, but the accepted lifecycle rule still needs a decision before regression rows or evidence fill.
 - Proof accepted: NO.
 - Profitability claim made: NO.
 - Intake-ready count changed: NO.
@@ -27,10 +27,11 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 - QQQ gap-context regression fixtures exist at `historical_signal_replay/fixtures/qqq_gap_context_regression_fixtures.json`.
 - QQQ gap-context calculator exists at `historical_signal_replay/gap_context_calculator.py` with focused fixture-driven tests at `tests/test_gap_context_calculator.py`.
 - QQQ CFB gap-context work-package request now passes content validation with `gap_context_status`, `gap_context_as_of`, and `gap_context_reviewed_before_signal` filled for `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- QQQ CFB stale/spent expiry review now records the current replay lifecycle labels and exact missing lifecycle decisions in `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_RULE.md` and `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_DECISION_NEEDED.md`.
 
 ## Current Blockers
 
-- QQQ Clean Fast Break stale/spent lifecycle rule remains undecided.
+- QQQ Clean Fast Break stale/spent lifecycle rule remains undecided; exact freshness window, stale timing, spent behavior, expiry clock, higher-base refresh, and state precedence must be accepted before lifecycle regression rows or evidence fill.
 - QQQ Clean Fast Break complete context/caution fields remain missing.
 - Contract selection, entry, fill assumption, spread/liquidity limits, exit, stop/invalidation translation, time exit, cost/slippage, failure labels, sample-size requirement, and promotion gates remain undecided.
 - Option-context, execution-context, headline-context, and complete-caution label rules remain undecided.
@@ -38,7 +39,7 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 
 ## Next Single Action
 
-Use the filled QQQ gap-context request only as one completed evidence request. The next useful bounded step is the next missing QQQ CFB rule decision, only when explicitly authorized; do not treat the filled gap-context row as proof, a backtest, a trade choice, P&L, or readiness.
+Use the filled QQQ gap-context request only as one completed evidence request. The next useful bounded step is choosing the QQQ CFB stale/spent expiry decision and then adding data-only lifecycle regression fixtures, only when explicitly authorized; do not treat the gap-context row or lifecycle labels as proof, a backtest, a trade choice, P&L, or readiness.
 
 ## Data-Source Status
 
@@ -60,6 +61,7 @@ Use the filled QQQ gap-context request only as one completed evidence request. T
 - Direction: down.
 - Calculator fixture status under first QQQ CFB threshold set: `clean` with no-hindsight future-data rejection covered by focused tests.
 - Evidence status: gap-context request filled and content-validator passed; QQQ still parked, not proof, not ready.
+- Lifecycle status: replay rows identify an initial-break signal, later spent follow-through, higher-base watch requiring a fresh completed breakout, and later spent/no-fresh-trigger context. Accepted stale/spent expiry rule: NO.
 
 ## Remaining Project-Wide Rules
 
