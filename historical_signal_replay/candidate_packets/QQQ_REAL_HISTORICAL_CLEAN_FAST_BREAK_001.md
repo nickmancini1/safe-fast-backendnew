@@ -59,12 +59,14 @@
 - Replay line 5: higher-base watch requires a fresh completed breakout at `2026-04-16T13:30:00-04:00`.
 - Replay line 6: prior completed break remains spent/no-fresh-trigger at `2026-04-17T15:30:00-04:00`.
 - Decision doc: `SAFE_FAST_DAY41_QQQ_CFB_STALE_SPENT_EXPIRY_DECISION.md`.
+- Lifecycle fixture file: `historical_signal_replay/fixtures/qqq_cfb_lifecycle_regression_fixtures.json`.
+- Lifecycle fixture review: `SAFE_FAST_DAY41_QQQ_CFB_LIFECYCLE_REGRESSION_FIXTURES_REVIEW.md`.
 - Accepted first lifecycle rule: YES, for testing only.
 - Freshness window: exact completed initial-break signal candle decision timestamp only.
 - Spent behavior: a completed break or follow-through consumes the trigger path; later reuse of the same trigger path is spent.
 - Higher-base refresh behavior: a later higher base is not fresh unless a new source-backed trigger, invalidation, and completed breakout exist.
 - Missing-data and future-data behavior: missing or ambiguous required lifecycle fields produce `unknown`; future rows, option data, fills, P&L, profitability, and readiness cannot affect setup-time lifecycle state.
-- Lifecycle regression rows added: NO.
+- Lifecycle regression rows added: YES.
 
 ## Next Needed Rule/Test
 
@@ -78,7 +80,7 @@ Current tested behavior:
 - Prove no-hindsight behavior by ignoring future candles and replay future rows after `2026-04-13T12:30:00-04:00`.
 - Preserve `gap_context_as_of` as the latest allowed candle timestamp used by the rule, not the later export timestamp.
 
-The next useful step is adding data-only QQQ CFB lifecycle regression fixtures for the accepted first lifecycle rule, only when explicitly authorized.
+The next useful step is a focused QQQ CFB lifecycle calculator/test task against the accepted lifecycle regression fixtures, only when explicitly authorized.
 
 ## No Proof / No Readiness Status
 

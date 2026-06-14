@@ -1,5 +1,45 @@
 ﻿# SAFE-FAST Build State
 
+## Day 41 QQQ CFB lifecycle regression fixtures result
+
+- Current task baseline stated by task file and confirmed by git: `cec29a7 Accept QQQ CFB stale spent expiry rule`.
+- Corrective scope: data-only QQQ Clean Fast Break stale/spent/expiry lifecycle regression fixtures, review doc, and allowed state/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Fixture file created: `historical_signal_replay/fixtures/qqq_cfb_lifecycle_regression_fixtures.json`.
+- Review doc created: `SAFE_FAST_DAY41_QQQ_CFB_LIFECYCLE_REGRESSION_FIXTURES_REVIEW.md`.
+- Blocked doc created: NO; accepted decision doc was specific enough for honest fixtures.
+- Fixture count: 18.
+- Fixtures cover:
+  - fresh target initial break at `2026-04-13T12:30:00-04:00`;
+  - spent same-session follow-through at `2026-04-13T15:30:00-04:00`;
+  - stale higher-base watch at `2026-04-16T13:30:00-04:00`;
+  - spent prior-completed-break/no-fresh-trigger at `2026-04-17T15:30:00-04:00`;
+  - exact-boundary fresh versus later expired review;
+  - expired later review without spent evidence;
+  - unknown missing trigger, missing invalidation, missing timestamp/stage/prior-state/row-ordering, wrong symbol, and wrong setup type;
+  - future replay-row rejection;
+  - future candle rejection;
+  - option, fill, P&L, profitability, and readiness ignored;
+  - higher-base refresh allowed only with new source-backed trigger, invalidation, and completed breakout;
+  - higher-base refresh rejected when required new trigger-path metadata is missing;
+  - state precedence where spent wins over expired and unknown wins over otherwise fresh/spent-looking contexts.
+- JSON parse and required-field validation: PASS, 18 fixtures.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, 3 checks.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Lifecycle calculator created: NO.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence package rows, calculator code, backtest code, trade-selection code, P&L files, raw Databento files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB stale/spent expiry decision result
 
 - Current task baseline stated by task file and confirmed by git: `07ea738 Record QQQ CFB stale spent expiry decision needed`.
