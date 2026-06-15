@@ -42,6 +42,112 @@ def select_contract_from_fixture(fixture):
     )
 
 
+def evaluate_new_contract_oi_exception_from_fixture(fixture):
+    return evaluate_new_contract_oi_exception(
+        signal_time=fixture.get("signal_time"),
+        contract=fixture.get("contract"),
+        instrument_id=fixture.get("instrument_id"),
+        listed_before_signal=fixture.get("listed_before_signal"),
+        existed_prior_trading_day=fixture.get("existed_prior_trading_day"),
+        has_setup_safe_quote=fixture.get("has_setup_safe_quote"),
+        spread=fixture.get("spread"),
+        spread_percent=fixture.get("spread_percent"),
+        bid_size=fixture.get("bid_size"),
+        ask_size=fixture.get("ask_size"),
+        setup_time_trade_volume=fixture.get("setup_time_trade_volume"),
+        has_setup_safe_open_interest=fixture.get("has_setup_safe_open_interest"),
+        no_fallback_failure=_fixture_declares_no_fallback_case(fixture),
+        future_data_detected=_fixture_declares_future_data_case(fixture),
+    )
+
+
+def evaluate_new_contract_oi_exception(
+    *,
+    signal_time,
+    contract,
+    instrument_id,
+    listed_before_signal,
+    existed_prior_trading_day,
+    has_setup_safe_quote,
+    spread,
+    spread_percent,
+    bid_size,
+    ask_size,
+    setup_time_trade_volume,
+    has_setup_safe_open_interest,
+    no_fallback_failure=False,
+    future_data_detected=False,
+):
+    errors = []
+    signal_at = _parse_timestamp_or_error(signal_time, "signal_time", errors)
+    if signal_at is None:
+        return _option_context_result("unknown", "missing_or_invalid_signal_time", errors)
+    del signal_at
+
+    if not contract and not instrument_id:
+        return _option_context_result("unknown", "missing_contract_identity", errors)
+
+    if future_data_detected:
+        return _option_context_result("unknown", "future_data_detected", errors)
+
+    if listed_before_signal is None:
+        return _option_context_result("unknown", "missing_listing_timestamp", errors)
+    if listed_before_signal is not True:
+        return _option_context_result("unknown", "listing_after_signal", errors)
+
+    if has_setup_safe_quote is not True:
+        if _decimal_or_none(spread) is not None or _decimal_or_none(spread_percent) is not None:
+            return _option_context_result("unknown", "quote_ts_event_after_signal", errors)
+        return _option_context_result("unknown", "missing_setup_safe_quote", errors)
+
+    spread_value = _decimal_or_none(spread)
+    if spread_value is None:
+        return _option_context_result("unknown", "missing_spread", errors)
+    if spread_value > SPREAD_CAP:
+        reason = (
+            "top_ranked_contract_failed_no_fallback"
+            if no_fallback_failure
+            else "spread_above_0_15"
+        )
+        return _option_context_result("unknown", reason, errors)
+
+    spread_percent_value = _decimal_or_none(spread_percent)
+    if spread_percent_value is None:
+        return _option_context_result("unknown", "missing_spread_percent", errors)
+    if spread_percent_value > SPREAD_PCT_CAP:
+        return _option_context_result("unknown", "spread_percent_above_2_percent", errors)
+
+    bid_size_value = _decimal_or_none(bid_size)
+    if bid_size_value is None or bid_size_value < MIN_BID_SIZE:
+        return _option_context_result("unknown", "bid_size_below_1", errors)
+
+    ask_size_value = _decimal_or_none(ask_size)
+    if ask_size_value is None or ask_size_value < MIN_ASK_SIZE:
+        return _option_context_result("unknown", "ask_size_below_1", errors)
+
+    volume_value = _decimal_or_none(setup_time_trade_volume)
+    if volume_value is None or volume_value < MIN_TRADE_VOLUME:
+        return _option_context_result("unknown", "trade_volume_below_1", errors)
+
+    if has_setup_safe_open_interest is True:
+        return _option_context_result("clean", None, errors)
+
+    if existed_prior_trading_day is True:
+        return _option_context_result(
+            "unknown",
+            "prior_day_contract_present_open_interest_missing",
+            errors,
+        )
+    if existed_prior_trading_day is not False:
+        return _option_context_result(
+            "unknown",
+            "prior_day_contract_listing_unknown",
+            errors,
+        )
+
+    return _option_context_result("caution", None, errors)
+
+
 def select_contract(
     *,
     signal_time,
@@ -318,6 +424,22 @@ def _result(*, status, selected_contract, rejection_reason, errors):
         "rejection_reason": rejection_reason,
         "errors": errors,
     }
+
+
+def _option_context_result(status, rejection_reason, errors):
+    return {
+        "option_context_status": status,
+        "rejection_reason": rejection_reason,
+        "errors": errors,
+    }
+
+
+def _fixture_declares_no_fallback_case(fixture):
+    return str(fixture.get("fixture_id", "")).endswith("_fallback_rejected")
+
+
+def _fixture_declares_future_data_case(fixture):
+    return str(fixture.get("fixture_id", "")).endswith("_future_data_rejected")
 
 
 def _parse_timestamp_or_error(value, field_name, errors):

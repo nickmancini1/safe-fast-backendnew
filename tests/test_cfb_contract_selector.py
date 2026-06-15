@@ -11,6 +11,12 @@ FIXTURE_PATH = (
     / "fixtures"
     / "qqq_cfb_contract_selection_regression_fixtures.json"
 )
+NEW_CONTRACT_OI_EXCEPTION_FIXTURE_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "historical_signal_replay"
+    / "fixtures"
+    / "qqq_cfb_new_contract_oi_exception_regression_fixtures.json"
+)
 
 
 class CfbContractSelectorTests(unittest.TestCase):
@@ -21,6 +27,14 @@ class CfbContractSelectorTests(unittest.TestCase):
         cls.fixtures_by_id = {
             row["fixture_id"]: row
             for row in cls.fixtures
+        }
+        exception_fixture_data = json.loads(
+            NEW_CONTRACT_OI_EXCEPTION_FIXTURE_PATH.read_text(encoding="utf-8")
+        )
+        cls.exception_fixtures = exception_fixture_data["fixtures"]
+        cls.exception_fixtures_by_id = {
+            row["fixture_id"]: row
+            for row in cls.exception_fixtures
         }
 
     def test_all_18_fixtures_pass(self):
@@ -110,8 +124,76 @@ class CfbContractSelectorTests(unittest.TestCase):
             with self.assertRaises(selector.UnsafeInferenceError):
                 unsafe_call(result)
 
+    def test_all_13_new_contract_oi_exception_fixtures_pass(self):
+        self.assertEqual(len(self.exception_fixtures), 13)
+
+        for fixture in self.exception_fixtures:
+            with self.subTest(fixture_id=fixture["fixture_id"]):
+                result = selector.evaluate_new_contract_oi_exception_from_fixture(
+                    fixture
+                )
+
+                self.assertEqual(
+                    result["option_context_status"],
+                    fixture["expected_option_context_status"],
+                )
+                self.assertEqual(
+                    result["rejection_reason"],
+                    fixture["expected_rejection_reason"],
+                )
+
+    def test_new_contract_oi_exception_valid_case_returns_caution(self):
+        result = self._evaluate_exception(
+            "qqq_cfb_new_contract_oi_exception_valid_returns_caution"
+        )
+
+        self.assertEqual(result["option_context_status"], "caution")
+        self.assertIsNone(result["rejection_reason"])
+
+    def test_new_contract_oi_exception_rejects_prior_day_present_missing_oi(self):
+        result = self._evaluate_exception(
+            "qqq_cfb_new_contract_oi_exception_prior_day_present_oi_missing_rejected"
+        )
+
+        self.assertEqual(result["option_context_status"], "unknown")
+        self.assertEqual(
+            result["rejection_reason"],
+            "prior_day_contract_present_open_interest_missing",
+        )
+
+    def test_new_contract_oi_exception_preserves_no_fallback(self):
+        result = self._evaluate_exception(
+            "qqq_cfb_new_contract_oi_exception_fallback_rejected"
+        )
+
+        self.assertEqual(result["option_context_status"], "unknown")
+        self.assertEqual(
+            result["rejection_reason"],
+            "top_ranked_contract_failed_no_fallback",
+        )
+
+    def test_new_contract_oi_exception_rejects_future_data(self):
+        result = self._evaluate_exception(
+            "qqq_cfb_new_contract_oi_exception_future_data_rejected"
+        )
+
+        self.assertEqual(result["option_context_status"], "unknown")
+        self.assertEqual(result["rejection_reason"], "future_data_detected")
+
+    def test_new_contract_oi_exception_output_does_not_infer_trade_results(self):
+        result = self._evaluate_exception(
+            "qqq_cfb_new_contract_oi_exception_valid_returns_caution"
+        )
+
+        self.assertTrue(selector.FORBIDDEN_OUTPUT_FIELDS.isdisjoint(result))
+
     def _select(self, fixture_id):
         return selector.select_contract_from_fixture(self.fixtures_by_id[fixture_id])
+
+    def _evaluate_exception(self, fixture_id):
+        return selector.evaluate_new_contract_oi_exception_from_fixture(
+            self.exception_fixtures_by_id[fixture_id]
+        )
 
 
 if __name__ == "__main__":

@@ -1,6 +1,52 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB new-contract open-interest exception selector result
+
+- Current task baseline stated by task file: `fbaa6b6 Add QQQ CFB new contract OI exception fixtures`.
+- Corrective scope: selector/test implementation for the accepted QQQ CFB new-contract open-interest exception, plus allowed review/state/index/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Target contract: `QQQ   260427C00615000`.
+- Instrument id: `1023411456`.
+- Setup/signal time: `2026-04-13T12:30:00-04:00` / `2026-04-13T16:30:00Z`.
+- Selector updated: `historical_signal_replay/cfb_contract_selector.py`.
+- Test file updated: `tests/test_cfb_contract_selector.py`.
+- Selector review created: `SAFE_FAST_DAY41_QQQ_CFB_NEW_CONTRACT_OI_EXCEPTION_SELECTOR_REVIEW.md`.
+- New selector behavior:
+  - original `select_contract_from_fixture` / `select_contract` path preserved for the accepted contract-selection fixtures;
+  - new `evaluate_new_contract_oi_exception_from_fixture` / `evaluate_new_contract_oi_exception` path added for the accepted listing-aware open-interest exception;
+  - valid newly listed missing-open-interest case returns `option_context_status=caution`;
+  - contract listed after signal rejected;
+  - contract existed prior day but open interest missing rejected as `unknown`;
+  - missing listing timestamp rejected as `unknown`;
+  - missing setup-time-safe quote rejected as `unknown`;
+  - quote after signal rejected;
+  - spread above `0.15` rejected;
+  - spread percent above `2.00%` rejected;
+  - bid size below `1` rejected;
+  - ask size below `1` rejected;
+  - setup-time trade volume below `1` rejected;
+  - fallback after top-ranked contract failure rejected;
+  - future data rejected.
+- Original contract-selection fixture result: PASS, `18` fixtures.
+- New-contract OI exception fixture result: PASS, `13` fixtures.
+- Unit test command run: `python -m unittest tests.test_cfb_contract_selector`.
+- Unit test result: PASS, `12` tests.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw Databento files, normalizer code, evidence rows, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB new-contract open-interest exception fixtures result
 
 - Current task baseline stated by task file: `63a4748 Accept QQQ CFB new contract OI exception rule`.
