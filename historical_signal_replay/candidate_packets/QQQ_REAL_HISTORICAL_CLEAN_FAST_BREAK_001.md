@@ -57,6 +57,8 @@
 - Open-interest gate result: same-contract setup-time-safe open interest remains required for the first QQQ CFB option-context rule; missing open interest is `unknown`, volume-only liquidity is not accepted as a pass, and the current QQQ option context remains `unknown` until a timestamp-safe same-contract open-interest source exists or a later explicit human rule decision changes the gate with regression fixtures.
 - Open-interest source audit: `SAFE_FAST_DAY41_QQQ_CFB_OPEN_INTEREST_SOURCE_AUDIT.md`.
 - Open-interest source audit result: current local QQQ OPRA files do not contain timestamp-safe same-contract open interest for `QQQ   260427C00615000` / `instrument_id=1023411456`. The full-day statistics file has `178,488` `stat_type=9` open-interest rows overall, but `0` same-contract open-interest rows; the same contract has `88` statistics rows, all after setup and none with `stat_type=9`; the targeted setup-window statistics file has `0` rows. Option context remains `unknown`.
+- Target contract listing / open-interest audit: `SAFE_FAST_DAY41_QQQ_CFB_TARGET_CONTRACT_LISTING_OI_AUDIT.md`.
+- Target contract listing / open-interest audit result: Apr 13 definitions list `QQQ   260427C00615000` / `instrument_id=1023411456` at CSV line `10022` with `security_update_action=A` and `ts_event=2026-04-13T12:00:00.445628903Z`, before setup. The local Apr 10 parent definitions file has `10,212` rows and `0` matches for the target instrument, target symbol, or same `2026-04-27` call `615` contract shape. Prior-day same-contract open interest is unavailable from the current local prior-day definition source, but the accepted open-interest gate remains unchanged and still blocks option context.
 - One selected real trade remains unchosen. The accepted selector still does not authorize evidence fill, backtest, P&L, proof, profitability, or readiness.
 
 ## Gap Fixture Status
@@ -76,7 +78,7 @@
 ## Current Blockers
 
 - Option-context, execution-context, headline-context, and complete-caution clean/caution/fail labels are not decided.
-- Open-interest gate decision is conservative: quote, spread, quote-size, and trade-volume gates now pass for the top-ranked contract, but setup-time-safe same-contract open interest remains missing in the audited local source files and still blocks option context from passing.
+- Open-interest gate decision is conservative: quote, spread, quote-size, and trade-volume gates now pass for the top-ranked contract, and the target contract was listed before setup on Apr 13 but absent from local Apr 10 parent definitions. Setup-time-safe same-contract open interest remains missing in the audited local source files and still blocks option context from passing unless a later human rule decision accepts a listing-aware exception with regression fixtures.
 - Reviewed option-universe, quote eligibility, the first one-contract selection rule, contract-selection regression fixtures, and selector/calculator implementation are accepted for regression work, but evidence fill, entry, fill, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided or not implemented.
 
 ## Context/Caution Status
