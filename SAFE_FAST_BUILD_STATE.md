@@ -1,6 +1,51 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB open-interest gate decision result
+
+- Current task baseline stated by task file: `b6569f4 Rerun QQQ option context with trades statistics`.
+- Corrective scope: docs-only decision for the first QQQ Clean Fast Break option-context open-interest gate and allowed state/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Top-ranked contract: `QQQ   260427C00615000`.
+- Instrument id: `1023411456`.
+- Setup/signal time: `2026-04-13T12:30:00-04:00` / `2026-04-13T16:30:00Z`.
+- Current cured gates:
+  - setup-time-safe quote exists from the wider top-contract TCBBO file;
+  - spread `0.04` passes the `0.15` cap;
+  - spread percent about `0.5141%` passes the `2.00%` cap;
+  - bid size `3` and ask size `31` pass;
+  - setup-time-safe trade volume `65` passes.
+- Current remaining blocker:
+  - setup-time-safe same-contract open interest is missing because the new top-contract statistics file contains `0` rows.
+- Decision: keep same-contract setup-time-safe open interest required for the first QQQ CFB option-context rule.
+- Rule change accepted: NO.
+- Volume-only liquidity accepted for regression: NO.
+- Missing open interest allowed as a passing option-context substitute: NO.
+- Required source before option context can pass: same-contract open-interest/statistics row for `QQQ   260427C00615000` / `instrument_id=1023411456`, with accepted timestamp fields at or before `2026-04-13T16:30:00Z`.
+- Current QQQ classification:
+  - `open_interest_status=unknown`;
+  - selector result remains `abstain`;
+  - `option_context_status` remains `unknown`;
+  - no fallback to another strike or expiration is allowed.
+- Decision doc created: `SAFE_FAST_DAY41_QQQ_CFB_OPEN_INTEREST_GATE_DECISION.md`.
+- Still-blocked doc created: NO, because an honest decision is supported: keep the existing open-interest gate and require a timestamp-safe source or a later explicit human rule change.
+- Selector changes needed now: NONE.
+- Regression fixture updates needed now: NONE.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw Databento files, selector code, normalizer code, evidence rows, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB option-context rerun with trades/statistics result
 
 - Current task baseline stated by task file: `2842cbd Rerun QQQ option context with wider quotes`.

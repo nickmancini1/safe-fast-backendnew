@@ -53,6 +53,8 @@
 - New top-contract trades/statistics result: `historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_trades_0930_1230_et.csv` exists and contains `28` trade rows for `instrument_id=1023411456`, all at or before setup time, with setup-time-safe trade volume `65`. `historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_statistics_0930_1230_et.csv` exists but contains `0` rows, so timestamp-safe same-contract open interest remains missing.
 - Selector rerun with new trades/statistics result: the old trade-volume blocker is cured, but the accepted selector still abstains because the top-ranked contract has no timestamp-safe same-contract open-interest/statistics row. No fallback is allowed.
 - Filled option-context status after trades/statistics selector rerun: `unknown`.
+- Open-interest gate decision: `SAFE_FAST_DAY41_QQQ_CFB_OPEN_INTEREST_GATE_DECISION.md`.
+- Open-interest gate result: same-contract setup-time-safe open interest remains required for the first QQQ CFB option-context rule; missing open interest is `unknown`, volume-only liquidity is not accepted as a pass, and the current QQQ option context remains `unknown` until a timestamp-safe same-contract open-interest source exists or a later explicit human rule decision changes the gate with regression fixtures.
 - One selected real trade remains unchosen. The accepted selector still does not authorize evidence fill, backtest, P&L, proof, profitability, or readiness.
 
 ## Gap Fixture Status
@@ -72,6 +74,7 @@
 ## Current Blockers
 
 - Option-context, execution-context, headline-context, and complete-caution clean/caution/fail labels are not decided.
+- Open-interest gate decision is conservative: quote, spread, quote-size, and trade-volume gates now pass for the top-ranked contract, but setup-time-safe same-contract open interest remains missing and still blocks option context from passing.
 - Reviewed option-universe, quote eligibility, the first one-contract selection rule, contract-selection regression fixtures, and selector/calculator implementation are accepted for regression work, but evidence fill, entry, fill, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided or not implemented.
 
 ## Context/Caution Status
@@ -104,7 +107,7 @@
 - Calculator status: created and tested against all 22 accepted framework fixtures. It classifies option, headline, execution, and complete-caution statuses, applies precedence `fail`, then `unknown`, then `caution`, then `clean`, rejects wrong identity and future/forbidden inputs, and refuses trade/P&L/proof/readiness inference.
 - Aggregation support: precedence is accepted and calculator-backed. Complete caution is filled as `unknown` because option thresholds, selected-contract one-contract ranking, execution trade-plan rules, and headline source/category policy remain undecided for clean/caution/fail evidence fills.
 - Selected-contract policy update: first reviewed-universe, quote-eligibility, one-contract selection rules, contract-selection fixtures, and contract-selection selector are accepted for regression work only. Complete caution remains `unknown` because evidence fill, execution entry/fill rule, broader option-context labels, and headline source/category policy remain missing.
-- Option-context selector evidence update: the selector was applied to local Databento QQQ OPRA files and initially abstained on the top-ranked contract because no setup-time-safe quote was available. The wider quote rerun found setup-time-safe quotes. The new trades/statistics rerun found setup-time-safe trade volume `65`, curing the trade-volume gate, but still abstained because timestamp-safe same-contract open-interest/statistics support remains missing under the accepted selector. Option context remains `unknown`; headline, execution, and complete caution remain `unknown`.
+- Option-context selector evidence update: the selector was applied to local Databento QQQ OPRA files and initially abstained on the top-ranked contract because no setup-time-safe quote was available. The wider quote rerun found setup-time-safe quotes. The new trades/statistics rerun found setup-time-safe trade volume `65`, curing the trade-volume gate, but still abstained because timestamp-safe same-contract open-interest/statistics support remains missing under the accepted selector. The open-interest gate decision keeps same-contract setup-time-safe open interest required and does not accept volume-only liquidity as a pass. Option context remains `unknown`; headline, execution, and complete caution remain `unknown`.
 - Top-contract quote coverage audit update: the exact top contract mapping is consistent, and local ten-minute TCBBO/trade rows for the contract exist only after signal time. The wider quote rerun cures the quote-only blocker and the new trades file cures the trade-volume blocker without filling evidence or changing the accepted selector rule. Timestamp-safe same-contract open interest remains missing.
 
 ## Stale/Spent Expiry Status
