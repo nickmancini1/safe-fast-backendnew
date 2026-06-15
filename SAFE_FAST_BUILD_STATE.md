@@ -1,6 +1,72 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB new-contract open-interest exception rule result
+
+- Current task baseline stated by task file: `6befebd Audit QQQ CFB target contract listing open interest`.
+- Corrective scope: docs-only human rule decision for a conservative listing-aware new-contract open-interest exception, plus allowed state/index/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Target contract: `QQQ   260427C00615000`.
+- Instrument id: `1023411456`.
+- Setup/signal time: `2026-04-13T12:30:00-04:00` / `2026-04-13T16:30:00Z`.
+- Conservative new-contract open-interest exception accepted: YES.
+- Accepted exception:
+  - if the already selected top-ranked contract was not listed on the prior trading day, prior-day same-contract open interest is not required;
+  - contract must still be listed before setup;
+  - setup-time-safe quote must exist;
+  - setup-time-safe spread and spread percent must pass accepted caps;
+  - bid size and ask size must pass accepted minimums;
+  - setup-time-safe same-contract trade volume must pass accepted minimum;
+  - no future data is allowed;
+  - no fallback to another strike, expiration, side, or contract is allowed;
+  - result is `caution`, not `clean`, because open interest is unavailable.
+- Allowed statuses defined: `pass`, `fail`, `caution`, and `unknown`.
+- Required raw inputs defined: selected contract identity, listing row, prior-trading-day definitions source, proof of prior-day absence, setup-time-safe quote/spread/size/volume inputs, accepted setup boundary, comparable timestamps, and no forbidden future/fill/P&L/proof/profitability/readiness inputs.
+- QQQ listing-before-signal result:
+  - Apr 13 definition line `10022`;
+  - `security_update_action=A`;
+  - `ts_event=2026-04-13T12:00:00.445628903Z`;
+  - listed before `2026-04-13T16:30:00Z`: PASS.
+- QQQ prior-day-not-listed result:
+  - Apr 10 parent definitions file exists;
+  - row count `10,212`;
+  - target instrument matches `0`;
+  - target symbol matches `0`;
+  - same `2026-04-27` call `615` contract-shape rows `0`;
+  - prior-day-not-listed: PASS.
+- QQQ quote/spread/volume requirements:
+  - nearest setup-time-safe quote `2026-04-13T16:06:30.640301037Z`;
+  - bid `7.76`, ask `7.80`;
+  - spread `0.04`, passing `0.15` cap;
+  - spread percent about `0.5141%`, passing `2.00%` cap;
+  - bid size `3`, ask size `31`;
+  - setup-time-safe trade volume `65`.
+- Expected QQQ result under the accepted exception after regression fixtures and selector/rule implementation: `option_context_status=caution`.
+- Current recorded QQQ result remains unchanged now:
+  - `open_interest_status=unknown`;
+  - selector result remains `abstain`;
+  - `option_context_status` remains `unknown`;
+  - `complete_caution_review_status` remains `unknown`.
+- Regression fixtures needed next are documented in `SAFE_FAST_DAY41_QQQ_CFB_NEW_CONTRACT_OI_EXCEPTION_RULE.md`.
+- Rule doc created: `SAFE_FAST_DAY41_QQQ_CFB_NEW_CONTRACT_OI_EXCEPTION_RULE.md`.
+- Still-blocked doc created: NO, because the proposed conservative listing-aware exception was accepted.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Evidence filled: NO.
+- Selector code changed: NO.
+- Regression fixtures created: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw Databento files, selector code, normalizer code, evidence rows, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB target contract listing/open-interest audit result
 
 - Current task baseline stated by task file: `feb2e74 Audit QQQ CFB open interest source`.
