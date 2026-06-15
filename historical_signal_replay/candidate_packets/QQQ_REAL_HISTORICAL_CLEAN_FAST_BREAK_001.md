@@ -73,7 +73,11 @@
 - Execution-context fixture file: `historical_signal_replay/fixtures/qqq_cfb_execution_context_regression_fixtures.json`.
 - Execution-context fixture review: `SAFE_FAST_DAY41_QQQ_CFB_EXECUTION_CONTEXT_FIXTURES_REVIEW.md`.
 - Execution-context regression fixtures added: YES, `13` data-only fixtures covering clean quote age, caution quote age, fail quote too old, the known QQQ stale quote fail, quote-after-signal rejection, missing bid, missing ask, bad spread, missing size, missing volume, missing source data as `unknown`, no fallback, and forbidden P&L/proof/readiness field rejection.
-- Target execution-context implication: the selected quote at `2026-04-13T16:06:30.640301037Z` is about `23` minutes `29` seconds old at the `2026-04-13T16:30:00Z` setup boundary, so the expected target result after fixtures and implementation is `execution_context_status=fail`.
+- Execution-context calculator: `historical_signal_replay/execution_context_calculator.py`.
+- Execution-context calculator tests: `tests/test_execution_context_calculator.py`.
+- Execution-context calculator review: `SAFE_FAST_DAY41_QQQ_CFB_EXECUTION_CONTEXT_CALCULATOR_REVIEW.md`.
+- Execution-context calculator result: implemented for regression work; all `13` accepted fixtures pass.
+- Target execution-context implication: the selected quote at `2026-04-13T16:06:30.640301037Z` is about `23` minutes `29` seconds old at the `2026-04-13T16:30:00Z` setup boundary, so the tested target result is `execution_context_status=fail` with `rejection_reason=quote_age_above_5_minutes`.
 - Later-test fill basis: ask price only for long-call testing; target ask is `7.80`. No fill evidence, P&L, backtest, proof, profitability, readiness, or intake-ready change is authorized.
 - One selected real trade remains unchosen. The accepted selector and evidence fill still do not authorize backtest, P&L, proof, profitability, or readiness.
 
@@ -121,7 +125,7 @@
 - Current rule result: first conservative framework accepted; blocker-preserving `unknown` evidence fill completed for the target row.
 - Accepted framework: statuses `clean`, `caution`, `fail`, and `unknown`; setup-time source/timestamp rules; forbidden future-data behavior; missing-data behavior; and complete-caution aggregation precedence of `fail`, then `unknown`, then `caution`, then `clean`.
 - Regression fixture status: data-only framework fixtures added for option, headline, and execution component statuses; complete-caution precedence; missing-data behavior; no-hindsight future-data rejection; wrong identity rejection; and forbidden fill/P&L/profitability/readiness rejection.
-- Databento support: raw option, quote, spread, volume, and open-interest inputs are available for inspection. The first execution-context quote-age/spread/size/volume rule is accepted for regression work, but fixtures, implementation, and evidence fill are still needed before the work-package execution field can change.
+- Databento support: raw option, quote, spread, volume, and open-interest inputs are available for inspection. The first execution-context quote-age/spread/size/volume rule, fixtures, and calculator are accepted for regression work, but evidence-fill authorization is still needed before the work-package execution field can change.
 - Headline support: no source-confirmed headline/news/event feed is available for this historical row.
 - Missing-decision defaults: no selected contract policy kept option context `unknown`; no source-confirmed historical headline/no-headline source keeps headline context `unknown`; no accepted execution entry/fill rule keeps execution context `unknown`; complete caution review cannot pass if any required component is `unknown`. The first reviewed-universe/eligibility policy is now accepted, but one-contract ranking and option thresholds remain blocked.
 - Calculator status: created and tested against all 22 accepted framework fixtures. It classifies option, headline, execution, and complete-caution statuses, applies precedence `fail`, then `unknown`, then `caution`, then `clean`, rejects wrong identity and future/forbidden inputs, and refuses trade/P&L/proof/readiness inference.

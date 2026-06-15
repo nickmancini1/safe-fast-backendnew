@@ -1,6 +1,46 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB execution context calculator result
+
+- Current task baseline stated by task file: `e3f4d44 Add QQQ CFB execution context fixtures`.
+- Corrective scope: execution-context calculator/test implementation against accepted QQQ CFB execution-context fixtures, plus allowed review/state/index/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Target contract: `QQQ   260427C00615000`.
+- Instrument id: `1023411456`.
+- Setup/signal time: `2026-04-13T12:30:00-04:00` / `2026-04-13T16:30:00Z`.
+- Calculator created: `historical_signal_replay/execution_context_calculator.py`.
+- Test file created: `tests/test_execution_context_calculator.py`.
+- Calculator review created: `SAFE_FAST_DAY41_QQQ_CFB_EXECUTION_CONTEXT_CALCULATOR_REVIEW.md`.
+- Implemented behavior:
+  - calculates selected quote age from quote `ts_event` to setup boundary;
+  - classifies `execution_context_status` as `clean`, `caution`, `fail`, or `unknown`;
+  - rejects future quotes;
+  - rejects missing/invalid bid or ask;
+  - rejects bad spread and spread percent;
+  - rejects missing or below-minimum bid size, ask size, and setup-time-safe trade volume;
+  - returns `unknown` for missing source data or unresolved timestamps;
+  - refuses fallback after the selected/top-ranked contract fails a gate;
+  - refuses P&L, proof, profitability, readiness, or trade-choice inference.
+- Fixture count tested: `13`.
+- Known QQQ target fixture result: `execution_context_status=fail`, `rejection_reason=quote_age_above_5_minutes`, because quote age is `1409.359699` seconds, about `23` minutes `29.359699` seconds.
+- Focused test command run: `python -m unittest tests.test_execution_context_calculator`.
+- Focused test result: PASS, `5` tests covering all `13` accepted fixtures.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw Databento files, evidence rows, selector code, normalizer code, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB execution context fixtures result
 
 - Current task baseline stated by task file: `4d6d363 Accept QQQ CFB execution context rule`.
