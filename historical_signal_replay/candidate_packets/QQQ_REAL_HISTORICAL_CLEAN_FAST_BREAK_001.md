@@ -61,7 +61,10 @@
 - Target contract listing / open-interest audit result: Apr 13 definitions list `QQQ   260427C00615000` / `instrument_id=1023411456` at CSV line `10022` with `security_update_action=A` and `ts_event=2026-04-13T12:00:00.445628903Z`, before setup. The local Apr 10 parent definitions file has `10,212` rows and `0` matches for the target instrument, target symbol, or same `2026-04-27` call `615` contract shape. Prior-day same-contract open interest is unavailable from the current local prior-day definition source, but the accepted open-interest gate remains unchanged and still blocks option context.
 - New-contract open-interest exception rule: `SAFE_FAST_DAY41_QQQ_CFB_NEW_CONTRACT_OI_EXCEPTION_RULE.md`.
 - New-contract open-interest exception result: accepted for regression work. If the already selected top-ranked contract was not listed on the prior trading day, prior-day same-contract open interest is not required, but the contract must be listed before setup and must still pass setup-time-safe quote, spread, spread-percent, bid-size, ask-size, trade-volume, no-future-data, and no-fallback checks. The exception result is `caution`, not `clean`, because open interest is unavailable.
-- Expected target result after regression fixtures and selector/rule implementation: `option_context_status=caution`. Current recorded `option_context_status` remains `unknown` because no evidence fill, selector code change, or regression fixture update was made in this task.
+- New-contract open-interest exception fixture file: `historical_signal_replay/fixtures/qqq_cfb_new_contract_oi_exception_regression_fixtures.json`.
+- New-contract open-interest exception fixture review: `SAFE_FAST_DAY41_QQQ_CFB_NEW_CONTRACT_OI_EXCEPTION_FIXTURES_REVIEW.md`.
+- New-contract open-interest exception regression fixtures added: YES, `13` data-only fixtures covering valid caution, listing-after-signal, prior-day-present missing OI, missing listing timestamp, missing quote, quote-after-signal, spread, spread-percent, bid-size, ask-size, trade-volume, no-fallback, and future-data rejection cases.
+- Expected target result after selector/rule implementation: `option_context_status=caution`. Current recorded `option_context_status` remains `unknown` because no evidence fill or selector code change was made in this task.
 - One selected real trade remains unchosen. The accepted selector still does not authorize evidence fill, backtest, P&L, proof, profitability, or readiness.
 
 ## Gap Fixture Status
@@ -81,7 +84,7 @@
 ## Current Blockers
 
 - Option-context, execution-context, headline-context, and complete-caution clean/caution/fail labels are not decided.
-- Open-interest gate decision is now listing-aware only for newly listed selected contracts: quote, spread, quote-size, and trade-volume gates pass for the top-ranked contract, and the target contract was listed before setup on Apr 13 but absent from local Apr 10 parent definitions. A narrow exception is accepted for regression work and would classify the option-context result as `caution`, not `clean`, after regression fixtures and selector/rule implementation. Current evidence and selector outputs remain `unknown`.
+- Open-interest gate decision is now listing-aware only for newly listed selected contracts: quote, spread, quote-size, and trade-volume gates pass for the top-ranked contract, and the target contract was listed before setup on Apr 13 but absent from local Apr 10 parent definitions. A narrow exception and regression fixtures are accepted and would classify the option-context result as `caution`, not `clean`, after selector/rule implementation. Current evidence and selector outputs remain `unknown`.
 - Reviewed option-universe, quote eligibility, the first one-contract selection rule, contract-selection regression fixtures, and selector/calculator implementation are accepted for regression work, but evidence fill, entry, fill, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided or not implemented.
 
 ## Context/Caution Status
