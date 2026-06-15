@@ -1,6 +1,60 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB new-contract OI option-context evidence fill result
+
+- Current task baseline stated by task file: `aec19d8 Update QQQ CFB selector for new contract OI exception`.
+- Corrective scope: bounded evidence/status update for the accepted QQQ CFB new-contract open-interest exception, plus allowed review/state/index/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Target contract: `QQQ   260427C00615000`.
+- Instrument id: `1023411456`.
+- Setup/signal time: `2026-04-13T12:30:00-04:00` / `2026-04-13T16:30:00Z`.
+- Local Databento selector rerun result:
+  - reviewed-universe candidate count: `280`;
+  - base selector result remains `contract_selection_status=abstain`, `selected_contract=None`, `rejection_reason=top_ranked_contract_failed_no_fallback`;
+  - accepted new-contract OI exception result: `option_context_status=caution`, `rejection_reason=None`.
+- Evidence supporting the exception:
+  - Apr 13 listing `ts_event=2026-04-13T12:00:00.445628903Z`, before setup;
+  - Apr 10 parent definitions target instrument matches `0`;
+  - Apr 10 target symbol matches `0`;
+  - Apr 10 same `2026-04-27` call `615` contract-shape rows `0`;
+  - nearest setup-time-safe quote `2026-04-13T16:06:30.640301037Z`;
+  - bid `7.76`, ask `7.80`;
+  - spread `0.04`;
+  - spread percent about `0.5141%`;
+  - bid size `3`, ask size `31`;
+  - setup-time-safe trade rows `28`;
+  - setup-time-safe trade volume `65`;
+  - setup-time-safe statistics rows `0`;
+  - prior-day open interest cannot exist in the local prior-day definition source because the selected contract was not listed on Apr 10.
+- Evidence file updated: `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`.
+- Evidence field changed:
+  - `option_context_status`: `unknown` -> `caution`.
+- Evidence fields unchanged:
+  - `headline_context_status=unknown`;
+  - `execution_context_status=unknown`;
+  - `complete_caution_review_status=unknown`.
+- Review created: `SAFE_FAST_DAY41_QQQ_CFB_OPTION_CONTEXT_NEW_CONTRACT_OI_EVIDENCE_FILL_REVIEW.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Focused test command run: `python -m unittest tests.test_cfb_contract_selector`.
+- Focused test result: PASS, `12` tests.
+- Content validator command run: `python -B -m watcher_foundation.source_evidence_work_package_content_validator`.
+- Content validator result: PASS command, `3` passed requests, `6` failed requests, `6` partial rows, `0` header-only rows.
+- Bridge command run: `python -B -m watcher_foundation.source_evidence_package_to_intake_bridge`.
+- Bridge result: PASS command, QQQ reconsideration-eligible `YES`, intake-ready count `0`, proof allowed `NO`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw Databento files, selector code, normalizer code, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB new-contract open-interest exception selector result
 
 - Current task baseline stated by task file: `fbaa6b6 Add QQQ CFB new contract OI exception fixtures`.
