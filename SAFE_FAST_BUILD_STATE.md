@@ -1,6 +1,68 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB open-interest source audit result
+
+- Current task baseline stated by task file: `4666e96 Accept QQQ CFB open interest gate decision`.
+- Corrective scope: docs-only/local-source audit for timestamp-safe same-contract open interest and allowed state/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Top-ranked contract: `QQQ   260427C00615000`.
+- Instrument id: `1023411456`.
+- Setup/signal time: `2026-04-13T12:30:00-04:00` / `2026-04-13T16:30:00Z`.
+- Local files inspected: QQQ OPRA definitions, full-day statistics, ten-minute TCBBO/trades, top-contract wider TCBBO/trades/statistics, manifests, and drop-folder README in `historical_signal_replay/source_data/external_option_data_drop/`.
+- Definition mapping result:
+  - definition line `10022`;
+  - `instrument_id=1023411456`;
+  - symbol `QQQ   260427C00615000`;
+  - expiration `2026-04-27`;
+  - side call;
+  - strike `615.000000000`;
+  - definitions contain no open-interest field.
+- Open-interest-like local source fields:
+  - `historical_signal_replay/databento_opra_normalizer.py` maps Databento statistics `stat_type=9` to `open_interest`;
+  - full-day statistics file contains `178,488` `stat_type=9` open-interest rows overall.
+- Full-day statistics same-contract result:
+  - same-contract statistics rows: `88`;
+  - same-contract rows at or before `2026-04-13T16:30:00Z`: `0`;
+  - same-contract rows after `2026-04-13T16:30:00Z`: `88`;
+  - same-contract `stat_type=9` open-interest rows: `0`;
+  - nearest same-contract statistics row is CSV line `204434`, `ts_event=2026-04-13T20:40:35.574100224Z`, `stat_type=1`, after setup and not open interest.
+- Targeted setup-window statistics file result:
+  - `QQQ_OPRA_top_contract_1023411456_statistics_0930_1230_et.csv` exists;
+  - row count `0`;
+  - no setup-time-safe same-contract open-interest row.
+- Quote/trade gates remain cured:
+  - wider top-contract TCBBO rows: `28`, all setup-time-safe;
+  - nearest setup-time-safe quote: `2026-04-13T16:06:30.640301037Z`, bid `7.76`, ask `7.80`, bid size `3`, ask size `31`;
+  - top-contract trades rows: `28`, all setup-time-safe;
+  - setup-time-safe trade volume: `65`.
+- Audit conclusion: no timestamp-safe same-contract open interest exists in the current local QQQ OPRA files.
+- Current Databento schema/file conclusion: Databento statistics can provide open interest generally, but the current local files do not provide it for `QQQ   260427C00615000` / `instrument_id=1023411456`.
+- Exact next source request needed: accepted historical option source, preferably Databento OPRA `statistics` if available, filtered to `instrument_id=1023411456` / `QQQ   260427C00615000`, explicit open interest / `stat_type=9`, numeric value, with accepted timestamp fields at or before `2026-04-13T16:30:00Z`, cost-check first.
+- If Databento cannot provide that same-contract setup-time-safe open-interest row, the blocker remains unless a later explicit human rule decision changes the open-interest gate with regression fixtures first.
+- Current QQQ classification:
+  - `open_interest_status=unknown`;
+  - selector result remains `abstain`;
+  - `option_context_status` remains `unknown`;
+  - no fallback to another strike or expiration is allowed.
+- Audit doc created: `SAFE_FAST_DAY41_QQQ_CFB_OPEN_INTEREST_SOURCE_AUDIT.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Evidence filled: NO.
+- Open-interest gate changed: NO.
+- Selector code changed: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw Databento files, selector code, normalizer code, evidence rows, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB open-interest gate decision result
 
 - Current task baseline stated by task file: `b6569f4 Rerun QQQ option context with trades statistics`.

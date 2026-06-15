@@ -55,6 +55,8 @@
 - Filled option-context status after trades/statistics selector rerun: `unknown`.
 - Open-interest gate decision: `SAFE_FAST_DAY41_QQQ_CFB_OPEN_INTEREST_GATE_DECISION.md`.
 - Open-interest gate result: same-contract setup-time-safe open interest remains required for the first QQQ CFB option-context rule; missing open interest is `unknown`, volume-only liquidity is not accepted as a pass, and the current QQQ option context remains `unknown` until a timestamp-safe same-contract open-interest source exists or a later explicit human rule decision changes the gate with regression fixtures.
+- Open-interest source audit: `SAFE_FAST_DAY41_QQQ_CFB_OPEN_INTEREST_SOURCE_AUDIT.md`.
+- Open-interest source audit result: current local QQQ OPRA files do not contain timestamp-safe same-contract open interest for `QQQ   260427C00615000` / `instrument_id=1023411456`. The full-day statistics file has `178,488` `stat_type=9` open-interest rows overall, but `0` same-contract open-interest rows; the same contract has `88` statistics rows, all after setup and none with `stat_type=9`; the targeted setup-window statistics file has `0` rows. Option context remains `unknown`.
 - One selected real trade remains unchosen. The accepted selector still does not authorize evidence fill, backtest, P&L, proof, profitability, or readiness.
 
 ## Gap Fixture Status
@@ -74,7 +76,7 @@
 ## Current Blockers
 
 - Option-context, execution-context, headline-context, and complete-caution clean/caution/fail labels are not decided.
-- Open-interest gate decision is conservative: quote, spread, quote-size, and trade-volume gates now pass for the top-ranked contract, but setup-time-safe same-contract open interest remains missing and still blocks option context from passing.
+- Open-interest gate decision is conservative: quote, spread, quote-size, and trade-volume gates now pass for the top-ranked contract, but setup-time-safe same-contract open interest remains missing in the audited local source files and still blocks option context from passing.
 - Reviewed option-universe, quote eligibility, the first one-contract selection rule, contract-selection regression fixtures, and selector/calculator implementation are accepted for regression work, but evidence fill, entry, fill, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided or not implemented.
 
 ## Context/Caution Status
