@@ -1,6 +1,68 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB execution context rule decision result
+
+- Current task baseline stated by task file: `ebf7b99 Fill QQQ CFB option context with new contract OI exception`.
+- Corrective scope: docs-only first execution-context rule decision for the QQQ CFB selected option quote, plus allowed state/index/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Target contract: `QQQ   260427C00615000`.
+- Instrument id: `1023411456`.
+- Setup/signal time: `2026-04-13T12:30:00-04:00` / `2026-04-13T16:30:00Z`.
+- Conservative execution-context rule accepted: YES.
+- Accepted execution context statuses:
+  - `clean`: quote at or before signal and quote age `<= 60` seconds, with required quote/spread/size/volume gates passing;
+  - `caution`: quote at or before signal and quote age `> 60` seconds and `<= 5` minutes, with required quote/spread/size/volume gates passing;
+  - `fail`: quote age `> 5` minutes, quote after signal, spread failure, missing/invalid bid or ask, missing/invalid size, missing setup-time-safe volume, future data, or fallback;
+  - `unknown`: missing source data, unresolved timestamps, unresolved identity/rule proof, or unresolved no-hindsight boundary.
+- Quote age rule:
+  - quote event time source: Databento TCBBO `ts_event`;
+  - setup boundary: `2026-04-13T16:30:00Z`;
+  - quote age formula: setup boundary minus selected quote `ts_event`;
+  - `ts_recv` may be preserved as metadata but cannot make a post-signal `ts_event` valid.
+- Bid/ask/spread requirements:
+  - bid present and `>= 0`;
+  - ask present and greater than bid;
+  - midpoint positive;
+  - absolute spread `<= 0.15`;
+  - spread percent `<= 2.00%`.
+- Size/volume requirements:
+  - bid size `>= 1`;
+  - ask size `>= 1`;
+  - same-contract setup-time-safe trade volume `>= 1`;
+  - no fallback to another strike, expiration, side, or contract after the selected/top-ranked contract fails a gate.
+- Fill basis for later testing:
+  - long-call fill basis is ask price only;
+  - target ask would be `7.80`;
+  - no fill evidence, slippage, costs, P&L, or backtest was calculated in this task.
+- Target quote evidence:
+  - nearest setup-time-safe quote `2026-04-13T16:06:30.640301037Z`;
+  - bid `7.76`, ask `7.80`;
+  - spread `0.04`;
+  - spread percent about `0.5141%`;
+  - bid size `3`, ask size `31`;
+  - setup-time-safe trade volume `65`;
+  - quote age about `23` minutes `29.359699` seconds.
+- Expected QQQ result after regression fixtures and implementation: `execution_context_status=fail`, because quote age is greater than `5` minutes.
+- Rule decision doc created: `SAFE_FAST_DAY41_QQQ_CFB_EXECUTION_CONTEXT_RULE_DECISION.md`.
+- Still-blocked doc created: NO, because the proposed conservative execution rule was accepted.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Evidence filled: NO.
+- Execution calculator/selector code changed: NO.
+- Regression fixtures created: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No evidence rows, raw Databento files, calculator code, selector code, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB new-contract OI option-context evidence fill result
 
 - Current task baseline stated by task file: `aec19d8 Update QQQ CFB selector for new contract OI exception`.
