@@ -1,6 +1,50 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB execution context fixtures result
+
+- Current task baseline stated by task file: `4d6d363 Accept QQQ CFB execution context rule`.
+- Corrective scope: data-only regression fixture creation for the accepted QQQ CFB execution-context rule, plus allowed review/state/index/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Target contract: `QQQ   260427C00615000`.
+- Instrument id: `1023411456`.
+- Setup/signal time: `2026-04-13T12:30:00-04:00` / `2026-04-13T16:30:00Z`.
+- Fixture file created: `historical_signal_replay/fixtures/qqq_cfb_execution_context_regression_fixtures.json`.
+- Fixture review created: `SAFE_FAST_DAY41_QQQ_CFB_EXECUTION_CONTEXT_FIXTURES_REVIEW.md`.
+- Fixture count: `13`.
+- Fixture coverage:
+  - clean quote age;
+  - caution quote age;
+  - fail quote too old;
+  - QQQ known stale quote fail;
+  - quote after signal rejected;
+  - missing bid rejected;
+  - missing ask rejected;
+  - bad spread rejected;
+  - missing size rejected;
+  - missing volume rejected;
+  - missing source data unknown;
+  - no fallback;
+  - forbidden P&L/proof/readiness fields rejected.
+- Known QQQ target fixture expected result: `execution_context_status=fail`, because quote age is greater than `5` minutes.
+- Required fixture fields validated: YES.
+- JSON parse result: PASS, `13` fixtures, required fields present.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Candidate packet updated: `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CLEAN_FAST_BREAK_001.md`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Execution calculator/selector code changed: NO.
+- Evidence filled: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw Databento files, calculator code, selector code, normalizer code, evidence rows, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB execution context rule decision result
 
 - Current task baseline stated by task file: `ebf7b99 Fill QQQ CFB option context with new contract OI exception`.

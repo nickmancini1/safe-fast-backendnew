@@ -70,6 +70,9 @@
 - Current recorded work-package `option_context_status` is now `caution` under the accepted new-contract OI exception; headline, execution, and complete caution remain `unknown`.
 - Execution-context rule decision: `SAFE_FAST_DAY41_QQQ_CFB_EXECUTION_CONTEXT_RULE_DECISION.md`.
 - Execution-context rule result: accepted for regression work. Quote age `<= 60` seconds is `clean`; quote age `> 60` seconds and `<= 5` minutes is `caution`; quote age `> 5` minutes, quote-after-signal, spread failure, missing/invalid bid/ask, missing/invalid size, missing setup-time-safe volume, or fallback is `fail`; missing source/rule proof is `unknown`.
+- Execution-context fixture file: `historical_signal_replay/fixtures/qqq_cfb_execution_context_regression_fixtures.json`.
+- Execution-context fixture review: `SAFE_FAST_DAY41_QQQ_CFB_EXECUTION_CONTEXT_FIXTURES_REVIEW.md`.
+- Execution-context regression fixtures added: YES, `13` data-only fixtures covering clean quote age, caution quote age, fail quote too old, the known QQQ stale quote fail, quote-after-signal rejection, missing bid, missing ask, bad spread, missing size, missing volume, missing source data as `unknown`, no fallback, and forbidden P&L/proof/readiness field rejection.
 - Target execution-context implication: the selected quote at `2026-04-13T16:06:30.640301037Z` is about `23` minutes `29` seconds old at the `2026-04-13T16:30:00Z` setup boundary, so the expected target result after fixtures and implementation is `execution_context_status=fail`.
 - Later-test fill basis: ask price only for long-call testing; target ask is `7.80`. No fill evidence, P&L, backtest, proof, profitability, readiness, or intake-ready change is authorized.
 - One selected real trade remains unchosen. The accepted selector and evidence fill still do not authorize backtest, P&L, proof, profitability, or readiness.
