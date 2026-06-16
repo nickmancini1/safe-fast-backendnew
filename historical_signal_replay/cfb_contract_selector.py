@@ -3,7 +3,7 @@ from decimal import Decimal, InvalidOperation
 
 
 class CfbContractSelectorError(ValueError):
-    """Base error for QQQ CFB contract selection failures."""
+    """Base error for CFB contract selection failures."""
 
 
 class UnsafeInferenceError(CfbContractSelectorError):
@@ -39,6 +39,9 @@ def select_contract_from_fixture(fixture):
         signal_time=fixture.get("signal_time"),
         trigger_price=fixture.get("trigger_price"),
         candidate_contracts=fixture.get("candidate_contracts"),
+        expected_symbol=fixture.get("expected_symbol", EXPECTED_SYMBOL),
+        expected_setup_type=fixture.get("expected_setup_type", EXPECTED_SETUP_TYPE),
+        open_interest_required=fixture.get("open_interest_required", True),
     )
 
 
@@ -155,6 +158,7 @@ def select_contract(
     candidate_contracts,
     expected_symbol=EXPECTED_SYMBOL,
     expected_setup_type=EXPECTED_SETUP_TYPE,
+    open_interest_required=True,
 ):
     del expected_setup_type
 
@@ -237,7 +241,12 @@ def select_contract(
             errors=errors,
         )
 
-    gate_reason = _contract_gate_rejection(top_contract, signal_at, errors)
+    gate_reason = _contract_gate_rejection(
+        top_contract,
+        signal_at,
+        errors,
+        open_interest_required=open_interest_required,
+    )
     if gate_reason is not None:
         if _has_no_fallback_candidate(dte_eligible, top_contract, trigger):
             gate_reason = "top_ranked_contract_failed_no_fallback"
@@ -258,7 +267,7 @@ def select_contract(
 
 def refuse_unsafe_inference(inference_name):
     raise UnsafeInferenceError(
-        "QQQ CFB contract selector only applies the accepted setup-time "
+        "CFB contract selector only applies the accepted setup-time "
         f"contract-selection rule; it must not infer {inference_name}."
     )
 
@@ -279,7 +288,13 @@ def mark_ready(*_args, **_kwargs):
     refuse_unsafe_inference("readiness")
 
 
-def _contract_gate_rejection(contract, signal_at, errors):
+def _contract_gate_rejection(
+    contract,
+    signal_at,
+    errors,
+    *,
+    open_interest_required,
+):
     quote = contract.get("quote") or {}
     quote_at = _parse_timestamp_or_error(quote.get("ts_event"), "quote.ts_event", errors)
     if quote_at is None:
@@ -321,10 +336,16 @@ def _contract_gate_rejection(contract, signal_at, errors):
         return "trade_volume_below_1"
 
     open_interest = _decimal_or_none(contract.get("open_interest"))
-    if open_interest is None or open_interest < MIN_OPEN_INTEREST:
+    if open_interest is None:
+        if open_interest_required:
+            return "open_interest_below_1"
+        return None
+    if open_interest < MIN_OPEN_INTEREST:
         return "open_interest_below_1"
 
     statistics = contract.get("statistics") or {}
+    if not statistics and not open_interest_required:
+        return None
     statistics_at = _parse_timestamp_or_error(
         statistics.get("ts_event"),
         "statistics.ts_event",

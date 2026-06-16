@@ -35,12 +35,18 @@
 - Lifecycle calculator/test implementation review now exists: `SAFE_FAST_DAY41_SPY_CFB_LIFECYCLE_BATCH_IMPLEMENT_AND_FILL_REVIEW.md`.
 - Lifecycle evidence row filled: `historical_signal_replay/source_data/richer_export_package_work/spy_cfb_002_initial_break_expiry_rule_regressions.jsonl`.
 - Candidate-specific lifecycle target in the fixture package: fresh initial break at `2026-04-13T12:30:00-04:00`; later same-session follow-through at replay line 3 is spent and must not be used as setup-time freshness evidence.
+- Starter option/execution/context review now exists: `SAFE_FAST_DAY41_SPY_CFB_STARTER_OPTION_EXECUTION_CONTEXT_BATCH_REVIEW.md`.
+- Starter contract-selection fixture result: selected `SPY   260427C00685000`, `instrument_id=1258293281`, expiration `2026-04-27`, strike `685`.
+- Starter selected quote: `2026-04-13T16:29:04.514819033Z`, bid `6.33`, ask `6.35`, spread `0.02`, bid size `123`, ask size `12`.
+- Starter setup-time-safe same-contract trade volume: `12`.
+- Starter setup-time-safe same-contract open-interest row: not found; OI was not evaluated under the SPY starter rule wording.
+- Current context/caution work-package status: complete for content validation but blocker-preserving, with `option_context_status=clean`, `headline_context_status=unknown`, `execution_context_status=clean`, and `complete_caution_review_status=unknown`.
 
 ## Current Blockers
 
 - `spy_cfb_002_initial_break_expiry_rule_regressions.jsonl` is complete from the accepted grouped SPY lifecycle package, fixture file, and calculator-backed tests.
-- `spy_cfb_002_complete_context_caution_fields.jsonl` is blocked because `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status` are unavailable from local SPY dxLink and replay rows.
-- SPY CFB contract-selection rules and evidence authorization are not accepted.
+- `spy_cfb_002_complete_context_caution_fields.jsonl` is filled from accepted starter-only SPY CFB option/execution/context fixtures, but complete caution remains `unknown`.
+- SPY CFB starter contract-selection and execution context are accepted for this context/caution work-package fill only; they are not a real trade choice.
 - Headline/no-headline source policy is not accepted.
 - Entry, fill, exit, stop/invalidation, time exit, cost, slippage, sample-size, and promotion gates are not accepted.
 
@@ -92,6 +98,7 @@
 - Calculator/test review: `SAFE_FAST_DAY41_SPY_CFB_LIFECYCLE_BATCH_IMPLEMENT_AND_FILL_REVIEW.md`.
 - Calculator-backed lifecycle result: fresh at `2026-04-13T12:30:00-04:00`, spent at `2026-04-13T15:30:00-04:00`, expired on later review without spent evidence.
 - Evidence filled from this package: YES, lifecycle/stale-spent/expiry only.
-- Starter option inspection interpreted as evidence: NO.
+- Starter option/execution/context evidence filled: YES, context/caution fields only.
+- Starter context/caution result: option clean, headline unknown, execution clean, complete caution unknown.
 - Candidate readiness changed: NO.
 - Proof/profitability/P&L claimed: NO.

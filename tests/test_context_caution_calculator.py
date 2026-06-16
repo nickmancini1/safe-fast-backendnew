@@ -11,6 +11,12 @@ FIXTURE_PATH = (
     / "fixtures"
     / "qqq_cfb_context_caution_regression_fixtures.json"
 )
+SPY_FIXTURE_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "historical_signal_replay"
+    / "fixtures"
+    / "spy_cfb_context_caution_regression_fixtures.json"
+)
 
 
 class ContextCautionCalculatorTests(unittest.TestCase):
@@ -21,6 +27,12 @@ class ContextCautionCalculatorTests(unittest.TestCase):
         cls.fixtures_by_id = {
             row["fixture_id"]: row
             for row in cls.fixtures
+        }
+        spy_fixture_data = json.loads(SPY_FIXTURE_PATH.read_text(encoding="utf-8"))
+        cls.spy_fixtures = spy_fixture_data["fixtures"]
+        cls.spy_fixtures_by_id = {
+            row["fixture_id"]: row
+            for row in cls.spy_fixtures
         }
 
     def test_all_22_fixtures_pass(self):
@@ -153,6 +165,53 @@ class ContextCautionCalculatorTests(unittest.TestCase):
         ):
             with self.assertRaises(calculator.UnsafeInferenceError):
                 unsafe_call(result)
+
+    def test_all_6_spy_cfb_context_caution_fixtures_pass(self):
+        self.assertEqual(len(self.spy_fixtures), 6)
+
+        for fixture in self.spy_fixtures:
+            with self.subTest(fixture_id=fixture["fixture_id"]):
+                result = calculator.calculate_context_caution_from_fixture(fixture)
+
+                self.assertEqual(
+                    result["context_caution_status"],
+                    fixture["expected_status"],
+                )
+                self.assertEqual(
+                    result["context_caution_as_of"],
+                    fixture["expected_as_of"],
+                )
+                self.assertEqual(
+                    result["reviewed_before_signal"],
+                    fixture["expected_reviewed_before_signal"],
+                )
+                self.assertEqual(
+                    result["rejection_reason"],
+                    fixture["expected_rejection_reason"],
+                )
+
+    def test_spy_cfb_002_complete_caution_remains_unknown_from_headline(self):
+        result = calculator.calculate_context_caution_from_fixture(
+            self.spy_fixtures_by_id["spy_cfb_002_complete_caution_unknown_headline"]
+        )
+
+        self.assertEqual(result["complete_caution_review_status"], "unknown")
+        self.assertEqual(result["rejection_reason"], "required_component_unknown")
+
+    def test_spy_cfb_003_components_remain_unknown_without_setup_safe_option(self):
+        option = calculator.calculate_context_caution_from_fixture(
+            self.spy_fixtures_by_id[
+                "spy_cfb_003_option_context_unknown_no_setup_safe_top_quote"
+            ]
+        )
+        execution = calculator.calculate_context_caution_from_fixture(
+            self.spy_fixtures_by_id[
+                "spy_cfb_003_execution_context_unknown_no_selected_quote"
+            ]
+        )
+
+        self.assertEqual(option["option_context_status"], "unknown")
+        self.assertEqual(execution["execution_context_status"], "unknown")
 
     def _calculate(self, fixture_id):
         return calculator.calculate_context_caution_from_fixture(

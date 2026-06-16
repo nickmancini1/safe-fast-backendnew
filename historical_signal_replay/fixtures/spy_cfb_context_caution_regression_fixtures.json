@@ -1,0 +1,142 @@
+{
+  "fixture_name": "spy_cfb_context_caution_regression_fixtures",
+  "fixture_version": 1,
+  "purpose": "Data-only regression fixtures for grouped SPY Clean Fast Break starter context/caution aggregation. These fixtures use only accepted lifecycle, option, and execution labels plus blocker-preserving headline unknowns.",
+  "accepted_rule_source": "SAFE_FAST_DAY41_SPY_CFB_STARTER_OPTION_EXECUTION_CONTEXT_BATCH_REVIEW.md",
+  "fixtures": [
+    {
+      "fixture_id": "spy_cfb_002_option_context_clean",
+      "component": "option_context_status",
+      "expected_candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Clean Fast Break",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "symbol": "SPY",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "clean"
+      },
+      "expected_status": "clean",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "SPY CFB 002 starter selected contract passes accepted option gates."
+    },
+    {
+      "fixture_id": "spy_cfb_002_execution_context_clean",
+      "component": "execution_context_status",
+      "expected_candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Clean Fast Break",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "symbol": "SPY",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "clean"
+      },
+      "expected_status": "clean",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "SPY CFB 002 starter selected quote is inside the accepted clean quote-age boundary."
+    },
+    {
+      "fixture_id": "spy_cfb_002_complete_caution_unknown_headline",
+      "component": "complete_caution_review_status",
+      "expected_candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Clean Fast Break",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "symbol": "SPY",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-13T12:30:00-04:00",
+      "component_inputs": {
+        "gap_context_status": "clean",
+        "lifecycle_status": "fresh",
+        "option_context_status": "clean",
+        "headline_context_status": "unknown",
+        "execution_context_status": "clean"
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "required_component_unknown",
+      "reason": "Headline context remains unknown, so complete caution cannot pass even when option and execution are clean."
+    },
+    {
+      "fixture_id": "spy_cfb_003_option_context_unknown_no_setup_safe_top_quote",
+      "component": "option_context_status",
+      "expected_candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Clean Fast Break",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "symbol": "SPY",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-15T14:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "unknown"
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-15T14:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "component_status_unknown",
+      "reason": "The top-ranked SPY CFB 003 starter contract has only future local option rows, so option context stays unknown."
+    },
+    {
+      "fixture_id": "spy_cfb_003_execution_context_unknown_no_selected_quote",
+      "component": "execution_context_status",
+      "expected_candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Clean Fast Break",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "symbol": "SPY",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-15T14:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "unknown"
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-15T14:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "component_status_unknown",
+      "reason": "No selected setup-time-safe quote exists for SPY CFB 003 execution context."
+    },
+    {
+      "fixture_id": "spy_cfb_003_complete_caution_unknown_components",
+      "component": "complete_caution_review_status",
+      "expected_candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Clean Fast Break",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "symbol": "SPY",
+      "setup_type": "Clean Fast Break",
+      "setup_time": "2026-04-15T14:30:00-04:00",
+      "component_inputs": {
+        "gap_context_status": "clean",
+        "lifecycle_status": "fresh",
+        "option_context_status": "unknown",
+        "headline_context_status": "unknown",
+        "execution_context_status": "unknown"
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-04-15T14:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "required_component_unknown",
+      "reason": "Unknown option, headline, and execution components keep complete caution unknown."
+    }
+  ],
+  "explicit_non_goals": [
+    "No raw Databento files are modified.",
+    "No backtest, entry, fill, exit, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized."
+  ]
+}

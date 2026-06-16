@@ -1,5 +1,55 @@
-﻿# SAFE-FAST Build State
+# SAFE-FAST Build State
 
+## Day 41 SPY CFB starter option/execution/context batch result
+
+- Current task file executed: `SAFE_FAST_DAY41_SPY_CFB_STARTER_OPTION_EXECUTION_CONTEXT_BATCH_CODEX_TASK.md`.
+- Baseline stated by task file: `a6b5daa Fill SPY CFB lifecycle evidence batch`.
+- Corrective scope: grouped SPY Clean Fast Break starter-only contract-selection, execution-context, context/caution fixtures/calculators/tests, bounded context/caution evidence fill, review doc, and project/candidate packet state only.
+- Grouped candidates covered:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`.
+- Review doc created: `SAFE_FAST_DAY41_SPY_CFB_STARTER_OPTION_EXECUTION_CONTEXT_BATCH_REVIEW.md`.
+- Fixture files added:
+  - `historical_signal_replay/fixtures/spy_cfb_contract_selection_regression_fixtures.json`;
+  - `historical_signal_replay/fixtures/spy_cfb_execution_context_regression_fixtures.json`;
+  - `historical_signal_replay/fixtures/spy_cfb_context_caution_regression_fixtures.json`.
+- Calculator updates:
+  - `historical_signal_replay/cfb_contract_selector.py` now supports explicit fixture-level `expected_symbol`, `expected_setup_type`, and `open_interest_required` while preserving QQQ strict defaults.
+  - `historical_signal_replay/context_caution_calculator.py` now supports fixture-level expected candidate identity while preserving QQQ defaults.
+- SPY CFB 002 starter result:
+  - selected contract `SPY   260427C00685000`, `instrument_id=1258293281`, expiration `2026-04-27`, strike `685`;
+  - selected quote `2026-04-13T16:29:04.514819033Z`, bid `6.33`, ask `6.35`, spread `0.02`, bid size `123`, ask size `12`;
+  - setup-time-safe same-contract trade volume `12`;
+  - no setup-time-safe same-contract `stat_type=9` OI row found, so OI was not evaluated under the SPY starter rule wording;
+  - `option_context_status=clean`, `headline_context_status=unknown`, `execution_context_status=clean`, `complete_caution_review_status=unknown`.
+- SPY CFB 003 starter result:
+  - top-ranked contract `SPY   260429C00700000`, `instrument_id=1333784938`, expiration `2026-04-29`, strike `700`;
+  - only local starter quote/trade row for the top-ranked contract is post-signal at `2026-04-15T18:31:23.366609701Z`;
+  - contract selector abstains with `quote_ts_event_after_signal`;
+  - `option_context_status=unknown`, `headline_context_status=unknown`, `execution_context_status=unknown`, `complete_caution_review_status=unknown`.
+- Evidence rows filled:
+  - `historical_signal_replay/source_data/richer_export_package_work/spy_cfb_002_complete_context_caution_fields.jsonl`;
+  - `historical_signal_replay/source_data/richer_export_package_work/spy_cfb_003_complete_context_caution_fields.jsonl`.
+- Content validator result after fill: `7` passed requests, `2` failed requests, `2` partial rows, `0` header-only rows.
+- Bridge result after fill: `3` reconsideration-eligible candidates: QQQ CFB, SPY CFB 002, and SPY CFB 003. Intake-ready count remains `0`; proof allowed remains `NO`.
+- Tests run:
+  - `python -m unittest tests.test_cfb_contract_selector`: PASS, `15` tests;
+  - `python -m unittest tests.test_execution_context_calculator`: PASS, `8` tests;
+  - `python -m unittest tests.test_context_caution_calculator`: PASS, `10` tests;
+  - `python -m watcher_foundation.source_evidence_work_package_content_validator`: PASS command;
+  - `python -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS command.
+- Evidence filled: YES, context/caution fields only.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
 
 ## Day 41 SPY CFB lifecycle batch implementation and fill result
 

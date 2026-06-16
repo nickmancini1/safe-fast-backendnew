@@ -1,0 +1,113 @@
+{
+  "fixture_name": "spy_cfb_contract_selection_regression_fixtures",
+  "fixture_version": 1,
+  "purpose": "Data-only regression fixtures for the grouped SPY Clean Fast Break starter option contract-selection rule. These fixtures use cheap starter Databento rows only and do not choose a real trade, backtest, calculate P&L, prove profitability, or mark readiness.",
+  "accepted_rule_source": "SAFE_FAST_DAY41_SPY_CFB_STARTER_OPTION_EXECUTION_CONTEXT_BATCH_REVIEW.md",
+  "rule_summary": {
+    "side": "long_calls_only",
+    "expiration": "nearest reviewed expiration with DTE >= 14",
+    "strike": "lowest reviewed-universe call strike at or above candidate trigger",
+    "quote_timestamp": "nearest TCBBO quote at or before signal time by ts_event",
+    "spread_cap": 0.15,
+    "spread_pct_cap": 0.02,
+    "minimum_bid_size": 1,
+    "minimum_ask_size": 1,
+    "minimum_trade_volume_through_setup": 1,
+    "open_interest": ">= 1 only if setup-time-safe same-contract open interest exists in starter data",
+    "fallback": "none after top-ranked contract fails a gate"
+  },
+  "fixtures": [
+    {
+      "fixture_id": "spy_cfb_002_starter_contract_selected",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Clean Fast Break",
+      "signal_time": "2026-04-13T16:30:00Z",
+      "trigger_price": 682.03,
+      "open_interest_required": false,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "SPY   260427C00685000",
+          "underlying": "SPY",
+          "side": "C",
+          "expiration": "2026-04-27",
+          "dte": 14,
+          "strike": 685,
+          "quote": {
+            "ts_event": "2026-04-13T16:29:04.514819033Z",
+            "ts_recv": "2026-04-13T16:29:04.515020217Z",
+            "bid": 6.33,
+            "ask": 6.35,
+            "bid_size": 123,
+            "ask_size": 12,
+            "midpoint": 6.34,
+            "spread": 0.02,
+            "spread_pct": 0.0031545741324921136
+          },
+          "trade_volume_through_setup": 12,
+          "open_interest": null,
+          "statistics": {}
+        }
+      ],
+      "expected_selected_contract": "SPY   260427C00685000",
+      "expected_status": "selected",
+      "expected_rejection_reason": null,
+      "reason": "SPY CFB 002 starter top-ranked long call passes DTE, strike, setup-safe quote, spread, size, and trade-volume gates. Starter data has no setup-time-safe same-contract OI row, and this SPY starter rule requires OI only when such a row exists."
+    },
+    {
+      "fixture_id": "spy_cfb_003_starter_top_contract_quote_after_signal_abstains",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Clean Fast Break",
+      "signal_time": "2026-04-15T18:30:00Z",
+      "trigger_price": 698.65,
+      "open_interest_required": false,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "SPY   260429C00700000",
+          "underlying": "SPY",
+          "side": "C",
+          "expiration": "2026-04-29",
+          "dte": 14,
+          "strike": 700,
+          "quote": {
+            "ts_event": "2026-04-15T18:31:23.366609701Z",
+            "ts_recv": "2026-04-15T18:31:23.366809709Z",
+            "bid": 7.69,
+            "ask": 7.72,
+            "bid_size": 1,
+            "ask_size": 1,
+            "midpoint": 7.705,
+            "spread": 0.03,
+            "spread_pct": 0.003893575600259572
+          },
+          "trade_volume_through_setup": 0,
+          "open_interest": null,
+          "statistics": {}
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "quote_ts_event_after_signal",
+      "reason": "SPY CFB 003 starter top-ranked long call has only a post-signal local quote/trade row, so no future data may be used and the selector abstains with no fallback."
+    },
+    {
+      "fixture_id": "spy_cfb_missing_trigger_abstains",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Clean Fast Break",
+      "signal_time": "2026-04-13T16:30:00Z",
+      "trigger_price": null,
+      "open_interest_required": false,
+      "candidate_contracts": [],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "missing_or_invalid_signal_time_or_trigger",
+      "reason": "Missing trigger/level must block selection instead of guessing a strike."
+    }
+  ],
+  "explicit_non_goals": [
+    "No raw Databento files are modified.",
+    "No backtest, entry, fill, exit, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized."
+  ]
+}

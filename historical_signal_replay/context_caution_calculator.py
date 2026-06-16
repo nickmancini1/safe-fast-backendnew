@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class ContextCautionCalculatorError(ValueError):
-    """Base error for QQQ CFB context/caution calculation failures."""
+    """Base error for CFB context/caution calculation failures."""
 
 
 class UnsafeInferenceError(ContextCautionCalculatorError):
@@ -122,6 +122,15 @@ def calculate_context_caution_from_fixture(fixture):
         setup_type=fixture.get("setup_type"),
         setup_time=fixture.get("setup_time"),
         component_inputs=fixture.get("component_inputs"),
+        expected_candidate_id=fixture.get(
+            "expected_candidate_id",
+            EXPECTED_CANDIDATE_ID,
+        ),
+        expected_symbol=fixture.get("expected_symbol", EXPECTED_SYMBOL),
+        expected_setup_type=fixture.get(
+            "expected_setup_type",
+            EXPECTED_SETUP_TYPE,
+        ),
     )
 
 
@@ -140,7 +149,7 @@ def aggregate_complete_caution_status(component_statuses):
 
 def refuse_unsafe_inference(inference_name):
     raise UnsafeInferenceError(
-        "QQQ CFB context/caution calculator only classifies setup-time "
+        "CFB context/caution calculator only classifies setup-time "
         f"context/caution status; it must not infer {inference_name}."
     )
 

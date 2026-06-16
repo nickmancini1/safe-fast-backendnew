@@ -11,6 +11,12 @@ FIXTURE_PATH = (
     / "fixtures"
     / "qqq_cfb_execution_context_regression_fixtures.json"
 )
+SPY_FIXTURE_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "historical_signal_replay"
+    / "fixtures"
+    / "spy_cfb_execution_context_regression_fixtures.json"
+)
 
 
 class ExecutionContextCalculatorTests(unittest.TestCase):
@@ -21,6 +27,12 @@ class ExecutionContextCalculatorTests(unittest.TestCase):
         cls.fixtures_by_id = {
             row["fixture_id"]: row
             for row in cls.fixtures
+        }
+        spy_fixture_data = json.loads(SPY_FIXTURE_PATH.read_text(encoding="utf-8"))
+        cls.spy_fixtures = spy_fixture_data["fixtures"]
+        cls.spy_fixtures_by_id = {
+            row["fixture_id"]: row
+            for row in cls.spy_fixtures
         }
 
     def test_all_13_fixtures_pass(self):
@@ -100,6 +112,47 @@ class ExecutionContextCalculatorTests(unittest.TestCase):
         ):
             with self.assertRaises(calculator.UnsafeInferenceError):
                 unsafe_call(result)
+
+    def test_all_3_spy_cfb_execution_fixtures_pass(self):
+        self.assertEqual(len(self.spy_fixtures), 3)
+
+        for fixture in self.spy_fixtures:
+            with self.subTest(fixture_id=fixture["fixture_id"]):
+                result = calculator.calculate_execution_context_from_fixture(fixture)
+
+                self.assertEqual(
+                    result["execution_context_status"],
+                    fixture["expected_execution_context_status"],
+                )
+                self.assertEqual(
+                    result["rejection_reason"],
+                    fixture["expected_rejection_reason"],
+                )
+                if fixture["expected_quote_age_seconds"] is None:
+                    self.assertIsNone(result["quote_age_seconds"])
+                else:
+                    self.assertAlmostEqual(
+                        result["quote_age_seconds"],
+                        fixture["expected_quote_age_seconds"],
+                    )
+
+    def test_spy_cfb_002_starter_execution_is_clean(self):
+        result = calculator.calculate_execution_context_from_fixture(
+            self.spy_fixtures_by_id["spy_cfb_002_starter_execution_clean"]
+        )
+
+        self.assertEqual(result["execution_context_status"], "clean")
+        self.assertAlmostEqual(result["quote_age_seconds"], 55.485181)
+
+    def test_spy_cfb_003_starter_execution_stays_unknown_without_selected_quote(self):
+        result = calculator.calculate_execution_context_from_fixture(
+            self.spy_fixtures_by_id[
+                "spy_cfb_003_starter_execution_unknown_no_selected_quote"
+            ]
+        )
+
+        self.assertEqual(result["execution_context_status"], "unknown")
+        self.assertEqual(result["rejection_reason"], "missing_source_data")
 
     def _calculate(self, fixture_id):
         return calculator.calculate_execution_context_from_fixture(

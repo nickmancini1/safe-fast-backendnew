@@ -1,0 +1,71 @@
+{
+  "fixture_name": "spy_cfb_execution_context_regression_fixtures",
+  "fixture_version": 1,
+  "purpose": "Data-only regression fixtures for grouped SPY Clean Fast Break starter execution context. These fixtures classify setup-time quote usability only and do not choose a trade, backtest, calculate P&L, prove profitability, or mark readiness.",
+  "accepted_rule_source": "SAFE_FAST_DAY41_SPY_CFB_STARTER_OPTION_EXECUTION_CONTEXT_BATCH_REVIEW.md",
+  "rule_summary": {
+    "clean_quote_age_seconds_max": 60,
+    "caution_quote_age_seconds_max": 300,
+    "fail_quote_age_seconds_min_exclusive": 300,
+    "spread_cap": 0.15,
+    "spread_percent_cap": 0.02,
+    "minimum_bid_size": 1,
+    "minimum_ask_size": 1,
+    "minimum_setup_time_trade_volume": 1,
+    "fallback": "none after selected/top-ranked contract fails a gate"
+  },
+  "fixtures": [
+    {
+      "fixture_id": "spy_cfb_002_starter_execution_clean",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "signal_time": "2026-04-13T16:30:00Z",
+      "quote_time": "2026-04-13T16:29:04.514819033Z",
+      "bid": 6.33,
+      "ask": 6.35,
+      "spread": 0.02,
+      "bid_size": 123,
+      "ask_size": 12,
+      "setup_time_trade_volume": 12,
+      "expected_quote_age_seconds": 55.485181,
+      "expected_execution_context_status": "clean",
+      "expected_rejection_reason": null,
+      "reason": "Selected SPY CFB 002 starter quote is setup-time-safe, about 55.485181 seconds old, and passes spread, size, and same-contract volume gates."
+    },
+    {
+      "fixture_id": "spy_cfb_003_starter_execution_unknown_no_selected_quote",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "signal_time": "2026-04-15T18:30:00Z",
+      "quote_time": null,
+      "bid": null,
+      "ask": null,
+      "spread": null,
+      "bid_size": null,
+      "ask_size": null,
+      "setup_time_trade_volume": null,
+      "expected_quote_age_seconds": null,
+      "expected_execution_context_status": "unknown",
+      "expected_rejection_reason": "missing_source_data",
+      "reason": "The SPY CFB 003 top-ranked starter contract abstains because its only local quote is after setup, so there is no selected setup-safe quote for execution-context classification."
+    },
+    {
+      "fixture_id": "spy_cfb_execution_future_quote_rejected",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "signal_time": "2026-04-15T18:30:00Z",
+      "quote_time": "2026-04-15T18:31:23.366609701Z",
+      "bid": 7.69,
+      "ask": 7.72,
+      "spread": 0.03,
+      "bid_size": 1,
+      "ask_size": 1,
+      "setup_time_trade_volume": 1,
+      "expected_quote_age_seconds": -83.366609,
+      "expected_execution_context_status": "fail",
+      "expected_rejection_reason": "quote_after_signal",
+      "reason": "A post-signal quote is future option data and cannot be used to improve setup-time execution context."
+    }
+  ],
+  "explicit_non_goals": [
+    "No raw Databento files are modified.",
+    "No backtest, entry, fill, exit, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized."
+  ]
+}
