@@ -1,6 +1,69 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 cheap starter Databento batch validation result
+
+- Current task file executed: `SAFE_FAST_DAY41_CHEAP_STARTER_BATCH_VALIDATION_CODEX_TASK.md`.
+- Baseline commit before task: `0ac5e45`.
+- Corrective scope: local cheap starter Databento batch validation docs and project/candidate packet state only.
+- Raw data folder inspected: `historical_signal_replay/source_data/external_option_data_drop/`.
+- Cheap starter manifest found: `historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_CHEAP_STARTER_DATABENTO_DOWNLOAD_MANIFEST.json`.
+- Manifest mode: `cheap starter download only`.
+- Manifest created at UTC: `2026-06-16T13:10:51.013240+00:00`.
+- Manifest estimated cost recorded: `12.136024817825998`.
+- Candidates validated:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`;
+  - `SPY-REAL-HISTORICAL-IDEAL-001`;
+  - `QQQ-REAL-HISTORICAL-CONTINUATION-001`;
+  - `QQQ-REAL-HISTORICAL-IDEAL-001`;
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001`.
+- Expected starter file types checked for each candidate:
+  - `definitions_full_day`;
+  - `statistics_full_day`;
+  - `tcbbo_signal_10min`;
+  - `trades_signal_10min`.
+- File presence result: all expected starter CSV files exist and are nonempty for all six candidates.
+- Row counts:
+  - SPY CFB 002: definitions `13,390`, statistics `1,056,976`, quotes `53,730`, trades `53,730`;
+  - SPY CFB 003: definitions `13,422`, statistics `1,070,272`, quotes `26,724`, trades `26,724`;
+  - SPY Ideal: definitions `13,604`, statistics `1,068,996`, quotes `23,940`, trades `23,940`;
+  - QQQ Continuation: definitions `11,128`, statistics `885,376`, quotes `13,799`, trades `13,799`;
+  - QQQ Ideal: definitions `11,628`, statistics `914,920`, quotes `20,106`, trades `20,106`;
+  - SPY Continuation: definitions `12,970`, statistics `1,027,476`, quotes `13,598`, trades `13,598`.
+- Starter data sufficiency result:
+  - option universe review: attemptable for all six;
+  - setup-time quote freshness: attemptable for all six;
+  - setup-time trade volume: attemptable for all six;
+  - setup-time open-interest/statistics check: attemptable for all six.
+- Candidates that can move forward using starter data only for first-pass raw option inspection: all six, only after their setup-specific rule/regression authorization exists.
+- Candidates likely needing full-window data later for full trade-plan proof: all six.
+- Validation doc created: `SAFE_FAST_DAY41_CHEAP_STARTER_BATCH_VALIDATION.md`.
+- Next-steps doc created: `SAFE_FAST_DAY41_CHEAP_STARTER_BATCH_NEXT_STEPS.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Candidate packets updated:
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_IDEAL_001.md`;
+  - `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CONTINUATION_001.md`;
+  - `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_IDEAL_001.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CONTINUATION_001.md`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data requested: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, evidence rows, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 41 SPY batch Databento cost-check result
 
 - Current task file executed: `SAFE_FAST_DAY41_SPY_BATCH_NEXT_TASK.md`.

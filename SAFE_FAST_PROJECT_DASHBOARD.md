@@ -2,6 +2,7 @@
 
 ## Current Checkpoint
 
+- Current Day 41 cheap starter Databento batch validation: `SAFE_FAST_DAY41_CHEAP_STARTER_BATCH_VALIDATION.md` validates the local cheap starter manifest and nonempty candidate starter CSVs for `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`, `SPY-REAL-HISTORICAL-IDEAL-001`, `QQQ-REAL-HISTORICAL-CONTINUATION-001`, `QQQ-REAL-HISTORICAL-IDEAL-001`, and `SPY-REAL-HISTORICAL-CONTINUATION-001`. All six have definitions, statistics, 10-minute TCBBO quotes, and 10-minute trades. Starter data is enough to attempt first-pass option-universe, setup-time quote freshness, setup-time trade-volume, and setup-time statistics/open-interest inspection after setup-specific rule/regression authorization. It is not enough for full trade-plan proof; all six likely need full-window data later if entry/exit/backtest/proof work is authorized. No data was downloaded, no raw files were changed, no evidence was filled, no backtest or P&L was run, no proof/profitability was claimed, and no candidate was marked ready. Next steps are recorded in `SAFE_FAST_DAY41_CHEAP_STARTER_BATCH_NEXT_STEPS.md`.
 - Current Day 41 SPY batch Databento cost-check result: `SAFE_FAST_DAY41_SPY_BATCH_DATABENTO_COST_CHECK_RESULT.md` covers `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`, and `SPY-REAL-HISTORICAL-IDEAL-001` in one grouped result. Databento `OPRA.PILLAR` metadata/cost-only calls were attempted for `definition`, `tcbbo`, `trades`, and `statistics`, but all Databento responses were blocked by the refused HTTPS proxy `127.0.0.1:9`, so estimated cost is `NOT_AVAILABLE_PROXY_BLOCKED`. No local SPY OPRA files exist; only QQQ OPRA files are local. The grouped Databento path stops until cost/source coverage can be confirmed from an environment with working HTTPS access. No Databento data was downloaded, no raw vendor files were written, no evidence was filled, no backtest or P&L was run, and no candidate was marked ready.
 - Baseline commit for this SPY batch preflight task: `7d483ab Add batch restart plan after QQQ diagnosis`.
 - Current Day 41 SPY batch preflight checkpoint: `SAFE_FAST_DAY41_SPY_BATCH_PREFLIGHT.md` inventories `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`, and `SPY-REAL-HISTORICAL-IDEAL-001` as evidence-shaped but still partial/missing. Local SPY source rows and replay signal rows exist, and all three candidate packets are updated with source row details, blockers, and data needs. `SAFE_FAST_DAY41_SPY_BATCH_DATABENTO_COST_CHECK_PLAN.md` defines a cost-check-only Databento `OPRA.PILLAR` plan for `definition`, `tcbbo`, `trades`, and `statistics` covering the two SPY CFB windows and optional SPY Ideal. `SAFE_FAST_DAY41_SPY_BATCH_NEXT_TASK.md` defines one grouped next task. No evidence was filled, no Databento data was downloaded, no backtest or P&L was run, and no candidate was marked ready.
@@ -18,7 +19,7 @@
 
 ## Active Objective
 
-Batch-mode the remaining parked/replace candidates instead of continuing to grind QQQ CFB. Next grouped target: run the SPY Databento cost-check result for SPY CFB 002, SPY CFB 003, and optional SPY Ideal, then stop before any data pull or evidence fill.
+Batch-mode the remaining parked/replace candidates instead of continuing to grind QQQ CFB. Cheap starter Databento files are now locally validated for all six remaining candidates. Next grouped target: choose a setup family and authorize the missing setup-specific rule/regression package before any starter-only option inspection or evidence fill.
 
 Turn the current QQQ Clean Fast Break path from documented raw inputs and fixture decisions into tested, no-hindsight calculators and later complete trade-plan evidence. The immediate next work should be the smallest authorized rule/test step, not broad rediscovery.
 
@@ -71,7 +72,7 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 
 ## Next Single Action
 
-The grouped SPY Databento cost-check/result task is complete and stopped at `NOT_AVAILABLE_PROXY_BLOCKED`. Do not download SPY OPRA data from this result. The next Databento-path action is to rerun the same cost-check from an environment where HTTPS access to `hist.databento.com` is not routed through the refused `127.0.0.1:9` proxy. A separate later task may authorize SPY rule/regression fixture work from local source/replay rows.
+The cheap starter Databento batch validation is complete. The next single action is a bounded rule/regression authorization task for one setup family before using the starter data for read-only option inspection. Do not download full-window data, fill evidence, backtest, calculate P&L, claim proof/profitability, or mark readiness from the starter validation alone.
 
 ## Data-Source Status
 

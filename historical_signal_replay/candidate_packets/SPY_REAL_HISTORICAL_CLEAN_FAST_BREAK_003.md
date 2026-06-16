@@ -38,6 +38,16 @@
 - Headline/no-headline source policy is not accepted.
 - Entry, fill, exit, stop/invalidation, time exit, cost, slippage, sample-size, and promotion gates are not accepted.
 
+## Cheap Starter Databento Validation
+
+- Validation doc: `SAFE_FAST_DAY41_CHEAP_STARTER_BATCH_VALIDATION.md`.
+- Manifest: `historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_CHEAP_STARTER_DATABENTO_DOWNLOAD_MANIFEST.json`.
+- Starter files present: definitions, statistics, 10-minute TCBBO quotes, and 10-minute trades.
+- Row counts: definitions `13,422`, statistics `1,070,272`, quotes `26,724`, trades `26,724`.
+- Starter-only checks now attemptable after rule authorization: option universe review, setup-time quote freshness, setup-time trade volume, and setup-time open-interest/statistics availability.
+- Full-window data likely remains needed later for entry/exit/backtest/proof work.
+- Evidence filled, backtest, P&L, proof, profitability, readiness: NO.
+
 ## Data Needs
 
 - Underlying candles: local setup-time OHLCV row exists; accepted SPY CFB higher-base lifecycle/regression artifacts still needed.
