@@ -1,6 +1,69 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 SPY CFB grouped rule/regression package result
+
+- Current task file executed: `SAFE_FAST_DAY41_STARTER_BATCH_NEXT_GROUPED_TASK.md`.
+- Corrective scope: SPY Clean Fast Break grouped lifecycle rule/regression package, data-only fixture file, and project/candidate packet state only.
+- Grouped candidates covered:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`.
+- Inputs read:
+  - `SAFE_FAST_BUILD_STATE.md`;
+  - `SAFE_FAST_PROJECT_DASHBOARD.md`;
+  - `SAFE_FAST_PROJECT_RULE_INDEX.md`;
+  - `SAFE_FAST_DAY41_STARTER_BATCH_OPTION_INSPECTION.md`;
+  - `SAFE_FAST_DAY41_STARTER_BATCH_RULE_AND_DATA_MATRIX.md`;
+  - both SPY CFB candidate packets;
+  - SPY source CSV rows;
+  - SPY replay log rows;
+  - QQQ CFB lifecycle decision/fixtures as structure only.
+- Rule package created: `SAFE_FAST_DAY41_SPY_CFB_GROUPED_RULE_REGRESSION_PACKAGE.md`.
+- Data-only fixture file created: `historical_signal_replay/fixtures/spy_cfb_lifecycle_regression_fixtures.json`.
+- Accepted first SPY CFB lifecycle rule for data-only regression work:
+  - exact completed signal candle timestamp only is `fresh`;
+  - completed break, follow-through context, or prior-completed-break blocker is `spent`;
+  - higher-base watch remains `stale` until source-backed new trigger, new invalidation, and completed breakout exist;
+  - later review of a previously fresh signal without spent evidence is `expired`;
+  - missing, ambiguous, wrong-identity, or future-contaminated lifecycle inputs are `unknown`;
+  - lifecycle state precedence is `unknown`, then `spent`, then `fresh`, then `expired`, then `stale`.
+- SPY CFB 002 fixture coverage:
+  - fresh initial break at `2026-04-13T12:30:00-04:00`;
+  - later same-session follow-through/spent context at `2026-04-13T15:30:00-04:00`;
+  - expired later review without spent evidence;
+  - future replay row rejection.
+- SPY CFB 003 fixture coverage:
+  - stale higher-base watch at `2026-04-15T11:30:00-04:00`;
+  - fresh higher-base break at `2026-04-15T14:30:00-04:00`;
+  - later spent context at `2026-04-15T15:30:00-04:00`;
+  - forbidden option/fill/P&L/proof/profitability/readiness input rejection.
+- Shared fixture coverage:
+  - missing trigger;
+  - missing invalidation;
+  - wrong symbol;
+  - wrong setup type.
+- QQQ CFB structure reused: YES, structure only.
+- QQQ-specific contract rules applied to SPY: NO.
+- Raw starter option inspection performed in this task: NO.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- Updated project files:
+  - `SAFE_FAST_PROJECT_DASHBOARD.md`;
+  - `SAFE_FAST_PROJECT_RULE_INDEX.md`;
+  - `SAFE_FAST_BUILD_STATE.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003.md`.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, evidence rows, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 41 starter batch option inspection result
 
 - Current task file executed: `SAFE_FAST_DAY41_STARTER_BATCH_OPTION_INSPECTION_CODEX_TASK.md`.

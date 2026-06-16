@@ -29,10 +29,13 @@
 - Later lifecycle row: line 6 is spent context after the 14:30 break and must not be used as setup-time signal evidence.
 - Grouped Databento cost-check result: `SAFE_FAST_DAY41_SPY_BATCH_DATABENTO_COST_CHECK_RESULT.md`; `OPRA.PILLAR` cost estimate is `NOT_AVAILABLE_PROXY_BLOCKED`, and no local SPY OPRA files exist.
 - Backtest/P&L/proof/readiness: NO.
+- SPY CFB grouped lifecycle rule/regression package now exists: `SAFE_FAST_DAY41_SPY_CFB_GROUPED_RULE_REGRESSION_PACKAGE.md`.
+- Data-only lifecycle fixture file now exists: `historical_signal_replay/fixtures/spy_cfb_lifecycle_regression_fixtures.json`.
+- Candidate-specific lifecycle target in the fixture package: higher-base watch at `2026-04-15T11:30:00-04:00` is stale/watch-only; fresh higher-base break at `2026-04-15T14:30:00-04:00`; later replay line 6 is spent and must not be used as setup-time freshness evidence.
 
 ## Current Blockers
 
-- `spy_cfb_003_higher_base_fresh_break_expiry_rule_regressions.jsonl` is blocked because `clean_fast_break_higher_base_fresh_break_expiry_rule` and `higher_base_fresh_break_expiry_regression_rows` are missing SAFE-FAST artifacts.
+- `spy_cfb_003_higher_base_fresh_break_expiry_rule_regressions.jsonl` was blocked because `clean_fast_break_higher_base_fresh_break_expiry_rule` and `higher_base_fresh_break_expiry_regression_rows` were missing SAFE-FAST artifacts; after the grouped rule package, lifecycle rule/fixture artifacts exist, but this candidate still needs an explicit later evidence-fill task before the work-package row can be changed.
 - `spy_cfb_003_complete_context_caution_fields.jsonl` is blocked because `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status` are unavailable from local SPY dxLink and replay rows.
 - SPY CFB contract-selection rules and evidence authorization are not accepted.
 - Headline/no-headline source policy is not accepted.
@@ -77,3 +80,11 @@
 - Reuse the Databento normalizer for read-only inspection if SPY OPRA data is later authorized.
 - Use QQQ CFB calculators only as implementation patterns until SPY CFB rules and fixtures are accepted.
 - Do not fill evidence, backtest, calculate P&L, claim proof/profitability, or mark readiness from this packet.
+
+## Grouped Lifecycle Package
+
+- Package: `SAFE_FAST_DAY41_SPY_CFB_GROUPED_RULE_REGRESSION_PACKAGE.md`.
+- Fixture file: `historical_signal_replay/fixtures/spy_cfb_lifecycle_regression_fixtures.json`.
+- Accepted for data-only regression work: YES.
+- Evidence filled from this package: NO.
+- Starter option inspection interpreted as evidence: NO.
