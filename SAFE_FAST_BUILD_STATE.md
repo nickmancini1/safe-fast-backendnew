@@ -1,6 +1,57 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 SPY batch preflight result
+
+- Current task baseline stated by task file: `7d483ab Add batch restart plan after QQQ diagnosis`.
+- Corrective scope: SPY batch preflight docs, Databento cost-check plan, grouped next task, candidate packet updates, and project state/index/dashboard updates only.
+- Batch candidates reviewed:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`;
+  - `SPY-REAL-HISTORICAL-IDEAL-001`.
+- Preflight doc created: `SAFE_FAST_DAY41_SPY_BATCH_PREFLIGHT.md`.
+- Databento cost-check plan created: `SAFE_FAST_DAY41_SPY_BATCH_DATABENTO_COST_CHECK_PLAN.md`.
+- Grouped next task created: `SAFE_FAST_DAY41_SPY_BATCH_NEXT_TASK.md`.
+- Candidate packets updated:
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_IDEAL_001.md`.
+- Local source/replay status:
+  - SPY CFB 002 source CSV line `138` and replay log lines `2-3` exist; signal row trigger `682.03`, invalidation `678.45`;
+  - SPY CFB 003 source CSV line `154` and replay log lines `5-6` exist; signal row trigger `698.65`, invalidation `694.2801`;
+  - SPY Ideal source CSV line `291` and replay log lines `5-6` exist; signal row trigger `740.75`, invalidation `731.83`.
+- Existing evidence rows:
+  - SPY CFB 002 lifecycle and context/caution rows exist but remain `partial_missing_required_evidence`;
+  - SPY CFB 003 lifecycle and context/caution rows exist but remain `partial_missing_required_evidence`;
+  - SPY Ideal lifecycle and context/caution rows exist but remain `partial_missing_required_evidence`.
+- Current blockers:
+  - SPY CFB initial-break lifecycle rule/regression rows missing;
+  - SPY CFB higher-base fresh-break lifecycle rule/regression rows missing;
+  - SPY Ideal lifecycle rule/regression rows missing;
+  - SPY CFB and Ideal contract-selection rules/evidence authorization missing;
+  - option/headline/execution/complete-caution component evidence missing;
+  - headline/no-headline source policy missing;
+  - entry, fill, exit, stop/invalidation, time exit, cost/slippage, sample-size, and promotion gates missing.
+- Databento plan:
+  - cost-check only for `OPRA.PILLAR`;
+  - schemas: `definition`, `tcbbo`, `trades`, `statistics`;
+  - windows cover SPY CFB 002, SPY CFB 003, and optional SPY Ideal from regular-session open through setup, with prior-trading-day definition/statistics checks where open interest/listing proof may matter.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, evidence rows, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 41 batch restart QQQ diagnosis and candidate plan result
 
 - Current task baseline stated by task file: `f4a8781 Fill QQQ CFB execution context evidence`.

@@ -2,6 +2,8 @@
 
 ## Current Checkpoint
 
+- Baseline commit for this SPY batch preflight task: `7d483ab Add batch restart plan after QQQ diagnosis`.
+- Current Day 41 SPY batch preflight checkpoint: `SAFE_FAST_DAY41_SPY_BATCH_PREFLIGHT.md` inventories `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`, and `SPY-REAL-HISTORICAL-IDEAL-001` as evidence-shaped but still partial/missing. Local SPY source rows and replay signal rows exist, and all three candidate packets are updated with source row details, blockers, and data needs. `SAFE_FAST_DAY41_SPY_BATCH_DATABENTO_COST_CHECK_PLAN.md` defines a cost-check-only Databento `OPRA.PILLAR` plan for `definition`, `tcbbo`, `trades`, and `statistics` covering the two SPY CFB windows and optional SPY Ideal. `SAFE_FAST_DAY41_SPY_BATCH_NEXT_TASK.md` defines one grouped next task. No evidence was filled, no Databento data was downloaded, no backtest or P&L was run, and no candidate was marked ready.
 - Baseline commit for this batch restart task: `f4a8781 Fill QQQ CFB execution context evidence`.
 - Current Day 41 batch checkpoint: `SAFE_FAST_DAY41_BATCH_RESTART_QQQ_DIAGNOSIS_AND_CANDIDATE_PLAN.md` records the QQQ CFB diagnosis and batch candidate table, and `SAFE_FAST_DAY41_BATCH_NEXT_ACTIONS.md` defines the grouped next plan. QQQ CFB stays parked because gap context, lifecycle, and option context passed, but execution context failed on quote age above `5` minutes and complete caution failed by accepted precedence. Compact candidate packets now exist for the seven batch candidates: QQQ CFB, SPY CFB 002, SPY CFB 003, SPY Ideal, QQQ Continuation, QQQ Ideal, and SPY Continuation. The next grouped work should process SPY CFB 002 and SPY CFB 003 together, with SPY Ideal optionally included in the same SPY Databento cost-check pass. This checkpoint does not fill evidence, backtest, calculate P&L, claim proof/profitability, or mark any candidate ready.
 - Baseline commit for this execution-context evidence fill task: `ed008eb Add QQQ CFB execution context calculator`.
@@ -15,7 +17,7 @@
 
 ## Active Objective
 
-Batch-mode the remaining parked/replace candidates instead of continuing to grind QQQ CFB. First grouped target: SPY CFB 002 and SPY CFB 003 together, with a bounded SPY Databento cost-check/preflight before any data pull or evidence fill.
+Batch-mode the remaining parked/replace candidates instead of continuing to grind QQQ CFB. Next grouped target: run the SPY Databento cost-check result for SPY CFB 002, SPY CFB 003, and optional SPY Ideal, then stop before any data pull or evidence fill.
 
 Turn the current QQQ Clean Fast Break path from documented raw inputs and fixture decisions into tested, no-hindsight calculators and later complete trade-plan evidence. The immediate next work should be the smallest authorized rule/test step, not broad rediscovery.
 
@@ -68,7 +70,7 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 
 ## Next Single Action
 
-The next bounded step must be explicitly authorized. Execution-context evidence fill remains separate and still must avoid backtest, P&L, proof, profitability, readiness, or trade-plan result counting unless separately authorized.
+Run the grouped SPY Databento cost-check/result task from `SAFE_FAST_DAY41_SPY_BATCH_NEXT_TASK.md`. It must remain cost-check only unless a later task explicitly authorizes a raw data pull.
 
 ## Data-Source Status
 
