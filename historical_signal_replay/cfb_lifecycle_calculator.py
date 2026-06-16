@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 
 
 class CfbLifecycleCalculatorError(ValueError):
-    """Base error for QQQ CFB lifecycle calculation failures."""
+    """Base error for CFB lifecycle calculation failures."""
 
 
 class UnsafeInferenceError(CfbLifecycleCalculatorError):
@@ -12,6 +12,10 @@ class UnsafeInferenceError(CfbLifecycleCalculatorError):
 EXPECTED_SYMBOL = "QQQ"
 EXPECTED_SETUP_TYPE = "Clean Fast Break"
 EXPECTED_RULE = "same_candle_initial_break_freshness"
+SUPPORTED_RULES = {
+    EXPECTED_RULE,
+    "spy_cfb_exact_signal_candle_freshness",
+}
 
 FORBIDDEN_OUTPUT_FIELDS = {
     "trade_choice",
@@ -126,6 +130,7 @@ def calculate_lifecycle_from_fixture(fixture):
         signal_time=fixture.get("signal_time"),
         source_time=fixture.get("source_time"),
         candidate_state_inputs=fixture.get("candidate_state_inputs"),
+        expected_symbol=_expected_symbol_from_fixture(fixture),
     )
 
 
@@ -150,6 +155,15 @@ def accept_proof(*_args, **_kwargs):
 
 def mark_ready(*_args, **_kwargs):
     refuse_unsafe_inference("readiness")
+
+
+def _expected_symbol_from_fixture(fixture):
+    candidate_id = str(fixture.get("candidate_id", ""))
+    if candidate_id.startswith("SPY-"):
+        return "SPY"
+    if candidate_id.startswith("QQQ-"):
+        return "QQQ"
+    return EXPECTED_SYMBOL
 
 
 def _result(
@@ -216,7 +230,7 @@ def _unknown_rejection_reason(
         )
         return "missing_required_timestamp_stage_prior_state_or_row_ordering"
 
-    if inputs.get("accepted_lifecycle_rule") != EXPECTED_RULE:
+    if inputs.get("accepted_lifecycle_rule") not in SUPPORTED_RULES:
         errors.append("accepted_lifecycle_rule is missing or unsupported")
         return "missing_required_lifecycle_rule_metadata"
 
@@ -224,6 +238,12 @@ def _unknown_rejection_reason(
 
 
 def _is_spent(inputs):
+    if (
+        inputs.get("higher_base_stage") is True
+        and inputs.get("completed_breakout") is not True
+    ):
+        return False
+
     return (
         inputs.get("prior_completed_break") is True
         or inputs.get("follow_through_context") is True

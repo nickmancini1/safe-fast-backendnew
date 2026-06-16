@@ -20,10 +20,11 @@
 
 ## Current Status
 
-- Current work-package status: partial/missing required evidence.
+- Current lifecycle work-package status: complete for higher-base fresh-break expiry rule/regressions.
+- Current context/caution work-package status: partial/missing required evidence.
 - Tastytrade/dxLink local source provides underlying OHLCV and unconfirmed macro/IV/event fields only.
 - Option context, headline context, execution context, and complete caution fields are not source-backed in the current local dxLink export.
-- Accepted SPY CFB higher-base fresh-break lifecycle rule/regression package is still missing.
+- Accepted SPY CFB higher-base fresh-break lifecycle rule/regression package exists and is calculator-backed.
 - Source row details: line 154 has `open=698.49`, `high=700.03`, `low=698.48`, `close=700.01`, `volume=4401495.310274`, source_as_of `2026-05-13T18:43:00Z`.
 - Replay row details: line 5 is `clean_fast_break_fresh_break_signal_candidate`, `trigger_state=triggered`, `final_verdict=TRADE`, and explicitly lifecycle fixture only.
 - Later lifecycle row: line 6 is spent context after the 14:30 break and must not be used as setup-time signal evidence.
@@ -31,11 +32,13 @@
 - Backtest/P&L/proof/readiness: NO.
 - SPY CFB grouped lifecycle rule/regression package now exists: `SAFE_FAST_DAY41_SPY_CFB_GROUPED_RULE_REGRESSION_PACKAGE.md`.
 - Data-only lifecycle fixture file now exists: `historical_signal_replay/fixtures/spy_cfb_lifecycle_regression_fixtures.json`.
+- Lifecycle calculator/test implementation review now exists: `SAFE_FAST_DAY41_SPY_CFB_LIFECYCLE_BATCH_IMPLEMENT_AND_FILL_REVIEW.md`.
+- Lifecycle evidence row filled: `historical_signal_replay/source_data/richer_export_package_work/spy_cfb_003_higher_base_fresh_break_expiry_rule_regressions.jsonl`.
 - Candidate-specific lifecycle target in the fixture package: higher-base watch at `2026-04-15T11:30:00-04:00` is stale/watch-only; fresh higher-base break at `2026-04-15T14:30:00-04:00`; later replay line 6 is spent and must not be used as setup-time freshness evidence.
 
 ## Current Blockers
 
-- `spy_cfb_003_higher_base_fresh_break_expiry_rule_regressions.jsonl` was blocked because `clean_fast_break_higher_base_fresh_break_expiry_rule` and `higher_base_fresh_break_expiry_regression_rows` were missing SAFE-FAST artifacts; after the grouped rule package, lifecycle rule/fixture artifacts exist, but this candidate still needs an explicit later evidence-fill task before the work-package row can be changed.
+- `spy_cfb_003_higher_base_fresh_break_expiry_rule_regressions.jsonl` is complete from the accepted grouped SPY lifecycle package, fixture file, and calculator-backed tests.
 - `spy_cfb_003_complete_context_caution_fields.jsonl` is blocked because `option_context_status`, `headline_context_status`, `execution_context_status`, and `complete_caution_review_status` are unavailable from local SPY dxLink and replay rows.
 - SPY CFB contract-selection rules and evidence authorization are not accepted.
 - Headline/no-headline source policy is not accepted.
@@ -86,5 +89,9 @@
 - Package: `SAFE_FAST_DAY41_SPY_CFB_GROUPED_RULE_REGRESSION_PACKAGE.md`.
 - Fixture file: `historical_signal_replay/fixtures/spy_cfb_lifecycle_regression_fixtures.json`.
 - Accepted for data-only regression work: YES.
-- Evidence filled from this package: NO.
+- Calculator/test review: `SAFE_FAST_DAY41_SPY_CFB_LIFECYCLE_BATCH_IMPLEMENT_AND_FILL_REVIEW.md`.
+- Calculator-backed lifecycle result: stale higher-base watch at `2026-04-15T11:30:00-04:00`, fresh higher-base break at `2026-04-15T14:30:00-04:00`, spent post-break at `2026-04-15T15:30:00-04:00`.
+- Evidence filled from this package: YES, lifecycle/stale-spent/expiry only.
 - Starter option inspection interpreted as evidence: NO.
+- Candidate readiness changed: NO.
+- Proof/profitability/P&L claimed: NO.

@@ -1,6 +1,56 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 SPY CFB lifecycle batch implementation and fill result
+
+- Current task file executed: `SAFE_FAST_DAY41_SPY_CFB_LIFECYCLE_BATCH_IMPLEMENT_AND_FILL_CODEX_TASK.md`.
+- Baseline stated by task file: `570f29c Add grouped SPY CFB lifecycle rule fixtures`.
+- Corrective scope: SPY Clean Fast Break grouped lifecycle calculator/test implementation, lifecycle-only work-package evidence fill, review doc, and project/candidate packet state only.
+- Grouped candidates covered:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`.
+- Review doc created: `SAFE_FAST_DAY41_SPY_CFB_LIFECYCLE_BATCH_IMPLEMENT_AND_FILL_REVIEW.md`.
+- Calculator updated: `historical_signal_replay/cfb_lifecycle_calculator.py`.
+- Tests updated: `tests/test_cfb_lifecycle_calculator.py`.
+- Existing QQQ lifecycle fixture coverage preserved: `18` fixtures.
+- SPY lifecycle fixture coverage added: `12` fixtures from `historical_signal_replay/fixtures/spy_cfb_lifecycle_regression_fixtures.json`.
+- Calculator-backed SPY fixture results:
+  - SPY CFB 002 setup row at `2026-04-13T12:30:00-04:00` is `fresh`;
+  - SPY CFB 002 later same-session row at `2026-04-13T15:30:00-04:00` is `spent`;
+  - SPY CFB 002 later review without spent evidence is `expired`;
+  - SPY CFB 003 higher-base watch at `2026-04-15T11:30:00-04:00` is `stale`;
+  - SPY CFB 003 higher-base break at `2026-04-15T14:30:00-04:00` is `fresh`;
+  - SPY CFB 003 later row at `2026-04-15T15:30:00-04:00` is `spent`;
+  - missing trigger/invalidation, wrong symbol/setup, and malformed/future-contaminated lifecycle inputs remain `unknown` or ignored as specified by the fixture.
+- Evidence rows filled:
+  - `historical_signal_replay/source_data/richer_export_package_work/spy_cfb_002_initial_break_expiry_rule_regressions.jsonl`;
+  - `historical_signal_replay/source_data/richer_export_package_work/spy_cfb_003_higher_base_fresh_break_expiry_rule_regressions.jsonl`.
+- Evidence fill was limited to:
+  - `clean_fast_break_initial_break_expiry_rule`;
+  - `initial_break_expiry_regression_rows`;
+  - `clean_fast_break_higher_base_fresh_break_expiry_rule`;
+  - `higher_base_fresh_break_expiry_regression_rows`.
+- Context/caution rows changed: NO.
+- Content validator result after fill: `5` passed requests, `4` failed requests, `4` partial rows, `0` header-only rows.
+- Bridge result after fill: `1` reconsideration-eligible candidate remains QQQ CFB only; SPY CFB 002 and 003 remain `parked/source_data_insufficient`.
+- Tests run:
+  - `python -m unittest tests.test_cfb_lifecycle_calculator`: PASS, `10` tests;
+  - `python -m watcher_foundation.source_evidence_work_package_content_validator`: PASS command;
+  - `python -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS command;
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks.
+- Evidence filled: YES, lifecycle/stale-spent/expiry only.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 41 SPY CFB grouped rule/regression package result
 
 - Current task file executed: `SAFE_FAST_DAY41_STARTER_BATCH_NEXT_GROUPED_TASK.md`.

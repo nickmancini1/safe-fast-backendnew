@@ -11,6 +11,12 @@ FIXTURE_PATH = (
     / "fixtures"
     / "qqq_cfb_lifecycle_regression_fixtures.json"
 )
+SPY_FIXTURE_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "historical_signal_replay"
+    / "fixtures"
+    / "spy_cfb_lifecycle_regression_fixtures.json"
+)
 
 
 class CfbLifecycleCalculatorTests(unittest.TestCase):
@@ -21,6 +27,12 @@ class CfbLifecycleCalculatorTests(unittest.TestCase):
         cls.fixtures_by_id = {
             row["fixture_id"]: row
             for row in cls.fixtures
+        }
+        spy_fixture_data = json.loads(SPY_FIXTURE_PATH.read_text(encoding="utf-8"))
+        cls.spy_fixtures = spy_fixture_data["fixtures"]
+        cls.spy_fixtures_by_id = {
+            row["fixture_id"]: row
+            for row in cls.spy_fixtures
         }
 
     def test_all_18_fixtures_pass(self):
@@ -43,6 +55,58 @@ class CfbLifecycleCalculatorTests(unittest.TestCase):
                     result["rejection_reason"],
                     fixture["expected_rejection_reason"],
                 )
+
+    def test_all_12_spy_fixtures_pass(self):
+        self.assertEqual(len(self.spy_fixtures), 12)
+
+        for fixture in self.spy_fixtures:
+            with self.subTest(fixture_id=fixture["fixture_id"]):
+                result = calculator.calculate_lifecycle_from_fixture(fixture)
+
+                self.assertEqual(
+                    result["lifecycle_status"],
+                    fixture["expected_lifecycle_status"],
+                )
+                self.assertEqual(result["lifecycle_as_of"], fixture["expected_as_of"])
+                self.assertEqual(
+                    result["reviewed_before_signal"],
+                    fixture["expected_reviewed_before_signal"],
+                )
+                self.assertEqual(
+                    result["rejection_reason"],
+                    fixture["expected_rejection_reason"],
+                )
+
+    def test_spy_higher_base_watch_fresh_and_spent_are_distinct(self):
+        stale_watch = self._calculate_spy(
+            "spy_cfb_003_lifecycle_stale_higher_base_watch_2026_04_15_1130"
+        )
+        fresh_break = self._calculate_spy(
+            "spy_cfb_003_lifecycle_fresh_higher_base_break_2026_04_15_1430"
+        )
+        later_spent = self._calculate_spy(
+            "spy_cfb_003_lifecycle_spent_post_break_2026_04_15_1530"
+        )
+
+        self.assertEqual(stale_watch["lifecycle_status"], "stale")
+        self.assertEqual(fresh_break["lifecycle_status"], "fresh")
+        self.assertEqual(later_spent["lifecycle_status"], "spent")
+
+    def test_spy_future_and_forbidden_inputs_do_not_change_fresh_status(self):
+        future_row = self._calculate_spy(
+            "spy_cfb_lifecycle_future_replay_row_rejected_for_setup_time_freshness"
+        )
+        forbidden_fields = self._calculate_spy(
+            "spy_cfb_lifecycle_option_fill_pnl_profitability_readiness_ignored"
+        )
+
+        self.assertEqual(future_row["lifecycle_status"], "fresh")
+        self.assertEqual(future_row["rejection_reason"], "ignored_future_replay_row")
+        self.assertEqual(forbidden_fields["lifecycle_status"], "fresh")
+        self.assertEqual(
+            forbidden_fields["rejection_reason"],
+            "ignored_option_fill_pnl_profitability_readiness",
+        )
 
     def test_future_replay_row_is_ignored_without_changing_fresh_status(self):
         result = self._calculate(
@@ -129,6 +193,11 @@ class CfbLifecycleCalculatorTests(unittest.TestCase):
     def _calculate(self, fixture_id):
         return calculator.calculate_lifecycle_from_fixture(
             self.fixtures_by_id[fixture_id]
+        )
+
+    def _calculate_spy(self, fixture_id):
+        return calculator.calculate_lifecycle_from_fixture(
+            self.spy_fixtures_by_id[fixture_id]
         )
 
 
