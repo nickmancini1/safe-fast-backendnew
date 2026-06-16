@@ -1,0 +1,140 @@
+[
+  {
+    "candidate": "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+    "symbol": "QQQ",
+    "signal_time_et": "2026-04-30T15:30:00-04:00",
+    "starter_cost": 1.311962962151,
+    "full_window_cost": 22.376680731774,
+    "rows": [
+      {
+        "tier": "starter",
+        "name": "definitions_full_day",
+        "schema": "definition",
+        "cost": 0.018654763699
+      },
+      {
+        "tier": "starter",
+        "name": "statistics_full_day",
+        "schema": "statistics",
+        "cost": 0.580497741699
+      },
+      {
+        "tier": "starter",
+        "name": "tcbbo_signal_10min",
+        "schema": "tcbbo",
+        "cost": 0.396005809307
+      },
+      {
+        "tier": "starter",
+        "name": "trades_signal_10min",
+        "schema": "trades",
+        "cost": 0.316804647446
+      },
+      {
+        "tier": "full_extra",
+        "name": "tcbbo_open_to_signal",
+        "schema": "tcbbo",
+        "cost": 11.702620983124
+      },
+      {
+        "tier": "full_extra",
+        "name": "trades_open_to_signal",
+        "schema": "trades",
+        "cost": 9.362096786499
+      }
+    ],
+    "status": "OK"
+  },
+  {
+    "candidate": "QQQ-REAL-HISTORICAL-IDEAL-001",
+    "symbol": "QQQ",
+    "signal_time_et": "2026-05-13T12:30:00-04:00",
+    "starter_cost": 1.728456020356,
+    "full_window_cost": 15.647720694543,
+    "rows": [
+      {
+        "tier": "starter",
+        "name": "definitions_full_day",
+        "schema": "definition",
+        "cost": 0.019492954016
+      },
+      {
+        "tier": "starter",
+        "name": "statistics_full_day",
+        "schema": "statistics",
+        "cost": 0.599868297577
+      },
+      {
+        "tier": "starter",
+        "name": "tcbbo_signal_10min",
+        "schema": "tcbbo",
+        "cost": 0.616163760424
+      },
+      {
+        "tier": "starter",
+        "name": "trades_signal_10min",
+        "schema": "trades",
+        "cost": 0.492931008339
+      },
+      {
+        "tier": "full_extra",
+        "name": "tcbbo_open_to_signal",
+        "schema": "tcbbo",
+        "cost": 7.732924818993
+      },
+      {
+        "tier": "full_extra",
+        "name": "trades_open_to_signal",
+        "schema": "trades",
+        "cost": 6.186339855194
+      }
+    ],
+    "status": "OK"
+  },
+  {
+    "candidate": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+    "symbol": "SPY",
+    "signal_time_et": "2026-04-30T12:30:00-04:00",
+    "starter_cost": 1.4353400319819998,
+    "full_window_cost": 20.391423091293,
+    "rows": [
+      {
+        "tier": "starter",
+        "name": "definitions_full_day",
+        "schema": "definition",
+        "cost": 0.021742656827
+      },
+      {
+        "tier": "starter",
+        "name": "statistics_full_day",
+        "schema": "statistics",
+        "cost": 0.673665761948
+      },
+      {
+        "tier": "starter",
+        "name": "tcbbo_signal_10min",
+        "schema": "tcbbo",
+        "cost": 0.411073118448
+      },
+      {
+        "tier": "starter",
+        "name": "trades_signal_10min",
+        "schema": "trades",
+        "cost": 0.328858494759
+      },
+      {
+        "tier": "full_extra",
+        "name": "tcbbo_open_to_signal",
+        "schema": "tcbbo",
+        "cost": 10.531157255173
+      },
+      {
+        "tier": "full_extra",
+        "name": "trades_open_to_signal",
+        "schema": "trades",
+        "cost": 8.424925804138
+      }
+    ],
+    "status": "OK"
+  }
+]
