@@ -27,6 +27,7 @@
 - Source row details: line 291 has `open=739.27`, `high=741.98`, `low=738.9451`, `close=741.725`, `volume=1914842.373732`, source_as_of `2026-05-13T18:43:00Z`.
 - Replay row details: line 5 is `ideal_triggered_signal_stage_candidate`, `trigger_state=triggered`, `final_verdict=TRADE`, and explicitly lifecycle fixture only.
 - Later lifecycle row: line 6 is spent context after follow-through and must not be used as setup-time signal evidence.
+- Grouped Databento cost-check result: `SAFE_FAST_DAY41_SPY_BATCH_DATABENTO_COST_CHECK_RESULT.md`; `OPRA.PILLAR` cost estimate is `NOT_AVAILABLE_PROXY_BLOCKED`, and no local SPY OPRA files exist.
 - Backtest/P&L/proof/readiness: NO.
 
 ## Current Blockers
@@ -50,6 +51,7 @@
 ## Batch Plan
 
 - Include in the same SPY Databento cost-check pass if bounded.
+- Grouped cost-check was attempted and proxy-blocked; rerun from a working HTTPS environment before any SPY OPRA download.
 - Keep Ideal rule work separate from SPY CFB lifecycle decisions.
 - Reuse Databento normalizer and context/caution aggregation vocabulary only after Ideal component rules are accepted.
 - Do not apply QQQ CFB lifecycle, gap, or contract-selection rules to Ideal by assumption.

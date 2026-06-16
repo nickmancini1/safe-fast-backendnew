@@ -27,6 +27,7 @@
 - Source row details: line 154 has `open=698.49`, `high=700.03`, `low=698.48`, `close=700.01`, `volume=4401495.310274`, source_as_of `2026-05-13T18:43:00Z`.
 - Replay row details: line 5 is `clean_fast_break_fresh_break_signal_candidate`, `trigger_state=triggered`, `final_verdict=TRADE`, and explicitly lifecycle fixture only.
 - Later lifecycle row: line 6 is spent context after the 14:30 break and must not be used as setup-time signal evidence.
+- Grouped Databento cost-check result: `SAFE_FAST_DAY41_SPY_BATCH_DATABENTO_COST_CHECK_RESULT.md`; `OPRA.PILLAR` cost estimate is `NOT_AVAILABLE_PROXY_BLOCKED`, and no local SPY OPRA files exist.
 - Backtest/P&L/proof/readiness: NO.
 
 ## Current Blockers
@@ -49,7 +50,7 @@
 ## Batch Plan
 
 - Process in the first SPY CFB batch with `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`.
-- Cost-check SPY OPRA definitions, TCBBO, trades, and statistics/OI around the setup window before any data pull.
+- Cost-check SPY OPRA definitions, TCBBO, trades, and statistics/OI around the setup window before any data pull: attempted and proxy-blocked; rerun from a working HTTPS environment before any SPY OPRA download.
 - Reuse the Databento normalizer for read-only inspection if SPY OPRA data is later authorized.
 - Use QQQ CFB calculators only as implementation patterns until SPY CFB rules and fixtures are accepted.
 - Do not fill evidence, backtest, calculate P&L, claim proof/profitability, or mark readiness from this packet.

@@ -1,6 +1,50 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 SPY batch Databento cost-check result
+
+- Current task file executed: `SAFE_FAST_DAY41_SPY_BATCH_NEXT_TASK.md`.
+- Required result doc created: `SAFE_FAST_DAY41_SPY_BATCH_DATABENTO_COST_CHECK_RESULT.md`.
+- Grouped candidates covered:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`;
+  - `SPY-REAL-HISTORICAL-IDEAL-001`.
+- Dataset/schema cost-check target:
+  - Databento `OPRA.PILLAR`;
+  - schemas `definition`, `tcbbo`, `trades`, and `statistics`.
+- Databento access status:
+  - `DATABENTO_API_KEY` presence checked only; value was not printed or written;
+  - Python `databento` package installed, version `0.79.0`;
+  - Databento client created;
+  - metadata/cost-only calls failed before a Databento response because HTTPS was routed through refused proxy `127.0.0.1:9`.
+- Estimated cost: `NOT_AVAILABLE_PROXY_BLOCKED`.
+- Local SPY OPRA files found: NO.
+- Local OPRA files present: QQQ-only files in `historical_signal_replay/source_data/external_option_data_drop/`.
+- Checks available from local source/replay/work-package rows:
+  - SPY CFB 002 source CSV line `138`, replay lines `2-3`, trigger `682.03`, invalidation `678.45`;
+  - SPY CFB 003 source CSV line `154`, replay lines `5-6`, trigger `698.65`, invalidation `694.2801`;
+  - SPY Ideal source CSV line `291`, replay lines `5-6`, trigger `740.75`, invalidation `731.83`;
+  - current work-package rows remain partial/missing.
+- Next grouped Databento-path decision: `STOP_COST_SOURCE_COVERAGE_NOT_ACCEPTABLE_YET`; rerun cost-check from a working HTTPS environment before any SPY OPRA data pull.
+- Separate later task may authorize SPY rule/regression fixture work from local source/replay rows.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Candidate packets updated:
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_IDEAL_001.md`.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, evidence rows, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 41 SPY batch preflight result
 
 - Current task baseline stated by task file: `7d483ab Add batch restart plan after QQQ diagnosis`.

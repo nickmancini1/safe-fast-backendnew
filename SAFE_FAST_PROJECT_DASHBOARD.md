@@ -2,6 +2,7 @@
 
 ## Current Checkpoint
 
+- Current Day 41 SPY batch Databento cost-check result: `SAFE_FAST_DAY41_SPY_BATCH_DATABENTO_COST_CHECK_RESULT.md` covers `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`, and `SPY-REAL-HISTORICAL-IDEAL-001` in one grouped result. Databento `OPRA.PILLAR` metadata/cost-only calls were attempted for `definition`, `tcbbo`, `trades`, and `statistics`, but all Databento responses were blocked by the refused HTTPS proxy `127.0.0.1:9`, so estimated cost is `NOT_AVAILABLE_PROXY_BLOCKED`. No local SPY OPRA files exist; only QQQ OPRA files are local. The grouped Databento path stops until cost/source coverage can be confirmed from an environment with working HTTPS access. No Databento data was downloaded, no raw vendor files were written, no evidence was filled, no backtest or P&L was run, and no candidate was marked ready.
 - Baseline commit for this SPY batch preflight task: `7d483ab Add batch restart plan after QQQ diagnosis`.
 - Current Day 41 SPY batch preflight checkpoint: `SAFE_FAST_DAY41_SPY_BATCH_PREFLIGHT.md` inventories `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`, and `SPY-REAL-HISTORICAL-IDEAL-001` as evidence-shaped but still partial/missing. Local SPY source rows and replay signal rows exist, and all three candidate packets are updated with source row details, blockers, and data needs. `SAFE_FAST_DAY41_SPY_BATCH_DATABENTO_COST_CHECK_PLAN.md` defines a cost-check-only Databento `OPRA.PILLAR` plan for `definition`, `tcbbo`, `trades`, and `statistics` covering the two SPY CFB windows and optional SPY Ideal. `SAFE_FAST_DAY41_SPY_BATCH_NEXT_TASK.md` defines one grouped next task. No evidence was filled, no Databento data was downloaded, no backtest or P&L was run, and no candidate was marked ready.
 - Baseline commit for this batch restart task: `f4a8781 Fill QQQ CFB execution context evidence`.
@@ -70,7 +71,7 @@ Turn the current QQQ Clean Fast Break path from documented raw inputs and fixtur
 
 ## Next Single Action
 
-Run the grouped SPY Databento cost-check/result task from `SAFE_FAST_DAY41_SPY_BATCH_NEXT_TASK.md`. It must remain cost-check only unless a later task explicitly authorizes a raw data pull.
+The grouped SPY Databento cost-check/result task is complete and stopped at `NOT_AVAILABLE_PROXY_BLOCKED`. Do not download SPY OPRA data from this result. The next Databento-path action is to rerun the same cost-check from an environment where HTTPS access to `hist.databento.com` is not routed through the refused `127.0.0.1:9` proxy. A separate later task may authorize SPY rule/regression fixture work from local source/replay rows.
 
 ## Data-Source Status
 
