@@ -20,10 +20,12 @@
 
 ## Current Status
 
-- Current work-package status: partial/missing required evidence.
+- Current work-package status: both SPY Ideal richer work-package requests now pass content validation.
+- Review doc: `SAFE_FAST_DAY41_SPY_IDEAL_STARTER_BATCH_IMPLEMENT_AND_FILL_REVIEW.md`.
+- Rule doc: `SAFE_FAST_DAY41_SPY_IDEAL_STARTER_BATCH_RULE.md`.
 - Tastytrade/dxLink local source provides underlying OHLCV and unconfirmed macro/IV/event fields only.
-- Gap, headline, option, execution, and complete caution fields are not source-backed in the current local dxLink export.
-- Accepted SPY Ideal lifecycle rule/regression package is still missing.
+- Accepted SPY Ideal lifecycle rule/regression package now exists for the starter batch.
+- Gap, headline, option, execution, and complete caution fields are filled as blocker-preserving `unknown`, not as clean/caution/fail proof.
 - Source row details: line 291 has `open=739.27`, `high=741.98`, `low=738.9451`, `close=741.725`, `volume=1914842.373732`, source_as_of `2026-05-13T18:43:00Z`.
 - Replay row details: line 5 is `ideal_triggered_signal_stage_candidate`, `trigger_state=triggered`, `final_verdict=TRADE`, and explicitly lifecycle fixture only.
 - Later lifecycle row: line 6 is spent context after follow-through and must not be used as setup-time signal evidence.
@@ -32,10 +34,10 @@
 
 ## Current Blockers
 
-- `spy_ideal_stale_spent_expiry_rule_regressions.jsonl` is blocked because `spy_ideal_stale_spent_expiry_rule` and `spy_ideal_expiry_regression_rows` are missing SAFE-FAST artifacts.
-- `spy_ideal_gap_headline_option_execution_complete_caution_fields.jsonl` is blocked because `gap_context_status`, `headline_context_status`, `option_context_status`, `execution_context_status`, and `complete_caution_review_status` are unavailable from local SPY dxLink and replay rows.
-- Ideal gap/context thresholds and lifecycle rules are not accepted.
-- Ideal contract-selection rules are not accepted.
+- Lifecycle request blocker is cleared by the accepted SPY Ideal starter lifecycle fixtures and calculator-backed tests.
+- Context/caution request blocker is cleared as request-shaped evidence with blocker-preserving `unknown` statuses.
+- Ideal gap/context thresholds are still not accepted, so `gap_context_status` remains `unknown`.
+- Ideal starter contract-selection rule exists for regression work only; the top-ranked contract has only future local option rows, so `option_context_status` and `execution_context_status` remain `unknown`.
 - Headline/no-headline source policy is not accepted.
 - Entry, fill, exit, stop/invalidation, time exit, cost, slippage, sample-size, and promotion gates are not accepted.
 
@@ -60,7 +62,7 @@
 - Same-contract or usable statistics/open-interest exists for raw inspection: YES, `19,926` setup-time-safe `stat_type=9` rows across `1,107` quote/trade-window instruments.
 - Starter data alone appears enough to continue: YES for first-pass raw option inspection after Ideal rule/regression authorization; NO for evidence fill, trade choice, proof, or readiness.
 - Full-window data may be needed later: YES, for entry/fill/exit, full quote path, stop/invalidation, time exit, cost/slippage, sample-size, and proof work.
-- Next grouped task after SPY CFB: Ideal setup-family rule/evidence package with `QQQ-REAL-HISTORICAL-IDEAL-001`.
+- Starter batch result: SPY Ideal lifecycle request and context/caution request pass content validation, but the candidate is not intake-ready and has no proof/profitability/readiness.
 
 ## Data Needs
 

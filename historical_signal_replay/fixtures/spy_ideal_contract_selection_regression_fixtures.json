@@ -1,0 +1,77 @@
+{
+  "fixture_name": "spy_ideal_contract_selection_regression_fixtures",
+  "fixture_version": 1,
+  "purpose": "Data-only regression fixtures for the conservative SPY Ideal starter option contract-selection rule. These fixtures use cheap starter Databento rows only and do not choose a real trade, backtest, calculate P&L, prove profitability, or mark readiness.",
+  "accepted_rule_source": "SAFE_FAST_DAY41_SPY_IDEAL_STARTER_BATCH_RULE.md",
+  "rule_summary": {
+    "side": "long_calls_only",
+    "expiration": "nearest reviewed expiration with DTE >= 14",
+    "strike": "lowest reviewed-universe call strike at or above candidate trigger",
+    "quote_timestamp": "nearest TCBBO quote at or before signal time by ts_event",
+    "spread_cap": 0.15,
+    "spread_pct_cap": 0.02,
+    "minimum_bid_size": 1,
+    "minimum_ask_size": 1,
+    "minimum_trade_volume_through_setup": 1,
+    "open_interest": ">= 1 only if setup-time-safe same-contract open interest exists in starter data",
+    "fallback": "none after top-ranked contract fails a gate"
+  },
+  "fixtures": [
+    {
+      "fixture_id": "spy_ideal_starter_top_contract_quote_after_signal_abstains",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Ideal",
+      "signal_time": "2026-05-13T15:30:00Z",
+      "trigger_price": 740.75,
+      "open_interest_required": false,
+      "candidate_contracts": [
+        {
+          "contract_symbol": "SPY   260527C00745000",
+          "underlying": "SPY",
+          "side": "C",
+          "expiration": "2026-05-27",
+          "dte": 14,
+          "strike": 745,
+          "quote": {
+            "ts_event": "2026-05-13T15:30:34.836555549Z",
+            "ts_recv": "2026-05-13T15:30:34.836755569Z",
+            "bid": 5.64,
+            "ask": 5.66,
+            "bid_size": 159,
+            "ask_size": 126,
+            "midpoint": 5.65,
+            "spread": 0.02,
+            "spread_pct": 0.0035398230088495575
+          },
+          "trade_volume_through_setup": 0,
+          "open_interest": null,
+          "statistics": {}
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "quote_ts_event_after_signal",
+      "reason": "The top-ranked SPY Ideal starter long call is 2026-05-27 C745, but its only local starter quote and trade row are after the 2026-05-13T15:30:00Z setup boundary."
+    },
+    {
+      "fixture_id": "spy_ideal_missing_trigger_abstains",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Ideal",
+      "signal_time": "2026-05-13T15:30:00Z",
+      "trigger_price": null,
+      "open_interest_required": false,
+      "candidate_contracts": [],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "missing_or_invalid_signal_time_or_trigger",
+      "reason": "Missing trigger/level blocks Ideal contract selection instead of guessing a strike."
+    }
+  ],
+  "explicit_non_goals": [
+    "No raw Databento files are modified.",
+    "No fallback scan after the top-ranked contract fails is authorized.",
+    "No backtest, entry, fill, exit, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized."
+  ]
+}

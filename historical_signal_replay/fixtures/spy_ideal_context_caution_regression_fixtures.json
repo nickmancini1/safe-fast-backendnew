@@ -1,0 +1,98 @@
+{
+  "fixture_name": "spy_ideal_context_caution_regression_fixtures",
+  "fixture_version": 1,
+  "purpose": "Data-only regression fixtures for SPY Ideal starter context/caution aggregation. These fixtures use accepted lifecycle plus blocker-preserving unknown gap, headline, option, and execution labels.",
+  "accepted_rule_source": "SAFE_FAST_DAY41_SPY_IDEAL_STARTER_BATCH_RULE.md",
+  "fixtures": [
+    {
+      "fixture_id": "spy_ideal_option_context_unknown_no_setup_safe_top_quote",
+      "component": "option_context_status",
+      "expected_candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Ideal",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "symbol": "SPY",
+      "setup_type": "Ideal",
+      "setup_time": "2026-05-13T11:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "unknown"
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-05-13T11:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "component_status_unknown",
+      "reason": "The top-ranked SPY Ideal starter contract has only future local option rows, so option context stays unknown."
+    },
+    {
+      "fixture_id": "spy_ideal_execution_context_unknown_no_selected_quote",
+      "component": "execution_context_status",
+      "expected_candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Ideal",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "symbol": "SPY",
+      "setup_type": "Ideal",
+      "setup_time": "2026-05-13T11:30:00-04:00",
+      "component_inputs": {
+        "source_backed_setup_time_inputs_present": true,
+        "accepted_component_rule_present": true,
+        "accepted_fixture_component_status": "unknown"
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-05-13T11:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "component_status_unknown",
+      "reason": "No selected setup-time-safe quote exists for SPY Ideal execution context."
+    },
+    {
+      "fixture_id": "spy_ideal_headline_context_unknown_missing_source_policy",
+      "component": "headline_context_status",
+      "expected_candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Ideal",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "symbol": "SPY",
+      "setup_type": "Ideal",
+      "setup_time": "2026-05-13T11:30:00-04:00",
+      "component_inputs": {
+        "missing_required_input": true,
+        "missing_input_name": "historical_headline_source_policy"
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-05-13T11:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "missing_historical_headline_source_policy",
+      "reason": "No accepted historical headline/no-headline source policy exists for the SPY Ideal setup row."
+    },
+    {
+      "fixture_id": "spy_ideal_complete_caution_unknown_components",
+      "component": "complete_caution_review_status",
+      "expected_candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Ideal",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "symbol": "SPY",
+      "setup_type": "Ideal",
+      "setup_time": "2026-05-13T11:30:00-04:00",
+      "component_inputs": {
+        "gap_context_status": "unknown",
+        "lifecycle_status": "fresh",
+        "option_context_status": "unknown",
+        "headline_context_status": "unknown",
+        "execution_context_status": "unknown"
+      },
+      "expected_status": "unknown",
+      "expected_as_of": "2026-05-13T11:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "required_component_unknown",
+      "reason": "Unknown gap, option, headline, and execution components keep complete caution unknown."
+    }
+  ],
+  "explicit_non_goals": [
+    "No raw Databento files are modified.",
+    "No gap or headline clean/caution/fail assertion is made.",
+    "No backtest, entry, fill, exit, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized."
+  ]
+}

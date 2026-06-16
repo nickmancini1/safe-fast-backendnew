@@ -17,6 +17,12 @@ SPY_FIXTURE_PATH = (
     / "fixtures"
     / "spy_cfb_lifecycle_regression_fixtures.json"
 )
+SPY_IDEAL_FIXTURE_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "historical_signal_replay"
+    / "fixtures"
+    / "spy_ideal_lifecycle_regression_fixtures.json"
+)
 
 
 class CfbLifecycleCalculatorTests(unittest.TestCase):
@@ -33,6 +39,14 @@ class CfbLifecycleCalculatorTests(unittest.TestCase):
         cls.spy_fixtures_by_id = {
             row["fixture_id"]: row
             for row in cls.spy_fixtures
+        }
+        spy_ideal_fixture_data = json.loads(
+            SPY_IDEAL_FIXTURE_PATH.read_text(encoding="utf-8")
+        )
+        cls.spy_ideal_fixtures = spy_ideal_fixture_data["fixtures"]
+        cls.spy_ideal_fixtures_by_id = {
+            row["fixture_id"]: row
+            for row in cls.spy_ideal_fixtures
         }
 
     def test_all_18_fixtures_pass(self):
@@ -107,6 +121,38 @@ class CfbLifecycleCalculatorTests(unittest.TestCase):
             forbidden_fields["rejection_reason"],
             "ignored_option_fill_pnl_profitability_readiness",
         )
+
+    def test_all_6_spy_ideal_fixtures_pass(self):
+        self.assertEqual(len(self.spy_ideal_fixtures), 6)
+
+        for fixture in self.spy_ideal_fixtures:
+            with self.subTest(fixture_id=fixture["fixture_id"]):
+                result = calculator.calculate_lifecycle_from_fixture(fixture)
+
+                self.assertEqual(
+                    result["lifecycle_status"],
+                    fixture["expected_lifecycle_status"],
+                )
+                self.assertEqual(result["lifecycle_as_of"], fixture["expected_as_of"])
+                self.assertEqual(
+                    result["reviewed_before_signal"],
+                    fixture["expected_reviewed_before_signal"],
+                )
+                self.assertEqual(
+                    result["rejection_reason"],
+                    fixture["expected_rejection_reason"],
+                )
+
+    def test_spy_ideal_setup_signal_fresh_and_later_row_spent(self):
+        fresh = self._calculate_spy_ideal(
+            "spy_ideal_lifecycle_fresh_trigger_signal_2026_05_13_1130"
+        )
+        spent = self._calculate_spy_ideal(
+            "spy_ideal_lifecycle_spent_follow_through_2026_05_13_1430"
+        )
+
+        self.assertEqual(fresh["lifecycle_status"], "fresh")
+        self.assertEqual(spent["lifecycle_status"], "spent")
 
     def test_future_replay_row_is_ignored_without_changing_fresh_status(self):
         result = self._calculate(
@@ -198,6 +244,11 @@ class CfbLifecycleCalculatorTests(unittest.TestCase):
     def _calculate_spy(self, fixture_id):
         return calculator.calculate_lifecycle_from_fixture(
             self.spy_fixtures_by_id[fixture_id]
+        )
+
+    def _calculate_spy_ideal(self, fixture_id):
+        return calculator.calculate_lifecycle_from_fixture(
+            self.spy_ideal_fixtures_by_id[fixture_id]
         )
 
 

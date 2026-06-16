@@ -15,6 +15,7 @@ EXPECTED_RULE = "same_candle_initial_break_freshness"
 SUPPORTED_RULES = {
     EXPECTED_RULE,
     "spy_cfb_exact_signal_candle_freshness",
+    "spy_ideal_exact_signal_candle_freshness",
 }
 
 FORBIDDEN_OUTPUT_FIELDS = {
@@ -131,6 +132,7 @@ def calculate_lifecycle_from_fixture(fixture):
         source_time=fixture.get("source_time"),
         candidate_state_inputs=fixture.get("candidate_state_inputs"),
         expected_symbol=_expected_symbol_from_fixture(fixture),
+        expected_setup_type=fixture.get("expected_setup_type", EXPECTED_SETUP_TYPE),
     )
 
 

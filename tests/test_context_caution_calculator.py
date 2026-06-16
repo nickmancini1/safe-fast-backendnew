@@ -17,6 +17,12 @@ SPY_FIXTURE_PATH = (
     / "fixtures"
     / "spy_cfb_context_caution_regression_fixtures.json"
 )
+SPY_IDEAL_FIXTURE_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "historical_signal_replay"
+    / "fixtures"
+    / "spy_ideal_context_caution_regression_fixtures.json"
+)
 
 
 class ContextCautionCalculatorTests(unittest.TestCase):
@@ -33,6 +39,14 @@ class ContextCautionCalculatorTests(unittest.TestCase):
         cls.spy_fixtures_by_id = {
             row["fixture_id"]: row
             for row in cls.spy_fixtures
+        }
+        spy_ideal_fixture_data = json.loads(
+            SPY_IDEAL_FIXTURE_PATH.read_text(encoding="utf-8")
+        )
+        cls.spy_ideal_fixtures = spy_ideal_fixture_data["fixtures"]
+        cls.spy_ideal_fixtures_by_id = {
+            row["fixture_id"]: row
+            for row in cls.spy_ideal_fixtures
         }
 
     def test_all_22_fixtures_pass(self):
@@ -212,6 +226,40 @@ class ContextCautionCalculatorTests(unittest.TestCase):
 
         self.assertEqual(option["option_context_status"], "unknown")
         self.assertEqual(execution["execution_context_status"], "unknown")
+
+    def test_all_4_spy_ideal_context_caution_fixtures_pass(self):
+        self.assertEqual(len(self.spy_ideal_fixtures), 4)
+
+        for fixture in self.spy_ideal_fixtures:
+            with self.subTest(fixture_id=fixture["fixture_id"]):
+                result = calculator.calculate_context_caution_from_fixture(fixture)
+
+                self.assertEqual(
+                    result["context_caution_status"],
+                    fixture["expected_status"],
+                )
+                self.assertEqual(
+                    result["context_caution_as_of"],
+                    fixture["expected_as_of"],
+                )
+                self.assertEqual(
+                    result["reviewed_before_signal"],
+                    fixture["expected_reviewed_before_signal"],
+                )
+                self.assertEqual(
+                    result["rejection_reason"],
+                    fixture["expected_rejection_reason"],
+                )
+
+    def test_spy_ideal_complete_caution_remains_unknown(self):
+        result = calculator.calculate_context_caution_from_fixture(
+            self.spy_ideal_fixtures_by_id[
+                "spy_ideal_complete_caution_unknown_components"
+            ]
+        )
+
+        self.assertEqual(result["complete_caution_review_status"], "unknown")
+        self.assertEqual(result["rejection_reason"], "required_component_unknown")
 
     def _calculate(self, fixture_id):
         return calculator.calculate_context_caution_from_fixture(

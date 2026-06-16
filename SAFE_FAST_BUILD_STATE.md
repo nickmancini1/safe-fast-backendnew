@@ -1,5 +1,64 @@
 # SAFE-FAST Build State
 
+## Day 41 SPY Ideal starter batch implementation and fill result
+
+- Current task file executed: `SAFE_FAST_DAY41_SPY_IDEAL_STARTER_BATCH_IMPLEMENT_AND_FILL_CODEX_TASK.md`.
+- Baseline stated by task file: `db44a14 Process SPY CFB starter option execution context batch`.
+- Corrective scope: SPY Ideal starter-only lifecycle, option/execution/context fixtures/tests, bounded evidence fill, review/rule docs, and project/candidate packet state only.
+- Candidate covered: `SPY-REAL-HISTORICAL-IDEAL-001`.
+- Exact failed requests before fill:
+  - `historical_signal_replay/source_data/richer_export_package_work/spy_ideal_stale_spent_expiry_rule_regressions.jsonl`;
+  - `historical_signal_replay/source_data/richer_export_package_work/spy_ideal_gap_headline_option_execution_complete_caution_fields.jsonl`.
+- Rule doc created: `SAFE_FAST_DAY41_SPY_IDEAL_STARTER_BATCH_RULE.md`.
+- Review doc created: `SAFE_FAST_DAY41_SPY_IDEAL_STARTER_BATCH_IMPLEMENT_AND_FILL_REVIEW.md`.
+- Fixture files added:
+  - `historical_signal_replay/fixtures/spy_ideal_lifecycle_regression_fixtures.json`;
+  - `historical_signal_replay/fixtures/spy_ideal_contract_selection_regression_fixtures.json`;
+  - `historical_signal_replay/fixtures/spy_ideal_execution_context_regression_fixtures.json`;
+  - `historical_signal_replay/fixtures/spy_ideal_context_caution_regression_fixtures.json`.
+- Calculator update:
+  - `historical_signal_replay/cfb_lifecycle_calculator.py` now supports fixture-level `expected_setup_type` and accepted SPY Ideal lifecycle rule metadata while preserving existing QQQ/SPY CFB fixtures.
+- SPY Ideal lifecycle result:
+  - setup row at `2026-05-13T11:30:00-04:00` is `fresh`;
+  - later same-session row at `2026-05-13T14:30:00-04:00` is `spent`;
+  - later review without spent evidence is `expired`;
+  - missing trigger, wrong setup, and future replay contamination remain blocked or ignored as specified by fixtures.
+- SPY Ideal starter option/execution result:
+  - top-ranked starter contract `SPY   260527C00745000`, `instrument_id=1224739213`, expiration `2026-05-27`, strike `745`;
+  - only local starter quote/trade row for the top-ranked contract is post-signal at `2026-05-13T15:30:34.836555549Z`;
+  - contract selector abstains with `quote_ts_event_after_signal`;
+  - `option_context_status=unknown`, `execution_context_status=unknown`.
+- Context/caution result:
+  - `gap_context_status=unknown` because no accepted Ideal gap threshold exists;
+  - `headline_context_status=unknown` because no accepted historical headline/no-headline source policy exists;
+  - `option_context_status=unknown`;
+  - `execution_context_status=unknown`;
+  - `complete_caution_review_status=unknown` by accepted precedence.
+- Evidence rows filled:
+  - `historical_signal_replay/source_data/richer_export_package_work/spy_ideal_stale_spent_expiry_rule_regressions.jsonl`;
+  - `historical_signal_replay/source_data/richer_export_package_work/spy_ideal_gap_headline_option_execution_complete_caution_fields.jsonl`.
+- Content validator result after fill: `9` passed requests, `0` failed requests, `0` partial rows, `0` header-only rows.
+- Bridge result after fill: `4` reconsideration-eligible candidates: QQQ CFB, SPY CFB 002, SPY CFB 003, and SPY Ideal. Intake-ready count remains `0`; proof allowed remains `NO`.
+- Tests run:
+  - `python -m unittest tests.test_cfb_contract_selector`: PASS, `17` tests;
+  - `python -m unittest tests.test_execution_context_calculator`: PASS, `10` tests;
+  - `python -m unittest tests.test_context_caution_calculator`: PASS, `12` tests;
+  - `python -m unittest tests.test_cfb_lifecycle_calculator`: PASS, `12` tests;
+  - `python -m watcher_foundation.source_evidence_work_package_content_validator`: PASS command;
+  - `python -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS command.
+- Evidence filled: YES, SPY Ideal lifecycle/context request-shaped fields only.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 41 SPY CFB starter option/execution/context batch result
 
 - Current task file executed: `SAFE_FAST_DAY41_SPY_CFB_STARTER_OPTION_EXECUTION_CONTEXT_BATCH_CODEX_TASK.md`.

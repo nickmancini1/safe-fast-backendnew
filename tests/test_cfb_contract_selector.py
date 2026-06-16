@@ -23,6 +23,12 @@ SPY_FIXTURE_PATH = (
     / "fixtures"
     / "spy_cfb_contract_selection_regression_fixtures.json"
 )
+SPY_IDEAL_FIXTURE_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "historical_signal_replay"
+    / "fixtures"
+    / "spy_ideal_contract_selection_regression_fixtures.json"
+)
 
 
 class CfbContractSelectorTests(unittest.TestCase):
@@ -47,6 +53,14 @@ class CfbContractSelectorTests(unittest.TestCase):
         cls.spy_fixtures_by_id = {
             row["fixture_id"]: row
             for row in cls.spy_fixtures
+        }
+        spy_ideal_fixture_data = json.loads(
+            SPY_IDEAL_FIXTURE_PATH.read_text(encoding="utf-8")
+        )
+        cls.spy_ideal_fixtures = spy_ideal_fixture_data["fixtures"]
+        cls.spy_ideal_fixtures_by_id = {
+            row["fixture_id"]: row
+            for row in cls.spy_ideal_fixtures
         }
 
     def test_all_18_fixtures_pass(self):
@@ -231,6 +245,36 @@ class CfbContractSelectorTests(unittest.TestCase):
         result = selector.select_contract_from_fixture(
             self.spy_fixtures_by_id[
                 "spy_cfb_003_starter_top_contract_quote_after_signal_abstains"
+            ]
+        )
+
+        self.assertEqual(result["contract_selection_status"], "abstain")
+        self.assertEqual(result["rejection_reason"], "quote_ts_event_after_signal")
+
+    def test_all_2_spy_ideal_starter_fixtures_pass(self):
+        self.assertEqual(len(self.spy_ideal_fixtures), 2)
+
+        for fixture in self.spy_ideal_fixtures:
+            with self.subTest(fixture_id=fixture["fixture_id"]):
+                result = selector.select_contract_from_fixture(fixture)
+
+                self.assertEqual(
+                    result["contract_selection_status"],
+                    fixture["expected_status"],
+                )
+                self.assertEqual(
+                    result["selected_contract"],
+                    fixture["expected_selected_contract"],
+                )
+                self.assertEqual(
+                    result["rejection_reason"],
+                    fixture["expected_rejection_reason"],
+                )
+
+    def test_spy_ideal_starter_abstains_on_future_top_quote(self):
+        result = selector.select_contract_from_fixture(
+            self.spy_ideal_fixtures_by_id[
+                "spy_ideal_starter_top_contract_quote_after_signal_abstains"
             ]
         )
 

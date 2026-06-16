@@ -1,0 +1,195 @@
+{
+  "fixture_name": "spy_ideal_lifecycle_regression_fixtures",
+  "fixture_version": 1,
+  "purpose": "Data-only regression fixtures for the conservative SPY Ideal starter lifecycle rule. These fixtures do not choose a trade, backtest, calculate P&L, prove profitability, or mark readiness.",
+  "accepted_rule_source": "SAFE_FAST_DAY41_SPY_IDEAL_STARTER_BATCH_RULE.md",
+  "rule_summary": {
+    "fresh": "Exact completed SPY Ideal trigger-stage signal timestamp only, with matching identity, trigger/invalidation, triggered state, source-backed row ordering, and unspent trigger path.",
+    "spent": "Later same-trigger Ideal follow-through/no-fresh-trigger context with explicit prior-completed-trigger spent blocker.",
+    "expired": "Previously fresh Ideal signal reviewed after the exact signal candle decision timestamp, unless higher-precedence spent evidence applies.",
+    "unknown": "Required lifecycle identity, timestamps, trigger/invalidation, stage, trigger state, prior-state, rule metadata, row ordering, or no-hindsight boundary data is missing, invalid, ambiguous, or future-contaminated.",
+    "state_precedence": [
+      "unknown",
+      "spent",
+      "fresh",
+      "expired",
+      "stale"
+    ]
+  },
+  "fixtures": [
+    {
+      "fixture_id": "spy_ideal_lifecycle_fresh_trigger_signal_2026_05_13_1130",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_setup_type": "Ideal",
+      "setup_type": "Ideal",
+      "signal_time": "2026-05-13T11:30:00-04:00",
+      "source_time": "2026-05-13T11:30:00-04:00",
+      "source_refs": {
+        "source_csv": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+        "source_csv_line": 291,
+        "replay_log": "historical_signal_replay/reports/second_real_spy_ideal_replay_v1_signal_log.jsonl",
+        "replay_log_line": 5
+      },
+      "candidate_state_inputs": {
+        "symbol": "SPY",
+        "stage": "ideal_triggered_signal_stage_candidate",
+        "trigger": 740.75,
+        "invalidation": 731.83,
+        "trigger_state": "triggered",
+        "current_state": "signal",
+        "prior_state": "ideal_retest_recovery_confirmation_candidate",
+        "prior_completed_break": false,
+        "follow_through_context": false,
+        "accepted_lifecycle_rule": "spy_ideal_exact_signal_candle_freshness",
+        "source_backed_row_ordering": true,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_lifecycle_status": "fresh",
+      "expected_as_of": "2026-05-13T11:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Replay log line 5 is the exact completed SPY Ideal trigger-stage signal row with matching trigger, invalidation, and unspent path."
+    },
+    {
+      "fixture_id": "spy_ideal_lifecycle_spent_follow_through_2026_05_13_1430",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_setup_type": "Ideal",
+      "setup_type": "Ideal",
+      "signal_time": "2026-05-13T11:30:00-04:00",
+      "source_time": "2026-05-13T14:30:00-04:00",
+      "source_refs": {
+        "replay_log": "historical_signal_replay/reports/second_real_spy_ideal_replay_v1_signal_log.jsonl",
+        "replay_log_line": 6
+      },
+      "candidate_state_inputs": {
+        "symbol": "SPY",
+        "stage": "ideal_follow_through_no_fresh_trigger",
+        "trigger": 740.75,
+        "invalidation": 731.83,
+        "trigger_state": "spent",
+        "current_state": "spent",
+        "primary_blocker": "prior_completed_ideal_trigger_spent",
+        "prior_state": "signal",
+        "prior_completed_break": true,
+        "follow_through_context": false,
+        "accepted_lifecycle_rule": "spy_ideal_exact_signal_candle_freshness",
+        "source_backed_row_ordering": true,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_lifecycle_status": "spent",
+      "expected_as_of": "2026-05-13T14:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "Replay log line 6 explicitly marks the prior completed Ideal trigger spent and is not a new fresh trigger."
+    },
+    {
+      "fixture_id": "spy_ideal_lifecycle_expired_later_review_without_spent_evidence",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_setup_type": "Ideal",
+      "setup_type": "Ideal",
+      "signal_time": "2026-05-13T11:30:00-04:00",
+      "source_time": "2026-05-13T12:30:00-04:00",
+      "candidate_state_inputs": {
+        "symbol": "SPY",
+        "stage": "ideal_triggered_signal_stage_candidate",
+        "trigger": 740.75,
+        "invalidation": 731.83,
+        "trigger_state": "triggered",
+        "current_state": "review",
+        "prior_completed_break": false,
+        "follow_through_context": false,
+        "previously_fresh_signal_time": "2026-05-13T11:30:00-04:00",
+        "accepted_lifecycle_rule": "spy_ideal_exact_signal_candle_freshness",
+        "source_backed_row_ordering": true,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_lifecycle_status": "expired",
+      "expected_as_of": "2026-05-13T12:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": null,
+      "reason": "A later review of a previously fresh Ideal signal expires when no spent evidence applies."
+    },
+    {
+      "fixture_id": "spy_ideal_lifecycle_unknown_missing_trigger",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_setup_type": "Ideal",
+      "setup_type": "Ideal",
+      "signal_time": "2026-05-13T11:30:00-04:00",
+      "source_time": "2026-05-13T11:30:00-04:00",
+      "candidate_state_inputs": {
+        "symbol": "SPY",
+        "stage": "ideal_triggered_signal_stage_candidate",
+        "trigger": null,
+        "invalidation": 731.83,
+        "trigger_state": "triggered",
+        "current_state": "signal",
+        "prior_completed_break": false,
+        "accepted_lifecycle_rule": "spy_ideal_exact_signal_candle_freshness",
+        "source_backed_row_ordering": true,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_lifecycle_status": "unknown",
+      "expected_as_of": "2026-05-13T11:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "missing_required_trigger",
+      "reason": "Missing trigger must block SPY Ideal lifecycle classification."
+    },
+    {
+      "fixture_id": "spy_ideal_lifecycle_unknown_wrong_setup_type",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_setup_type": "Ideal",
+      "setup_type": "Clean Fast Break",
+      "signal_time": "2026-05-13T11:30:00-04:00",
+      "source_time": "2026-05-13T11:30:00-04:00",
+      "candidate_state_inputs": {
+        "symbol": "SPY",
+        "stage": "ideal_triggered_signal_stage_candidate",
+        "trigger": 740.75,
+        "invalidation": 731.83,
+        "trigger_state": "triggered",
+        "current_state": "signal",
+        "prior_completed_break": false,
+        "accepted_lifecycle_rule": "spy_ideal_exact_signal_candle_freshness",
+        "source_backed_row_ordering": true,
+        "forbidden_future_inputs_present": false
+      },
+      "expected_lifecycle_status": "unknown",
+      "expected_as_of": "2026-05-13T11:30:00-04:00",
+      "expected_reviewed_before_signal": false,
+      "expected_rejection_reason": "wrong_setup_type",
+      "reason": "Clean Fast Break identity cannot be promoted as SPY Ideal lifecycle evidence."
+    },
+    {
+      "fixture_id": "spy_ideal_lifecycle_future_replay_row_rejected_for_setup_time_freshness",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "expected_setup_type": "Ideal",
+      "setup_type": "Ideal",
+      "signal_time": "2026-05-13T11:30:00-04:00",
+      "source_time": "2026-05-13T11:30:00-04:00",
+      "candidate_state_inputs": {
+        "symbol": "SPY",
+        "stage": "ideal_triggered_signal_stage_candidate",
+        "trigger": 740.75,
+        "invalidation": 731.83,
+        "trigger_state": "triggered",
+        "current_state": "signal",
+        "prior_completed_break": false,
+        "accepted_lifecycle_rule": "spy_ideal_exact_signal_candle_freshness",
+        "source_backed_row_ordering": true,
+        "forbidden_future_inputs_present": true,
+        "forbidden_future_replay_row_time": "2026-05-13T14:30:00-04:00",
+        "forbidden_future_replay_row_state": "spent"
+      },
+      "expected_lifecycle_status": "fresh",
+      "expected_as_of": "2026-05-13T11:30:00-04:00",
+      "expected_reviewed_before_signal": true,
+      "expected_rejection_reason": "ignored_future_replay_row",
+      "reason": "The later spent row must not alter setup-time freshness."
+    }
+  ],
+  "explicit_non_goals": [
+    "No raw Databento files are modified.",
+    "No starter option inspection result is interpreted as lifecycle proof.",
+    "No backtest, trade selection, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "fixture_name": "spy_ideal_execution_context_regression_fixtures",
+  "fixture_version": 1,
+  "purpose": "Data-only regression fixtures for SPY Ideal starter execution context. These fixtures classify setup-time quote usability only and do not choose a trade, backtest, calculate P&L, prove profitability, or mark readiness.",
+  "accepted_rule_source": "SAFE_FAST_DAY41_SPY_IDEAL_STARTER_BATCH_RULE.md",
+  "rule_summary": {
+    "clean_quote_age_seconds_max": 60,
+    "caution_quote_age_seconds_max": 300,
+    "fail_quote_age_seconds_min_exclusive": 300,
+    "spread_cap": 0.15,
+    "spread_percent_cap": 0.02,
+    "minimum_bid_size": 1,
+    "minimum_ask_size": 1,
+    "minimum_setup_time_trade_volume": 1,
+    "fallback": "none after selected/top-ranked contract fails a gate"
+  },
+  "fixtures": [
+    {
+      "fixture_id": "spy_ideal_starter_execution_unknown_no_selected_quote",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "signal_time": "2026-05-13T15:30:00Z",
+      "quote_time": null,
+      "bid": null,
+      "ask": null,
+      "spread": null,
+      "bid_size": null,
+      "ask_size": null,
+      "setup_time_trade_volume": null,
+      "expected_quote_age_seconds": null,
+      "expected_execution_context_status": "unknown",
+      "expected_rejection_reason": "missing_source_data",
+      "reason": "The SPY Ideal top-ranked starter contract abstains because its only local quote is after setup, so there is no selected setup-safe quote for execution-context classification."
+    },
+    {
+      "fixture_id": "spy_ideal_execution_future_quote_rejected",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "signal_time": "2026-05-13T15:30:00Z",
+      "quote_time": "2026-05-13T15:30:34.836555549Z",
+      "bid": 5.64,
+      "ask": 5.66,
+      "spread": 0.02,
+      "bid_size": 159,
+      "ask_size": 126,
+      "setup_time_trade_volume": 1,
+      "expected_quote_age_seconds": -34.836555,
+      "expected_execution_context_status": "fail",
+      "expected_rejection_reason": "quote_after_signal",
+      "reason": "A post-signal quote is future option data and cannot improve setup-time execution context."
+    }
+  ],
+  "explicit_non_goals": [
+    "No raw Databento files are modified.",
+    "No backtest, entry, fill, exit, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized."
+  ]
+}
