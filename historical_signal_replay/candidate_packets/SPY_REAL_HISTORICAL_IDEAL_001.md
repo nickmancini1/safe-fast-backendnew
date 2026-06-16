@@ -49,6 +49,19 @@
 - Full-window data likely remains needed later for entry/exit/backtest/proof work.
 - Evidence filled, backtest, P&L, proof, profitability, readiness: NO.
 
+## Starter Batch Option Inspection
+
+- Inspection doc: `SAFE_FAST_DAY41_STARTER_BATCH_OPTION_INSPECTION.md`.
+- Rule/data matrix: `SAFE_FAST_DAY41_STARTER_BATCH_RULE_AND_DATA_MATRIX.md`.
+- Definitions exist: YES, `13,604` rows, `37` expirations.
+- Setup-window quotes exist: YES, `23,940` rows; `10,302` at or before setup.
+- Quote freshness: latest raw quote at/before setup `2026-05-13T15:29:59.996749Z`, about `0.003251` seconds before setup.
+- Setup-window trades exist: YES, `23,940` rows; `10,302` at or before setup; setup-time-safe summed size `125,354`.
+- Same-contract or usable statistics/open-interest exists for raw inspection: YES, `19,926` setup-time-safe `stat_type=9` rows across `1,107` quote/trade-window instruments.
+- Starter data alone appears enough to continue: YES for first-pass raw option inspection after Ideal rule/regression authorization; NO for evidence fill, trade choice, proof, or readiness.
+- Full-window data may be needed later: YES, for entry/fill/exit, full quote path, stop/invalidation, time exit, cost/slippage, sample-size, and proof work.
+- Next grouped task after SPY CFB: Ideal setup-family rule/evidence package with `QQQ-REAL-HISTORICAL-IDEAL-001`.
+
 ## Data Needs
 
 - Underlying candles: local setup-time OHLCV row exists; accepted Ideal gap/lifecycle/context artifacts still needed.

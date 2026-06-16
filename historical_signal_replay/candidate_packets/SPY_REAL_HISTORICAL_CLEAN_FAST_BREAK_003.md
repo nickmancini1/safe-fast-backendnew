@@ -48,6 +48,19 @@
 - Full-window data likely remains needed later for entry/exit/backtest/proof work.
 - Evidence filled, backtest, P&L, proof, profitability, readiness: NO.
 
+## Starter Batch Option Inspection
+
+- Inspection doc: `SAFE_FAST_DAY41_STARTER_BATCH_OPTION_INSPECTION.md`.
+- Rule/data matrix: `SAFE_FAST_DAY41_STARTER_BATCH_RULE_AND_DATA_MATRIX.md`.
+- Definitions exist: YES, `13,422` rows, `36` expirations.
+- Setup-window quotes exist: YES, `26,724` rows; `9,067` at or before setup.
+- Quote freshness: latest raw quote at/before setup `2026-04-15T18:29:59.973562Z`, about `0.026438` seconds before setup.
+- Setup-window trades exist: YES, `26,724` rows; `9,067` at or before setup; setup-time-safe summed size `104,943`.
+- Same-contract or usable statistics/open-interest exists for raw inspection: YES, `29,412` setup-time-safe `stat_type=9` rows across `1,634` quote/trade-window instruments.
+- Starter data alone appears enough to continue: YES for first-pass raw option inspection after SPY CFB higher-base rule/regression authorization; NO for evidence fill, trade choice, proof, or readiness.
+- Full-window data may be needed later: YES, for entry/fill/exit, full quote path, stop/invalidation, time exit, cost/slippage, sample-size, and proof work.
+- Next grouped task: SPY CFB grouped rule/regression package with `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`.
+
 ## Data Needs
 
 - Underlying candles: local setup-time OHLCV row exists; accepted SPY CFB higher-base lifecycle/regression artifacts still needed.

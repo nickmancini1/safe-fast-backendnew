@@ -33,6 +33,20 @@
 - Full-window data likely remains needed later for entry/exit/backtest/proof work.
 - Evidence filled, backtest, P&L, proof, profitability, readiness: NO.
 
+## Starter Batch Option Inspection
+
+- Inspection doc: `SAFE_FAST_DAY41_STARTER_BATCH_OPTION_INSPECTION.md`.
+- Rule/data matrix: `SAFE_FAST_DAY41_STARTER_BATCH_RULE_AND_DATA_MATRIX.md`.
+- Definitions exist: YES, `12,970` rows, `36` expirations.
+- Setup-window quotes exist: YES, `13,598` rows; `6,819` at or before setup.
+- Quote freshness: latest raw quote at/before setup `2026-04-30T16:29:59.959534Z`, about `0.040466` seconds before setup.
+- Setup-window trades exist: YES, `13,598` rows; `6,819` at or before setup; setup-time-safe summed size `62,783`.
+- Same-contract or usable statistics/open-interest exists for raw inspection: YES, `19,656` setup-time-safe `stat_type=9` rows across `1,092` quote/trade-window instruments.
+- Starter data alone appears enough to continue: YES for first-pass raw option inspection after Continuation rule/evidence package authorization; NO for evidence fill, trade choice, proof, or readiness.
+- Full-window data may be needed later: YES, for entry/fill/exit, full quote path, stop/invalidation, time exit, cost/slippage, sample-size, and proof work.
+- Current routing: parked until Continuation request-shaped evidence and setup-family rule path are authorized.
+- Replace candidate still needs new rule path: YES.
+
 ## Batch Plan
 
 - Park until a Continuation rule/evidence package is explicitly authorized.

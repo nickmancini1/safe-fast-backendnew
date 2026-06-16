@@ -1,6 +1,62 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 starter batch option inspection result
+
+- Current task file executed: `SAFE_FAST_DAY41_STARTER_BATCH_OPTION_INSPECTION_CODEX_TASK.md`.
+- Baseline commit before task: `1180d1b Validate cheap starter Databento batch`.
+- Corrective scope: local cheap starter Databento option inspection docs and project/candidate packet state only.
+- Raw data folder inspected: `historical_signal_replay/source_data/external_option_data_drop/`.
+- Manifest used: `historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_CHEAP_STARTER_DATABENTO_DOWNLOAD_MANIFEST.json`.
+- Candidates inspected:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`;
+  - `SPY-REAL-HISTORICAL-IDEAL-001`;
+  - `QQQ-REAL-HISTORICAL-CONTINUATION-001`;
+  - `QQQ-REAL-HISTORICAL-IDEAL-001`;
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001`.
+- Starter file types inspected for each candidate:
+  - `definitions_full_day`;
+  - `statistics_full_day`;
+  - `tcbbo_signal_10min`;
+  - `trades_signal_10min`.
+- Inspection result:
+  - option definitions exist for all six;
+  - setup-window quotes exist for all six;
+  - setup-window trades exist for all six;
+  - setup-time-safe `stat_type=9` open-interest rows exist for instruments seen in each candidate's starter quote/trade windows;
+  - latest raw quote at or before setup is sub-second fresh for all six;
+  - raw trade rows and summed trade size exist at or before setup for all six.
+- Starter data alone appears enough to continue with first-pass raw option inspection only after setup-specific rule/regression authorization.
+- Full-window data may be needed later for all six for entry, fill, exit, stop/invalidation, time exit, cost/slippage, sample-size, proof, and promotion work.
+- QQQ-specific contract rules applied blindly to SPY, Ideal, or Continuation: NO.
+- Inspection doc created: `SAFE_FAST_DAY41_STARTER_BATCH_OPTION_INSPECTION.md`.
+- Rule/data matrix created: `SAFE_FAST_DAY41_STARTER_BATCH_RULE_AND_DATA_MATRIX.md`.
+- Next grouped task created: `SAFE_FAST_DAY41_STARTER_BATCH_NEXT_GROUPED_TASK.md`.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Candidate packets updated:
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_IDEAL_001.md`;
+  - `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_CONTINUATION_001.md`;
+  - `historical_signal_replay/candidate_packets/QQQ_REAL_HISTORICAL_IDEAL_001.md`;
+  - `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CONTINUATION_001.md`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, evidence rows, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 41 cheap starter Databento batch validation result
 
 - Current task file executed: `SAFE_FAST_DAY41_CHEAP_STARTER_BATCH_VALIDATION_CODEX_TASK.md`.
