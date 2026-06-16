@@ -1,6 +1,48 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 batch restart QQQ diagnosis and candidate plan result
+
+- Current task baseline stated by task file: `f4a8781 Fill QQQ CFB execution context evidence`.
+- Corrective scope: docs and candidate-packet batch restart only.
+- QQQ CFB diagnosis created: `SAFE_FAST_DAY41_BATCH_RESTART_QQQ_DIAGNOSIS_AND_CANDIDATE_PLAN.md`.
+- Batch next-actions doc created: `SAFE_FAST_DAY41_BATCH_NEXT_ACTIONS.md`.
+- QQQ diagnosis:
+  - gap context passed;
+  - stale/spent lifecycle passed;
+  - option context became `caution` under the accepted new-contract open-interest exception;
+  - execution context failed because selected quote age was about `23` minutes `29` seconds, above the accepted `5` minute limit;
+  - complete caution review failed by accepted precedence;
+  - headline context remains `unknown`;
+  - QQQ stays parked and not ready.
+- Candidate packets now exist for:
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-IDEAL-001`;
+  - `QQQ-REAL-HISTORICAL-CONTINUATION-001`;
+  - `QQQ-REAL-HISTORICAL-IDEAL-001`;
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001`.
+- Batch plan result:
+  - process `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` and `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` together first;
+  - optionally include `SPY-REAL-HISTORICAL-IDEAL-001` in the same SPY Databento cost-check pass;
+  - keep QQQ CFB parked as an execution-failed diagnostic case;
+  - keep QQQ/SPY Continuation and QQQ Ideal parked until setup-specific rule/evidence packages are authorized.
+- Dashboard updated: `SAFE_FAST_PROJECT_DASHBOARD.md`.
+- Rule index updated: `SAFE_FAST_PROJECT_RULE_INDEX.md`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, evidence rows, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 41 QQQ CFB execution context evidence fill result
 
 - Current task baseline stated by task file: `ed008eb Add QQQ CFB execution context calculator`.

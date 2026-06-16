@@ -1,5 +1,14 @@
 # QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001
 
+## Batch Restart Status
+
+- Current disposition: parked, not ready.
+- Batch lesson: useful completed diagnostic case, not a candidate to keep grinding.
+- Passed: gap context, stale/spent lifecycle, and option context under the accepted new-contract open-interest exception.
+- Failed: execution context and complete caution review.
+- Failure reason: selected quote `ts_event=2026-04-13T16:06:30.640301037Z` was about `23` minutes `29` seconds old at the `2026-04-13T16:30:00Z` setup boundary, so the accepted execution-context calculator returns `execution_context_status=fail` with `rejection_reason=quote_age_above_5_minutes`.
+- Do not repeat: no fallback contract scan, no backtest, no P&L, no proof/profitability/readiness claim, and no further QQQ single-issue grind unless a later bounded task explicitly asks for a new diagnostic.
+
 ## Identity
 
 - Candidate id: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
