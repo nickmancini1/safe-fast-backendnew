@@ -1,6 +1,53 @@
 ﻿# SAFE-FAST Build State
 
 
+## Day 41 QQQ CFB execution context evidence fill result
+
+- Current task baseline stated by task file: `ed008eb Add QQQ CFB execution context calculator`.
+- Corrective scope: calculator-backed QQQ CFB execution-context evidence fill, plus directly supported complete-caution precedence update and allowed review/state/index/candidate doc updates.
+- Target candidate: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Target contract: `QQQ   260427C00615000`.
+- Instrument id: `1023411456`.
+- Setup/signal time: `2026-04-13T12:30:00-04:00` / `2026-04-13T16:30:00Z`.
+- Calculator verification:
+  - fixture id: `qqq_cfb_execution_known_target_stale_quote_fail`;
+  - selected quote `ts_event`: `2026-04-13T16:06:30.640301037Z`;
+  - bid `7.76`, ask `7.80`;
+  - spread `0.04`;
+  - spread percent about `0.5141%`;
+  - bid size `3`, ask size `31`;
+  - setup-time-safe trade volume `65`;
+  - quote age `1409.359699` seconds, about `23` minutes `29.359699` seconds;
+  - `execution_context_status=fail`;
+  - `rejection_reason=quote_age_above_5_minutes`.
+- Evidence file updated: `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`.
+- Evidence fields changed:
+  - `execution_context_status`: `unknown` -> `fail`;
+  - `complete_caution_review_status`: `unknown` -> `fail`.
+- Evidence fields unchanged:
+  - `option_context_status=caution`;
+  - `headline_context_status=unknown`.
+- Complete-caution basis: accepted context/caution precedence is `fail`, then `unknown`, then `caution`, then `clean`, so the calculator-backed execution `fail` directly supports complete-caution `fail`.
+- Review created: `SAFE_FAST_DAY41_QQQ_CFB_EXECUTION_CONTEXT_EVIDENCE_FILL_REVIEW.md`.
+- Focused execution-context test command run: `python -m unittest tests.test_execution_context_calculator`.
+- Focused execution-context test result: PASS, `5` tests.
+- Focused context/caution test command run: `python -m unittest tests.test_context_caution_calculator`.
+- Focused context/caution test result: PASS, `7` tests.
+- Content validator command run: `python -B -m watcher_foundation.source_evidence_work_package_content_validator`.
+- Content validator result: PASS command, `3` passed requests, `6` failed requests, `6` partial rows, `0` header-only rows; QQQ CFB complete context/caution request passed.
+- Bridge command run: `python -B -m watcher_foundation.source_evidence_package_to_intake_bridge`.
+- Bridge result: PASS command, QQQ reconsideration-eligible `YES`, intake-ready count `0`, proof allowed `NO`.
+- Safe-check command run: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`.
+- Safe-check result: PASS, `3` checks.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- QQQ candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No raw Databento files, selector code, calculator code, normalizer code, backtest code, trade-selection code, P&L files, `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, or generated live reports/logs were changed.
+
 ## Day 41 QQQ CFB execution context calculator result
 
 - Current task baseline stated by task file: `e3f4d44 Add QQQ CFB execution context fixtures`.

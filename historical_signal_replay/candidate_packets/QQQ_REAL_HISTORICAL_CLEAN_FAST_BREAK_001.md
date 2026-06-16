@@ -67,7 +67,7 @@
 - New-contract open-interest exception selector review: `SAFE_FAST_DAY41_QQQ_CFB_NEW_CONTRACT_OI_EXCEPTION_SELECTOR_REVIEW.md`.
 - New-contract open-interest exception selector result: implemented for regression work. The valid newly listed missing-OI fixture returns `option_context_status=caution`; the prior-day-present missing-OI, listing, quote, spread, size, trade-volume, no-fallback, and future-data fixtures remain rejected as `unknown`.
 - Option-context new-contract OI evidence fill review: `SAFE_FAST_DAY41_QQQ_CFB_OPTION_CONTEXT_NEW_CONTRACT_OI_EVIDENCE_FILL_REVIEW.md`.
-- Current recorded work-package `option_context_status` is now `caution` under the accepted new-contract OI exception; headline, execution, and complete caution remain `unknown`.
+- Current recorded work-package fields are now `option_context_status=caution` under the accepted new-contract OI exception, `execution_context_status=fail` under the accepted execution-context calculator, `complete_caution_review_status=fail` under accepted precedence, and `headline_context_status=unknown`.
 - Execution-context rule decision: `SAFE_FAST_DAY41_QQQ_CFB_EXECUTION_CONTEXT_RULE_DECISION.md`.
 - Execution-context rule result: accepted for regression work. Quote age `<= 60` seconds is `clean`; quote age `> 60` seconds and `<= 5` minutes is `caution`; quote age `> 5` minutes, quote-after-signal, spread failure, missing/invalid bid/ask, missing/invalid size, missing setup-time-safe volume, or fallback is `fail`; missing source/rule proof is `unknown`.
 - Execution-context fixture file: `historical_signal_replay/fixtures/qqq_cfb_execution_context_regression_fixtures.json`.
@@ -77,7 +77,8 @@
 - Execution-context calculator tests: `tests/test_execution_context_calculator.py`.
 - Execution-context calculator review: `SAFE_FAST_DAY41_QQQ_CFB_EXECUTION_CONTEXT_CALCULATOR_REVIEW.md`.
 - Execution-context calculator result: implemented for regression work; all `13` accepted fixtures pass.
-- Target execution-context implication: the selected quote at `2026-04-13T16:06:30.640301037Z` is about `23` minutes `29` seconds old at the `2026-04-13T16:30:00Z` setup boundary, so the tested target result is `execution_context_status=fail` with `rejection_reason=quote_age_above_5_minutes`.
+- Execution-context evidence fill review: `SAFE_FAST_DAY41_QQQ_CFB_EXECUTION_CONTEXT_EVIDENCE_FILL_REVIEW.md`.
+- Target execution-context evidence: the selected quote at `2026-04-13T16:06:30.640301037Z` is about `23` minutes `29.359699` seconds old at the `2026-04-13T16:30:00Z` setup boundary, so the filled target result is `execution_context_status=fail` with `rejection_reason=quote_age_above_5_minutes`.
 - Later-test fill basis: ask price only for long-call testing; target ask is `7.80`. No fill evidence, P&L, backtest, proof, profitability, readiness, or intake-ready change is authorized.
 - One selected real trade remains unchosen. The accepted selector and evidence fill still do not authorize backtest, P&L, proof, profitability, or readiness.
 
@@ -97,8 +98,8 @@
 
 ## Current Blockers
 
-- Broader option-context, execution-context, headline-context, and complete-caution clean/caution/fail labels are not decided.
-- Open-interest gate decision is now listing-aware only for newly listed selected contracts: quote, spread, quote-size, and trade-volume gates pass for the top-ranked contract, and the target contract was listed before setup on Apr 13 but absent from local Apr 10 parent definitions. The narrow exception and selector fixtures classify the exception result as `caution`, not `clean`, and the work-package option-context field is filled as `caution`. Headline, execution, and complete caution remain `unknown`.
+- Broader option-context, headline-context, and trade-plan proof labels are not decided.
+- Open-interest gate decision is now listing-aware only for newly listed selected contracts: quote, spread, quote-size, and trade-volume gates pass for the top-ranked contract, and the target contract was listed before setup on Apr 13 but absent from local Apr 10 parent definitions. The narrow exception and selector fixtures classify the exception result as `caution`, not `clean`, and the work-package option-context field is filled as `caution`. Execution is filled as `fail` because the selected quote is older than `5` minutes, complete caution is filled as `fail` by precedence, and headline remains `unknown`.
 - Reviewed option-universe, quote eligibility, the first one-contract selection rule, contract-selection regression fixtures, and selector/calculator implementation are accepted for regression work, but evidence fill, entry, fill, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided or not implemented.
 
 ## Context/Caution Status
@@ -115,23 +116,23 @@
 - Calculator test file: `tests/test_context_caution_calculator.py`.
 - Calculator review: `SAFE_FAST_DAY41_QQQ_CFB_CONTEXT_CAUTION_CALCULATOR_REVIEW.md`.
 - Work-package context/caution row: `historical_signal_replay/source_data/richer_export_package_work/qqq_cfb_complete_context_caution_fields.jsonl`.
-- Content validator status for this request: passed after bounded `option_context_status=caution` fill with headline, execution, and complete caution still `unknown`.
+- Content validator status for this request: passed after bounded `execution_context_status=fail` and `complete_caution_review_status=fail` fill.
 - Bridge status for this candidate: reconsideration-eligible, with intake-ready `NO` and proof allowed `NO`.
 - Filled fields:
   - `option_context_status=caution`.
   - `headline_context_status=unknown`.
-  - `execution_context_status=unknown`.
-  - `complete_caution_review_status=unknown`.
-- Current rule result: first conservative framework accepted; blocker-preserving `unknown` evidence fill completed for the target row.
+  - `execution_context_status=fail`.
+  - `complete_caution_review_status=fail`.
+- Current rule result: first conservative framework accepted; bounded option-context and execution-context evidence fills completed for the target row.
 - Accepted framework: statuses `clean`, `caution`, `fail`, and `unknown`; setup-time source/timestamp rules; forbidden future-data behavior; missing-data behavior; and complete-caution aggregation precedence of `fail`, then `unknown`, then `caution`, then `clean`.
 - Regression fixture status: data-only framework fixtures added for option, headline, and execution component statuses; complete-caution precedence; missing-data behavior; no-hindsight future-data rejection; wrong identity rejection; and forbidden fill/P&L/profitability/readiness rejection.
-- Databento support: raw option, quote, spread, volume, and open-interest inputs are available for inspection. The first execution-context quote-age/spread/size/volume rule, fixtures, and calculator are accepted for regression work, but evidence-fill authorization is still needed before the work-package execution field can change.
+- Databento support: raw option, quote, spread, volume, and open-interest inputs are available for inspection. The first execution-context quote-age/spread/size/volume rule, fixtures, calculator, and bounded target evidence fill are accepted.
 - Headline support: no source-confirmed headline/news/event feed is available for this historical row.
-- Missing-decision defaults: no selected contract policy kept option context `unknown`; no source-confirmed historical headline/no-headline source keeps headline context `unknown`; no accepted execution entry/fill rule keeps execution context `unknown`; complete caution review cannot pass if any required component is `unknown`. The first reviewed-universe/eligibility policy is now accepted, but one-contract ranking and option thresholds remain blocked.
+- Missing-decision defaults: no source-confirmed historical headline/no-headline source keeps headline context `unknown`. Earlier missing option/execution defaults are superseded for this target row by the accepted new-contract OI exception and accepted execution-context evidence fill.
 - Calculator status: created and tested against all 22 accepted framework fixtures. It classifies option, headline, execution, and complete-caution statuses, applies precedence `fail`, then `unknown`, then `caution`, then `clean`, rejects wrong identity and future/forbidden inputs, and refuses trade/P&L/proof/readiness inference.
-- Aggregation support: precedence is accepted and calculator-backed. Complete caution is filled as `unknown` because execution evidence fill and headline source/category policy remain unresolved, even though the target option context is now `caution` under the accepted new-contract OI exception and the first execution rule expects a later `fail` result for the stale target quote.
-- Selected-contract policy update: first reviewed-universe, quote-eligibility, one-contract selection rules, contract-selection fixtures, and contract-selection selector are accepted for regression work only. Complete caution remains `unknown` because execution entry/fill rule, broader option-context labels, and headline source/category policy remain missing.
-- Option-context selector evidence update: the selector was applied to local Databento QQQ OPRA files and initially abstained on the top-ranked contract because no setup-time-safe quote was available. The wider quote rerun found setup-time-safe quotes. The new trades/statistics rerun found setup-time-safe trade volume `65`, curing the trade-volume gate. The new-contract OI exception selector returns `caution` for the accepted newly listed missing-OI case, and the work-package option-context field is now filled as `caution`; headline, execution, and complete caution remain `unknown`.
+- Aggregation support: precedence is accepted and calculator-backed. Complete caution is filled as `fail` because the accepted execution-context calculator returns `fail`, and fail beats unknown, caution, and clean. Headline source/category policy remains unresolved and `headline_context_status` remains `unknown`.
+- Selected-contract policy update: first reviewed-universe, quote-eligibility, one-contract selection rules, contract-selection fixtures, and contract-selection selector are accepted for regression work only. Complete caution is now `fail` because the selected quote fails the accepted execution quote-age rule.
+- Option-context selector evidence update: the selector was applied to local Databento QQQ OPRA files and initially abstained on the top-ranked contract because no setup-time-safe quote was available. The wider quote rerun found setup-time-safe quotes. The new trades/statistics rerun found setup-time-safe trade volume `65`, curing the trade-volume gate. The new-contract OI exception selector returns `caution` for the accepted newly listed missing-OI case, and the work-package option-context field is now filled as `caution`; execution and complete caution are filled as `fail`; headline remains `unknown`.
 - Top-contract quote coverage audit update: the exact top contract mapping is consistent, and local ten-minute TCBBO/trade rows for the contract exist only after signal time. The wider quote rerun cures the quote-only blocker and the new trades file cures the trade-volume blocker without filling evidence or changing the accepted selector rule. Timestamp-safe same-contract open interest remains missing.
 
 ## Stale/Spent Expiry Status
@@ -188,11 +189,11 @@ Current tested context/caution behavior:
 
 - Classify option, headline, execution, and complete-caution statuses.
 - Apply complete-caution precedence: `fail`, then `unknown`, then `caution`, then `clean`.
-- Preserve blocker defaults so target option, headline, execution, and complete caution remain `unknown` without later accepted source/rule decisions.
+- Preserve blocker defaults unless later accepted source/rule decisions support a target-row fill.
 - Reject wrong identity, future option/headline data, and forbidden fill/P&L/profitability/readiness fields.
 - Refuse trade choice, P&L, proof, profitability, and readiness inference.
 
-Context/caution evidence fill is completed only as blocker-preserving `unknown` statuses.
+Context/caution evidence fill is completed for the target row with `option_context_status=caution`, `headline_context_status=unknown`, `execution_context_status=fail`, and `complete_caution_review_status=fail`.
 
 The QQQ CFB contract-selection regression fixture file and selector now exist.
 
@@ -210,7 +211,7 @@ Contract-selection selector/calculator implementation now exists and passes all 
 
 - Gap-context evidence filled: YES.
 - Lifecycle evidence filled: YES.
-- All required QQQ CFB work-package requests pass content validation, with option context now `caution` and complete caution still `unknown`; this remains request-shaped evidence only.
+- QQQ CFB work-package requests pass content validation after this evidence fill; option context is `caution`, headline context is `unknown`, execution context is `fail`, and complete caution is `fail`. This remains request-shaped evidence only.
 - Backtest authorized: NO.
 - Trade chosen: NO.
 - P&L calculated: NO.
