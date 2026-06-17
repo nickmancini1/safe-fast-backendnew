@@ -1,5 +1,16 @@
 # SPY-REAL-HISTORICAL-IDEAL-001
 
+## Day 46 First Backtest Review And Expansion Plan
+
+- Current route: next setup-family comparison candidate only if the Ideal rule/data state is ready enough for grouped work.
+- Review doc: `SAFE_FAST_DAY46_FIRST_BACKTEST_REVIEW_AND_EXPANSION_PLAN.md`.
+- Priority table: `SAFE_FAST_DAY46_CANDIDATE_EXPANSION_PRIORITY_TABLE.md`.
+- Next task: `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md`.
+- Expansion priority: Ideal examples rank second after more CFB examples.
+- Current caution: SPY Ideal has starter lifecycle/context work-package evidence, but gap/context thresholds, setup-time option/execution context, entry, exit, cost, slippage, sample-size, and promotion gates remain incomplete.
+- Next grouped role: compare against CFB only after Ideal-specific rules and data are ready enough; do not force it into the CFB result path.
+- Backtest/P&L/proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 45 Trade-Plan Readiness Gate
 
 - Readiness route: repair batch.

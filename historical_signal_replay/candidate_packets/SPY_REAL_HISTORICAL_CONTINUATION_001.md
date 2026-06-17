@@ -1,5 +1,16 @@
 # SPY-REAL-HISTORICAL-CONTINUATION-001
 
+## Day 46 First Backtest Review And Expansion Plan
+
+- Current route: Continuation comparison candidate only after Continuation setup-family rules/evidence exist.
+- Review doc: `SAFE_FAST_DAY46_FIRST_BACKTEST_REVIEW_AND_EXPANSION_PLAN.md`.
+- Priority table: `SAFE_FAST_DAY46_CANDIDATE_EXPANSION_PRIORITY_TABLE.md`.
+- Next task: `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md`.
+- Expansion priority: Continuation ranks behind more CFB examples and Ideal examples.
+- Current blocker: no accepted Continuation lifecycle, request-shaped evidence, contract-selection, context, entry, exit, cost, slippage, sample-size, or promotion rules.
+- Next grouped role: stay parked unless a later grouped task explicitly authorizes Continuation rule/evidence processing.
+- Backtest/P&L/proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 45 Trade-Plan Readiness Gate
 
 - Readiness route: parking list.

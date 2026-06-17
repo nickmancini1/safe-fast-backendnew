@@ -1,5 +1,15 @@
 # QQQ-REAL-HISTORICAL-IDEAL-001
 
+## Day 46 First Backtest Review And Expansion Plan
+
+- Current route: later Ideal comparison candidate, behind SPY Ideal unless a grouped Ideal package explicitly includes it.
+- Review doc: `SAFE_FAST_DAY46_FIRST_BACKTEST_REVIEW_AND_EXPANSION_PLAN.md`.
+- Priority table: `SAFE_FAST_DAY46_CANDIDATE_EXPANSION_PRIORITY_TABLE.md`.
+- Next task: `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md`.
+- Expansion priority: Ideal examples rank second overall, but this packet remains parked until Ideal setup-family rule/evidence work is authorized.
+- Current blocker: no current richer work-package request and no accepted QQQ Ideal lifecycle, contract-selection, context, entry, exit, cost, slippage, sample-size, or promotion rules.
+- Backtest/P&L/proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 45 Trade-Plan Readiness Gate
 
 - Readiness route: parking list.
