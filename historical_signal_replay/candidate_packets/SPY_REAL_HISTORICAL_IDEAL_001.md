@@ -1,5 +1,14 @@
 # SPY-REAL-HISTORICAL-IDEAL-001
 
+## Day 46 Next Grouped Backtest Batch Decision
+
+- Current route: deferred Ideal comparison candidate, not included in the next grouped backtest path.
+- Decision doc: `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_DECISION.md`.
+- Reason deferred: Ideal-specific gap/context thresholds, setup-time option/execution rules, entry, exit, stop, time-exit, cost, slippage, sample-size, and promotion rules remain incomplete.
+- Existing starter lifecycle/context evidence remains useful for later grouped Ideal work, but blocker-preserving `unknown` statuses do not make the candidate backtest-ready.
+- Next grouped role: compare against CFB only after an Ideal-specific rule/evidence package is accepted.
+- New backtest/P&L/proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 46 First Backtest Review And Expansion Plan
 
 - Current route: next setup-family comparison candidate only if the Ideal rule/data state is ready enough for grouped work.

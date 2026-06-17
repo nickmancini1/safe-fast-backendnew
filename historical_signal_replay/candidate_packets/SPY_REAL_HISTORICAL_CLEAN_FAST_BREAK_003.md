@@ -1,5 +1,15 @@
 # SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003
 
+## Day 46 Next Grouped Backtest Batch Decision
+
+- Current route: Clean Fast Break quote-after-signal no-trade control for the next grouped CFB expansion/data-needed planning package.
+- Decision doc: `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_DECISION.md`.
+- Existing outcome preserved: `no_trade`, `quote_after_signal`.
+- Meaning: control row that protects against treating future option quotes as setup-time-safe entry evidence.
+- Next grouped role: stay paired with `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` and `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` so the positive CFB reference is not reviewed alone.
+- Do not move this candidate into exit/stop/cost testing unless a later grouped task changes the setup-time quote/data state under accepted rules.
+- New backtest/P&L/proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 46 First Backtest Review And Expansion Plan
 
 - Current route: Clean Fast Break quote-after-signal no-trade control for the next grouped expansion batch.

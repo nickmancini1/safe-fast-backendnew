@@ -1,5 +1,15 @@
 # QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001
 
+## Day 46 Next Grouped Backtest Batch Decision
+
+- Current route: Clean Fast Break stale-quote no-trade control for the next grouped CFB expansion/data-needed planning package.
+- Decision doc: `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_DECISION.md`.
+- Existing outcome preserved: `no_trade`, `quote_age_above_5_minutes`.
+- Meaning: control row that preserves the accepted execution freshness rejection while the positive SPY CFB 002 reference is expanded.
+- Next grouped role: stay paired with `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` and `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` as a failed-execution/no-trade diagnostic.
+- Do not fallback-scan, backtest, or calculate P&L from this packet unless a later explicit grouped task authorizes a new rule/data path.
+- New backtest/P&L/proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 46 First Backtest Review And Expansion Plan
 
 - Current route: Clean Fast Break stale-quote no-trade control for the next grouped expansion batch.

@@ -1,5 +1,13 @@
 # QQQ-REAL-HISTORICAL-IDEAL-001
 
+## Day 46 Next Grouped Backtest Batch Decision
+
+- Current route: parked Ideal comparison candidate behind SPY Ideal and behind a future grouped Ideal rule/evidence package.
+- Decision doc: `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_DECISION.md`.
+- Reason parked: no current richer work-package request and no accepted QQQ Ideal lifecycle, contract-selection, context, entry, exit, cost, slippage, sample-size, or promotion rules.
+- Starter option data and replay artifacts are not enough to join a grouped backtest path.
+- New backtest/P&L/proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 46 First Backtest Review And Expansion Plan
 
 - Current route: later Ideal comparison candidate, behind SPY Ideal unless a grouped Ideal package explicitly includes it.

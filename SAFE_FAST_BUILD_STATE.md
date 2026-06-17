@@ -1,5 +1,42 @@
 # SAFE-FAST Build State
 
+## Day 46 next grouped backtest batch decision
+
+- Current task file executed: `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md`.
+- Baseline stated by task file: latest completed review was `SAFE_FAST_DAY46_FIRST_BACKTEST_REVIEW_AND_EXPANSION_PLAN.md`.
+- Corrective scope: grouped-batch review/planning docs, dashboard/rule/build state, and relevant candidate packets only.
+- Created:
+  - `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_DECISION.md`.
+- Updated:
+  - `SAFE_FAST_PROJECT_DASHBOARD.md`;
+  - `SAFE_FAST_PROJECT_RULE_INDEX.md`;
+  - `SAFE_FAST_BUILD_STATE.md`;
+  - relevant candidate packets in `historical_signal_replay/candidate_packets/`.
+- Grouped-batch decision:
+  - next grouped work is a Clean Fast Break expansion and data-needed planning package, not a new backtest run;
+  - keep `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` as one positive review-only CFB reference with adjusted result `+1.61`;
+  - keep `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` as the `quote_after_signal` no-trade control;
+  - keep `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` as the `quote_age_above_5_minutes` no-trade control;
+  - do not force `SPY-REAL-HISTORICAL-IDEAL-001` into the grouped backtest path because Ideal-specific gap/context, option/execution, entry/exit/cost/slippage, sample-size, and promotion rules remain incomplete;
+  - keep `QQQ-REAL-HISTORICAL-IDEAL-001` parked until a grouped Ideal rule/evidence package is authorized;
+  - keep SPY and QQQ Continuation candidates parked until Continuation lifecycle, request-shaped evidence, contract-selection, context, entry, exit, cost, slippage, sample-size, and promotion rules exist.
+- Required next grouped package before any additional run:
+  - identify additional CFB candidates or CFB-like rows that can be evaluated under the CFB rule family;
+  - preserve named no-trade controls and named failure reasons;
+  - list exact missing local data and exact later cost-check needs before any Databento request;
+  - preserve the minimum `20` valid completed CFB examples blocker before promotion.
+- Databento downloaded: NO.
+- Raw Databento files changed: NO.
+- New backtests run: NO.
+- New P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, evidence fills, trade-selection code, backtest code, or P&L files were changed.
+
 ## Day 46 handoff and next-chat start checkpoint
 
 - Current task file executed: `SAFE_FAST_DAY46_HANDOFF_AND_NEXT_CHAT_START_CODEX_TASK.md`.

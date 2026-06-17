@@ -1,5 +1,15 @@
 # SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002
 
+## Day 46 Next Grouped Backtest Batch Decision
+
+- Current route: anchor positive Clean Fast Break reference for the next grouped CFB expansion/data-needed planning package.
+- Decision doc: `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_DECISION.md`.
+- Existing outcome preserved: `completed_review_only`, `completed_profit_target`, adjusted result `+1.61`.
+- Meaning: useful first completed CFB reference, not proof and not representative by itself.
+- Next grouped role: keep paired with `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` and `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` while additional CFB candidates/data needs are planned.
+- Required before further completed CFB counting: more valid CFB examples, exact local data needs, later grouped cost check if data is missing, named failure/no-trade reasons, minimum `20` valid completed CFB example blocker, and promotion gates.
+- New backtest/P&L/proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 46 First Backtest Review And Expansion Plan
 
 - Current route: positive Clean Fast Break reference for the next grouped expansion batch.

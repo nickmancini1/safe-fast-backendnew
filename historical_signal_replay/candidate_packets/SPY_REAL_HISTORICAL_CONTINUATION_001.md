@@ -1,5 +1,13 @@
 # SPY-REAL-HISTORICAL-CONTINUATION-001
 
+## Day 46 Next Grouped Backtest Batch Decision
+
+- Current route: parked Continuation comparison candidate.
+- Decision doc: `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_DECISION.md`.
+- Reason parked: no accepted Continuation lifecycle, request-shaped evidence, contract-selection, context, entry, exit, cost, slippage, sample-size, or promotion rules.
+- Replay artifacts and cheap starter option data are not enough to include this candidate in the grouped CFB expansion/backtest path.
+- New backtest/P&L/proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 46 First Backtest Review And Expansion Plan
 
 - Current route: Continuation comparison candidate only after Continuation setup-family rules/evidence exist.
