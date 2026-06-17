@@ -1,5 +1,15 @@
 # QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001
 
+## Day 45 CFB Backtest-Prep Implementation
+
+- Current route: stale-quote no-trade/repair reference in the structure-only backtest-prep harness rows.
+- Checker: `historical_signal_replay/cfb_trade_rule_checker.py`.
+- Prep harness: `historical_signal_replay/cfb_backtest_prep_harness.py`.
+- Checker tests: `tests/test_cfb_trade_rule_checker.py`.
+- Exact-value checker result: `no_trade` with primary reason `quote_age_above_5_minutes`.
+- Harness status: prepared structure only; backtest run `NO`, P&L calculated `NO`, candidate marked ready `NO`.
+- Backtest/P&L/proof/profitability/readiness: NO.
+
 ## Day 45 CFB Exact Trade-Rule Values
 
 - Current route: no-trade/repair reference under the exact-value package.
@@ -40,7 +50,7 @@
 - Setup state: QQQ CFB gap and lifecycle are accepted for testing and evidence-filled.
 - Option/quote state: option context is `caution` under the accepted new-contract open-interest exception.
 - Execution state: `fail`; the selected quote is about `23` minutes `29` seconds old at setup.
-- Current blocker: failed execution context plus missing entry, fill, exit, stop, time exit, cost/slippage, failure diagnosis, sample-size, and promotion rules.
+- Current blocker: failed execution context. Exact entry, fill, exit, stop, time exit, cost/slippage, failure diagnosis, sample-size, and promotion values are implemented for first-pass CFB prep only, but this candidate remains no-trade because the selected quote is stale.
 - Day 45 decision: useful failed-execution reference for the next trade-rule package; do not backtest or fallback-scan from this packet.
 
 ## Batch Restart Status
@@ -152,7 +162,7 @@
 
 - Broader option-context, headline-context, and trade-plan proof labels are not decided.
 - Open-interest gate decision is now listing-aware only for newly listed selected contracts: quote, spread, quote-size, and trade-volume gates pass for the top-ranked contract, and the target contract was listed before setup on Apr 13 but absent from local Apr 10 parent definitions. The narrow exception and selector fixtures classify the exception result as `caution`, not `clean`, and the work-package option-context field is filled as `caution`. Execution is filled as `fail` because the selected quote is older than `5` minutes, complete caution is filled as `fail` by precedence, and headline remains `unknown`.
-- Reviewed option-universe, quote eligibility, the first one-contract selection rule, contract-selection regression fixtures, and selector/calculator implementation are accepted for regression work, but evidence fill, entry, fill, exit, stop/invalidation translation, time exit, costs/slippage, failure labels, sample-size requirements, and promotion gates are not decided or not implemented.
+- Reviewed option-universe, quote eligibility, the first one-contract selection rule, contract-selection regression fixtures, selector/calculator implementation, and exact first-pass CFB trade-rule values are accepted for regression/prep work. This still does not authorize evidence fill beyond existing rows, backtest execution, P&L, proof, profitability, or readiness.
 
 ## Context/Caution Status
 

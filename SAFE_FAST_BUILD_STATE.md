@@ -1,5 +1,55 @@
 # SAFE-FAST Build State
 
+## Day 45 CFB backtest-prep implementation result
+
+- Current task file executed: `SAFE_FAST_DAY45_CFB_BACKTEST_PREP_IMPLEMENTATION_TASK.md`.
+- Baseline stated by task file: previous exact-values package `SAFE_FAST_DAY45_CFB_EXACT_TRADE_RULE_VALUES.md`.
+- Corrective scope: grouped Clean Fast Break exact-value checker updates, focused tests, structure-only prep harness, dashboard/rule/build state, and the three CFB candidate packets only.
+- Updated checker: `historical_signal_replay/cfb_trade_rule_checker.py`.
+- Created structure-only harness: `historical_signal_replay/cfb_backtest_prep_harness.py`.
+- Updated tests: `tests/test_cfb_trade_rule_checker.py`.
+- Fixture file used unchanged: `historical_signal_replay/fixtures/cfb_exit_stop_cost_regression_fixtures.json`.
+- Reference candidates covered:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`;
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Implemented exact-value coverage:
+  - long calls only;
+  - setup, option-context, and execution-context pass requirement;
+  - entry ask plus `0.02` slippage basis;
+  - exit bid minus `0.02` slippage basis;
+  - earliest accepted exit reason among profit target, option premium stop, setup invalidation stop, and `15:45 ET` time exit;
+  - profit target at `+25%` from slippage-adjusted entry;
+  - option premium stop at `-15%` from slippage-adjusted entry;
+  - setup invalidation stop using accepted underlying invalidation;
+  - zero-cost fill rejection;
+  - named failure reason requirement;
+  - sample-size promotion blocker below `20` valid completed CFB examples;
+  - promotion blocker without positive expectancy review after costs.
+- Harness result: `historical_signal_replay/cfb_backtest_prep_harness.py` prepares classification rows only and explicitly refuses backtest and P&L calls.
+- Candidate results:
+  - SPY CFB 002: `entry_rule_ready_awaiting_backtest_harness`, cost-adjusted entry basis `6.37`;
+  - SPY CFB 003: `no_trade`, `quote_after_signal`;
+  - QQQ CFB 001: `no_trade`, `quote_age_above_5_minutes`.
+- Tests run:
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks.
+  - `python -m unittest tests.test_cfb_trade_rule_checker`: PASS, `20` tests.
+  - `python -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- Backtest authorized: NO.
+- Backtest run: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, backtest result reports, trade-selection code, or P&L files were changed.
+
 ## Day 45 CFB exact trade-rule values result
 
 - Current task file executed: `SAFE_FAST_DAY45_CFB_EXACT_TRADE_RULE_VALUES_CODEX_TASK.md`.

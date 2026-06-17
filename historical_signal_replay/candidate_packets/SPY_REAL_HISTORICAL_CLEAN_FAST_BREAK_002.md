@@ -1,5 +1,16 @@
 # SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002
 
+## Day 45 CFB Backtest-Prep Implementation
+
+- Current route: entry-rule-ready reference for structure-only backtest-prep harness rows.
+- Checker: `historical_signal_replay/cfb_trade_rule_checker.py`.
+- Prep harness: `historical_signal_replay/cfb_backtest_prep_harness.py`.
+- Checker tests: `tests/test_cfb_trade_rule_checker.py`.
+- Exact-value checker result: `entry_rule_ready_awaiting_backtest_harness`.
+- Cost-adjusted entry basis: ask `6.35` plus `0.02` slippage = `6.37`.
+- Harness status: prepared structure only; backtest run `NO`, P&L calculated `NO`, candidate marked ready `NO`.
+- Backtest/P&L/proof/profitability/readiness: NO.
+
 ## Day 45 CFB Exact Trade-Rule Values
 
 - Current route: entry-rule-ready reference for later grouped backtest-prep harness implementation only.
@@ -43,7 +54,7 @@
 - Setup state: SPY CFB initial break is lifecycle-backed as fresh at setup and later spent.
 - Option/quote state: starter selected contract is `SPY   260427C00685000`; option context is `clean`.
 - Execution state: starter execution context is `clean`; selected quote age is about `55.485181` seconds.
-- Current blocker: headline and complete caution remain `unknown`, and trade-plan rules are still missing.
+- Current blocker: headline and complete caution remain `unknown`; exact CFB trade-rule values are implemented for prep only and do not authorize a counted backtest.
 - Day 45 decision: strongest current candidate for the first Clean Fast Break trade-rule package, not yet a countable backtest or proof case.
 
 ## Identity
@@ -94,7 +105,7 @@
 - `spy_cfb_002_complete_context_caution_fields.jsonl` is filled from accepted starter-only SPY CFB option/execution/context fixtures, but complete caution remains `unknown`.
 - SPY CFB starter contract-selection and execution context are accepted for this context/caution work-package fill only; they are not a real trade choice.
 - Headline/no-headline source policy is not accepted.
-- Entry, fill, exit, stop/invalidation, time exit, cost, slippage, sample-size, and promotion gates are not accepted.
+- Entry, fill, exit, stop/invalidation, time exit, cost, slippage, sample-size, and promotion gates are accepted and checker-covered for first-pass CFB prep only; counted backtest execution is still not authorized.
 
 ## Cheap Starter Databento Validation
 
