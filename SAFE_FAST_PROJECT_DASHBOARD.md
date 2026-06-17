@@ -169,3 +169,87 @@ Day 45 grouped readiness gate documents these gaps in `SAFE_FAST_DAY45_TRADE_RUL
 6. Run `.\scripts\safe_fast_run_safe_checks.ps1` before and after code changes.
 7. Do not restart old discovery when the repo already records the answer.
 8. Answer the user directly in plain English.
+
+## Day 46 handoff correction: prompt discipline and Codex transport failure
+
+This correction exists because a new chat mishandled the Day 46 handoff and produced a bad first Codex attempt.
+
+Future chats must follow this exactly:
+
+1. Do not invent generic task files such as TASK_DAY46_GROUPED_BACKTEST_BATCH_REVIEW.md.
+
+2. Use the task files already committed in the repo unless local git proves they are missing.
+
+3. After checkpoint 239692f Add Day 46 first backtest expansion plan, the expected next grouped task is:
+   SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md
+
+4. If that file exists, launch Codex with exactly this command:
+
+   codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read and execute .\SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md exactly."
+
+5. If the expected task file does not exist, create a proper SAFE_FAST_..._CODEX_TASK.md task file first.
+
+6. Do not pass a huge task prompt directly into Codex as command-line text.
+
+7. Do not create random task names.
+
+8. Do not make the user correct the prompt format.
+
+Correct PowerShell/Codex workflow:
+
+Step 1:
+Give the user one PowerShell block that writes the task file.
+
+Step 2:
+Stop.
+
+Step 3:
+After the user confirms the task file exists, give the Codex launch line separately.
+
+Step 4:
+User pastes Codex final output.
+
+Step 5:
+Review output and give guarded commit commands.
+
+Correct startup check for the next chat:
+
+   Set-Location "C:\Users\nickm\Desktop\New folder\safe-fast-backendnew"
+   git --no-pager branch --show-current
+   git --no-pager log -1 --oneline
+   git --no-pager status --short
+
+Expected checkpoint:
+   main
+   239692f Add Day 46 first backtest expansion plan
+   clean status
+
+If Codex shows WebSocket fallback failure, HTTPS fallback failure, backend-api/codex/responses 404, or repeated reconnect failure:
+
+- Say plainly: Codex connection failed; repo is not the problem.
+- Stop retrying the same Codex run.
+- Ask only for git branch/log/status.
+- Do not create new project tasks while Codex transport is failing.
+- Do not tell the user to delete the chat as the first solution.
+
+Plain English current state:
+
+- First real CFB backtest reference ran.
+- SPY CFB 002 hit the profit target.
+- Adjusted result was +1.61.
+- SPY CFB 003 stayed out because quote came after the signal.
+- QQQ CFB 001 stayed out because quote was too old.
+- Next work is grouped expansion/comparison.
+- Do not grind one example.
+- Do not invent new task names.
+
+Next intended work:
+
+Use SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md if present.
+If missing, create a fresh SAFE_FAST_DAY46_... grouped review/expansion task file first.
+Keep batching.
+Keep cost control.
+Use plain English.
+
+## End Day 46 handoff correction
+
