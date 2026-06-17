@@ -1,5 +1,16 @@
 # SPY-REAL-HISTORICAL-IDEAL-001
 
+## Day 45 Trade-Plan Readiness Gate
+
+- Readiness route: repair batch.
+- Usable data state: cheap starter SPY Databento files exist; full-window data is not approved.
+- Evidence state: both mapped SPY Ideal richer work-package requests pass content validation.
+- Setup state: Ideal lifecycle is fresh at setup and later spent under the accepted starter rule.
+- Option/quote state: top-ranked starter option has only future local option rows; option context is `unknown`.
+- Execution state: `unknown`.
+- Current blocker: Ideal gap thresholds, headline policy, setup-time option/execution context, complete caution, and trade-plan rules are missing.
+- Day 45 decision: keep as Ideal repair reference; do not use as first backtest-prep candidate.
+
 ## Identity
 
 - Candidate id: `SPY-REAL-HISTORICAL-IDEAL-001`.

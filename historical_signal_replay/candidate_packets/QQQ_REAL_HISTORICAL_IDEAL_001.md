@@ -1,5 +1,16 @@
 # QQQ-REAL-HISTORICAL-IDEAL-001
 
+## Day 45 Trade-Plan Readiness Gate
+
+- Readiness route: parking list.
+- Usable data state: replay artifact and cheap starter Databento files exist.
+- Evidence state: no current richer work-package request.
+- Setup state: QQQ Ideal-specific lifecycle rule is not accepted for this candidate.
+- Option/quote state: raw starter inspection exists only; no QQQ Ideal contract-selection rule is accepted.
+- Execution state: not evaluated.
+- Current blocker: needs Ideal request-shaped evidence and setup-family rule package before option or trade-plan work.
+- Day 45 decision: park until an Ideal package is explicitly authorized.
+
 ## Identity
 
 - Candidate id: `QQQ-REAL-HISTORICAL-IDEAL-001`.

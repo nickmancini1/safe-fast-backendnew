@@ -1,5 +1,16 @@
 # QQQ-REAL-HISTORICAL-CONTINUATION-001
 
+## Day 45 Trade-Plan Readiness Gate
+
+- Readiness route: parking list.
+- Usable data state: replay artifact and cheap starter Databento files exist.
+- Evidence state: no current richer work-package request.
+- Setup state: Continuation-specific lifecycle rule is not accepted for this candidate.
+- Option/quote state: raw starter inspection exists only; no Continuation contract-selection rule is accepted.
+- Execution state: not evaluated.
+- Current blocker: needs Continuation request-shaped evidence and setup-family rule package before option or trade-plan work.
+- Day 45 decision: park until Continuation package is explicitly authorized.
+
 ## Identity
 
 - Candidate id: `QQQ-REAL-HISTORICAL-CONTINUATION-001`.

@@ -1,5 +1,16 @@
 # QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001
 
+## Day 45 Trade-Plan Readiness Gate
+
+- Readiness route: repair batch, not first backtest batch.
+- Usable data state: local QQQ OPRA data plus targeted wider quote/trade files exist for the selected top contract.
+- Evidence state: all three mapped richer work-package requests pass content validation.
+- Setup state: QQQ CFB gap and lifecycle are accepted for testing and evidence-filled.
+- Option/quote state: option context is `caution` under the accepted new-contract open-interest exception.
+- Execution state: `fail`; the selected quote is about `23` minutes `29` seconds old at setup.
+- Current blocker: failed execution context plus missing entry, fill, exit, stop, time exit, cost/slippage, failure diagnosis, sample-size, and promotion rules.
+- Day 45 decision: useful failed-execution reference for the next trade-rule package; do not backtest or fallback-scan from this packet.
+
 ## Batch Restart Status
 
 - Current disposition: parked, not ready.

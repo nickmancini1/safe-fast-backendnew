@@ -1,5 +1,16 @@
 # SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003
 
+## Day 45 Trade-Plan Readiness Gate
+
+- Readiness route: repair batch.
+- Usable data state: cheap starter SPY Databento files exist; full-window data is not approved.
+- Evidence state: lifecycle and context/caution richer work-package requests pass content validation.
+- Setup state: SPY CFB higher-base break is lifecycle-backed as fresh at setup and later spent.
+- Option/quote state: starter top-ranked contract is `SPY   260429C00700000`, but the local top-contract quote/trade row is after setup; option context is `unknown`.
+- Execution state: `unknown`.
+- Current blocker: no setup-time-safe selected starter quote under the accepted no-fallback rule, headline unknown, complete caution unknown, and trade-plan rules missing.
+- Day 45 decision: paired repair/no-trade reference for the next Clean Fast Break trade-rule package.
+
 ## Identity
 
 - Candidate id: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`.
@@ -21,7 +32,7 @@
 ## Current Status
 
 - Current lifecycle work-package status: complete for higher-base fresh-break expiry rule/regressions.
-- Current context/caution work-package status: partial/missing required evidence.
+- Current context/caution work-package status: complete for content validation but blocker-preserving, with all context/caution statuses `unknown`.
 - Tastytrade/dxLink local source provides underlying OHLCV and unconfirmed macro/IV/event fields only.
 - Option context, headline context, execution context, and complete caution fields are not source-backed in the current local dxLink export.
 - Accepted SPY CFB higher-base fresh-break lifecycle rule/regression package exists and is calculator-backed.

@@ -1,5 +1,47 @@
 # SAFE-FAST Build State
 
+## Day 45 grouped trade-plan readiness gate result
+
+- Current task file executed: `SAFE_FAST_DAY45_GROUPED_TRADE_PLAN_READINESS_GATE_CODEX_TASK.md`.
+- Baseline stated by task file: `55bb4c5 Add Day 45 bounded final sprint control update`.
+- Corrective scope: grouped readiness docs, candidate comparison, trade-rule gap package, next grouped task, dashboard/rule/build state, and candidate packets only.
+- Candidates checked:
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`;
+  - `SPY-REAL-HISTORICAL-IDEAL-001`;
+  - `QQQ-REAL-HISTORICAL-CONTINUATION-001`;
+  - `QQQ-REAL-HISTORICAL-IDEAL-001`;
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001`.
+- Created:
+  - `SAFE_FAST_DAY45_GROUPED_TRADE_PLAN_READINESS_GATE.md`;
+  - `SAFE_FAST_DAY45_CANDIDATE_COMPARISON_TABLE.md`;
+  - `SAFE_FAST_DAY45_TRADE_RULE_GAP_PACKAGE.md`;
+  - `SAFE_FAST_DAY45_NEXT_GROUPED_BUILD_TASK.md`.
+- Content validator result: `9` passed requests, `0` failed requests, `0` partial rows, `0` header-only rows.
+- Bridge result: `4` reconsideration-eligible candidates, `0` intake-ready candidates, proof allowed `NO`.
+- Reconsideration-eligible candidates: QQQ CFB 001, SPY CFB 002, SPY CFB 003, and SPY Ideal 001.
+- First backtest-prep reference chosen: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`, but only after a grouped trade-rule package is accepted.
+- Repair batch:
+  - QQQ CFB 001 because execution context is `fail` from stale selected quote;
+  - SPY CFB 003 because starter selected quote is post-signal and option/execution remain `unknown`;
+  - SPY Ideal 001 because Ideal gap/option/execution/headline/complete caution remain `unknown`.
+- Parking list: QQQ Continuation 001, QQQ Ideal 001, and SPY Continuation 001 until setup-family evidence/rule packages are authorized.
+- Trade-rule gaps recorded: entry, selected contract use, fill price, exit, stop/invalidation, time exit, spread/cost/slippage, failure diagnosis, sample size, and promotion.
+- Next grouped path chosen: trade-rule package, not backtest-prep harness, candidate comparison expansion, full-window data approval, or setup-family repair package.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 45 bounded final sprint control update
 
 - Current task file executed: `SAFE_FAST_DAY45_BOUNDED_FINAL_SPRINT_UPDATE_CODEX_TASK.md`.
