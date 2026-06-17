@@ -1,0 +1,79 @@
+Start here. You are continuing SAFE-FAST build work. Use local git as source of truth. Speak plain English. Day 46 context: first CFB backtest reference ran; SPY CFB 002 hit target with adjusted result +1.61; SPY CFB 003 and QQQ CFB 001 stayed out correctly. Day 60 is a checkpoint, not a forced finish. The next  month is the final high-intensity sprint before moving toward the  tier. Work must stay batched, cost-controlled, and evidence-backed.
+
+Plain-English clarification: the next $200 month is the final high-intensity build sprint before moving toward the $20 tier. The final sprint must produce a decision package, not force weak proof.
+
+Ask the user to run this first:
+
+Set-Location "C:\Users\nickm\Desktop\New folder\safe-fast-backendnew"
+git --no-pager branch --show-current
+git --no-pager log -1 --oneline
+git --no-pager status --short
+
+Then read:
+
+1. SAFE_FAST_BUILD_STATE.md
+2. SAFE_FAST_PROJECT_DASHBOARD.md
+3. SAFE_FAST_PROJECT_RULE_INDEX.md
+4. SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt
+5. SAFE_FAST_DAY46_NEXT_CHAT_HANDOFF_START_HERE.md
+
+Local git controls if any file or commit differs from this block.
+
+Current plain-English state:
+- SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002 is one positive review-only CFB reference: entry 6.37, adjusted exit 7.98, adjusted result +1.61, profit-target exit.
+- SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003 is a quote-after-signal no-trade control.
+- QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001 is a stale-quote no-trade control.
+- One good result is useful, not proof.
+- Intake-ready remains 0.
+- No proof, profitability, promotion, readiness, or real trade choice is accepted.
+
+Communication rules:
+- Use plain English.
+- Give the direct answer first.
+- Avoid filler and jargon.
+- Explain what changed, what it means, and the next action.
+- For build work, use: Baseline:, Fixed:, Blocked:, Next:, Command:.
+- Do not talk around timeline, cost, or uncertainty.
+
+PowerShell/Codex workflow:
+- Use PowerShell.
+- Repo path: C:\Users\nickm\Desktop\New folder\safe-fast-backendnew
+- Expected branch: main
+- Use local task files.
+- Do not pass huge prompts directly on the command line.
+- Write a task file first.
+- Launch Codex against the task file only after it exists.
+- Use: codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never
+- User pastes Codex output.
+- Review output.
+- Commit guarded checkpoints.
+- Do not push unless the user explicitly asks.
+- If Codex transport/WebSocket/backend errors repeat, stop, restart laptop, reopen PowerShell, verify git, and resume with a small bounded task.
+
+Budget/data rules:
+- Cheap starter data first.
+- Full-window Databento data only after exact cost check and user approval.
+- No broad data download from guesses.
+- Known cost warning: SPY 3-candidate full-window cost check was about $72.36.
+- Databento starter data is local-only and raw vendor files should stay ignored.
+- If a Databento key appears in output, tell the user to rotate it.
+
+Batching rule:
+- Batching/grouped progress is already the rule.
+- Use grouped candidate passes, grouped rule packages, grouped validation, grouped cost checks, and grouped comparison.
+- Avoid one-field loops unless a real blocker makes batching unsafe.
+- If a blocker appears, batch the diagnosis where possible.
+
+Recommended next grouped task:
+- Review first CFB backtest result.
+- Build grouped expansion plan.
+- Compare SPY CFB 002, SPY CFB 003, QQQ CFB 001.
+- Decide the next batch across CFB, Ideal, and Continuation without one-example grinding.
+- Use SAFE_FAST_DAY46_FIRST_BACKTEST_REVIEW_AND_EXPANSION_PLAN_CODEX_TASK.md if present, or create a fresh grouped review/expansion task if local git says it is missing.
+
+Run checks:
+- powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1
+- python -m watcher_foundation.source_evidence_work_package_content_validator
+- python -m watcher_foundation.source_evidence_package_to_intake_bridge
+
+Do not download data, run new backtests, calculate new P&L, touch main.py, live/engine/broker/order/account/Railway files, raw Databento files, .env, secrets, evidence fills, backtest code, or P&L files unless a later explicit task allows it.

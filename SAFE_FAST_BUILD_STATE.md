@@ -1,5 +1,107 @@
 # SAFE-FAST Build State
 
+## Day 46 handoff and next-chat start checkpoint
+
+- Current task file executed: `SAFE_FAST_DAY46_HANDOFF_AND_NEXT_CHAT_START_CODEX_TASK.md`.
+- Baseline from local git before this handoff commit: `59b2a03 Run first CFB backtest reference case` on branch `main`.
+- Local git output controls if it differs from this text.
+- Corrective scope: handoff/control docs and front-door files only.
+- Created:
+  - `SAFE_FAST_DAY46_NEXT_CHAT_HANDOFF_START_HERE.md`;
+  - `SAFE_FAST_DAY46_NEXT_CHAT_START_BLOCK.txt`;
+  - `SAFE_FAST_DAY46_HANDOFF_CURRENT_STATE_AND_FINAL_SPRINT_PLAN.md`;
+  - `SAFE_FAST_DAY46_HANDOFF_POWER_SHELL_CODEX_WORKFLOW.md`.
+- Updated:
+  - `SAFE_FAST_BUILD_STATE.md`;
+  - `SAFE_FAST_PROJECT_DASHBOARD.md`;
+  - `SAFE_FAST_PROJECT_RULE_INDEX.md`;
+  - `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`.
+- Handoff result:
+  - next chat starts from local git, then reads the build state, dashboard, rule index, intro block, and Day 46 handoff files;
+  - user-facing communication should be plain English, direct answer first, low filler, and clear about meaning, cost, timeline, and next action;
+  - PowerShell/Codex workflow is task-file-first, then `codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never`;
+  - do not push unless the user explicitly asks;
+  - if Codex transport/WebSocket/backend errors repeat, stop, restart laptop, reopen PowerShell, verify git, and resume with a small bounded task.
+- Current plain-English project status:
+  - first CFB backtest reference ran;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` hit the profit target with entry basis `6.37`, adjusted exit basis `7.98`, and cost/slippage-adjusted result `+1.61`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` stayed out because the quote came after the signal;
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` stayed out because the quote was older than `5` minutes;
+  - meaning: one useful positive reference plus two rejection controls, not proof.
+- Batching rule preserved:
+  - future work must use grouped candidate passes, grouped rule packages, grouped validation, grouped cost checks, and grouped comparison;
+  - avoid one-field loops unless a real blocker makes batching unsafe;
+  - batch blocker diagnosis where possible.
+- Budget rule preserved:
+  - cheap starter data first;
+  - full-window Databento data only after exact cost check and user approval;
+  - no broad data downloads from guesses;
+  - known SPY 3-candidate full-window warning cost was about `$72.36`;
+  - raw Databento files stay local-only and ignored.
+- Day/tier rule preserved:
+  - Day 1: May 3, 2026;
+  - Day 45: June 16, 2026;
+  - Day 46: June 17, 2026;
+  - Day 60: July 1, 2026;
+  - Day 60 is a checkpoint/reporting date, not a forced finish;
+  - the next `$200` month is the final high-intensity sprint before moving toward the `$20` tier;
+  - the final sprint must produce a decision package.
+- Recommended next grouped task:
+  - review first CFB backtest result;
+  - build grouped expansion plan;
+  - compare SPY CFB 002, SPY CFB 003, and QQQ CFB 001;
+  - decide the next batch across CFB, Ideal, and Continuation without one-example grinding;
+  - use `SAFE_FAST_DAY46_FIRST_BACKTEST_REVIEW_AND_EXPANSION_PLAN_CODEX_TASK.md` if present, or create a fresh grouped review/expansion task if local git says it is missing.
+- Databento downloaded: NO.
+- Raw Databento files changed: NO.
+- New backtests run: NO.
+- New P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, evidence fills, trade-selection code, backtest code, or P&L files were changed by this handoff.
+
+## Day 46 first backtest review and expansion plan
+
+- Current task file executed: `SAFE_FAST_DAY46_FIRST_BACKTEST_REVIEW_AND_EXPANSION_PLAN_CODEX_TASK.md`.
+- Baseline stated by task file: `59b2a03 Run first CFB backtest reference case`.
+- Corrective scope: review/expansion planning docs, dashboard/rule/build state, and relevant candidate packets only.
+- Created:
+  - `SAFE_FAST_DAY46_FIRST_BACKTEST_REVIEW_AND_EXPANSION_PLAN.md`;
+  - `SAFE_FAST_DAY46_CANDIDATE_EXPANSION_PRIORITY_TABLE.md`;
+  - `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md`.
+- Plain-English review result:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` is one useful positive review-only CFB reference, not proof.
+  - Entry basis `6.37`, adjusted exit basis `7.98`, cost/slippage-adjusted result `+1.61`, exit reason `profit_target`.
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` remains a `quote_after_signal` no-trade control.
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` remains a `quote_age_above_5_minutes` no-trade control.
+- Expansion priority:
+  - rank 1: more Clean Fast Break examples;
+  - rank 2: Ideal examples, led by `SPY-REAL-HISTORICAL-IDEAL-001` only if ready enough;
+  - rank 3: Continuation examples only after setup-family rules/evidence support them;
+  - rank 4: repair/no-trade controls;
+  - rank 5: data-needed cases before any cost-check request.
+- Next grouped task created:
+  - use SPY CFB 002 as positive reference;
+  - use SPY CFB 003 as no-trade quote-after-signal control;
+  - use QQQ CFB 001 as stale-quote control;
+  - include SPY Ideal 001 only if its Ideal rule/data state is ready enough;
+  - include Continuation candidates only if their rule/data state supports grouped processing.
+- Candidate packets updated with Day 46 expansion routing.
+- Databento downloaded: NO.
+- Raw Databento files changed: NO.
+- New P&L calculated: NO, only the existing `+1.61` review-only result was summarized.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, trade-selection code, backtest code, or P&L files were changed.
+
 ## Day 46 first CFB local backtest run with exit-path data result
 
 - Current task file executed: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_WITH_EXIT_PATH_CODEX_TASK.md`.

@@ -1,63 +1,84 @@
 Baseline:
-SAFE-FAST Day 45 bounded final sprint control update.
+SAFE-FAST Day 46 handoff and next-chat start checkpoint.
 Repo path: C:\Users\nickm\Desktop\New folder\safe-fast-backendnew
-Latest known local HEAD when this intro was written: 2654e08 Fill SPY Ideal starter evidence batch
+Latest known local HEAD before this handoff commit: 59b2a03 Run first CFB backtest reference case
 Branch when written: main
+Local git output controls if it differs.
 
 Front door:
-Day 60 is a progress checkpoint, not the finish line. The build target is a profitable trading plan, and we will not cut corners to hit a date. This project also cannot run indefinitely. The next $200 month is the final high-intensity build sprint before moving toward the $20 tier. Work must stay batched, evidence-backed, cost-controlled, and focused on tested examples, comparison, trade-plan rules, and a clear decision package.
+Start from local git. Speak plain English. The first CFB backtest reference ran: SPY CFB 002 hit the profit target with entry 6.37, adjusted exit 7.98, and adjusted result +1.61. SPY CFB 003 and QQQ CFB 001 stayed out correctly as rejection controls. One good result is useful, not proof.
 
 Timeline:
 Day 1: May 3, 2026.
 Day 45: June 16, 2026.
+Day 46: June 17, 2026.
 Day 60: July 1, 2026.
 Day 60 is checkpoint/reporting, not a forced finish.
+The next $200 month is the final high-intensity build sprint before moving toward the $20 tier.
+The final sprint must produce a decision package.
 
 Fixed:
-SAFE-FAST now has a speed-and-efficiency layer for future chats.
-SAFE_FAST_PROJECT_DASHBOARD.md is the current fast orientation file after build state.
-SAFE_FAST_CODEX_TASK_TEMPLATES.md contains reusable bounded task templates.
-scripts/safe_fast_run_safe_checks.ps1 runs safe local checks only.
-historical_signal_replay/candidate_packets/ contains candidate summaries to avoid repeated discovery.
-QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001 now has a candidate packet.
-SAFE-FAST is not dead when evidence is weak, failed, missing, unclear, or unprofitable. Those outcomes trigger diagnosis and repair.
-The current repo docs after the SPY Ideal starter batch show work-package content validation at 9 passed requests and 0 failed requests, while intake-ready remains controlled by the separate readiness gate.
+SAFE_FAST_DAY46_NEXT_CHAT_HANDOFF_START_HERE.md is the new start-here file.
+SAFE_FAST_DAY46_NEXT_CHAT_START_BLOCK.txt is the copy/paste block for a new chat.
+SAFE_FAST_DAY46_HANDOFF_CURRENT_STATE_AND_FINAL_SPRINT_PLAN.md records the current state, first CFB result, final sprint, and tier transition.
+SAFE_FAST_DAY46_HANDOFF_POWER_SHELL_CODEX_WORKFLOW.md records the PowerShell/Codex workflow.
+Evidence cleanup after the SPY Ideal batch reached 9 passed requests and 0 failed requests.
+First CFB result is recorded as review-only, not proof.
 
 Blocked:
 Proof accepted: NO.
 Profitability claim made: NO.
 Intake-ready count: 0.
 No candidate readiness is proven.
-Trade-plan readiness still needs grouped work: entry, fill, spread/liquidity, exit, stop/invalidation, time-exit, cost/slippage, failure-label, sample-size, promotion-gate, stage-transition, headline policy, and broader option/execution/caution rules.
-Databento starter data supports raw option/liquidity inspection, but raw fields are not trade proof.
+No real trade is chosen.
+One positive CFB example is not enough.
+Trade-plan readiness still needs grouped work: more examples, comparison, entry/fill, spread/liquidity, exit, stop/invalidation, time-exit, cost/slippage, failure labels, sample-size, promotion gates, stage transitions, headline policy, and broader option/execution/caution rules.
 
 Next:
-Start with local git output.
+Ask the user to run the git check command below first.
 Read SAFE_FAST_BUILD_STATE.md first.
 Read SAFE_FAST_PROJECT_DASHBOARD.md second.
 Read SAFE_FAST_PROJECT_RULE_INDEX.md third.
-Read SAFE_FAST_CODEX_TASK_TEMPLATES.md before writing a new task.
-Read the relevant file in historical_signal_replay/candidate_packets/ before candidate work.
-Use .\scripts\safe_fast_run_safe_checks.ps1 before and after code changes.
-Do not restart old discovery if the repo already records the answer.
-Next useful work: grouped trade-plan readiness, candidate comparison, cost-controlled data use, and the final sprint decision package.
-Cheap starter data comes first. Full-window Databento requires exact cost check and user approval. Do not download broad data from guesses.
-Known cost warning: the SPY 3-candidate full-window cost check was about $72.36.
+Read SAFE_FAST_DAY46_NEXT_CHAT_HANDOFF_START_HERE.md fourth.
+Read SAFE_FAST_DAY46_NEXT_CHAT_START_BLOCK.txt fifth.
+Use SAFE_FAST_CODEX_TASK_TEMPLATES.md before writing a new task.
+Read relevant candidate packets before candidate work.
+Recommended next grouped task: review the first CFB backtest result, build grouped expansion plan, compare SPY CFB 002 / SPY CFB 003 / QQQ CFB 001, then decide the next batch across CFB, Ideal, and Continuation without one-example grinding.
+Use SAFE_FAST_DAY46_FIRST_BACKTEST_REVIEW_AND_EXPANSION_PLAN_CODEX_TASK.md if present, or create a fresh grouped review/expansion task if local git says it is missing.
 
 Command:
-First run:
-git --no-pager status --short
-git --no-pager log -1 --oneline
+First ask the user to run:
+Set-Location "C:\Users\nickm\Desktop\New folder\safe-fast-backendnew"
 git --no-pager branch --show-current
+git --no-pager log -1 --oneline
+git --no-pager status --short
 
-User workflow:
-Assistant gives one task-file block.
-User pastes it into PowerShell.
-Assistant waits.
-Assistant gives one separate Codex launch line only after the task file is created.
-Never put task creation and Codex launch in the same pasted block.
-Never pass huge task text as a command-line argument. Use task files.
-Local git output controls.
+PowerShell/Codex workflow:
+Use PowerShell and local Codex task files.
+Do not pass huge prompts directly on the command line.
+Write a task file first.
+Then launch Codex against the task file.
+Codex launch command:
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never
+User pastes Codex output.
+Review output.
+Commit guarded checkpoints.
+Do not push unless user explicitly asks.
+If Codex transport/WebSocket/backend errors repeat, stop, restart laptop, reopen PowerShell, verify git, and resume with a small bounded task.
+
+Budget/data rules:
+Cheap starter data comes first.
+Full-window Databento requires exact cost check and user approval.
+No broad data download from guesses.
+Known cost warning: SPY 3-candidate full-window cost check was about $72.36.
+Databento starter data is local-only and raw vendor files should stay ignored.
+If a Databento key appears in output, tell the user to rotate it.
+
+Batching rules:
+Batching/grouped progress is already the rule.
+Use grouped candidate passes, grouped rule packages, grouped validation, grouped cost checks, and grouped comparison.
+Avoid one-field loops unless a real blocker makes batching unsafe.
+If a blocker appears, batch the diagnosis where possible.
 
 Warnings:
 Use plain English. Give the direct answer first. Explain meaning, cost, timeline, and next action clearly.
@@ -68,5 +89,8 @@ Do not print secrets.
 Do not claim proof.
 Do not claim profitability.
 Do not mark any candidate ready.
+Do not download data without explicit approval.
+Do not run new backtests unless explicitly authorized.
+Do not calculate new P&L unless explicitly authorized.
 Do not commit raw Databento files.
 Do not modify main.py, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, .env, credentials, tokens, generated report/log files, or live-data paths.
