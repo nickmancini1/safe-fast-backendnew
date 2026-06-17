@@ -1,5 +1,51 @@
 # SAFE-FAST Build State
 
+## Day 46 first CFB local backtest run result
+
+- Current task file executed: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_CODEX_TASK.md`.
+- Baseline stated by task file: `a8acf13 Add CFB backtest prep harness`.
+- Corrective scope: local Clean Fast Break backtest runner, focused tests, review/result docs, dashboard/rule/build state, and the three CFB candidate packets only.
+- Implemented runner: `historical_signal_replay/cfb_backtest_runner.py`.
+- Added tests: `tests/test_cfb_backtest_runner.py`.
+- Created:
+  - `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_REVIEW.md`;
+  - `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_RESULT.md`.
+- Local runner result:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`: `blocked_missing_exit_path_data`, primary reason `selected_contract_tcbbo_bid_path_through_1545_et`.
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: `no_trade`, `quote_after_signal`.
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`: `no_trade`, `quote_age_above_5_minutes`.
+- SPY CFB 002 applied values:
+  - selected contract `SPY   260427C00685000`;
+  - entry ask `6.35` plus `0.02` slippage = `6.37`;
+  - profit target adjusted exit threshold `7.9625`;
+  - option stop adjusted exit threshold `5.4145`;
+  - exit basis rule bid minus `0.02`;
+  - time exit `15:45 ET`.
+- Exact missing exit-path fields:
+  - `selected_contract_tcbbo_bid_path_through_1545_et`;
+  - `source_backed_underlying_invalidation_path_through_1545_et`.
+- Starter data enough for complete backtest result: NO.
+- Full-window data required before completed SPY CFB 002 exit evaluation: YES, after cost check and user approval.
+- Cost-check request needed before any full-window download: Databento `OPRA.PILLAR` TCBBO cost check for `SPY   260427C00685000` / `instrument_id=1258293281` from `2026-04-13T16:30:00Z` through `2026-04-13T19:45:00Z`, plus source-backed underlying invalidation-path coverage through `15:45 ET`.
+- Tests run:
+  - `python -m unittest tests.test_cfb_trade_rule_checker`: PASS, `20` tests.
+  - `python -m unittest tests.test_cfb_backtest_runner`: PASS, `6` tests.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks.
+  - `python -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, trade-selection code, or P&L files were changed.
+
 ## Day 45 CFB backtest-prep implementation result
 
 - Current task file executed: `SAFE_FAST_DAY45_CFB_BACKTEST_PREP_IMPLEMENTATION_TASK.md`.

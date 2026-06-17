@@ -1,5 +1,22 @@
 # SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002
 
+## Day 46 First CFB Backtest Run
+
+- Current route: first local CFB backtest reference, blocked on missing exit-path data.
+- Runner: `historical_signal_replay/cfb_backtest_runner.py`.
+- Review: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_REVIEW.md`.
+- Result: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_RESULT.md`.
+- Local runner result: `blocked_missing_exit_path_data`.
+- Primary reason: `selected_contract_tcbbo_bid_path_through_1545_et`.
+- Additional missing field: `source_backed_underlying_invalidation_path_through_1545_et`.
+- Entry basis applied: ask `6.35` plus `0.02` slippage = `6.37`.
+- Profit target threshold: `7.9625`.
+- Option stop threshold: `5.4145`.
+- Starter data enough for completed exit evaluation: NO.
+- Full-window data required before completed exit evaluation: YES, but only after selected-contract cost check and user approval.
+- Cost-check request: Databento `OPRA.PILLAR` TCBBO for `SPY   260427C00685000` / `instrument_id=1258293281` from `2026-04-13T16:30:00Z` through `2026-04-13T19:45:00Z`, plus source-backed underlying invalidation-path coverage through `15:45 ET`.
+- Backtest/P&L/proof/profitability/readiness: NO.
+
 ## Day 45 CFB Backtest-Prep Implementation
 
 - Current route: entry-rule-ready reference for structure-only backtest-prep harness rows.

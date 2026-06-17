@@ -1,5 +1,16 @@
 # SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003
 
+## Day 46 First CFB Backtest Run
+
+- Current route: rejection control for the first local CFB backtest run.
+- Runner: `historical_signal_replay/cfb_backtest_runner.py`.
+- Review: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_REVIEW.md`.
+- Result: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_RESULT.md`.
+- Local runner result: `no_trade`.
+- Primary reason: `quote_after_signal`.
+- Entry/exit path not evaluated because top-ranked starter quote remains after setup and no fallback is allowed.
+- Backtest/P&L/proof/profitability/readiness: NO.
+
 ## Day 45 CFB Backtest-Prep Implementation
 
 - Current route: no-trade/repair reference in the structure-only backtest-prep harness rows.
