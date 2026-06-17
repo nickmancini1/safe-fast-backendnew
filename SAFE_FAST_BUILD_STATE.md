@@ -1,5 +1,61 @@
 # SAFE-FAST Build State
 
+## Day 45 CFB grouped trade-rule package result
+
+- Current task file executed: `SAFE_FAST_DAY45_CFB_GROUPED_TRADE_RULE_PACKAGE_CODEX_TASK.md`.
+- Baseline stated by task file: `eaebc3d Add Day 45 grouped trade plan readiness gate`.
+- Corrective scope: grouped Clean Fast Break trade-rule package, data-only regression fixtures, backtest-prep readiness review, next grouped implementation task, dashboard/rule/build state, and relevant candidate packets only.
+- Reference candidates covered:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`;
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Created:
+  - `SAFE_FAST_DAY45_CFB_GROUPED_TRADE_RULE_PACKAGE.md`;
+  - `historical_signal_replay/fixtures/cfb_trade_rule_regression_fixtures.json`;
+  - `SAFE_FAST_DAY45_CFB_BACKTEST_PREP_READINESS_REVIEW.md`;
+  - `SAFE_FAST_DAY45_CFB_NEXT_GROUPED_IMPLEMENTATION_TASK.md`.
+- Accepted first-pass CFB regression/checker gates:
+  - entry eligibility can only use setup-time-safe data;
+  - selected/top-ranked contract must be used with no fallback after a gate failure;
+  - long-call entry fill basis uses ask price;
+  - quotes after signal are rejected;
+  - selected quotes older than five minutes are rejected;
+  - failure/no-trade reasons must be named.
+- Decision still needed:
+  - exact entry timing after setup;
+  - exit rule and option exit fill basis;
+  - stop/invalidation translation from underlying invalidation to option exit;
+  - time exit/end-of-day/max-hold/expiration-proximity handling;
+  - cost/slippage numeric assumptions;
+  - sample-size thresholds;
+  - promotion criteria.
+- Fixture coverage:
+  - SPY CFB 002 as first usable reference, blocked before countable backtest by missing exit/cost/sample/promotion decisions;
+  - SPY CFB 003 as quote-after-signal no-trade;
+  - QQQ CFB 001 as stale-quote no-trade/failed execution;
+  - missing selected contract;
+  - missing entry quote;
+  - missing exit rule;
+  - missing stop/invalidation;
+  - missing cost/slippage;
+  - failure diagnosis required;
+  - sample-size gate required;
+  - promotion gate required.
+- Backtest-prep readiness review result: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` is the first CFB backtest-prep reference only after checker/tests and missing rule decisions; SPY CFB 003 and QQQ CFB 001 remain repair references.
+- Next grouped task chosen: implement CFB trade-rule checker plus tests.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 45 grouped trade-plan readiness gate result
 
 - Current task file executed: `SAFE_FAST_DAY45_GROUPED_TRADE_PLAN_READINESS_GATE_CODEX_TASK.md`.

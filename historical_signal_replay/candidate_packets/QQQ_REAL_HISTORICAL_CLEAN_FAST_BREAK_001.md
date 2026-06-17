@@ -1,5 +1,15 @@
 # QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001
 
+## Day 45 CFB Grouped Trade-Rule Package
+
+- Current route: stale-quote failed-execution repair reference for the first Clean Fast Break trade-rule checker.
+- Package: `SAFE_FAST_DAY45_CFB_GROUPED_TRADE_RULE_PACKAGE.md`.
+- Backtest-prep review: `SAFE_FAST_DAY45_CFB_BACKTEST_PREP_READINESS_REVIEW.md`.
+- Fixture file: `historical_signal_replay/fixtures/cfb_trade_rule_regression_fixtures.json`.
+- First-pass accepted diagnostic: selected quotes older than five minutes fail execution eligibility and no fallback contract is allowed.
+- Reference fixture result: selected quote `2026-04-13T16:06:30.640301037Z` is about `23m 29.359699s` old at the `2026-04-13T16:30:00Z` setup boundary, so the expected result is `no_trade` with `quote_age_above_5_minutes`.
+- Backtest/P&L/proof/profitability/readiness: NO.
+
 ## Day 45 Trade-Plan Readiness Gate
 
 - Readiness route: repair batch, not first backtest batch.
