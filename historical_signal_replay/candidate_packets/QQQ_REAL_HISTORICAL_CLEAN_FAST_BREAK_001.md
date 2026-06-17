@@ -1,5 +1,16 @@
 # QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001
 
+## Day 46 First CFB Backtest Run With Exit Path Data
+
+- Current route: stale-quote rejection control for the first local CFB backtest rerun with SPY CFB 002 exit-path data.
+- Runner: `historical_signal_replay/cfb_backtest_runner.py`.
+- Review: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_WITH_EXIT_PATH_REVIEW.md`.
+- Result: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_WITH_EXIT_PATH_RESULT.md`.
+- Local runner result: `no_trade`.
+- Primary reason: `quote_age_above_5_minutes`.
+- Entry/exit path not evaluated because the selected quote remains older than five minutes at setup.
+- Proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 46 First CFB Backtest Run
 
 - Current route: stale-quote rejection control for the first local CFB backtest run.

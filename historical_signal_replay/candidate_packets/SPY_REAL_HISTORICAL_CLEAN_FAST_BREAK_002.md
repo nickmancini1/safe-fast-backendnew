@@ -1,8 +1,32 @@
 # SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002
 
+## Day 46 First CFB Backtest Run With Exit Path Data
+
+- Current route: first local CFB backtest reference, completed as review-only with the new selected-contract exit-path option data.
+- Runner: `historical_signal_replay/cfb_backtest_runner.py`.
+- Review: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_WITH_EXIT_PATH_REVIEW.md`.
+- Result: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_WITH_EXIT_PATH_RESULT.md`.
+- Local runner result: `completed_review_only`.
+- Named success reason: `completed_profit_target`.
+- Entry time: `2026-04-13T16:30:00+00:00`.
+- Entry quote time: `2026-04-13T16:29:04.514819+00:00`.
+- Entry basis applied: ask `6.35` plus `0.02` slippage = `6.37`.
+- Profit target threshold: `7.9625`.
+- Option stop threshold: `5.4145`.
+- Exit time: `2026-04-13T19:37:14.335714+00:00`.
+- Exit reason: `profit_target`.
+- Exit bid: `8.00`.
+- Exit basis applied: bid `8.00` minus `0.02` slippage = `7.98`.
+- Gross result: `+1.65`.
+- Cost/slippage-adjusted result: `+1.61`.
+- Missing selected-contract option exit-path fields: none after rerun.
+- Databento downloaded: NO.
+- Raw Databento files changed: NO.
+- Proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 46 First CFB Backtest Run
 
-- Current route: first local CFB backtest reference, blocked on missing exit-path data.
+- Prior route: first local CFB backtest reference, blocked on missing exit-path data before the selected-contract exit-path drop was used.
 - Runner: `historical_signal_replay/cfb_backtest_runner.py`.
 - Review: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_REVIEW.md`.
 - Result: `SAFE_FAST_DAY46_FIRST_CFB_BACKTEST_RUN_RESULT.md`.
@@ -13,8 +37,6 @@
 - Profit target threshold: `7.9625`.
 - Option stop threshold: `5.4145`.
 - Starter data enough for completed exit evaluation: NO.
-- Full-window data required before completed exit evaluation: YES, but only after selected-contract cost check and user approval.
-- Cost-check request: Databento `OPRA.PILLAR` TCBBO for `SPY   260427C00685000` / `instrument_id=1258293281` from `2026-04-13T16:30:00Z` through `2026-04-13T19:45:00Z`, plus source-backed underlying invalidation-path coverage through `15:45 ET`.
 - Backtest/P&L/proof/profitability/readiness: NO.
 
 ## Day 45 CFB Backtest-Prep Implementation

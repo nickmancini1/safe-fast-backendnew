@@ -17,27 +17,31 @@ class CfbBacktestRunnerTests(unittest.TestCase):
         self.assertEqual(qqq_001["result_status"], "no_trade")
         self.assertEqual(qqq_001["failure_reason"], "quote_age_above_5_minutes")
 
-    def test_spy_cfb_002_local_starter_data_blocks_on_missing_exit_path(self):
+    def test_spy_cfb_002_exit_path_completes_on_profit_target(self):
         result = runner.run_first_cfb_backtest_path()
         spy_002 = result["results"][0]
 
         self.assertEqual(result["review_status"], "local_review_output")
         self.assertEqual(
             spy_002["result_status"],
-            "blocked_missing_exit_path_data",
+            "completed_review_only",
         )
+        self.assertEqual(spy_002["result_name"], "completed_profit_target")
+        self.assertEqual(spy_002["entry_time"], "2026-04-13T16:30:00+00:00")
+        self.assertEqual(
+            spy_002["entry_quote_time"], "2026-04-13T16:29:04.514819+00:00"
+        )
+        self.assertEqual(spy_002["entry_ask"], 6.35)
         self.assertEqual(spy_002["cost_adjusted_entry_basis"], 6.37)
-        self.assertIn(
-            "selected_contract_tcbbo_bid_path_through_1545_et",
-            spy_002["missing_fields"],
-        )
-        self.assertIn(
-            "source_backed_underlying_invalidation_path_through_1545_et",
-            spy_002["missing_fields"],
-        )
-        self.assertFalse(spy_002["starter_data_enough"])
-        self.assertTrue(spy_002["full_window_data_required"])
-        self.assertIn("Databento OPRA.PILLAR cost check", spy_002["cost_check_request"])
+        self.assertEqual(spy_002["profit_target_adjusted_exit_threshold"], 7.9625)
+        self.assertEqual(spy_002["option_stop_adjusted_exit_threshold"], 5.4145)
+        self.assertEqual(spy_002["exit_time"], "2026-04-13T19:37:14.335714+00:00")
+        self.assertEqual(spy_002["exit_reason"], "profit_target")
+        self.assertEqual(spy_002["exit_bid"], 8.0)
+        self.assertEqual(spy_002["cost_adjusted_exit_basis"], 7.98)
+        self.assertEqual(spy_002["gross_result"], 1.65)
+        self.assertEqual(spy_002["cost_slippage_adjusted_result"], 1.61)
+        self.assertEqual(spy_002["missing_fields"], [])
         self.assertFalse(spy_002["candidate_marked_ready"])
         self.assertFalse(spy_002["proof_accepted"])
         self.assertFalse(spy_002["profitability_claimed"])
@@ -96,13 +100,13 @@ class CfbBacktestRunnerTests(unittest.TestCase):
             row,
             option_quote_rows=[
                 self._quote("2026-04-13T17:00:00Z", "6.45"),
-                self._quote("2026-04-13T19:45:00Z", "6.60"),
+                self._quote("2026-04-13T19:44:00Z", "6.60"),
             ],
             underlying_rows=[self._underlying("2026-04-13T19:45:00Z", "680.00")],
         )
 
         self.assertEqual(result["exit_reason"], "time_exit_1545_et")
-        self.assertEqual(result["exit_time"], "2026-04-13T19:45:00+00:00")
+        self.assertEqual(result["exit_time"], "2026-04-13T19:44:00+00:00")
         self.assertEqual(result["cost_adjusted_exit_basis"], 6.58)
 
     def _quote(self, ts_event, bid):

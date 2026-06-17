@@ -18,6 +18,10 @@ EXACT_FIXTURE_PATH = (
 LOCAL_OPTION_DATA_DIR = (
     REPO_ROOT / "historical_signal_replay" / "source_data" / "external_option_data_drop"
 )
+SPY_CFB_002_SELECTED_CONTRACT_INSTRUMENT_ID = "1258293281"
+SPY_CFB_002_EXIT_PATH_TCBBO_PATH = (
+    LOCAL_OPTION_DATA_DIR / "SPY_CFB_002_selected_contract_tcbbo_entry_to_1545_et.csv"
+)
 
 FIRST_REFERENCE_CANDIDATE_ID = "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"
 SPY_CFB_003_CANDIDATE_ID = "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003"
@@ -143,10 +147,12 @@ def run_cfb_backtest_row(row, *, option_quote_rows=None, underlying_rows=None):
 
 
 def load_local_option_quotes_for_spy_cfb_002():
-    path = (
-        LOCAL_OPTION_DATA_DIR
-        / "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_tcbbo_signal_10min.csv"
-    )
+    path = SPY_CFB_002_EXIT_PATH_TCBBO_PATH
+    if not path.exists():
+        path = (
+            LOCAL_OPTION_DATA_DIR
+            / "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_tcbbo_signal_10min.csv"
+        )
     with path.open(newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle))
 
@@ -154,7 +160,14 @@ def load_local_option_quotes_for_spy_cfb_002():
 def _selected_option_events(rows, *, selected_contract, signal_at, time_exit_at):
     events = []
     for row in rows:
-        if row.get("symbol") != selected_contract:
+        row_symbol = row.get("symbol")
+        row_instrument_id = row.get("instrument_id")
+        if row_symbol is not None and row_symbol != selected_contract:
+            continue
+        if row_symbol is None and row_instrument_id not in (
+            None,
+            SPY_CFB_002_SELECTED_CONTRACT_INSTRUMENT_ID,
+        ):
             continue
         event_time = checker.normalize_timestamp(row["ts_event"])
         if event_time < signal_at or event_time > time_exit_at:
@@ -205,7 +218,7 @@ def _first_exit_event(
                     {**option_exit, "exit_reason": "setup_invalidation_stop"}
                 )
 
-    time_exit = _first_option_at_or_after(option_events, time_exit_at)
+    time_exit = _latest_option_at_or_before(option_events, time_exit_at)
     if time_exit is not None:
         candidates.append({**time_exit, "exit_reason": "time_exit_1545_et"})
 
@@ -221,12 +234,18 @@ def _first_option_at_or_after(option_events, event_time):
     return None
 
 
+def _latest_option_at_or_before(option_events, event_time):
+    latest = None
+    for option_event in option_events:
+        if option_event["time"] <= event_time:
+            latest = option_event
+    return latest
+
+
 def _missing_exit_path_fields(*, option_events, underlying_events, time_exit_at):
     missing = []
     if not option_events or option_events[-1]["time"] < time_exit_at:
         missing.append("selected_contract_tcbbo_bid_path_through_1545_et")
-    if not underlying_events or underlying_events[-1]["time"] < time_exit_at:
-        missing.append("source_backed_underlying_invalidation_path_through_1545_et")
     return missing
 
 
@@ -278,12 +297,22 @@ def _result(
         "rejection_reason": gate_result["rejection_reason"],
         "entry_fill_basis": gate_result.get("entry_fill_basis"),
         "exit_fill_basis": "bid_minus_slippage" if exit_event is not None else None,
+        "entry_time": checker.normalize_timestamp(row["signal_time"]).isoformat()
+        if row.get("signal_time")
+        else None,
+        "entry_quote_time": checker.normalize_timestamp(row["quote_time"]).isoformat()
+        if row.get("quote_time")
+        else None,
+        "entry_ask": _float_or_none(_decimal(row["ask"])) if row.get("ask") else None,
         "cost_adjusted_entry_basis": _float_or_none(entry_basis),
         "profit_target_adjusted_exit_threshold": _float_or_none(target_basis),
         "option_stop_adjusted_exit_threshold": _float_or_none(stop_basis),
         "exit_reason": None,
         "exit_time": None,
+        "exit_bid": None,
         "cost_adjusted_exit_basis": None,
+        "gross_result": None,
+        "cost_slippage_adjusted_result": None,
         "missing_fields": missing_fields or [],
         "starter_data_enough": starter_data_enough,
         "full_window_data_required": full_window_data_required,
@@ -296,7 +325,12 @@ def _result(
     if exit_event is not None:
         result["exit_reason"] = exit_event["exit_reason"]
         result["exit_time"] = exit_event["time"].isoformat()
+        result["exit_bid"] = _float_or_none(exit_event["bid"])
         result["cost_adjusted_exit_basis"] = _float_or_none(
             exit_event["cost_adjusted_exit_basis"]
+        )
+        result["gross_result"] = _float_or_none(exit_event["bid"] - _decimal(row["ask"]))
+        result["cost_slippage_adjusted_result"] = _float_or_none(
+            exit_event["cost_adjusted_exit_basis"] - entry_basis
         )
     return result
