@@ -1,5 +1,47 @@
 # SAFE-FAST Build State
 
+## Day 45 bounded final sprint control update
+
+- Current task file executed: `SAFE_FAST_DAY45_BOUNDED_FINAL_SPRINT_UPDATE_CODEX_TASK.md`.
+- Baseline stated by task file: `2654e08 Fill SPY Ideal starter evidence batch`.
+- Corrective scope: repo-control/orientation docs only.
+- Front-door wording added: "Day 60 is a progress checkpoint, not the finish line. The build target is a profitable trading plan, and we will not cut corners to hit a date. This project also cannot run indefinitely. The next $200 month is the final high-intensity build sprint before moving toward the $20 tier. Work must stay batched, evidence-backed, cost-controlled, and focused on tested examples, comparison, trade-plan rules, and a clear decision package."
+- Timeline recorded:
+  - Day 1: May 3, 2026.
+  - Day 45: June 16, 2026.
+  - Day 60: July 1, 2026.
+  - Day 60 is a checkpoint/reporting date, not a forced finish line.
+- Quality rule recorded: no calendar-driven corner-cutting, more tested examples and better comparison are allowed, weak or failed results trigger diagnosis and repair, and weak results must not be forced into passes.
+- Boundary rule recorded: the project cannot run indefinitely, the next $200 month is the final high-intensity build sprint, and the sprint must produce a decision package before moving toward the $20 tier.
+- Final sprint mission recorded: grouped candidate testing, candidate comparison, entry/exit/stop/cost rule packages, failure diagnosis, backtest-prep or backtest batch when authorized, budget/cost summary, and lower-tier handoff.
+- Required decision package recorded: what works, what failed, what needs repair, remaining data costs, strongest and weakest candidate families, accepted and missing rules, what can continue on the $20 tier, and what would require another serious spend or redesign.
+- Batching rule recorded: future work must use grouped candidate passes, grouped rule packages, grouped validation, grouped data cost checks, and grouped comparison; one-field loops should be avoided unless a real blocker makes batching unsafe.
+- Cost-control rule recorded: cheap starter data first; full-window Databento only after exact cost check and user approval; no broad downloads from guesses; known SPY 3-candidate full-window warning cost was about `$72.36`.
+- Communication rule recorded: plain English, direct answer first, no filler, avoid repetitive negative framing, and explain meaning/cost/timeline/next action clearly.
+- Current build position recorded: current repo docs after SPY Ideal batch show evidence cleanup at `9` passed requests and `0` failed requests; intake-ready is still controlled by the separate readiness gate; trade-plan rules still need grouped readiness work.
+- Created:
+  - `SAFE_FAST_DAY45_BOUNDED_FINAL_SPRINT_UPDATE.md`;
+  - `SAFE_FAST_DAY45_200_TO_20_TIER_TRANSITION_PLAN.md`.
+- Updated:
+  - `SAFE_FAST_BUILD_STATE.md`;
+  - `SAFE_FAST_PROJECT_DASHBOARD.md`;
+  - `SAFE_FAST_PROJECT_RULE_INDEX.md`;
+  - `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`;
+  - `SAFE_FAST_PROJECT_PROOF_PIPELINE.md`;
+  - `SAFE_FAST_TRADE_PLAN_COMPLETENESS_GATE.md`.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 41 SPY Ideal starter batch implementation and fill result
 
 - Current task file executed: `SAFE_FAST_DAY41_SPY_IDEAL_STARTER_BATCH_IMPLEMENT_AND_FILL_CODEX_TASK.md`.

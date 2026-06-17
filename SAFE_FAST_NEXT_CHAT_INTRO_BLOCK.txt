@@ -1,8 +1,17 @@
 Baseline:
-SAFE-FAST Day 41 project speed layer after QQQ gap-context regression fixtures.
+SAFE-FAST Day 45 bounded final sprint control update.
 Repo path: C:\Users\nickm\Desktop\New folder\safe-fast-backendnew
-Latest known local HEAD when this intro was written: 5ebc7cb Add QQQ gap context regression fixtures
+Latest known local HEAD when this intro was written: 2654e08 Fill SPY Ideal starter evidence batch
 Branch when written: main
+
+Front door:
+Day 60 is a progress checkpoint, not the finish line. The build target is a profitable trading plan, and we will not cut corners to hit a date. This project also cannot run indefinitely. The next $200 month is the final high-intensity build sprint before moving toward the $20 tier. Work must stay batched, evidence-backed, cost-controlled, and focused on tested examples, comparison, trade-plan rules, and a clear decision package.
+
+Timeline:
+Day 1: May 3, 2026.
+Day 45: June 16, 2026.
+Day 60: July 1, 2026.
+Day 60 is checkpoint/reporting, not a forced finish.
 
 Fixed:
 SAFE-FAST now has a speed-and-efficiency layer for future chats.
@@ -12,16 +21,15 @@ scripts/safe_fast_run_safe_checks.ps1 runs safe local checks only.
 historical_signal_replay/candidate_packets/ contains candidate summaries to avoid repeated discovery.
 QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001 now has a candidate packet.
 SAFE-FAST is not dead when evidence is weak, failed, missing, unclear, or unprofitable. Those outcomes trigger diagnosis and repair.
+The current repo docs after the SPY Ideal starter batch show work-package content validation at 9 passed requests and 0 failed requests, while intake-ready remains controlled by the separate readiness gate.
 
 Blocked:
 Proof accepted: NO.
 Profitability claim made: NO.
 Intake-ready count: 0.
-QQQ gap-context calculator logic is not created.
-QQQ gap-context evidence fields are not filled.
-QQQ candidate readiness is not proven.
-Contract-selection, entry, fill, spread/liquidity, exit, stop/invalidation, time-exit, cost/slippage, failure-label, sample-size, promotion-gate, stale/spent, stage-transition, headline, option-context, execution-context, and complete-caution rules still need decisions and regressions.
-Databento supports raw option/liquidity inspection fields, but raw fields are not trade proof.
+No candidate readiness is proven.
+Trade-plan readiness still needs grouped work: entry, fill, spread/liquidity, exit, stop/invalidation, time-exit, cost/slippage, failure-label, sample-size, promotion-gate, stage-transition, headline policy, and broader option/execution/caution rules.
+Databento starter data supports raw option/liquidity inspection, but raw fields are not trade proof.
 
 Next:
 Start with local git output.
@@ -32,7 +40,9 @@ Read SAFE_FAST_CODEX_TASK_TEMPLATES.md before writing a new task.
 Read the relevant file in historical_signal_replay/candidate_packets/ before candidate work.
 Use .\scripts\safe_fast_run_safe_checks.ps1 before and after code changes.
 Do not restart old discovery if the repo already records the answer.
-Next single useful action: implement the QQQ Clean Fast Break gap-context calculator and focused tests against the accepted regression fixtures only if a future task explicitly authorizes calculator code.
+Next useful work: grouped trade-plan readiness, candidate comparison, cost-controlled data use, and the final sprint decision package.
+Cheap starter data comes first. Full-window Databento requires exact cost check and user approval. Do not download broad data from guesses.
+Known cost warning: the SPY 3-candidate full-window cost check was about $72.36.
 
 Command:
 First run:
@@ -50,6 +60,7 @@ Never pass huge task text as a command-line argument. Use task files.
 Local git output controls.
 
 Warnings:
+Use plain English. Give the direct answer first. Explain meaning, cost, timeline, and next action clearly.
 Do not use Yahoo.
 Do not use public OHLC fallback.
 Do not use broker/order/account actions.

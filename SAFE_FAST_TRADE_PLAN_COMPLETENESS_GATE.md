@@ -6,6 +6,8 @@ A SAFE-FAST result cannot count as a trade-plan result unless the setup has a co
 
 This gate is project-wide. It is not QQQ-only and it is not limited to Clean Fast Break.
 
+Day 60 is a progress checkpoint, not a forced finish. The next $200 month is the final high-intensity build sprint before moving toward the $20 tier, but the calendar does not weaken this gate. Weak, failed, missing, unclear, or unprofitable results trigger diagnosis and repair, not forced passes.
+
 ## Required Fields
 
 Every countable trade-plan result must define:
@@ -23,6 +25,8 @@ Every countable trade-plan result must define:
 - time exit or end-of-day rule if applicable
 - cost and slippage assumptions
 - failure conditions
+
+The final sprint should define these fields in grouped rule packages where possible: entry, exit, stop/invalidation, cost/slippage, failure diagnosis, and comparison across candidate families.
 
 ## Counting Rule
 
@@ -43,15 +47,14 @@ The correct next action is to identify the missing field and either source it, d
 
 ## Current Known Gaps
 
-- QQQ gap thresholds are not accepted.
-- Contract-selection rules are not accepted for the target candidate.
-- Exact entry and exit rules are not accepted.
+- Trade-plan readiness still needs grouped work across candidate families.
+- Exact entry and exit rules are not accepted project-wide.
 - Stale/spent rules still need setup-specific validation.
 - Stage-transition rules need project-wide indexing and validation.
 - Sample-size requirements are not accepted.
 - Promotion gates need to be enforced before intake-ready status.
-- Databento file validation is structural and does not yet prove SAFE-FAST field mapping.
-- Option fields still need mapping into SAFE-FAST option, execution, caution, and trade-plan evidence fields.
+- Full-window Databento data requires exact cost check and user approval before download; the known SPY 3-candidate full-window warning cost was about `$72.36`.
+- A final decision package is required before moving toward the $20 tier.
 
 Proof accepted: NO.
 

@@ -5,6 +5,11 @@
 | Rule | Status | Current wording |
 | --- | --- | --- |
 | Profitability mandate | accepted/current | SAFE-FAST targets a profitable trading plan, but profitability cannot be claimed until evidence proves it. |
+| Day 45 bounded final sprint | accepted/current | Day 60 is a progress checkpoint, not the finish line. The next $200 month is the final high-intensity build sprint before moving toward the $20 tier. The project must not cut corners because of the calendar and must not run indefinitely. |
+| Final sprint decision package | accepted/current | Before moving toward the $20 tier, the repo needs a clear decision package covering what works, what failed, what needs repair, remaining data costs, strongest and weakest candidate families, accepted and missing rules, what can continue on the $20 tier, and what would require another serious spend or redesign. |
+| Batch-first final sprint | accepted/current | Future work must stay grouped through candidate passes, rule packages, validation, data cost checks, and comparison. One-field loops are avoided unless a real blocker makes batching unsafe. |
+| Cost-controlled data use | accepted/current | Cheap starter data comes first. Full-window Databento data requires exact cost check and user approval. Broad downloads from guesses are not allowed. The known SPY 3-candidate full-window warning cost was about `$72.36`. |
+| Plain-English future chats | accepted/current | Future user-facing summaries should use plain English, answer directly first, skip filler, avoid repetitive negative framing, and clearly explain meaning, cost, timeline, and next action. |
 | Diagnosis loop | accepted/current | Weak, failed, unclear, missing, or unprofitable results require diagnosis and repair, not a declaration that the project is dead. |
 | Missing evidence | accepted/current | Missing evidence is a blocker, not low confidence. |
 | No-hindsight boundary | accepted/current | Setup-time labels and decisions must not use future candles, future replay rows, outcome evidence, fills, P&L, or profitability. |

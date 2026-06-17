@@ -6,6 +6,12 @@ SAFE-FAST is still being turned from a setup-recognition system into a complete 
 
 This pipeline is project-wide. It applies to QQQ, SPY, IWM, GLD, and any setup type unless a later accepted rule narrows the project.
 
+## Day 45 Bounded Sprint Rule
+
+Day 60 is a progress checkpoint, not the finish line. The build target is a profitable trading plan, and the project will not cut corners to hit a date. The project also cannot run indefinitely. The next $200 month is the final high-intensity build sprint before moving toward the $20 tier.
+
+The final sprint must stay batched, evidence-backed, cost-controlled, and focused on tested examples, comparison, trade-plan rules, and a clear decision package. Weak, failed, unclear, missing, or unprofitable results trigger diagnosis and repair; they are not forced into passing results.
+
 ## Pipeline
 
 1. Raw data
@@ -52,10 +58,14 @@ This pipeline is project-wide. It applies to QQQ, SPY, IWM, GLD, and any setup t
    - Promotion can also mean narrowing, replacing, or removing a setup or symbol from the profitable plan.
    - No candidate is intake-ready from raw data or recognition alone.
 
+11. Final sprint decision package
+   - Before moving toward the $20 tier, the project needs a clear package stating what works, what failed, what needs repair, what data costs remain, strongest and weakest candidate families, accepted and missing rules, what can continue on the $20 tier, and what would require another serious spend or redesign.
+   - Full-window data spending requires exact cost check and user approval before download.
+
 ## Current Project Status
 
 Proof accepted: NO.
 
 Profitability claimed: NO.
 
-Current known state: Databento QQQ OPRA files have been structurally validated for the requested QQQ option-data window, but SAFE-FAST still needs mapping rules, trade-plan completeness, replay/regression evidence, and promotion review before any candidate can count.
+Current known state: repo docs after the SPY Ideal starter batch show work-package content validation at `9` passed requests and `0` failed requests. Intake-ready remains controlled by the separate readiness gate. SAFE-FAST still needs grouped trade-plan readiness, candidate comparison, cost-controlled data use, complete trade-plan rules, replay/regression evidence, and promotion review before any candidate can count.
