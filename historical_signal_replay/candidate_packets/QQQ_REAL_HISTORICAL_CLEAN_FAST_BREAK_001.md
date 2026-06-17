@@ -6,8 +6,10 @@
 - Package: `SAFE_FAST_DAY45_CFB_GROUPED_TRADE_RULE_PACKAGE.md`.
 - Backtest-prep review: `SAFE_FAST_DAY45_CFB_BACKTEST_PREP_READINESS_REVIEW.md`.
 - Fixture file: `historical_signal_replay/fixtures/cfb_trade_rule_regression_fixtures.json`.
+- Checker: `historical_signal_replay/cfb_trade_rule_checker.py`.
+- Checker tests: `tests/test_cfb_trade_rule_checker.py`.
 - First-pass accepted diagnostic: selected quotes older than five minutes fail execution eligibility and no fallback contract is allowed.
-- Reference fixture result: selected quote `2026-04-13T16:06:30.640301037Z` is about `23m 29.359699s` old at the `2026-04-13T16:30:00Z` setup boundary, so the expected result is `no_trade` with `quote_age_above_5_minutes`.
+- Checked reference fixture result: `no_trade` with `quote_age_above_5_minutes`; selected quote `2026-04-13T16:06:30.640301037Z` is about `23m 29.359699s` old at the `2026-04-13T16:30:00Z` setup boundary.
 - Backtest/P&L/proof/profitability/readiness: NO.
 
 ## Day 45 Trade-Plan Readiness Gate

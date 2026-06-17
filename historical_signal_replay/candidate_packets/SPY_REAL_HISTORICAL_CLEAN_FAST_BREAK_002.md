@@ -6,8 +6,10 @@
 - Package: `SAFE_FAST_DAY45_CFB_GROUPED_TRADE_RULE_PACKAGE.md`.
 - Backtest-prep review: `SAFE_FAST_DAY45_CFB_BACKTEST_PREP_READINESS_REVIEW.md`.
 - Fixture file: `historical_signal_replay/fixtures/cfb_trade_rule_regression_fixtures.json`.
+- Checker: `historical_signal_replay/cfb_trade_rule_checker.py`.
+- Checker tests: `tests/test_cfb_trade_rule_checker.py`.
 - First-pass accepted gates for this candidate: setup-time-safe entry eligibility, selected-contract/no-fallback use, long-call ask entry basis, quote-after-signal rejection, stale-quote rejection, and named failure diagnosis.
-- Reference fixture result: selected contract `SPY   260427C00685000`, quote `2026-04-13T16:29:04.514819033Z`, ask `6.35`, execution context `clean`, and entry eligibility usable for checker work.
+- Checked reference fixture result: `blocked_pre_backtest` with `missing_exit_rule`; selected contract `SPY   260427C00685000`, quote `2026-04-13T16:29:04.514819033Z`, ask `6.35`, execution context `clean`, and entry eligibility usable for checker work.
 - Countable backtest blocker: exit, stop/invalidation translation, time exit, cost/slippage values, sample-size thresholds, and promotion criteria are not accepted yet.
 - Backtest/P&L/proof/profitability/readiness: NO.
 

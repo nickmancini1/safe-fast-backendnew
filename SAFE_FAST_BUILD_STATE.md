@@ -1,5 +1,46 @@
 # SAFE-FAST Build State
 
+## Day 45 CFB trade-rule checker implementation result
+
+- Current task file executed: `SAFE_FAST_DAY45_CFB_NEXT_GROUPED_IMPLEMENTATION_TASK.md`.
+- Baseline stated by task file: `SAFE_FAST_DAY45_CFB_GROUPED_TRADE_RULE_PACKAGE_CODEX_TASK.md`.
+- Corrective scope: CFB trade-rule checker, focused grouped fixture tests, dashboard/rule/build state, and relevant candidate packets only.
+- Implemented checker: `historical_signal_replay/cfb_trade_rule_checker.py`.
+- Added tests: `tests/test_cfb_trade_rule_checker.py`.
+- Fixture file used unchanged: `historical_signal_replay/fixtures/cfb_trade_rule_regression_fixtures.json`.
+- Covered grouped references:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` returns `blocked_pre_backtest` with `missing_exit_rule` while preserving usable entry evidence, ask entry basis `6.35`, and blocker outputs for cost/slippage, sample-size, and promotion.
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` returns `no_trade` with `quote_after_signal`.
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` returns `no_trade` with `quote_age_above_5_minutes`.
+- Additional blocker coverage:
+  - missing selected contract blocks entry;
+  - missing entry quote blocks entry;
+  - missing exit rule blocks countable results;
+  - missing invalidation blocks entry;
+  - missing cost/slippage blocks countable results;
+  - missing failure diagnosis blocks known blockers;
+  - missing sample-size gate blocks promotion;
+  - missing promotion gate blocks readiness;
+  - forbidden P&L/proof/profitability/readiness fields are ignored and cannot improve status.
+- Tests run:
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks, before edits; direct script invocation was blocked by local PowerShell execution policy.
+  - `python -m unittest tests.test_cfb_trade_rule_checker`: PASS, `13` tests.
+  - `python -m py_compile .\historical_signal_replay\cfb_trade_rule_checker.py .\tests\test_cfb_trade_rule_checker.py`: PASS.
+  - `python -m unittest tests.test_cfb_trade_rule_checker tests.test_execution_context_calculator tests.test_cfb_contract_selector tests.test_context_caution_calculator`: PASS, `52` tests.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+- Next needed CFB decisions before countable backtest: exact entry timing, exit and option exit basis, stop/invalidation translation, time exit, cost/slippage values, sample-size thresholds, and promotion criteria.
+
 ## Day 45 CFB grouped trade-rule package result
 
 - Current task file executed: `SAFE_FAST_DAY45_CFB_GROUPED_TRADE_RULE_PACKAGE_CODEX_TASK.md`.
