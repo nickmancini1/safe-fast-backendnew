@@ -1,5 +1,15 @@
 # QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001
 
+## Day 45 CFB Exact Trade-Rule Values
+
+- Current route: no-trade/repair reference under the exact-value package.
+- Package: `SAFE_FAST_DAY45_CFB_EXACT_TRADE_RULE_VALUES.md`.
+- Review: `SAFE_FAST_DAY45_CFB_EXACT_TRADE_RULE_VALUES_REVIEW.md`.
+- Fixture file: `historical_signal_replay/fixtures/cfb_exit_stop_cost_regression_fixtures.json`.
+- Accepted exact values do not move this candidate into exit/stop/cost testing because execution eligibility remains failed.
+- Current exact-value result: `no_trade` with primary reason `quote_age_above_5_minutes`; selected quote `2026-04-13T16:06:30.640301037Z` is about `23m 29.359699s` old at setup.
+- Backtest/P&L/proof/profitability/readiness: NO.
+
 ## Day 45 CFB Exit Stop Cost Rule Package
 
 - Current route: Clean Fast Break stale-quote no-trade/repair reference.

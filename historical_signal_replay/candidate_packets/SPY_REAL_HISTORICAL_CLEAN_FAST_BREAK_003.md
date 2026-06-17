@@ -1,5 +1,15 @@
 # SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003
 
+## Day 45 CFB Exact Trade-Rule Values
+
+- Current route: no-trade/repair reference under the exact-value package.
+- Package: `SAFE_FAST_DAY45_CFB_EXACT_TRADE_RULE_VALUES.md`.
+- Review: `SAFE_FAST_DAY45_CFB_EXACT_TRADE_RULE_VALUES_REVIEW.md`.
+- Fixture file: `historical_signal_replay/fixtures/cfb_exit_stop_cost_regression_fixtures.json`.
+- Accepted exact values do not move this candidate into exit/stop/cost testing because the top-ranked starter quote remains after the setup boundary.
+- Current exact-value result: `no_trade` with primary reason `quote_after_signal`; no fallback contract is allowed.
+- Backtest/P&L/proof/profitability/readiness: NO.
+
 ## Day 45 CFB Exit Stop Cost Rule Package
 
 - Current route: Clean Fast Break no-trade/repair reference.

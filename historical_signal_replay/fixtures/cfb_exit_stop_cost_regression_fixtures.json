@@ -1,41 +1,46 @@
 {
   "fixture_name": "cfb_exit_stop_cost_regression_fixtures",
-  "fixture_version": 1,
-  "purpose": "Data-only fixtures for the grouped Clean Fast Break exit, stop, cost, failure, sample-size, and promotion rule package. These fixtures preserve blockers; they do not backtest, calculate P&L, prove profitability, choose a real trade, or mark readiness.",
-  "accepted_rule_source": "SAFE_FAST_DAY45_CFB_EXIT_STOP_COST_RULE_PACKAGE.md",
+  "fixture_version": 2,
+  "purpose": "Data-only fixtures for the first exact Clean Fast Break entry, exit, stop, cost, failure, sample-size, and promotion values. These fixtures prepare regression/backtest-prep logic only; they do not backtest, calculate P&L, prove profitability, choose a real trade, or mark readiness.",
+  "accepted_rule_source": "SAFE_FAST_DAY45_CFB_EXACT_TRADE_RULE_VALUES.md",
   "rule_summary": {
-    "entry_reference": "SPY CFB 002 has usable starter entry evidence only",
-    "exit_rule": "required before countable results; exact option exit basis still needs human decision",
-    "stop_rule": "underlying invalidation required; exact option stop translation still needs human decision",
-    "time_exit_rule": "required before countable results; exact time values still need human decision",
-    "cost_slippage_rule": "explicit cost and slippage assumptions required; numeric values still need human decision",
-    "failure_diagnosis": "specific named reason required for every known blocker",
-    "sample_size_gate": "required before promotion; threshold still needs human decision",
-    "promotion_gate": "required before readiness; criteria still need human decision"
+    "entry": "Long calls only. Entry is allowed only when setup, option context, and execution context pass. Later backtest-prep entry basis is the setup-safe accepted quote ask plus a 0.02 per-contract slippage buffer.",
+    "exit": "First-pass testing exits at the earliest accepted event among profit target, option premium stop, setup invalidation stop, or signal-day time exit.",
+    "profit_target": "Profit target triggers at +25% option premium from the slippage-adjusted entry basis.",
+    "option_premium_stop": "Hard option premium stop triggers at -15% from the slippage-adjusted entry basis.",
+    "setup_invalidation_stop": "Underlying setup invalidation remains active after entry; a later harness must exit the selected option on the first setup-safe invalidation event using bid minus slippage.",
+    "time_exit": "Exit no later than 15:45 ET on the signal day.",
+    "cost_slippage": "Entry uses ask plus 0.02. Exit uses bid minus 0.02. Zero-cost fills are forbidden.",
+    "failure_diagnosis": "Specific named reason required for every known blocker.",
+    "sample_size_gate": "First backtest-prep batch can run on the current candidates, but no promotion can occur from fewer than 20 valid completed CFB examples.",
+    "promotion_gate": "Promotion requires accepted rules, passing replay/regression, at least 20 valid completed CFB examples, and positive expectancy review after costs."
   },
   "fixtures": [
     {
-      "fixture_id": "spy_cfb_002_usable_entry_blocked_until_exit_stop_cost_accepted",
+      "fixture_id": "spy_cfb_002_entry_rule_ready_awaiting_backtest_harness",
       "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
       "symbol": "SPY",
       "setup_type": "Clean Fast Break",
       "signal_time": "2026-04-13T16:30:00Z",
       "selected_contract": "SPY   260427C00685000",
       "quote_time": "2026-04-13T16:29:04.514819033Z",
+      "bid": 6.33,
       "ask": 6.35,
+      "option_context_status": "clean",
       "execution_context_status": "clean",
       "underlying_invalidation": 678.45,
+      "entry_side": "long_call",
       "entry_fill_basis": "ask",
-      "exit_rule_accepted": false,
-      "stop_rule_accepted": false,
-      "cost_slippage_rule_accepted": false,
-      "expected_rule_status": "blocked_pre_backtest",
-      "expected_blockers": [
-        "missing_exit_rule",
-        "missing_stop_rule",
-        "missing_cost_slippage"
-      ],
-      "reason": "Starter entry evidence is usable for gate testing, but countable results remain blocked until exit, stop, and cost/slippage rules are accepted."
+      "entry_slippage_buffer": 0.02,
+      "expected_cost_adjusted_entry_basis": 6.37,
+      "exit_rule_defined": true,
+      "time_exit_rule_defined": true,
+      "cost_slippage_defined": true,
+      "sample_size_gate_defined": true,
+      "promotion_gate_defined": true,
+      "expected_rule_status": "entry_rule_ready_awaiting_backtest_harness",
+      "expected_rejection_reason": null,
+      "reason": "SPY CFB 002 has the accepted starter selected contract, setup-time-safe quote, ask entry basis, clean option context, and clean execution context. It is ready for later harness implementation, not for counted P&L in this task."
     },
     {
       "fixture_id": "spy_cfb_003_quote_after_signal_no_trade",
@@ -65,49 +70,93 @@
       "reason": "The selected quote is older than five minutes at setup."
     },
     {
-      "fixture_id": "missing_exit_rule_blocks_countable_result",
+      "fixture_id": "profit_target_exit_25_percent_from_adjusted_entry",
       "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
-      "selected_contract": "SPY   260427C00685000",
-      "entry_fill_basis": "ask",
-      "exit_rule_accepted": false,
-      "expected_rule_status": "blocked_pre_backtest",
-      "expected_rejection_reason": "missing_exit_rule",
-      "reason": "A countable CFB result cannot exist without an accepted option exit rule."
+      "entry_ask": 6.35,
+      "entry_slippage_buffer": 0.02,
+      "cost_adjusted_entry_basis": 6.37,
+      "profit_target_percent": 0.25,
+      "profit_target_adjusted_exit_threshold": 7.9625,
+      "exit_bid": 8.0,
+      "exit_slippage_buffer": 0.02,
+      "cost_adjusted_exit_basis": 7.98,
+      "expected_exit_reason": "profit_target",
+      "expected_rule_status": "exit_rule_value_fixture",
+      "reason": "First-pass profit target triggers when bid-minus-slippage reaches at least 25% above ask-plus-entry-slippage."
     },
     {
-      "fixture_id": "missing_stop_rule_blocks_countable_result",
+      "fixture_id": "option_premium_stop_15_percent_from_adjusted_entry",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "entry_ask": 6.35,
+      "entry_slippage_buffer": 0.02,
+      "cost_adjusted_entry_basis": 6.37,
+      "option_stop_percent": -0.15,
+      "option_stop_adjusted_exit_threshold": 5.4145,
+      "exit_bid": 5.43,
+      "exit_slippage_buffer": 0.02,
+      "cost_adjusted_exit_basis": 5.41,
+      "expected_exit_reason": "option_premium_stop",
+      "expected_rule_status": "exit_rule_value_fixture",
+      "reason": "First-pass hard option stop triggers when bid-minus-slippage falls to 15% below ask-plus-entry-slippage."
+    },
+    {
+      "fixture_id": "setup_invalidation_stop_exits_selected_option",
       "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
       "underlying_invalidation": 678.45,
-      "stop_rule_accepted": false,
-      "expected_rule_status": "blocked_pre_backtest",
-      "expected_rejection_reason": "missing_stop_rule",
-      "reason": "Underlying invalidation exists, but the option stop translation is not accepted."
+      "underlying_price_at_review": 678.44,
+      "exit_bid": 5.9,
+      "exit_slippage_buffer": 0.02,
+      "exit_fill_basis": "bid_minus_slippage",
+      "expected_exit_reason": "setup_invalidation_stop",
+      "expected_rule_status": "exit_rule_value_fixture",
+      "reason": "Underlying invalidation remains active after entry and exits the selected option at bid minus the accepted slippage buffer."
     },
     {
-      "fixture_id": "missing_cost_slippage_rule_blocks_countable_result",
+      "fixture_id": "time_exit_1545_et_signal_day",
       "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
-      "cost_slippage_rule_accepted": false,
-      "expected_rule_status": "blocked_pre_backtest",
-      "expected_rejection_reason": "missing_cost_slippage",
-      "reason": "Raw quotes cannot imply commissions, fees, or slippage."
+      "signal_session": "2026-04-13",
+      "latest_exit_time_et": "15:45:00",
+      "review_time": "2026-04-13T19:45:00Z",
+      "exit_bid": 6.6,
+      "exit_slippage_buffer": 0.02,
+      "exit_fill_basis": "bid_minus_slippage",
+      "expected_exit_reason": "time_exit_1545_et",
+      "expected_rule_status": "exit_rule_value_fixture",
+      "reason": "A still-open first-pass CFB option position exits no later than 15:45 ET on the signal day."
     },
     {
-      "fixture_id": "missing_sample_size_rule_blocks_promotion",
+      "fixture_id": "entry_ask_rule_with_slippage_buffer",
       "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
-      "sample_size_gate_accepted": false,
-      "attempted_promotion_stage": "intake_ready",
-      "expected_rule_status": "blocked_promotion",
-      "expected_rejection_reason": "sample_size_gate_missing",
-      "reason": "A single usable reference cannot promote without accepted sample-size thresholds."
+      "entry_fill_basis": "ask_plus_slippage",
+      "entry_ask": 6.35,
+      "entry_slippage_buffer": 0.02,
+      "expected_cost_adjusted_entry_basis": 6.37,
+      "zero_cost_fill_allowed": false,
+      "expected_rule_status": "cost_rule_value_fixture",
+      "reason": "Long-call entry uses the accepted setup-safe ask plus the 0.02 first-pass slippage buffer."
     },
     {
-      "fixture_id": "missing_promotion_rule_blocks_readiness",
+      "fixture_id": "exit_bid_rule_with_slippage_buffer",
       "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
-      "promotion_gate_accepted": false,
-      "attempted_promotion_stage": "intake_ready",
-      "expected_rule_status": "blocked_promotion",
-      "expected_rejection_reason": "promotion_gate_missing",
-      "reason": "Readiness and later stages require accepted promotion criteria."
+      "exit_fill_basis": "bid_minus_slippage",
+      "exit_bid": 7.0,
+      "exit_slippage_buffer": 0.02,
+      "expected_cost_adjusted_exit_basis": 6.98,
+      "zero_cost_fill_allowed": false,
+      "expected_rule_status": "cost_rule_value_fixture",
+      "reason": "Long-call exit uses the selected option bid less the 0.02 first-pass slippage buffer."
+    },
+    {
+      "fixture_id": "slippage_buffer_rule_rejects_zero_cost_fill",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "entry_ask": 0,
+      "exit_bid": 0,
+      "entry_slippage_buffer": 0.02,
+      "exit_slippage_buffer": 0.02,
+      "zero_cost_fill_allowed": false,
+      "expected_rule_status": "blocked",
+      "expected_rejection_reason": "zero_cost_fill_forbidden",
+      "reason": "First-pass testing must not create synthetic zero-cost option fills."
     },
     {
       "fixture_id": "named_failure_diagnosis_required",
@@ -117,12 +166,34 @@
       "expected_rule_status": "blocked",
       "expected_rejection_reason": "failure_diagnosis_required",
       "reason": "Known no-trade and blocked cases must not be hidden behind generic skipped or unknown labels."
+    },
+    {
+      "fixture_id": "sample_size_gate_requires_20_valid_completed_cfb_examples",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "valid_completed_cfb_examples": 19,
+      "minimum_valid_completed_cfb_examples_for_promotion": 20,
+      "attempted_promotion_stage": "intake_ready",
+      "expected_rule_status": "blocked_promotion",
+      "expected_rejection_reason": "sample_size_below_20",
+      "reason": "The current candidates can be used for the first backtest-prep batch, but promotion cannot occur with fewer than 20 valid completed CFB examples."
+    },
+    {
+      "fixture_id": "promotion_gate_requires_rules_regression_sample_and_expectancy",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "accepted_rules": true,
+      "passing_replay_regression": true,
+      "valid_completed_cfb_examples": 20,
+      "positive_expectancy_review_after_costs": false,
+      "attempted_promotion_stage": "intake_ready",
+      "expected_rule_status": "blocked_promotion",
+      "expected_rejection_reason": "positive_expectancy_review_missing",
+      "reason": "Promotion requires accepted rules, passing replay/regression, enough valid examples, and positive expectancy review after costs. This fixture does not calculate expectancy."
     }
   ],
   "explicit_non_goals": [
     "No checker code is created by this fixture file.",
     "No evidence package row is filled by this fixture file.",
     "No raw Databento files are modified.",
-    "No backtest, trade selection, exit simulation, cost model, slippage model, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized by this fixture file."
+    "No backtest, trade selection, exit simulation, cost model execution, slippage model execution, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized by this fixture file."
   ]
 }

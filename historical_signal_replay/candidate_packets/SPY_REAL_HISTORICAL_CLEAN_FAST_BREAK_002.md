@@ -1,5 +1,16 @@
 # SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002
 
+## Day 45 CFB Exact Trade-Rule Values
+
+- Current route: entry-rule-ready reference for later grouped backtest-prep harness implementation only.
+- Package: `SAFE_FAST_DAY45_CFB_EXACT_TRADE_RULE_VALUES.md`.
+- Review: `SAFE_FAST_DAY45_CFB_EXACT_TRADE_RULE_VALUES_REVIEW.md`.
+- Next implementation task: `SAFE_FAST_DAY45_CFB_BACKTEST_PREP_IMPLEMENTATION_TASK.md`.
+- Fixture file: `historical_signal_replay/fixtures/cfb_exit_stop_cost_regression_fixtures.json`.
+- Accepted first-pass values now include long calls only, setup/option/execution pass requirement, ask plus `0.02` entry basis, bid minus `0.02` exit basis, earliest of `+25%` profit target, `-15%` option premium stop, setup invalidation stop, or `15:45 ET` time exit, no zero-cost fills, named failure reason, minimum `20` valid completed CFB examples for promotion, and positive expectancy review after costs before promotion.
+- Candidate application: selected contract `SPY   260427C00685000`, setup-time-safe quote `2026-04-13T16:29:04.514819033Z`, bid `6.33`, ask `6.35`, option context `clean`, execution context `clean`, and invalidation `678.45`.
+- Backtest/P&L/proof/profitability/readiness: NO.
+
 ## Day 45 CFB Exit Stop Cost Rule Package
 
 - Current route: first Clean Fast Break backtest-prep reference, still blocked before countable backtest.
