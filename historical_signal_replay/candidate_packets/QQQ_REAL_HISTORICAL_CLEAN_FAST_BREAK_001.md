@@ -1,5 +1,15 @@
 # QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001
 
+## Day 45 CFB Exit Stop Cost Rule Package
+
+- Current route: Clean Fast Break stale-quote no-trade/repair reference.
+- Package: `SAFE_FAST_DAY45_CFB_EXIT_STOP_COST_RULE_PACKAGE.md`.
+- Backtest gate decision: `SAFE_FAST_DAY45_CFB_BACKTEST_GATE_DECISION.md`.
+- Fixture file: `historical_signal_replay/fixtures/cfb_exit_stop_cost_regression_fixtures.json`.
+- New package result: stale quote remains a named no-trade diagnosis with `quote_age_above_5_minutes`.
+- Missing-rule relevance: this candidate does not proceed to exit/stop/cost testing because execution eligibility fails before entry.
+- Backtest/P&L/proof/profitability/readiness: NO.
+
 ## Day 45 CFB Grouped Trade-Rule Package
 
 - Current route: stale-quote failed-execution repair reference for the first Clean Fast Break trade-rule checker.

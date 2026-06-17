@@ -1,0 +1,128 @@
+{
+  "fixture_name": "cfb_exit_stop_cost_regression_fixtures",
+  "fixture_version": 1,
+  "purpose": "Data-only fixtures for the grouped Clean Fast Break exit, stop, cost, failure, sample-size, and promotion rule package. These fixtures preserve blockers; they do not backtest, calculate P&L, prove profitability, choose a real trade, or mark readiness.",
+  "accepted_rule_source": "SAFE_FAST_DAY45_CFB_EXIT_STOP_COST_RULE_PACKAGE.md",
+  "rule_summary": {
+    "entry_reference": "SPY CFB 002 has usable starter entry evidence only",
+    "exit_rule": "required before countable results; exact option exit basis still needs human decision",
+    "stop_rule": "underlying invalidation required; exact option stop translation still needs human decision",
+    "time_exit_rule": "required before countable results; exact time values still need human decision",
+    "cost_slippage_rule": "explicit cost and slippage assumptions required; numeric values still need human decision",
+    "failure_diagnosis": "specific named reason required for every known blocker",
+    "sample_size_gate": "required before promotion; threshold still needs human decision",
+    "promotion_gate": "required before readiness; criteria still need human decision"
+  },
+  "fixtures": [
+    {
+      "fixture_id": "spy_cfb_002_usable_entry_blocked_until_exit_stop_cost_accepted",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "symbol": "SPY",
+      "setup_type": "Clean Fast Break",
+      "signal_time": "2026-04-13T16:30:00Z",
+      "selected_contract": "SPY   260427C00685000",
+      "quote_time": "2026-04-13T16:29:04.514819033Z",
+      "ask": 6.35,
+      "execution_context_status": "clean",
+      "underlying_invalidation": 678.45,
+      "entry_fill_basis": "ask",
+      "exit_rule_accepted": false,
+      "stop_rule_accepted": false,
+      "cost_slippage_rule_accepted": false,
+      "expected_rule_status": "blocked_pre_backtest",
+      "expected_blockers": [
+        "missing_exit_rule",
+        "missing_stop_rule",
+        "missing_cost_slippage"
+      ],
+      "reason": "Starter entry evidence is usable for gate testing, but countable results remain blocked until exit, stop, and cost/slippage rules are accepted."
+    },
+    {
+      "fixture_id": "spy_cfb_003_quote_after_signal_no_trade",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "symbol": "SPY",
+      "setup_type": "Clean Fast Break",
+      "signal_time": "2026-04-15T18:30:00Z",
+      "top_ranked_contract": "SPY   260429C00700000",
+      "quote_time": "2026-04-15T18:31:23.366609701Z",
+      "fallback_allowed": false,
+      "expected_rule_status": "no_trade",
+      "expected_rejection_reason": "quote_after_signal",
+      "reason": "Post-signal option quote is future option data and no fallback contract is allowed."
+    },
+    {
+      "fixture_id": "qqq_cfb_001_stale_quote_no_trade",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "symbol": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "signal_time": "2026-04-13T16:30:00Z",
+      "selected_contract": "QQQ   260427C00615000",
+      "quote_time": "2026-04-13T16:06:30.640301037Z",
+      "ask": 7.8,
+      "expected_quote_age_seconds": 1409.359699,
+      "expected_rule_status": "no_trade",
+      "expected_rejection_reason": "quote_age_above_5_minutes",
+      "reason": "The selected quote is older than five minutes at setup."
+    },
+    {
+      "fixture_id": "missing_exit_rule_blocks_countable_result",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "selected_contract": "SPY   260427C00685000",
+      "entry_fill_basis": "ask",
+      "exit_rule_accepted": false,
+      "expected_rule_status": "blocked_pre_backtest",
+      "expected_rejection_reason": "missing_exit_rule",
+      "reason": "A countable CFB result cannot exist without an accepted option exit rule."
+    },
+    {
+      "fixture_id": "missing_stop_rule_blocks_countable_result",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "underlying_invalidation": 678.45,
+      "stop_rule_accepted": false,
+      "expected_rule_status": "blocked_pre_backtest",
+      "expected_rejection_reason": "missing_stop_rule",
+      "reason": "Underlying invalidation exists, but the option stop translation is not accepted."
+    },
+    {
+      "fixture_id": "missing_cost_slippage_rule_blocks_countable_result",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "cost_slippage_rule_accepted": false,
+      "expected_rule_status": "blocked_pre_backtest",
+      "expected_rejection_reason": "missing_cost_slippage",
+      "reason": "Raw quotes cannot imply commissions, fees, or slippage."
+    },
+    {
+      "fixture_id": "missing_sample_size_rule_blocks_promotion",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "sample_size_gate_accepted": false,
+      "attempted_promotion_stage": "intake_ready",
+      "expected_rule_status": "blocked_promotion",
+      "expected_rejection_reason": "sample_size_gate_missing",
+      "reason": "A single usable reference cannot promote without accepted sample-size thresholds."
+    },
+    {
+      "fixture_id": "missing_promotion_rule_blocks_readiness",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "promotion_gate_accepted": false,
+      "attempted_promotion_stage": "intake_ready",
+      "expected_rule_status": "blocked_promotion",
+      "expected_rejection_reason": "promotion_gate_missing",
+      "reason": "Readiness and later stages require accepted promotion criteria."
+    },
+    {
+      "fixture_id": "named_failure_diagnosis_required",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "known_blocker": "quote_after_signal",
+      "provided_rejection_reason": null,
+      "expected_rule_status": "blocked",
+      "expected_rejection_reason": "failure_diagnosis_required",
+      "reason": "Known no-trade and blocked cases must not be hidden behind generic skipped or unknown labels."
+    }
+  ],
+  "explicit_non_goals": [
+    "No checker code is created by this fixture file.",
+    "No evidence package row is filled by this fixture file.",
+    "No raw Databento files are modified.",
+    "No backtest, trade selection, exit simulation, cost model, slippage model, P&L, proof, profitability, readiness, live, broker, order, account, main.py, or Railway behavior is authorized by this fixture file."
+  ]
+}

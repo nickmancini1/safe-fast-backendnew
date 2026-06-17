@@ -1,5 +1,59 @@
 # SAFE-FAST Build State
 
+## Day 45 CFB exit stop cost rule package result
+
+- Current task file executed: `SAFE_FAST_DAY45_CFB_EXIT_STOP_COST_RULE_PACKAGE_CODEX_TASK.md`.
+- Baseline stated by task file: `bd98b8b Add grouped CFB trade rule checker`.
+- Corrective scope: grouped Clean Fast Break exit/stop/cost/sample/promotion rule package, data-only blocker fixtures, backtest gate decision, next grouped task, dashboard/rule/build state, and the three CFB candidate packets only.
+- Reference candidates covered:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`;
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Created:
+  - `SAFE_FAST_DAY45_CFB_EXIT_STOP_COST_RULE_PACKAGE.md`;
+  - `historical_signal_replay/fixtures/cfb_exit_stop_cost_regression_fixtures.json`;
+  - `SAFE_FAST_DAY45_CFB_BACKTEST_GATE_DECISION.md`;
+  - `SAFE_FAST_DAY45_CFB_NEXT_GROUPED_BUILD_TASK.md`.
+- Rule package result:
+  - named failure diagnosis is accepted for first regression pass;
+  - exit rule and option exit basis still need human decision;
+  - stop/invalidation-to-option-exit translation still needs human decision;
+  - time exit, end-of-day, max-hold, stale-signal, and expiration-proximity handling still need human decision;
+  - cost/slippage numeric assumptions still need human decision;
+  - sample-size thresholds still need human decision;
+  - promotion criteria still need human decision.
+- Fixture coverage:
+  - SPY CFB 002 usable-entry case still blocked until exit/stop/cost are accepted;
+  - SPY CFB 003 quote-after-signal no-trade;
+  - QQQ CFB 001 stale-quote no-trade;
+  - missing exit rule;
+  - missing stop rule;
+  - missing cost/slippage rule;
+  - missing sample-size rule;
+  - missing promotion rule;
+  - named failure diagnosis required.
+- Backtest gate decision: `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` remains the first CFB backtest-prep reference, but cannot enter a countable backtest until exit, stop, time, cost/slippage, sample-size, and promotion rules are accepted and tested.
+- Cheap starter data can test gate behavior, selected-contract/no-fallback behavior, quote timing/freshness blockers, ask entry basis presence, named diagnosis, and missing-rule blockers.
+- Full-window Databento data is deferred until exact rules, fields/windows, cost check, and user approval exist.
+- Tests run:
+  - `python -m json.tool .\historical_signal_replay\fixtures\cfb_exit_stop_cost_regression_fixtures.json`: PASS.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks.
+  - `python -m unittest tests.test_cfb_trade_rule_checker`: PASS, `13` tests.
+  - `python -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+- Evidence filled: NO.
+- Raw Databento files changed: NO.
+- Databento downloaded: NO.
+- Full-window data used or requested: NO.
+- Backtest authorized: NO.
+- Real trade chosen: NO.
+- P&L calculated: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, backtest code, trade-selection code, or P&L files were changed.
+
 ## Day 45 CFB trade-rule checker implementation result
 
 - Current task file executed: `SAFE_FAST_DAY45_CFB_NEXT_GROUPED_IMPLEMENTATION_TASK.md`.

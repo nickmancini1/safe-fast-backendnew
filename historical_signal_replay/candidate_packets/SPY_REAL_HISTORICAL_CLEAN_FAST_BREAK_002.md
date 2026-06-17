@@ -1,5 +1,16 @@
 # SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002
 
+## Day 45 CFB Exit Stop Cost Rule Package
+
+- Current route: first Clean Fast Break backtest-prep reference, still blocked before countable backtest.
+- Package: `SAFE_FAST_DAY45_CFB_EXIT_STOP_COST_RULE_PACKAGE.md`.
+- Backtest gate decision: `SAFE_FAST_DAY45_CFB_BACKTEST_GATE_DECISION.md`.
+- Fixture file: `historical_signal_replay/fixtures/cfb_exit_stop_cost_regression_fixtures.json`.
+- Usable entry evidence remains: selected contract `SPY   260427C00685000`, setup-time-safe quote `2026-04-13T16:29:04.514819033Z`, ask `6.35`, and execution context `clean`.
+- New package result: named failure diagnosis is accepted for first regression pass, but exit, stop/invalidation translation, time exit, cost/slippage numbers, sample-size thresholds, and promotion criteria still need human decisions.
+- Backtest gate: cheap starter data can test gate behavior and missing-rule blockers; full-window Databento is deferred until exact rules, fields/windows, cost check, and user approval exist.
+- Backtest/P&L/proof/profitability/readiness: NO.
+
 ## Day 45 CFB Grouped Trade-Rule Package
 
 - Current route: first Clean Fast Break backtest-prep reference after the CFB trade-rule checker/tests and missing rule decisions are completed.
