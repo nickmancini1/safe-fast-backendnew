@@ -1,5 +1,67 @@
 # SAFE-FAST Build State
 
+## Day 47 CFB execution realism rules result
+
+- Current task file executed: `SAFE_FAST_DAY47_CFB_EXECUTION_REALISM_RULES_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`, HEAD `613d253`.
+- Local status note: clean before edits except git reported permission warnings for temp directories `tmp2i57tguu`, `tmpj8ei9a_f`, `tmpra392qh0`, and `tmpt2fw63vq`.
+- Result document created: `SAFE_FAST_DAY47_CFB_EXECUTION_REALISM_RULES_RESULT.md`.
+- Exact canonical rule document: `SAFE_FAST_PROJECT_PROOF_PIPELINE.md`.
+- Focused consistency test added: `tests/test_day47_cfb_execution_realism_rules.py`.
+- Updated canonical control files:
+  - `SAFE_FAST_PROJECT_PROOF_PIPELINE.md`;
+  - `SAFE_FAST_PROJECT_DASHBOARD.md`;
+  - `SAFE_FAST_PROJECT_RULE_INDEX.md`;
+  - `SAFE_FAST_BUILD_STATE.md`.
+- Created exact next grouped task file: `SAFE_FAST_DAY47_RISK_CAPITAL_RULES_CODEX_TASK.md`.
+- Defined conservative Clean Fast Break execution-realism countability rules for:
+  - signal-to-decision latency;
+  - usable quote age;
+  - one-contract order size and minimum quote size;
+  - partial-fill blocking;
+  - target-touch recognition;
+  - stop-touch and setup-invalidation recognition;
+  - same-interval target/stop ordering;
+  - bid/ask/spread handling;
+  - no-fallback selected-contract discipline;
+  - missing, delayed, crossed, locked, zero, negative, wrong-symbol, wrong-instrument, unparsable, or malformed quote behavior.
+- Preserved accepted/frozen CFB rules:
+  - long calls only;
+  - entry from ask plus `0.02`;
+  - exit from bid minus `0.02`;
+  - `+25%` target;
+  - `-15%` option stop;
+  - setup invalidation stop;
+  - same-day `15:45 ET` time exit;
+  - no zero-cost fills;
+  - one primary failure reason;
+  - no promotion below `20` valid completed CFB examples;
+  - quote age above `5` minutes fails;
+  - no fallback from the frozen selected contract.
+- Existing CFB replay outputs remain review-only unless rerun or reclassified under this execution-realism package, candidate/contract freeze rules, sample contract rules, and later risk/capital rules.
+- SPY CFB 002 remains the positive review-only anchor and is not invalidated by this package; it still does not prove profitability, readiness, paper eligibility, or live readiness.
+- SPY CFB 003 remains `no_trade` / `quote_age_above_5_minutes`.
+- QQQ CFB 001 remains `no_trade` / `quote_age_above_5_minutes`.
+- Checks run:
+  - `.\scripts\safe_fast_run_safe_checks.ps1`: BLOCKED by local PowerShell execution policy before the script ran.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks, plus `9` discovered tests.
+  - `python -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+  - `python -m unittest discover -s tests -p "test_day47_to_day90_audit_consistency.py"`: PASS, `2` tests.
+  - `python -m unittest discover -s tests -p "test_day47_cfb_execution_realism_rules.py"`: PASS, `5` tests.
+  - `git --no-pager diff --check`: PASS with line-ending warnings only.
+- Generated `__pycache__` directories under `tests/` and `watcher_foundation/` were removed after tests. Direct recursive PowerShell cleanup against exact workspace paths was rejected by local command policy before running; cleanup was completed with a bounded Python command against exact workspace paths.
+- Databento downloaded: NO.
+- New backtest run: NO.
+- New P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, raw vendor data, evidence fills, trade-selection code, P&L files, or generated live reports/logs were changed.
+
 ## Day 47 promotion, holdout, and candidate-freeze rules result
 
 - Current task file executed: `SAFE_FAST_DAY47_PROMOTION_HOLDOUT_AND_CANDIDATE_FREEZE_RULES_CODEX_TASK.md`.
