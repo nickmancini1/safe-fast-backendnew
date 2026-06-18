@@ -1,5 +1,58 @@
 # SAFE-FAST Build State
 
+## Day 47 grouped CFB selected-contract download result
+
+- Current task file executed: `SAFE_FAST_DAY47_GROUPED_CFB_SELECTED_CONTRACT_DOWNLOAD_CODEX_TASK.md`.
+- Baseline verified before download: branch `main`, commit `5a818d8`.
+- Preflight status: only the current task file was an expected pre-existing untracked file; Databento credential was available and was not printed or written.
+- Approved request shape preserved:
+  - Databento dataset `OPRA.PILLAR`;
+  - symbology `raw_symbol`;
+  - raw OPRA symbol `SPY   260429C00700000`;
+  - schemas `tcbbo`, `trades`, and `statistics`;
+  - setup window `2026-04-15T13:30:00Z` to `2026-04-15T18:30:00Z`;
+  - signal-day statistics window `2026-04-15T04:00:00Z` to `2026-04-16T04:00:00Z`;
+  - conditional exit-path windows `2026-04-15T18:30:00Z` to `2026-04-15T19:45:00Z`.
+- Failed request shape not used: local starter `instrument_id=1333784938`, which previously returned Databento `422 symbology_invalid_request`.
+- Repeat pre-download checked cost:
+  - setup-window `tcbbo`: `$0.001204758883`;
+  - setup-window `trades`: `$0.000963807106`;
+  - signal-day `statistics`: `$0.000057697296`;
+  - conditional exit-path `tcbbo`: `$0.000422447920`;
+  - conditional exit-path `trades`: `$0.000337958336`;
+  - setup-window subtotal: `$0.002226263285`;
+  - conditional exit-path subtotal: `$0.000760406256`;
+  - grouped selected-contract total: `$0.002986669541`.
+- Downloaded ignored raw files:
+  - `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_tcbbo_open_to_signal.csv` and `.dbn.zst`, `77` CSV data rows;
+  - `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_trades_open_to_signal.csv` and `.dbn.zst`, `77` CSV data rows;
+  - `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_statistics_signal_day.csv` and `.dbn.zst`, `88` CSV data rows;
+  - `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_tcbbo_signal_to_1545_et.csv` and `.dbn.zst`, `25` CSV data rows;
+  - `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_trades_signal_to_1545_et.csv` and `.dbn.zst`, `25` CSV data rows;
+  - `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_download_manifest.json`.
+- Download validation:
+  - setup and conditional exit windows remain separated;
+  - DBN files are readable through `databento.DBNStore.from_file`;
+  - expected schemas are identifiable as `tcbbo`, `trades`, and `statistics`;
+  - all downloaded rows use raw symbol `SPY   260429C00700000`;
+  - downloaded row-level Databento `instrument_id` is `1258293278`, which differs from the earlier failed local starter mapping `1333784938`; later replay must use the approved raw-symbol evidence deliberately and must not substitute the failed instrument-id request;
+  - raw files remain ignored and unstaged.
+- Actual billed cost: `NOT_AVAILABLE`.
+- Result document created: `SAFE_FAST_DAY47_GROUPED_CFB_SELECTED_CONTRACT_DOWNLOAD_RESULT.md`.
+- Exact next replay task created: `SAFE_FAST_DAY47_GROUPED_CFB_SELECTED_CONTRACT_REPLAY_BACKTEST_CODEX_TASK.md`.
+- Mandatory queued consolidated audit task created: `SAFE_FAST_DAY47_TO_DAY90_CONSOLIDATED_AUDIT_AND_COMPLETION_PLAN_CODEX_TASK.md`, to run immediately after the current grouped data/replay path.
+- Databento downloaded: YES, only the approved grouped selected-contract raw-symbol evidence.
+- Raw Databento files changed: YES, ignored local raw-data folder only.
+- New backtests run: NO.
+- New P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, evidence fills, trade-selection code, backtest code, or P&L files were changed.
+
 ## Day 47 next grouped data-needed cost-check result
 
 - Current task file executed: `SAFE_FAST_DAY47_NEXT_GROUPED_DATA_NEEDED_COST_CHECK_CODEX_TASK.md`.
