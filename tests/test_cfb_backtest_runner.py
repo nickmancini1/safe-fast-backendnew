@@ -46,6 +46,38 @@ class CfbBacktestRunnerTests(unittest.TestCase):
         self.assertFalse(spy_002["proof_accepted"])
         self.assertFalse(spy_002["profitability_claimed"])
 
+    def test_day47_downloaded_spy_cfb_003_setup_quote_changes_blocker_to_stale_quote(self):
+        result = runner.run_day47_grouped_cfb_selected_contract_replay()
+        spy_003 = result["results"][1]
+
+        self.assertEqual(
+            result["downloaded_data_used"],
+            "SPY_CFB_003_selected_contract_setup_window_only",
+        )
+        self.assertFalse(result["conditional_exit_path_used"])
+        self.assertEqual(spy_003["result_status"], "no_trade")
+        self.assertEqual(spy_003["failure_reason"], "quote_age_above_5_minutes")
+        self.assertEqual(spy_003["entry_time"], "2026-04-15T18:30:00+00:00")
+        self.assertEqual(
+            spy_003["entry_quote_time"], "2026-04-15T18:22:33.366710+00:00"
+        )
+        self.assertEqual(spy_003["entry_ask"], 7.66)
+        self.assertIsNone(spy_003["exit_time"])
+        self.assertFalse(spy_003["candidate_marked_ready"])
+        self.assertFalse(spy_003["proof_accepted"])
+        self.assertFalse(spy_003["profitability_claimed"])
+
+    def test_spy_cfb_003_downloaded_setup_quote_uses_raw_symbol_mapping_not_failed_local_id(self):
+        row = runner.apply_spy_cfb_003_downloaded_setup_quote(
+            runner.load_prepared_candidate_row(runner.SPY_CFB_003_CANDIDATE_ID),
+            runner.load_local_option_quotes_for_spy_cfb_003_setup_window(),
+        )
+
+        self.assertEqual(row["selected_contract"], "SPY   260429C00700000")
+        self.assertEqual(row["quote_time"], "2026-04-15T18:22:33.366710979Z")
+        self.assertEqual(row["ask"], "7.660000000")
+        self.assertEqual(row["bid"], "7.630000000")
+
     def test_profit_target_exit_uses_bid_minus_slippage(self):
         row = runner.load_prepared_candidate_row(runner.FIRST_REFERENCE_CANDIDATE_ID)
         result = runner.run_cfb_backtest_row(

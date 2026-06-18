@@ -1,5 +1,60 @@
 # SAFE-FAST Build State
 
+## Day 47 grouped CFB selected-contract replay/backtest result
+
+- Current task file executed: `SAFE_FAST_DAY47_GROUPED_CFB_SELECTED_CONTRACT_REPLAY_BACKTEST_CODEX_TASK.md`.
+- Starting branch observed locally: `main`.
+- Starting HEAD observed locally: `723bce7 Record Day 47 grouped selected-contract evidence download`.
+- Required raw data manifest read: `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_download_manifest.json`.
+- Result document created: `SAFE_FAST_DAY47_GROUPED_CFB_SELECTED_CONTRACT_REPLAY_BACKTEST_RESULT.md`.
+- Updated runner: `historical_signal_replay/cfb_backtest_runner.py`.
+- Updated focused tests: `tests/test_cfb_backtest_runner.py`.
+- Updated CFB candidate packet: `historical_signal_replay/candidate_packets/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003.md`.
+- Grouped anchors preserved:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` remains the positive review-only anchor, `completed_review_only` / `completed_profit_target`, entry `6.37`, adjusted exit `7.98`, adjusted result `+1.61`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` was replayed with the downloaded selected-contract setup-window evidence;
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` remains the stale-quote no-entry control.
+- Raw evidence facts preserved:
+  - Databento dataset `OPRA.PILLAR`;
+  - request shape used `raw_symbol=SPY   260429C00700000`;
+  - failed local `instrument_id=1333784938` request was not substituted;
+  - downloaded row-level Databento `instrument_id=1258293278` was used for the selected-contract evidence;
+  - setup-window and conditional exit-path files remained separated;
+  - raw files remained local-only and ignored.
+- Raw files and row counts used/inspected:
+  - setup-window TCBBO: `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_tcbbo_open_to_signal.csv`, `77` rows, used to select nearest setup-time-safe quote;
+  - setup-window trades: `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_trades_open_to_signal.csv`, `77` rows, inspected for setup support and not used as a fill;
+  - signal-day statistics: `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_statistics_signal_day.csv`, `88` rows, inspected with `0` setup-time-safe rows before signal;
+  - conditional exit-path TCBBO: `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_tcbbo_signal_to_1545_et.csv`, `25` rows, not used because no valid entry was found;
+  - conditional exit-path trades: `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_trades_signal_to_1545_et.csv`, `25` rows, not used because no valid entry was found.
+- Replay finding for `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`:
+  - downloaded setup-window evidence changes the prior `quote_after_signal` diagnosis;
+  - nearest setup-time-safe quote is `2026-04-15T18:22:33.366710979Z`, before the `2026-04-15T18:30:00Z` signal;
+  - quote fields: bid `7.63`, ask `7.66`, bid size `88`, ask size `40`;
+  - quote age is about `446.633289` seconds, which is above the accepted `5` minute CFB freshness limit;
+  - new result is `no_trade` / `quote_age_above_5_minutes`;
+  - no valid entry exists under accepted CFB rules;
+  - conditional exit-path data remained unused.
+- Checks run:
+  - `.\scripts\safe_fast_run_safe_checks.ps1`: BLOCKED by local PowerShell execution policy before the script ran.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks.
+  - `python -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+  - `python -m unittest discover -s tests -p "test_cfb_backtest_runner.py"`: PASS, `8` tests.
+  - `git --no-pager diff --check`: PASS with line-ending warnings only.
+- Databento downloaded: NO.
+- New Databento request made: NO.
+- Raw Databento files changed: NO.
+- New CFB 003 P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, evidence fills, trade-selection code outside the local CFB runner, or P&L files were changed.
+- Mandatory queued audit remains next: `SAFE_FAST_DAY47_TO_DAY90_CONSOLIDATED_AUDIT_AND_COMPLETION_PLAN_CODEX_TASK.md`.
+
 ## Day 47 grouped CFB selected-contract download result
 
 - Current task file executed: `SAFE_FAST_DAY47_GROUPED_CFB_SELECTED_CONTRACT_DOWNLOAD_CODEX_TASK.md`.

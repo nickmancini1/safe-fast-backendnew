@@ -1,5 +1,22 @@
 # SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003
 
+## Day 47 Grouped Selected-Contract Replay Backtest
+
+- Current route: Clean Fast Break selected-contract replay row, still no-trade.
+- Result doc: `SAFE_FAST_DAY47_GROUPED_CFB_SELECTED_CONTRACT_REPLAY_BACKTEST_RESULT.md`.
+- Runner: `historical_signal_replay/cfb_backtest_runner.py`.
+- Downloaded raw-symbol evidence used: `SPY   260429C00700000`.
+- Downloaded row-level Databento instrument id: `1258293278`.
+- Failed local starter `instrument_id=1333784938` was not substituted.
+- Setup-window TCBBO file: `historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_tcbbo_open_to_signal.csv`, `77` rows.
+- Replay change: downloaded setup-window evidence cures the prior `quote_after_signal` diagnosis because the nearest selected-contract quote is before the signal.
+- Nearest setup-time-safe quote: `2026-04-15T18:22:33.366710979Z`, before the `2026-04-15T18:30:00Z` setup boundary.
+- Quote fields: bid `7.63`, ask `7.66`, bid size `88`, ask size `40`.
+- Current blocker: `quote_age_above_5_minutes`, because quote age is about `446.633289` seconds.
+- Entry valid under accepted CFB rules: NO.
+- Conditional exit-path data used: NO, because no valid entry exists.
+- Backtest/P&L/proof/profitability/promotion/readiness/intake-ready change: NO.
+
 ## Day 46 Next Grouped Backtest Batch Decision
 
 - Current route: Clean Fast Break quote-after-signal no-trade control for the next grouped CFB expansion/data-needed planning package.

@@ -19,8 +19,12 @@ LOCAL_OPTION_DATA_DIR = (
     REPO_ROOT / "historical_signal_replay" / "source_data" / "external_option_data_drop"
 )
 SPY_CFB_002_SELECTED_CONTRACT_INSTRUMENT_ID = "1258293281"
+SPY_CFB_003_SELECTED_CONTRACT_INSTRUMENT_ID = "1258293278"
 SPY_CFB_002_EXIT_PATH_TCBBO_PATH = (
     LOCAL_OPTION_DATA_DIR / "SPY_CFB_002_selected_contract_tcbbo_entry_to_1545_et.csv"
+)
+SPY_CFB_003_SETUP_TCBBO_PATH = (
+    LOCAL_OPTION_DATA_DIR / "SPY_CFB_003_selected_contract_tcbbo_open_to_signal.csv"
 )
 
 FIRST_REFERENCE_CANDIDATE_ID = "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002"
@@ -57,6 +61,33 @@ def run_first_cfb_backtest_path():
         "proof_accepted": False,
         "profitability_claimed": False,
         "results": results,
+    }
+
+
+def run_day47_grouped_cfb_selected_contract_replay():
+    spy_002_row = load_prepared_candidate_row(FIRST_REFERENCE_CANDIDATE_ID)
+    spy_003_row = apply_spy_cfb_003_downloaded_setup_quote(
+        load_prepared_candidate_row(SPY_CFB_003_CANDIDATE_ID),
+        load_local_option_quotes_for_spy_cfb_003_setup_window(),
+    )
+    qqq_001_row = load_prepared_candidate_row(QQQ_CFB_001_CANDIDATE_ID)
+
+    return {
+        "review_status": "local_review_output",
+        "downloaded_data_used": "SPY_CFB_003_selected_contract_setup_window_only",
+        "conditional_exit_path_used": False,
+        "promotion_decision": "not_requested_not_made",
+        "candidate_marked_ready": False,
+        "proof_accepted": False,
+        "profitability_claimed": False,
+        "results": [
+            run_cfb_backtest_row(
+                spy_002_row,
+                option_quote_rows=load_local_option_quotes_for_spy_cfb_002(),
+            ),
+            run_cfb_backtest_row(spy_003_row),
+            run_cfb_backtest_row(qqq_001_row),
+        ],
     }
 
 
@@ -155,6 +186,46 @@ def load_local_option_quotes_for_spy_cfb_002():
         )
     with path.open(newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle))
+
+
+def load_local_option_quotes_for_spy_cfb_003_setup_window():
+    with SPY_CFB_003_SETUP_TCBBO_PATH.open(newline="", encoding="utf-8") as handle:
+        return list(csv.DictReader(handle))
+
+
+def apply_spy_cfb_003_downloaded_setup_quote(row, option_quote_rows):
+    selected_quote = _nearest_quote_at_or_before_signal(
+        option_quote_rows,
+        selected_contract=row["top_ranked_contract"],
+        selected_instrument_id=SPY_CFB_003_SELECTED_CONTRACT_INSTRUMENT_ID,
+        signal_at=checker.normalize_timestamp(row["signal_time"]),
+    )
+    if selected_quote is None:
+        return row
+
+    updated = dict(row)
+    updated["selected_contract"] = updated["top_ranked_contract"]
+    updated["quote_time"] = selected_quote["ts_event"]
+    updated["bid"] = selected_quote.get("bid_px_00")
+    updated["ask"] = selected_quote.get("ask_px_00")
+    return updated
+
+
+def _nearest_quote_at_or_before_signal(
+    rows, *, selected_contract, selected_instrument_id, signal_at
+):
+    selected_rows = []
+    for row in rows:
+        if row.get("symbol") != selected_contract:
+            continue
+        if str(row.get("instrument_id")) != selected_instrument_id:
+            continue
+        event_time = checker.normalize_timestamp(row["ts_event"])
+        if event_time <= signal_at:
+            selected_rows.append((event_time, row))
+    if not selected_rows:
+        return None
+    return max(selected_rows, key=lambda item: item[0])[1]
 
 
 def _selected_option_events(rows, *, selected_contract, signal_at, time_exit_at):
