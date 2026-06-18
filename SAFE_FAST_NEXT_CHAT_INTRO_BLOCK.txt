@@ -1,180 +1,189 @@
+﻿START HERE — SAFE-FAST NEXT CHAT OPERATING RULES
+
+This is the first thing the next chat must read and follow.
+
+PRIMARY RULE:
+Do not waste the user’s time or money.
+
+The user is paying for this work and has already lost time from bad handoffs, wrong Codex prompts, vague answers, and chats that drifted. The next chat must lead clearly, use the repo, keep work batched, and move the project forward without making the user explain PowerShell, Codex, repo state, or the workflow.
+
+COMMUNICATION RULES — HIGHEST PRIORITY:
+- Plain English first.
+- Direct answer first.
+- No filler.
+- No vague timeline talk.
+- No vague cost talk.
+- No repeated “not/not/not” summaries.
+- No generic coaching unless the user asks.
+- No jargon unless immediately translated.
+- Do not make the user decode project language.
+- Do not make the user correct PowerShell/Codex format.
+- Keep the user moving.
+
+Use this format for build work:
 Baseline:
-SAFE-FAST Day 46 handoff and next-chat start checkpoint.
-Repo path: C:\Users\nickm\Desktop\New folder\safe-fast-backendnew
-Latest known local HEAD before this handoff commit: 59b2a03 Run first CFB backtest reference case
-Branch when written: main
-Local git output controls if it differs.
-
-Front door:
-Start from local git. Speak plain English. The first CFB backtest reference ran: SPY CFB 002 hit the profit target with entry 6.37, adjusted exit 7.98, and adjusted result +1.61. SPY CFB 003 and QQQ CFB 001 stayed out correctly as rejection controls. One good result is useful, not proof.
-
-Timeline:
-Day 1: May 3, 2026.
-Day 45: June 16, 2026.
-Day 46: June 17, 2026.
-Day 60: July 1, 2026.
-Day 60 is checkpoint/reporting, not a forced finish.
-The next $200 month is the final high-intensity build sprint before moving toward the $20 tier.
-The final sprint must produce a decision package.
-
 Fixed:
-SAFE_FAST_DAY46_NEXT_CHAT_HANDOFF_START_HERE.md is the new start-here file.
-SAFE_FAST_DAY46_NEXT_CHAT_START_BLOCK.txt is the copy/paste block for a new chat.
-SAFE_FAST_DAY46_HANDOFF_CURRENT_STATE_AND_FINAL_SPRINT_PLAN.md records the current state, first CFB result, final sprint, and tier transition.
-SAFE_FAST_DAY46_HANDOFF_POWER_SHELL_CODEX_WORKFLOW.md records the PowerShell/Codex workflow.
-Evidence cleanup after the SPY Ideal batch reached 9 passed requests and 0 failed requests.
-First CFB result is recorded as review-only, not proof.
-
 Blocked:
-Proof accepted: NO.
-Profitability claim made: NO.
-Intake-ready count: 0.
-No candidate readiness is proven.
-No real trade is chosen.
-One positive CFB example is not enough.
-Trade-plan readiness still needs grouped work: more examples, comparison, entry/fill, spread/liquidity, exit, stop/invalidation, time-exit, cost/slippage, failure labels, sample-size, promotion gates, stage transitions, headline policy, and broader option/execution/caution rules.
-
 Next:
-Ask the user to run the git check command below first.
-Read SAFE_FAST_BUILD_STATE.md first.
-Read SAFE_FAST_PROJECT_DASHBOARD.md second.
-Read SAFE_FAST_PROJECT_RULE_INDEX.md third.
-Read SAFE_FAST_DAY46_NEXT_CHAT_HANDOFF_START_HERE.md fourth.
-Read SAFE_FAST_DAY46_NEXT_CHAT_START_BLOCK.txt fifth.
-Use SAFE_FAST_CODEX_TASK_TEMPLATES.md before writing a new task.
-Read relevant candidate packets before candidate work.
-Recommended next grouped task: review the first CFB backtest result, build grouped expansion plan, compare SPY CFB 002 / SPY CFB 003 / QQQ CFB 001, then decide the next batch across CFB, Ideal, and Continuation without one-example grinding.
-Use SAFE_FAST_DAY46_FIRST_BACKTEST_REVIEW_AND_EXPANSION_PLAN_CODEX_TASK.md if present, or create a fresh grouped review/expansion task if local git says it is missing.
-
 Command:
-First ask the user to run:
+
+If the user asks a yes/no/I-don’t-know question, answer that first.
+
+POWERHELL / CODEX WORKFLOW — DO NOT GET THIS WRONG:
+
+Use local PowerShell and local Codex task files.
+
+Repo path:
+C:\Users\nickm\Desktop\New folder\safe-fast-backendnew
+
+Always start with:
+
 Set-Location "C:\Users\nickm\Desktop\New folder\safe-fast-backendnew"
+
 git --no-pager branch --show-current
 git --no-pager log -1 --oneline
 git --no-pager status --short
 
-PowerShell/Codex workflow:
-Use PowerShell and local Codex task files.
-Do not pass huge prompts directly on the command line.
-Write a task file first.
-Then launch Codex against the task file.
-Codex launch command:
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never
-User pastes Codex output.
-Review output.
-Commit guarded checkpoints.
-Do not push unless user explicitly asks.
-If Codex transport/WebSocket/backend errors repeat, stop, restart laptop, reopen PowerShell, verify git, and resume with a small bounded task.
+Local git output controls.
 
-Budget/data rules:
-Cheap starter data comes first.
-Full-window Databento requires exact cost check and user approval.
-No broad data download from guesses.
-Known cost warning: SPY 3-candidate full-window cost check was about $72.36.
-Databento starter data is local-only and raw vendor files should stay ignored.
-If a Databento key appears in output, tell the user to rotate it.
+Correct Codex launch format:
 
-Batching rules:
-Batching/grouped progress is already the rule.
-Use grouped candidate passes, grouped rule packages, grouped validation, grouped cost checks, and grouped comparison.
-Avoid one-field loops unless a real blocker makes batching unsafe.
-If a blocker appears, batch the diagnosis where possible.
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read and execute .\EXACT_TASK_FILE.md exactly."
 
-Warnings:
-Use plain English. Give the direct answer first. Explain meaning, cost, timeline, and next action clearly.
-Do not use Yahoo.
-Do not use public OHLC fallback.
-Do not use broker/order/account actions.
-Do not print secrets.
-Do not claim proof.
-Do not claim profitability.
-Do not mark any candidate ready.
-Do not download data without explicit approval.
-Do not run new backtests unless explicitly authorized.
-Do not calculate new P&L unless explicitly authorized.
-Do not commit raw Databento files.
-Do not modify main.py, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, .env, credentials, tokens, generated report/log files, or live-data paths.
+Do not use Codex Web unless the user explicitly asks.
 
-## Day 46 handoff correction: prompt discipline and Codex transport failure
+Do not pass huge prompts directly into Codex.
 
-This correction exists because a new chat mishandled the Day 46 handoff and produced a bad first Codex attempt.
+Do not invent generic task files.
 
-Future chats must follow this exactly:
+Do not create files like:
+TASK_DAY46_GROUPED_BACKTEST_BATCH_REVIEW.md
 
-1. Do not invent generic task files such as TASK_DAY46_GROUPED_BACKTEST_BATCH_REVIEW.md.
+Use committed SAFE_FAST task files when they exist.
 
-2. Use the task files already committed in the repo unless local git proves they are missing.
+Correct workflow:
+1. Verify local git.
+2. Read the current repo files.
+3. If the right task file exists, give the exact Codex launch command.
+4. If the task file is missing, give one PowerShell block that writes a properly named SAFE_FAST_..._CODEX_TASK.md task file.
+5. Stop after task-file creation.
+6. After the user confirms the file exists, give the Codex launch command separately.
+7. User pastes Codex output.
+8. Review the output.
+9. Give guarded commit commands for exact expected files.
+10. Do not push unless the user explicitly asks.
 
-3. After checkpoint 239692f Add Day 46 first backtest expansion plan, the expected next grouped task is:
-   SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md
-
-4. If that file exists, launch Codex with exactly this command:
-
-   codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read and execute .\SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md exactly."
-
-5. If the expected task file does not exist, create a proper SAFE_FAST_..._CODEX_TASK.md task file first.
-
-6. Do not pass a huge task prompt directly into Codex as command-line text.
-
-7. Do not create random task names.
-
-8. Do not make the user correct the prompt format.
-
-Correct PowerShell/Codex workflow:
-
-Step 1:
-Give the user one PowerShell block that writes the task file.
-
-Step 2:
-Stop.
-
-Step 3:
-After the user confirms the task file exists, give the Codex launch line separately.
-
-Step 4:
-User pastes Codex final output.
-
-Step 5:
-Review output and give guarded commit commands.
-
-Correct startup check for the next chat:
-
-   Set-Location "C:\Users\nickm\Desktop\New folder\safe-fast-backendnew"
-   git --no-pager branch --show-current
-   git --no-pager log -1 --oneline
-   git --no-pager status --short
-
-Expected checkpoint:
-   main
-   239692f Add Day 46 first backtest expansion plan
-   clean status
-
-If Codex shows WebSocket fallback failure, HTTPS fallback failure, backend-api/codex/responses 404, or repeated reconnect failure:
-
-- Say plainly: Codex connection failed; repo is not the problem.
-- Stop retrying the same Codex run.
+CODEX FAILURE RULE:
+If Codex shows WebSocket fallback failure, HTTPS fallback failure, backend-api/codex/responses 404, or repeated reconnect errors:
+- Say: “Codex connection failed; the repo is not the problem.”
+- Stop retrying that same run.
 - Ask only for git branch/log/status.
-- Do not create new project tasks while Codex transport is failing.
-- Do not tell the user to delete the chat as the first solution.
+- Do not invent replacement tasks during a Codex transport failure.
+- Do not make the user debug random Codex prompt mistakes.
 
-Plain English current state:
+CURRENT LOCAL CHECKPOINT:
+Latest local checkpoint reported by the user:
+021bead Add Day 46 grouped backtest batch decision
 
-- First real CFB backtest reference ran.
-- SPY CFB 002 hit the profit target.
-- Adjusted result was +1.61.
-- SPY CFB 003 stayed out because quote came after the signal.
-- QQQ CFB 001 stayed out because quote was too old.
-- Next work is grouped expansion/comparison.
-- Do not grind one example.
-- Do not invent new task names.
+If local git differs, local git controls.
 
-Next intended work:
+CURRENT PROJECT DAY:
+June 18, 2026 = Project Day 47.
+Day 1 was May 3, 2026.
+Day 60 is July 1, 2026.
 
-Use SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md if present.
-If missing, create a fresh SAFE_FAST_DAY46_... grouped review/expansion task file first.
-Keep batching.
-Keep cost control.
-Use plain English.
+Day 60 is a progress checkpoint, not a forced finish.
+The project must be done correctly.
+The project also cannot run indefinitely.
+The next $200 month is the final high-intensity build sprint before moving toward the $20 tier.
+The final sprint must produce a clear decision package.
 
-## End Day 46 handoff correction
+CURRENT PROJECT STATUS IN PLAIN ENGLISH:
+The first real Clean Fast Break backtest reference ran.
 
+SPY Clean Fast Break 002 hit the profit target:
+- Entry: 6.37
+- Adjusted exit: 7.98
+- Adjusted result: +1.61
+
+Two controls behaved correctly:
+- SPY Clean Fast Break 003 stayed out because its option quote came after the signal.
+- QQQ Clean Fast Break 001 stayed out because its option quote was too old.
+
+This is one useful positive reference.
+It is not enough by itself.
+The next work is grouped comparison and expansion.
+
+CURRENT NEXT WORK:
+Read the current grouped backtest batch decision committed at 021bead.
+
+Then identify the committed next grouped task from the repo.
+
+Continue that task without restarting old QQQ/SPY discovery.
+
+Expected direction:
+- Review the first CFB backtest result.
+- Compare SPY CFB 002, SPY CFB 003, and QQQ CFB 001.
+- Decide the next grouped batch across Clean Fast Break, Ideal, and Continuation.
+- Keep data spending controlled.
+- Build toward the final sprint decision package.
+
+BATCHING RULE:
+Batching is already required.
+
+Use:
+- grouped candidate passes
+- grouped rule packages
+- grouped validation
+- grouped cost checks
+- grouped comparisons
+
+Do not return to one-field loops unless a real blocker makes batching unsafe.
+If a blocker appears, diagnose related blockers together.
+
+BUDGET RULE:
+Cheap starter data first.
+Cost-check every larger Databento request.
+Show the exact price before downloading.
+Full-window data requires user approval unless the checked cost is clearly tiny.
+Raw Databento files stay local and ignored.
+Do not make broad project-cost estimates without checked batch numbers.
+
+Known cost warning:
+One SPY 3-candidate full-window cost check was about $72.36.
+
+REPO BOUNDARIES:
+Read SAFE_FAST_BUILD_STATE.md before code work.
+Preserve the frozen baseline unless an evidence-backed task explicitly requires a change.
+Do not touch:
+- main.py
+- Railway
+- production/deploy files
+- broker/account/order files
+- credentials
+- .env
+- secrets
+
+Every code change needs tests and matching documentation updates.
+
+Do not confuse build work with live trade evaluation.
+
+FILES TO READ FIRST:
+1. SAFE_FAST_BUILD_STATE.md
+2. SAFE_FAST_PROJECT_DASHBOARD.md
+3. SAFE_FAST_PROJECT_RULE_INDEX.md
+4. SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt
+5. Files changed by commit 021bead
+6. Latest committed grouped task or next-step file referenced by those docs
+7. SAFE_FAST_DAY46_NEXT_CHAT_HANDOFF_START_HERE.md as background only, because older parts may be stale
+
+DO NOT:
+- restart stale discovery
+- invent task names
+- use Codex Web unless asked
+- push unless asked
+- download Databento data without approval
+- give vague cost/timeline answers
+- make the user hold your hand
+
+END START BLOCK

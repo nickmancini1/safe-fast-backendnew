@@ -216,3 +216,23 @@ Use plain English.
 
 ## End Day 46 handoff correction
 
+
+## Day 47 handoff hard correction — workflow first
+
+The next chat must treat workflow and interaction rules as the top priority before doing project work.
+
+The user’s explicit correction:
+- Do not waste time and money.
+- Plain English first.
+- Direct answers.
+- Local repo controls.
+- Correct PowerShell/Codex workflow.
+- Do not invent generic task names.
+- Do not pass huge prompts directly into Codex.
+- If the correct SAFE_FAST task file exists, give the launch command directly.
+- If Codex transport fails, stop and verify repo state instead of inventing replacement work.
+- Keep batching.
+- Continue from local checkpoint `021bead Add Day 46 grouped backtest batch decision` unless local git says otherwise.
+
+This correction supersedes older handoff wording where workflow rules appear after project history.
+
