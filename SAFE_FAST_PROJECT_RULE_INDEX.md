@@ -4,6 +4,7 @@
 
 | Rule | Status | Current wording |
 | --- | --- | --- |
+| Day 47 to Day 90 consolidated audit and completion plan | accepted/current as control owner map | `SAFE_FAST_DAY47_TO_DAY90_CONSOLIDATED_AUDIT_AND_COMPLETION_PLAN_RESULT.md` is the current canonical owner map after the Day 47 grouped selected-contract replay. It classifies all mandatory completion requirements as `defined`, `partially_defined`, `missing`, `contradictory`, or `proven_by_tests`; names canonical owners for rule areas; marks stale older handoff/checkpoint/next-action text as historical when local git and current docs have advanced; and orders the Day 47-90 work. It does not prove profitability, mark readiness, authorize promotion, run a backtest, download data, or choose a real trade. |
 | Profitability mandate | accepted/current | SAFE-FAST targets a profitable trading plan, but profitability cannot be claimed until evidence proves it. |
 | Day 45 bounded final sprint | accepted/current | Day 60 is a progress checkpoint, not the finish line. The next $200 month is the final high-intensity build sprint before moving toward the $20 tier. The project must not cut corners because of the calendar and must not run indefinitely. |
 | Final sprint decision package | accepted/current | Before moving toward the $20 tier, the repo needs a clear decision package covering what works, what failed, what needs repair, remaining data costs, strongest and weakest candidate families, accepted and missing rules, what can continue on the $20 tier, and what would require another serious spend or redesign. |
@@ -91,6 +92,11 @@
 
 | Rule | Status | Missing decision |
 | --- | --- | --- |
+| Promotion, final-outcome, sample-size, holdout, and candidate-freeze contract | missing/needs decision | The next Day 47-90 rule task must define replay-to-paper and paper-to-live gates, falsifiable final outcomes, protected untouched holdout evidence, candidate-selection freeze rules, and evidence-sample coverage. |
+| Capital allocation and risk plan | missing/needs decision | Maximum loss per trade, daily/weekly loss, drawdown shutdown, consecutive-loss limits, concurrent-position limits, de-risking, and capital competition remain undefined. |
+| Portfolio and setup-family interaction testing | missing/needs decision | Overlapping signals, duplicate exposure, correlation, setup evolution, candidate precedence, and capital competition do not yet have accepted rules or regression coverage. |
+| Repair-cycle, family retirement, and invalidation criteria | missing/needs decision | The repo preserves diagnosis/repair discipline, but exact maximum repair cycles, narrowing/removal thresholds, and family invalidation criteria remain undefined. |
+| Stable-winner selection and Day 90 decision criteria | missing/needs decision | No accepted rule yet defines economically stable winners, `$20` tier maintainability boundaries, major-spend triggers, or final Day 90 decision labels. |
 | QQQ gap threshold validation beyond first fixture | missing/needs decision | The first QQQ CFB gap-context test fixture thresholds are accepted for regression work, but profitable-plan calibration, sample-size validation, and promotion-grade threshold review remain undecided. |
 | Contract selection | partially accepted; evidence/trade-plan work still blocked | First QQQ CFB reviewed-universe and quote-eligibility policy is accepted in `SAFE_FAST_DAY41_QQQ_CFB_SELECTED_CONTRACT_POLICY.md`, the first conservative QQQ CFB one-contract rule is accepted in `SAFE_FAST_DAY41_QQQ_CFB_CONTRACT_SELECTION_DECISION.md`, contract-selection regression fixtures exist, and selector implementation now passes all accepted fixtures. Still missing before trade-plan counting: evidence-fill authorization, complete entry/fill/exit/cost/slippage rules, and promotion-grade validation. |
 | Entry rule | missing/needs decision | Exact entry timing and quote/fill rule. |
