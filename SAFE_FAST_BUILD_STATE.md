@@ -1,5 +1,61 @@
 # SAFE-FAST Build State
 
+## Day 47 promotion, holdout, and candidate-freeze rules result
+
+- Current task file executed: `SAFE_FAST_DAY47_PROMOTION_HOLDOUT_AND_CANDIDATE_FREEZE_RULES_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`, HEAD `d23a343`.
+- Local status note: clean except for the untracked current task file; git reported permission warnings for temp directories `tmp2i57tguu`, `tmpj8ei9a_f`, `tmpra392qh0`, and `tmpt2fw63vq`.
+- Result document created: `SAFE_FAST_DAY47_PROMOTION_HOLDOUT_AND_CANDIDATE_FREEZE_RULES_RESULT.md`.
+- Exact canonical rule document: `SAFE_FAST_PROJECT_PROOF_PIPELINE.md`.
+- Focused consistency test added: `tests/test_day47_promotion_holdout_candidate_freeze_rules.py`.
+- Updated canonical control files:
+  - `SAFE_FAST_PROJECT_PROOF_PIPELINE.md`;
+  - `SAFE_FAST_PROJECT_DASHBOARD.md`;
+  - `SAFE_FAST_PROJECT_RULE_INDEX.md`;
+  - `SAFE_FAST_BUILD_STATE.md`.
+- Defined rule package:
+  - six-gate promotion ladder: development evidence, grouped replay eligibility, regression acceptance, protected-holdout evaluation, controlled paper-validation eligibility, and paper-to-live review eligibility;
+  - exactly four Day 90 outcomes: `PAPER_VALIDATION_ELIGIBLE`, `BOUNDED_REPAIR_REQUIRED`, `NARROWED_PLAN`, and `REDESIGN_REQUIRED`;
+  - exact sample-size and coverage contract for Ideal, Clean Fast Break, and Continuation;
+  - protected holdout manifest, anti-peeking, invalidation, replacement, and complete-reporting rules;
+  - candidate and option-contract freeze rules requiring decision-time-only information, deterministic exclusions, deterministic tie-breaks, and no retrospective best-contract selection.
+- Exact numerical sample contract:
+  - Ideal: `20` accepted entries, `10` rejection/no-trade controls, `5` ambiguous/boundary cases, `5` winners, `5` losers, `8` protected-holdout accepted entries, `4` protected-holdout rejection/no-trade controls;
+  - Clean Fast Break: `20` accepted entries, `10` rejection/no-trade controls, `5` ambiguous/boundary cases, `5` winners, `5` losers, `8` protected-holdout accepted entries, `4` protected-holdout rejection/no-trade controls;
+  - Continuation: `20` accepted entries, `10` rejection/no-trade controls, `5` ambiguous/boundary cases, `5` winners, `5` losers, `8` protected-holdout accepted entries, `4` protected-holdout rejection/no-trade controls.
+- Coverage contract per setup family:
+  - `3` major market regimes: uptrend, downtrend, range/chop;
+  - `3` volatility conditions: low, normal, high;
+  - `2` trend examples and `2` chop examples beyond the major-regime count where separately labeled;
+  - `3` time-of-day periods: first `60` minutes, middle session, final `90` minutes;
+  - all `5` weekdays, at least `2` examples each;
+  - `3` liquidity/spread buckets: clean, caution, fail/reject;
+  - at least `2` approved symbols per active family unless narrowed to `1` by accepted rule;
+  - at least `2` expiration buckets per active family: `14-21` DTE and `22-45` DTE, unless narrowed by accepted contract-selection rule;
+  - `5` developing-stage transition examples: watch, candidate, signal, spent/stale, and invalidated or blocked;
+  - `3` session-boundary cases: prior-session carry-forward, same-session reset, and next-session invalidation or block.
+- Clean Fast Break keeps the accepted blocker below `20` valid completed CFB examples; other numerical values are conservative governance assumptions and must be frozen before protected holdout evidence is opened.
+- Exact next grouped task filename: `SAFE_FAST_DAY47_CFB_EXECUTION_REALISM_RULES_CODEX_TASK.md`.
+- Checks run:
+  - `.\scripts\safe_fast_run_safe_checks.ps1`: BLOCKED by local PowerShell execution policy before the script ran.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks, plus `9` discovered tests.
+  - `python -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+  - `python -m unittest discover -s tests -p "test_day47_to_day90_audit_consistency.py"`: PASS, `2` tests.
+  - `python -m unittest discover -s tests -p "test_day47_promotion_holdout_candidate_freeze_rules.py"`: first run FAIL due to missing result self-reference in `SAFE_FAST_DAY47_PROMOTION_HOLDOUT_AND_CANDIDATE_FREEZE_RULES_RESULT.md`; fixed and rerun PASS, `5` tests.
+  - `git --no-pager diff --check`: PASS with line-ending warnings only.
+- Generated `__pycache__` directories under `tests/` and `watcher_foundation/` were removed after tests. Direct recursive PowerShell cleanup commands were rejected by local command policy before running; cleanup was completed with a bounded Python command against exact workspace paths.
+- Databento downloaded: NO.
+- New backtest run: NO.
+- New P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, raw vendor data, evidence fills, trade-selection code, P&L files, or generated live reports/logs were changed.
+
 ## Day 47 to Day 90 consolidated audit and completion plan result
 
 - Current task file executed: `SAFE_FAST_DAY47_TO_DAY90_CONSOLIDATED_AUDIT_AND_COMPLETION_PLAN_CODEX_TASK.md`.
