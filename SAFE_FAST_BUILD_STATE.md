@@ -19,15 +19,29 @@
 - Exact Day 47 selected-contract cost-check shape identified for `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`:
   - Databento dataset `OPRA.PILLAR`;
   - schemas `tcbbo`, `trades`, and `statistics`;
-  - instrument id `1333784938`;
+  - raw OPRA symbol `SPY   260429C00700000`;
+  - local starter mapping instrument id `1333784938`;
   - setup windows `2026-04-15T13:30:00Z` to `2026-04-15T18:30:00Z`;
   - signal-day statistics window `2026-04-15T04:00:00Z` to `2026-04-16T04:00:00Z`;
   - conditional exit-path windows `2026-04-15T18:30:00Z` to `2026-04-15T19:45:00Z`.
 - Fresh Databento cost-only call attempted:
   - `metadata.get_cost(dataset="OPRA.PILLAR", schema="tcbbo", symbols=1333784938, stype_in="instrument_id", start="2026-04-15T13:30:00Z", end="2026-04-15T18:30:00Z")`.
-- Checked price result: `NOT_AVAILABLE_PROXY_BLOCKED`.
-- Blocker: HTTPS to `hist.databento.com` was routed through refused proxy `127.0.0.1:9`; no Databento price was returned.
-- User approval before any download: REQUIRED after a fresh exact checked price is available.
+- Instrument-id checked price result: `NOT_AVAILABLE_SYMBOL_RESOLUTION_FAILED` from Databento `422 symbology_invalid_request`.
+- Raw-symbol grouped cost-only checks succeeded:
+  - setup-window `tcbbo`: `$0.001204758883`;
+  - setup-window `trades`: `$0.000963807106`;
+  - signal-day `statistics`: `$0.000057697296`;
+  - conditional exit-path `tcbbo`: `$0.000422447920`;
+  - conditional exit-path `trades`: `$0.000337958336`;
+  - setup-window subtotal: `$0.002226263285`;
+  - conditional exit-path subtotal: `$0.000760406256`;
+  - grouped selected-contract total: `$0.002986669541`.
+- User approval before any download: REQUIRED; this task did not authorize download.
+- Checks run:
+  - `.\scripts\safe_fast_run_safe_checks.ps1`: BLOCKED by local PowerShell execution policy before the script ran.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks.
+  - `python -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
 - Databento downloaded: NO.
 - Databento data request/download made: NO.
 - Raw Databento files changed: NO.
