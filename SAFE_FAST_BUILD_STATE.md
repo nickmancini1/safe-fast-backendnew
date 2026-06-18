@@ -1,5 +1,43 @@
 # SAFE-FAST Build State
 
+## Day 47 grouped CFB expansion/data-needed plan
+
+- Current task file executed: `SAFE_FAST_DAY47_GROUPED_CFB_EXPANSION_DATA_NEEDED_CODEX_TASK.md`.
+- Baseline stated by task file: `021bead Add Day 46 grouped backtest batch decision`.
+- Corrective scope: documentation and task/planning only.
+- Created:
+  - `SAFE_FAST_DAY47_GROUPED_CFB_EXPANSION_DATA_NEEDED_PLAN.md`;
+  - `SAFE_FAST_DAY47_NEXT_GROUPED_DATA_NEEDED_COST_CHECK_CODEX_TASK.md`.
+- Updated:
+  - `SAFE_FAST_PROJECT_DASHBOARD.md`;
+  - `SAFE_FAST_PROJECT_RULE_INDEX.md`;
+  - `SAFE_FAST_BUILD_STATE.md`.
+- Grouped result preserved:
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` remains one positive review-only CFB reference with entry `6.37`, adjusted exit `7.98`, adjusted result `+1.61`, and exit reason `profit_target`;
+  - `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003` remains the `quote_after_signal` no-entry control;
+  - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` remains the `quote_age_above_5_minutes` no-entry control.
+- Setup-family routing preserved:
+  - SPY Ideal is deferred from the CFB backtest path until Ideal-specific rule/evidence work is accepted;
+  - QQQ Ideal remains parked until grouped Ideal rule/evidence work is accepted;
+  - SPY and QQQ Continuation remain parked until Continuation lifecycle, request-shaped evidence, contract-selection, context, entry, exit, cost, slippage, sample-size, and promotion rules exist.
+- Next exact action:
+  - run `SAFE_FAST_DAY47_NEXT_GROUPED_DATA_NEEDED_COST_CHECK_CODEX_TASK.md`;
+  - identify exact Databento symbols/schemas/windows for the next grouped batch;
+  - cost-check before any download;
+  - require user approval before any full-window download unless a later task explicitly includes a clearly tiny checked-cost exception.
+- Databento downloaded: NO.
+- Databento request made: NO.
+- Raw Databento files changed: NO.
+- New backtests run: NO.
+- New P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, generated live reports/logs, raw vendor data, evidence fills, trade-selection code, backtest code, or P&L files were changed.
+
 ## Day 46 next grouped backtest batch decision
 
 - Current task file executed: `SAFE_FAST_DAY46_NEXT_GROUPED_BACKTEST_BATCH_TASK.md`.
