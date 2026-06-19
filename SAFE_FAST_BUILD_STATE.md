@@ -1,5 +1,60 @@
 # SAFE-FAST Build State
 
+## Day 48 grouped three-family coverage expansion result
+
+- Current task file executed: `SAFE_FAST_DAY48_GROUPED_THREE_FAMILY_COVERAGE_EXPANSION_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`, HEAD `d32df4d`.
+- Result document created: `SAFE_FAST_DAY48_GROUPED_THREE_FAMILY_COVERAGE_EXPANSION_RESULT.md`.
+- Focused executable coverage added: `tests/test_day48_grouped_three_family_coverage_expansion.py`.
+- Updated canonical control files:
+  - `SAFE_FAST_PROJECT_DASHBOARD.md`;
+  - `SAFE_FAST_PROJECT_RULE_INDEX.md`;
+  - `SAFE_FAST_BUILD_STATE.md`.
+- Grouped lifecycle fixture inventory remains `12` runnable candidates: `4` Ideal, `4` Clean Fast Break, and `4` Continuation.
+- Stronger local rule-stack coverage exists for exactly `3` grouped candidate family/symbol pairs:
+  - `QQQ` Clean Fast Break;
+  - `SPY` Clean Fast Break;
+  - `SPY` Ideal.
+- The new focused test executes the existing SPY Ideal starter stack and confirms:
+  - lifecycle fresh signal row remains `fresh`;
+  - later follow-through row remains `spent`;
+  - contract selection abstains because the top-ranked quote is after the signal;
+  - execution context remains `unknown` because no selected setup-time-safe quote exists;
+  - complete caution remains `unknown` because required components remain unknown.
+- No stronger local rule-stack coverage exists for any Continuation grouped candidate, GLD/IWM shape-only rows, or QQQ Ideal.
+- Missing Continuation dependencies are exact: Continuation-specific lifecycle rule fixtures, Continuation contract-selection fixtures, Continuation execution-context fixtures, Continuation complete-caution fixtures, and setup-time-safe selected option data.
+- No-trade and ambiguous/pending controls were preserved: all `12` grouped lifecycle candidates still finish as final `NO_TRADE`, and accepted-entry stage rows remain `7`.
+- Evidence validator result remained `9` passed requests, `0` failed requests, intake-ready `0`.
+- Package-to-intake bridge result remained `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+- Actual expansion evidence routes the next bounded work to the smallest Continuation starter coverage package from existing local replay/source rows only, not data download, not backtest, not P&L, not proof/readiness.
+- Checks run:
+  - `.\scripts\safe_fast_run_safe_checks.ps1`: BLOCKED by local PowerShell execution policy before the script ran.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks, plus `9` discovered tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_grouped_three_family_coverage_expansion.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_actual_grouped_three_family_replay.py"`: PASS, `2` tests.
+  - `python -B -m unittest discover -s tests -p "test_cfb_lifecycle_calculator.py"`: PASS, `12` tests.
+  - `python -B -m unittest discover -s tests -p "test_execution_context_calculator.py"`: PASS, `10` tests.
+  - `python -B -m unittest discover -s tests -p "test_cfb_contract_selector.py"`: PASS, `17` tests.
+  - `python -B -m unittest discover -s tests -p "test_context_caution_calculator.py"`: PASS, `12` tests.
+  - `python -B .\historical_signal_replay\run_signal_replay.py`: PASS.
+  - Direct script execution for `replay/test_on_demand_*ideal*.py`: PASS, `3` files, `0` failed.
+  - Direct script execution for `replay/test_on_demand_*continuation*.py`: PASS, `6` files, `0` failed.
+  - Direct script execution for `replay/test_on_demand_*clean_fast_break*.py`: PASS, `3` files, `0` failed.
+  - `python -B -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -B -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+  - Bounded `__pycache__` inspection over `tests`, `watcher_foundation`, `historical_signal_replay`, and `replay`: `0` directories found.
+  - `git --no-pager diff --check`: PASS with line-ending warnings only.
+- Databento downloaded: NO.
+- New backtest run: NO.
+- New P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, raw vendor data, evidence fills, trade-selection code, P&L files, or generated live reports/logs were changed.
+
 ## Day 48 actual grouped three-family replay test result
 
 - Current task file executed: `SAFE_FAST_DAY48_ACTUAL_GROUPED_THREE_FAMILY_REPLAY_TEST_CODEX_TASK.md`.
