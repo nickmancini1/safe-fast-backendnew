@@ -1,0 +1,178 @@
+{
+  "fixture_name": "day48_grouped_three_family_after_continuation_expansion_fixtures",
+  "fixture_version": 1,
+  "purpose": "Grouped three-family expansion after Continuation starter coverage using only existing local lifecycle fixtures, source rows, and cheap starter option rows. QQQ and SPY Continuation get setup-time option-contract diagnostic fixtures where local rows support them; GLD and IWM preserve abstention because no local starter option package exists for those Continuation rows.",
+  "accepted_rule_source": "SAFE_FAST_DAY48_GROUPED_THREE_FAMILY_EXPANSION_AFTER_CONTINUATION_STARTER_CODEX_TASK.md",
+  "explicit_non_goals": [
+    "No raw market data is modified.",
+    "No data is downloaded.",
+    "No fallback contract scan after a top-ranked contract fails is authorized.",
+    "No entry, fill, exit, P&L, proof, profitability, readiness, promotion, paper, live, broker, order, account, main.py, or Railway behavior is authorized."
+  ],
+  "continuation_option_cases": [
+    {
+      "fixture_id": "gld_continuation_no_local_option_package_preserves_abstain",
+      "candidate_id": "GLD-REAL-HISTORICAL-CONTINUATION-001",
+      "expected_symbol": "GLD",
+      "expected_setup_type": "Continuation",
+      "signal_time": "2026-04-14T15:30:00-04:00",
+      "trigger_price": null,
+      "open_interest_required": false,
+      "candidate_contracts": [],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "missing_or_invalid_signal_time_or_trigger",
+      "expected_execution_context_status": "unknown",
+      "expected_execution_rejection_reason": "missing_source_data",
+      "expected_complete_caution_status": "unknown",
+      "expected_complete_caution_rejection_reason": "required_component_unknown",
+      "local_option_files_present": false,
+      "reason": "GLD Continuation remains shape-only/missing-trigger under current local evidence, with no local starter option package for a supported setup-time contract fixture."
+    },
+    {
+      "fixture_id": "iwm_continuation_no_local_option_package_preserves_abstain",
+      "candidate_id": "IWM-REAL-HISTORICAL-CONTINUATION-001",
+      "expected_symbol": "IWM",
+      "expected_setup_type": "Continuation",
+      "signal_time": "2026-04-30T15:30:00-04:00",
+      "trigger_price": null,
+      "open_interest_required": false,
+      "candidate_contracts": [],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "missing_or_invalid_signal_time_or_trigger",
+      "expected_execution_context_status": "unknown",
+      "expected_execution_rejection_reason": "missing_source_data",
+      "expected_complete_caution_status": "unknown",
+      "expected_complete_caution_rejection_reason": "required_component_unknown",
+      "local_option_files_present": false,
+      "reason": "IWM Continuation remains trigger-incomplete under current local evidence, with no local starter option package for a supported setup-time contract fixture."
+    },
+    {
+      "fixture_id": "qqq_continuation_top_contract_wide_spread_no_fallback_abstains",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+      "expected_symbol": "QQQ",
+      "expected_setup_type": "Continuation",
+      "signal_time": "2026-04-30T15:30:00-04:00",
+      "trigger_price": 664.51,
+      "open_interest_required": false,
+      "source_files": {
+        "definitions": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_definitions_full_day.csv",
+        "tcbbo": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.csv",
+        "trades": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.csv",
+        "statistics": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_statistics_full_day.csv"
+      },
+      "expected_top_contract_from_local_rows": "QQQ   260514C00665000",
+      "candidate_contracts": [
+        {
+          "contract_symbol": "QQQ   260514C00665000",
+          "instrument_id": 956302440,
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-05-14",
+          "dte": 14,
+          "strike": 665,
+          "quote": {
+            "ts_event": "2026-04-30T19:29:52.881394545Z",
+            "ts_recv": "2026-04-30T19:29:52.881601345Z",
+            "bid": 11.9,
+            "ask": 12.25,
+            "bid_size": 166,
+            "ask_size": 18,
+            "midpoint": 12.075,
+            "spread": 0.35,
+            "spread_pct": 0.028985507246376812
+          },
+          "trade_volume_through_setup": 8,
+          "open_interest": null,
+          "statistics": {}
+        },
+        {
+          "contract_symbol": "QQQ   260514C00670000",
+          "instrument_id": 956302456,
+          "underlying": "QQQ",
+          "side": "C",
+          "expiration": "2026-05-14",
+          "dte": 14,
+          "strike": 670,
+          "quote": {},
+          "trade_volume_through_setup": null,
+          "open_interest": null,
+          "statistics": {}
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "top_ranked_contract_failed_no_fallback",
+      "expected_execution_context_status": "unknown",
+      "expected_execution_rejection_reason": "missing_source_data",
+      "expected_complete_caution_status": "unknown",
+      "expected_complete_caution_rejection_reason": "required_component_unknown",
+      "local_option_files_present": true,
+      "reason": "Local QQQ Continuation starter rows support deriving the top-ranked 2026-05-14 C665 contract and a setup-time-safe quote, but its spread fails the accepted starter gate and no fallback is allowed."
+    },
+    {
+      "fixture_id": "spy_continuation_top_contract_future_quote_abstains",
+      "candidate_id": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+      "expected_symbol": "SPY",
+      "expected_setup_type": "Continuation",
+      "signal_time": "2026-04-30T12:30:00-04:00",
+      "trigger_price": 715.61,
+      "open_interest_required": false,
+      "source_files": {
+        "definitions": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_definitions_full_day.csv",
+        "tcbbo": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.csv",
+        "trades": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.csv",
+        "statistics": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_statistics_full_day.csv"
+      },
+      "expected_top_contract_from_local_rows": "SPY   260514C00720000",
+      "candidate_contracts": [
+        {
+          "contract_symbol": "SPY   260514C00720000",
+          "instrument_id": 1207960722,
+          "underlying": "SPY",
+          "side": "C",
+          "expiration": "2026-05-14",
+          "dte": 14,
+          "strike": 720,
+          "quote": {
+            "ts_event": "2026-04-30T16:30:14.612354668Z",
+            "ts_recv": "2026-04-30T16:30:14.612555649Z",
+            "bid": 5.82,
+            "ask": 5.84,
+            "bid_size": 194,
+            "ask_size": 124,
+            "midpoint": 5.83,
+            "spread": 0.02,
+            "spread_pct": 0.003430531732418525
+          },
+          "trade_volume_through_setup": 0,
+          "open_interest": null,
+          "statistics": {}
+        },
+        {
+          "contract_symbol": "SPY   260514C00725000",
+          "instrument_id": 1207960733,
+          "underlying": "SPY",
+          "side": "C",
+          "expiration": "2026-05-14",
+          "dte": 14,
+          "strike": 725,
+          "quote": {},
+          "trade_volume_through_setup": null,
+          "open_interest": null,
+          "statistics": {}
+        }
+      ],
+      "expected_selected_contract": null,
+      "expected_status": "abstain",
+      "expected_rejection_reason": "top_ranked_contract_failed_no_fallback",
+      "expected_execution_context_status": "unknown",
+      "expected_execution_rejection_reason": "missing_source_data",
+      "expected_complete_caution_status": "unknown",
+      "expected_complete_caution_rejection_reason": "required_component_unknown",
+      "local_option_files_present": true,
+      "reason": "Local SPY Continuation starter rows support deriving the top-ranked 2026-05-14 C720 contract, but the only local quote for that top contract is after the signal; the existing selector reports the failure under top-ranked no-fallback precedence when another eligible contract exists."
+    }
+  ]
+}

@@ -1,5 +1,68 @@
 # SAFE-FAST Build State
 
+## Day 48 grouped three-family expansion after Continuation starter result
+
+- Current task file executed: `SAFE_FAST_DAY48_GROUPED_THREE_FAMILY_EXPANSION_AFTER_CONTINUATION_STARTER_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`, HEAD `8cd8cd7`.
+- Result document created: `SAFE_FAST_DAY48_GROUPED_THREE_FAMILY_EXPANSION_AFTER_CONTINUATION_STARTER_RESULT.md`.
+- Focused grouped fixture package added: `historical_signal_replay/fixtures/day48_grouped_three_family_after_continuation_expansion_fixtures.json`.
+- Focused executable grouped coverage added: `tests/test_day48_grouped_three_family_expansion_after_continuation.py`.
+- The package used existing local lifecycle fixtures, source rows, and cheap starter option rows only.
+- QQQ and SPY Continuation now have setup-time option-contract diagnostic coverage from local rows:
+  - `QQQ-REAL-HISTORICAL-CONTINUATION-001`: top-ranked local starter contract is `QQQ   260514C00665000`, `instrument_id=956302440`, `2026-05-14` C665; setup-time-safe quote exists at `2026-04-30T19:29:52.881394545Z` and trade volume is `8`, but spread `0.35` fails the starter gate and selector abstains with `top_ranked_contract_failed_no_fallback`.
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001`: top-ranked local starter contract is `SPY   260514C00720000`, `instrument_id=1207960722`, `2026-05-14` C720; the only local top-contract quote is after signal at `2026-04-30T16:30:14.612354668Z`, and selector abstains with `top_ranked_contract_failed_no_fallback` under existing no-fallback precedence.
+- GLD and IWM Continuation preserve abstention because trigger/invalidation evidence remains incomplete and no supported local starter option package exists for those rows.
+- Continuation option-case totals:
+  - cases: `4`;
+  - local option-supported cases: `2`;
+  - contract abstentions: `4`;
+  - selected contracts: `0`;
+  - unknown execution cases: `4`;
+  - unknown complete-caution cases: `4`.
+- Grouped lifecycle controls remained unchanged:
+  - grouped lifecycle candidates: `12`;
+  - Ideal: `4`;
+  - Clean Fast Break: `4`;
+  - Continuation: `4`;
+  - final `NO_TRADE` candidates: `12`;
+  - accepted-entry stage rows: `7`;
+  - ambiguous/pending grouped candidates: `8`.
+- No fallback contract, selected Continuation contract, entry, fill, exit, cost, slippage, P&L, proof, readiness, paper eligibility, live eligibility, or intake-ready status was created.
+- Evidence validator result remained `9` passed requests, `0` failed requests, intake-ready `0`.
+- Package-to-intake bridge result remained `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+- Checks run:
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks, plus `9` discovered tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_grouped_three_family_expansion_after_continuation.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_continuation_starter_coverage.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_actual_grouped_three_family_replay.py"`: PASS, `2` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_grouped_three_family_coverage_expansion.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_cfb_contract_selector.py"`: PASS, `17` tests.
+  - `python -B -m unittest discover -s tests -p "test_execution_context_calculator.py"`: PASS, `10` tests.
+  - `python -B -m unittest discover -s tests -p "test_context_caution_calculator.py"`: PASS, `12` tests.
+  - `python -B -m unittest discover -s tests -p "test_cfb_lifecycle_calculator.py"`: PASS, `12` tests.
+  - `python -B -m unittest discover -s tests -p "test_watcher_stable_winner_selection_replay.py"`: PASS, `8` tests.
+  - `python -B .\historical_signal_replay\run_signal_replay.py`: PASS.
+  - Direct script execution for `replay/test_on_demand_*continuation*.py`: PASS, `6` files, `0` failed.
+  - Direct script execution for `replay/test_on_demand_*ideal*.py`: PASS, `3` files, `0` failed.
+  - Direct script execution for `replay/test_on_demand_*clean_fast_break*.py`: PASS, `3` files, `0` failed.
+  - Direct script execution for `replay/test_on_demand_*stage*.py`: PASS, `6` files, `0` failed.
+  - Direct script execution for `replay/test_on_demand_session_boundary*.py`: PASS, `5` files, `0` failed.
+  - `python -B .\replay\test_on_demand_winner_selection_contract.py`: PASS.
+  - `python -B -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -B -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+  - `git --no-pager diff --check`: PASS.
+- Databento downloaded: NO.
+- New backtest run: NO.
+- New P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, raw vendor data, evidence fills, trade-selection code, P&L files, or generated live reports/logs were changed.
+- Recommended next action: keep the next Continuation work grouped and evidence-backed; decide whether to create a Continuation-specific request-shaped evidence/work-package path for QQQ and SPY option/context fields while preserving GLD/IWM missing-trigger/no-local-option-package controls.
+
 ## Day 48 Continuation starter coverage result
 
 - Current task file executed: `SAFE_FAST_DAY48_CONTINUATION_STARTER_COVERAGE_CODEX_TASK.md`.
