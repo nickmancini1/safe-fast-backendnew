@@ -1,5 +1,74 @@
 # SAFE-FAST Build State
 
+## Day 48 Continuation starter coverage result
+
+- Current task file executed: `SAFE_FAST_DAY48_CONTINUATION_STARTER_COVERAGE_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`, HEAD `4acb43a`.
+- Result document created: `SAFE_FAST_DAY48_CONTINUATION_STARTER_COVERAGE_RESULT.md`.
+- Focused Continuation fixture package added: `historical_signal_replay/fixtures/continuation_starter_coverage_fixtures.json`.
+- Focused executable coverage added: `tests/test_day48_continuation_starter_coverage.py`.
+- Narrow lifecycle harness support added for Continuation fixture metadata and GLD/IWM candidate identity in `historical_signal_replay/cfb_lifecycle_calculator.py`.
+- Created exact next grouped task file: `SAFE_FAST_DAY48_GROUPED_THREE_FAMILY_EXPANSION_AFTER_CONTINUATION_STARTER_CODEX_TASK.md`.
+- Updated canonical control files:
+  - `SAFE_FAST_PROJECT_DASHBOARD.md`;
+  - `SAFE_FAST_PROJECT_RULE_INDEX.md`;
+  - `SAFE_FAST_BUILD_STATE.md`.
+- Continuation starter package included all `4` locally runnable grouped Continuation candidates: GLD, IWM, QQQ, and SPY.
+- The complete Continuation starter package was run twice in memory; deterministic equality result: PASS.
+- Continuation totals:
+  - candidates found: `4`;
+  - runnable candidates: `4`;
+  - accepted-entry stages: `2`;
+  - final entries: `0`;
+  - no-trades: `4`;
+  - unresolved cases: `4`;
+  - blocked cases: `4`;
+  - stable cases: `4`;
+  - unstable cases: `0`;
+  - failures: `0`.
+- Per-case result summary:
+  - `GLD-REAL-HISTORICAL-CONTINUATION-001`: lifecycle signal remains `unknown` from missing trigger/invalidation; contract selection abstains from missing/invalid trigger; execution remains `unknown`; complete caution remains `unknown`; final `NO_TRADE` reason `prior_completed_shelf_break_spent_TO_REVIEW`.
+  - `IWM-REAL-HISTORICAL-CONTINUATION-001`: lifecycle signal remains `unknown` from missing trigger/invalidation; contract selection abstains from missing/invalid trigger; execution remains `unknown`; complete caution remains `unknown`; final `NO_TRADE` reason `prior_completed_shelf_break_spent_TO_REVIEW`.
+  - `QQQ-REAL-HISTORICAL-CONTINUATION-001`: lifecycle signal is `fresh`, later row is `spent`; contract selection abstains because no Continuation option-contract fixture exists; execution remains `unknown`; complete caution remains `unknown`; final `NO_TRADE` reason `prior_completed_shelf_break_spent`.
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001`: lifecycle signal is `fresh`, later row is `spent`; contract selection abstains because no Continuation option-contract fixture exists; execution remains `unknown`; complete caution remains `unknown`; final `NO_TRADE` reason `prior_completed_shelf_break_spent`.
+- Stage-transition result: PASS; all Continuation starter cases preserve six-row chronological lifecycle paths.
+- Session-boundary result: PASS; all Continuation starter cases preserve multi-session carry/reset behavior.
+- Contract-selection result: PASS; deterministic abstention is preserved where local Continuation option-contract fixtures or trigger evidence are missing.
+- Execution-realism result: PASS; execution context remains `unknown` from missing setup-time selected-option source data, with no manufactured fill.
+- Context/caution result: PASS; complete caution remains `unknown` where required components remain unknown.
+- Winner-stability result: PASS; Continuation fixture winner-selection fields are stable.
+- Actual evidence routes the next bounded work to grouped three-family expansion after Continuation starter coverage, not repair and not missing-data cost check.
+- Checks run:
+  - `.\scripts\safe_fast_run_safe_checks.ps1`: BLOCKED by local PowerShell execution policy before the script ran.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks, plus `9` discovered tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_continuation_starter_coverage.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_continuation_starter_coverage.py"`: PASS, `3` tests, second command run.
+  - Direct script execution for `replay/test_on_demand_*continuation*.py`: PASS, `6` files, `0` failed.
+  - `python -B -m unittest discover -s tests -p "test_day48_actual_grouped_three_family_replay.py"`: PASS, `2` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_grouped_three_family_coverage_expansion.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_cfb_lifecycle_calculator.py"`: PASS, `12` tests.
+  - Direct script execution for `replay/test_on_demand_*stage*.py`: PASS, `6` files, `0` failed.
+  - Direct script execution for `replay/test_on_demand_session_boundary*.py`: PASS, `5` files, `0` failed.
+  - `python -B -m unittest discover -s tests -p "test_cfb_contract_selector.py"`: PASS, `17` tests.
+  - `python -B -m unittest discover -s tests -p "test_execution_context_calculator.py"`: PASS, `10` tests.
+  - `python -B -m unittest discover -s tests -p "test_context_caution_calculator.py"`: PASS, `12` tests.
+  - `python -B -m unittest discover -s tests -p "test_watcher_stable_winner_selection_replay.py"`: PASS, `8` tests.
+  - `python -B .\replay\test_on_demand_winner_selection_contract.py`: PASS.
+  - `python -B -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -B -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+  - Bounded `__pycache__` cleanup over `tests`, `watcher_foundation`, `historical_signal_replay`, and `replay`: `0` directories removed after direct PowerShell cleanup was rejected by local command policy before running.
+  - `git --no-pager diff --check`: PASS with line-ending warnings only.
+- Databento downloaded: NO.
+- New backtest run: NO.
+- New P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, raw vendor data, evidence fills, trade-selection code, P&L files, or generated live reports/logs were changed.
+
 ## Day 48 grouped three-family coverage expansion result
 
 - Current task file executed: `SAFE_FAST_DAY48_GROUPED_THREE_FAMILY_COVERAGE_EXPANSION_CODEX_TASK.md`.

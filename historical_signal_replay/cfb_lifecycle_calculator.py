@@ -14,6 +14,7 @@ EXPECTED_SETUP_TYPE = "Clean Fast Break"
 EXPECTED_RULE = "same_candle_initial_break_freshness"
 SUPPORTED_RULES = {
     EXPECTED_RULE,
+    "continuation_exact_signal_candle_freshness",
     "spy_cfb_exact_signal_candle_freshness",
     "spy_ideal_exact_signal_candle_freshness",
 }
@@ -161,6 +162,10 @@ def mark_ready(*_args, **_kwargs):
 
 def _expected_symbol_from_fixture(fixture):
     candidate_id = str(fixture.get("candidate_id", ""))
+    if candidate_id.startswith("GLD-"):
+        return "GLD"
+    if candidate_id.startswith("IWM-"):
+        return "IWM"
     if candidate_id.startswith("SPY-"):
         return "SPY"
     if candidate_id.startswith("QQQ-"):
