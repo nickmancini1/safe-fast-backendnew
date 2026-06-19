@@ -1,5 +1,67 @@
 # SAFE-FAST Build State
 
+## Day 48 actual grouped three-family replay test result
+
+- Current task file executed: `SAFE_FAST_DAY48_ACTUAL_GROUPED_THREE_FAMILY_REPLAY_TEST_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`, HEAD `426a49f`.
+- Local status note: clean before edits except untracked task file `SAFE_FAST_DAY48_ACTUAL_GROUPED_THREE_FAMILY_REPLAY_TEST_CODEX_TASK.md`; git continued to report permission warnings for temp directories `tmp2i57tguu`, `tmpj8ei9a_f`, `tmpra392qh0`, and `tmpt2fw63vq`.
+- Result document created: `SAFE_FAST_DAY48_ACTUAL_GROUPED_THREE_FAMILY_REPLAY_TEST_RESULT.md`.
+- Focused grouped validation test added: `tests/test_day48_actual_grouped_three_family_replay.py`.
+- Created exact next grouped task file: `SAFE_FAST_DAY48_GROUPED_THREE_FAMILY_COVERAGE_EXPANSION_CODEX_TASK.md`.
+- Updated canonical control files:
+  - `SAFE_FAST_PROJECT_DASHBOARD.md`;
+  - `SAFE_FAST_PROJECT_RULE_INDEX.md`;
+  - `SAFE_FAST_BUILD_STATE.md`.
+- Actual grouped replay/regression validation was run across Ideal, Clean Fast Break, and Continuation using existing local lifecycle fixtures and runner/test harnesses.
+- Runnable grouped lifecycle fixture inventory:
+  - Ideal: `4` candidates found, `4` runnable.
+  - Clean Fast Break: `4` candidates found, `4` runnable.
+  - Continuation: `4` candidates found, `4` runnable.
+  - Total: `12` candidates found, `12` runnable.
+- Family totals from the grouped fixture run:
+  - Ideal: `2` accepted-entry stage rows, `4` final no-trades, `4` ambiguous/pending cases, `4` passes, `0` failures, `4` blocked cases, `4` stable cases, `0` unstable cases.
+  - Clean Fast Break: `3` accepted-entry stage rows, `4` final no-trades, `1` ambiguous/pending case, `4` passes, `0` failures, `4` blocked cases, `4` stable cases, `0` unstable cases.
+  - Continuation: `2` accepted-entry stage rows, `4` final no-trades, `3` ambiguous/pending cases, `4` passes, `0` failures, `4` blocked cases, `4` stable cases, `0` unstable cases.
+- Complete grouped fixture batch was run twice in memory; deterministic equality result: PASS.
+- Existing historical replay runner was run twice; both runs completed.
+- Stage-transition result: PASS; all grouped fixtures preserve six-row chronological lifecycle paths and existing stage contract scripts pass.
+- Session-boundary result: PASS; all grouped fixtures cover multi-session carry/reset behavior and existing session-boundary scripts pass.
+- Winner-stability result: PASS; grouped fixture winner-selection fields are stable and existing stable-winner tests pass.
+- Evidence validator result remained `9` passed requests, `0` failed requests, intake-ready `0`.
+- Package-to-intake bridge result remained `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+- Missing coverage remains: grouped lifecycle fixture coverage is deterministic but thin; all grouped lifecycle candidates end as final `NO_TRADE`, GLD/IWM rows remain shape-only review candidates, and Ideal/Continuation still lack option-execution/P&L validation.
+- Actual evidence routes the next task to grouped coverage expansion, not grouped repair and not grouped cost check.
+- Checks run:
+  - `.\scripts\safe_fast_run_safe_checks.ps1`: BLOCKED by local PowerShell execution policy before the script ran.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks, plus `9` discovered tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_actual_grouped_three_family_replay.py"`: PASS, `2` tests.
+  - `python -B .\historical_signal_replay\run_signal_replay.py`: PASS, run once.
+  - `python -B .\historical_signal_replay\run_signal_replay.py`: PASS, run twice.
+  - Direct script execution for `replay/test_on_demand_*ideal*.py`: PASS, `3` files, `0` failed.
+  - Direct script execution for `replay/test_on_demand_*clean_fast_break*.py`: PASS, `3` files, `0` failed.
+  - Direct script execution for `replay/test_on_demand_*continuation*.py`: PASS, `6` files, `0` failed.
+  - Direct script execution for `replay/test_on_demand_*stage*.py`: PASS, `6` files, `0` failed.
+  - Direct script execution for `replay/test_on_demand_session_boundary*.py`: PASS, `5` files, `0` failed.
+  - `python -B -m unittest discover -s tests -p "test_watcher_stable_winner_selection_replay.py"`: PASS, `8` tests.
+  - `python -B .\replay\test_on_demand_winner_selection_contract.py`: PASS.
+  - `python -B -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -B -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+  - `python -B -m unittest discover -s tests -p "test_watcher_replay*.py"`: PASS, `42` tests.
+  - `python -B -m unittest discover -s tests -p "test_day47_grouped_replay_regression_rules.py"`: PASS, `5` tests.
+  - `python -B -m unittest discover -s tests -p "test_candidate_freshness_blocker*.py"`: PASS, `56` tests.
+  - Bounded `__pycache__` cleanup over `tests`, `watcher_foundation`, `historical_signal_replay`, and `replay`: `0` directories removed.
+  - `git --no-pager diff --check`: PASS.
+- Databento downloaded: NO.
+- New backtest run: NO.
+- New P&L calculated: NO.
+- Promotion decision made: NO.
+- Real trade chosen: NO.
+- Candidate marked ready: NO.
+- Intake-ready count changed: NO.
+- Proof accepted: NO.
+- Profitability claim made: NO.
+- No `main.py`, live/engine trading logic, Railway/deploy files, broker/order/account files, `.env`, secrets, raw vendor data, evidence fills, trade-selection code, P&L files, or generated live reports/logs were changed.
+
 ## Day 47 grouped replay/regression rules result
 
 - Current task file executed: `SAFE_FAST_DAY47_GROUPED_REPLAY_REGRESSION_RULES_CODEX_TASK.md`.
