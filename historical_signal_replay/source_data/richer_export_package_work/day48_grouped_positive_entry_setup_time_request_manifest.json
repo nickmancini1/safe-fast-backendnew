@@ -1,0 +1,248 @@
+{
+  "schema_version": "safe-fast-day48-grouped-positive-entry-setup-time-request-package-v1",
+  "package_name": "day48-grouped-positive-entry-setup-time-request-package",
+  "created_utc": "2026-06-20T05:35:00Z",
+  "task_source": "SAFE_FAST_DAY48_GROUPED_POSITIVE_ENTRY_EXPANSION_CODEX_TASK.md",
+  "result_document": "SAFE_FAST_DAY48_GROUPED_POSITIVE_ENTRY_EXPANSION_RESULT.md",
+  "package_status": "setup_time_request_shape_only_no_cost_check_no_download",
+  "purpose": "Smallest grouped setup-time-only request package after local positive-entry expansion found no additional valid captured entry and no losing valid trade from existing local evidence.",
+  "baseline": {
+    "branch": "main",
+    "observed_head": "c287eae",
+    "status_expectation": "clean_except_new_day48_positive_entry_expansion_artifacts"
+  },
+  "scope_controls": {
+    "setup_time_only": true,
+    "conditional_exit_path_requested": false,
+    "cost_check_requested": false,
+    "download_authorized": false,
+    "purchase_approval_inferred": false,
+    "raw_vendor_data_changed": false,
+    "proof_accepted": false,
+    "profitability_claimed": false,
+    "candidate_marked_ready": false,
+    "intake_ready_count_changed": false
+  },
+  "preserved_positive_and_no_trade_controls": [
+    {
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "setup_family": "Clean Fast Break",
+      "classification": "VALID_TRADE_CAPTURED",
+      "review_only": true,
+      "request_included": false,
+      "reason": "Current positive-entry reference already has local setup-time selected-contract entry and exit evidence; no new setup-time request is needed."
+    },
+    {
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "setup_family": "Clean Fast Break",
+      "classification": "TRUE_NO_TRADE",
+      "request_included": false,
+      "reason": "Downloaded setup-window selected-contract evidence now proves nearest setup-time-safe quote age is above the frozen five-minute gate; this remains a true no-trade control."
+    },
+    {
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "setup_family": "Clean Fast Break",
+      "classification": "TRUE_NO_TRADE",
+      "request_included": false,
+      "reason": "Existing local selected-contract evidence proves quote_age_above_5_minutes under the frozen execution rule; this remains a true no-trade control."
+    }
+  ],
+  "requests": [
+    {
+      "request_id": "SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "funnel_candidate_identifier": "second_real_spy_ideal_replay_v1_fixture",
+      "setup_family": "Ideal",
+      "decision_answered": "Determine whether the deterministic top-ranked SPY Ideal contract has any setup-time-safe quote at or before the signal that can pass contract selection and feed execution/context calculators.",
+      "dataset": "OPRA.PILLAR",
+      "schema": "tcbbo",
+      "symbol_type": "raw_symbol",
+      "underlying": "SPY",
+      "raw_symbol": "SPY   260527C00745000",
+      "instrument_id_when_known": 1224739213,
+      "signal_timestamp": "2026-05-13T11:30:00-04:00",
+      "signal_timestamp_utc": "2026-05-13T15:30:00Z",
+      "timezone": "America/New_York",
+      "session_date": "2026-05-13",
+      "start_timestamp": "2026-05-13T09:30:00-04:00",
+      "start_timestamp_utc": "2026-05-13T13:30:00Z",
+      "end_timestamp": "2026-05-13T11:30:00-04:00",
+      "end_timestamp_utc": "2026-05-13T15:30:00Z",
+      "setup_time_window": {
+        "start": "2026-05-13T09:30:00-04:00",
+        "end": "2026-05-13T11:30:00-04:00",
+        "inclusive_end": true
+      },
+      "conditional_exit_path_window": null,
+      "required_fields": [
+        "ts_event",
+        "ts_recv",
+        "instrument_id",
+        "raw_symbol",
+        "bid_px_00",
+        "ask_px_00",
+        "bid_sz_00",
+        "ask_sz_00"
+      ],
+      "current_local_blocker": "only local top-contract TCBBO row is after the signal at 2026-05-13T15:30:34.836555549Z",
+      "missing_data_behavior": "If no at-or-before-signal quote exists, contract selection remains abstain with quote_ts_event_after_signal, execution remains unknown, and complete caution remains unknown."
+    },
+    {
+      "request_id": "SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL",
+      "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "funnel_candidate_identifier": "second_real_spy_ideal_replay_v1_fixture",
+      "setup_family": "Ideal",
+      "decision_answered": "Determine setup-time trade volume through signal for the deterministic top-ranked SPY Ideal contract if the quote request finds a setup-time-safe quote.",
+      "dataset": "OPRA.PILLAR",
+      "schema": "trades",
+      "symbol_type": "raw_symbol",
+      "underlying": "SPY",
+      "raw_symbol": "SPY   260527C00745000",
+      "instrument_id_when_known": 1224739213,
+      "signal_timestamp": "2026-05-13T11:30:00-04:00",
+      "signal_timestamp_utc": "2026-05-13T15:30:00Z",
+      "timezone": "America/New_York",
+      "session_date": "2026-05-13",
+      "start_timestamp": "2026-05-13T09:30:00-04:00",
+      "start_timestamp_utc": "2026-05-13T13:30:00Z",
+      "end_timestamp": "2026-05-13T11:30:00-04:00",
+      "end_timestamp_utc": "2026-05-13T15:30:00Z",
+      "setup_time_window": {
+        "start": "2026-05-13T09:30:00-04:00",
+        "end": "2026-05-13T11:30:00-04:00",
+        "inclusive_end": true
+      },
+      "conditional_exit_path_window": null,
+      "required_fields": [
+        "ts_event",
+        "instrument_id",
+        "raw_symbol",
+        "price",
+        "size"
+      ],
+      "current_local_blocker": "only local top-contract trade row is after the signal at 2026-05-13T15:30:34.836555549Z",
+      "missing_data_behavior": "If setup-time trade volume remains below 1, contract selection remains abstain and execution/complete caution remain unknown."
+    },
+    {
+      "request_id": "SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL",
+      "candidate_id": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+      "funnel_candidate_identifier": "first_real_spy_continuation_replay_v1_fixture",
+      "setup_family": "Continuation",
+      "decision_answered": "Determine whether the deterministic top-ranked SPY Continuation contract has any setup-time-safe quote at or before the signal that can pass contract selection and feed execution/context calculators.",
+      "dataset": "OPRA.PILLAR",
+      "schema": "tcbbo",
+      "symbol_type": "raw_symbol",
+      "underlying": "SPY",
+      "raw_symbol": "SPY   260514C00720000",
+      "instrument_id_when_known": 1207960722,
+      "signal_timestamp": "2026-04-30T12:30:00-04:00",
+      "signal_timestamp_utc": "2026-04-30T16:30:00Z",
+      "timezone": "America/New_York",
+      "session_date": "2026-04-30",
+      "start_timestamp": "2026-04-30T09:30:00-04:00",
+      "start_timestamp_utc": "2026-04-30T13:30:00Z",
+      "end_timestamp": "2026-04-30T12:30:00-04:00",
+      "end_timestamp_utc": "2026-04-30T16:30:00Z",
+      "setup_time_window": {
+        "start": "2026-04-30T09:30:00-04:00",
+        "end": "2026-04-30T12:30:00-04:00",
+        "inclusive_end": true
+      },
+      "conditional_exit_path_window": null,
+      "required_fields": [
+        "ts_event",
+        "ts_recv",
+        "instrument_id",
+        "raw_symbol",
+        "bid_px_00",
+        "ask_px_00",
+        "bid_sz_00",
+        "ask_sz_00"
+      ],
+      "current_local_blocker": "only local top-contract TCBBO row is after the signal at 2026-04-30T16:30:14.612354668Z",
+      "missing_data_behavior": "If no at-or-before-signal quote exists, contract selection remains abstain with top_ranked_contract_failed_no_fallback, execution remains unknown, and complete caution remains unknown."
+    },
+    {
+      "request_id": "SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL",
+      "candidate_id": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+      "funnel_candidate_identifier": "first_real_spy_continuation_replay_v1_fixture",
+      "setup_family": "Continuation",
+      "decision_answered": "Determine setup-time trade volume through signal for the deterministic top-ranked SPY Continuation contract if the quote request finds a setup-time-safe quote.",
+      "dataset": "OPRA.PILLAR",
+      "schema": "trades",
+      "symbol_type": "raw_symbol",
+      "underlying": "SPY",
+      "raw_symbol": "SPY   260514C00720000",
+      "instrument_id_when_known": 1207960722,
+      "signal_timestamp": "2026-04-30T12:30:00-04:00",
+      "signal_timestamp_utc": "2026-04-30T16:30:00Z",
+      "timezone": "America/New_York",
+      "session_date": "2026-04-30",
+      "start_timestamp": "2026-04-30T09:30:00-04:00",
+      "start_timestamp_utc": "2026-04-30T13:30:00Z",
+      "end_timestamp": "2026-04-30T12:30:00-04:00",
+      "end_timestamp_utc": "2026-04-30T16:30:00Z",
+      "setup_time_window": {
+        "start": "2026-04-30T09:30:00-04:00",
+        "end": "2026-04-30T12:30:00-04:00",
+        "inclusive_end": true
+      },
+      "conditional_exit_path_window": null,
+      "required_fields": [
+        "ts_event",
+        "instrument_id",
+        "raw_symbol",
+        "price",
+        "size"
+      ],
+      "current_local_blocker": "only local top-contract trade row is after the signal; setup-time-safe volume is 0",
+      "missing_data_behavior": "If setup-time trade volume remains below 1, contract selection remains abstain and execution/complete caution remain unknown."
+    }
+  ],
+  "not_requested": [
+    {
+      "candidate_identifier": "first_real_qqq_clean_fast_break_replay_v1_fixture",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "reason": "Existing selected-contract replay evidence already classifies the matching CFB candidate as TRUE_NO_TRADE from quote_age_above_5_minutes."
+    },
+    {
+      "candidate_identifier": "third_real_spy_clean_fast_break_replay_v1_fixture",
+      "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "reason": "Existing downloaded setup-window selected-contract evidence already classifies the matching CFB candidate as TRUE_NO_TRADE from quote_age_above_5_minutes."
+    },
+    {
+      "candidate_identifier": "first_real_qqq_continuation_replay_v1_fixture",
+      "candidate_id": "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+      "reason": "Local setup-time-safe quote already proves the deterministic top-ranked Continuation contract fails the spread gate; no fallback and no exit-path request are allowed."
+    },
+    {
+      "candidate_identifier": "first_real_qqq_ideal_replay_v1_fixture",
+      "candidate_id": "QQQ-REAL-HISTORICAL-IDEAL-001",
+      "reason": "No accepted QQQ Ideal starter contract-selection rule stack exists in the grouped positive-entry funnel path, so a raw-symbol setup request would not be exact enough for this task."
+    },
+    {
+      "candidate_identifier": "first_real_gld_clean_fast_break_replay_v1_fixture",
+      "reason": "Unresolved fresh/spent state blocks trade-candidate status before selected-option setup-time evidence."
+    },
+    {
+      "candidate_identifier": "first_real_gld_ideal_replay_v1_fixture",
+      "reason": "Unresolved fresh/spent state blocks trade-candidate status before selected-option setup-time evidence."
+    },
+    {
+      "candidate_identifier": "first_real_gld_continuation_replay_v1_fixture",
+      "reason": "Setup qualification is blocked before selected-option setup-time evidence."
+    },
+    {
+      "candidate_identifier": "first_real_iwm_clean_fast_break_replay_v1_fixture",
+      "reason": "Setup qualification is blocked before selected-option setup-time evidence."
+    },
+    {
+      "candidate_identifier": "first_real_iwm_ideal_replay_v1_fixture",
+      "reason": "Unresolved fresh/spent state blocks trade-candidate status before selected-option setup-time evidence."
+    },
+    {
+      "candidate_identifier": "first_real_iwm_continuation_replay_v1_fixture",
+      "reason": "Unresolved prior completed shelf-break state blocks selected-option setup-time evidence."
+    }
+  ]
+}
