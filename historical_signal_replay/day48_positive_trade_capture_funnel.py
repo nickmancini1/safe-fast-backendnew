@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from historical_signal_replay import cfb_backtest_runner
+from historical_signal_replay import day49_grouped_positive_entry_setup_time
 from historical_signal_replay.metrics import build_lifecycle_summary
 from historical_signal_replay.signal_replay import validate_lifecycle_fixture
 
@@ -66,7 +67,11 @@ SAMPLE_CONTRACT = {
 
 
 def build_funnel_document(*, source_commit=None, run_timestamp=None):
-    lifecycle_records = [_lifecycle_record(name) for name in GROUPED_FIXTURE_NAMES]
+    setup_time_evidence = day49_grouped_positive_entry_setup_time.build_setup_time_evidence()
+    lifecycle_records = [
+        _lifecycle_record(name, setup_time_evidence=setup_time_evidence)
+        for name in GROUPED_FIXTURE_NAMES
+    ]
     cfb_records = _cfb_replay_records()
     candidate_records = lifecycle_records + cfb_records
 
@@ -129,7 +134,7 @@ def write_funnel_document(path=RESULT_PATH, *, source_commit=None, run_timestamp
     return document
 
 
-def _lifecycle_record(name):
+def _lifecycle_record(name, *, setup_time_evidence=None):
     path = FIXTURE_DIR / name
     fixture = json.loads(path.read_text(encoding="utf-8"))
     validate_lifecycle_fixture(fixture)
@@ -146,7 +151,29 @@ def _lifecycle_record(name):
         else final_row.get("timestamp")
     )
 
-    if accepted_entry_rows:
+    setup_time_evidence = setup_time_evidence or {}
+    downloaded_evidence = setup_time_evidence.get(fixture["fixture_name"])
+
+    if accepted_entry_rows and downloaded_evidence:
+        selection = downloaded_evidence["contract_selection_result"]
+        entry_eligibility = downloaded_evidence["entry_eligibility_result"]
+        if selection["contract_selection_status"] == "selected":
+            highest_stage = "PRICE_ACCEPTABLE"
+            first_not_reached = "ENTRY_ELIGIBLE"
+            blocker = entry_eligibility["rejection_reason"]
+            if entry_eligibility["entry_eligibility_status"] == "blocked":
+                blocker_category = "real frozen-rule failure"
+                final_classification = "TRUE_NO_TRADE"
+            else:
+                blocker_category = "missing data"
+                final_classification = "MISSING_DATA"
+        else:
+            highest_stage = "TRADE_CANDIDATE"
+            first_not_reached = "CONTRACT_SELECTED"
+            blocker = selection["rejection_reason"]
+            blocker_category = "missing data"
+            final_classification = "MISSING_DATA"
+    elif accepted_entry_rows:
         highest_stage = "TRADE_CANDIDATE"
         first_not_reached = "CONTRACT_SELECTED"
         blocker = "missing_setup_time_selected_option_evidence"
@@ -179,17 +206,30 @@ def _lifecycle_record(name):
         "highest_stage_reached": highest_stage,
         "first_stage_not_reached": first_not_reached,
         "exact_blocker_code": blocker,
-        "blocker_evidence": (
-            f"Fixture final verdict {final_row['final_verdict']} with primary blocker "
-            f"{final_row['primary_blocker']}; accepted-entry stage rows: "
-            f"{len(accepted_entry_rows)}; pending rows: {len(pending_rows)}."
+        "blocker_evidence": _lifecycle_blocker_evidence(
+            final_row,
+            accepted_entry_rows,
+            pending_rows,
+            downloaded_evidence,
         ),
         "blocker_category": blocker_category,
-        "contract_selection_result": "not_selected_missing_data",
-        "execution_result": "unknown_missing_selected_option_evidence",
+        "contract_selection_result": (
+            downloaded_evidence["contract_selection_result"]
+            if downloaded_evidence
+            else "not_selected_missing_data"
+        ),
+        "execution_result": (
+            downloaded_evidence["price_acceptability_result"]
+            if downloaded_evidence
+            else "unknown_missing_selected_option_evidence"
+        ),
         "context_and_caution_result": "unknown_or_incomplete",
         "winner_selection_result": final_row.get("winner_selection_result"),
-        "entry_result": "not_recorded",
+        "entry_result": (
+            downloaded_evidence["entry_recorded_result"]
+            if downloaded_evidence
+            else "not_recorded"
+        ),
         "exit_result": "not_evaluated",
         "final_classification": final_classification,
         "final_outcome": "no_countable_trade",
@@ -209,6 +249,7 @@ def _lifecycle_record(name):
         "review_only": True,
         "proof_accepted": False,
         "profitability_claimed": False,
+        "day49_setup_time_download_evidence": downloaded_evidence,
     }
 
 
@@ -398,6 +439,18 @@ def _unresolved_requirements(records):
 
 def _owner_questions(records):
     scorecard = _scorecard(records)
+    day49_rows = [
+        record
+        for record in records
+        if record.get("day49_setup_time_download_evidence")
+    ]
+    day49_note = ""
+    if day49_rows:
+        day49_note = (
+            " Day 49 setup-time evidence also proved SPY Ideal 001 and SPY "
+            "Continuation 001 had selected same-contract setup-window quotes and "
+            "trade volume, but both failed the frozen quote-age gate."
+        )
     return {
         "did_safe_fast_recognize_the_setup_before_the_move": (
             "Yes for the grouped lifecycle candidates that reached setup or trade-candidate "
@@ -409,9 +462,9 @@ def _owner_questions(records):
         ),
         "was_a_tradable_option_available_at_that_exact_time": (
             "Only SPY Clean Fast Break 002 currently has local selected-contract entry "
-            "and exit evidence sufficient for a review-only captured valid entry. Other "
-            "candidate families are blocked by stale quote, future quote, wide spread, "
-            "or missing setup-time selected-option evidence."
+            "and exit evidence sufficient for a review-only captured valid entry."
+            f"{day49_note} Other candidate families are blocked by stale quote, "
+            "future quote, wide spread, or missing setup-time selected-option evidence."
         ),
         "was_rejection_caused_by_real_safety_rule_or_missing_evidence": (
             f"Both: {scorecard['true_no_trades']} true no-trade controls are frozen "
@@ -486,6 +539,38 @@ def _cfb_blocker_evidence(row):
     return (
         f"Selected-contract replay result {row['result_name']} with primary reason "
         f"{row['failure_reason']} at signal {row['entry_time']}."
+    )
+
+
+def _lifecycle_blocker_evidence(
+    final_row,
+    accepted_entry_rows,
+    pending_rows,
+    downloaded_evidence,
+):
+    base = (
+        f"Fixture final verdict {final_row['final_verdict']} with primary blocker "
+        f"{final_row['primary_blocker']}; accepted-entry stage rows: "
+        f"{len(accepted_entry_rows)}; pending rows: {len(pending_rows)}."
+    )
+    if not downloaded_evidence:
+        return base
+    quote = downloaded_evidence.get("quote")
+    if quote is None:
+        return (
+            base
+            + " Day 49 setup-time download found no setup-time-safe quote at or before signal."
+        )
+    execution = downloaded_evidence["price_acceptability_result"]
+    entry = downloaded_evidence["entry_eligibility_result"]
+    return (
+        base
+        + " Day 49 setup-time download found selected raw-symbol quote "
+        + f"{quote['symbol']} at {quote['ts_event']} with bid {quote['bid']}, "
+        + f"ask {quote['ask']}, spread {quote['spread']}, setup-time trade volume "
+        + f"{downloaded_evidence['setup_time_trade_volume']}; execution status "
+        + f"{execution['execution_context_status']} and entry status "
+        + f"{entry['entry_eligibility_status']} remain review-only."
     )
 
 

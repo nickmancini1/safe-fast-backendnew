@@ -7,8 +7,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class Day48PositiveTradeHandoffConsistencyTests(unittest.TestCase):
     def test_current_control_files_agree_on_active_positive_entry_task(self):
-        active_task = "SAFE_FAST_DAY48_GROUPED_POSITIVE_ENTRY_EXPANSION_CODEX_TASK.md"
-        result_doc = "SAFE_FAST_DAY48_POSITIVE_TRADE_CAPTURE_AND_MISS_ANALYSIS_RESULT.md"
+        active_task = (
+            "SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_DOWNLOAD_CODEX_TASK.md"
+        )
+        result_doc = (
+            "SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_AND_REPLAY_RESULT.md"
+        )
         funnel_json = "historical_signal_replay/results/day48_positive_trade_capture_funnel.json"
 
         for relative_path in [

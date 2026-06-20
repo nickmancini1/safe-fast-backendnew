@@ -1,6 +1,6 @@
 ﻿START HERE — SAFE-FAST NEXT CHAT OPERATING RULES
 
-CURRENT DAY 48 ENTRY POINT:
+CURRENT DAY 49 ENTRY POINT:
 Read SAFE_FAST_BUILD_STATE.md first.
 
 Then verify local branch, commit, and status:
@@ -10,19 +10,19 @@ git --no-pager branch --show-current
 git --no-pager log -1 --oneline
 git --no-pager status --short
 
-Current expected checkpoint after the positive-trade funnel task:
+Current expected checkpoint after the Day 49 setup-time download/replay task:
 - branch: main
-- latest expected baseline before edits: 6b90016
-- current result: SAFE_FAST_DAY48_POSITIVE_TRADE_CAPTURE_AND_MISS_ANALYSIS_RESULT.md
+- latest expected baseline before edits: 55527f0
+- current result: SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_AND_REPLAY_RESULT.md
 - current machine-readable funnel: historical_signal_replay/results/day48_positive_trade_capture_funnel.json
-- exact next grouped task: SAFE_FAST_DAY48_GROUPED_POSITIVE_ENTRY_EXPANSION_CODEX_TASK.md
+- exact next grouped task: SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_DOWNLOAD_CODEX_TASK.md
 
 The next chat must continue that exact active task. Do not restart completed discovery. Do not replace runnable grouped testing with governance-only documents.
 
 Current funnel result in plain English:
 - SAFE-FAST caught 1 review-only valid-entry reference: SPY Clean Fast Break 002.
-- It correctly rejected 2 stale-quote CFB controls as true no-trades.
-- It has 8 missing-data cases and 4 unresolved cases.
+- It correctly rejected 4 stale-quote controls as true no-trades, including the Day 49 SPY Ideal 001 and SPY Continuation 001 setup-time downloads.
+- It has 6 missing-data cases and 4 unresolved cases.
 - It has 0 missed valid trades and 0 invalid trades allowed in the current measured batch.
 - It has only 1 winner and 0 losers, so positive-entry coverage is much too thin.
 
@@ -33,7 +33,7 @@ Do not download data without an exact cost check and user approval. Missing Data
 
 Correct Codex launch command for the next task:
 
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY48_GROUPED_POSITIVE_ENTRY_EXPANSION_CODEX_TASK.md exactly."
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_DOWNLOAD_CODEX_TASK.md exactly."
 
 The older Day 46 text below remains background for workflow discipline only. Local git and SAFE_FAST_BUILD_STATE.md control current project state.
 

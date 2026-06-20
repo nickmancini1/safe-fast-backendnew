@@ -15,6 +15,7 @@
       ],
       "context_and_caution_result": "unknown_or_incomplete",
       "contract_selection_result": "not_selected_missing_data",
+      "day49_setup_time_download_evidence": null,
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
       "entry_result": "not_recorded",
@@ -116,6 +117,7 @@
       ],
       "context_and_caution_result": "unknown_or_incomplete",
       "contract_selection_result": "not_selected_missing_data",
+      "day49_setup_time_download_evidence": null,
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
       "entry_result": "not_recorded",
@@ -220,6 +222,7 @@
       ],
       "context_and_caution_result": "unknown_or_incomplete",
       "contract_selection_result": "not_selected_missing_data",
+      "day49_setup_time_download_evidence": null,
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
       "entry_result": "not_recorded",
@@ -319,6 +322,7 @@
       ],
       "context_and_caution_result": "unknown_or_incomplete",
       "contract_selection_result": "not_selected_missing_data",
+      "day49_setup_time_download_evidence": null,
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
       "entry_result": "not_recorded",
@@ -413,6 +417,7 @@
       ],
       "context_and_caution_result": "unknown_or_incomplete",
       "contract_selection_result": "not_selected_missing_data",
+      "day49_setup_time_download_evidence": null,
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
       "entry_result": "not_recorded",
@@ -515,6 +520,7 @@
       ],
       "context_and_caution_result": "unknown_or_incomplete",
       "contract_selection_result": "not_selected_missing_data",
+      "day49_setup_time_download_evidence": null,
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
       "entry_result": "not_recorded",
@@ -618,6 +624,7 @@
       ],
       "context_and_caution_result": "unknown_or_incomplete",
       "contract_selection_result": "not_selected_missing_data",
+      "day49_setup_time_download_evidence": null,
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
       "entry_result": "not_recorded",
@@ -718,6 +725,7 @@
       ],
       "context_and_caution_result": "unknown_or_incomplete",
       "contract_selection_result": "not_selected_missing_data",
+      "day49_setup_time_download_evidence": null,
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
       "entry_result": "not_recorded",
@@ -820,6 +828,7 @@
       ],
       "context_and_caution_result": "unknown_or_incomplete",
       "contract_selection_result": "not_selected_missing_data",
+      "day49_setup_time_download_evidence": null,
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
       "entry_result": "not_recorded",
@@ -909,8 +918,8 @@
           "timestamp": "2026-04-30T12:30:00-04:00"
         }
       ],
-      "blocker_category": "missing data",
-      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_shelf_break_spent; accepted-entry stage rows: 1; pending rows: 1.",
+      "blocker_category": "real frozen-rule failure",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_shelf_break_spent; accepted-entry stage rows: 1; pending rows: 1. Day 49 setup-time download found selected raw-symbol quote SPY   260514C00720000 at 2026-04-30T15:26:49.253742Z with bid 5.400000000, ask 5.410000000, spread 0.010000000, setup-time trade volume 15; execution status fail and entry status blocked remain review-only.",
       "candidate_identifier": "first_real_spy_continuation_replay_v1_fixture",
       "chronological_stage_path": [
         "developing_pullback_shelf",
@@ -921,24 +930,73 @@
         "spent_or_follow_through_no_fresh_trigger"
       ],
       "context_and_caution_result": "unknown_or_incomplete",
-      "contract_selection_result": "not_selected_missing_data",
+      "contract_selection_result": {
+        "contract_selection_status": "selected",
+        "rejection_reason": null,
+        "selected_contract": "SPY   260514C00720000"
+      },
+      "day49_setup_time_download_evidence": {
+        "candidate_id": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+        "contract_selection_result": {
+          "contract_selection_status": "selected",
+          "rejection_reason": null,
+          "selected_contract": "SPY   260514C00720000"
+        },
+        "entry_eligibility_result": {
+          "entry_eligibility_status": "blocked",
+          "rejection_reason": "quote_age_above_5_minutes"
+        },
+        "entry_recorded_result": "not_recorded_no_family_entry_rule_or_exit_path",
+        "instrument_id": 1207960722,
+        "price_acceptability_result": {
+          "errors": [],
+          "execution_context_status": "fail",
+          "ignored_forbidden_inputs": [],
+          "quote_age_seconds": 3790.746258,
+          "rejection_reason": "quote_age_above_5_minutes"
+        },
+        "quote": {
+          "ask": "5.410000000",
+          "ask_size": "100",
+          "bid": "5.400000000",
+          "bid_size": "1",
+          "instrument_id": "1207960722",
+          "spread": "0.010000000",
+          "spread_pct": "0.001850138760407030527289546716",
+          "symbol": "SPY   260514C00720000",
+          "ts_event": "2026-04-30T15:26:49.253742Z",
+          "ts_recv": "2026-04-30T15:26:49.253943Z"
+        },
+        "raw_symbol": "SPY   260514C00720000",
+        "setup_family": "Continuation",
+        "setup_time_trade_volume": "15",
+        "signal_timestamp_utc": "2026-04-30T16:30:00Z"
+      },
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
-      "entry_result": "not_recorded",
+      "entry_result": "not_recorded_no_family_entry_rule_or_exit_path",
       "evidence_source": "historical_signal_replay\\source_data\\incoming\\first_real_historical_replay_v1_SPY_source.csv",
-      "exact_blocker_code": "missing_setup_time_selected_option_evidence",
-      "execution_result": "unknown_missing_selected_option_evidence",
+      "exact_blocker_code": "quote_age_above_5_minutes",
+      "execution_result": {
+        "errors": [],
+        "execution_context_status": "fail",
+        "ignored_forbidden_inputs": [],
+        "quote_age_seconds": 3790.746258,
+        "rejection_reason": "quote_age_above_5_minutes"
+      },
       "exit_result": "not_evaluated",
-      "final_classification": "MISSING_DATA",
+      "final_classification": "TRUE_NO_TRADE",
       "final_outcome": "no_countable_trade",
       "first_run_output": "PASS",
-      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "first_stage_not_reached": "ENTRY_ELIGIBLE",
       "funnel_stage_path": [
         "SETUP_DEVELOPING",
         "SETUP_QUALIFIED",
-        "TRADE_CANDIDATE"
+        "TRADE_CANDIDATE",
+        "CONTRACT_SELECTED",
+        "PRICE_ACCEPTABLE"
       ],
-      "highest_stage_reached": "TRADE_CANDIDATE",
+      "highest_stage_reached": "PRICE_ACCEPTABLE",
       "lifecycle_summary": {
         "blocker_counts": {
           "completed_candle_approval_required": 1,
@@ -1007,8 +1065,8 @@
           "timestamp": "2026-05-13T11:30:00-04:00"
         }
       ],
-      "blocker_category": "missing data",
-      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_ideal_trigger_spent; accepted-entry stage rows: 1; pending rows: 1.",
+      "blocker_category": "real frozen-rule failure",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_ideal_trigger_spent; accepted-entry stage rows: 1; pending rows: 1. Day 49 setup-time download found selected raw-symbol quote SPY   260527C00745000 at 2026-05-13T15:22:37.366073Z with bid 5.720000000, ask 5.750000000, spread 0.030000000, setup-time trade volume 45; execution status fail and entry status blocked remain review-only.",
       "candidate_identifier": "second_real_spy_ideal_replay_v1_fixture",
       "chronological_stage_path": [
         "ideal_impulse_context",
@@ -1019,24 +1077,73 @@
         "ideal_follow_through_no_fresh_trigger"
       ],
       "context_and_caution_result": "unknown_or_incomplete",
-      "contract_selection_result": "not_selected_missing_data",
+      "contract_selection_result": {
+        "contract_selection_status": "selected",
+        "rejection_reason": null,
+        "selected_contract": "SPY   260527C00745000"
+      },
+      "day49_setup_time_download_evidence": {
+        "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+        "contract_selection_result": {
+          "contract_selection_status": "selected",
+          "rejection_reason": null,
+          "selected_contract": "SPY   260527C00745000"
+        },
+        "entry_eligibility_result": {
+          "entry_eligibility_status": "blocked",
+          "rejection_reason": "quote_age_above_5_minutes"
+        },
+        "entry_recorded_result": "not_recorded_no_family_entry_rule_or_exit_path",
+        "instrument_id": 1224739213,
+        "price_acceptability_result": {
+          "errors": [],
+          "execution_context_status": "fail",
+          "ignored_forbidden_inputs": [],
+          "quote_age_seconds": 442.633927,
+          "rejection_reason": "quote_age_above_5_minutes"
+        },
+        "quote": {
+          "ask": "5.750000000",
+          "ask_size": "126",
+          "bid": "5.720000000",
+          "bid_size": "198",
+          "instrument_id": "1224739213",
+          "spread": "0.030000000",
+          "spread_pct": "0.005231037489102005231037489102",
+          "symbol": "SPY   260527C00745000",
+          "ts_event": "2026-05-13T15:22:37.366073Z",
+          "ts_recv": "2026-05-13T15:22:37.366273Z"
+        },
+        "raw_symbol": "SPY   260527C00745000",
+        "setup_family": "Ideal",
+        "setup_time_trade_volume": "45",
+        "signal_timestamp_utc": "2026-05-13T15:30:00Z"
+      },
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
-      "entry_result": "not_recorded",
+      "entry_result": "not_recorded_no_family_entry_rule_or_exit_path",
       "evidence_source": "historical_signal_replay\\source_data\\incoming\\first_real_historical_replay_v1_SPY_source.csv",
-      "exact_blocker_code": "missing_setup_time_selected_option_evidence",
-      "execution_result": "unknown_missing_selected_option_evidence",
+      "exact_blocker_code": "quote_age_above_5_minutes",
+      "execution_result": {
+        "errors": [],
+        "execution_context_status": "fail",
+        "ignored_forbidden_inputs": [],
+        "quote_age_seconds": 442.633927,
+        "rejection_reason": "quote_age_above_5_minutes"
+      },
       "exit_result": "not_evaluated",
-      "final_classification": "MISSING_DATA",
+      "final_classification": "TRUE_NO_TRADE",
       "final_outcome": "no_countable_trade",
       "first_run_output": "PASS",
-      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "first_stage_not_reached": "ENTRY_ELIGIBLE",
       "funnel_stage_path": [
         "SETUP_DEVELOPING",
         "SETUP_QUALIFIED",
-        "TRADE_CANDIDATE"
+        "TRADE_CANDIDATE",
+        "CONTRACT_SELECTED",
+        "PRICE_ACCEPTABLE"
       ],
-      "highest_stage_reached": "TRADE_CANDIDATE",
+      "highest_stage_reached": "PRICE_ACCEPTABLE",
       "lifecycle_summary": {
         "blocker_counts": {
           "fresh_completed_breakout_required": 1,
@@ -1127,6 +1234,7 @@
       ],
       "context_and_caution_result": "unknown_or_incomplete",
       "contract_selection_result": "not_selected_missing_data",
+      "day49_setup_time_download_evidence": null,
       "deterministic_result": "deterministic",
       "direction": "long_call_candidate",
       "entry_result": "not_recorded",
@@ -1507,24 +1615,24 @@
   "combined_scorecard": {
     "candidates_found": 15,
     "candidates_runnable": 15,
-    "contracts_selected": 3,
+    "contracts_selected": 5,
     "conversion_rate_between_stages": {
       "CONTRACT_SELECTED_to_PRICE_ACCEPTABLE": 1.0,
       "ENTRY_ELIGIBLE_to_ENTRY_RECORDED": 1.0,
       "ENTRY_RECORDED_to_EXIT_EVALUATED": 1.0,
       "EXIT_EVALUATED_to_FINAL_OUTCOME": 1.0,
-      "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": 0.3333333333333333,
+      "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": 0.2,
       "SETUP_DEVELOPING_to_SETUP_QUALIFIED": 0.8666666666666667,
       "SETUP_QUALIFIED_to_TRADE_CANDIDATE": 0.6923076923076923,
-      "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.3333333333333333
+      "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.5555555555555556
     },
     "deterministic_cases": 15,
     "entries_eligible": 1,
     "entries_recorded": 1,
     "exits_evaluated": 1,
     "first_blocker_totals_by_funnel_stage": {
-      "CONTRACT_SELECTED": 6,
-      "ENTRY_ELIGIBLE": 2,
+      "CONTRACT_SELECTED": 4,
+      "ENTRY_ELIGIBLE": 4,
       "NONE": 1,
       "SETUP_QUALIFIED": 2,
       "TRADE_CANDIDATE": 4
@@ -1532,8 +1640,8 @@
     "invalid_trades_allowed": 0,
     "losers": 0,
     "missed_valid_trades": 0,
-    "missing_data_cases": 8,
-    "prices_accepted": 3,
+    "missing_data_cases": 6,
+    "prices_accepted": 5,
     "sample_contract_progress": {
       "accepted_entries": 1,
       "accepted_entries_required": 20,
@@ -1545,7 +1653,7 @@
       "protected_holdout_accepted_entries_required": 8,
       "protected_holdout_rejection_no_trade_controls": 0,
       "protected_holdout_rejection_no_trade_controls_required": 4,
-      "rejection_no_trade_controls": 2,
+      "rejection_no_trade_controls": 4,
       "rejection_no_trade_controls_required": 10,
       "winners": 1,
       "winners_required": 5
@@ -1553,7 +1661,7 @@
     "setup_developing_count": 15,
     "setup_qualified_count": 13,
     "trade_candidate_count": 9,
-    "true_no_trades": 2,
+    "true_no_trades": 4,
     "unresolved_cases": 4,
     "unstable_cases": 0,
     "valid_trades_captured": 1,
@@ -1623,31 +1731,32 @@
     "Continuation": {
       "candidates_found": 4,
       "candidates_runnable": 4,
-      "contracts_selected": 0,
+      "contracts_selected": 1,
       "conversion_rate_between_stages": {
-        "CONTRACT_SELECTED_to_PRICE_ACCEPTABLE": null,
+        "CONTRACT_SELECTED_to_PRICE_ACCEPTABLE": 1.0,
         "ENTRY_ELIGIBLE_to_ENTRY_RECORDED": null,
         "ENTRY_RECORDED_to_EXIT_EVALUATED": null,
         "EXIT_EVALUATED_to_FINAL_OUTCOME": null,
-        "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": null,
+        "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": 0.0,
         "SETUP_DEVELOPING_to_SETUP_QUALIFIED": 0.75,
         "SETUP_QUALIFIED_to_TRADE_CANDIDATE": 0.6666666666666666,
-        "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.0
+        "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.5
       },
       "deterministic_cases": 4,
       "entries_eligible": 0,
       "entries_recorded": 0,
       "exits_evaluated": 0,
       "first_blocker_totals_by_funnel_stage": {
-        "CONTRACT_SELECTED": 2,
+        "CONTRACT_SELECTED": 1,
+        "ENTRY_ELIGIBLE": 1,
         "SETUP_QUALIFIED": 1,
         "TRADE_CANDIDATE": 1
       },
       "invalid_trades_allowed": 0,
       "losers": 0,
       "missed_valid_trades": 0,
-      "missing_data_cases": 3,
-      "prices_accepted": 0,
+      "missing_data_cases": 2,
+      "prices_accepted": 1,
       "sample_contract_progress": {
         "accepted_entries": 0,
         "accepted_entries_required": 20,
@@ -1659,7 +1768,7 @@
         "protected_holdout_accepted_entries_required": 8,
         "protected_holdout_rejection_no_trade_controls": 0,
         "protected_holdout_rejection_no_trade_controls_required": 4,
-        "rejection_no_trade_controls": 0,
+        "rejection_no_trade_controls": 1,
         "rejection_no_trade_controls_required": 10,
         "winners": 0,
         "winners_required": 5
@@ -1667,7 +1776,7 @@
       "setup_developing_count": 4,
       "setup_qualified_count": 3,
       "trade_candidate_count": 2,
-      "true_no_trades": 0,
+      "true_no_trades": 1,
       "unresolved_cases": 1,
       "unstable_cases": 0,
       "valid_trades_captured": 0,
@@ -1676,30 +1785,31 @@
     "Ideal": {
       "candidates_found": 4,
       "candidates_runnable": 4,
-      "contracts_selected": 0,
+      "contracts_selected": 1,
       "conversion_rate_between_stages": {
-        "CONTRACT_SELECTED_to_PRICE_ACCEPTABLE": null,
+        "CONTRACT_SELECTED_to_PRICE_ACCEPTABLE": 1.0,
         "ENTRY_ELIGIBLE_to_ENTRY_RECORDED": null,
         "ENTRY_RECORDED_to_EXIT_EVALUATED": null,
         "EXIT_EVALUATED_to_FINAL_OUTCOME": null,
-        "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": null,
+        "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": 0.0,
         "SETUP_DEVELOPING_to_SETUP_QUALIFIED": 1.0,
         "SETUP_QUALIFIED_to_TRADE_CANDIDATE": 0.5,
-        "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.0
+        "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.5
       },
       "deterministic_cases": 4,
       "entries_eligible": 0,
       "entries_recorded": 0,
       "exits_evaluated": 0,
       "first_blocker_totals_by_funnel_stage": {
-        "CONTRACT_SELECTED": 2,
+        "CONTRACT_SELECTED": 1,
+        "ENTRY_ELIGIBLE": 1,
         "TRADE_CANDIDATE": 2
       },
       "invalid_trades_allowed": 0,
       "losers": 0,
       "missed_valid_trades": 0,
-      "missing_data_cases": 2,
-      "prices_accepted": 0,
+      "missing_data_cases": 1,
+      "prices_accepted": 1,
       "sample_contract_progress": {
         "accepted_entries": 0,
         "accepted_entries_required": 20,
@@ -1711,7 +1821,7 @@
         "protected_holdout_accepted_entries_required": 8,
         "protected_holdout_rejection_no_trade_controls": 0,
         "protected_holdout_rejection_no_trade_controls_required": 4,
-        "rejection_no_trade_controls": 0,
+        "rejection_no_trade_controls": 1,
         "rejection_no_trade_controls_required": 10,
         "winners": 0,
         "winners_required": 5
@@ -1719,7 +1829,7 @@
       "setup_developing_count": 4,
       "setup_qualified_count": 4,
       "trade_candidate_count": 2,
-      "true_no_trades": 0,
+      "true_no_trades": 1,
       "unresolved_cases": 2,
       "unstable_cases": 0,
       "valid_trades_captured": 0,
@@ -1729,33 +1839,35 @@
   "final_classifications": {
     "INVALID_TRADE_ALLOWED": 0,
     "MISSED_VALID_TRADE": 0,
-    "MISSING_DATA": 8,
-    "TRUE_NO_TRADE": 2,
+    "MISSING_DATA": 6,
+    "TRUE_NO_TRADE": 4,
     "UNRESOLVED": 4,
     "VALID_TRADE_CAPTURED": 1
   },
   "first_blockers": {
     "CONTRACT_SELECTED": {
-      "affected_candidate_count": 6,
+      "affected_candidate_count": 4,
       "affected_setup_families": [
         "Clean Fast Break",
         "Continuation",
         "Ideal"
       ],
       "common_causes": {
-        "missing_setup_time_selected_option_evidence": 6
+        "missing_setup_time_selected_option_evidence": 4
       },
       "external_data_required": true,
       "local_evidence_can_resolve": false,
       "smallest_safe_next_action": "Create a grouped exact missing-data cost-check task only for setup-time selected-option fields."
     },
     "ENTRY_ELIGIBLE": {
-      "affected_candidate_count": 2,
+      "affected_candidate_count": 4,
       "affected_setup_families": [
+        "Continuation",
+        "Ideal",
         "Clean Fast Break"
       ],
       "common_causes": {
-        "quote_age_above_5_minutes": 2
+        "quote_age_above_5_minutes": 4
       },
       "external_data_required": false,
       "local_evidence_can_resolve": true,
@@ -1803,7 +1915,7 @@
       "smallest_safe_next_action": "Add grouped local fixture evidence before any data request."
     }
   },
-  "first_run_hash": "5865e3e955b28ce9c88736fb8f711201917680d60bc35fa73d23b5fb26b50849",
+  "first_run_hash": "ea810e461c02e4eacde0a63644c96419ad708a004bababf404f108df0b6a963f",
   "frozen_engine_or_rule_version": "day48_positive_trade_capture_funnel_v1;cfb_backtest_runner_review_only;day48_grouped_three_family_lifecycle_fixtures",
   "funnel_stages": [
     "SETUP_DEVELOPING",
@@ -1821,16 +1933,16 @@
     "did_it_classify_the_setup_as_a_possible_trade": "Yes for accepted-entry-stage lifecycle rows and the three CFB selected-contract replay rows; accepted-entry stage is not the same as an executed trade.",
     "did_safe_fast_recognize_the_setup_before_the_move": "Yes for the grouped lifecycle candidates that reached setup or trade-candidate stages; recognition is still incomplete for shape-only/missing-data rows.",
     "how_many_valid_trades_were_caught_missed_or_incorrectly_allowed": "Caught 1; missed 0; incorrectly allowed 0.",
-    "was_a_tradable_option_available_at_that_exact_time": "Only SPY Clean Fast Break 002 currently has local selected-contract entry and exit evidence sufficient for a review-only captured valid entry. Other candidate families are blocked by stale quote, future quote, wide spread, or missing setup-time selected-option evidence.",
-    "was_rejection_caused_by_real_safety_rule_or_missing_evidence": "Both: 2 true no-trade controls are frozen safety-rule failures, while 8 cases are missing-data blockers and unresolved rows remain separate."
+    "was_a_tradable_option_available_at_that_exact_time": "Only SPY Clean Fast Break 002 currently has local selected-contract entry and exit evidence sufficient for a review-only captured valid entry. Day 49 setup-time evidence also proved SPY Ideal 001 and SPY Continuation 001 had selected same-contract setup-window quotes and trade volume, but both failed the frozen quote-age gate. Other candidate families are blocked by stale quote, future quote, wide spread, or missing setup-time selected-option evidence.",
+    "was_rejection_caused_by_real_safety_rule_or_missing_evidence": "Both: 4 true no-trade controls are frozen safety-rule failures, while 6 cases are missing-data blockers and unresolved rows remain separate."
   },
   "paper_eligible": false,
   "profitability_claimed": false,
   "promotion_decision_made": false,
   "proof_accepted": false,
-  "run_timestamp": "2026-06-20T05:00:06.693160Z",
-  "second_run_hash": "5865e3e955b28ce9c88736fb8f711201917680d60bc35fa73d23b5fb26b50849",
-  "source_commit": "6b90016",
+  "run_timestamp": "2026-06-20T14:42:20.345504Z",
+  "second_run_hash": "ea810e461c02e4eacde0a63644c96419ad708a004bababf404f108df0b6a963f",
+  "source_commit": "55527f0",
   "unresolved_evidence_requirements": [
     {
       "candidate_identifier": "first_real_gld_clean_fast_break_replay_v1_fixture",
@@ -1882,18 +1994,6 @@
     },
     {
       "candidate_identifier": "first_real_qqq_ideal_replay_v1_fixture",
-      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
-      "first_stage_not_reached": "CONTRACT_SELECTED",
-      "missing_or_unresolved_field": "missing_setup_time_selected_option_evidence"
-    },
-    {
-      "candidate_identifier": "first_real_spy_continuation_replay_v1_fixture",
-      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
-      "first_stage_not_reached": "CONTRACT_SELECTED",
-      "missing_or_unresolved_field": "missing_setup_time_selected_option_evidence"
-    },
-    {
-      "candidate_identifier": "second_real_spy_ideal_replay_v1_fixture",
       "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
       "first_stage_not_reached": "CONTRACT_SELECTED",
       "missing_or_unresolved_field": "missing_setup_time_selected_option_evidence"

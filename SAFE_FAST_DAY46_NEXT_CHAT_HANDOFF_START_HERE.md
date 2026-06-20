@@ -1,16 +1,16 @@
 ﻿START HERE — SAFE-FAST NEXT CHAT OPERATING RULES
 
-CURRENT DAY 48 ENTRY POINT:
+CURRENT DAY 49 ENTRY POINT:
 Read SAFE_FAST_BUILD_STATE.md first, then verify local branch, commit, and status.
 
 Current result:
-- SAFE_FAST_DAY48_POSITIVE_TRADE_CAPTURE_AND_MISS_ANALYSIS_RESULT.md
+- SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_AND_REPLAY_RESULT.md
 - historical_signal_replay/results/day48_positive_trade_capture_funnel.json
 
 Current funnel totals:
 - valid trades captured: 1
-- true no-trades: 2
-- missing-data cases: 8
+- true no-trades: 4
+- missing-data cases: 6
 - missed valid trades: 0
 - invalid trades allowed: 0
 - unresolved cases: 4
@@ -18,7 +18,7 @@ Current funnel totals:
 - losers: 0
 
 Exact next grouped task:
-SAFE_FAST_DAY48_GROUPED_POSITIVE_ENTRY_EXPANSION_CODEX_TASK.md
+SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_DOWNLOAD_CODEX_TASK.md
 
 The next chat must continue that exact active task, use grouped batches, require funnel scorecards, keep positive-trade capture and no-trade safety co-equal, and preserve cost-check/download approval requirements. Do not restart completed discovery or replace runnable testing with governance-only documents.
 

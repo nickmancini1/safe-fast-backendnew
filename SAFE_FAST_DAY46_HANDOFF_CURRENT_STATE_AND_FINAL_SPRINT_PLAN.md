@@ -1,16 +1,16 @@
 # SAFE-FAST Day 46 Current State And Final Sprint Plan
 
-## Day 48 Current-State Update
+## Day 49 Current-State Update
 
 `SAFE_FAST_BUILD_STATE.md` is the current-state authority.
 
-The current Day 48 result is `SAFE_FAST_DAY48_POSITIVE_TRADE_CAPTURE_AND_MISS_ANALYSIS_RESULT.md`, with machine-readable funnel `historical_signal_replay/results/day48_positive_trade_capture_funnel.json`.
+The current Day 49 result is `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_AND_REPLAY_RESULT.md`, with machine-readable funnel `historical_signal_replay/results/day48_positive_trade_capture_funnel.json`.
 
-Current combined funnel totals: `15` found/runnable, `1` valid trade captured, `2` true no-trades, `8` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, `4` unresolved cases, `1` winner, and `0` losers.
+Current combined funnel totals: `15` found/runnable, `1` valid trade captured, `4` true no-trades, `6` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, `4` unresolved cases, `1` winner, and `0` losers.
 
-Exact next grouped task: `SAFE_FAST_DAY48_GROUPED_POSITIVE_ENTRY_EXPANSION_CODEX_TASK.md`.
+Exact next grouped task: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_DOWNLOAD_CODEX_TASK.md`.
 
-This Day 46 file remains workflow/background only where older wording conflicts with the Day 48 build state.
+This Day 46 file remains workflow/background only where older wording conflicts with the Day 49 build state.
 
 ## Baseline
 

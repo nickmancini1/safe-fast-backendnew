@@ -1,5 +1,58 @@
 # SAFE-FAST Build State
 
+## Day 49 grouped positive-entry setup-time download and replay result
+
+- Current task file executed: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_AND_REPLAY_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_AND_REPLAY_RESULT.md`.
+- Exact next grouped task created: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_DOWNLOAD_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`, HEAD `55527f0`; local status was clean except untracked task file `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_AND_REPLAY_CODEX_TASK.md` and known permission warnings for temp directories `tmp2i57tguu`, `tmpj8ei9a_f`, `tmpra392qh0`, and `tmpt2fw63vq`.
+- Approved request manifest confirmed unchanged: `historical_signal_replay/source_data/richer_export_package_work/day48_grouped_positive_entry_setup_time_request_manifest.json`, SHA-256 `213dc93d2c08cd0653a78eb64c002b57673ab48a8a4f4b5ee727ff0c77b0f2bf`.
+- Fresh Databento checked total: `$0.000844895840`, below the `$0.01` authorization limit.
+- Actual billed cost: `NOT_AVAILABLE`.
+- `SAFE_FAST_DB_AUTH` was used only in-process; the credential was not printed, logged, documented, saved, or written to a file.
+- Downloaded exactly four setup-time requests and no exit-path data:
+  - `SPY-REAL-HISTORICAL-IDEAL-001` / `SPY   260527C00745000` / `tcbbo`: `22` rows, `1025` DBN bytes, SHA-256 `bbd161491628183d47dc8d6f471e07adc7b940563dc4ed5b0c5b72b28d407205`.
+  - `SPY-REAL-HISTORICAL-IDEAL-001` / `SPY   260527C00745000` / `trades`: `22` rows, `724` DBN bytes, SHA-256 `eaf0cd5113f22549c46f340f78eef1d7124d9a060a8cabcf0df56c2520dc2d80`.
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001` / `SPY   260514C00720000` / `tcbbo`: `8` rows, `519` DBN bytes, SHA-256 `e4bfd3d341ccb83475b098b20fc058fdb64b09af2c76ab2476d6df048fab35c5`.
+  - `SPY-REAL-HISTORICAL-CONTINUATION-001` / `SPY   260514C00720000` / `trades`: `8` rows, `389` DBN bytes, SHA-256 `24c07ad8922318a248fe4148c60e49f71d822be4d7b606b4a519aa48b3b9b35e`.
+- Raw DBN/CSV files and the local download manifest were stored only under ignored `historical_signal_replay/source_data/external_option_data_drop/` and must remain untracked and unstaged.
+- Download validation found no empty, malformed, late, stale-window, or contradictory-symbol file problem.
+- Day 49 setup-time helper created: `historical_signal_replay/day49_grouped_positive_entry_setup_time.py`.
+- Focused tests created: `tests/test_day49_grouped_positive_entry_setup_time.py`.
+- Positive-trade funnel builder updated to consume the ignored Day 49 download manifest when present and preserve the no-download baseline when absent.
+- Positive-trade funnel JSON updated: `historical_signal_replay/results/day48_positive_trade_capture_funnel.json`.
+- The complete grouped positive-trade funnel was rerun twice after validation; deterministic comparison PASS.
+- Changed cases:
+  - `second_real_spy_ideal_replay_v1_fixture` / `SPY-REAL-HISTORICAL-IDEAL-001`: changed from `MISSING_DATA` at `CONTRACT_SELECTED` / `missing_setup_time_selected_option_evidence` to `TRUE_NO_TRADE` at `ENTRY_ELIGIBLE` / `quote_age_above_5_minutes`; nearest setup-time-safe quote was `2026-05-13T15:22:37.366073Z`, quote age `442.633927` seconds, spread `0.03`, trade volume `45`.
+  - `first_real_spy_continuation_replay_v1_fixture` / `SPY-REAL-HISTORICAL-CONTINUATION-001`: changed from `MISSING_DATA` at `CONTRACT_SELECTED` / `missing_setup_time_selected_option_evidence` to `TRUE_NO_TRADE` at `ENTRY_ELIGIBLE` / `quote_age_above_5_minutes`; nearest setup-time-safe quote was `2026-04-30T15:26:49.253742Z`, quote age `3790.746258` seconds, spread `0.01`, trade volume `15`.
+- Before/after combined funnel totals:
+  - valid trades captured: `1` / `1`;
+  - true no-trades: `2` / `4`;
+  - missing-data cases: `8` / `6`;
+  - missed valid trades: `0` / `0`;
+  - invalid trades allowed: `0` / `0`;
+  - unresolved cases: `4` / `4`;
+  - winners: `1` / `1`;
+  - losers: `0` / `0`.
+- After first blocker totals by stage: `SETUP_QUALIFIED=2`, `TRADE_CANDIDATE=4`, `CONTRACT_SELECTED=4`, `ENTRY_ELIGIBLE=4`, `NONE=1`.
+- Owner-facing answers:
+  - SAFE-FAST recognized the grouped lifecycle candidates that reached setup or trade-candidate stages.
+  - SAFE-FAST classified possible trades at accepted-entry or selected-contract stages, but Day 49 found no new valid entry.
+  - SPY Ideal 001 and SPY Continuation 001 had selected same-contract setup-window quote/trade evidence, but both failed the frozen five-minute quote-age safety gate; SPY CFB 002 remains the only review-only captured valid entry.
+  - Day 49 changed two missing-data cases into true no-trades from a real safety rule; `6` missing-data cases and `4` unresolved cases remain.
+  - Valid trades caught/missed/incorrectly allowed: `1` / `0` / `0`.
+- This result does not accept proof, claim profitability, mark readiness, authorize promotion, choose a real trade, authorize paper/live use, download exit data, calculate P&L, or change intake-ready status.
+- Exact next grouped task: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_DOWNLOAD_CODEX_TASK.md`.
+- Checks run:
+  - `.\scripts\safe_fast_run_safe_checks.ps1`: BLOCKED by local PowerShell execution policy before the script ran.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks plus `9` discovered tests.
+  - `python -B -m historical_signal_replay.day49_grouped_positive_entry_setup_time`: PASS, downloaded `4` setup-time requests.
+  - `python -B -m historical_signal_replay.day48_positive_trade_capture_funnel`: PASS twice after validation, wrote `15` candidates, `1` valid captured, `4` true no-trades, `6` missing-data cases.
+  - `python -B -m watcher_foundation.day48_positive_trade_capture_funnel_validator`: PASS.
+  - Focused Day 49, positive-trade funnel, handoff consistency, grouped Day 48, lifecycle/stage/session, contract, execution, context, winner-selection, evidence validator, intake bridge, historical replay, and Day 47-to-Day 90 audit checks: PASS.
+  - Bounded PowerShell `__pycache__` cleanup was blocked by local command policy; Python fallback cleanup removed generated `historical_signal_replay\__pycache__`; final inspection found `0` generated cache directories.
+  - `git --no-pager diff --check`: PASS with line-ending warnings only.
+
 ## Day 48 positive-trade capture and miss analysis result
 
 - Current task file executed: `SAFE_FAST_DAY48_POSITIVE_TRADE_CAPTURE_AND_MISS_ANALYSIS_CODEX_TASK.md`.
