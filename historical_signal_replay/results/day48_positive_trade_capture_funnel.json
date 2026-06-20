@@ -1,0 +1,1908 @@
+{
+  "candidate_records": [
+    {
+      "accepted_entry_stage_rows": [],
+      "blocker_category": "unresolved",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker fresh_or_spent_unconfirmed; accepted-entry stage rows: 0; pending rows: 2.",
+      "candidate_identifier": "first_real_gld_clean_fast_break_replay_v1_fixture",
+      "chronological_stage_path": [
+        "watching_clean_fast_break_base_rebuild_context",
+        "watching_clean_fast_break_pre_reclaim_range_context",
+        "watching_clean_fast_break_lower_base_before_reclaim",
+        "clean_fast_break_initial_reclaim_candidate",
+        "clean_fast_break_follow_through_extension_candidate",
+        "clean_fast_break_pullback_hold_or_no_fresh_trigger_review"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
+      "exact_blocker_code": "fresh_or_spent_unconfirmed",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "UNRESOLVED",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "TRADE_CANDIDATE",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED"
+      ],
+      "highest_stage_reached": "SETUP_QUALIFIED",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "base_rebuild_context_only": 1,
+          "fresh_or_spent_unconfirmed": 2,
+          "lower_base_and_reclaim_not_available_yet": 1,
+          "reclaim_not_available_yet": 1,
+          "trigger_level_and_invalidation_unconfirmed": 1
+        },
+        "caution_counts": {
+          "CONTEXT_24H_DAILY_UNCONFIRMED": 6,
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6,
+          "NEWS_UNCONFIRMED": 6,
+          "invalidation_TO_REVIEW": 6,
+          "trigger_level_TO_REVIEW": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "GLD|2026-04-29|Clean Fast Break|watching_clean_fast_break_base_rebuild_context|base_rebuild_context_only": 1,
+          "GLD|2026-05-01|Clean Fast Break|watching_clean_fast_break_pre_reclaim_range_context|lower_base_and_reclaim_not_available_yet": 1,
+          "GLD|2026-05-05|Clean Fast Break|watching_clean_fast_break_lower_base_before_reclaim|reclaim_not_available_yet": 1,
+          "GLD|2026-05-06|Clean Fast Break|clean_fast_break_initial_reclaim_candidate|trigger_level_and_invalidation_unconfirmed": 1,
+          "GLD|2026-05-07|Clean Fast Break|clean_fast_break_follow_through_extension_candidate|fresh_or_spent_unconfirmed": 1,
+          "GLD|2026-05-08|Clean Fast Break|clean_fast_break_pullback_hold_or_no_fresh_trigger_review|fresh_or_spent_unconfirmed": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 4,
+          "PENDING": 2
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 6,
+          "state_changed": 6,
+          "trigger_changed": 2
+        },
+        "meaningful_alert_candidate_count": 6,
+        "setup_type_counts": {
+          "Clean Fast Break": 6
+        },
+        "stage_counts": {
+          "clean_fast_break_follow_through_extension_candidate": 1,
+          "clean_fast_break_initial_reclaim_candidate": 1,
+          "clean_fast_break_pullback_hold_or_no_fresh_trigger_review": 1,
+          "watching_clean_fast_break_base_rebuild_context": 1,
+          "watching_clean_fast_break_lower_base_before_reclaim": 1,
+          "watching_clean_fast_break_pre_reclaim_range_context": 1
+        },
+        "symbols": [
+          "GLD"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-05-08T15:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "GLD",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "false_continuation_relabel_accepted": false,
+        "false_ideal_relabel_accepted": false,
+        "news_risk_level": "NEWS_UNCONFIRMED",
+        "selected_setup_type": "Clean Fast Break",
+        "selected_symbol": "GLD",
+        "selection_status": "shape_only_first_real_gld_clean_fast_break_historical_fixture_candidate_needs_review"
+      }
+    },
+    {
+      "accepted_entry_stage_rows": [],
+      "blocker_category": "missing data",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_shelf_break_spent_TO_REVIEW; accepted-entry stage rows: 0; pending rows: 0.",
+      "candidate_identifier": "first_real_gld_continuation_replay_v1_fixture",
+      "chronological_stage_path": [
+        "watching_continuation_pullback_shelf_developing",
+        "watching_continuation_elevated_shelf_no_trigger",
+        "continuation_rebuild_below_trigger_candidate",
+        "continuation_completed_break_candidate",
+        "continuation_pullback_hold_or_stale_review",
+        "continuation_extension_spent_or_no_fresh_trigger_review"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
+      "exact_blocker_code": "prior_completed_shelf_break_spent_TO_REVIEW",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "MISSING_DATA",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING"
+      ],
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "completed_break_not_available_yet": 1,
+          "fresh_or_spent_unconfirmed": 1,
+          "fresh_stale_spent_unconfirmed": 1,
+          "no_valid_trigger": 1,
+          "prior_completed_shelf_break_spent_TO_REVIEW": 1,
+          "shelf_still_developing": 1
+        },
+        "caution_counts": {
+          "CONTEXT_24H_DAILY_UNCONFIRMED": 6,
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6,
+          "NEWS_UNCONFIRMED": 6,
+          "fresh_stale_spent_status_TO_REVIEW": 6,
+          "invalidation_TO_REVIEW": 6,
+          "session_boundary_carry_forward_TO_REVIEW": 6,
+          "shelf_base_TO_REVIEW": 6,
+          "trigger_basis_state_TO_REVIEW": 6,
+          "trigger_level_TO_REVIEW": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "GLD|2026-04-08|Continuation|watching_continuation_pullback_shelf_developing|shelf_still_developing": 1,
+          "GLD|2026-04-10|Continuation|watching_continuation_elevated_shelf_no_trigger|no_valid_trigger": 1,
+          "GLD|2026-04-13|Continuation|continuation_rebuild_below_trigger_candidate|completed_break_not_available_yet": 1,
+          "GLD|2026-04-14|Continuation|continuation_completed_break_candidate|fresh_or_spent_unconfirmed": 1,
+          "GLD|2026-04-16|Continuation|continuation_pullback_hold_or_stale_review|fresh_stale_spent_unconfirmed": 1,
+          "GLD|2026-04-17|Continuation|continuation_extension_spent_or_no_fresh_trigger_review|prior_completed_shelf_break_spent_TO_REVIEW": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 6
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 6,
+          "state_changed": 6,
+          "trigger_changed": 1
+        },
+        "meaningful_alert_candidate_count": 6,
+        "setup_type_counts": {
+          "Continuation": 6
+        },
+        "stage_counts": {
+          "continuation_completed_break_candidate": 1,
+          "continuation_extension_spent_or_no_fresh_trigger_review": 1,
+          "continuation_pullback_hold_or_stale_review": 1,
+          "continuation_rebuild_below_trigger_candidate": 1,
+          "watching_continuation_elevated_shelf_no_trigger": 1,
+          "watching_continuation_pullback_shelf_developing": 1
+        },
+        "symbols": [
+          "GLD"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-04-17T15:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "GLD",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "false_clean_fast_break_relabel_accepted": false,
+        "false_ideal_relabel_accepted": false,
+        "news_risk_level": "NEWS_UNCONFIRMED",
+        "selected_setup_type": "Continuation",
+        "selected_symbol": "GLD",
+        "selection_status": "shape_only_first_real_gld_continuation_historical_fixture_candidate_needs_review"
+      }
+    },
+    {
+      "accepted_entry_stage_rows": [],
+      "blocker_category": "unresolved",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker fresh_or_spent_unconfirmed; accepted-entry stage rows: 0; pending rows: 3.",
+      "candidate_identifier": "first_real_gld_ideal_replay_v1_fixture",
+      "chronological_stage_path": [
+        "watching_ideal_retest_low_context",
+        "watching_ideal_base_after_retest_developing",
+        "ideal_recovery_confirmation_candidate",
+        "ideal_recovery_hold_candidate",
+        "ideal_follow_through_extension_candidate",
+        "ideal_pullback_hold_or_no_fresh_trigger_review"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
+      "exact_blocker_code": "fresh_or_spent_unconfirmed",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "UNRESOLVED",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "TRADE_CANDIDATE",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED"
+      ],
+      "highest_stage_reached": "SETUP_QUALIFIED",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "completed_candle_hold_unconfirmed": 1,
+          "fresh_or_spent_unconfirmed": 2,
+          "recovery_confirmation_unavailable": 1,
+          "recovery_not_available_yet": 1,
+          "trigger_card_fields_unconfirmed": 1
+        },
+        "caution_counts": {
+          "CONTEXT_24H_DAILY_UNCONFIRMED": 6,
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6,
+          "NEWS_UNCONFIRMED": 6,
+          "invalidation_TO_REVIEW": 6,
+          "trigger_level_TO_REVIEW": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "GLD|2026-05-04|Ideal|watching_ideal_retest_low_context|recovery_not_available_yet": 1,
+          "GLD|2026-05-05|Ideal|watching_ideal_base_after_retest_developing|recovery_confirmation_unavailable": 1,
+          "GLD|2026-05-06|Ideal|ideal_recovery_confirmation_candidate|completed_candle_hold_unconfirmed": 1,
+          "GLD|2026-05-06|Ideal|ideal_recovery_hold_candidate|trigger_card_fields_unconfirmed": 1,
+          "GLD|2026-05-07|Ideal|ideal_follow_through_extension_candidate|fresh_or_spent_unconfirmed": 1,
+          "GLD|2026-05-08|Ideal|ideal_pullback_hold_or_no_fresh_trigger_review|fresh_or_spent_unconfirmed": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 3,
+          "PENDING": 3
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 6,
+          "state_changed": 6,
+          "trigger_changed": 3
+        },
+        "meaningful_alert_candidate_count": 6,
+        "setup_type_counts": {
+          "Ideal": 6
+        },
+        "stage_counts": {
+          "ideal_follow_through_extension_candidate": 1,
+          "ideal_pullback_hold_or_no_fresh_trigger_review": 1,
+          "ideal_recovery_confirmation_candidate": 1,
+          "ideal_recovery_hold_candidate": 1,
+          "watching_ideal_base_after_retest_developing": 1,
+          "watching_ideal_retest_low_context": 1
+        },
+        "symbols": [
+          "GLD"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Ideal",
+      "signal_timestamp": "2026-05-08T15:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "GLD",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "news_risk_level": "NEWS_UNCONFIRMED",
+        "selected_setup_type": "Ideal",
+        "selected_symbol": "GLD",
+        "selection_status": "shape_only_first_real_gld_historical_fixture_candidate_needs_review"
+      }
+    },
+    {
+      "accepted_entry_stage_rows": [],
+      "blocker_category": "missing data",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker fresh_or_spent_unconfirmed; accepted-entry stage rows: 0; pending rows: 0.",
+      "candidate_identifier": "first_real_iwm_clean_fast_break_replay_v1_fixture",
+      "chronological_stage_path": [
+        "watching_clean_fast_break_gap_impulse_context",
+        "watching_clean_fast_break_tight_pause_context",
+        "clean_fast_break_initial_break_candidate",
+        "clean_fast_break_follow_through_confirming_context",
+        "watching_higher_base_after_fast_break",
+        "clean_fast_break_post_break_no_fresh_trigger"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+      "exact_blocker_code": "fresh_or_spent_unconfirmed",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "MISSING_DATA",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING"
+      ],
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "completed_break_not_confirmed_yet": 1,
+          "completed_candle_approval_unconfirmed": 1,
+          "fresh_or_spent_unconfirmed": 3,
+          "tight_pause_not_formed_yet": 1
+        },
+        "caution_counts": {
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6,
+          "invalidation_TO_REVIEW": 6,
+          "trigger_level_TO_REVIEW": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "IWM|2026-04-08|Clean Fast Break|watching_clean_fast_break_gap_impulse_context|tight_pause_not_formed_yet": 1,
+          "IWM|2026-04-10|Clean Fast Break|watching_clean_fast_break_tight_pause_context|completed_break_not_confirmed_yet": 1,
+          "IWM|2026-04-13|Clean Fast Break|clean_fast_break_follow_through_confirming_context|fresh_or_spent_unconfirmed": 1,
+          "IWM|2026-04-13|Clean Fast Break|clean_fast_break_initial_break_candidate|completed_candle_approval_unconfirmed": 1,
+          "IWM|2026-04-16|Clean Fast Break|watching_higher_base_after_fast_break|fresh_or_spent_unconfirmed": 1,
+          "IWM|2026-04-17|Clean Fast Break|clean_fast_break_post_break_no_fresh_trigger|fresh_or_spent_unconfirmed": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 6
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 6,
+          "state_changed": 6,
+          "trigger_changed": 5
+        },
+        "meaningful_alert_candidate_count": 6,
+        "setup_type_counts": {
+          "Clean Fast Break": 6
+        },
+        "stage_counts": {
+          "clean_fast_break_follow_through_confirming_context": 1,
+          "clean_fast_break_initial_break_candidate": 1,
+          "clean_fast_break_post_break_no_fresh_trigger": 1,
+          "watching_clean_fast_break_gap_impulse_context": 1,
+          "watching_clean_fast_break_tight_pause_context": 1,
+          "watching_higher_base_after_fast_break": 1
+        },
+        "symbols": [
+          "IWM"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-04-17T15:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "IWM",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "false_continuation_relabel_accepted": false,
+        "selected_setup_type": "Clean Fast Break",
+        "selected_symbol": "IWM",
+        "selection_status": "shape_only_first_real_iwm_clean_fast_break_historical_fixture_candidate_needs_review"
+      }
+    },
+    {
+      "accepted_entry_stage_rows": [],
+      "blocker_category": "unresolved",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_shelf_break_spent_TO_REVIEW; accepted-entry stage rows: 0; pending rows: 3.",
+      "candidate_identifier": "first_real_iwm_continuation_replay_v1_fixture",
+      "chronological_stage_path": [
+        "watching_continuation_pullback_shelf_developing",
+        "watching_continuation_shelf_retest_no_trigger",
+        "continuation_recovery_above_shelf_candidate",
+        "continuation_higher_base_rebuild_candidate",
+        "continuation_triggered_signal_stage_candidate",
+        "continuation_spent_or_follow_through_no_fresh_trigger"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+      "exact_blocker_code": "prior_completed_shelf_break_spent_TO_REVIEW",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "UNRESOLVED",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "TRADE_CANDIDATE",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED"
+      ],
+      "highest_stage_reached": "SETUP_QUALIFIED",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "completed_hold_TO_REVIEW": 1,
+          "higher_base_rebuild_TO_REVIEW": 1,
+          "no_valid_trigger": 1,
+          "prior_completed_shelf_break_spent_TO_REVIEW": 1,
+          "shelf_still_developing": 1,
+          "trigger_level_TO_REVIEW": 1
+        },
+        "caution_counts": {
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6,
+          "fresh_spent_status_TO_REVIEW": 6,
+          "invalidation_TO_REVIEW": 6,
+          "session_boundary_carry_forward_TO_REVIEW": 6,
+          "shelf_base_TO_REVIEW": 6,
+          "trigger_level_TO_REVIEW": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "IWM|2026-04-20|Continuation|watching_continuation_pullback_shelf_developing|shelf_still_developing": 1,
+          "IWM|2026-04-21|Continuation|watching_continuation_shelf_retest_no_trigger|no_valid_trigger": 1,
+          "IWM|2026-04-22|Continuation|continuation_recovery_above_shelf_candidate|completed_hold_TO_REVIEW": 1,
+          "IWM|2026-04-24|Continuation|continuation_higher_base_rebuild_candidate|higher_base_rebuild_TO_REVIEW": 1,
+          "IWM|2026-04-30|Continuation|continuation_triggered_signal_stage_candidate|trigger_level_TO_REVIEW": 1,
+          "IWM|2026-05-01|Continuation|continuation_spent_or_follow_through_no_fresh_trigger|prior_completed_shelf_break_spent_TO_REVIEW": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 3,
+          "PENDING": 3
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 6,
+          "state_changed": 6,
+          "trigger_changed": 3
+        },
+        "meaningful_alert_candidate_count": 6,
+        "setup_type_counts": {
+          "Continuation": 6
+        },
+        "stage_counts": {
+          "continuation_higher_base_rebuild_candidate": 1,
+          "continuation_recovery_above_shelf_candidate": 1,
+          "continuation_spent_or_follow_through_no_fresh_trigger": 1,
+          "continuation_triggered_signal_stage_candidate": 1,
+          "watching_continuation_pullback_shelf_developing": 1,
+          "watching_continuation_shelf_retest_no_trigger": 1
+        },
+        "symbols": [
+          "IWM"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-05-01T15:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "IWM",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "false_clean_fast_break_relabel_accepted": false,
+        "false_ideal_relabel_accepted": false,
+        "selected_setup_type": "Continuation",
+        "selected_symbol": "IWM",
+        "selection_status": "shape_only_first_real_iwm_continuation_historical_fixture_candidate_needs_review"
+      }
+    },
+    {
+      "accepted_entry_stage_rows": [],
+      "blocker_category": "unresolved",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker fresh_or_spent_unconfirmed; accepted-entry stage rows: 0; pending rows: 2.",
+      "candidate_identifier": "first_real_iwm_ideal_replay_v1_fixture",
+      "chronological_stage_path": [
+        "watching_ideal_impulse_context",
+        "watching_ideal_pullback_retest_developing",
+        "watching_ideal_retest_hold_unconfirmed",
+        "ideal_retest_recovery_confirmation_candidate",
+        "ideal_triggered_signal_stage_candidate",
+        "ideal_follow_through_no_fresh_trigger"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+      "exact_blocker_code": "fresh_or_spent_unconfirmed",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "UNRESOLVED",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "TRADE_CANDIDATE",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED"
+      ],
+      "highest_stage_reached": "SETUP_QUALIFIED",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "awaiting_fresh_trigger_review": 1,
+          "fresh_or_spent_unconfirmed": 1,
+          "no_retest_yet": 1,
+          "retest_developing": 1,
+          "retest_hold_unconfirmed": 1,
+          "trigger_card_fields_unconfirmed": 1
+        },
+        "caution_counts": {
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6,
+          "invalidation_TO_REVIEW": 6,
+          "trigger_level_TO_REVIEW": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "IWM|2026-05-08|Ideal|watching_ideal_impulse_context|no_retest_yet": 1,
+          "IWM|2026-05-12|Ideal|ideal_retest_recovery_confirmation_candidate|awaiting_fresh_trigger_review": 1,
+          "IWM|2026-05-12|Ideal|watching_ideal_pullback_retest_developing|retest_developing": 1,
+          "IWM|2026-05-12|Ideal|watching_ideal_retest_hold_unconfirmed|retest_hold_unconfirmed": 1,
+          "IWM|2026-05-14|Ideal|ideal_follow_through_no_fresh_trigger|fresh_or_spent_unconfirmed": 1,
+          "IWM|2026-05-14|Ideal|ideal_triggered_signal_stage_candidate|trigger_card_fields_unconfirmed": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 4,
+          "PENDING": 2
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 6,
+          "state_changed": 6,
+          "trigger_changed": 4
+        },
+        "meaningful_alert_candidate_count": 6,
+        "setup_type_counts": {
+          "Ideal": 6
+        },
+        "stage_counts": {
+          "ideal_follow_through_no_fresh_trigger": 1,
+          "ideal_retest_recovery_confirmation_candidate": 1,
+          "ideal_triggered_signal_stage_candidate": 1,
+          "watching_ideal_impulse_context": 1,
+          "watching_ideal_pullback_retest_developing": 1,
+          "watching_ideal_retest_hold_unconfirmed": 1
+        },
+        "symbols": [
+          "IWM"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Ideal",
+      "signal_timestamp": "2026-05-14T15:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "IWM",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "selected_setup_type": "Ideal",
+        "selected_symbol": "IWM",
+        "selection_status": "shape_only_first_real_iwm_historical_fixture_candidate_needs_review"
+      }
+    },
+    {
+      "accepted_entry_stage_rows": [
+        {
+          "primary_blocker": null,
+          "stage": "clean_fast_break_initial_break_candidate",
+          "timestamp": "2026-04-13T12:30:00-04:00"
+        }
+      ],
+      "blocker_category": "missing data",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_clean_fast_break_spent; accepted-entry stage rows: 1; pending rows: 0.",
+      "candidate_identifier": "first_real_qqq_clean_fast_break_replay_v1_fixture",
+      "chronological_stage_path": [
+        "watching_clean_fast_break_gap_impulse_context",
+        "watching_clean_fast_break_tight_pause_context",
+        "clean_fast_break_initial_break_candidate",
+        "clean_fast_break_follow_through_confirming_context",
+        "watching_higher_base_after_fast_break",
+        "clean_fast_break_post_break_no_fresh_trigger"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+      "exact_blocker_code": "missing_setup_time_selected_option_evidence",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "MISSING_DATA",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED",
+        "TRADE_CANDIDATE"
+      ],
+      "highest_stage_reached": "TRADE_CANDIDATE",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "fresh_completed_breakout_required": 1,
+          "no_completed_break_yet": 1,
+          "prior_completed_clean_fast_break_spent": 2,
+          "tight_pause_not_formed_yet": 1
+        },
+        "caution_counts": {
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "QQQ|2026-04-08|Clean Fast Break|watching_clean_fast_break_gap_impulse_context|tight_pause_not_formed_yet": 1,
+          "QQQ|2026-04-10|Clean Fast Break|watching_clean_fast_break_tight_pause_context|no_completed_break_yet": 1,
+          "QQQ|2026-04-13|Clean Fast Break|clean_fast_break_follow_through_confirming_context|prior_completed_clean_fast_break_spent": 1,
+          "QQQ|2026-04-13|Clean Fast Break|clean_fast_break_initial_break_candidate|none": 1,
+          "QQQ|2026-04-16|Clean Fast Break|watching_higher_base_after_fast_break|fresh_completed_breakout_required": 1,
+          "QQQ|2026-04-17|Clean Fast Break|clean_fast_break_post_break_no_fresh_trigger|prior_completed_clean_fast_break_spent": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 5,
+          "TRADE": 1
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 6,
+          "state_changed": 6,
+          "trigger_changed": 6
+        },
+        "meaningful_alert_candidate_count": 6,
+        "setup_type_counts": {
+          "Clean Fast Break": 6
+        },
+        "stage_counts": {
+          "clean_fast_break_follow_through_confirming_context": 1,
+          "clean_fast_break_initial_break_candidate": 1,
+          "clean_fast_break_post_break_no_fresh_trigger": 1,
+          "watching_clean_fast_break_gap_impulse_context": 1,
+          "watching_clean_fast_break_tight_pause_context": 1,
+          "watching_higher_base_after_fast_break": 1
+        },
+        "symbols": [
+          "QQQ"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-04-13T12:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "QQQ",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "selected_setup_type": "Clean Fast Break",
+        "selected_symbol": "QQQ",
+        "selection_status": "shape_only_first_real_qqq_clean_fast_break_historical_fixture"
+      }
+    },
+    {
+      "accepted_entry_stage_rows": [
+        {
+          "primary_blocker": null,
+          "stage": "continuation_triggered_signal_stage_candidate",
+          "timestamp": "2026-04-30T15:30:00-04:00"
+        }
+      ],
+      "blocker_category": "missing data",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_shelf_break_spent; accepted-entry stage rows: 1; pending rows: 2.",
+      "candidate_identifier": "first_real_qqq_continuation_replay_v1_fixture",
+      "chronological_stage_path": [
+        "watching_continuation_pullback_shelf_developing",
+        "watching_continuation_shelf_retest_no_trigger",
+        "continuation_recovery_above_shelf_candidate",
+        "continuation_higher_base_rebuild_candidate",
+        "continuation_triggered_signal_stage_candidate",
+        "continuation_spent_or_follow_through_no_fresh_trigger"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+      "exact_blocker_code": "missing_setup_time_selected_option_evidence",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "MISSING_DATA",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED",
+        "TRADE_CANDIDATE"
+      ],
+      "highest_stage_reached": "TRADE_CANDIDATE",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "fresh_completed_trigger_not_present": 1,
+          "higher_base_rebuild_not_confirmed": 1,
+          "no_valid_trigger": 1,
+          "prior_completed_shelf_break_spent": 1,
+          "shelf_still_developing": 1
+        },
+        "caution_counts": {
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "QQQ|2026-04-20|Continuation|watching_continuation_pullback_shelf_developing|shelf_still_developing": 1,
+          "QQQ|2026-04-21|Continuation|watching_continuation_shelf_retest_no_trigger|no_valid_trigger": 1,
+          "QQQ|2026-04-22|Continuation|continuation_recovery_above_shelf_candidate|higher_base_rebuild_not_confirmed": 1,
+          "QQQ|2026-04-24|Continuation|continuation_higher_base_rebuild_candidate|fresh_completed_trigger_not_present": 1,
+          "QQQ|2026-04-30|Continuation|continuation_triggered_signal_stage_candidate|none": 1,
+          "QQQ|2026-05-01|Continuation|continuation_spent_or_follow_through_no_fresh_trigger|prior_completed_shelf_break_spent": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 3,
+          "PENDING": 2,
+          "TRADE": 1
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 6,
+          "state_changed": 6,
+          "trigger_changed": 5
+        },
+        "meaningful_alert_candidate_count": 6,
+        "setup_type_counts": {
+          "Continuation": 6
+        },
+        "stage_counts": {
+          "continuation_higher_base_rebuild_candidate": 1,
+          "continuation_recovery_above_shelf_candidate": 1,
+          "continuation_spent_or_follow_through_no_fresh_trigger": 1,
+          "continuation_triggered_signal_stage_candidate": 1,
+          "watching_continuation_pullback_shelf_developing": 1,
+          "watching_continuation_shelf_retest_no_trigger": 1
+        },
+        "symbols": [
+          "QQQ"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-04-30T15:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "QQQ",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "selected_setup_type": "Continuation",
+        "selected_symbol": "QQQ",
+        "selection_status": "shape_only_first_real_qqq_continuation_historical_fixture"
+      }
+    },
+    {
+      "accepted_entry_stage_rows": [
+        {
+          "primary_blocker": null,
+          "stage": "ideal_triggered_signal_stage_candidate",
+          "timestamp": "2026-05-13T12:30:00-04:00"
+        }
+      ],
+      "blocker_category": "missing data",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_ideal_trigger_spent; accepted-entry stage rows: 1; pending rows: 1.",
+      "candidate_identifier": "first_real_qqq_ideal_replay_v1_fixture",
+      "chronological_stage_path": [
+        "watching_ideal_impulse_context",
+        "watching_ideal_pullback_retest_developing",
+        "watching_ideal_retest_hold_unconfirmed",
+        "ideal_retest_recovery_confirmation_candidate",
+        "ideal_triggered_signal_stage_candidate",
+        "ideal_follow_through_no_fresh_trigger"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+      "exact_blocker_code": "missing_setup_time_selected_option_evidence",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "MISSING_DATA",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED",
+        "TRADE_CANDIDATE"
+      ],
+      "highest_stage_reached": "TRADE_CANDIDATE",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "awaiting_fresh_trigger": 1,
+          "no_retest_yet": 1,
+          "prior_completed_ideal_trigger_spent": 1,
+          "retest_developing": 1,
+          "retest_hold_unconfirmed": 1
+        },
+        "caution_counts": {
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "QQQ|2026-05-08|Ideal|watching_ideal_impulse_context|no_retest_yet": 1,
+          "QQQ|2026-05-12|Ideal|ideal_retest_recovery_confirmation_candidate|awaiting_fresh_trigger": 1,
+          "QQQ|2026-05-12|Ideal|watching_ideal_pullback_retest_developing|retest_developing": 1,
+          "QQQ|2026-05-12|Ideal|watching_ideal_retest_hold_unconfirmed|retest_hold_unconfirmed": 1,
+          "QQQ|2026-05-13|Ideal|ideal_triggered_signal_stage_candidate|none": 1,
+          "QQQ|2026-05-14|Ideal|ideal_follow_through_no_fresh_trigger|prior_completed_ideal_trigger_spent": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 4,
+          "PENDING": 1,
+          "TRADE": 1
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 6,
+          "state_changed": 6,
+          "trigger_changed": 3
+        },
+        "meaningful_alert_candidate_count": 6,
+        "setup_type_counts": {
+          "Ideal": 6
+        },
+        "stage_counts": {
+          "ideal_follow_through_no_fresh_trigger": 1,
+          "ideal_retest_recovery_confirmation_candidate": 1,
+          "ideal_triggered_signal_stage_candidate": 1,
+          "watching_ideal_impulse_context": 1,
+          "watching_ideal_pullback_retest_developing": 1,
+          "watching_ideal_retest_hold_unconfirmed": 1
+        },
+        "symbols": [
+          "QQQ"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Ideal",
+      "signal_timestamp": "2026-05-13T12:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "QQQ",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "selected_setup_type": "Ideal",
+        "selected_symbol": "QQQ",
+        "selection_status": "shape_only_first_real_qqq_historical_fixture"
+      }
+    },
+    {
+      "accepted_entry_stage_rows": [
+        {
+          "primary_blocker": null,
+          "stage": "triggered_signal_stage_candidate",
+          "timestamp": "2026-04-30T12:30:00-04:00"
+        }
+      ],
+      "blocker_category": "missing data",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_shelf_break_spent; accepted-entry stage rows: 1; pending rows: 1.",
+      "candidate_identifier": "first_real_spy_continuation_replay_v1_fixture",
+      "chronological_stage_path": [
+        "developing_pullback_shelf",
+        "developing_shelf_no_trigger",
+        "developing_shelf_no_trigger",
+        "opening_probe_no_completed_approval",
+        "triggered_signal_stage_candidate",
+        "spent_or_follow_through_no_fresh_trigger"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay\\source_data\\incoming\\first_real_historical_replay_v1_SPY_source.csv",
+      "exact_blocker_code": "missing_setup_time_selected_option_evidence",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "MISSING_DATA",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED",
+        "TRADE_CANDIDATE"
+      ],
+      "highest_stage_reached": "TRADE_CANDIDATE",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "completed_candle_approval_required": 1,
+          "no_valid_trigger": 3,
+          "prior_completed_shelf_break_spent": 1
+        },
+        "caution_counts": {
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "SPY|2026-04-28|Continuation|developing_pullback_shelf|no_valid_trigger": 1,
+          "SPY|2026-04-29|Continuation|developing_shelf_no_trigger|no_valid_trigger": 2,
+          "SPY|2026-04-30|Continuation|opening_probe_no_completed_approval|completed_candle_approval_required": 1,
+          "SPY|2026-04-30|Continuation|spent_or_follow_through_no_fresh_trigger|prior_completed_shelf_break_spent": 1,
+          "SPY|2026-04-30|Continuation|triggered_signal_stage_candidate|none": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 4,
+          "PENDING": 1,
+          "TRADE": 1
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 4,
+          "state_changed": 5,
+          "trigger_changed": 3
+        },
+        "meaningful_alert_candidate_count": 5,
+        "setup_type_counts": {
+          "Continuation": 6
+        },
+        "stage_counts": {
+          "developing_pullback_shelf": 1,
+          "developing_shelf_no_trigger": 2,
+          "opening_probe_no_completed_approval": 1,
+          "spent_or_follow_through_no_fresh_trigger": 1,
+          "triggered_signal_stage_candidate": 1
+        },
+        "symbols": [
+          "SPY"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-04-30T12:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "SPY",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "selected_setup_type": "Continuation",
+        "selected_symbol": "SPY",
+        "selection_status": "shape_only_first_real_historical_fixture"
+      }
+    },
+    {
+      "accepted_entry_stage_rows": [
+        {
+          "primary_blocker": null,
+          "stage": "ideal_triggered_signal_stage_candidate",
+          "timestamp": "2026-05-13T11:30:00-04:00"
+        }
+      ],
+      "blocker_category": "missing data",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_ideal_trigger_spent; accepted-entry stage rows: 1; pending rows: 1.",
+      "candidate_identifier": "second_real_spy_ideal_replay_v1_fixture",
+      "chronological_stage_path": [
+        "ideal_impulse_context",
+        "ideal_pullback_retest_developing",
+        "ideal_retest_hold_unconfirmed",
+        "ideal_retest_recovery_confirmation_candidate",
+        "ideal_triggered_signal_stage_candidate",
+        "ideal_follow_through_no_fresh_trigger"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay\\source_data\\incoming\\first_real_historical_replay_v1_SPY_source.csv",
+      "exact_blocker_code": "missing_setup_time_selected_option_evidence",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "MISSING_DATA",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED",
+        "TRADE_CANDIDATE"
+      ],
+      "highest_stage_reached": "TRADE_CANDIDATE",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "fresh_completed_breakout_required": 1,
+          "no_retest_yet": 1,
+          "prior_completed_ideal_trigger_spent": 1,
+          "recovery_confirmation_required": 1,
+          "retest_recovery_unconfirmed": 1
+        },
+        "caution_counts": {
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "SPY|2026-05-11|Ideal|ideal_impulse_context|no_retest_yet": 1,
+          "SPY|2026-05-12|Ideal|ideal_pullback_retest_developing|retest_recovery_unconfirmed": 1,
+          "SPY|2026-05-12|Ideal|ideal_retest_hold_unconfirmed|recovery_confirmation_required": 1,
+          "SPY|2026-05-12|Ideal|ideal_retest_recovery_confirmation_candidate|fresh_completed_breakout_required": 1,
+          "SPY|2026-05-13|Ideal|ideal_follow_through_no_fresh_trigger|prior_completed_ideal_trigger_spent": 1,
+          "SPY|2026-05-13|Ideal|ideal_triggered_signal_stage_candidate|none": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 4,
+          "PENDING": 1,
+          "TRADE": 1
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 6,
+          "state_changed": 6,
+          "trigger_changed": 3
+        },
+        "meaningful_alert_candidate_count": 6,
+        "setup_type_counts": {
+          "Ideal": 6
+        },
+        "stage_counts": {
+          "ideal_follow_through_no_fresh_trigger": 1,
+          "ideal_impulse_context": 1,
+          "ideal_pullback_retest_developing": 1,
+          "ideal_retest_hold_unconfirmed": 1,
+          "ideal_retest_recovery_confirmation_candidate": 1,
+          "ideal_triggered_signal_stage_candidate": 1
+        },
+        "symbols": [
+          "SPY"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Ideal",
+      "signal_timestamp": "2026-05-13T11:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "SPY",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "selected_setup_type": "Ideal",
+        "selected_symbol": "SPY",
+        "selection_status": "shape_only_second_real_historical_fixture"
+      }
+    },
+    {
+      "accepted_entry_stage_rows": [
+        {
+          "primary_blocker": null,
+          "stage": "clean_fast_break_initial_break_candidate",
+          "timestamp": "2026-04-13T12:30:00-04:00"
+        },
+        {
+          "primary_blocker": null,
+          "stage": "clean_fast_break_fresh_break_signal_candidate",
+          "timestamp": "2026-04-15T14:30:00-04:00"
+        }
+      ],
+      "blocker_category": "missing data",
+      "blocker_evidence": "Fixture final verdict NO_TRADE with primary blocker prior_completed_clean_fast_break_spent; accepted-entry stage rows: 2; pending rows: 0.",
+      "candidate_identifier": "third_real_spy_clean_fast_break_replay_v1_fixture",
+      "chronological_stage_path": [
+        "clean_fast_break_tight_pause_context",
+        "clean_fast_break_initial_break_candidate",
+        "clean_fast_break_follow_through_confirming_context",
+        "watching_higher_base_after_fast_break",
+        "clean_fast_break_fresh_break_signal_candidate",
+        "clean_fast_break_post_break_no_fresh_trigger"
+      ],
+      "context_and_caution_result": "unknown_or_incomplete",
+      "contract_selection_result": "not_selected_missing_data",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_result": "not_recorded",
+      "evidence_source": "historical_signal_replay\\source_data\\incoming\\first_real_historical_replay_v1_SPY_source.csv",
+      "exact_blocker_code": "missing_setup_time_selected_option_evidence",
+      "execution_result": "unknown_missing_selected_option_evidence",
+      "exit_result": "not_evaluated",
+      "final_classification": "MISSING_DATA",
+      "final_outcome": "no_countable_trade",
+      "first_run_output": "PASS",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED",
+        "TRADE_CANDIDATE"
+      ],
+      "highest_stage_reached": "TRADE_CANDIDATE",
+      "lifecycle_summary": {
+        "blocker_counts": {
+          "fresh_completed_breakout_required": 1,
+          "no_completed_break_yet": 1,
+          "prior_completed_clean_fast_break_spent": 2
+        },
+        "caution_counts": {
+          "EVENT_UNCONFIRMED": 6,
+          "IV_UNCONFIRMED": 6,
+          "MACRO_UNCONFIRMED": 6
+        },
+        "duplicate_alert_suppression_key_counts": {
+          "SPY|2026-04-10|Clean Fast Break|clean_fast_break_tight_pause_context|no_completed_break_yet": 1,
+          "SPY|2026-04-13|Clean Fast Break|clean_fast_break_follow_through_confirming_context|prior_completed_clean_fast_break_spent": 1,
+          "SPY|2026-04-13|Clean Fast Break|clean_fast_break_initial_break_candidate|none": 1,
+          "SPY|2026-04-15|Clean Fast Break|clean_fast_break_fresh_break_signal_candidate|none": 1,
+          "SPY|2026-04-15|Clean Fast Break|clean_fast_break_post_break_no_fresh_trigger|prior_completed_clean_fast_break_spent": 1,
+          "SPY|2026-04-15|Clean Fast Break|watching_higher_base_after_fast_break|fresh_completed_breakout_required": 1
+        },
+        "final_verdict_counts": {
+          "NO_TRADE": 4,
+          "TRADE": 2
+        },
+        "lifecycle_change_counts": {
+          "blocker_changed": 6,
+          "state_changed": 6,
+          "trigger_changed": 5
+        },
+        "meaningful_alert_candidate_count": 6,
+        "setup_type_counts": {
+          "Clean Fast Break": 6
+        },
+        "stage_counts": {
+          "clean_fast_break_follow_through_confirming_context": 1,
+          "clean_fast_break_fresh_break_signal_candidate": 1,
+          "clean_fast_break_initial_break_candidate": 1,
+          "clean_fast_break_post_break_no_fresh_trigger": 1,
+          "clean_fast_break_tight_pause_context": 1,
+          "watching_higher_base_after_fast_break": 1
+        },
+        "symbols": [
+          "SPY"
+        ],
+        "total_rows": 6
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "grouped_lifecycle_fixture",
+      "review_only": true,
+      "second_run_output": "PASS",
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-04-15T14:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "underlying": "SPY",
+      "winner_or_loser": null,
+      "winner_selection_result": {
+        "selected_setup_type": "Clean Fast Break",
+        "selected_symbol": "SPY",
+        "selection_status": "shape_only_third_real_historical_fixture"
+      }
+    },
+    {
+      "blocker_category": null,
+      "blocker_evidence": "Entry 6.37 at 2026-04-13T16:30:00+00:00; exit 7.98 at 2026-04-13T19:37:14.335714+00:00; result 1.61; review-only, not proof.",
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "chronological_stage_path": [
+        "completed_profit_target"
+      ],
+      "context_and_caution_result": "entry_rule_ready_awaiting_backtest_harness",
+      "contract_selection_result": "selected",
+      "deterministic_result": "deterministic",
+      "direction": "long_call",
+      "entry_result": "recorded_review_only",
+      "evidence_source": "historical_signal_replay.cfb_backtest_runner",
+      "exact_blocker_code": null,
+      "execution_result": "completed_review_only",
+      "exit_result": "profit_target",
+      "final_classification": "VALID_TRADE_CAPTURED",
+      "final_outcome": "winner",
+      "first_run_output": {
+        "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+        "candidate_marked_ready": false,
+        "cost_adjusted_entry_basis": 6.37,
+        "cost_adjusted_exit_basis": 7.98,
+        "cost_check_request": null,
+        "cost_slippage_adjusted_result": 1.61,
+        "entry_ask": 6.35,
+        "entry_fill_basis": "ask_plus_slippage",
+        "entry_quote_time": "2026-04-13T16:29:04.514819+00:00",
+        "entry_time": "2026-04-13T16:30:00+00:00",
+        "exit_bid": 8.0,
+        "exit_fill_basis": "bid_minus_slippage",
+        "exit_reason": "profit_target",
+        "exit_time": "2026-04-13T19:37:14.335714+00:00",
+        "failure_reason": null,
+        "full_window_data_required": null,
+        "gross_result": 1.65,
+        "missing_fields": [],
+        "option_stop_adjusted_exit_threshold": 5.4145,
+        "profit_target_adjusted_exit_threshold": 7.9625,
+        "profitability_claimed": false,
+        "promotion_decision": "not_requested_not_made",
+        "proof_accepted": false,
+        "rejection_reason": null,
+        "result_name": "completed_profit_target",
+        "result_status": "completed_review_only",
+        "starter_data_enough": null,
+        "trade_rule_status": "entry_rule_ready_awaiting_backtest_harness"
+      },
+      "first_stage_not_reached": null,
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED",
+        "TRADE_CANDIDATE",
+        "CONTRACT_SELECTED",
+        "PRICE_ACCEPTABLE",
+        "ENTRY_ELIGIBLE",
+        "ENTRY_RECORDED",
+        "EXIT_EVALUATED",
+        "FINAL_OUTCOME"
+      ],
+      "highest_stage_reached": "FINAL_OUTCOME",
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "selected_contract_replay_review_output",
+      "review_only": true,
+      "second_run_output": {
+        "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+        "candidate_marked_ready": false,
+        "cost_adjusted_entry_basis": 6.37,
+        "cost_adjusted_exit_basis": 7.98,
+        "cost_check_request": null,
+        "cost_slippage_adjusted_result": 1.61,
+        "entry_ask": 6.35,
+        "entry_fill_basis": "ask_plus_slippage",
+        "entry_quote_time": "2026-04-13T16:29:04.514819+00:00",
+        "entry_time": "2026-04-13T16:30:00+00:00",
+        "exit_bid": 8.0,
+        "exit_fill_basis": "bid_minus_slippage",
+        "exit_reason": "profit_target",
+        "exit_time": "2026-04-13T19:37:14.335714+00:00",
+        "failure_reason": null,
+        "full_window_data_required": null,
+        "gross_result": 1.65,
+        "missing_fields": [],
+        "option_stop_adjusted_exit_threshold": 5.4145,
+        "profit_target_adjusted_exit_threshold": 7.9625,
+        "profitability_claimed": false,
+        "promotion_decision": "not_requested_not_made",
+        "proof_accepted": false,
+        "rejection_reason": null,
+        "result_name": "completed_profit_target",
+        "result_status": "completed_review_only",
+        "starter_data_enough": null,
+        "trade_rule_status": "entry_rule_ready_awaiting_backtest_harness"
+      },
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-04-13T16:30:00+00:00",
+      "signal_timezone": "UTC",
+      "underlying": "SPY",
+      "winner_or_loser": "winner",
+      "winner_selection_result": "selected_contract_replay_row"
+    },
+    {
+      "blocker_category": "real frozen-rule failure",
+      "blocker_evidence": "Selected-contract replay result no_trade_quote_age_above_5_minutes with primary reason quote_age_above_5_minutes at signal 2026-04-15T18:30:00+00:00.",
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "chronological_stage_path": [
+        "no_trade_quote_age_above_5_minutes"
+      ],
+      "context_and_caution_result": "no_trade",
+      "contract_selection_result": "selected",
+      "deterministic_result": "deterministic",
+      "direction": "long_call",
+      "entry_result": "blocked",
+      "evidence_source": "historical_signal_replay.cfb_backtest_runner",
+      "exact_blocker_code": "quote_age_above_5_minutes",
+      "execution_result": "no_trade",
+      "exit_result": "not_evaluated",
+      "final_classification": "TRUE_NO_TRADE",
+      "final_outcome": "no_trade",
+      "first_run_output": {
+        "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+        "candidate_marked_ready": false,
+        "cost_adjusted_entry_basis": null,
+        "cost_adjusted_exit_basis": null,
+        "cost_check_request": null,
+        "cost_slippage_adjusted_result": null,
+        "entry_ask": 7.66,
+        "entry_fill_basis": null,
+        "entry_quote_time": "2026-04-15T18:22:33.366710+00:00",
+        "entry_time": "2026-04-15T18:30:00+00:00",
+        "exit_bid": null,
+        "exit_fill_basis": null,
+        "exit_reason": null,
+        "exit_time": null,
+        "failure_reason": "quote_age_above_5_minutes",
+        "full_window_data_required": null,
+        "gross_result": null,
+        "missing_fields": [],
+        "option_stop_adjusted_exit_threshold": null,
+        "profit_target_adjusted_exit_threshold": null,
+        "profitability_claimed": false,
+        "promotion_decision": "not_requested_not_made",
+        "proof_accepted": false,
+        "rejection_reason": "quote_age_above_5_minutes",
+        "result_name": "no_trade_quote_age_above_5_minutes",
+        "result_status": "no_trade",
+        "starter_data_enough": null,
+        "trade_rule_status": "no_trade"
+      },
+      "first_stage_not_reached": "ENTRY_ELIGIBLE",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED",
+        "TRADE_CANDIDATE",
+        "CONTRACT_SELECTED",
+        "PRICE_ACCEPTABLE"
+      ],
+      "highest_stage_reached": "PRICE_ACCEPTABLE",
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "selected_contract_replay_review_output",
+      "review_only": true,
+      "second_run_output": {
+        "candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+        "candidate_marked_ready": false,
+        "cost_adjusted_entry_basis": null,
+        "cost_adjusted_exit_basis": null,
+        "cost_check_request": null,
+        "cost_slippage_adjusted_result": null,
+        "entry_ask": 7.66,
+        "entry_fill_basis": null,
+        "entry_quote_time": "2026-04-15T18:22:33.366710+00:00",
+        "entry_time": "2026-04-15T18:30:00+00:00",
+        "exit_bid": null,
+        "exit_fill_basis": null,
+        "exit_reason": null,
+        "exit_time": null,
+        "failure_reason": "quote_age_above_5_minutes",
+        "full_window_data_required": null,
+        "gross_result": null,
+        "missing_fields": [],
+        "option_stop_adjusted_exit_threshold": null,
+        "profit_target_adjusted_exit_threshold": null,
+        "profitability_claimed": false,
+        "promotion_decision": "not_requested_not_made",
+        "proof_accepted": false,
+        "rejection_reason": "quote_age_above_5_minutes",
+        "result_name": "no_trade_quote_age_above_5_minutes",
+        "result_status": "no_trade",
+        "starter_data_enough": null,
+        "trade_rule_status": "no_trade"
+      },
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-04-15T18:30:00+00:00",
+      "signal_timezone": "UTC",
+      "underlying": "SPY",
+      "winner_or_loser": null,
+      "winner_selection_result": "selected_contract_replay_row"
+    },
+    {
+      "blocker_category": "real frozen-rule failure",
+      "blocker_evidence": "Selected-contract replay result no_trade_quote_age_above_5_minutes with primary reason quote_age_above_5_minutes at signal 2026-04-13T16:30:00+00:00.",
+      "candidate_identifier": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "chronological_stage_path": [
+        "no_trade_quote_age_above_5_minutes"
+      ],
+      "context_and_caution_result": "no_trade",
+      "contract_selection_result": "selected",
+      "deterministic_result": "deterministic",
+      "direction": "long_call",
+      "entry_result": "blocked",
+      "evidence_source": "historical_signal_replay.cfb_backtest_runner",
+      "exact_blocker_code": "quote_age_above_5_minutes",
+      "execution_result": "no_trade",
+      "exit_result": "not_evaluated",
+      "final_classification": "TRUE_NO_TRADE",
+      "final_outcome": "no_trade",
+      "first_run_output": {
+        "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+        "candidate_marked_ready": false,
+        "cost_adjusted_entry_basis": null,
+        "cost_adjusted_exit_basis": null,
+        "cost_check_request": null,
+        "cost_slippage_adjusted_result": null,
+        "entry_ask": 7.8,
+        "entry_fill_basis": null,
+        "entry_quote_time": "2026-04-13T16:06:30.640301+00:00",
+        "entry_time": "2026-04-13T16:30:00+00:00",
+        "exit_bid": null,
+        "exit_fill_basis": null,
+        "exit_reason": null,
+        "exit_time": null,
+        "failure_reason": "quote_age_above_5_minutes",
+        "full_window_data_required": null,
+        "gross_result": null,
+        "missing_fields": [],
+        "option_stop_adjusted_exit_threshold": null,
+        "profit_target_adjusted_exit_threshold": null,
+        "profitability_claimed": false,
+        "promotion_decision": "not_requested_not_made",
+        "proof_accepted": false,
+        "rejection_reason": "quote_age_above_5_minutes",
+        "result_name": "no_trade_quote_age_above_5_minutes",
+        "result_status": "no_trade",
+        "starter_data_enough": null,
+        "trade_rule_status": "no_trade"
+      },
+      "first_stage_not_reached": "ENTRY_ELIGIBLE",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED",
+        "TRADE_CANDIDATE",
+        "CONTRACT_SELECTED",
+        "PRICE_ACCEPTABLE"
+      ],
+      "highest_stage_reached": "PRICE_ACCEPTABLE",
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "record_type": "selected_contract_replay_review_output",
+      "review_only": true,
+      "second_run_output": {
+        "candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+        "candidate_marked_ready": false,
+        "cost_adjusted_entry_basis": null,
+        "cost_adjusted_exit_basis": null,
+        "cost_check_request": null,
+        "cost_slippage_adjusted_result": null,
+        "entry_ask": 7.8,
+        "entry_fill_basis": null,
+        "entry_quote_time": "2026-04-13T16:06:30.640301+00:00",
+        "entry_time": "2026-04-13T16:30:00+00:00",
+        "exit_bid": null,
+        "exit_fill_basis": null,
+        "exit_reason": null,
+        "exit_time": null,
+        "failure_reason": "quote_age_above_5_minutes",
+        "full_window_data_required": null,
+        "gross_result": null,
+        "missing_fields": [],
+        "option_stop_adjusted_exit_threshold": null,
+        "profit_target_adjusted_exit_threshold": null,
+        "profitability_claimed": false,
+        "promotion_decision": "not_requested_not_made",
+        "proof_accepted": false,
+        "rejection_reason": "quote_age_above_5_minutes",
+        "result_name": "no_trade_quote_age_above_5_minutes",
+        "result_status": "no_trade",
+        "starter_data_enough": null,
+        "trade_rule_status": "no_trade"
+      },
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-04-13T16:30:00+00:00",
+      "signal_timezone": "UTC",
+      "underlying": "QQQ",
+      "winner_or_loser": null,
+      "winner_selection_result": "selected_contract_replay_row"
+    }
+  ],
+  "combined_scorecard": {
+    "candidates_found": 15,
+    "candidates_runnable": 15,
+    "contracts_selected": 3,
+    "conversion_rate_between_stages": {
+      "CONTRACT_SELECTED_to_PRICE_ACCEPTABLE": 1.0,
+      "ENTRY_ELIGIBLE_to_ENTRY_RECORDED": 1.0,
+      "ENTRY_RECORDED_to_EXIT_EVALUATED": 1.0,
+      "EXIT_EVALUATED_to_FINAL_OUTCOME": 1.0,
+      "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": 0.3333333333333333,
+      "SETUP_DEVELOPING_to_SETUP_QUALIFIED": 0.8666666666666667,
+      "SETUP_QUALIFIED_to_TRADE_CANDIDATE": 0.6923076923076923,
+      "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.3333333333333333
+    },
+    "deterministic_cases": 15,
+    "entries_eligible": 1,
+    "entries_recorded": 1,
+    "exits_evaluated": 1,
+    "first_blocker_totals_by_funnel_stage": {
+      "CONTRACT_SELECTED": 6,
+      "ENTRY_ELIGIBLE": 2,
+      "NONE": 1,
+      "SETUP_QUALIFIED": 2,
+      "TRADE_CANDIDATE": 4
+    },
+    "invalid_trades_allowed": 0,
+    "losers": 0,
+    "missed_valid_trades": 0,
+    "missing_data_cases": 8,
+    "prices_accepted": 3,
+    "sample_contract_progress": {
+      "accepted_entries": 1,
+      "accepted_entries_required": 20,
+      "ambiguous_boundary_cases": 4,
+      "ambiguous_boundary_cases_required": 5,
+      "losers": 0,
+      "losers_required": 5,
+      "protected_holdout_accepted_entries": 0,
+      "protected_holdout_accepted_entries_required": 8,
+      "protected_holdout_rejection_no_trade_controls": 0,
+      "protected_holdout_rejection_no_trade_controls_required": 4,
+      "rejection_no_trade_controls": 2,
+      "rejection_no_trade_controls_required": 10,
+      "winners": 1,
+      "winners_required": 5
+    },
+    "setup_developing_count": 15,
+    "setup_qualified_count": 13,
+    "trade_candidate_count": 9,
+    "true_no_trades": 2,
+    "unresolved_cases": 4,
+    "unstable_cases": 0,
+    "valid_trades_captured": 1,
+    "winners": 1
+  },
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "family_scorecards": {
+    "Clean Fast Break": {
+      "candidates_found": 7,
+      "candidates_runnable": 7,
+      "contracts_selected": 3,
+      "conversion_rate_between_stages": {
+        "CONTRACT_SELECTED_to_PRICE_ACCEPTABLE": 1.0,
+        "ENTRY_ELIGIBLE_to_ENTRY_RECORDED": 1.0,
+        "ENTRY_RECORDED_to_EXIT_EVALUATED": 1.0,
+        "EXIT_EVALUATED_to_FINAL_OUTCOME": 1.0,
+        "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": 0.3333333333333333,
+        "SETUP_DEVELOPING_to_SETUP_QUALIFIED": 0.8571428571428571,
+        "SETUP_QUALIFIED_to_TRADE_CANDIDATE": 0.8333333333333334,
+        "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.6
+      },
+      "deterministic_cases": 7,
+      "entries_eligible": 1,
+      "entries_recorded": 1,
+      "exits_evaluated": 1,
+      "first_blocker_totals_by_funnel_stage": {
+        "CONTRACT_SELECTED": 2,
+        "ENTRY_ELIGIBLE": 2,
+        "NONE": 1,
+        "SETUP_QUALIFIED": 1,
+        "TRADE_CANDIDATE": 1
+      },
+      "invalid_trades_allowed": 0,
+      "losers": 0,
+      "missed_valid_trades": 0,
+      "missing_data_cases": 3,
+      "prices_accepted": 3,
+      "sample_contract_progress": {
+        "accepted_entries": 1,
+        "accepted_entries_required": 20,
+        "ambiguous_boundary_cases": 1,
+        "ambiguous_boundary_cases_required": 5,
+        "losers": 0,
+        "losers_required": 5,
+        "protected_holdout_accepted_entries": 0,
+        "protected_holdout_accepted_entries_required": 8,
+        "protected_holdout_rejection_no_trade_controls": 0,
+        "protected_holdout_rejection_no_trade_controls_required": 4,
+        "rejection_no_trade_controls": 2,
+        "rejection_no_trade_controls_required": 10,
+        "winners": 1,
+        "winners_required": 5
+      },
+      "setup_developing_count": 7,
+      "setup_qualified_count": 6,
+      "trade_candidate_count": 5,
+      "true_no_trades": 2,
+      "unresolved_cases": 1,
+      "unstable_cases": 0,
+      "valid_trades_captured": 1,
+      "winners": 1
+    },
+    "Continuation": {
+      "candidates_found": 4,
+      "candidates_runnable": 4,
+      "contracts_selected": 0,
+      "conversion_rate_between_stages": {
+        "CONTRACT_SELECTED_to_PRICE_ACCEPTABLE": null,
+        "ENTRY_ELIGIBLE_to_ENTRY_RECORDED": null,
+        "ENTRY_RECORDED_to_EXIT_EVALUATED": null,
+        "EXIT_EVALUATED_to_FINAL_OUTCOME": null,
+        "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": null,
+        "SETUP_DEVELOPING_to_SETUP_QUALIFIED": 0.75,
+        "SETUP_QUALIFIED_to_TRADE_CANDIDATE": 0.6666666666666666,
+        "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.0
+      },
+      "deterministic_cases": 4,
+      "entries_eligible": 0,
+      "entries_recorded": 0,
+      "exits_evaluated": 0,
+      "first_blocker_totals_by_funnel_stage": {
+        "CONTRACT_SELECTED": 2,
+        "SETUP_QUALIFIED": 1,
+        "TRADE_CANDIDATE": 1
+      },
+      "invalid_trades_allowed": 0,
+      "losers": 0,
+      "missed_valid_trades": 0,
+      "missing_data_cases": 3,
+      "prices_accepted": 0,
+      "sample_contract_progress": {
+        "accepted_entries": 0,
+        "accepted_entries_required": 20,
+        "ambiguous_boundary_cases": 1,
+        "ambiguous_boundary_cases_required": 5,
+        "losers": 0,
+        "losers_required": 5,
+        "protected_holdout_accepted_entries": 0,
+        "protected_holdout_accepted_entries_required": 8,
+        "protected_holdout_rejection_no_trade_controls": 0,
+        "protected_holdout_rejection_no_trade_controls_required": 4,
+        "rejection_no_trade_controls": 0,
+        "rejection_no_trade_controls_required": 10,
+        "winners": 0,
+        "winners_required": 5
+      },
+      "setup_developing_count": 4,
+      "setup_qualified_count": 3,
+      "trade_candidate_count": 2,
+      "true_no_trades": 0,
+      "unresolved_cases": 1,
+      "unstable_cases": 0,
+      "valid_trades_captured": 0,
+      "winners": 0
+    },
+    "Ideal": {
+      "candidates_found": 4,
+      "candidates_runnable": 4,
+      "contracts_selected": 0,
+      "conversion_rate_between_stages": {
+        "CONTRACT_SELECTED_to_PRICE_ACCEPTABLE": null,
+        "ENTRY_ELIGIBLE_to_ENTRY_RECORDED": null,
+        "ENTRY_RECORDED_to_EXIT_EVALUATED": null,
+        "EXIT_EVALUATED_to_FINAL_OUTCOME": null,
+        "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": null,
+        "SETUP_DEVELOPING_to_SETUP_QUALIFIED": 1.0,
+        "SETUP_QUALIFIED_to_TRADE_CANDIDATE": 0.5,
+        "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.0
+      },
+      "deterministic_cases": 4,
+      "entries_eligible": 0,
+      "entries_recorded": 0,
+      "exits_evaluated": 0,
+      "first_blocker_totals_by_funnel_stage": {
+        "CONTRACT_SELECTED": 2,
+        "TRADE_CANDIDATE": 2
+      },
+      "invalid_trades_allowed": 0,
+      "losers": 0,
+      "missed_valid_trades": 0,
+      "missing_data_cases": 2,
+      "prices_accepted": 0,
+      "sample_contract_progress": {
+        "accepted_entries": 0,
+        "accepted_entries_required": 20,
+        "ambiguous_boundary_cases": 2,
+        "ambiguous_boundary_cases_required": 5,
+        "losers": 0,
+        "losers_required": 5,
+        "protected_holdout_accepted_entries": 0,
+        "protected_holdout_accepted_entries_required": 8,
+        "protected_holdout_rejection_no_trade_controls": 0,
+        "protected_holdout_rejection_no_trade_controls_required": 4,
+        "rejection_no_trade_controls": 0,
+        "rejection_no_trade_controls_required": 10,
+        "winners": 0,
+        "winners_required": 5
+      },
+      "setup_developing_count": 4,
+      "setup_qualified_count": 4,
+      "trade_candidate_count": 2,
+      "true_no_trades": 0,
+      "unresolved_cases": 2,
+      "unstable_cases": 0,
+      "valid_trades_captured": 0,
+      "winners": 0
+    }
+  },
+  "final_classifications": {
+    "INVALID_TRADE_ALLOWED": 0,
+    "MISSED_VALID_TRADE": 0,
+    "MISSING_DATA": 8,
+    "TRUE_NO_TRADE": 2,
+    "UNRESOLVED": 4,
+    "VALID_TRADE_CAPTURED": 1
+  },
+  "first_blockers": {
+    "CONTRACT_SELECTED": {
+      "affected_candidate_count": 6,
+      "affected_setup_families": [
+        "Clean Fast Break",
+        "Continuation",
+        "Ideal"
+      ],
+      "common_causes": {
+        "missing_setup_time_selected_option_evidence": 6
+      },
+      "external_data_required": true,
+      "local_evidence_can_resolve": false,
+      "smallest_safe_next_action": "Create a grouped exact missing-data cost-check task only for setup-time selected-option fields."
+    },
+    "ENTRY_ELIGIBLE": {
+      "affected_candidate_count": 2,
+      "affected_setup_families": [
+        "Clean Fast Break"
+      ],
+      "common_causes": {
+        "quote_age_above_5_minutes": 2
+      },
+      "external_data_required": false,
+      "local_evidence_can_resolve": true,
+      "smallest_safe_next_action": "Preserve frozen quote-age rejection controls in regression."
+    },
+    "NONE": {
+      "affected_candidate_count": 1,
+      "affected_setup_families": [
+        "Clean Fast Break"
+      ],
+      "common_causes": {
+        "completed_valid_entry_review_only": 1
+      },
+      "external_data_required": false,
+      "local_evidence_can_resolve": false,
+      "smallest_safe_next_action": "Use as positive-entry expansion reference; do not claim proof."
+    },
+    "SETUP_QUALIFIED": {
+      "affected_candidate_count": 2,
+      "affected_setup_families": [
+        "Continuation",
+        "Clean Fast Break"
+      ],
+      "common_causes": {
+        "fresh_or_spent_unconfirmed": 1,
+        "prior_completed_shelf_break_spent_TO_REVIEW": 1
+      },
+      "external_data_required": false,
+      "local_evidence_can_resolve": false,
+      "smallest_safe_next_action": "Add grouped local fixture evidence before any data request."
+    },
+    "TRADE_CANDIDATE": {
+      "affected_candidate_count": 4,
+      "affected_setup_families": [
+        "Clean Fast Break",
+        "Ideal",
+        "Continuation"
+      ],
+      "common_causes": {
+        "fresh_or_spent_unconfirmed": 3,
+        "prior_completed_shelf_break_spent_TO_REVIEW": 1
+      },
+      "external_data_required": false,
+      "local_evidence_can_resolve": false,
+      "smallest_safe_next_action": "Add grouped local fixture evidence before any data request."
+    }
+  },
+  "first_run_hash": "5865e3e955b28ce9c88736fb8f711201917680d60bc35fa73d23b5fb26b50849",
+  "frozen_engine_or_rule_version": "day48_positive_trade_capture_funnel_v1;cfb_backtest_runner_review_only;day48_grouped_three_family_lifecycle_fixtures",
+  "funnel_stages": [
+    "SETUP_DEVELOPING",
+    "SETUP_QUALIFIED",
+    "TRADE_CANDIDATE",
+    "CONTRACT_SELECTED",
+    "PRICE_ACCEPTABLE",
+    "ENTRY_ELIGIBLE",
+    "ENTRY_RECORDED",
+    "EXIT_EVALUATED",
+    "FINAL_OUTCOME"
+  ],
+  "live_eligible": false,
+  "owner_questions": {
+    "did_it_classify_the_setup_as_a_possible_trade": "Yes for accepted-entry-stage lifecycle rows and the three CFB selected-contract replay rows; accepted-entry stage is not the same as an executed trade.",
+    "did_safe_fast_recognize_the_setup_before_the_move": "Yes for the grouped lifecycle candidates that reached setup or trade-candidate stages; recognition is still incomplete for shape-only/missing-data rows.",
+    "how_many_valid_trades_were_caught_missed_or_incorrectly_allowed": "Caught 1; missed 0; incorrectly allowed 0.",
+    "was_a_tradable_option_available_at_that_exact_time": "Only SPY Clean Fast Break 002 currently has local selected-contract entry and exit evidence sufficient for a review-only captured valid entry. Other candidate families are blocked by stale quote, future quote, wide spread, or missing setup-time selected-option evidence.",
+    "was_rejection_caused_by_real_safety_rule_or_missing_evidence": "Both: 2 true no-trade controls are frozen safety-rule failures, while 8 cases are missing-data blockers and unresolved rows remain separate."
+  },
+  "paper_eligible": false,
+  "profitability_claimed": false,
+  "promotion_decision_made": false,
+  "proof_accepted": false,
+  "run_timestamp": "2026-06-20T05:00:06.693160Z",
+  "second_run_hash": "5865e3e955b28ce9c88736fb8f711201917680d60bc35fa73d23b5fb26b50849",
+  "source_commit": "6b90016",
+  "unresolved_evidence_requirements": [
+    {
+      "candidate_identifier": "first_real_gld_clean_fast_break_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "TRADE_CANDIDATE",
+      "missing_or_unresolved_field": "fresh_or_spent_unconfirmed"
+    },
+    {
+      "candidate_identifier": "first_real_gld_continuation_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "missing_or_unresolved_field": "prior_completed_shelf_break_spent_TO_REVIEW"
+    },
+    {
+      "candidate_identifier": "first_real_gld_ideal_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "TRADE_CANDIDATE",
+      "missing_or_unresolved_field": "fresh_or_spent_unconfirmed"
+    },
+    {
+      "candidate_identifier": "first_real_iwm_clean_fast_break_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "missing_or_unresolved_field": "fresh_or_spent_unconfirmed"
+    },
+    {
+      "candidate_identifier": "first_real_iwm_continuation_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "TRADE_CANDIDATE",
+      "missing_or_unresolved_field": "prior_completed_shelf_break_spent_TO_REVIEW"
+    },
+    {
+      "candidate_identifier": "first_real_iwm_ideal_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "TRADE_CANDIDATE",
+      "missing_or_unresolved_field": "fresh_or_spent_unconfirmed"
+    },
+    {
+      "candidate_identifier": "first_real_qqq_clean_fast_break_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "missing_or_unresolved_field": "missing_setup_time_selected_option_evidence"
+    },
+    {
+      "candidate_identifier": "first_real_qqq_continuation_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "missing_or_unresolved_field": "missing_setup_time_selected_option_evidence"
+    },
+    {
+      "candidate_identifier": "first_real_qqq_ideal_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "missing_or_unresolved_field": "missing_setup_time_selected_option_evidence"
+    },
+    {
+      "candidate_identifier": "first_real_spy_continuation_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "missing_or_unresolved_field": "missing_setup_time_selected_option_evidence"
+    },
+    {
+      "candidate_identifier": "second_real_spy_ideal_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "missing_or_unresolved_field": "missing_setup_time_selected_option_evidence"
+    },
+    {
+      "candidate_identifier": "third_real_spy_clean_fast_break_replay_v1_fixture",
+      "decision_value": "determines whether the candidate can progress to selected contract, valid entry, or true no-trade classification",
+      "first_stage_not_reached": "CONTRACT_SELECTED",
+      "missing_or_unresolved_field": "missing_setup_time_selected_option_evidence"
+    }
+  ]
+}

@@ -1,5 +1,87 @@
 # SAFE-FAST Build State
 
+## Day 48 positive-trade capture and miss analysis result
+
+- Current task file executed: `SAFE_FAST_DAY48_POSITIVE_TRADE_CAPTURE_AND_MISS_ANALYSIS_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY48_POSITIVE_TRADE_CAPTURE_AND_MISS_ANALYSIS_RESULT.md`.
+- Machine-readable funnel created: `historical_signal_replay/results/day48_positive_trade_capture_funnel.json`.
+- Funnel builder created: `historical_signal_replay/day48_positive_trade_capture_funnel.py`.
+- Focused validator created: `watcher_foundation/day48_positive_trade_capture_funnel_validator.py`.
+- Focused tests created: `tests/test_day48_positive_trade_capture_funnel.py`.
+- Exact next grouped task created: `SAFE_FAST_DAY48_GROUPED_POSITIVE_ENTRY_EXPANSION_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`, HEAD `6b90016`; local status was clean except untracked task file `SAFE_FAST_DAY48_POSITIVE_TRADE_CAPTURE_AND_MISS_ANALYSIS_CODEX_TASK.md` and the known permission warnings for temp directories `tmp2i57tguu`, `tmpj8ei9a_f`, `tmpra392qh0`, and `tmpt2fw63vq`.
+- Required startup files were read, including the Day 47-90 consolidated audit, proof pipeline, Day 48 grouped replay/coverage/Continuation result files, Day 48 QQQ/SPY cost-check result, dashboard, rule index, current grouped fixtures/tests, and future-chat handoff files.
+- The funnel includes the existing `12` grouped lifecycle fixture candidates plus the `3` Clean Fast Break selected-contract replay rows from the current review-only CFB path.
+- Combined funnel totals:
+  - candidates found/runnable: `15` / `15`;
+  - setup developing: `15`;
+  - setup qualified: `13`;
+  - trade candidate: `9`;
+  - contracts selected: `3`;
+  - prices accepted: `3`;
+  - entries eligible: `1`;
+  - entries recorded: `1`;
+  - exits evaluated: `1`;
+  - valid trades captured: `1`;
+  - true no-trades: `2`;
+  - missing-data cases: `8`;
+  - missed valid trades: `0`;
+  - invalid trades allowed: `0`;
+  - unresolved cases: `4`;
+  - winners: `1`;
+  - losers: `0`;
+  - deterministic cases: `15`;
+  - unstable cases: `0`.
+- Family funnel totals:
+  - Ideal: `4` found/runnable, `2` trade-candidate, `0` contracts selected, `0` entries recorded, `0` valid trades captured, `0` true no-trades, `2` missing-data cases, `2` unresolved cases, `0` winners, `0` losers.
+  - Clean Fast Break: `7` found/runnable, `5` trade-candidate, `3` contracts selected, `1` entry recorded, `1` valid trade captured, `2` true no-trades, `3` missing-data cases, `1` unresolved case, `1` winner, `0` losers.
+  - Continuation: `4` found/runnable, `2` trade-candidate, `0` contracts selected, `0` entries recorded, `0` valid trades captured, `0` true no-trades, `3` missing-data cases, `1` unresolved case, `0` winners, `0` losers.
+- First blockers by stage:
+  - `SETUP_QUALIFIED`: `2` cases, spent/freshness not proven enough for qualification.
+  - `TRADE_CANDIDATE`: `4` cases, fresh/spent or pending status unresolved.
+  - `CONTRACT_SELECTED`: `6` cases, missing setup-time selected-option evidence.
+  - `ENTRY_ELIGIBLE`: `2` cases, frozen stale-quote safety-rule failures from `quote_age_above_5_minutes`.
+  - none: `1` case, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` captured as a review-only valid-entry reference.
+- Owner-facing answers:
+  - SAFE-FAST recognized setup stages for the grouped candidates that reached setup or trade-candidate status, but recognition remains incomplete for shape-only and missing-data rows.
+  - SAFE-FAST classified accepted-entry-stage lifecycle rows and the three CFB selected-contract replay rows as possible trades; accepted-entry stage is not an executed trade.
+  - Only `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` currently has local selected-contract entry and exit evidence sufficient for a review-only captured valid entry.
+  - Rejections are split: `2` true no-trades are real frozen stale-quote safety failures, `8` are missing-data blockers, and `4` remain unresolved.
+  - Valid trades caught/missed/incorrectly allowed: `1` / `0` / `0`.
+- Sample-contract progress remains far below the canonical contract: accepted entries `1` of `20`, rejection/no-trade controls `2` of `10`, ambiguous/boundary cases `4` of `5`, winners `1` of `5`, losers `0` of `5`, protected holdout entries `0` of `8`, protected holdout controls `0` of `4`.
+- The captured trade is `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002` from existing review-only CFB evidence: entry basis `6.37`, adjusted exit basis `7.98`, adjusted result `+1.61`, profit-target exit.
+- This result does not accept proof, claim profitability, mark readiness, authorize promotion, open protected holdout, choose a real trade, authorize paper/live use, download data, request Databento data, change raw vendor data, run a new backtest beyond existing local review helpers, or change intake-ready status.
+- Exact next grouped task: `SAFE_FAST_DAY48_GROUPED_POSITIVE_ENTRY_EXPANSION_CODEX_TASK.md`.
+- Next objective: grouped positive-entry expansion, because the funnel works and separates valid captures, true no-trades, missing data, missed valid trades, invalid allowed trades, and unresolved cases, but positive-entry coverage is only one winner and zero losers.
+- Checks run:
+  - `.\scripts\safe_fast_run_safe_checks.ps1`: BLOCKED by local PowerShell execution policy before the script ran.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks plus `9` discovered tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_positive_trade_capture_funnel.py"`: PASS, `4` tests.
+  - `python -B -m historical_signal_replay.day48_positive_trade_capture_funnel`: PASS, wrote `15` candidates, `1` valid captured, `2` true no-trades, `8` missing-data cases.
+  - `python -B -m watcher_foundation.day48_positive_trade_capture_funnel_validator`: PASS.
+  - `python -B -m unittest discover -s tests -p "test_day48_positive_trade_handoff_consistency.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_actual_grouped_three_family_replay.py"`: PASS, `2` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_grouped_three_family_coverage_expansion.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_continuation_starter_coverage.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_grouped_three_family_expansion_after_continuation.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_cfb_backtest_runner.py"`: PASS, `8` tests.
+  - `python -B -m unittest discover -s tests -p "test_cfb_contract_selector.py"`: PASS, `17` tests.
+  - `python -B -m unittest discover -s tests -p "test_execution_context_calculator.py"`: PASS, `10` tests.
+  - `python -B -m unittest discover -s tests -p "test_context_caution_calculator.py"`: PASS, `12` tests.
+  - Direct script execution for `replay/test_on_demand_*ideal*.py`: PASS, `3` files.
+  - Direct script execution for `replay/test_on_demand_*clean_fast_break*.py`: PASS, `3` files.
+  - Direct script execution for `replay/test_on_demand_*continuation*.py`: PASS, `6` files.
+  - Direct script execution for `replay/test_on_demand_*stage*.py`: PASS, `6` files.
+  - Direct script execution for `replay/test_on_demand_session_boundary*.py`: PASS, `5` files.
+  - `python -B -m unittest discover -s tests -p "test_watcher_stable_winner_selection_replay.py"`: PASS, `8` tests.
+  - `python -B .\replay\test_on_demand_winner_selection_contract.py`: PASS.
+  - `python -B .\historical_signal_replay\run_signal_replay.py`: PASS.
+  - `python -B -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -B -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+  - `python -B -m unittest discover -s tests -p "test_day47_to_day90_audit_consistency.py"`: PASS, `2` tests.
+  - Bounded `__pycache__` inspection over `tests`, `watcher_foundation`, `historical_signal_replay`, and `replay`: `0` directories found.
+  - `git --no-pager diff --check`: PASS with line-ending warnings only for edited Markdown/text files.
+
 ## Day 48 Continuation QQQ/SPY exact selected-request cost check result
 
 - Current task file executed: `SAFE_FAST_DAY48_CONTINUATION_QQQ_SPY_EXACT_SELECTED_REQUEST_COST_CHECK_CODEX_TASK.md`.
