@@ -4,7 +4,9 @@ CURRENT DAY 49 ENTRY POINT:
 Read SAFE_FAST_BUILD_STATE.md first, then verify local branch, commit, and status.
 
 Current result:
-- SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_AND_REPLAY_RESULT.md
+- SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_CANDIDATE_EXPANSION_RESULT.md
+- historical_signal_replay/fixtures/day49_positive_entry_candidate_expansion_manifest.json
+- historical_signal_replay/results/day49_positive_entry_candidate_expansion.json
 - historical_signal_replay/results/day48_positive_trade_capture_funnel.json
 
 Current funnel totals:
@@ -17,8 +19,17 @@ Current funnel totals:
 - winners: 1
 - losers: 0
 
+Current new development batch:
+- new candidates found/runnable: 8 / 8
+- setup qualified: 0
+- trade candidates: 0
+- valid trades captured: 0
+- true no-trades: 0
+- missing-data cases: 8
+- winners/losers: 0 / 0
+
 Exact next grouped task:
-SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_DOWNLOAD_CODEX_TASK.md
+SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_FIELD_COMPLETION_CODEX_TASK.md
 
 The next chat must continue that exact active task, use grouped batches, require funnel scorecards, keep positive-trade capture and no-trade safety co-equal, and preserve cost-check/download approval requirements. Do not restart completed discovery or replace runnable testing with governance-only documents.
 

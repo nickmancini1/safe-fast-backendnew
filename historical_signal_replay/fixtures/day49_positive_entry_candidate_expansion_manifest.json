@@ -1,0 +1,360 @@
+{
+  "candidate_count": 8,
+  "candidates": [
+    {
+      "candidate_generation_rule_version": "day39_candidate_completeness_screen_v1",
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+      "development_evidence_not_holdout": true,
+      "direction": "long_call_candidate",
+      "duplicate_signal": false,
+      "lifecycle_rule_version": "day48_grouped_three_family_lifecycle_fixtures;day49_positive_entry_expansion_v1",
+      "pre_outcome_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "protected_holdout": false,
+      "session_date": "UNKNOWN",
+      "setup_family": "Ideal",
+      "signal_timestamp": "UNKNOWN",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:37",
+      "status_at_freeze": "blocked",
+      "timezone": "UNKNOWN",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_generation_rule_version": "day39_candidate_completeness_screen_v1",
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-002",
+      "development_evidence_not_holdout": true,
+      "direction": "long_call_candidate",
+      "duplicate_signal": false,
+      "lifecycle_rule_version": "day48_grouped_three_family_lifecycle_fixtures;day49_positive_entry_expansion_v1",
+      "pre_outcome_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "protected_holdout": false,
+      "session_date": "UNKNOWN",
+      "setup_family": "Ideal",
+      "signal_timestamp": "UNKNOWN",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:45",
+      "status_at_freeze": "replace",
+      "timezone": "UNKNOWN",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_generation_rule_version": "day39_candidate_completeness_screen_v1",
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+      "development_evidence_not_holdout": true,
+      "direction": "long_call_candidate",
+      "duplicate_signal": false,
+      "lifecycle_rule_version": "day48_grouped_three_family_lifecycle_fixtures;day49_positive_entry_expansion_v1",
+      "pre_outcome_fields": {
+        "blocker": "MISSING complete blocker/caution review",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "protected_holdout": false,
+      "session_date": "2026-03-31",
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-03-31T09:30:00-04:00",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 79-99; `2026-03-31T09:30:00-04:00` through `2026-04-02T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:70; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:70",
+      "status_at_freeze": "blocked",
+      "timezone": "America/New_York",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_generation_rule_version": "day39_candidate_completeness_screen_v1",
+      "candidate_identifier": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+      "development_evidence_not_holdout": true,
+      "direction": "long_call_candidate",
+      "duplicate_signal": false,
+      "lifecycle_rule_version": "day48_grouped_three_family_lifecycle_fixtures;day49_positive_entry_expansion_v1",
+      "pre_outcome_fields": {
+        "blocker": "MISSING complete same-context/freshness and blocker/caution review",
+        "freshness": "UNCLEAR",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "protected_holdout": false,
+      "session_date": "2026-04-02",
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-04-02T09:30:00-04:00",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv CSV lines 87-107; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:73; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:55",
+      "status_at_freeze": "replace",
+      "timezone": "America/New_York",
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_generation_rule_version": "day39_candidate_completeness_screen_v1",
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+      "development_evidence_not_holdout": true,
+      "direction": "long_call_candidate",
+      "duplicate_signal": false,
+      "lifecycle_rule_version": "day48_grouped_three_family_lifecycle_fixtures;day49_positive_entry_expansion_v1",
+      "pre_outcome_fields": {
+        "blocker": "MISSING complete blocker/caution review",
+        "freshness": "UNCLEAR",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "protected_holdout": false,
+      "session_date": "2026-04-02",
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-04-02T09:30:00-04:00",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 93-113; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:71; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:85",
+      "status_at_freeze": "blocked",
+      "timezone": "America/New_York",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_generation_rule_version": "day39_candidate_completeness_screen_v1",
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+      "development_evidence_not_holdout": true,
+      "direction": "long_call_candidate",
+      "duplicate_signal": false,
+      "lifecycle_rule_version": "day48_grouped_three_family_lifecycle_fixtures;day49_positive_entry_expansion_v1",
+      "pre_outcome_fields": {
+        "blocker": "MISSING complete same-lifecycle/freshness and blocker/caution review",
+        "freshness": "UNCLEAR",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "protected_holdout": false,
+      "session_date": "2026-05-01",
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-05-01T09:30:00-04:00",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 233-253; `2026-05-01T09:30:00-04:00` through `2026-05-05T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:72; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:40",
+      "status_at_freeze": "replace",
+      "timezone": "America/New_York",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_generation_rule_version": "day39_candidate_completeness_screen_v1",
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+      "development_evidence_not_holdout": true,
+      "direction": "long_call_candidate",
+      "duplicate_signal": false,
+      "lifecycle_rule_version": "day48_grouped_three_family_lifecycle_fixtures;day49_positive_entry_expansion_v1",
+      "pre_outcome_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "protected_holdout": false,
+      "session_date": "UNKNOWN",
+      "setup_family": "Continuation",
+      "signal_timestamp": "UNKNOWN",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:35",
+      "status_at_freeze": "blocked",
+      "timezone": "UNKNOWN",
+      "underlying": "IWM"
+    },
+    {
+      "candidate_generation_rule_version": "day39_candidate_completeness_screen_v1",
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+      "development_evidence_not_holdout": true,
+      "direction": "long_call_candidate",
+      "duplicate_signal": false,
+      "lifecycle_rule_version": "day48_grouped_three_family_lifecycle_fixtures;day49_positive_entry_expansion_v1",
+      "pre_outcome_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "protected_holdout": false,
+      "session_date": "UNKNOWN",
+      "setup_family": "Continuation",
+      "signal_timestamp": "UNKNOWN",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:36",
+      "status_at_freeze": "blocked",
+      "timezone": "UNKNOWN",
+      "underlying": "IWM"
+    }
+  ],
+  "deterministic_selection": {
+    "first_run_equals_second_run": true,
+    "first_run_hash": "01df8cb43a081efbfa91d4977589f0dd225b5095a844135c387575581a848c15",
+    "hashes_match": true,
+    "result": "PASS",
+    "second_run_hash": "01df8cb43a081efbfa91d4977589f0dd225b5095a844135c387575581a848c15"
+  },
+  "development_evidence_not_holdout": true,
+  "exclusions": [
+    {
+      "candidate_identifier": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-04-13T12:30:00-04:00",
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-04-30T15:30:00-04:00",
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "QQQ-REAL-HISTORICAL-IDEAL-001",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Ideal",
+      "signal_timestamp": "2026-05-13T12:30:00-04:00",
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-04-13T12:30:00-04:00",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-04-30T12:30:00-04:00",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Ideal",
+      "signal_timestamp": "2026-05-13T11:30:00-04:00",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "GLD-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "UNKNOWN",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "GLD-REAL-HISTORICAL-CONTINUATION-001",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Continuation",
+      "signal_timestamp": "UNKNOWN",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "GLD-REAL-HISTORICAL-IDEAL-001",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Ideal",
+      "signal_timestamp": "UNKNOWN",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "IWM-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "UNKNOWN",
+      "underlying": "IWM"
+    },
+    {
+      "candidate_identifier": "IWM-REAL-HISTORICAL-CONTINUATION-001",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Continuation",
+      "signal_timestamp": "UNKNOWN",
+      "underlying": "IWM"
+    },
+    {
+      "candidate_identifier": "IWM-REAL-HISTORICAL-IDEAL-001",
+      "exclusion_reason": "existing_measured_funnel_or_positive_rejection_control",
+      "setup_family": "Ideal",
+      "signal_timestamp": "UNKNOWN",
+      "underlying": "IWM"
+    },
+    {
+      "candidate_identifier": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+      "exclusion_reason": "duplicate_signal_same_underlying_opportunity",
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "UNKNOWN",
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+      "exclusion_reason": "duplicate_signal_same_underlying_opportunity",
+      "setup_family": "Continuation",
+      "signal_timestamp": "UNKNOWN",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-003",
+      "exclusion_reason": "duplicate_signal_same_underlying_opportunity",
+      "setup_family": "Continuation",
+      "signal_timestamp": "UNKNOWN",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "exclusion_reason": "dropped_from_current_proof_path_before_this_task",
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "UNKNOWN",
+      "underlying": "SPY"
+    }
+  ],
+  "manifest_version": "day49_positive_entry_candidate_expansion_v1",
+  "profitability_claimed": false,
+  "proof_accepted": false,
+  "protected_holdout_candidates_selected": 0,
+  "run_timestamp": "2026-06-20T00:00:00Z",
+  "selection_policy": {
+    "candidate_generation_rule_version": "day39_candidate_completeness_screen_v1",
+    "family_order": [
+      "Ideal",
+      "Clean Fast Break",
+      "Continuation"
+    ],
+    "forbidden_selection_inputs": [
+      "outcome_window",
+      "later price move",
+      "option exit path",
+      "P&L",
+      "profitability",
+      "winner_or_loser"
+    ],
+    "lifecycle_rule_version": "day48_grouped_three_family_lifecycle_fixtures;day49_positive_entry_expansion_v1",
+    "max_per_setup_family": 8,
+    "outcome_blind_fields_used": [
+      "candidate_id",
+      "symbol",
+      "setup_type",
+      "source_lines",
+      "setup_candle",
+      "trigger",
+      "invalidation",
+      "freshness",
+      "blocker",
+      "no_hindsight_boundary",
+      "duplicate",
+      "status"
+    ],
+    "sort_key": "signal_timestamp/session date/source reference/candidate id",
+    "source_universe": "watcher_foundation.candidate_completeness_screen.build_candidate_pool"
+  },
+  "source_commit": "testsha",
+  "source_pool_count": 24
+}

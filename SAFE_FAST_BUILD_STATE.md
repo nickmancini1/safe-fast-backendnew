@@ -1,5 +1,37 @@
 # SAFE-FAST Build State
 
+## Day 49 grouped positive-entry candidate expansion result
+
+- Current task file executed: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_CANDIDATE_EXPANSION_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_CANDIDATE_EXPANSION_RESULT.md`.
+- Frozen development manifest created: `historical_signal_replay/fixtures/day49_positive_entry_candidate_expansion_manifest.json`.
+- Machine-readable expansion result created: `historical_signal_replay/results/day49_positive_entry_candidate_expansion.json`.
+- Exact next grouped task created: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_FIELD_COMPLETION_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`, HEAD `46ab96e`; local status was clean except untracked task file `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_CANDIDATE_EXPANSION_CODEX_TASK.md` and known permission warnings for temp directories `tmp2i57tguu`, `tmpj8ei9a_f`, `tmpra392qh0`, and `tmpt2fw63vq`.
+- Selection used the existing 24-row local candidate completeness screen and excluded protected holdout rows, the existing measured 15-candidate funnel set, current positive/rejection controls, duplicate source-window signals, and dropped rows.
+- New frozen development candidates selected: `8` total.
+  - Ideal: `2` candidates, `GLD-REPLACEMENT-IDEAL-CANDIDATE-001` and `GLD-REPLACEMENT-IDEAL-CANDIDATE-002`.
+  - Clean Fast Break: `1` candidate, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`.
+  - Continuation: `5` candidates, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, `QQQ-SOURCE-WINDOW-CONTINUATION-002`, and `SPY-SOURCE-WINDOW-CONTINUATION-005`.
+- Selection was deterministic and outcome-blind; deterministic comparison PASS and protected holdout selected count `0`.
+- New-candidate combined totals: found/runnable `8` / `8`; setup developing `8`; setup qualified `0`; trade candidates `0`; contracts selected `0`; prices accepted `0`; entries eligible `0`; entries recorded `0`; exits evaluated `0`; valid trades captured `0`; true no-trades `0`; missing-data cases `8`; missed valid trades `0`; invalid trades allowed `0`; unresolved cases `0`; winners `0`; losers `0`; stable cases `8`; unstable cases `0`.
+- First blocker by stage for all new candidates: `SETUP_QUALIFIED`, because accepted setup-time replay fields are missing or unresolved before option testing.
+- No new candidate reached `TRADE_CANDIDATE`; no bounded option-contract set, CMBP-1 request, CBBO-1s request, setup-time option cost check, or exit-path cost check was created.
+- Existing 15-candidate regression-control funnel reran twice and remained deterministic: valid trades captured `1`, true no-trades `4`, missing-data cases `6`, missed valid trades `0`, invalid trades allowed `0`, unresolved cases `4`, winners `1`, losers `0`.
+- Exact checked cost: `NOT_AVAILABLE`; actual billed cost: `NOT_AVAILABLE`.
+- Databento downloaded: `NO`; raw vendor data changed: `NO`; exit-path data downloaded: `NO`; new P&L calculated: `NO`; proof accepted: `NO`; profitability claimed: `NO`; promotion/readiness/paper/live decision made: `NO`.
+- Exact next grouped task: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_FIELD_COMPLETION_CODEX_TASK.md`.
+- Checks run:
+  - `.\scripts\safe_fast_run_safe_checks.ps1`: BLOCKED by local PowerShell execution policy before the script ran.
+  - `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`: PASS, `3` checks plus `9` discovered tests.
+  - `python -B -m unittest discover -s tests -p "test_day49_positive_entry_candidate_expansion.py"`: PASS, `5` tests.
+  - `python -B -m watcher_foundation.day49_positive_entry_candidate_expansion_validator`: PASS.
+  - `python -B -m historical_signal_replay.day49_positive_entry_candidate_expansion`: PASS twice, wrote `8` new candidates, `0` trade candidates, `0` valid captured, `8` missing-data cases.
+  - `python -B -m historical_signal_replay.day48_positive_trade_capture_funnel`: PASS twice, wrote `15` candidates, `1` valid captured, `4` true no-trades, `6` missing-data cases.
+  - Focused positive-trade funnel, setup-time, handoff consistency, grouped three-family, continuation, contract-selection, execution, context/caution, CFB backtest, winner-selection, direct replay family/stage/session, evidence validator, intake bridge, and Day 47-to-Day 90 audit checks: PASS.
+  - Bounded `__pycache__` inspection over `tests`, `watcher_foundation`, `historical_signal_replay`, and `replay`: `0` directories found.
+  - `git --no-pager diff --check`: PASS with line-ending warnings only.
+
 ## Day 49 grouped positive-entry setup-time download and replay result
 
 - Current task file executed: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_AND_REPLAY_CODEX_TASK.md`.
