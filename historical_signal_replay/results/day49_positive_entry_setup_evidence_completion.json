@@ -1,0 +1,2022 @@
+{
+  "candidate_slot_count": 8,
+  "candidate_slot_records": [
+    {
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED_BLOCKED"
+      ],
+      "direction": "long_call_candidate",
+      "first_blocker_field": "setup_time_row",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "formal_outcome_not_vague_missing_data": true,
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_resolution": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed",
+      "missing_field_matrix": {
+        "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+        "direction": "long_call_candidate",
+        "fields": [
+          {
+            "current_field_value": "blocked_missing_evidence: GLD source rows 204-238 exist, but no exact accepted setup-time row is repo-backed.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+            "field_name": "setup_time_row",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted numeric trigger and trigger basis unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.trigger_gate",
+            "field_name": "trigger",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted numeric invalidation and invalidation basis unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.invalidation_gate",
+            "field_name": "invalidation",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted freshness/final-signal decision unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+            "field_name": "freshness_final_signal_state",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "freshness_final_signal_state is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted blocker/caution decision unavailable; 24H, macro, IV, and event context remain unconfirmed.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+            "field_name": "blocker_caution_review",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: ordered local rows exist, but no accepted setup-time row or replay no-hindsight output freezes the boundary.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+            "field_name": "no_hindsight_boundary",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "not_resolved_missing_setup_time_review",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "stage_transition.session_boundary_gate",
+            "field_name": "session_boundary_behavior",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "session_boundary_behavior is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          }
+        ],
+        "setup_family": "Ideal",
+        "signal_timestamp": "UNKNOWN",
+        "signal_timezone": "UNKNOWN",
+        "source_files_and_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:37",
+        "underlying": "GLD"
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "replacement_result": "not_replaced_no_complete_local_replacement_available",
+      "setup_family": "Ideal",
+      "setup_qualified": false,
+      "signal_timestamp": "UNKNOWN",
+      "signal_timezone": "UNKNOWN",
+      "slot_classification": "EXACT_EXTERNAL_SETUP_DATA_REQUIRED",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:37",
+      "trade_candidate": false,
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-002",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED_BLOCKED"
+      ],
+      "direction": "long_call_candidate",
+      "first_blocker_field": "setup_time_row",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "formal_outcome_not_vague_missing_data": true,
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_resolution": "local search confirms no exact repo-backed source window for this reserved slot",
+      "missing_field_matrix": {
+        "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-002",
+        "direction": "long_call_candidate",
+        "fields": [
+          {
+            "current_field_value": "unavailable: no second exact GLD Ideal source window and row range is repo-backed.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+            "field_name": "setup_time_row",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unavailable: accepted trigger cannot be reviewed without a source window.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.trigger_gate",
+            "field_name": "trigger",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unavailable: accepted invalidation cannot be reviewed without a source window.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.invalidation_gate",
+            "field_name": "invalidation",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unavailable: accepted freshness/final-signal decision cannot be reviewed without a source window.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+            "field_name": "freshness_final_signal_state",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "freshness_final_signal_state is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unavailable: blocker/caution review cannot begin without a source window.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+            "field_name": "blocker_caution_review",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unavailable: no exact source-window boundary exists for this reserved slot.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+            "field_name": "no_hindsight_boundary",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unavailable_missing_source_window",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "stage_transition.session_boundary_gate",
+            "field_name": "session_boundary_behavior",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "session_boundary_behavior is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          }
+        ],
+        "setup_family": "Ideal",
+        "signal_timestamp": "UNKNOWN",
+        "signal_timezone": "UNKNOWN",
+        "source_files_and_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:45",
+        "underlying": "GLD"
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "replacement_result": "not_replaced_no_complete_local_replacement_available",
+      "setup_family": "Ideal",
+      "setup_qualified": false,
+      "signal_timestamp": "UNKNOWN",
+      "signal_timezone": "UNKNOWN",
+      "slot_classification": "CANDIDATE_UNUSABLE",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:45",
+      "trade_candidate": false,
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED_BLOCKED"
+      ],
+      "direction": "long_call_candidate",
+      "first_blocker_field": "setup_time_row",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "formal_outcome_not_vague_missing_data": true,
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_resolution": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed",
+      "missing_field_matrix": {
+        "candidate_identifier": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "direction": "long_call_candidate",
+        "fields": [
+          {
+            "current_field_value": "blocked_missing_evidence: SPY source CSV lines 79-99 exist, but no accepted Clean Fast Break setup-time candle/replay row exists.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+            "field_name": "setup_time_row",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted Clean Fast Break trigger unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.trigger_gate",
+            "field_name": "trigger",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted failure/invalidation level unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.invalidation_gate",
+            "field_name": "invalidation",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: freshness/final-signal state missing.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+            "field_name": "freshness_final_signal_state",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "freshness_final_signal_state is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: complete blocker/caution review missing; source rows carry unconfirmed 24H, macro, IV, and event context.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+            "field_name": "blocker_caution_review",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: ordered source rows alone are not accepted replay no-hindsight output.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+            "field_name": "no_hindsight_boundary",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "not_resolved_missing_setup_time_replay",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "stage_transition.session_boundary_gate",
+            "field_name": "session_boundary_behavior",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "session_boundary_behavior is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          }
+        ],
+        "setup_family": "Clean Fast Break",
+        "signal_timestamp": "2026-03-31T09:30:00-04:00",
+        "signal_timezone": "America/New_York",
+        "source_files_and_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 79-99; `2026-03-31T09:30:00-04:00` through `2026-04-02T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:70; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:70",
+        "underlying": "SPY"
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "replacement_result": "not_replaced_no_complete_local_replacement_available",
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": false,
+      "signal_timestamp": "2026-03-31T09:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "slot_classification": "EXACT_EXTERNAL_SETUP_DATA_REQUIRED",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 79-99; `2026-03-31T09:30:00-04:00` through `2026-04-02T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:70; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:70",
+      "trade_candidate": false,
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED_BLOCKED"
+      ],
+      "direction": "long_call_candidate",
+      "first_blocker_field": "setup_time_row",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "formal_outcome_not_vague_missing_data": true,
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_resolution": "local rows are present, but freshness/session-boundary evidence is contradictory or unclear and cannot be resolved without accepted chronological replay evidence",
+      "missing_field_matrix": {
+        "candidate_identifier": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+        "direction": "long_call_candidate",
+        "fields": [
+          {
+            "current_field_value": "blocked_missing_evidence: QQQ source CSV lines 87-107 exist, but no accepted setup-time candle/replay row exists.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+            "field_name": "setup_time_row",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted Continuation trigger unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.trigger_gate",
+            "field_name": "trigger",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted failure/invalidation level unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.invalidation_gate",
+            "field_name": "invalidation",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unclear_missing_evidence: fresh Continuation versus same rebound context after QQQ lines 66-86 remains unclear.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+            "field_name": "freshness_final_signal_state",
+            "field_status": "contradictory",
+            "setup_qualified_blocker_reason": "freshness_final_signal_state has contradictory or unclear source-local evidence",
+            "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: complete same-context/freshness and blocker/caution review missing.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+            "field_name": "blocker_caution_review",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted replay no-hindsight output missing.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+            "field_name": "no_hindsight_boundary",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unclear_same_rebound_context_after_q_q_q_lines_66_86",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "stage_transition.session_boundary_gate",
+            "field_name": "session_boundary_behavior",
+            "field_status": "contradictory",
+            "setup_qualified_blocker_reason": "session_boundary_behavior has contradictory or unclear source-local evidence",
+            "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          }
+        ],
+        "setup_family": "Continuation",
+        "signal_timestamp": "2026-04-02T09:30:00-04:00",
+        "signal_timezone": "America/New_York",
+        "source_files_and_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv CSV lines 87-107; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:73; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:55",
+        "underlying": "QQQ"
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "replacement_result": "not_replaced_no_complete_local_replacement_available",
+      "setup_family": "Continuation",
+      "setup_qualified": false,
+      "signal_timestamp": "2026-04-02T09:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "slot_classification": "SOURCE_CONTRADICTION",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv CSV lines 87-107; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:73; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:55",
+      "trade_candidate": false,
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED_BLOCKED"
+      ],
+      "direction": "long_call_candidate",
+      "first_blocker_field": "setup_time_row",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "formal_outcome_not_vague_missing_data": true,
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_resolution": "local rows are present, but freshness/session-boundary evidence is contradictory or unclear and cannot be resolved without accepted chronological replay evidence",
+      "missing_field_matrix": {
+        "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "direction": "long_call_candidate",
+        "fields": [
+          {
+            "current_field_value": "blocked_missing_evidence: SPY source CSV lines 93-113 exist, but no accepted Continuation setup-time candle/replay row exists.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+            "field_name": "setup_time_row",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted Continuation trigger unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.trigger_gate",
+            "field_name": "trigger",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted failure/invalidation level and 2026-04-07 invalidation decision unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.invalidation_gate",
+            "field_name": "invalidation",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unclear_missing_evidence: freshness and 2026-04-07 invalidation status remain unclear.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+            "field_name": "freshness_final_signal_state",
+            "field_status": "contradictory",
+            "setup_qualified_blocker_reason": "freshness_final_signal_state has contradictory or unclear source-local evidence",
+            "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: complete blocker/caution review missing; source rows carry unconfirmed context fields.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+            "field_name": "blocker_caution_review",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted replay no-hindsight output missing.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+            "field_name": "no_hindsight_boundary",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unclear_2026_04_07_recovery_or_invalidation",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "stage_transition.session_boundary_gate",
+            "field_name": "session_boundary_behavior",
+            "field_status": "contradictory",
+            "setup_qualified_blocker_reason": "session_boundary_behavior has contradictory or unclear source-local evidence",
+            "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          }
+        ],
+        "setup_family": "Continuation",
+        "signal_timestamp": "2026-04-02T09:30:00-04:00",
+        "signal_timezone": "America/New_York",
+        "source_files_and_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 93-113; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:71; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:85",
+        "underlying": "SPY"
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "replacement_result": "not_replaced_no_complete_local_replacement_available",
+      "setup_family": "Continuation",
+      "setup_qualified": false,
+      "signal_timestamp": "2026-04-02T09:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "slot_classification": "SOURCE_CONTRADICTION",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 93-113; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:71; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:85",
+      "trade_candidate": false,
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED_BLOCKED"
+      ],
+      "direction": "long_call_candidate",
+      "first_blocker_field": "setup_time_row",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "formal_outcome_not_vague_missing_data": true,
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_resolution": "local rows are present, but freshness/session-boundary evidence is contradictory or unclear and cannot be resolved without accepted chronological replay evidence",
+      "missing_field_matrix": {
+        "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+        "direction": "long_call_candidate",
+        "fields": [
+          {
+            "current_field_value": "blocked_missing_evidence: SPY source CSV lines 233-253 exist, but no accepted setup-time candle/replay row exists.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+            "field_name": "setup_time_row",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted Continuation trigger unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.trigger_gate",
+            "field_name": "trigger",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted failure/invalidation level unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.invalidation_gate",
+            "field_name": "invalidation",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unclear_missing_evidence: no accepted rule proves the 2026-05-01 through 2026-05-05 structure is fresh and non-duplicate instead of 2026-04-30 same-lifecycle follow-through.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+            "field_name": "freshness_final_signal_state",
+            "field_status": "contradictory",
+            "setup_qualified_blocker_reason": "freshness_final_signal_state has contradictory or unclear source-local evidence",
+            "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: complete same-lifecycle/freshness and blocker/caution review missing.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+            "field_name": "blocker_caution_review",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted replay no-hindsight output missing.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+            "field_name": "no_hindsight_boundary",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "unclear_same_lifecycle_follow_through_after_2026_04_30",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "stage_transition.session_boundary_gate",
+            "field_name": "session_boundary_behavior",
+            "field_status": "contradictory",
+            "setup_qualified_blocker_reason": "session_boundary_behavior has contradictory or unclear source-local evidence",
+            "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          }
+        ],
+        "setup_family": "Continuation",
+        "signal_timestamp": "2026-05-01T09:30:00-04:00",
+        "signal_timezone": "America/New_York",
+        "source_files_and_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 233-253; `2026-05-01T09:30:00-04:00` through `2026-05-05T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:72; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:40",
+        "underlying": "SPY"
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "replacement_result": "not_replaced_no_complete_local_replacement_available",
+      "setup_family": "Continuation",
+      "setup_qualified": false,
+      "signal_timestamp": "2026-05-01T09:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "slot_classification": "SOURCE_CONTRADICTION",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 233-253; `2026-05-01T09:30:00-04:00` through `2026-05-05T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:72; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:40",
+      "trade_candidate": false,
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED_BLOCKED"
+      ],
+      "direction": "long_call_candidate",
+      "first_blocker_field": "setup_time_row",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "formal_outcome_not_vague_missing_data": true,
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_resolution": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed",
+      "missing_field_matrix": {
+        "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+        "direction": "long_call_candidate",
+        "fields": [
+          {
+            "current_field_value": "blocked_missing_evidence: IWM source rows 141-210 exist, but no exact accepted setup-time row is repo-backed.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+            "field_name": "setup_time_row",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted numeric trigger and trigger basis unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.trigger_gate",
+            "field_name": "trigger",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted numeric invalidation and invalidation basis unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.invalidation_gate",
+            "field_name": "invalidation",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted freshness/final-signal decision unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+            "field_name": "freshness_final_signal_state",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "freshness_final_signal_state is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted blocker/caution decision unavailable; 24H, macro, IV, and event context remain unconfirmed.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+            "field_name": "blocker_caution_review",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: ordered local rows exist, but no accepted setup-time row or replay no-hindsight output freezes the boundary.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+            "field_name": "no_hindsight_boundary",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "not_resolved_missing_setup_time_review",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "stage_transition.session_boundary_gate",
+            "field_name": "session_boundary_behavior",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "session_boundary_behavior is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          }
+        ],
+        "setup_family": "Continuation",
+        "signal_timestamp": "UNKNOWN",
+        "signal_timezone": "UNKNOWN",
+        "source_files_and_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:35",
+        "underlying": "IWM"
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "replacement_result": "not_replaced_no_complete_local_replacement_available",
+      "setup_family": "Continuation",
+      "setup_qualified": false,
+      "signal_timestamp": "UNKNOWN",
+      "signal_timezone": "UNKNOWN",
+      "slot_classification": "EXACT_EXTERNAL_SETUP_DATA_REQUIRED",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:35",
+      "trade_candidate": false,
+      "underlying": "IWM"
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_QUALIFIED_BLOCKED"
+      ],
+      "direction": "long_call_candidate",
+      "first_blocker_field": "setup_time_row",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "formal_outcome_not_vague_missing_data": true,
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_resolution": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed",
+      "missing_field_matrix": {
+        "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+        "direction": "long_call_candidate",
+        "fields": [
+          {
+            "current_field_value": "blocked_missing_evidence: IWM source rows 190-210 exist, but no exact accepted session-boundary setup-time row is repo-backed.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+            "field_name": "setup_time_row",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted numeric trigger and trigger basis unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.trigger_gate",
+            "field_name": "trigger",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted numeric invalidation and invalidation basis unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.invalidation_gate",
+            "field_name": "invalidation",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted session-boundary freshness/final-signal decision unavailable.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+            "field_name": "freshness_final_signal_state",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "freshness_final_signal_state is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: accepted blocker/caution decision unavailable; 24H, macro, IV, and event context remain unconfirmed.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+            "field_name": "blocker_caution_review",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "blocked_missing_evidence: ordered local rows exist, but no accepted setup-time row or replay no-hindsight output freezes the boundary.",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+            "field_name": "no_hindsight_boundary",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          },
+          {
+            "current_field_value": "not_resolved_session_boundary_candidate",
+            "derivation_inputs": [],
+            "derived_locally": false,
+            "exact_rule_consumer": "stage_transition.session_boundary_gate",
+            "field_name": "session_boundary_behavior",
+            "field_status": "absent",
+            "setup_qualified_blocker_reason": "session_boundary_behavior is not accepted by a frozen setup rule or replay fixture",
+            "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+            "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+          }
+        ],
+        "setup_family": "Continuation",
+        "signal_timestamp": "UNKNOWN",
+        "signal_timezone": "UNKNOWN",
+        "source_files_and_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:36",
+        "underlying": "IWM"
+      },
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "replacement_result": "not_replaced_no_complete_local_replacement_available",
+      "setup_family": "Continuation",
+      "setup_qualified": false,
+      "signal_timestamp": "UNKNOWN",
+      "signal_timezone": "UNKNOWN",
+      "slot_classification": "EXACT_EXTERNAL_SETUP_DATA_REQUIRED",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:36",
+      "trade_candidate": false,
+      "underlying": "IWM"
+    }
+  ],
+  "databento_downloaded": false,
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "exact_setup_data_request_manifest": {
+    "cost_check": {
+      "actual_billed_cost": "NOT_AVAILABLE",
+      "checked_cost": "NOT_AVAILABLE",
+      "credential_used": false,
+      "reason": "No safe repo-backed Databento dataset/schema mapping exists for these underlying setup-context requests; no HTTPS cost call was attempted and no data was downloaded."
+    },
+    "databento_downloaded": false,
+    "exit_path_request_included": false,
+    "manifest_version": "day49_positive_entry_exact_setup_data_request_v1",
+    "option_request_included": false,
+    "request_count": 7,
+    "request_scope": "underlying_setup_evidence_only_no_options_no_exit_path",
+    "requests": [
+      {
+        "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+        "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+        "decision_resolved": "SETUP_QUALIFIED",
+        "end_timestamp": "2026-05-08T14:30:00-04:00",
+        "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+        "forbidden_scope": [
+          "options",
+          "exit_path",
+          "full_session_unbounded",
+          "P&L"
+        ],
+        "missing_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "no_hindsight_boundary",
+          "session_boundary_behavior"
+        ],
+        "required_rows_or_fields": [
+          "1h RTH OHLCV rows through setup timestamp",
+          "24H/daily context as-of setup timestamp",
+          "macro context as-of setup timestamp",
+          "IV context as-of setup timestamp",
+          "event/headline context as-of setup timestamp"
+        ],
+        "schema": "1h_rth_ohlcv_plus_setup_context",
+        "setup_family": "Ideal",
+        "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
+        "source_rows": "204-238",
+        "start_timestamp": "2026-05-01T15:30:00-04:00",
+        "symbol": "GLD",
+        "timezone": "America/New_York",
+        "underlying": "GLD",
+        "why_local_evidence_is_insufficient": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed"
+      },
+      {
+        "candidate_identifier": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+        "decision_resolved": "SETUP_QUALIFIED",
+        "end_timestamp": "2026-03-31T09:30:00-04:00",
+        "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+        "forbidden_scope": [
+          "options",
+          "exit_path",
+          "full_session_unbounded",
+          "P&L"
+        ],
+        "missing_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "no_hindsight_boundary",
+          "session_boundary_behavior"
+        ],
+        "required_rows_or_fields": [
+          "1h RTH OHLCV rows through setup timestamp",
+          "24H/daily context as-of setup timestamp",
+          "macro context as-of setup timestamp",
+          "IV context as-of setup timestamp",
+          "event/headline context as-of setup timestamp"
+        ],
+        "schema": "1h_rth_ohlcv_plus_setup_context",
+        "setup_family": "Clean Fast Break",
+        "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 79-99; `2026-03-31T09:30:00-04:00` through `2026-04-02T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:70; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:70",
+        "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 79-99; `2026-03-31T09:30:00-04:00` through `2026-04-02T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:70; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:70",
+        "start_timestamp": "2026-03-31T09:30:00-04:00",
+        "symbol": "SPY",
+        "timezone": "America/New_York",
+        "underlying": "SPY",
+        "why_local_evidence_is_insufficient": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed"
+      },
+      {
+        "candidate_identifier": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+        "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+        "decision_resolved": "SETUP_QUALIFIED",
+        "end_timestamp": "2026-04-02T09:30:00-04:00",
+        "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+        "forbidden_scope": [
+          "options",
+          "exit_path",
+          "full_session_unbounded",
+          "P&L"
+        ],
+        "missing_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "no_hindsight_boundary",
+          "session_boundary_behavior"
+        ],
+        "required_rows_or_fields": [
+          "1h RTH OHLCV rows through setup timestamp",
+          "24H/daily context as-of setup timestamp",
+          "macro context as-of setup timestamp",
+          "IV context as-of setup timestamp",
+          "event/headline context as-of setup timestamp"
+        ],
+        "schema": "1h_rth_ohlcv_plus_setup_context",
+        "setup_family": "Continuation",
+        "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv CSV lines 87-107; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:73; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:55",
+        "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv CSV lines 87-107; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:73; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:55",
+        "start_timestamp": "2026-04-02T09:30:00-04:00",
+        "symbol": "QQQ",
+        "timezone": "America/New_York",
+        "underlying": "QQQ",
+        "why_local_evidence_is_insufficient": "local rows are present, but freshness/session-boundary evidence is contradictory or unclear and cannot be resolved without accepted chronological replay evidence"
+      },
+      {
+        "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+        "decision_resolved": "SETUP_QUALIFIED",
+        "end_timestamp": "2026-04-02T09:30:00-04:00",
+        "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+        "forbidden_scope": [
+          "options",
+          "exit_path",
+          "full_session_unbounded",
+          "P&L"
+        ],
+        "missing_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "no_hindsight_boundary",
+          "session_boundary_behavior"
+        ],
+        "required_rows_or_fields": [
+          "1h RTH OHLCV rows through setup timestamp",
+          "24H/daily context as-of setup timestamp",
+          "macro context as-of setup timestamp",
+          "IV context as-of setup timestamp",
+          "event/headline context as-of setup timestamp"
+        ],
+        "schema": "1h_rth_ohlcv_plus_setup_context",
+        "setup_family": "Continuation",
+        "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 93-113; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:71; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:85",
+        "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 93-113; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:71; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:85",
+        "start_timestamp": "2026-04-02T09:30:00-04:00",
+        "symbol": "SPY",
+        "timezone": "America/New_York",
+        "underlying": "SPY",
+        "why_local_evidence_is_insufficient": "local rows are present, but freshness/session-boundary evidence is contradictory or unclear and cannot be resolved without accepted chronological replay evidence"
+      },
+      {
+        "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+        "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+        "decision_resolved": "SETUP_QUALIFIED",
+        "end_timestamp": "2026-05-01T09:30:00-04:00",
+        "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+        "forbidden_scope": [
+          "options",
+          "exit_path",
+          "full_session_unbounded",
+          "P&L"
+        ],
+        "missing_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "no_hindsight_boundary",
+          "session_boundary_behavior"
+        ],
+        "required_rows_or_fields": [
+          "1h RTH OHLCV rows through setup timestamp",
+          "24H/daily context as-of setup timestamp",
+          "macro context as-of setup timestamp",
+          "IV context as-of setup timestamp",
+          "event/headline context as-of setup timestamp"
+        ],
+        "schema": "1h_rth_ohlcv_plus_setup_context",
+        "setup_family": "Continuation",
+        "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 233-253; `2026-05-01T09:30:00-04:00` through `2026-05-05T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:72; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:40",
+        "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 233-253; `2026-05-01T09:30:00-04:00` through `2026-05-05T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:72; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:40",
+        "start_timestamp": "2026-05-01T09:30:00-04:00",
+        "symbol": "SPY",
+        "timezone": "America/New_York",
+        "underlying": "SPY",
+        "why_local_evidence_is_insufficient": "local rows are present, but freshness/session-boundary evidence is contradictory or unclear and cannot be resolved without accepted chronological replay evidence"
+      },
+      {
+        "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+        "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+        "decision_resolved": "SETUP_QUALIFIED",
+        "end_timestamp": "2026-05-01T14:30:00-04:00",
+        "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+        "forbidden_scope": [
+          "options",
+          "exit_path",
+          "full_session_unbounded",
+          "P&L"
+        ],
+        "missing_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "no_hindsight_boundary",
+          "session_boundary_behavior"
+        ],
+        "required_rows_or_fields": [
+          "1h RTH OHLCV rows through setup timestamp",
+          "24H/daily context as-of setup timestamp",
+          "macro context as-of setup timestamp",
+          "IV context as-of setup timestamp",
+          "event/headline context as-of setup timestamp"
+        ],
+        "schema": "1h_rth_ohlcv_plus_setup_context",
+        "setup_family": "Continuation",
+        "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+        "source_rows": "141-210",
+        "start_timestamp": "2026-04-17T15:30:00-04:00",
+        "symbol": "IWM",
+        "timezone": "America/New_York",
+        "underlying": "IWM",
+        "why_local_evidence_is_insufficient": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed"
+      },
+      {
+        "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+        "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+        "decision_resolved": "SETUP_QUALIFIED",
+        "end_timestamp": "2026-05-01T14:30:00-04:00",
+        "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+        "forbidden_scope": [
+          "options",
+          "exit_path",
+          "full_session_unbounded",
+          "P&L"
+        ],
+        "missing_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "no_hindsight_boundary",
+          "session_boundary_behavior"
+        ],
+        "required_rows_or_fields": [
+          "1h RTH OHLCV rows through setup timestamp",
+          "24H/daily context as-of setup timestamp",
+          "macro context as-of setup timestamp",
+          "IV context as-of setup timestamp",
+          "event/headline context as-of setup timestamp"
+        ],
+        "schema": "1h_rth_ohlcv_plus_setup_context",
+        "setup_family": "Continuation",
+        "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+        "source_rows": "190-210",
+        "start_timestamp": "2026-04-28T15:30:00-04:00",
+        "symbol": "IWM",
+        "timezone": "America/New_York",
+        "underlying": "IWM",
+        "why_local_evidence_is_insufficient": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed"
+      }
+    ],
+    "run_timestamp": "2026-06-20T18:16:46.389398Z",
+    "source_commit": "ef97280"
+  },
+  "exact_setup_data_request_manifest_path": "historical_signal_replay/source_data/richer_export_package_work/day49_positive_entry_exact_setup_data_request_manifest.json",
+  "existing_regression_control_result": {
+    "candidate_count": 15,
+    "combined_scorecard": {
+      "candidates_found": 15,
+      "candidates_runnable": 15,
+      "contracts_selected": 5,
+      "conversion_rate_between_stages": {
+        "CONTRACT_SELECTED_to_PRICE_ACCEPTABLE": 1.0,
+        "ENTRY_ELIGIBLE_to_ENTRY_RECORDED": 1.0,
+        "ENTRY_RECORDED_to_EXIT_EVALUATED": 1.0,
+        "EXIT_EVALUATED_to_FINAL_OUTCOME": 1.0,
+        "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": 0.2,
+        "SETUP_DEVELOPING_to_SETUP_QUALIFIED": 0.8666666666666667,
+        "SETUP_QUALIFIED_to_TRADE_CANDIDATE": 0.6923076923076923,
+        "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.5555555555555556
+      },
+      "deterministic_cases": 15,
+      "entries_eligible": 1,
+      "entries_recorded": 1,
+      "exits_evaluated": 1,
+      "first_blocker_totals_by_funnel_stage": {
+        "CONTRACT_SELECTED": 4,
+        "ENTRY_ELIGIBLE": 4,
+        "NONE": 1,
+        "SETUP_QUALIFIED": 2,
+        "TRADE_CANDIDATE": 4
+      },
+      "invalid_trades_allowed": 0,
+      "losers": 0,
+      "missed_valid_trades": 0,
+      "missing_data_cases": 6,
+      "prices_accepted": 5,
+      "sample_contract_progress": {
+        "accepted_entries": 1,
+        "accepted_entries_required": 20,
+        "ambiguous_boundary_cases": 4,
+        "ambiguous_boundary_cases_required": 5,
+        "losers": 0,
+        "losers_required": 5,
+        "protected_holdout_accepted_entries": 0,
+        "protected_holdout_accepted_entries_required": 8,
+        "protected_holdout_rejection_no_trade_controls": 0,
+        "protected_holdout_rejection_no_trade_controls_required": 4,
+        "rejection_no_trade_controls": 4,
+        "rejection_no_trade_controls_required": 10,
+        "winners": 1,
+        "winners_required": 5
+      },
+      "setup_developing_count": 15,
+      "setup_qualified_count": 13,
+      "trade_candidate_count": 9,
+      "true_no_trades": 4,
+      "unresolved_cases": 4,
+      "unstable_cases": 0,
+      "valid_trades_captured": 1,
+      "winners": 1
+    },
+    "deterministic_result": "PASS"
+  },
+  "exit_path_data_downloaded": false,
+  "first_run_hash": "4952eb7c722dbc4f194995c2b28a7ef0bd467b79b376b1e3a05d57b14c4629bb",
+  "live_eligible": false,
+  "local_evidence_search": [
+    {
+      "path": "historical_signal_replay/source_data/incoming",
+      "result": "local underlying OHLCV source rows exist for SPY, QQQ, GLD, and IWM where row ranges are named; CSV context fields remain UNCONFIRMED."
+    },
+    {
+      "path": "historical_signal_replay/reports",
+      "result": "replay signal logs exist for prior accepted/control rows, but not for the eight frozen Day 49 source-window replacement slots."
+    },
+    {
+      "path": "watcher_foundation.candidate_completeness_screen.build_candidate_pool",
+      "result": "24 candidate rows inspected; zero unused non-holdout replacements have complete local setup evidence."
+    },
+    {
+      "path": "historical_signal_replay/source_data/richer_export_package_work",
+      "result": "existing work packages cover prior controls and option-context requests, not accepted setup fields for these eight slots."
+    }
+  ],
+  "missing_field_matrix": [
+    {
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+      "direction": "long_call_candidate",
+      "fields": [
+        {
+          "current_field_value": "blocked_missing_evidence: GLD source rows 204-238 exist, but no exact accepted setup-time row is repo-backed.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+          "field_name": "setup_time_row",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted numeric trigger and trigger basis unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.trigger_gate",
+          "field_name": "trigger",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted numeric invalidation and invalidation basis unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.invalidation_gate",
+          "field_name": "invalidation",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted freshness/final-signal decision unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+          "field_name": "freshness_final_signal_state",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "freshness_final_signal_state is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted blocker/caution decision unavailable; 24H, macro, IV, and event context remain unconfirmed.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+          "field_name": "blocker_caution_review",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: ordered local rows exist, but no accepted setup-time row or replay no-hindsight output freezes the boundary.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+          "field_name": "no_hindsight_boundary",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "not_resolved_missing_setup_time_review",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "stage_transition.session_boundary_gate",
+          "field_name": "session_boundary_behavior",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "session_boundary_behavior is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        }
+      ],
+      "setup_family": "Ideal",
+      "signal_timestamp": "UNKNOWN",
+      "signal_timezone": "UNKNOWN",
+      "source_files_and_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:37",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-002",
+      "direction": "long_call_candidate",
+      "fields": [
+        {
+          "current_field_value": "unavailable: no second exact GLD Ideal source window and row range is repo-backed.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+          "field_name": "setup_time_row",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unavailable: accepted trigger cannot be reviewed without a source window.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.trigger_gate",
+          "field_name": "trigger",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unavailable: accepted invalidation cannot be reviewed without a source window.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.invalidation_gate",
+          "field_name": "invalidation",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unavailable: accepted freshness/final-signal decision cannot be reviewed without a source window.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+          "field_name": "freshness_final_signal_state",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "freshness_final_signal_state is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unavailable: blocker/caution review cannot begin without a source window.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+          "field_name": "blocker_caution_review",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unavailable: no exact source-window boundary exists for this reserved slot.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+          "field_name": "no_hindsight_boundary",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unavailable_missing_source_window",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "stage_transition.session_boundary_gate",
+          "field_name": "session_boundary_behavior",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "session_boundary_behavior is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "deterministic replacement source window with complete pre-outcome setup fields; no exact source row exists for this slot",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        }
+      ],
+      "setup_family": "Ideal",
+      "signal_timestamp": "UNKNOWN",
+      "signal_timezone": "UNKNOWN",
+      "source_files_and_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:45",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+      "direction": "long_call_candidate",
+      "fields": [
+        {
+          "current_field_value": "blocked_missing_evidence: SPY source CSV lines 79-99 exist, but no accepted Clean Fast Break setup-time candle/replay row exists.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+          "field_name": "setup_time_row",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted Clean Fast Break trigger unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.trigger_gate",
+          "field_name": "trigger",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted failure/invalidation level unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.invalidation_gate",
+          "field_name": "invalidation",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: freshness/final-signal state missing.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+          "field_name": "freshness_final_signal_state",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "freshness_final_signal_state is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: complete blocker/caution review missing; source rows carry unconfirmed 24H, macro, IV, and event context.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+          "field_name": "blocker_caution_review",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: ordered source rows alone are not accepted replay no-hindsight output.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+          "field_name": "no_hindsight_boundary",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "not_resolved_missing_setup_time_replay",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "stage_transition.session_boundary_gate",
+          "field_name": "session_boundary_behavior",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "session_boundary_behavior is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        }
+      ],
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-03-31T09:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "source_files_and_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 79-99; `2026-03-31T09:30:00-04:00` through `2026-04-02T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:70; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:70",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+      "direction": "long_call_candidate",
+      "fields": [
+        {
+          "current_field_value": "blocked_missing_evidence: QQQ source CSV lines 87-107 exist, but no accepted setup-time candle/replay row exists.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+          "field_name": "setup_time_row",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted Continuation trigger unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.trigger_gate",
+          "field_name": "trigger",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted failure/invalidation level unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.invalidation_gate",
+          "field_name": "invalidation",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unclear_missing_evidence: fresh Continuation versus same rebound context after QQQ lines 66-86 remains unclear.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+          "field_name": "freshness_final_signal_state",
+          "field_status": "contradictory",
+          "setup_qualified_blocker_reason": "freshness_final_signal_state has contradictory or unclear source-local evidence",
+          "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: complete same-context/freshness and blocker/caution review missing.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+          "field_name": "blocker_caution_review",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted replay no-hindsight output missing.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+          "field_name": "no_hindsight_boundary",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unclear_same_rebound_context_after_q_q_q_lines_66_86",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "stage_transition.session_boundary_gate",
+          "field_name": "session_boundary_behavior",
+          "field_status": "contradictory",
+          "setup_qualified_blocker_reason": "session_boundary_behavior has contradictory or unclear source-local evidence",
+          "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        }
+      ],
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-04-02T09:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "source_files_and_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv CSV lines 87-107; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:73; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:55",
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+      "direction": "long_call_candidate",
+      "fields": [
+        {
+          "current_field_value": "blocked_missing_evidence: SPY source CSV lines 93-113 exist, but no accepted Continuation setup-time candle/replay row exists.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+          "field_name": "setup_time_row",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted Continuation trigger unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.trigger_gate",
+          "field_name": "trigger",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted failure/invalidation level and 2026-04-07 invalidation decision unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.invalidation_gate",
+          "field_name": "invalidation",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unclear_missing_evidence: freshness and 2026-04-07 invalidation status remain unclear.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+          "field_name": "freshness_final_signal_state",
+          "field_status": "contradictory",
+          "setup_qualified_blocker_reason": "freshness_final_signal_state has contradictory or unclear source-local evidence",
+          "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: complete blocker/caution review missing; source rows carry unconfirmed context fields.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+          "field_name": "blocker_caution_review",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted replay no-hindsight output missing.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+          "field_name": "no_hindsight_boundary",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unclear_2026_04_07_recovery_or_invalidation",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "stage_transition.session_boundary_gate",
+          "field_name": "session_boundary_behavior",
+          "field_status": "contradictory",
+          "setup_qualified_blocker_reason": "session_boundary_behavior has contradictory or unclear source-local evidence",
+          "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        }
+      ],
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-04-02T09:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "source_files_and_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 93-113; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:71; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:85",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+      "direction": "long_call_candidate",
+      "fields": [
+        {
+          "current_field_value": "blocked_missing_evidence: SPY source CSV lines 233-253 exist, but no accepted setup-time candle/replay row exists.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+          "field_name": "setup_time_row",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted Continuation trigger unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.trigger_gate",
+          "field_name": "trigger",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted failure/invalidation level unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.invalidation_gate",
+          "field_name": "invalidation",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unclear_missing_evidence: no accepted rule proves the 2026-05-01 through 2026-05-05 structure is fresh and non-duplicate instead of 2026-04-30 same-lifecycle follow-through.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+          "field_name": "freshness_final_signal_state",
+          "field_status": "contradictory",
+          "setup_qualified_blocker_reason": "freshness_final_signal_state has contradictory or unclear source-local evidence",
+          "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: complete same-lifecycle/freshness and blocker/caution review missing.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+          "field_name": "blocker_caution_review",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted replay no-hindsight output missing.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+          "field_name": "no_hindsight_boundary",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "unclear_same_lifecycle_follow_through_after_2026_04_30",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "stage_transition.session_boundary_gate",
+          "field_name": "session_boundary_behavior",
+          "field_status": "contradictory",
+          "setup_qualified_blocker_reason": "session_boundary_behavior has contradictory or unclear source-local evidence",
+          "smallest_evidence_needed": "accepted chronological replay decision that resolves duplicate/freshness/session-boundary conflict without later outcome data",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        }
+      ],
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-05-01T09:30:00-04:00",
+      "signal_timezone": "America/New_York",
+      "source_files_and_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 233-253; `2026-05-01T09:30:00-04:00` through `2026-05-05T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:72; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:40",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+      "direction": "long_call_candidate",
+      "fields": [
+        {
+          "current_field_value": "blocked_missing_evidence: IWM source rows 141-210 exist, but no exact accepted setup-time row is repo-backed.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+          "field_name": "setup_time_row",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted numeric trigger and trigger basis unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.trigger_gate",
+          "field_name": "trigger",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted numeric invalidation and invalidation basis unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.invalidation_gate",
+          "field_name": "invalidation",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted freshness/final-signal decision unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+          "field_name": "freshness_final_signal_state",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "freshness_final_signal_state is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted blocker/caution decision unavailable; 24H, macro, IV, and event context remain unconfirmed.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+          "field_name": "blocker_caution_review",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: ordered local rows exist, but no accepted setup-time row or replay no-hindsight output freezes the boundary.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+          "field_name": "no_hindsight_boundary",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "not_resolved_missing_setup_time_review",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "stage_transition.session_boundary_gate",
+          "field_name": "session_boundary_behavior",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "session_boundary_behavior is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        }
+      ],
+      "setup_family": "Continuation",
+      "signal_timestamp": "UNKNOWN",
+      "signal_timezone": "UNKNOWN",
+      "source_files_and_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:35",
+      "underlying": "IWM"
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+      "direction": "long_call_candidate",
+      "fields": [
+        {
+          "current_field_value": "blocked_missing_evidence: IWM source rows 190-210 exist, but no exact accepted session-boundary setup-time row is repo-backed.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.setup_time_row_gate",
+          "field_name": "setup_time_row",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "setup_time_row is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted numeric trigger and trigger basis unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.trigger_gate",
+          "field_name": "trigger",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "trigger is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted numeric invalidation and invalidation basis unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.invalidation_gate",
+          "field_name": "invalidation",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "invalidation is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted session-boundary freshness/final-signal decision unavailable.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.freshness_final_signal_gate",
+          "field_name": "freshness_final_signal_state",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "freshness_final_signal_state is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: accepted blocker/caution decision unavailable; 24H, macro, IV, and event context remain unconfirmed.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "setup_recognition.blocker_caution_gate",
+          "field_name": "blocker_caution_review",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "blocker_caution_review is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "setup-time-safe 24H/daily, macro, IV, and event context fields plus accepted blocker/caution precedence",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "blocked_missing_evidence: ordered local rows exist, but no accepted setup-time row or replay no-hindsight output freezes the boundary.",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "grouped_replay.no_hindsight_boundary_gate",
+          "field_name": "no_hindsight_boundary",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "no_hindsight_boundary is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "replay output or fixture proving the setup decision used only rows through the signal timestamp",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        },
+        {
+          "current_field_value": "not_resolved_session_boundary_candidate",
+          "derivation_inputs": [],
+          "derived_locally": false,
+          "exact_rule_consumer": "stage_transition.session_boundary_gate",
+          "field_name": "session_boundary_behavior",
+          "field_status": "absent",
+          "setup_qualified_blocker_reason": "session_boundary_behavior is not accepted by a frozen setup rule or replay fixture",
+          "smallest_evidence_needed": "accepted setup-time replay row or source-backed fixture value for this field",
+          "validation_test": "tests/test_day49_positive_entry_setup_evidence_completion.py"
+        }
+      ],
+      "setup_family": "Continuation",
+      "signal_timestamp": "UNKNOWN",
+      "signal_timezone": "UNKNOWN",
+      "source_files_and_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:36",
+      "underlying": "IWM"
+    }
+  ],
+  "next_routing": {
+    "next_task_file": "SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_CODEX_TASK.md",
+    "reason": "No candidate reached TRADE_CANDIDATE; exact setup-data/context gaps remain before any option request is allowed.",
+    "selected_route": "exact_setup_data_approval_download"
+  },
+  "paper_eligible": false,
+  "prior_result_path": "historical_signal_replay/results/day49_grouped_positive_entry_setup_field_completion.json",
+  "profitability_claimed": false,
+  "promotion_decision_made": false,
+  "proof_accepted": false,
+  "raw_vendor_data_changed": false,
+  "replacement_selection": {
+    "complete_local_replacement_count": 0,
+    "reason": "No unused candidate in the local 24-row source pool has complete setup candle, trigger, invalidation, freshness, blocker/caution, and no-hindsight evidence.",
+    "replacement_policy": "earliest_unused_non_holdout_complete_local_setup_evidence_only",
+    "selected_replacements": [],
+    "selection_result": "NO_REPLACEMENT_AVAILABLE"
+  },
+  "result_version": "day49_positive_entry_setup_evidence_completion_or_replacement_v1",
+  "run_timestamp": "2026-06-20T18:16:46.391041Z",
+  "scorecard": {
+    "candidate_slots_completed_locally": 0,
+    "candidate_slots_replaced": 0,
+    "candidates_found": 8,
+    "candidates_runnable": 8,
+    "exact_external_setup_data_required": 4,
+    "first_blockers_by_field": {
+      "setup_time_row": 8
+    },
+    "setup_developing_count": 8,
+    "setup_qualified_count": 0,
+    "slot_classifications": {
+      "CANDIDATE_UNUSABLE": 1,
+      "EXACT_EXTERNAL_SETUP_DATA_REQUIRED": 4,
+      "SOURCE_CONTRADICTION": 3
+    },
+    "source_contradictions": 3,
+    "stable_cases": 8,
+    "trade_candidate_count": 0,
+    "unstable_cases": 0,
+    "unusable_candidates": 1
+  },
+  "second_run_hash": "4952eb7c722dbc4f194995c2b28a7ef0bd467b79b376b1e3a05d57b14c4629bb",
+  "source_commit": "ef97280"
+}

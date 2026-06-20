@@ -4,9 +4,9 @@ CURRENT DAY 49 ENTRY POINT:
 Read SAFE_FAST_BUILD_STATE.md first, then verify local branch, commit, and status.
 
 Current result:
-- SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_CANDIDATE_EXPANSION_RESULT.md
-- historical_signal_replay/fixtures/day49_positive_entry_candidate_expansion_manifest.json
-- historical_signal_replay/results/day49_positive_entry_candidate_expansion.json
+- SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_EVIDENCE_COMPLETION_OR_REPLACEMENT_RESULT.md
+- historical_signal_replay/results/day49_positive_entry_setup_evidence_completion.json
+- historical_signal_replay/source_data/richer_export_package_work/day49_positive_entry_exact_setup_data_request_manifest.json
 - historical_signal_replay/results/day48_positive_trade_capture_funnel.json
 
 Current funnel totals:
@@ -20,18 +20,22 @@ Current funnel totals:
 - losers: 0
 
 Current new development batch:
-- new candidates found/runnable: 8 / 8
+- candidate slots found/runnable: 8 / 8
+- completed locally: 0
+- replaced: 0
+- exact external setup-data required: 4
+- source contradictions: 3
+- unusable candidates: 1
 - setup qualified: 0
 - trade candidates: 0
 - valid trades captured: 0
 - true no-trades: 0
-- missing-data cases: 8
 - winners/losers: 0 / 0
 
 Exact next grouped task:
-SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_FIELD_COMPLETION_CODEX_TASK.md
+SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_CODEX_TASK.md
 
-The next chat must continue that exact active task, use grouped batches, require funnel scorecards, keep positive-trade capture and no-trade safety co-equal, and preserve cost-check/download approval requirements. Do not restart completed discovery or replace runnable testing with governance-only documents.
+The next chat must continue that exact active task, map the setup-data request manifest to a safe exact dataset/schema and cost check only if possible, or route to grouped setup-rule/request-shape repair. Do not create another incomplete candidate batch. The eight cases are missing-evidence cases, not no-trades. No option or exit-path request is allowed until a candidate reaches `TRADE_CANDIDATE`.
 
 This is the first thing the next chat must read and follow.
 

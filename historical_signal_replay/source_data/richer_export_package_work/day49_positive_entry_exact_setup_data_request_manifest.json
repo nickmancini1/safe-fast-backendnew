@@ -1,0 +1,284 @@
+{
+  "cost_check": {
+    "actual_billed_cost": "NOT_AVAILABLE",
+    "checked_cost": "NOT_AVAILABLE",
+    "credential_used": false,
+    "reason": "No safe repo-backed Databento dataset/schema mapping exists for these underlying setup-context requests; no HTTPS cost call was attempted and no data was downloaded."
+  },
+  "databento_downloaded": false,
+  "exit_path_request_included": false,
+  "manifest_version": "day49_positive_entry_exact_setup_data_request_v1",
+  "option_request_included": false,
+  "request_count": 7,
+  "request_scope": "underlying_setup_evidence_only_no_options_no_exit_path",
+  "requests": [
+    {
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+      "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+      "decision_resolved": "SETUP_QUALIFIED",
+      "end_timestamp": "2026-05-08T14:30:00-04:00",
+      "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+      "forbidden_scope": [
+        "options",
+        "exit_path",
+        "full_session_unbounded",
+        "P&L"
+      ],
+      "missing_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "no_hindsight_boundary",
+        "session_boundary_behavior"
+      ],
+      "required_rows_or_fields": [
+        "1h RTH OHLCV rows through setup timestamp",
+        "24H/daily context as-of setup timestamp",
+        "macro context as-of setup timestamp",
+        "IV context as-of setup timestamp",
+        "event/headline context as-of setup timestamp"
+      ],
+      "schema": "1h_rth_ohlcv_plus_setup_context",
+      "setup_family": "Ideal",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
+      "source_rows": "204-238",
+      "start_timestamp": "2026-05-01T15:30:00-04:00",
+      "symbol": "GLD",
+      "timezone": "America/New_York",
+      "underlying": "GLD",
+      "why_local_evidence_is_insufficient": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+      "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+      "decision_resolved": "SETUP_QUALIFIED",
+      "end_timestamp": "2026-03-31T09:30:00-04:00",
+      "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+      "forbidden_scope": [
+        "options",
+        "exit_path",
+        "full_session_unbounded",
+        "P&L"
+      ],
+      "missing_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "no_hindsight_boundary",
+        "session_boundary_behavior"
+      ],
+      "required_rows_or_fields": [
+        "1h RTH OHLCV rows through setup timestamp",
+        "24H/daily context as-of setup timestamp",
+        "macro context as-of setup timestamp",
+        "IV context as-of setup timestamp",
+        "event/headline context as-of setup timestamp"
+      ],
+      "schema": "1h_rth_ohlcv_plus_setup_context",
+      "setup_family": "Clean Fast Break",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 79-99; `2026-03-31T09:30:00-04:00` through `2026-04-02T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:70; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:70",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 79-99; `2026-03-31T09:30:00-04:00` through `2026-04-02T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:70; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:70",
+      "start_timestamp": "2026-03-31T09:30:00-04:00",
+      "symbol": "SPY",
+      "timezone": "America/New_York",
+      "underlying": "SPY",
+      "why_local_evidence_is_insufficient": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed"
+    },
+    {
+      "candidate_identifier": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+      "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+      "decision_resolved": "SETUP_QUALIFIED",
+      "end_timestamp": "2026-04-02T09:30:00-04:00",
+      "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+      "forbidden_scope": [
+        "options",
+        "exit_path",
+        "full_session_unbounded",
+        "P&L"
+      ],
+      "missing_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "no_hindsight_boundary",
+        "session_boundary_behavior"
+      ],
+      "required_rows_or_fields": [
+        "1h RTH OHLCV rows through setup timestamp",
+        "24H/daily context as-of setup timestamp",
+        "macro context as-of setup timestamp",
+        "IV context as-of setup timestamp",
+        "event/headline context as-of setup timestamp"
+      ],
+      "schema": "1h_rth_ohlcv_plus_setup_context",
+      "setup_family": "Continuation",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv CSV lines 87-107; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:73; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:55",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv CSV lines 87-107; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:73; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:55",
+      "start_timestamp": "2026-04-02T09:30:00-04:00",
+      "symbol": "QQQ",
+      "timezone": "America/New_York",
+      "underlying": "QQQ",
+      "why_local_evidence_is_insufficient": "local rows are present, but freshness/session-boundary evidence is contradictory or unclear and cannot be resolved without accepted chronological replay evidence"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+      "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+      "decision_resolved": "SETUP_QUALIFIED",
+      "end_timestamp": "2026-04-02T09:30:00-04:00",
+      "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+      "forbidden_scope": [
+        "options",
+        "exit_path",
+        "full_session_unbounded",
+        "P&L"
+      ],
+      "missing_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "no_hindsight_boundary",
+        "session_boundary_behavior"
+      ],
+      "required_rows_or_fields": [
+        "1h RTH OHLCV rows through setup timestamp",
+        "24H/daily context as-of setup timestamp",
+        "macro context as-of setup timestamp",
+        "IV context as-of setup timestamp",
+        "event/headline context as-of setup timestamp"
+      ],
+      "schema": "1h_rth_ohlcv_plus_setup_context",
+      "setup_family": "Continuation",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 93-113; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:71; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:85",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 93-113; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:71; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:85",
+      "start_timestamp": "2026-04-02T09:30:00-04:00",
+      "symbol": "SPY",
+      "timezone": "America/New_York",
+      "underlying": "SPY",
+      "why_local_evidence_is_insufficient": "local rows are present, but freshness/session-boundary evidence is contradictory or unclear and cannot be resolved without accepted chronological replay evidence"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+      "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+      "decision_resolved": "SETUP_QUALIFIED",
+      "end_timestamp": "2026-05-01T09:30:00-04:00",
+      "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+      "forbidden_scope": [
+        "options",
+        "exit_path",
+        "full_session_unbounded",
+        "P&L"
+      ],
+      "missing_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "no_hindsight_boundary",
+        "session_boundary_behavior"
+      ],
+      "required_rows_or_fields": [
+        "1h RTH OHLCV rows through setup timestamp",
+        "24H/daily context as-of setup timestamp",
+        "macro context as-of setup timestamp",
+        "IV context as-of setup timestamp",
+        "event/headline context as-of setup timestamp"
+      ],
+      "schema": "1h_rth_ohlcv_plus_setup_context",
+      "setup_family": "Continuation",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 233-253; `2026-05-01T09:30:00-04:00` through `2026-05-05T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:72; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:40",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 233-253; `2026-05-01T09:30:00-04:00` through `2026-05-05T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:72; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:40",
+      "start_timestamp": "2026-05-01T09:30:00-04:00",
+      "symbol": "SPY",
+      "timezone": "America/New_York",
+      "underlying": "SPY",
+      "why_local_evidence_is_insufficient": "local rows are present, but freshness/session-boundary evidence is contradictory or unclear and cannot be resolved without accepted chronological replay evidence"
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+      "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+      "decision_resolved": "SETUP_QUALIFIED",
+      "end_timestamp": "2026-05-01T14:30:00-04:00",
+      "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+      "forbidden_scope": [
+        "options",
+        "exit_path",
+        "full_session_unbounded",
+        "P&L"
+      ],
+      "missing_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "no_hindsight_boundary",
+        "session_boundary_behavior"
+      ],
+      "required_rows_or_fields": [
+        "1h RTH OHLCV rows through setup timestamp",
+        "24H/daily context as-of setup timestamp",
+        "macro context as-of setup timestamp",
+        "IV context as-of setup timestamp",
+        "event/headline context as-of setup timestamp"
+      ],
+      "schema": "1h_rth_ohlcv_plus_setup_context",
+      "setup_family": "Continuation",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+      "source_rows": "141-210",
+      "start_timestamp": "2026-04-17T15:30:00-04:00",
+      "symbol": "IWM",
+      "timezone": "America/New_York",
+      "underlying": "IWM",
+      "why_local_evidence_is_insufficient": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed"
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+      "dataset": "NOT_MAPPED_TO_SAFE_DATABENTO_UNDERLYING_DATASET",
+      "decision_resolved": "SETUP_QUALIFIED",
+      "end_timestamp": "2026-05-01T14:30:00-04:00",
+      "estimated_response_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+      "forbidden_scope": [
+        "options",
+        "exit_path",
+        "full_session_unbounded",
+        "P&L"
+      ],
+      "missing_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "no_hindsight_boundary",
+        "session_boundary_behavior"
+      ],
+      "required_rows_or_fields": [
+        "1h RTH OHLCV rows through setup timestamp",
+        "24H/daily context as-of setup timestamp",
+        "macro context as-of setup timestamp",
+        "IV context as-of setup timestamp",
+        "event/headline context as-of setup timestamp"
+      ],
+      "schema": "1h_rth_ohlcv_plus_setup_context",
+      "setup_family": "Continuation",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+      "source_rows": "190-210",
+      "start_timestamp": "2026-04-28T15:30:00-04:00",
+      "symbol": "IWM",
+      "timezone": "America/New_York",
+      "underlying": "IWM",
+      "why_local_evidence_is_insufficient": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed"
+    }
+  ],
+  "run_timestamp": "2026-06-20T18:16:46.389398Z",
+  "source_commit": "ef97280"
+}
