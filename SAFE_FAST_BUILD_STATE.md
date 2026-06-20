@@ -1,5 +1,49 @@
 # SAFE-FAST Build State
 
+## Day 49 grouped positive-entry setup-field completion result
+
+- Current task file executed: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_FIELD_COMPLETION_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_FIELD_COMPLETION_RESULT.md`.
+- Machine-readable setup-field completion result created: `historical_signal_replay/results/day49_grouped_positive_entry_setup_field_completion.json`.
+- Setup-field completion builder created: `historical_signal_replay/day49_grouped_positive_entry_setup_field_completion.py`.
+- Focused tests created: `tests/test_day49_grouped_positive_entry_setup_field_completion.py`.
+- Exact next grouped task created: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_NEXT_DETERMINISTIC_CANDIDATE_BATCH_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`; local status had no reported tracked or untracked changes before edits, with known permission warnings for temp directories `tmp2i57tguu`, `tmpj8ei9a_f`, `tmpra392qh0`, and `tmpt2fw63vq`.
+- The review used exactly the `8` frozen candidates from `historical_signal_replay/fixtures/day49_positive_entry_candidate_expansion_manifest.json` and added no replacements in this task.
+- Setup-field review result: `8` candidates found/runnable, `8` setup-developing, `0` setup-qualified, `0` trade-candidate, `0` contracts selected, `0` prices accepted, `0` entries eligible/recorded/exits evaluated, `0` valid trades captured, `0` true no-trades, `8` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, `0` unresolved cases, `0` winners, and `0` losers.
+- First blocker by stage: `SETUP_QUALIFIED=8`, because setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, or session-boundary evidence is missing, unavailable, or unclear.
+- Candidate-specific setup-field status:
+  - `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`: GLD rows `204-238` exist, but no exact accepted setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, or no-hindsight replay output is repo-backed.
+  - `GLD-REPLACEMENT-IDEAL-CANDIDATE-002`: unavailable because no second exact GLD Ideal source window and row range is repo-backed.
+  - `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`: SPY lines `79-99` exist, but accepted CFB setup candle, trigger, invalidation/failure level, freshness, blocker/caution, and no-hindsight replay output are missing.
+  - `SPY-SOURCE-WINDOW-CONTINUATION-004`: SPY lines `93-113` exist, but accepted Continuation setup candle, trigger, invalidation/failure level, freshness, blocker/caution, no-hindsight replay output, and the 2026-04-07 invalidation/recovery decision are missing or unclear.
+  - `SPY-SOURCE-WINDOW-CONTINUATION-005`: SPY lines `233-253` exist, but fresh/non-duplicate identity versus 2026-04-30 same-lifecycle follow-through remains unclear and accepted setup fields remain missing.
+  - `QQQ-SOURCE-WINDOW-CONTINUATION-002`: QQQ lines `87-107` exist, but fresh Continuation versus same rebound context after QQQ lines `66-86` remains unclear and accepted setup fields remain missing.
+  - `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`: IWM rows `141-210` exist, but no exact accepted setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, or no-hindsight replay output is repo-backed.
+  - `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`: IWM rows `190-210` exist, but no exact accepted session-boundary setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, or no-hindsight replay output is repo-backed.
+- No candidate reached `TRADE_CANDIDATE`; no bounded option-contract set, CMBP-1 request, CBBO-1s request, setup-time option cost check, or exit-path cost check was created.
+- Existing positive-trade funnel regression command reran and reported `15` candidates, `1` valid captured, `4` true no-trades, and `6` missing-data cases; incidental timestamp/source-commit churn in the funnel artifact was not kept.
+- Databento downloaded: `NO`; raw vendor data changed: `NO`; exit-path data downloaded: `NO`; new P&L calculated: `NO`; proof accepted: `NO`; profitability claimed: `NO`; promotion/readiness/paper/live decision made: `NO`.
+- Exact next grouped task: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_NEXT_DETERMINISTIC_CANDIDATE_BATCH_CODEX_TASK.md`.
+- Checks run:
+  - `python -B -m historical_signal_replay.day49_grouped_positive_entry_setup_field_completion`: PASS, wrote `8` candidates, `0` setup-qualified, `0` trade candidates, `8` missing-data cases.
+  - `python -B -m unittest discover -s tests -p "test_day49_grouped_positive_entry_setup_field_completion.py"`: PASS, `6` tests.
+  - `python -B -m watcher_foundation.day49_positive_entry_candidate_expansion_validator`: PASS.
+  - `python -B -m historical_signal_replay.day48_positive_trade_capture_funnel`: PASS, wrote `15` candidates, `1` valid captured, `4` true no-trades, `6` missing-data cases.
+  - `python -B -m unittest discover -s tests -p "test_day48_positive_trade_capture_funnel.py"`: PASS, `4` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_positive_trade_handoff_consistency.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_actual_grouped_three_family_replay.py"`: PASS, `2` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_grouped_three_family_coverage_expansion.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_continuation_starter_coverage.py"`: PASS, `3` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_grouped_three_family_expansion_after_continuation.py"`: PASS, `3` tests.
+  - Direct script execution for `replay/test_on_demand_*stage*.py`: PASS, `6` files.
+  - Direct script execution for `replay/test_on_demand_session_boundary*.py`: PASS, `5` files.
+  - `python -B -m watcher_foundation.source_evidence_work_package_content_validator`: PASS, `9` passed requests, `0` failed requests, intake-ready `0`.
+  - `python -B -m watcher_foundation.source_evidence_package_to_intake_bridge`: PASS, `4` reconsideration-eligible candidates, intake-ready `0`, proof allowed `NO`.
+  - `python -B -m unittest discover -s tests -p "test_day47_to_day90_audit_consistency.py"`: PASS, `2` tests.
+  - `python -B -m unittest discover -s tests -p "test_watcher_stable_winner_selection_replay.py"`: PASS, `8` tests.
+  - `git --no-pager diff --check`: PASS with line-ending warnings only.
+
 ## Day 49 grouped positive-entry candidate expansion result
 
 - Current task file executed: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_CANDIDATE_EXPANSION_CODEX_TASK.md`.
