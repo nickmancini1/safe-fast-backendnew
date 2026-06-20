@@ -1,0 +1,293 @@
+{
+  "schema_version": "safe-fast-day48-continuation-option-context-request-package-v1",
+  "package_name": "day48-continuation-qqq-spy-option-context-request-package",
+  "created_utc": "2026-06-19T00:00:00Z",
+  "task_source": "SAFE_FAST_DAY48_CONTINUATION_QQQ_SPY_OPTION_CONTEXT_EVIDENCE_PACKAGE_CODEX_TASK.md",
+  "result_document": "SAFE_FAST_DAY48_CONTINUATION_QQQ_SPY_OPTION_CONTEXT_EVIDENCE_PACKAGE_RESULT.md",
+  "package_status": "validated_request_shape_no_download",
+  "baseline": {
+    "branch": "main",
+    "expected_starting_commit": "ad0188a",
+    "observed_starting_commit": "ad0188a",
+    "status_expectation": "clean_except_task_file"
+  },
+  "frozen_rule_version": {
+    "lifecycle": "continuation_exact_signal_candle_freshness",
+    "contract_selection": "day48_continuation_starter_applies_existing_no_fallback_contract_selector",
+    "execution_context": "first_conservative_execution_context_quote_age_spread_size_volume_rule",
+    "context_caution": "complete_caution_required_component_precedence",
+    "freeze_source": [
+      "SAFE_FAST_DAY48_CONTINUATION_STARTER_COVERAGE_RESULT.md",
+      "SAFE_FAST_DAY48_GROUPED_THREE_FAMILY_EXPANSION_AFTER_CONTINUATION_STARTER_RESULT.md"
+    ]
+  },
+  "non_goals": [
+    "No GLD or IWM option evidence is requested.",
+    "No data download is authorized.",
+    "No selected contract, fill, exit, cost, P&L, proof, readiness, promotion, paper eligibility, or live eligibility is created.",
+    "No main.py, live backend, Railway/deploy, broker, account, order, credential, or .env file is in scope."
+  ],
+  "controls_retained": [
+    {
+      "candidate_id": "GLD-REAL-HISTORICAL-CONTINUATION-001",
+      "underlying": "GLD",
+      "control_reason": "missing trigger/invalidation and no supported local Continuation option package",
+      "request_included": false,
+      "expected_contract_selection_status": "abstain",
+      "expected_rejection_reason": "missing_or_invalid_signal_time_or_trigger"
+    },
+    {
+      "candidate_id": "IWM-REAL-HISTORICAL-CONTINUATION-001",
+      "underlying": "IWM",
+      "control_reason": "missing trigger/invalidation and no supported local Continuation option package",
+      "request_included": false,
+      "expected_contract_selection_status": "abstain",
+      "expected_rejection_reason": "missing_or_invalid_signal_time_or_trigger"
+    }
+  ],
+  "frozen_candidates": [
+    {
+      "candidate_id": "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+      "underlying": "QQQ",
+      "direction": "long_call",
+      "setup_type": "Continuation",
+      "signal_timestamp": "2026-04-30T15:30:00-04:00",
+      "signal_timestamp_utc": "2026-04-30T19:30:00Z",
+      "timezone": "America/New_York",
+      "session_date": "2026-04-30",
+      "lifecycle_stage_at_signal": "continuation_triggered_signal_stage_candidate",
+      "source_row_identifiers": {
+        "source_csv": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+        "source_csv_line": 226,
+        "fixture": "historical_signal_replay/fixtures/first_real_qqq_continuation_replay_v1_fixture.json",
+        "fixture_row_index": 5,
+        "signal_log": "historical_signal_replay/reports/first_real_qqq_continuation_replay_v1_signal_log.jsonl",
+        "signal_log_line": 5
+      },
+      "trigger_price": 664.51,
+      "invalidation": 653.81,
+      "contract_selection_current_abstention": {
+        "status": "abstain",
+        "reason": "top_ranked_contract_failed_no_fallback",
+        "top_ranked_raw_symbol": "QQQ   260514C00665000",
+        "instrument_id": 956302440,
+        "expiration": "2026-05-14",
+        "strike": 665,
+        "local_nearest_setup_safe_quote_ts_event": "2026-04-30T19:29:52.881394545Z",
+        "local_nearest_setup_safe_quote_spread": 0.35,
+        "local_trade_volume_through_setup": 8,
+        "no_fallback_reason": "The top-ranked contract fails the accepted spread gate and another eligible higher strike exists, so fallback scanning is forbidden."
+      },
+      "exact_missing_execution_fields": [
+        "selected_contract",
+        "selected_contract_quote_time_for_execution",
+        "selected_contract_bid",
+        "selected_contract_ask",
+        "selected_contract_spread",
+        "selected_contract_bid_size",
+        "selected_contract_ask_size",
+        "selected_contract_setup_time_trade_volume",
+        "entry_fill_basis",
+        "exit_path",
+        "cost_slippage"
+      ],
+      "exact_missing_context_caution_fields": [
+        "option_context_status from a selected passing contract",
+        "historical_headline_context_status",
+        "complete_caution_review_status with all required components known"
+      ],
+      "local_evidence_review": {
+        "available_locally": [
+          "source OHLCV row and lifecycle signal row",
+          "top-ranked deterministic contract definition",
+          "setup-time-safe top-contract TCBBO quote",
+          "top-contract trade volume through setup"
+        ],
+        "present_but_unusable": [
+          "top-contract setup quote has spread 0.35, above the accepted 0.15 spread cap",
+          "statistics rows for the top contract are after the signal and not needed because open interest is not required for this Continuation starter diagnostic"
+        ],
+        "missing": [
+          "selected passing contract",
+          "historical headline/context policy input",
+          "complete context/caution inputs after selected contract"
+        ],
+        "contradictory": [],
+        "outside_permitted_timestamp_window": [
+          "statistics rows for instrument_id 956302440 begin after 2026-04-30T19:30:00Z"
+        ]
+      }
+    },
+    {
+      "candidate_id": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+      "underlying": "SPY",
+      "direction": "long_call",
+      "setup_type": "Continuation",
+      "signal_timestamp": "2026-04-30T12:30:00-04:00",
+      "signal_timestamp_utc": "2026-04-30T16:30:00Z",
+      "timezone": "America/New_York",
+      "session_date": "2026-04-30",
+      "lifecycle_stage_at_signal": "triggered_signal_stage_candidate",
+      "source_row_identifiers": {
+        "source_csv": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+        "source_csv_line": 229,
+        "fixture": "historical_signal_replay/fixtures/first_real_spy_continuation_replay_v1_fixture.json",
+        "fixture_row_index": 5,
+        "signal_log": "historical_signal_replay/reports/first_real_spy_continuation_replay_v1_signal_log.jsonl",
+        "signal_log_line": 5
+      },
+      "trigger_price": 715.61,
+      "invalidation": 708.37,
+      "contract_selection_current_abstention": {
+        "status": "abstain",
+        "reason": "top_ranked_contract_failed_no_fallback",
+        "top_ranked_raw_symbol": "SPY   260514C00720000",
+        "instrument_id": 1207960722,
+        "expiration": "2026-05-14",
+        "strike": 720,
+        "local_nearest_top_contract_quote_ts_event": "2026-04-30T16:30:14.612354668Z",
+        "local_trade_volume_through_setup": 0,
+        "no_fallback_reason": "The only local top-contract quote is after the signal; existing selector preserves top-ranked failure under no-fallback precedence because another eligible higher strike exists."
+      },
+      "exact_missing_execution_fields": [
+        "setup-time-safe selected contract quote at or before 2026-04-30T16:30:00Z",
+        "selected_contract",
+        "selected_contract_quote_time_for_execution",
+        "selected_contract_bid",
+        "selected_contract_ask",
+        "selected_contract_spread",
+        "selected_contract_bid_size",
+        "selected_contract_ask_size",
+        "selected_contract_setup_time_trade_volume",
+        "entry_fill_basis",
+        "exit_path",
+        "cost_slippage"
+      ],
+      "exact_missing_context_caution_fields": [
+        "option_context_status from a selected passing contract",
+        "historical_headline_context_status",
+        "complete_caution_review_status with all required components known"
+      ],
+      "local_evidence_review": {
+        "available_locally": [
+          "source OHLCV row and lifecycle signal row",
+          "top-ranked deterministic contract definition",
+          "post-signal top-contract quote showing current local window is insufficient"
+        ],
+        "present_but_unusable": [
+          "top-contract TCBBO row at 2026-04-30T16:30:14.612354668Z is after the signal",
+          "top-contract trade row has zero setup-time-safe volume",
+          "statistics rows for instrument_id 1207960722 are after the signal and not needed because open interest is not required for this Continuation starter diagnostic"
+        ],
+        "missing": [
+          "setup-time-safe top-contract TCBBO rows at or before 2026-04-30T16:30:00Z",
+          "selected passing contract",
+          "historical headline/context policy input",
+          "complete context/caution inputs after selected contract"
+        ],
+        "contradictory": [],
+        "outside_permitted_timestamp_window": [
+          "local top-contract TCBBO row is after 2026-04-30T16:30:00Z",
+          "statistics rows for instrument_id 1207960722 begin after 2026-04-30T16:30:00Z"
+        ]
+      }
+    }
+  ],
+  "requests": [
+    {
+      "request_id": "SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL",
+      "candidate_id": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+      "decision_answered": "Determine whether the deterministic top-ranked SPY Continuation contract has any setup-time-safe quote at or before the signal that can pass contract selection and feed execution/context calculators.",
+      "dataset": "OPRA.PILLAR",
+      "schema": "tcbbo",
+      "symbol_type": "raw_symbol",
+      "underlying": "SPY",
+      "raw_symbol": "SPY   260514C00720000",
+      "instrument_id_when_known": 1207960722,
+      "signal_timestamp": "2026-04-30T12:30:00-04:00",
+      "signal_timestamp_utc": "2026-04-30T16:30:00Z",
+      "timezone": "America/New_York",
+      "start_timestamp": "2026-04-30T09:30:00-04:00",
+      "start_timestamp_utc": "2026-04-30T13:30:00Z",
+      "end_timestamp": "2026-04-30T12:30:00-04:00",
+      "end_timestamp_utc": "2026-04-30T16:30:00Z",
+      "setup_time_window": {
+        "start": "2026-04-30T09:30:00-04:00",
+        "end": "2026-04-30T12:30:00-04:00",
+        "inclusive_end": true
+      },
+      "conditional_exit_path_window": null,
+      "required_fields": [
+        "ts_event",
+        "ts_recv",
+        "instrument_id",
+        "raw_symbol",
+        "bid_px_00",
+        "ask_px_00",
+        "bid_sz_00",
+        "ask_sz_00"
+      ],
+      "expected_consumer": "historical_signal_replay.cfb_contract_selector.select_contract_from_fixture and historical_signal_replay.execution_context_calculator.calculate_execution_context_from_fixture",
+      "missing_data_behavior": "If no at-or-before-signal quote exists, contract selection remains abstain with quote_ts_event_after_signal or top_ranked_contract_failed_no_fallback; execution remains unknown and complete caution remains unknown.",
+      "why_narrower_request_is_insufficient": "The local ten-minute file starts too close to the signal and contains only a post-signal top-contract quote. The minimum narrower useful request is the deterministic raw symbol from regular-session open through the signal; broader symbols, alternate strikes, later exit-path data, and GLD/IWM are excluded."
+    },
+    {
+      "request_id": "SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL",
+      "candidate_id": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+      "decision_answered": "Determine setup-time trade volume through signal for the deterministic top-ranked SPY Continuation contract if the quote request finds a setup-time-safe quote.",
+      "dataset": "OPRA.PILLAR",
+      "schema": "trades",
+      "symbol_type": "raw_symbol",
+      "underlying": "SPY",
+      "raw_symbol": "SPY   260514C00720000",
+      "instrument_id_when_known": 1207960722,
+      "signal_timestamp": "2026-04-30T12:30:00-04:00",
+      "signal_timestamp_utc": "2026-04-30T16:30:00Z",
+      "timezone": "America/New_York",
+      "start_timestamp": "2026-04-30T09:30:00-04:00",
+      "start_timestamp_utc": "2026-04-30T13:30:00Z",
+      "end_timestamp": "2026-04-30T12:30:00-04:00",
+      "end_timestamp_utc": "2026-04-30T16:30:00Z",
+      "setup_time_window": {
+        "start": "2026-04-30T09:30:00-04:00",
+        "end": "2026-04-30T12:30:00-04:00",
+        "inclusive_end": true
+      },
+      "conditional_exit_path_window": null,
+      "required_fields": [
+        "ts_event",
+        "instrument_id",
+        "raw_symbol",
+        "price",
+        "size"
+      ],
+      "expected_consumer": "historical_signal_replay.cfb_contract_selector.select_contract_from_fixture and historical_signal_replay.execution_context_calculator.calculate_execution_context_from_fixture",
+      "missing_data_behavior": "If setup-time trade volume remains below 1, contract selection abstains and execution/complete caution remain unknown.",
+      "why_narrower_request_is_insufficient": "The existing local trade row for the top contract is aligned with the post-signal TCBBO row and carries zero setup-time-safe volume. Open-to-signal selected raw-symbol trades are the smallest request that can answer the volume gate without broadening contracts or dates."
+    }
+  ],
+  "not_requested": [
+    {
+      "candidate_id": "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+      "reason": "Local setup-time-safe quote already proves the deterministic top-ranked contract fails the spread gate; no conditional exit request is allowed because no valid entry can be established."
+    },
+    {
+      "candidate_id": "GLD-REAL-HISTORICAL-CONTINUATION-001",
+      "reason": "Control row lacks trigger/invalidation and no GLD option evidence may be requested by this task."
+    },
+    {
+      "candidate_id": "IWM-REAL-HISTORICAL-CONTINUATION-001",
+      "reason": "Control row lacks trigger/invalidation and no IWM option evidence may be requested by this task."
+    }
+  ],
+  "cost_check": {
+    "status": "NOT_AVAILABLE",
+    "reason": "No existing local cost-check script is present in the repository and no credentials/HTTPS Databento workflow is available inside this task run without risking a download path.",
+    "download_authorized": false,
+    "purchase_approval_inferred": false
+  },
+  "proof_accepted": false,
+  "profitability_claimed": false,
+  "candidate_marked_ready": false,
+  "intake_ready_count_changed": false
+}
