@@ -1,0 +1,796 @@
+{
+  "accepted_complete_setup_evidence_records": [
+    {
+      "candidate_identifier": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "contract_selected": false,
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "failed_evidence_names": [],
+      "field_results": {
+        "blocker_caution_review": {
+          "accepted": true,
+          "field_name": "blocker_caution_review",
+          "reason": "complete_caution_review_status must be clean, caution, or fail",
+          "source": "accepted context/caution evidence row",
+          "value": "fail"
+        },
+        "freshness_final_signal_state": {
+          "accepted": true,
+          "field_name": "freshness_final_signal_state",
+          "reason": "setup-time lifecycle status must be accepted as fresh",
+          "source": "accepted lifecycle/stale-spent evidence row",
+          "value": "fresh"
+        },
+        "invalidation": {
+          "accepted": true,
+          "field_name": "invalidation",
+          "reason": "all required package rows agree on known_invalidation",
+          "source": "local source-evidence work package",
+          "value": "609.58"
+        },
+        "no_hindsight_boundary": {
+          "accepted": true,
+          "field_name": "no_hindsight_boundary",
+          "reason": "each package row must state setup-time boundary and reject or exclude future rows",
+          "source": "local source-evidence work package",
+          "value": "setup-time row and replay log line 3 only; no future rows used for signal | log line 3 is setup-time signal; later rows are lifecycle regression context only; calculator rejects future replay rows future candles option fill PnL profitability and readiness for setup-time lifecycle classification | setup-time row and replay log line 3 only; no future rows option quotes headlines fills outcomes PnL profitability or readiness used; Databento selector attempts used only ts_event at or before setup; new-contract OI exception uses Apr 13 listing before setup and Apr 10 prior-day absence only; execution-context evidence uses Databento TCBBO ts_event at or before setup and setup-time-safe same-contract trade volume only"
+        },
+        "session_boundary_behavior": {
+          "accepted": true,
+          "field_name": "session_boundary_behavior",
+          "reason": "local intake candidates are same-session setup rows; no cross-session carry-forward is applied",
+          "source": "source_session and setup-time row",
+          "value": "NOT_APPLICABLE_SAME_SESSION"
+        },
+        "setup_time_row": {
+          "accepted": true,
+          "field_name": "setup_time_row",
+          "reason": "all required package rows agree on setup_candle_time",
+          "source": "local source-evidence work package",
+          "value": "2026-04-13T12:30:00-04:00"
+        },
+        "trigger": {
+          "accepted": true,
+          "field_name": "trigger",
+          "reason": "all required package rows agree on known_trigger",
+          "source": "local source-evidence work package",
+          "value": "613.67"
+        }
+      },
+      "final_classification": "ACCEPTED_COMPLETE_SETUP_EVIDENCE_TRADE_BLOCKED",
+      "first_stage_not_reached": "TRADE_CANDIDATE",
+      "highest_stage_reached": "SETUP_QUALIFIED",
+      "incomplete_or_unaccepted_setup_fields": [],
+      "passed_evidence_names": [
+        "QQQ CFB gap-context completeness fields/rule",
+        "QQQ CFB stale/spent expiry rule/regressions",
+        "QQQ CFB complete context/caution fields"
+      ],
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "required_evidence_names": [
+        "QQQ CFB gap-context completeness fields/rule",
+        "QQQ CFB stale/spent expiry rule/regressions",
+        "QQQ CFB complete context/caution fields"
+      ],
+      "setup_evidence_intake_status": "ACCEPTED_COMPLETE_SETUP_EVIDENCE_INGESTED",
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": true,
+      "source_session": "2026-04-13 regular session",
+      "source_time": "2026-04-13T12:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "QQQ"
+    }
+  ],
+  "broker_mutation_attempted": false,
+  "candidate_count": 4,
+  "candidate_records": [
+    {
+      "candidate_identifier": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "contract_selected": false,
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "failed_evidence_names": [],
+      "field_results": {
+        "blocker_caution_review": {
+          "accepted": true,
+          "field_name": "blocker_caution_review",
+          "reason": "complete_caution_review_status must be clean, caution, or fail",
+          "source": "accepted context/caution evidence row",
+          "value": "fail"
+        },
+        "freshness_final_signal_state": {
+          "accepted": true,
+          "field_name": "freshness_final_signal_state",
+          "reason": "setup-time lifecycle status must be accepted as fresh",
+          "source": "accepted lifecycle/stale-spent evidence row",
+          "value": "fresh"
+        },
+        "invalidation": {
+          "accepted": true,
+          "field_name": "invalidation",
+          "reason": "all required package rows agree on known_invalidation",
+          "source": "local source-evidence work package",
+          "value": "609.58"
+        },
+        "no_hindsight_boundary": {
+          "accepted": true,
+          "field_name": "no_hindsight_boundary",
+          "reason": "each package row must state setup-time boundary and reject or exclude future rows",
+          "source": "local source-evidence work package",
+          "value": "setup-time row and replay log line 3 only; no future rows used for signal | log line 3 is setup-time signal; later rows are lifecycle regression context only; calculator rejects future replay rows future candles option fill PnL profitability and readiness for setup-time lifecycle classification | setup-time row and replay log line 3 only; no future rows option quotes headlines fills outcomes PnL profitability or readiness used; Databento selector attempts used only ts_event at or before setup; new-contract OI exception uses Apr 13 listing before setup and Apr 10 prior-day absence only; execution-context evidence uses Databento TCBBO ts_event at or before setup and setup-time-safe same-contract trade volume only"
+        },
+        "session_boundary_behavior": {
+          "accepted": true,
+          "field_name": "session_boundary_behavior",
+          "reason": "local intake candidates are same-session setup rows; no cross-session carry-forward is applied",
+          "source": "source_session and setup-time row",
+          "value": "NOT_APPLICABLE_SAME_SESSION"
+        },
+        "setup_time_row": {
+          "accepted": true,
+          "field_name": "setup_time_row",
+          "reason": "all required package rows agree on setup_candle_time",
+          "source": "local source-evidence work package",
+          "value": "2026-04-13T12:30:00-04:00"
+        },
+        "trigger": {
+          "accepted": true,
+          "field_name": "trigger",
+          "reason": "all required package rows agree on known_trigger",
+          "source": "local source-evidence work package",
+          "value": "613.67"
+        }
+      },
+      "final_classification": "ACCEPTED_COMPLETE_SETUP_EVIDENCE_TRADE_BLOCKED",
+      "first_stage_not_reached": "TRADE_CANDIDATE",
+      "highest_stage_reached": "SETUP_QUALIFIED",
+      "incomplete_or_unaccepted_setup_fields": [],
+      "passed_evidence_names": [
+        "QQQ CFB gap-context completeness fields/rule",
+        "QQQ CFB stale/spent expiry rule/regressions",
+        "QQQ CFB complete context/caution fields"
+      ],
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "required_evidence_names": [
+        "QQQ CFB gap-context completeness fields/rule",
+        "QQQ CFB stale/spent expiry rule/regressions",
+        "QQQ CFB complete context/caution fields"
+      ],
+      "setup_evidence_intake_status": "ACCEPTED_COMPLETE_SETUP_EVIDENCE_INGESTED",
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": true,
+      "source_session": "2026-04-13 regular session",
+      "source_time": "2026-04-13T12:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "contract_selected": false,
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "failed_evidence_names": [],
+      "field_results": {
+        "blocker_caution_review": {
+          "accepted": false,
+          "field_name": "blocker_caution_review",
+          "reason": "complete_caution_review_status must be clean, caution, or fail",
+          "source": "accepted context/caution evidence row",
+          "value": "unknown"
+        },
+        "freshness_final_signal_state": {
+          "accepted": true,
+          "field_name": "freshness_final_signal_state",
+          "reason": "setup-time lifecycle status must be accepted as fresh",
+          "source": "accepted lifecycle/stale-spent evidence row",
+          "value": "fresh"
+        },
+        "invalidation": {
+          "accepted": true,
+          "field_name": "invalidation",
+          "reason": "all required package rows agree on known_invalidation",
+          "source": "local source-evidence work package",
+          "value": "694.2801"
+        },
+        "no_hindsight_boundary": {
+          "accepted": true,
+          "field_name": "no_hindsight_boundary",
+          "reason": "each package row must state setup-time boundary and reject or exclude future rows",
+          "source": "local source-evidence work package",
+          "value": "log line 5 is setup-time signal; log line 6 is later lifecycle context only; calculator ignores future replay rows and forbidden option fill PnL proof profitability readiness inputs for lifecycle classification | setup-time row and replay log line 5 only; starter option rows after 2026-04-15T18:30:00Z are rejected as future data; later replay rows, fills, broker/order/account data, outcomes, PnL, proof, profitability, and readiness are not used"
+        },
+        "session_boundary_behavior": {
+          "accepted": true,
+          "field_name": "session_boundary_behavior",
+          "reason": "local intake candidates are same-session setup rows; no cross-session carry-forward is applied",
+          "source": "source_session and setup-time row",
+          "value": "NOT_APPLICABLE_SAME_SESSION"
+        },
+        "setup_time_row": {
+          "accepted": true,
+          "field_name": "setup_time_row",
+          "reason": "all required package rows agree on setup_candle_time",
+          "source": "local source-evidence work package",
+          "value": "2026-04-15T14:30:00-04:00"
+        },
+        "trigger": {
+          "accepted": true,
+          "field_name": "trigger",
+          "reason": "all required package rows agree on known_trigger",
+          "source": "local source-evidence work package",
+          "value": "698.65"
+        }
+      },
+      "final_classification": "EXACT_SETUP_EVIDENCE_NOT_COMPLETE",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "incomplete_or_unaccepted_setup_fields": [
+        "blocker_caution_review"
+      ],
+      "passed_evidence_names": [
+        "SPY CFB 003 higher-base/fresh-break expiry rule/regressions",
+        "SPY CFB 003 complete context/caution fields"
+      ],
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "required_evidence_names": [
+        "SPY CFB 003 higher-base/fresh-break expiry rule/regressions",
+        "SPY CFB 003 complete context/caution fields"
+      ],
+      "setup_evidence_intake_status": "NOT_ACCEPTED_COMPLETE_SETUP_EVIDENCE",
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": false,
+      "source_session": "2026-04-15 regular session",
+      "source_time": "2026-04-15T14:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "contract_selected": false,
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "failed_evidence_names": [],
+      "field_results": {
+        "blocker_caution_review": {
+          "accepted": false,
+          "field_name": "blocker_caution_review",
+          "reason": "complete_caution_review_status must be clean, caution, or fail",
+          "source": "accepted context/caution evidence row",
+          "value": "unknown"
+        },
+        "freshness_final_signal_state": {
+          "accepted": true,
+          "field_name": "freshness_final_signal_state",
+          "reason": "setup-time lifecycle status must be accepted as fresh",
+          "source": "accepted lifecycle/stale-spent evidence row",
+          "value": "fresh"
+        },
+        "invalidation": {
+          "accepted": true,
+          "field_name": "invalidation",
+          "reason": "all required package rows agree on known_invalidation",
+          "source": "local source-evidence work package",
+          "value": "678.45"
+        },
+        "no_hindsight_boundary": {
+          "accepted": true,
+          "field_name": "no_hindsight_boundary",
+          "reason": "each package row must state setup-time boundary and reject or exclude future rows",
+          "source": "local source-evidence work package",
+          "value": "log line 2 is setup-time signal; log line 3 is later lifecycle context only; calculator ignores future replay rows and forbidden option fill PnL proof profitability readiness inputs for lifecycle classification | setup-time row and replay log line 2 only; starter option rows use Databento ts_event at or before 2026-04-13T16:30:00Z; post-signal option rows, later replay rows, fills, broker/order/account data, outcomes, PnL, proof, profitability, and readiness are not used"
+        },
+        "session_boundary_behavior": {
+          "accepted": true,
+          "field_name": "session_boundary_behavior",
+          "reason": "local intake candidates are same-session setup rows; no cross-session carry-forward is applied",
+          "source": "source_session and setup-time row",
+          "value": "NOT_APPLICABLE_SAME_SESSION"
+        },
+        "setup_time_row": {
+          "accepted": true,
+          "field_name": "setup_time_row",
+          "reason": "all required package rows agree on setup_candle_time",
+          "source": "local source-evidence work package",
+          "value": "2026-04-13T12:30:00-04:00"
+        },
+        "trigger": {
+          "accepted": true,
+          "field_name": "trigger",
+          "reason": "all required package rows agree on known_trigger",
+          "source": "local source-evidence work package",
+          "value": "682.03"
+        }
+      },
+      "final_classification": "EXACT_SETUP_EVIDENCE_NOT_COMPLETE",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "incomplete_or_unaccepted_setup_fields": [
+        "blocker_caution_review"
+      ],
+      "passed_evidence_names": [
+        "SPY CFB 002 initial-break expiry rule/regressions",
+        "SPY CFB 002 complete context/caution fields"
+      ],
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "required_evidence_names": [
+        "SPY CFB 002 initial-break expiry rule/regressions",
+        "SPY CFB 002 complete context/caution fields"
+      ],
+      "setup_evidence_intake_status": "NOT_ACCEPTED_COMPLETE_SETUP_EVIDENCE",
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": false,
+      "source_session": "2026-04-13 regular session",
+      "source_time": "2026-04-13T12:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "contract_selected": false,
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "failed_evidence_names": [],
+      "field_results": {
+        "blocker_caution_review": {
+          "accepted": false,
+          "field_name": "blocker_caution_review",
+          "reason": "complete_caution_review_status must be clean, caution, or fail",
+          "source": "accepted context/caution evidence row",
+          "value": "unknown"
+        },
+        "freshness_final_signal_state": {
+          "accepted": true,
+          "field_name": "freshness_final_signal_state",
+          "reason": "setup-time lifecycle status must be accepted as fresh",
+          "source": "accepted lifecycle/stale-spent evidence row",
+          "value": "fresh"
+        },
+        "invalidation": {
+          "accepted": true,
+          "field_name": "invalidation",
+          "reason": "all required package rows agree on known_invalidation",
+          "source": "local source-evidence work package",
+          "value": "731.83"
+        },
+        "no_hindsight_boundary": {
+          "accepted": true,
+          "field_name": "no_hindsight_boundary",
+          "reason": "each package row must state setup-time boundary and reject or exclude future rows",
+          "source": "local source-evidence work package",
+          "value": "log line 5 is setup-time signal; log line 6 is later lifecycle context only | setup-time row and replay log line 5 only; no future rows used for signal"
+        },
+        "session_boundary_behavior": {
+          "accepted": true,
+          "field_name": "session_boundary_behavior",
+          "reason": "local intake candidates are same-session setup rows; no cross-session carry-forward is applied",
+          "source": "source_session and setup-time row",
+          "value": "NOT_APPLICABLE_SAME_SESSION"
+        },
+        "setup_time_row": {
+          "accepted": true,
+          "field_name": "setup_time_row",
+          "reason": "all required package rows agree on setup_candle_time",
+          "source": "local source-evidence work package",
+          "value": "2026-05-13T11:30:00-04:00"
+        },
+        "trigger": {
+          "accepted": true,
+          "field_name": "trigger",
+          "reason": "all required package rows agree on known_trigger",
+          "source": "local source-evidence work package",
+          "value": "740.75"
+        }
+      },
+      "final_classification": "EXACT_SETUP_EVIDENCE_NOT_COMPLETE",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "incomplete_or_unaccepted_setup_fields": [
+        "blocker_caution_review"
+      ],
+      "passed_evidence_names": [
+        "SPY Ideal stale/spent expiry rule/regressions",
+        "SPY Ideal gap/headline/option/execution/complete caution fields"
+      ],
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "required_evidence_names": [
+        "SPY Ideal stale/spent expiry rule/regressions",
+        "SPY Ideal gap/headline/option/execution/complete caution fields"
+      ],
+      "setup_evidence_intake_status": "NOT_ACCEPTED_COMPLETE_SETUP_EVIDENCE",
+      "setup_family": "Ideal",
+      "setup_qualified": false,
+      "source_session": "2026-05-13 regular session",
+      "source_time": "2026-05-13T11:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "SPY"
+    }
+  ],
+  "closed_candidates_regression_records": [
+    {
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "regression_only": true
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "regression_only": true
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "regression_only": true
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "regression_only": true
+    }
+  ],
+  "databento_cost_check": {
+    "actual_billed_cost": "NOT_AVAILABLE",
+    "checked_cost": "NOT_AVAILABLE",
+    "credential_used": false,
+    "reason": "No accepted intake candidate reached TRADE_CANDIDATE; the one accepted complete setup-evidence record has accepted blocker/caution status fail."
+  },
+  "databento_downloaded": false,
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "exit_path_request_included": false,
+  "first_run_hash": "bd50783ea76cf1e64a8148433dfb06d787b9fd06b74b5f8317d825d31113d34c",
+  "intake_policy": {
+    "accepted_complete_context_statuses": [
+      "caution",
+      "clean",
+      "fail"
+    ],
+    "closed_candidate_ids": [
+      "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+      "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+      "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+      "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003"
+    ],
+    "closed_setup_source_candidates_are_regression_only": true,
+    "forbidden_inputs": [
+      "closed setup-source slots without later exact accepted evidence",
+      "new candidate scans",
+      "outcome-window-only evidence",
+      "option exit path",
+      "P&L",
+      "profitability",
+      "paper/live readiness"
+    ],
+    "required_accepted_setup_fields": [
+      "setup_time_row",
+      "trigger",
+      "invalidation",
+      "freshness_final_signal_state",
+      "blocker_caution_review",
+      "no_hindsight_boundary",
+      "session_boundary_behavior"
+    ],
+    "source": "existing local richer source-evidence work package only"
+  },
+  "live_eligible": false,
+  "next_task": {
+    "filename": "SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CODEX_TASK.md",
+    "reason": "One local Clean Fast Break candidate now has accepted complete setup evidence ingested, but its accepted blocker/caution review is fail, so the next bounded task should replay the accepted intake record through the positive-entry gate without requesting options, exits, or new data unless a candidate actually reaches TRADE_CANDIDATE.",
+    "route": "accepted_setup_evidence_replay_after_intake"
+  },
+  "option_request_included": false,
+  "paper_eligible": false,
+  "prior_closure_result_path": "historical_signal_replay/results/day50_exact_setup_source_evidence_completion.json",
+  "prior_post_closure_expansion_result_path": "historical_signal_replay/results/day50_positive_entry_expansion_after_setup_source_closure.json",
+  "profitability_claimed": false,
+  "promotion_decision_made": false,
+  "proof_accepted": false,
+  "raw_vendor_data_changed": false,
+  "rejected_candidate_records": [
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "contract_selected": false,
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "failed_evidence_names": [],
+      "field_results": {
+        "blocker_caution_review": {
+          "accepted": false,
+          "field_name": "blocker_caution_review",
+          "reason": "complete_caution_review_status must be clean, caution, or fail",
+          "source": "accepted context/caution evidence row",
+          "value": "unknown"
+        },
+        "freshness_final_signal_state": {
+          "accepted": true,
+          "field_name": "freshness_final_signal_state",
+          "reason": "setup-time lifecycle status must be accepted as fresh",
+          "source": "accepted lifecycle/stale-spent evidence row",
+          "value": "fresh"
+        },
+        "invalidation": {
+          "accepted": true,
+          "field_name": "invalidation",
+          "reason": "all required package rows agree on known_invalidation",
+          "source": "local source-evidence work package",
+          "value": "694.2801"
+        },
+        "no_hindsight_boundary": {
+          "accepted": true,
+          "field_name": "no_hindsight_boundary",
+          "reason": "each package row must state setup-time boundary and reject or exclude future rows",
+          "source": "local source-evidence work package",
+          "value": "log line 5 is setup-time signal; log line 6 is later lifecycle context only; calculator ignores future replay rows and forbidden option fill PnL proof profitability readiness inputs for lifecycle classification | setup-time row and replay log line 5 only; starter option rows after 2026-04-15T18:30:00Z are rejected as future data; later replay rows, fills, broker/order/account data, outcomes, PnL, proof, profitability, and readiness are not used"
+        },
+        "session_boundary_behavior": {
+          "accepted": true,
+          "field_name": "session_boundary_behavior",
+          "reason": "local intake candidates are same-session setup rows; no cross-session carry-forward is applied",
+          "source": "source_session and setup-time row",
+          "value": "NOT_APPLICABLE_SAME_SESSION"
+        },
+        "setup_time_row": {
+          "accepted": true,
+          "field_name": "setup_time_row",
+          "reason": "all required package rows agree on setup_candle_time",
+          "source": "local source-evidence work package",
+          "value": "2026-04-15T14:30:00-04:00"
+        },
+        "trigger": {
+          "accepted": true,
+          "field_name": "trigger",
+          "reason": "all required package rows agree on known_trigger",
+          "source": "local source-evidence work package",
+          "value": "698.65"
+        }
+      },
+      "final_classification": "EXACT_SETUP_EVIDENCE_NOT_COMPLETE",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "incomplete_or_unaccepted_setup_fields": [
+        "blocker_caution_review"
+      ],
+      "passed_evidence_names": [
+        "SPY CFB 003 higher-base/fresh-break expiry rule/regressions",
+        "SPY CFB 003 complete context/caution fields"
+      ],
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "required_evidence_names": [
+        "SPY CFB 003 higher-base/fresh-break expiry rule/regressions",
+        "SPY CFB 003 complete context/caution fields"
+      ],
+      "setup_evidence_intake_status": "NOT_ACCEPTED_COMPLETE_SETUP_EVIDENCE",
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": false,
+      "source_session": "2026-04-15 regular session",
+      "source_time": "2026-04-15T14:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "contract_selected": false,
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "failed_evidence_names": [],
+      "field_results": {
+        "blocker_caution_review": {
+          "accepted": false,
+          "field_name": "blocker_caution_review",
+          "reason": "complete_caution_review_status must be clean, caution, or fail",
+          "source": "accepted context/caution evidence row",
+          "value": "unknown"
+        },
+        "freshness_final_signal_state": {
+          "accepted": true,
+          "field_name": "freshness_final_signal_state",
+          "reason": "setup-time lifecycle status must be accepted as fresh",
+          "source": "accepted lifecycle/stale-spent evidence row",
+          "value": "fresh"
+        },
+        "invalidation": {
+          "accepted": true,
+          "field_name": "invalidation",
+          "reason": "all required package rows agree on known_invalidation",
+          "source": "local source-evidence work package",
+          "value": "678.45"
+        },
+        "no_hindsight_boundary": {
+          "accepted": true,
+          "field_name": "no_hindsight_boundary",
+          "reason": "each package row must state setup-time boundary and reject or exclude future rows",
+          "source": "local source-evidence work package",
+          "value": "log line 2 is setup-time signal; log line 3 is later lifecycle context only; calculator ignores future replay rows and forbidden option fill PnL proof profitability readiness inputs for lifecycle classification | setup-time row and replay log line 2 only; starter option rows use Databento ts_event at or before 2026-04-13T16:30:00Z; post-signal option rows, later replay rows, fills, broker/order/account data, outcomes, PnL, proof, profitability, and readiness are not used"
+        },
+        "session_boundary_behavior": {
+          "accepted": true,
+          "field_name": "session_boundary_behavior",
+          "reason": "local intake candidates are same-session setup rows; no cross-session carry-forward is applied",
+          "source": "source_session and setup-time row",
+          "value": "NOT_APPLICABLE_SAME_SESSION"
+        },
+        "setup_time_row": {
+          "accepted": true,
+          "field_name": "setup_time_row",
+          "reason": "all required package rows agree on setup_candle_time",
+          "source": "local source-evidence work package",
+          "value": "2026-04-13T12:30:00-04:00"
+        },
+        "trigger": {
+          "accepted": true,
+          "field_name": "trigger",
+          "reason": "all required package rows agree on known_trigger",
+          "source": "local source-evidence work package",
+          "value": "682.03"
+        }
+      },
+      "final_classification": "EXACT_SETUP_EVIDENCE_NOT_COMPLETE",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "incomplete_or_unaccepted_setup_fields": [
+        "blocker_caution_review"
+      ],
+      "passed_evidence_names": [
+        "SPY CFB 002 initial-break expiry rule/regressions",
+        "SPY CFB 002 complete context/caution fields"
+      ],
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "required_evidence_names": [
+        "SPY CFB 002 initial-break expiry rule/regressions",
+        "SPY CFB 002 complete context/caution fields"
+      ],
+      "setup_evidence_intake_status": "NOT_ACCEPTED_COMPLETE_SETUP_EVIDENCE",
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": false,
+      "source_session": "2026-04-13 regular session",
+      "source_time": "2026-04-13T12:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "contract_selected": false,
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "failed_evidence_names": [],
+      "field_results": {
+        "blocker_caution_review": {
+          "accepted": false,
+          "field_name": "blocker_caution_review",
+          "reason": "complete_caution_review_status must be clean, caution, or fail",
+          "source": "accepted context/caution evidence row",
+          "value": "unknown"
+        },
+        "freshness_final_signal_state": {
+          "accepted": true,
+          "field_name": "freshness_final_signal_state",
+          "reason": "setup-time lifecycle status must be accepted as fresh",
+          "source": "accepted lifecycle/stale-spent evidence row",
+          "value": "fresh"
+        },
+        "invalidation": {
+          "accepted": true,
+          "field_name": "invalidation",
+          "reason": "all required package rows agree on known_invalidation",
+          "source": "local source-evidence work package",
+          "value": "731.83"
+        },
+        "no_hindsight_boundary": {
+          "accepted": true,
+          "field_name": "no_hindsight_boundary",
+          "reason": "each package row must state setup-time boundary and reject or exclude future rows",
+          "source": "local source-evidence work package",
+          "value": "log line 5 is setup-time signal; log line 6 is later lifecycle context only | setup-time row and replay log line 5 only; no future rows used for signal"
+        },
+        "session_boundary_behavior": {
+          "accepted": true,
+          "field_name": "session_boundary_behavior",
+          "reason": "local intake candidates are same-session setup rows; no cross-session carry-forward is applied",
+          "source": "source_session and setup-time row",
+          "value": "NOT_APPLICABLE_SAME_SESSION"
+        },
+        "setup_time_row": {
+          "accepted": true,
+          "field_name": "setup_time_row",
+          "reason": "all required package rows agree on setup_candle_time",
+          "source": "local source-evidence work package",
+          "value": "2026-05-13T11:30:00-04:00"
+        },
+        "trigger": {
+          "accepted": true,
+          "field_name": "trigger",
+          "reason": "all required package rows agree on known_trigger",
+          "source": "local source-evidence work package",
+          "value": "740.75"
+        }
+      },
+      "final_classification": "EXACT_SETUP_EVIDENCE_NOT_COMPLETE",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "incomplete_or_unaccepted_setup_fields": [
+        "blocker_caution_review"
+      ],
+      "passed_evidence_names": [
+        "SPY Ideal stale/spent expiry rule/regressions",
+        "SPY Ideal gap/headline/option/execution/complete caution fields"
+      ],
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "required_evidence_names": [
+        "SPY Ideal stale/spent expiry rule/regressions",
+        "SPY Ideal gap/headline/option/execution/complete caution fields"
+      ],
+      "setup_evidence_intake_status": "NOT_ACCEPTED_COMPLETE_SETUP_EVIDENCE",
+      "setup_family": "Ideal",
+      "setup_qualified": false,
+      "source_session": "2026-05-13 regular session",
+      "source_time": "2026-05-13T11:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "SPY"
+    }
+  ],
+  "result_version": "day50_accepted_complete_setup_evidence_intake_v1",
+  "run_timestamp": "2026-06-21T14:51:44.122457Z",
+  "schwab_authenticated": false,
+  "scorecard": {
+    "accepted_by_family": {
+      "Clean Fast Break": 1,
+      "Continuation": 0,
+      "Ideal": 0
+    },
+    "accepted_complete_setup_evidence_ingested": 1,
+    "contracts_selected": 0,
+    "entries_recorded": 0,
+    "invalid_trades_allowed": 0,
+    "local_candidate_records_reviewed": 4,
+    "missed_valid_trades": 0,
+    "missing_data_cases": 0,
+    "rejected_by_family": {
+      "Clean Fast Break": 2,
+      "Continuation": 0,
+      "Ideal": 1
+    },
+    "rejected_not_accepted_complete": 3,
+    "setup_qualified_candidates": 1,
+    "trade_blocked_by_accepted_caution_fail": 1,
+    "trade_candidates": 0,
+    "true_no_trades": 1,
+    "unresolved_cases": 0,
+    "valid_trades_captured": 0
+  },
+  "second_run_hash": "bd50783ea76cf1e64a8148433dfb06d787b9fd06b74b5f8317d825d31113d34c",
+  "source_commit": "21eda64",
+  "work_package_dir": "historical_signal_replay/source_data/richer_export_package_work",
+  "work_package_summary": {
+    "failed_requests": 0,
+    "legacy_bridge_intake_ready_count": 0,
+    "passed_requests": 9,
+    "reconsideration_eligible_candidates": 4,
+    "requests_mapped": 9
+  }
+}
