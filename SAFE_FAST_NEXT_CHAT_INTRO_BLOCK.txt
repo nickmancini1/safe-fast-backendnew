@@ -11,28 +11,21 @@ git --no-pager status --short
 
 CURRENT DAY 50 ENTRY POINT:
 
-- Current selected-contract blocker closeout result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_SELECTED_CONTRACT_BLOCKER_CLOSEOUT_RESULT.md`
-- Current selected-contract blocker closeout JSON: `historical_signal_replay/results/day50_positive_entry_selected_contract_blocker_closeout.json`
-- Current selected-contract blocker closeout builder: `historical_signal_replay/day50_positive_entry_selected_contract_blocker_closeout.py`
-- Current selected-contract blocker closeout tests: `tests/test_day50_positive_entry_selected_contract_blocker_closeout.py`
-- Exact active task: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CONTRACT_SELECTED_MISSING_EVIDENCE_CODEX_TASK.md`
-- Previous active task: `SAFE_FAST_DAY50_POSITIVE_ENTRY_SELECTED_CONTRACT_BLOCKER_CLOSEOUT_CODEX_TASK.md`
+- Current contract-selected missing-evidence result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CONTRACT_SELECTED_MISSING_EVIDENCE_RESULT.md`
+- Current contract-selected missing-evidence JSON: `historical_signal_replay/results/day50_positive_entry_contract_selected_missing_evidence.json`
+- Current contract-selected missing-evidence builder: `historical_signal_replay/day50_positive_entry_contract_selected_missing_evidence.py`
+- Current contract-selected missing-evidence tests: `tests/test_day50_positive_entry_contract_selected_missing_evidence.py`
+- Exact active task: `SAFE_FAST_DAY50_POSITIVE_ENTRY_TRADE_CANDIDATE_RULE_GAP_CLOSEOUT_CODEX_TASK.md`
+- Previous selected-contract blocker closeout result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_SELECTED_CONTRACT_BLOCKER_CLOSEOUT_RESULT.md`
+- Previous selected-contract blocker closeout JSON: `historical_signal_replay/results/day50_positive_entry_selected_contract_blocker_closeout.json`
 - Previous evidence-backed positive-entry testing batch result: `SAFE_FAST_DAY50_EVIDENCE_BACKED_POSITIVE_ENTRY_TESTING_BATCH_RESULT.md`
 - Previous evidence-backed positive-entry testing batch JSON: `historical_signal_replay/results/day50_evidence_backed_positive_entry_testing_batch.json`
-- Previous evidence-backed positive-entry testing batch builder: `historical_signal_replay/day50_evidence_backed_positive_entry_testing_batch.py`
-- Previous evidence-backed positive-entry testing batch tests: `tests/test_day50_evidence_backed_positive_entry_testing_batch.py`
-- Previous closeout result: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CLOSEOUT_RESULT.md`
-- Previous closeout JSON: `historical_signal_replay/results/day50_accepted_setup_evidence_replay_after_intake_closeout.json`
-- Previous accepted setup evidence replay-after-intake result: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_RESULT.md`
-- Previous accepted setup evidence replay-after-intake JSON: `historical_signal_replay/results/day50_accepted_setup_evidence_replay_after_intake.json`
-- Previous accepted complete setup evidence intake result: `SAFE_FAST_DAY50_ACCEPTED_COMPLETE_SETUP_EVIDENCE_INTAKE_RESULT.md`
-- Previous accepted complete setup evidence intake JSON: `historical_signal_replay/results/day50_accepted_complete_setup_evidence_intake.json`
-- Current data-source registry and Schwab queue result: `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_RESULT.md`
-- Current Schwab read-only audit result: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_RESULT.md`
-- Current Schwab read-only audit task reference: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`
 - Current canonical registry: `SAFE_FAST_DATA_SOURCE_REGISTRY.md`
+- Current data-source registry and Schwab queue result: `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_RESULT.md`
 - Machine registry: `historical_signal_replay/config/safe_fast_data_source_registry.json`
 - Resolver: `watcher_foundation/safe_fast_data_source_resolver.py`
+- Current Schwab read-only audit result: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_RESULT.md`
+- Current Schwab read-only audit task reference: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`
 
 Do not report vague MISSING_DATA. Every blocker must state exact field, exact source, exact dataset/schema/API/calculator, exact timestamp window, exact reason unavailable, whether it blocks setup/trade/execution/exit or only optional context, and exact next action.
 
@@ -63,19 +56,24 @@ Current batch facts:
 - Winners: `1`.
 - Losers: `0`.
 
-Selected-contract closeout facts:
-- Selected contracts in batch: `5`.
-- Selected contracts that failed before entry: `4`.
-- Affected selected-contract cases rerun from existing local controls: `4`.
+Contract-selected missing-evidence closeout facts:
+- Targeted group: first stage not reached `CONTRACT_SELECTED`, exact blocker `missing_setup_time_selected_option_evidence`.
+- Active selected-contract missing-evidence cases reviewed: `3`.
+- Fresh quote cases: `2`.
+- Genuinely stale cases: `1`.
+- Remaining evidence gaps: `2`.
 - Additional entries established: `0`.
-- First blocker for every affected selected contract: `ENTRY_ELIGIBLE` / `option_quote_freshness` / `quote_age_above_5_minutes`.
-- Affected cases: `first_real_spy_continuation_replay_v1_fixture`, `second_real_spy_ideal_replay_v1_fixture`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`, and `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Entry-eligible after closeout: `0`.
+- Entries recorded after closeout: `0`.
+- QQQ Continuation: fresh selected top-ranked quote, but spread `0.35` fails the accepted cap and no fallback is allowed.
+- QQQ Ideal: fresh raw quote-universe evidence exists, but accepted selected-contract identity/rule evidence is still absent.
+- SPY CFB 003: selected-contract quote is genuinely stale, quote age `446.63329` seconds.
+- QQQ CFB 001 remains `TRUE_NO_TRADE_REGRESSION_ONLY` and must not be rerun as a live candidate.
 
 Grouped work must preserve a funnel scorecard and keep these categories separate: VALID_TRADE_CAPTURED, TRUE_NO_TRADE, MISSING_DATA, MISSED_VALID_TRADE, INVALID_TRADE_ALLOWED, and UNRESOLVED.
 
 Current blocker status:
 - `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` is closed as `CLOSED_CONFIRMED_SAFETY_REJECTION` / `TRUE_NO_TRADE_REGRESSION_ONLY`.
-- QQQ CFB 001 must be preserved only as a true no-trade regression anchor.
 - Do not rerun QQQ CFB 001 as a live candidate.
 - Do not reopen the four closed setup-source candidates.
 - Do not replay the three rejected intake rows.
@@ -88,7 +86,7 @@ Do not download paid data without an exact cost check and user approval.
 
 Correct Codex launch command for the next task:
 
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_POSITIVE_ENTRY_CONTRACT_SELECTED_MISSING_EVIDENCE_CODEX_TASK.md exactly."
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_POSITIVE_ENTRY_TRADE_CANDIDATE_RULE_GAP_CLOSEOUT_CODEX_TASK.md exactly."
 
 Do not authenticate to Schwab until the task reaches the explicit OAuth browser authorization step. Do not submit, replace, cancel, preview, or call any order endpoint.
 

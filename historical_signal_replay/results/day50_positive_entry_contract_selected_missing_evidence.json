@@ -1,0 +1,452 @@
+{
+  "active_selected_contract_records": [
+    {
+      "additional_entry_established": false,
+      "batch_exact_blocker": "missing_setup_time_selected_option_evidence",
+      "batch_first_stage_not_reached": "CONTRACT_SELECTED",
+      "business_candidate_id": "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+      "candidate_identifier": "first_real_qqq_continuation_replay_v1_fixture",
+      "entry_eligible_after_closeout": false,
+      "entry_recorded_after_closeout": false,
+      "evidence_scope": "selected_contract",
+      "live_eligible": false,
+      "paper_eligible": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "quote_evidence": {
+        "ask": 12.25,
+        "ask_size": 18.0,
+        "bid": 11.9,
+        "bid_size": 166.0,
+        "blocking_scope": "blocks CONTRACT_SELECTED or ENTRY_ELIGIBLE depending on selected-contract validity",
+        "calculator": "historical_signal_replay.execution_context_calculator",
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.csv",
+        "dataset_schema_or_api": "OPRA.PILLAR / tcbbo local CSV normalized by historical_signal_replay.databento_opra_normalizer",
+        "execution_context_status": "fail",
+        "field": "selected_contract_quote_update",
+        "instrument_id": "956302440",
+        "next_action": "preserve local evidence; do not download data for this case",
+        "quote_age_seconds": 7.118606,
+        "quote_freshness_bucket": "fresh",
+        "raw_symbol": "QQQ   260514C00665000",
+        "rejection_reason": "spread_above_0_15",
+        "setup_time_trade_volume": 8.0,
+        "source": "Databento historical options via existing local quote-update CSV",
+        "spread": 0.35,
+        "timestamp_window": {
+          "nearest_quote_time": "2026-04-30T19:29:52.881394Z",
+          "signal_time": "2026-04-30T19:30:00Z"
+        },
+        "trade_csv_path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.csv"
+      },
+      "remaining_evidence_gaps": [
+        {
+          "blocking_scope": "blocks CONTRACT_SELECTED under no-fallback precedence",
+          "candidate_identifier": "first_real_qqq_continuation_replay_v1_fixture",
+          "dataset_schema_or_api": "OPRA.PILLAR / tcbbo",
+          "field": "selected_contract_spread",
+          "next_action": "preserve as local no-entry blocker; no fallback scan",
+          "source": "Databento historical options local quote-update CSV",
+          "timestamp_window": {
+            "signal_time": "2026-04-30T19:30:00Z"
+          },
+          "unavailable_or_failure_reason": "spread_above_0_15"
+        }
+      ],
+      "resolved_classification": "TRUE_NO_TRADE",
+      "selection_basis": "local Day 48 Continuation option-context request package top-ranked raw symbol",
+      "setup_family": "Continuation",
+      "underlying": "QQQ"
+    },
+    {
+      "additional_entry_established": false,
+      "batch_exact_blocker": "missing_setup_time_selected_option_evidence",
+      "batch_first_stage_not_reached": "CONTRACT_SELECTED",
+      "business_candidate_id": "QQQ-REAL-HISTORICAL-IDEAL-001",
+      "candidate_identifier": "first_real_qqq_ideal_replay_v1_fixture",
+      "entry_eligible_after_closeout": false,
+      "entry_recorded_after_closeout": false,
+      "evidence_scope": "raw_quote_universe",
+      "live_eligible": false,
+      "paper_eligible": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "quote_evidence": {
+        "ask": 11.06,
+        "ask_size": 31.0,
+        "bid": 11.04,
+        "bid_size": 20.0,
+        "blocking_scope": "blocks CONTRACT_SELECTED or ENTRY_ELIGIBLE depending on selected-contract validity",
+        "calculator": "historical_signal_replay.execution_context_calculator",
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_tcbbo_signal_10min.csv",
+        "dataset_schema_or_api": "OPRA.PILLAR / tcbbo local CSV normalized by historical_signal_replay.databento_opra_normalizer",
+        "execution_context_status": "clean",
+        "field": "selected_contract_quote_update",
+        "instrument_id": "989855946",
+        "next_action": "preserve local evidence; do not download data for this case",
+        "quote_age_seconds": 0.175675,
+        "quote_freshness_bucket": "fresh",
+        "raw_symbol": "QQQ   260529C00720000",
+        "rejection_reason": null,
+        "setup_time_trade_volume": 54.0,
+        "source": "Databento historical options via existing local quote-update CSV",
+        "spread": 0.02,
+        "timestamp_window": {
+          "nearest_quote_time": "2026-05-13T16:29:59.824325Z",
+          "signal_time": "2026-05-13T16:30:00Z"
+        },
+        "trade_csv_path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_trades_signal_10min.csv"
+      },
+      "remaining_evidence_gaps": [
+        {
+          "blocking_scope": "blocks CONTRACT_SELECTED",
+          "candidate_identifier": "first_real_qqq_ideal_replay_v1_fixture",
+          "dataset_schema_or_api": "accepted setup-family contract-selection rule",
+          "field": "selected_contract_identity",
+          "next_action": "define/accept grouped Ideal rule evidence before any paid quote request",
+          "source": "SAFE-FAST frozen local rule package",
+          "timestamp_window": {
+            "signal_time": "2026-05-13T16:30:00Z"
+          },
+          "unavailable_or_failure_reason": "no accepted QQQ Ideal selected-contract rule"
+        }
+      ],
+      "resolved_classification": "MISSING_DATA",
+      "selection_basis": "local starter quote universe only; no accepted QQQ Ideal selected-contract rule",
+      "setup_family": "Ideal",
+      "underlying": "QQQ"
+    },
+    {
+      "additional_entry_established": false,
+      "batch_exact_blocker": "missing_setup_time_selected_option_evidence",
+      "batch_first_stage_not_reached": "CONTRACT_SELECTED",
+      "business_candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "candidate_identifier": "third_real_spy_clean_fast_break_replay_v1_fixture",
+      "entry_eligible_after_closeout": false,
+      "entry_recorded_after_closeout": false,
+      "evidence_scope": "selected_contract",
+      "live_eligible": false,
+      "paper_eligible": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "quote_evidence": {
+        "ask": 7.66,
+        "ask_size": 40.0,
+        "bid": 7.63,
+        "bid_size": 88.0,
+        "blocking_scope": "blocks CONTRACT_SELECTED or ENTRY_ELIGIBLE depending on selected-contract validity",
+        "calculator": "historical_signal_replay.execution_context_calculator",
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_tcbbo_open_to_signal.csv",
+        "dataset_schema_or_api": "OPRA.PILLAR / tcbbo local CSV normalized by historical_signal_replay.databento_opra_normalizer",
+        "execution_context_status": "fail",
+        "field": "selected_contract_quote_update",
+        "instrument_id": "1258293278",
+        "next_action": "preserve local evidence; do not download data for this case",
+        "quote_age_seconds": 446.63329,
+        "quote_freshness_bucket": "stale",
+        "raw_symbol": "SPY   260429C00700000",
+        "rejection_reason": "quote_age_above_5_minutes",
+        "setup_time_trade_volume": 317.0,
+        "source": "Databento historical options via existing local quote-update CSV",
+        "spread": 0.03,
+        "timestamp_window": {
+          "nearest_quote_time": "2026-04-15T18:22:33.366710Z",
+          "signal_time": "2026-04-15T18:30:00Z"
+        },
+        "trade_csv_path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_trades_open_to_signal.csv"
+      },
+      "remaining_evidence_gaps": [],
+      "resolved_classification": "TRUE_NO_TRADE",
+      "selection_basis": "local SPY CFB 003 selected-contract setup-window raw-symbol download",
+      "setup_family": "Clean Fast Break",
+      "underlying": "SPY"
+    }
+  ],
+  "additional_entries": [],
+  "broker_mutation_attempted": false,
+  "closeout_policy": {
+    "active_selected_contract_cases_reviewed": 3,
+    "classification_categories_preserved": [
+      "VALID_TRADE_CAPTURED",
+      "TRUE_NO_TRADE",
+      "MISSING_DATA",
+      "MISSED_VALID_TRADE",
+      "INVALID_TRADE_ALLOWED",
+      "UNRESOLVED"
+    ],
+    "closed_setup_source_candidates_reopened": false,
+    "exit_path_request_included": false,
+    "frozen_rules_weakened": false,
+    "governance_only_chain_created": false,
+    "new_candidate_scan_run": false,
+    "option_request_included": false,
+    "qqq_clean_fast_break_001_preserved_regression_only": true,
+    "rejected_intake_rows_replayed": false,
+    "selected_contract_failure_before_entry_rerun_as_live_path": false,
+    "source": "Day 50 evidence-backed positive-entry batch only",
+    "target_exact_blocker": "missing_setup_time_selected_option_evidence",
+    "target_first_stage_not_reached": "CONTRACT_SELECTED"
+  },
+  "databento_cost_check": {
+    "actual_billed_cost": "NOT_AVAILABLE",
+    "checked_cost": "NOT_AVAILABLE",
+    "credential_used": false,
+    "reason": "Existing local quote-update data answered the active cases that had a deterministic local raw symbol. The remaining gap is an accepted QQQ Ideal selected-contract rule, not absent quote data, so no valid paid quote-update request was created."
+  },
+  "databento_downloaded": false,
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "final_classifications": {
+    "INVALID_TRADE_ALLOWED": 0,
+    "MISSED_VALID_TRADE": 0,
+    "MISSING_DATA": 6,
+    "TRUE_NO_TRADE": 4,
+    "UNRESOLVED": 4,
+    "VALID_TRADE_CAPTURED": 1
+  },
+  "first_run_hash": "56ed2e04897f1b22b88b6ea722cf9501173cfc3132561339e8156b9dfec6cb0a",
+  "fresh_quote_cases": [
+    {
+      "additional_entry_established": false,
+      "batch_exact_blocker": "missing_setup_time_selected_option_evidence",
+      "batch_first_stage_not_reached": "CONTRACT_SELECTED",
+      "business_candidate_id": "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+      "candidate_identifier": "first_real_qqq_continuation_replay_v1_fixture",
+      "entry_eligible_after_closeout": false,
+      "entry_recorded_after_closeout": false,
+      "evidence_scope": "selected_contract",
+      "live_eligible": false,
+      "paper_eligible": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "quote_evidence": {
+        "ask": 12.25,
+        "ask_size": 18.0,
+        "bid": 11.9,
+        "bid_size": 166.0,
+        "blocking_scope": "blocks CONTRACT_SELECTED or ENTRY_ELIGIBLE depending on selected-contract validity",
+        "calculator": "historical_signal_replay.execution_context_calculator",
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.csv",
+        "dataset_schema_or_api": "OPRA.PILLAR / tcbbo local CSV normalized by historical_signal_replay.databento_opra_normalizer",
+        "execution_context_status": "fail",
+        "field": "selected_contract_quote_update",
+        "instrument_id": "956302440",
+        "next_action": "preserve local evidence; do not download data for this case",
+        "quote_age_seconds": 7.118606,
+        "quote_freshness_bucket": "fresh",
+        "raw_symbol": "QQQ   260514C00665000",
+        "rejection_reason": "spread_above_0_15",
+        "setup_time_trade_volume": 8.0,
+        "source": "Databento historical options via existing local quote-update CSV",
+        "spread": 0.35,
+        "timestamp_window": {
+          "nearest_quote_time": "2026-04-30T19:29:52.881394Z",
+          "signal_time": "2026-04-30T19:30:00Z"
+        },
+        "trade_csv_path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.csv"
+      },
+      "remaining_evidence_gaps": [
+        {
+          "blocking_scope": "blocks CONTRACT_SELECTED under no-fallback precedence",
+          "candidate_identifier": "first_real_qqq_continuation_replay_v1_fixture",
+          "dataset_schema_or_api": "OPRA.PILLAR / tcbbo",
+          "field": "selected_contract_spread",
+          "next_action": "preserve as local no-entry blocker; no fallback scan",
+          "source": "Databento historical options local quote-update CSV",
+          "timestamp_window": {
+            "signal_time": "2026-04-30T19:30:00Z"
+          },
+          "unavailable_or_failure_reason": "spread_above_0_15"
+        }
+      ],
+      "resolved_classification": "TRUE_NO_TRADE",
+      "selection_basis": "local Day 48 Continuation option-context request package top-ranked raw symbol",
+      "setup_family": "Continuation",
+      "underlying": "QQQ"
+    },
+    {
+      "additional_entry_established": false,
+      "batch_exact_blocker": "missing_setup_time_selected_option_evidence",
+      "batch_first_stage_not_reached": "CONTRACT_SELECTED",
+      "business_candidate_id": "QQQ-REAL-HISTORICAL-IDEAL-001",
+      "candidate_identifier": "first_real_qqq_ideal_replay_v1_fixture",
+      "entry_eligible_after_closeout": false,
+      "entry_recorded_after_closeout": false,
+      "evidence_scope": "raw_quote_universe",
+      "live_eligible": false,
+      "paper_eligible": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "quote_evidence": {
+        "ask": 11.06,
+        "ask_size": 31.0,
+        "bid": 11.04,
+        "bid_size": 20.0,
+        "blocking_scope": "blocks CONTRACT_SELECTED or ENTRY_ELIGIBLE depending on selected-contract validity",
+        "calculator": "historical_signal_replay.execution_context_calculator",
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_tcbbo_signal_10min.csv",
+        "dataset_schema_or_api": "OPRA.PILLAR / tcbbo local CSV normalized by historical_signal_replay.databento_opra_normalizer",
+        "execution_context_status": "clean",
+        "field": "selected_contract_quote_update",
+        "instrument_id": "989855946",
+        "next_action": "preserve local evidence; do not download data for this case",
+        "quote_age_seconds": 0.175675,
+        "quote_freshness_bucket": "fresh",
+        "raw_symbol": "QQQ   260529C00720000",
+        "rejection_reason": null,
+        "setup_time_trade_volume": 54.0,
+        "source": "Databento historical options via existing local quote-update CSV",
+        "spread": 0.02,
+        "timestamp_window": {
+          "nearest_quote_time": "2026-05-13T16:29:59.824325Z",
+          "signal_time": "2026-05-13T16:30:00Z"
+        },
+        "trade_csv_path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_trades_signal_10min.csv"
+      },
+      "remaining_evidence_gaps": [
+        {
+          "blocking_scope": "blocks CONTRACT_SELECTED",
+          "candidate_identifier": "first_real_qqq_ideal_replay_v1_fixture",
+          "dataset_schema_or_api": "accepted setup-family contract-selection rule",
+          "field": "selected_contract_identity",
+          "next_action": "define/accept grouped Ideal rule evidence before any paid quote request",
+          "source": "SAFE-FAST frozen local rule package",
+          "timestamp_window": {
+            "signal_time": "2026-05-13T16:30:00Z"
+          },
+          "unavailable_or_failure_reason": "no accepted QQQ Ideal selected-contract rule"
+        }
+      ],
+      "resolved_classification": "MISSING_DATA",
+      "selection_basis": "local starter quote universe only; no accepted QQQ Ideal selected-contract rule",
+      "setup_family": "Ideal",
+      "underlying": "QQQ"
+    }
+  ],
+  "genuinely_stale_cases": [
+    {
+      "additional_entry_established": false,
+      "batch_exact_blocker": "missing_setup_time_selected_option_evidence",
+      "batch_first_stage_not_reached": "CONTRACT_SELECTED",
+      "business_candidate_id": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "candidate_identifier": "third_real_spy_clean_fast_break_replay_v1_fixture",
+      "entry_eligible_after_closeout": false,
+      "entry_recorded_after_closeout": false,
+      "evidence_scope": "selected_contract",
+      "live_eligible": false,
+      "paper_eligible": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "quote_evidence": {
+        "ask": 7.66,
+        "ask_size": 40.0,
+        "bid": 7.63,
+        "bid_size": 88.0,
+        "blocking_scope": "blocks CONTRACT_SELECTED or ENTRY_ELIGIBLE depending on selected-contract validity",
+        "calculator": "historical_signal_replay.execution_context_calculator",
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_tcbbo_open_to_signal.csv",
+        "dataset_schema_or_api": "OPRA.PILLAR / tcbbo local CSV normalized by historical_signal_replay.databento_opra_normalizer",
+        "execution_context_status": "fail",
+        "field": "selected_contract_quote_update",
+        "instrument_id": "1258293278",
+        "next_action": "preserve local evidence; do not download data for this case",
+        "quote_age_seconds": 446.63329,
+        "quote_freshness_bucket": "stale",
+        "raw_symbol": "SPY   260429C00700000",
+        "rejection_reason": "quote_age_above_5_minutes",
+        "setup_time_trade_volume": 317.0,
+        "source": "Databento historical options via existing local quote-update CSV",
+        "spread": 0.03,
+        "timestamp_window": {
+          "nearest_quote_time": "2026-04-15T18:22:33.366710Z",
+          "signal_time": "2026-04-15T18:30:00Z"
+        },
+        "trade_csv_path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_trades_open_to_signal.csv"
+      },
+      "remaining_evidence_gaps": [],
+      "resolved_classification": "TRUE_NO_TRADE",
+      "selection_basis": "local SPY CFB 003 selected-contract setup-window raw-symbol download",
+      "setup_family": "Clean Fast Break",
+      "underlying": "SPY"
+    }
+  ],
+  "input_paths": {
+    "day50_evidence_backed_positive_entry_testing_batch": "historical_signal_replay/results/day50_evidence_backed_positive_entry_testing_batch.json",
+    "day50_positive_entry_selected_contract_blocker_closeout": "historical_signal_replay/results/day50_positive_entry_selected_contract_blocker_closeout.json"
+  },
+  "live_eligible": false,
+  "next_task": {
+    "filename": "SAFE_FAST_DAY50_POSITIVE_ENTRY_TRADE_CANDIDATE_RULE_GAP_CLOSEOUT_CODEX_TASK.md",
+    "reason": "The active contract-selected missing-evidence cases produced zero additional entries from local quote-update data. The next bounded surface is rule/evidence closeout for trade-candidate-stage families before any further selected-contract request can be justified.",
+    "route": "positive_entry_trade_candidate_rule_gap_closeout"
+  },
+  "paid_data_request_created": false,
+  "paper_eligible": false,
+  "profitability_claimed": false,
+  "promotion_decision_made": false,
+  "proof_accepted": false,
+  "raw_vendor_data_changed": false,
+  "regression_only_record": {
+    "business_candidate_id": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+    "candidate_identifier": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+    "entry_quote_time": "2026-04-13T16:06:30.640301+00:00",
+    "entry_time": "2026-04-13T16:30:00+00:00",
+    "live_candidate_rerun": false,
+    "preserved_as": "TRUE_NO_TRADE_REGRESSION_ONLY",
+    "reason": "closed confirmed safety rejection; quote_age_above_5_minutes",
+    "regression_only": true
+  },
+  "remaining_evidence_gaps": [
+    {
+      "blocking_scope": "blocks CONTRACT_SELECTED under no-fallback precedence",
+      "candidate_identifier": "first_real_qqq_continuation_replay_v1_fixture",
+      "dataset_schema_or_api": "OPRA.PILLAR / tcbbo",
+      "field": "selected_contract_spread",
+      "next_action": "preserve as local no-entry blocker; no fallback scan",
+      "source": "Databento historical options local quote-update CSV",
+      "timestamp_window": {
+        "signal_time": "2026-04-30T19:30:00Z"
+      },
+      "unavailable_or_failure_reason": "spread_above_0_15"
+    },
+    {
+      "blocking_scope": "blocks CONTRACT_SELECTED",
+      "candidate_identifier": "first_real_qqq_ideal_replay_v1_fixture",
+      "dataset_schema_or_api": "accepted setup-family contract-selection rule",
+      "field": "selected_contract_identity",
+      "next_action": "define/accept grouped Ideal rule evidence before any paid quote request",
+      "source": "SAFE-FAST frozen local rule package",
+      "timestamp_window": {
+        "signal_time": "2026-05-13T16:30:00Z"
+      },
+      "unavailable_or_failure_reason": "no accepted QQQ Ideal selected-contract rule"
+    }
+  ],
+  "result_version": "day50_positive_entry_contract_selected_missing_evidence_v1",
+  "run_timestamp": "2026-06-21T19:20:14.913570Z",
+  "schwab_authenticated": false,
+  "scorecard": {
+    "active_selected_contract_cases_reviewed": 3,
+    "additional_entries_established": 0,
+    "closed_safety_rejections_rerun_as_live_candidates": 0,
+    "closed_setup_source_candidates_reopened": 0,
+    "entries_recorded_after_closeout": 0,
+    "entry_eligible_after_closeout": 0,
+    "fresh_quote_cases": 2,
+    "genuinely_stale_cases": 1,
+    "invalid_trades_allowed": 0,
+    "missed_valid_trades": 0,
+    "missing_data_cases": 6,
+    "qqq_clean_fast_break_001_regression_only_preserved": true,
+    "rejected_intake_rows_replayed": 0,
+    "remaining_evidence_gaps": 2,
+    "true_no_trades": 4,
+    "unresolved_cases": 4,
+    "valid_trades_captured": 1
+  },
+  "second_run_hash": "56ed2e04897f1b22b88b6ea722cf9501173cfc3132561339e8156b9dfec6cb0a",
+  "source_commit": "11d8b87"
+}

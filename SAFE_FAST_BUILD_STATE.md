@@ -1,5 +1,46 @@
 # SAFE-FAST Build State
 
+## Day 50 positive-entry contract-selected missing evidence result
+
+- Current task file executed: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CONTRACT_SELECTED_MISSING_EVIDENCE_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CONTRACT_SELECTED_MISSING_EVIDENCE_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day50_positive_entry_contract_selected_missing_evidence.json`.
+- Builder created: `historical_signal_replay/day50_positive_entry_contract_selected_missing_evidence.py`.
+- Focused tests created: `tests/test_day50_positive_entry_contract_selected_missing_evidence.py`.
+- Exact next grouped task created: `SAFE_FAST_DAY50_POSITIVE_ENTRY_TRADE_CANDIDATE_RULE_GAP_CLOSEOUT_CODEX_TASK.md`.
+- Source of truth was the Day 50 evidence-backed positive-entry batch only; no open-ended candidate scan was run.
+- Targeted group: first stage not reached `CONTRACT_SELECTED`, exact blocker `missing_setup_time_selected_option_evidence`.
+- Active selected-contract missing-evidence cases reviewed: `3`.
+- QQQ Clean Fast Break 001 was preserved as `TRUE_NO_TRADE_REGRESSION_ONLY` and was not rerun as a live candidate.
+- Fresh quote cases: `2`.
+- Genuinely stale cases: `1`.
+- Remaining evidence gaps: `2`.
+- Additional entries established: `0`.
+- Affected cases entry-eligible after closeout: `0`.
+- Affected cases entries recorded after closeout: `0`.
+- `first_real_qqq_continuation_replay_v1_fixture` / `QQQ-REAL-HISTORICAL-CONTINUATION-001`: local selected top-ranked quote for `QQQ   260514C00665000` was fresh at `2026-04-30T19:29:52.881394Z`, quote age `7.118606` seconds, but spread `0.35` failed the accepted `0.15` cap under no-fallback precedence.
+- `first_real_qqq_ideal_replay_v1_fixture` / `QQQ-REAL-HISTORICAL-IDEAL-001`: local raw quote universe had fresh quote `QQQ   260529C00720000` at `2026-05-13T16:29:59.824325Z`, quote age `0.175675` seconds, spread `0.02`, and trade volume `54`, but no accepted QQQ Ideal selected-contract rule exists, so selected-contract identity remains the blocker.
+- `third_real_spy_clean_fast_break_replay_v1_fixture` / `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`: local selected-contract quote for `SPY   260429C00700000` at `2026-04-15T18:22:33.366710Z` was genuinely stale, quote age `446.63329` seconds, so it remains `TRUE_NO_TRADE` from `quote_age_above_5_minutes`.
+- Scorecard categories remained separate: `VALID_TRADE_CAPTURED=1`, `TRUE_NO_TRADE=4`, `MISSING_DATA=6`, `MISSED_VALID_TRADE=0`, `INVALID_TRADE_ALLOWED=0`, and `UNRESOLVED=4`.
+- Paid-data request created: `NO`.
+- Checked cost: `NOT_AVAILABLE`; no credential was used, no paid-data request was created, and no data was downloaded.
+- Closed safety rejections rerun as live candidates: `0`.
+- Closed setup-source candidates reopened: `0`.
+- Rejected intake rows replayed: `0`.
+- Frozen rules weakened: `0`.
+- Governance-only chain created: `0`.
+- No Schwab authentication, Schwab endpoint call, Databento download, paid-data purchase approval, option request, exit-path request, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, broker/order/account, credential, `.env`, production/live backend, or frozen-threshold change was made.
+- Next route: close out the remaining `TRADE_CANDIDATE` rule/evidence gap surface via `SAFE_FAST_DAY50_POSITIVE_ENTRY_TRADE_CANDIDATE_RULE_GAP_CLOSEOUT_CODEX_TASK.md`.
+- Checks run so far:
+  - `python -B -m unittest discover -s tests -p "test_day50_positive_entry_contract_selected_missing_evidence.py"`: PASS, `7` tests.
+  - `python -B -m historical_signal_replay.day50_positive_entry_contract_selected_missing_evidence`: PASS, wrote `2` fresh quote cases, `1` stale case, `0` additional entries.
+  - Required Day 50 dependency chain tests/builders: PASS for selected-contract blocker closeout, evidence-backed positive-entry batch, accepted setup evidence replay-after-intake closeout, accepted setup evidence replay-after-intake, accepted complete setup evidence intake, post-closure expansion, exact setup-source closure, required setup-source resolution, and data-source registry.
+  - Day 48 positive-trade funnel regression: PASS twice, each wrote `15` candidates, `1` valid captured, `4` true no-trades, `6` missing-data cases.
+  - Relevant positive-entry/family/stage/session tests: PASS for Day 49 positive-entry candidate expansion, Day 49 setup-field completion, Day 49 setup-time, Day 48 actual grouped three-family replay, Continuation starter coverage, grouped three-family coverage expansion, and grouped three-family expansion after Continuation.
+  - Contract-selection and quote-freshness tests: PASS for CFB contract selector, CFB lifecycle calculator, execution context calculator, and context caution calculator.
+  - Evidence validator, package-to-intake bridge, source evidence gap scanner, source evidence package tests, and future-chat consistency tests: PASS.
+  - `git --no-pager diff --check`: PASS, with normal CRLF warnings only.
+
 ## Day 50 positive-entry selected-contract blocker closeout result
 
 - Current task file executed: `SAFE_FAST_DAY50_POSITIVE_ENTRY_SELECTED_CONTRACT_BLOCKER_CLOSEOUT_CODEX_TASK.md`.
