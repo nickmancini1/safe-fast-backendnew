@@ -224,3 +224,21 @@ DO NOT:
 - make the user hold your hand
 
 END START BLOCK
+DAY 50 OVERRIDE - CURRENT ROUTING
+
+Read SAFE_FAST_BUILD_STATE.md first.
+
+Use canonical registry:
+- SAFE_FAST_DATA_SOURCE_REGISTRY.md
+- historical_signal_replay/config/safe_fast_data_source_registry.json
+- watcher_foundation/safe_fast_data_source_resolver.py
+- SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_RESULT.md
+
+Do not report vague MISSING_DATA. Report exact field, source, dataset/schema/API/calculator, timestamp window, unavailable reason, blocking scope, and next action.
+
+Schwab is the live broker/account/order/fill authority. Databento OPRA.PILLAR is the primary historical options source. SAFE-FAST setup labels stay local.
+
+Exact active task:
+SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md
+
+Do not run another incomplete candidate batch.

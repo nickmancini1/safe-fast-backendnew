@@ -6,14 +6,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class Day48PositiveTradeHandoffConsistencyTests(unittest.TestCase):
-    def test_current_control_files_agree_on_active_positive_entry_task(self):
-        active_task = (
-            "SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_CODEX_TASK.md"
-        )
-        result_doc = (
-            "SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_EVIDENCE_COMPLETION_OR_REPLACEMENT_RESULT.md"
-        )
-        funnel_json = "historical_signal_replay/results/day48_positive_trade_capture_funnel.json"
+    def test_current_control_files_agree_on_active_registry_and_schwab_task(self):
+        active_task = "SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md"
+        result_doc = "SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_RESULT.md"
+        registry_doc = "SAFE_FAST_DATA_SOURCE_REGISTRY.md"
 
         for relative_path in [
             "SAFE_FAST_BUILD_STATE.md",
@@ -27,7 +23,7 @@ class Day48PositiveTradeHandoffConsistencyTests(unittest.TestCase):
             with self.subTest(path=relative_path):
                 self.assertIn(active_task, text)
                 self.assertIn(result_doc, text)
-                self.assertIn(funnel_json, text)
+                self.assertIn(registry_doc, text)
 
     def test_handoff_requires_build_state_first_and_funnel_scorecards(self):
         handoff = (ROOT / "SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt").read_text(
@@ -35,6 +31,7 @@ class Day48PositiveTradeHandoffConsistencyTests(unittest.TestCase):
         )
 
         self.assertIn("Read SAFE_FAST_BUILD_STATE.md first", handoff)
+        self.assertIn("Do not report vague MISSING_DATA", handoff)
         self.assertIn("funnel scorecard", handoff)
         self.assertIn("VALID_TRADE_CAPTURED", handoff)
         self.assertIn("TRUE_NO_TRADE", handoff)

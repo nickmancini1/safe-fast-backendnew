@@ -1,6 +1,5 @@
-﻿START HERE — SAFE-FAST NEXT CHAT OPERATING RULES
+START HERE - SAFE-FAST NEXT CHAT OPERATING RULES
 
-CURRENT DAY 49 ENTRY POINT:
 Read SAFE_FAST_BUILD_STATE.md first.
 
 Then verify local branch, commit, and status:
@@ -10,222 +9,49 @@ git --no-pager branch --show-current
 git --no-pager log -1 --oneline
 git --no-pager status --short
 
-Current expected checkpoint after the Day 49 grouped positive-entry setup evidence completion/replacement task:
-- branch: main
-- current result: SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_EVIDENCE_COMPLETION_OR_REPLACEMENT_RESULT.md
-- current development manifest: historical_signal_replay/fixtures/day49_positive_entry_candidate_expansion_manifest.json
-- current machine-readable setup evidence result: historical_signal_replay/results/day49_positive_entry_setup_evidence_completion.json
-- current setup-data request manifest: historical_signal_replay/source_data/richer_export_package_work/day49_positive_entry_exact_setup_data_request_manifest.json
-- current machine-readable funnel: historical_signal_replay/results/day48_positive_trade_capture_funnel.json
-- exact next grouped task: SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_CODEX_TASK.md
+CURRENT DAY 50 ENTRY POINT:
 
-The next chat must continue that exact active task. Do not restart completed discovery. Do not create another incomplete candidate batch.
+- Current canonical registry: `SAFE_FAST_DATA_SOURCE_REGISTRY.md`
+- Machine registry: `historical_signal_replay/config/safe_fast_data_source_registry.json`
+- Resolver: `watcher_foundation/safe_fast_data_source_resolver.py`
+- Current result: `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_RESULT.md`
+- Exact active task: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`
 
-Current funnel result in plain English:
-- SAFE-FAST caught 1 review-only valid-entry reference: SPY Clean Fast Break 002.
-- It correctly rejected 4 stale-quote controls as true no-trades, including the Day 49 SPY Ideal 001 and SPY Continuation 001 setup-time downloads.
-- It has 6 missing-data cases and 4 unresolved cases.
-- It has 0 missed valid trades and 0 invalid trades allowed in the current measured batch.
-- It has only 1 winner and 0 losers, so positive-entry coverage is much too thin.
-- The Day 49 setup evidence completion/replacement task formally closed the 8 slots as 0 completed locally, 0 replaced, 4 exact setup-data required, 3 source contradictions, and 1 unusable.
-- The 8 cases are missing-evidence cases, not no-trades.
-- No new candidate reached TRADE_CANDIDATE, so no option or exit-path request is allowed yet.
+Do not report vague MISSING_DATA. Every blocker must state exact field, exact source, exact dataset/schema/API/calculator, exact timestamp window, exact reason unavailable, whether it blocks setup/trade/execution/exit or only optional context, and exact next action.
 
-Future work must treat positive-trade capture and no-trade safety as co-equal objectives. Every grouped result must include a funnel scorecard and must keep these categories separate: VALID_TRADE_CAPTURED, TRUE_NO_TRADE, MISSING_DATA, MISSED_VALID_TRADE, INVALID_TRADE_ALLOWED, and UNRESOLVED.
+Charles Schwab is the live broker/account/order/fill authority. Databento is the primary historical options source. SAFE-FAST setup labels stay inside the SAFE-FAST frozen local rule engine.
 
-Cost and download rule:
-Do not download data without an exact cost check and user approval. Missing Databento credentials are not evidence that market data does not exist.
+Required source rules:
+- Historical underlying: Databento `DBEQ.BASIC / ohlcv-1h / raw_symbol`.
+- Historical options: Databento `OPRA.PILLAR`.
+- Option quote freshness: `cmbp-1`; `cbbo-1s` only after explicit validation.
+- `tcbbo` is supplemental and must not be the sole quote-freshness source.
+- Live fills: Schwab controls. Databento, tastytrade, and TradingView cannot override Schwab fills.
+- Volatility: SAFE-FAST calculated realized volatility and option IV/Greeks when inputs exist; Cboe VIX/VIX9D, VXN, RVX, and GVZ for official index context.
+- News/events: SEC, Federal Reserve, BLS, BEA, Treasury, issuer IR; Benzinga only when API entitlement and credentials exist.
+- Macro: ALFRED for historical vintages. Do not silently use revised current macro values.
+
+Current blocker status:
+- The eight Day 49 candidates are not no-trades.
+- They are mapped as `4` exact external setup-data required, `3` source conflicts, and `1` source-unavailable candidate exclusion.
+- Do not run another incomplete candidate batch.
+- Optional context cannot silently block setup qualification unless a frozen rule explicitly makes it mandatory.
+
+Grouped work must preserve a funnel scorecard and keep these categories separate: VALID_TRADE_CAPTURED, TRUE_NO_TRADE, MISSING_DATA, MISSED_VALID_TRADE, INVALID_TRADE_ALLOWED, and UNRESOLVED.
+
+Do not download paid data without an exact cost check and user approval.
 
 Correct Codex launch command for the next task:
 
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_CODEX_TASK.md exactly."
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md exactly."
 
-The older Day 46 text below remains background for workflow discipline only. Local git and SAFE_FAST_BUILD_STATE.md control current project state.
-
-This is the first thing the next chat must read and follow.
-
-PRIMARY RULE:
-Do not waste the user’s time or money.
-
-The user is paying for this work and has already lost time from bad handoffs, wrong Codex prompts, vague answers, and chats that drifted. The next chat must lead clearly, use the repo, keep work batched, and move the project forward without making the user explain PowerShell, Codex, repo state, or the workflow.
-
-COMMUNICATION RULES — HIGHEST PRIORITY:
-- Plain English first.
-- Direct answer first.
-- No filler.
-- No vague timeline talk.
-- No vague cost talk.
-- No repeated “not/not/not” summaries.
-- No generic coaching unless the user asks.
-- No jargon unless immediately translated.
-- Do not make the user decode project language.
-- Do not make the user correct PowerShell/Codex format.
-- Keep the user moving.
+Do not authenticate to Schwab until the task reaches the explicit OAuth browser authorization step. Do not submit, replace, cancel, preview, or call any order endpoint.
 
 Use this format for build work:
 Baseline:
 Fixed:
 Blocked:
 Next:
-Command:
-
-If the user asks a yes/no/I-don’t-know question, answer that first.
-
-POWERHELL / CODEX WORKFLOW — DO NOT GET THIS WRONG:
-
-Use local PowerShell and local Codex task files.
-
-Repo path:
-C:\Users\nickm\Desktop\New folder\safe-fast-backendnew
-
-Always start with:
-
-Set-Location "C:\Users\nickm\Desktop\New folder\safe-fast-backendnew"
-
-git --no-pager branch --show-current
-git --no-pager log -1 --oneline
-git --no-pager status --short
-
-Local git output controls.
-
-Correct Codex launch format:
-
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read and execute .\EXACT_TASK_FILE.md exactly."
-
-Do not use Codex Web unless the user explicitly asks.
-
-Do not pass huge prompts directly into Codex.
-
-Do not invent generic task files.
-
-Do not create files like:
-TASK_DAY46_GROUPED_BACKTEST_BATCH_REVIEW.md
-
-Use committed SAFE_FAST task files when they exist.
-
-Correct workflow:
-1. Verify local git.
-2. Read the current repo files.
-3. If the right task file exists, give the exact Codex launch command.
-4. If the task file is missing, give one PowerShell block that writes a properly named SAFE_FAST_..._CODEX_TASK.md task file.
-5. Stop after task-file creation.
-6. After the user confirms the file exists, give the Codex launch command separately.
-7. User pastes Codex output.
-8. Review the output.
-9. Give guarded commit commands for exact expected files.
-10. Do not push unless the user explicitly asks.
-
-CODEX FAILURE RULE:
-If Codex shows WebSocket fallback failure, HTTPS fallback failure, backend-api/codex/responses 404, or repeated reconnect errors:
-- Say: “Codex connection failed; the repo is not the problem.”
-- Stop retrying that same run.
-- Ask only for git branch/log/status.
-- Do not invent replacement tasks during a Codex transport failure.
-- Do not make the user debug random Codex prompt mistakes.
-
-CURRENT LOCAL CHECKPOINT:
-Latest local checkpoint reported by the user:
-021bead Add Day 46 grouped backtest batch decision
-
-If local git differs, local git controls.
-
-CURRENT PROJECT DAY:
-June 18, 2026 = Project Day 47.
-Day 1 was May 3, 2026.
-Day 60 is July 1, 2026.
-
-Day 60 is a progress checkpoint, not a forced finish.
-The project must be done correctly.
-The project also cannot run indefinitely.
-The next $200 month is the final high-intensity build sprint before moving toward the $20 tier.
-The final sprint must produce a clear decision package.
-
-CURRENT PROJECT STATUS IN PLAIN ENGLISH:
-The first real Clean Fast Break backtest reference ran.
-
-SPY Clean Fast Break 002 hit the profit target:
-- Entry: 6.37
-- Adjusted exit: 7.98
-- Adjusted result: +1.61
-
-Two controls behaved correctly:
-- SPY Clean Fast Break 003 stayed out because its option quote came after the signal.
-- QQQ Clean Fast Break 001 stayed out because its option quote was too old.
-
-This is one useful positive reference.
-It is not enough by itself.
-The next work is grouped comparison and expansion.
-
-CURRENT NEXT WORK:
-Read the current grouped backtest batch decision committed at 021bead.
-
-Then identify the committed next grouped task from the repo.
-
-Continue that task without restarting old QQQ/SPY discovery.
-
-Expected direction:
-- Review the first CFB backtest result.
-- Compare SPY CFB 002, SPY CFB 003, and QQQ CFB 001.
-- Decide the next grouped batch across Clean Fast Break, Ideal, and Continuation.
-- Keep data spending controlled.
-- Build toward the final sprint decision package.
-
-BATCHING RULE:
-Batching is already required.
-
-Use:
-- grouped candidate passes
-- grouped rule packages
-- grouped validation
-- grouped cost checks
-- grouped comparisons
-
-Do not return to one-field loops unless a real blocker makes batching unsafe.
-If a blocker appears, diagnose related blockers together.
-
-BUDGET RULE:
-Cheap starter data first.
-Cost-check every larger Databento request.
-Show the exact price before downloading.
-Full-window data requires user approval unless the checked cost is clearly tiny.
-Raw Databento files stay local and ignored.
-Do not make broad project-cost estimates without checked batch numbers.
-
-Known cost warning:
-One SPY 3-candidate full-window cost check was about $72.36.
-
-REPO BOUNDARIES:
-Read SAFE_FAST_BUILD_STATE.md before code work.
-Preserve the frozen baseline unless an evidence-backed task explicitly requires a change.
-Do not touch:
-- main.py
-- Railway
-- production/deploy files
-- broker/account/order files
-- credentials
-- .env
-- secrets
-
-Every code change needs tests and matching documentation updates.
-
-Do not confuse build work with live trade evaluation.
-
-FILES TO READ FIRST:
-1. SAFE_FAST_BUILD_STATE.md
-2. SAFE_FAST_PROJECT_DASHBOARD.md
-3. SAFE_FAST_PROJECT_RULE_INDEX.md
-4. SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt
-5. Files changed by commit 021bead
-6. Latest committed grouped task or next-step file referenced by those docs
-7. SAFE_FAST_DAY46_NEXT_CHAT_HANDOFF_START_HERE.md as background only, because older parts may be stale
-
-DO NOT:
-- restart stale discovery
-- invent task names
-- use Codex Web unless asked
-- push unless asked
-- download Databento data without approval
-- give vague cost/timeline answers
-- make the user hold your hand
+Tests:
 
 END START BLOCK

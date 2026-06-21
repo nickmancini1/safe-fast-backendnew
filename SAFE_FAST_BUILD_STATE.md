@@ -1,5 +1,29 @@
 # SAFE-FAST Build State
 
+## Day 50 data-source registry and Schwab queue result
+
+- Current task file executed: `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_RESULT.md`.
+- Canonical source registry created: `SAFE_FAST_DATA_SOURCE_REGISTRY.md`.
+- Machine-readable source registry created: `historical_signal_replay/config/safe_fast_data_source_registry.json`.
+- Read-only source resolver created: `watcher_foundation/safe_fast_data_source_resolver.py`.
+- Focused tests created: `tests/test_safe_fast_data_source_registry.py`.
+- Exact Schwab read-only audit task created: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`, HEAD `4fac2e6`, clean except untracked `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_CODEX_TASK.md` and known temp-directory permission warnings.
+- Registry rule: Do not report vague `MISSING_DATA`; report exact field, exact source, dataset/schema/API/calculator, timestamp window, unavailable reason, blocking scope, and next action.
+- Historical underlying authority: Databento `DBEQ.BASIC / ohlcv-1h / raw_symbol`.
+- Historical options authority: Databento `OPRA.PILLAR`; contract identity maps to `definition`, quote freshness maps to `cmbp-1`, explicit fallback quote maps to validated `cbbo-1s`, trades map to `trades`, volume/open interest/statistics map to `statistics`, and `tcbbo` is supplemental only.
+- Live broker/account/order/fill authority: Charles Schwab. Databento, tastytrade, and TradingView cannot override an actual Schwab fill.
+- Volatility sources: SAFE-FAST calculated realized volatility and option IV/Greeks when all inputs exist; Cboe VIX/VIX9D for SPY, VXN for QQQ, RVX for IWM, and GVZ for GLD as official volatility-index context.
+- News/event sources: SEC EDGAR, Federal Reserve, BLS, BEA, Treasury, issuer IR, and Benzinga only when timestamped API entitlement and credentials exist.
+- Macro source: ALFRED for historical-vintage values; revised current macro values cannot silently replace historical vintages.
+- Setup-label source: SAFE-FAST frozen local rule engine only; external vendors do not supply Ideal, Clean Fast Break, Continuation, stage transitions, setup qualification, or trade-candidate labels.
+- Current eight-candidate blockers are mapped to exact fields and candidate actions: `4` exact external setup-data required, `3` source conflicts, and `1` source-unavailable candidate exclusion.
+- Optional context removed as a silent setup blocker: realized volatility, option IV/Greeks, official volatility indexes, timestamped headlines, macro context, and official event context unless a frozen rule explicitly makes one mandatory.
+- Schwab was not authenticated; no Schwab endpoint was called; no market data was downloaded; no credentials or `.env` files were touched.
+- No proof, profitability, readiness, promotion, paper eligibility, live eligibility, new P&L, broker/order behavior, Railway/deploy behavior, or `main.py` change was made.
+- Exact next task: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`.
+
 ## Day 49 grouped positive-entry exact setup-data approval/download result
 
 - Current task file executed: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_CODEX_TASK.md`.

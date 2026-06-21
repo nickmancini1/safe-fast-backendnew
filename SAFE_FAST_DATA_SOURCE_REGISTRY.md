@@ -1,0 +1,74 @@
+# SAFE-FAST Data Source Registry
+
+Status: canonical as of Day 50.
+
+Machine-readable registry: `historical_signal_replay/config/safe_fast_data_source_registry.json`.
+
+Read-only resolver: `watcher_foundation/safe_fast_data_source_resolver.py`.
+
+This registry replaces ad hoc source wording in prior result files. Older manifests and result files remain historical evidence, but they are not the source-mapping authority.
+
+## Rules
+
+- Do not report vague `MISSING_DATA`. Report the exact field, source, dataset/schema/API/calculator, timestamp window, unavailable reason, blocking scope, and next action.
+- SAFE-FAST setup labels come only from the frozen local SAFE-FAST rule engine.
+- Databento is the primary historical options source: `OPRA.PILLAR`.
+- Charles Schwab is the live broker and execution authority.
+- Databento, tastytrade, and TradingView cannot override an actual Schwab fill.
+- Do not average conflicting sources. A material disagreement is `SOURCE_CONFLICT`.
+- Revised present-day macro values cannot silently replace historical-vintage values.
+- TCBBO is supplemental trade-linked evidence and must not be the sole quote-freshness source.
+- Optional context and review-only fields cannot block a technical setup label unless a frozen rule explicitly makes that field mandatory.
+
+## Primary Source Map
+
+| Field area | Primary source | Dataset, API, or calculator | Blocking rule |
+| --- | --- | --- | --- |
+| Historical underlying OHLCV | Databento | `DBEQ.BASIC / ohlcv-1h / raw_symbol` | Can block setup when required source bars are absent. |
+| Setup labels | SAFE-FAST frozen local engine | setup/replay/lifecycle calculators | External vendors do not supply labels. |
+| Option contract identity | Databento | `OPRA.PILLAR / definition` | Blocks trade eligibility if unresolved. |
+| Option quote freshness | Databento | `OPRA.PILLAR / cmbp-1` | Blocks execution/trade eligibility if unresolved. |
+| One-second quote fallback | Databento | `OPRA.PILLAR / cbbo-1s` | Review-only until explicitly validated. |
+| Trade-linked quote context | Databento | `OPRA.PILLAR / tcbbo` | Supplemental only; not quote freshness by itself. |
+| Option trades | Databento | `OPRA.PILLAR / trades` | Blocks when trade volume is required. |
+| Volume/open interest/statistics | Databento | `OPRA.PILLAR / statistics` | Blocks when liquidity/OI is required and no accepted exception exists. |
+| Live account/order/fill records | Schwab | Schwab Trader API after read-only audit | Schwab controls actual live fills. |
+| Realized volatility | SAFE-FAST local calculation | underlying market-data calculator | Optional until frozen rule says otherwise. |
+| Option IV/Greeks | SAFE-FAST local calculation | quote, underlying, strike, expiration, rate, dividend inputs | Optional until frozen rule says otherwise. |
+| Official volatility indexes | Cboe | VIX/VIX9D, VXN, RVX, GVZ | Optional context unless a frozen rule makes it mandatory. |
+| News/events/filings | Official issuer/agency source | SEC, Fed, BLS, BEA, Treasury, issuer IR | Official source controls conflicts. |
+| Timestamped headlines | Benzinga when entitled | Benzinga headline API | Optional unless a frozen rule makes it mandatory. |
+| Macro history | ALFRED | historical-vintage series values | Revised current values cannot replace vintages. |
+
+## Current Eight Candidate Blockers
+
+The Day 49 OHLCV download did not resolve the eight-candidate blocker package. OHLCV gives raw hourly bars only. It does not accept a SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution decision, no-hindsight boundary, or session-boundary behavior.
+
+| Candidate | Exact blocker fields | Proper source | Current action |
+| --- | --- | --- | --- |
+| `GLD-REPLACEMENT-IDEAL-CANDIDATE-001` | setup row, trigger, invalidation, freshness, blocker/caution, no-hindsight, session boundary | SAFE-FAST local replay/review over exact rows; official/news/macro only for blocker/caution | `EXACT_EXTERNAL_SETUP_DATA_REQUIRED` |
+| `GLD-REPLACEMENT-IDEAL-CANDIDATE-002` | all setup fields | no exact source window exists | `SOURCE_UNAVAILABLE_CANDIDATE_EXCLUDED` |
+| `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003` | all setup fields | SAFE-FAST CFB replay/calculator | `EXACT_EXTERNAL_SETUP_DATA_REQUIRED` |
+| `SPY-SOURCE-WINDOW-CONTINUATION-004` | freshness, invalidation/recovery, and setup fields | SAFE-FAST Continuation lifecycle/session-boundary rule | `SOURCE_CONFLICT` |
+| `SPY-SOURCE-WINDOW-CONTINUATION-005` | freshness/non-duplicate and setup fields | SAFE-FAST Continuation duplicate/freshness rule | `SOURCE_CONFLICT` |
+| `QQQ-SOURCE-WINDOW-CONTINUATION-002` | freshness/same-rebound context and setup fields | SAFE-FAST Continuation same-context rule | `SOURCE_CONFLICT` |
+| `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001` | setup row, trigger, invalidation, freshness, blocker/caution, no-hindsight, session boundary | SAFE-FAST local replay/review over exact rows | `EXACT_EXTERNAL_SETUP_DATA_REQUIRED` |
+| `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002` | session-boundary setup row and all setup fields | SAFE-FAST local replay/review over exact rows | `EXACT_EXTERNAL_SETUP_DATA_REQUIRED` |
+
+Optional context removed as a silent blocker: realized volatility, option IV/Greeks, official volatility index context, timestamped headlines, macro context, and official event context. These can block trade eligibility only if an existing frozen rule explicitly makes that specific context mandatory.
+
+## Resolver Contract
+
+`watcher_foundation.safe_fast_data_source_resolver.resolve_field_source(field_identifier, decision_timestamp)` returns:
+
+- exact field identifier;
+- exact source plan;
+- exact dataset/schema/API/calculator;
+- exact consumer and requirement class;
+- timestamp window;
+- whether the field may block setup, trade, execution, exit, or only optional context;
+- fallback and source-conflict behavior;
+- exact unavailable-data next action.
+
+The resolver never contacts a vendor, never downloads data, and never reads or stores secrets.
+
