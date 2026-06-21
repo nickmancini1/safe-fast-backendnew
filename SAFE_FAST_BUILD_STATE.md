@@ -1,5 +1,48 @@
 # SAFE-FAST Build State
 
+## Day 50 positive-entry active-path requirement regression result
+
+- Current task file executed: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_REQUIREMENT_REGRESSION_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_REQUIREMENT_REGRESSION_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day50_positive_entry_active_path_requirement_regression.json`.
+- Builder created: `historical_signal_replay/day50_positive_entry_active_path_requirement_regression.py`.
+- Focused tests created: `tests/test_day50_positive_entry_active_path_requirement_regression.py`.
+- Exact next grouped task created: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CLOSED_REQUIREMENT_SCORECARD_RECONCILIATION_CODEX_TASK.md`.
+- Source of truth was the Day 50 remaining evidence-gap closeout result only; no open-ended candidate scan was run.
+- Open active-path requirements tested: `4`.
+- Advanced to `TRADE_CANDIDATE`: `0`.
+- Permanently closed with exact failed requirement: `4`.
+- Active-path requirements open after regression: `0`.
+- Affected active-path cases selected contracts before/after regression: `0` / `0`.
+- Affected active-path cases eligible entries before/after regression: `0` / `0`.
+- Affected active-path cases recorded entries before/after regression: `0` / `0`.
+- Additional entries established: `0`.
+- Batch trade candidates before/after regression: `9` / `9`.
+- Batch selected contracts before/after regression: `5` / `5`.
+- Batch eligible entries before/after regression: `1` / `1`.
+- Batch recorded entries before/after regression: `1` / `1`.
+- GLD CFB active-path requirement permanently closed: `freshness_final_signal_state` remained `fresh_or_spent_unconfirmed` at `2026-05-08T15:30:00-04:00`; no accepted Clean Fast Break fresh/spent active-path rule advances the case.
+- GLD Ideal active-path requirement permanently closed: `freshness_final_signal_state` remained `fresh_or_spent_unconfirmed` at `2026-05-08T15:30:00-04:00`; no accepted Ideal fresh/spent active-path rule advances the case.
+- IWM Continuation active-path requirement permanently closed: `prior_completed_shelf_break_spent_state` remained `prior_completed_shelf_break_spent_TO_REVIEW` at `2026-05-01T15:30:00-04:00`; no accepted session-boundary freshness rule advances the case.
+- IWM Ideal active-path requirement permanently closed: `freshness_final_signal_state` remained `fresh_or_spent_unconfirmed` at `2026-05-14T15:30:00-04:00`; no accepted Ideal fresh/spent active-path rule advances the case.
+- QQQ Continuation selected-contract spread remained closed/preserved as local no-entry blocker from Databento `OPRA.PILLAR / tcbbo` quote-update evidence, `spread_above_0_15`, under no-fallback precedence.
+- QQQ Ideal remained preserved as `replace` / outside narrowed Ideal path; the fresh raw quote remains preserved but does not authorize contract selection or paid option data.
+- QQQ Clean Fast Break 001 remained `TRUE_NO_TRADE_REGRESSION_ONLY` and was not rerun as a live candidate.
+- Scorecard categories remained separate; before regression: `VALID_TRADE_CAPTURED=1`, `TRUE_NO_TRADE=4`, `MISSING_DATA=6`, `MISSED_VALID_TRADE=0`, `INVALID_TRADE_ALLOWED=0`, and `UNRESOLVED=4`.
+- Scorecard categories remained separate; after regression: `VALID_TRADE_CAPTURED=1`, `TRUE_NO_TRADE=4`, `MISSING_DATA=10`, `MISSED_VALID_TRADE=0`, `INVALID_TRADE_ALLOWED=0`, and `UNRESOLVED=0`.
+- Paid-data request created: `NO`.
+- Checked cost: `NOT_AVAILABLE`; no credential was used, no paid-data request was created, and no data was downloaded.
+- Closed safety rejections rerun as live candidates: `0`.
+- Closed setup-source candidates reopened: `0`.
+- Rejected intake rows replayed: `0`.
+- Frozen rules weakened: `0`.
+- Governance-only chain created: `0`.
+- No Schwab authentication, Schwab endpoint call, Databento download, paid-data purchase approval, option request, exit-path request, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, broker/order/account, credential, `.env`, production/live backend, or frozen-threshold change was made.
+- Next route: reconcile scorecard/control documents via `SAFE_FAST_DAY50_POSITIVE_ENTRY_CLOSED_REQUIREMENT_SCORECARD_RECONCILIATION_CODEX_TASK.md`.
+- Checks run so far:
+  - `python -B -m unittest discover -s tests -p "test_day50_positive_entry_active_path_requirement_regression.py"`: PASS, `8` tests.
+  - `python -B -m historical_signal_replay.day50_positive_entry_active_path_requirement_regression`: PASS, wrote `4` tested, `0` advanced, `4` permanently closed, `9->9` trade candidates, `5->5` selected contracts, `1->1` eligible entries, `1->1` recorded entries.
+
 ## Day 50 positive-entry remaining evidence-gap closeout result
 
 - Current task file executed: `SAFE_FAST_DAY50_POSITIVE_ENTRY_REMAINING_EVIDENCE_GAP_CLOSEOUT_CODEX_TASK.md`.

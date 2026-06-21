@@ -11,11 +11,13 @@ git --no-pager status --short
 
 CURRENT DAY 50 ENTRY POINT:
 
-- Current remaining evidence-gap closeout result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_REMAINING_EVIDENCE_GAP_CLOSEOUT_RESULT.md`
-- Current remaining evidence-gap closeout JSON: `historical_signal_replay/results/day50_positive_entry_remaining_evidence_gap_closeout.json`
-- Current remaining evidence-gap closeout builder: `historical_signal_replay/day50_positive_entry_remaining_evidence_gap_closeout.py`
-- Current remaining evidence-gap closeout tests: `tests/test_day50_positive_entry_remaining_evidence_gap_closeout.py`
-- Exact active task: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_REQUIREMENT_REGRESSION_CODEX_TASK.md`
+- Current active-path requirement regression result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_REQUIREMENT_REGRESSION_RESULT.md`
+- Current active-path requirement regression JSON: `historical_signal_replay/results/day50_positive_entry_active_path_requirement_regression.json`
+- Current active-path requirement regression builder: `historical_signal_replay/day50_positive_entry_active_path_requirement_regression.py`
+- Current active-path requirement regression tests: `tests/test_day50_positive_entry_active_path_requirement_regression.py`
+- Exact active task: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CLOSED_REQUIREMENT_SCORECARD_RECONCILIATION_CODEX_TASK.md`
+- Previous remaining evidence-gap closeout result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_REMAINING_EVIDENCE_GAP_CLOSEOUT_RESULT.md`
+- Previous remaining evidence-gap closeout JSON: `historical_signal_replay/results/day50_positive_entry_remaining_evidence_gap_closeout.json`
 - Previous active-path rule/evidence repair result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_RULE_EVIDENCE_REPAIR_RESULT.md`
 - Previous active-path rule/evidence repair JSON: `historical_signal_replay/results/day50_positive_entry_active_path_rule_evidence_repair.json`
 - Previous trade-candidate rule-gap closeout result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_TRADE_CANDIDATE_RULE_GAP_CLOSEOUT_RESULT.md`
@@ -35,32 +37,33 @@ Do not report vague MISSING_DATA. Every blocker must state exact field, exact so
 Current batch facts:
 - The evidence-backed positive-entry batch tested `15` existing regression-control candidate records.
 - Setup-qualified candidates: `13`.
-- Trade candidates before/after remaining evidence-gap closeout: `9` / `9`.
-- Selected contracts before/after remaining evidence-gap closeout: `5` / `5`.
-- Eligible entries before/after remaining evidence-gap closeout: `1` / `1`.
-- Recorded entries before/after remaining evidence-gap closeout: `1` / `1`.
+- Trade candidates before/after active-path requirement regression: `9` / `9`.
+- Selected contracts before/after active-path requirement regression: `5` / `5`.
+- Eligible entries before/after active-path requirement regression: `1` / `1`.
+- Recorded entries before/after active-path requirement regression: `1` / `1`.
 - Exits evaluated: `1`.
 - Valid trades captured: `1`.
 - True no-trades: `4`.
-- Missing-data cases: `6`.
-- Unresolved cases: `4`.
+- Missing-data cases before/after active-path requirement regression: `6` / `10`.
+- Unresolved cases before/after active-path requirement regression: `4` / `0`.
 - Missed valid trades: `0`.
 - Invalid trades allowed: `0`.
 - Winners: `1`.
 - Losers: `0`.
 
-Remaining evidence-gap closeout facts:
-- Remaining evidence-gap records reviewed: `6`.
-- Active-path requirements still open after closeout: `4`.
-- Contract-selected gaps closed/preserved after closeout: `2`.
-- Affected active-path cases selected contracts before/after closeout: `0` / `0`.
-- Affected active-path cases eligible entries before/after closeout: `0` / `0`.
-- Affected active-path cases recorded entries before/after closeout: `0` / `0`.
+Active-path requirement regression facts:
+- Open active-path requirements tested: `4`.
+- Advanced to `TRADE_CANDIDATE`: `0`.
+- Permanently closed with exact failed requirement: `4`.
+- Active-path requirements open after regression: `0`.
+- Affected active-path cases selected contracts before/after regression: `0` / `0`.
+- Affected active-path cases eligible entries before/after regression: `0` / `0`.
+- Affected active-path cases recorded entries before/after regression: `0` / `0`.
 - Additional entries established: `0`.
-- GLD CFB active-path evidence is now bounded to an exact regression requirement for tested GLD Clean Fast Break fresh/spent rules.
-- GLD Ideal active-path evidence is now bounded to an exact regression requirement for tested GLD Ideal fresh/spent rules.
-- IWM Continuation active-path evidence is now bounded to an exact regression requirement for prior-completed-shelf-break spent/session-boundary freshness.
-- IWM Ideal active-path evidence is now bounded to an exact regression requirement for tested IWM Ideal fresh/spent rules.
+- GLD CFB permanently closed because `freshness_final_signal_state` remained `fresh_or_spent_unconfirmed` at `2026-05-08T15:30:00-04:00`; no accepted Clean Fast Break fresh/spent active-path rule advances it.
+- GLD Ideal permanently closed because `freshness_final_signal_state` remained `fresh_or_spent_unconfirmed` at `2026-05-08T15:30:00-04:00`; no accepted Ideal fresh/spent active-path rule advances it.
+- IWM Continuation permanently closed because `prior_completed_shelf_break_spent_state` remained `prior_completed_shelf_break_spent_TO_REVIEW` at `2026-05-01T15:30:00-04:00`; no accepted session-boundary freshness rule advances it.
+- IWM Ideal permanently closed because `freshness_final_signal_state` remained `fresh_or_spent_unconfirmed` at `2026-05-14T15:30:00-04:00`; no accepted Ideal fresh/spent active-path rule advances it.
 - QQQ Continuation selected-contract spread is closed/preserved as a local no-entry blocker from Databento `OPRA.PILLAR / tcbbo` quote-update evidence.
 - QQQ Ideal selected-contract identity remains resolved from accepted frozen evidence as `replace` / outside narrowed Ideal path; the fresh raw quote exists but does not authorize contract selection or paid option data.
 - QQQ CFB 001 remains `TRUE_NO_TRADE_REGRESSION_ONLY` and must not be rerun as a live candidate.
@@ -81,7 +84,7 @@ Do not download paid data without an exact cost check and user approval.
 
 Correct Codex launch command for the next task:
 
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_REQUIREMENT_REGRESSION_CODEX_TASK.md exactly."
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_POSITIVE_ENTRY_CLOSED_REQUIREMENT_SCORECARD_RECONCILIATION_CODEX_TASK.md exactly."
 
 Use this format for build work:
 Baseline:
