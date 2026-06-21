@@ -1,0 +1,644 @@
+{
+  "broker_mutation_attempted": false,
+  "candidate_count": 4,
+  "candidate_records": [
+    {
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_SOURCE_EVIDENCE_CLOSED",
+        "SETUP_QUALIFIED_NOT_REACHED"
+      ],
+      "closure_reason": "fixture_and_row_context_do_not_accept_required_setup_source_fields",
+      "contract_selected": false,
+      "decision_timestamp": "2026-05-08T14:30:00-04:00",
+      "decision_timezone": "America/New_York",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "field_resolutions": [
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: no fixture row is accepted as the setup-time decision row for this candidate.",
+          "field_name": "setup_time_row",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_grouped_positive_entry_setup_field_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine using source-backed underlying rows",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-08T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: fixture trigger_level remains null or TO_REVIEW, not an accepted numeric trigger.",
+          "field_name": "trigger",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-08T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: fixture invalidation remains null or TO_REVIEW, not an accepted invalidation.",
+          "field_name": "invalidation",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-08T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: fixture freshness remains TO_REVIEW or fresh_or_spent_unconfirmed.",
+          "field_name": "freshness_final_signal_state",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local lifecycle calculators",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-08T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "trade"
+          ],
+          "closure_note": "closed: optional macro/news/volatility context is CONTEXT_UNKNOWN; complete blocker/caution decision is not accepted.",
+          "field_name": "blocker_caution_review",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.context_caution_calculator",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": "CONTEXT_UNKNOWN_CONTINUE",
+          "primary_source": "SAFE-FAST context/caution calculator over exact source fields",
+          "requirement_class": "REQUIRED_FOR_TRADE_ELIGIBILITY",
+          "timestamp_window": "source timestamps <= 2026-05-08T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: rows are chronological, but no accepted setup-time replay output freezes the decision row.",
+          "field_name": "no_hindsight_boundary",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.run_signal_replay",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen replay fixtures and signal logs",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-08T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: no accepted session-boundary behavior promotes this Ideal candidate.",
+          "field_name": "session_boundary_behavior",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.signal_replay",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST stage-transition and lifecycle rules",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-08T14:30:00-04:00"
+        }
+      ],
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "first_run_result": "PASS",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_replay_evidence": "Exact GLD fixture exists for rows 204-238, but its purpose is shape-only lifecycle review and it keeps trigger, invalidation, freshness/final-signal, 24H, macro, IV, event, and news context unconfirmed or TO_REVIEW.",
+      "optional_macro_news_volatility_context": "CONTEXT_UNKNOWN",
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "review_artifacts": [
+        "historical_signal_replay/fixtures/first_real_gld_ideal_replay_v1_fixture.json",
+        "SAFE_FAST_IWM_GLD_SETUP_TIME_REVIEW_REQUEST_PACKETS.md",
+        "SAFE_FAST_IWM_GLD_SETUP_TIME_REVIEW_ROW_CONTEXT_PACKETS.md"
+      ],
+      "second_run_result": "PASS",
+      "setup_family": "Ideal",
+      "setup_label_result": "not_qualified_closed",
+      "setup_qualified": false,
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
+      "source_rows": "204-238",
+      "source_window": "2026-05-04T09:30:00-04:00 through 2026-05-08T15:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_SOURCE_EVIDENCE_CLOSED",
+        "SETUP_QUALIFIED_NOT_REACHED"
+      ],
+      "closure_reason": "no_exact_accepted_cfb_replay_fixture_for_rows_79_99",
+      "contract_selected": false,
+      "decision_timestamp": "2026-03-31T09:30:00-04:00",
+      "decision_timezone": "America/New_York",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "field_resolutions": [
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: no accepted Clean Fast Break setup candle exists for SPY lines 79-99.",
+          "field_name": "setup_time_row",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_grouped_positive_entry_setup_field_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine using source-backed underlying rows",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-03-31T09:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: accepted Clean Fast Break trigger is unavailable for this exact window.",
+          "field_name": "trigger",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-03-31T09:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: accepted failure/invalidation level is unavailable for this exact window.",
+          "field_name": "invalidation",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-03-31T09:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: final-signal/freshness state remains missing for this exact window.",
+          "field_name": "freshness_final_signal_state",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local lifecycle calculators",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-03-31T09:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "trade"
+          ],
+          "closure_note": "closed: optional macro/news/volatility context is CONTEXT_UNKNOWN; clean-break-vs-noisy-rebound and blocker/caution are not accepted.",
+          "field_name": "blocker_caution_review",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.context_caution_calculator",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": "CONTEXT_UNKNOWN_CONTINUE",
+          "primary_source": "SAFE-FAST context/caution calculator over exact source fields",
+          "requirement_class": "REQUIRED_FOR_TRADE_ELIGIBILITY",
+          "timestamp_window": "source timestamps <= 2026-03-31T09:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: ordered source rows alone are not accepted no-hindsight replay output.",
+          "field_name": "no_hindsight_boundary",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.run_signal_replay",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen replay fixtures and signal logs",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-03-31T09:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: no accepted session-boundary behavior promotes this Clean Fast Break candidate.",
+          "field_name": "session_boundary_behavior",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.signal_replay",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST stage-transition and lifecycle rules",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-03-31T09:30:00-04:00"
+        }
+      ],
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "first_run_result": "PASS",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_replay_evidence": "The exact SPY lines 79-99 candidate is documented as blocked. The available third-real SPY Clean Fast Break fixture covers a different 2026-04-10 through 2026-04-15 source window, so it cannot complete this candidate.",
+      "optional_macro_news_volatility_context": "CONTEXT_UNKNOWN",
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "review_artifacts": [
+        "SAFE_FAST_DAY38_ADDED_4_ROW_BY_ROW_REPLAY_READINESS_REVIEW.md",
+        "SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md",
+        "historical_signal_replay/fixtures/third_real_spy_clean_fast_break_replay_v1_fixture.json"
+      ],
+      "second_run_result": "PASS",
+      "setup_family": "Clean Fast Break",
+      "setup_label_result": "not_qualified_closed",
+      "setup_qualified": false,
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "source_rows": "79-99",
+      "source_window": "2026-03-31T09:30:00-04:00 through 2026-04-02T15:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_SOURCE_EVIDENCE_CLOSED",
+        "SETUP_QUALIFIED_NOT_REACHED"
+      ],
+      "closure_reason": "fixture_and_request_packet_do_not_accept_continuation_setup_source_fields",
+      "contract_selected": false,
+      "decision_timestamp": "2026-05-01T14:30:00-04:00",
+      "decision_timezone": "America/New_York",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "field_resolutions": [
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: no exact accepted Continuation setup-time row is repo-backed.",
+          "field_name": "setup_time_row",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_grouped_positive_entry_setup_field_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine using source-backed underlying rows",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: trigger_level remains null or TO_REVIEW in the exact fixture.",
+          "field_name": "trigger",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: invalidation remains null or TO_REVIEW in the exact fixture.",
+          "field_name": "invalidation",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: fresh/spent status remains TO_REVIEW.",
+          "field_name": "freshness_final_signal_state",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local lifecycle calculators",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "trade"
+          ],
+          "closure_note": "closed: optional macro/news/volatility context is CONTEXT_UNKNOWN; complete blocker/caution decision is not accepted.",
+          "field_name": "blocker_caution_review",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.context_caution_calculator",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": "CONTEXT_UNKNOWN_CONTINUE",
+          "primary_source": "SAFE-FAST context/caution calculator over exact source fields",
+          "requirement_class": "REQUIRED_FOR_TRADE_ELIGIBILITY",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: fixture rows are chronological, but no accepted setup-time replay output freezes the decision row.",
+          "field_name": "no_hindsight_boundary",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.run_signal_replay",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen replay fixtures and signal logs",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: session-boundary carry-forward remains TO_REVIEW.",
+          "field_name": "session_boundary_behavior",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.signal_replay",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST stage-transition and lifecycle rules",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        }
+      ],
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "first_run_result": "PASS",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_replay_evidence": "Exact IWM fixture exists for rows 141-210, but it is shape-only and leaves shelf base, trigger, invalidation, fresh/spent status, session-boundary carry-forward, macro, IV, and event fields TO_REVIEW or unconfirmed.",
+      "optional_macro_news_volatility_context": "CONTEXT_UNKNOWN",
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "review_artifacts": [
+        "historical_signal_replay/fixtures/first_real_iwm_continuation_replay_v1_fixture.json",
+        "SAFE_FAST_IWM_GLD_SETUP_TIME_REVIEW_REQUEST_PACKETS.md",
+        "SAFE_FAST_IWM_GLD_SETUP_TIME_REVIEW_ROW_CONTEXT_PACKETS.md"
+      ],
+      "second_run_result": "PASS",
+      "setup_family": "Continuation",
+      "setup_label_result": "not_qualified_closed",
+      "setup_qualified": false,
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+      "source_rows": "141-210",
+      "source_window": "2026-04-20T09:30:00-04:00 through 2026-05-01T15:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "IWM"
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+      "chronological_rerun_path": [
+        "SETUP_DEVELOPING",
+        "SETUP_SOURCE_EVIDENCE_CLOSED",
+        "SETUP_QUALIFIED_NOT_REACHED"
+      ],
+      "closure_reason": "session_boundary_setup_source_fields_not_accepted",
+      "contract_selected": false,
+      "decision_timestamp": "2026-05-01T14:30:00-04:00",
+      "decision_timezone": "America/New_York",
+      "deterministic_result": "deterministic",
+      "direction": "long_call_candidate",
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "exit_evaluated": false,
+      "field_resolutions": [
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: no exact accepted session-boundary setup-time row is repo-backed.",
+          "field_name": "setup_time_row",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_grouped_positive_entry_setup_field_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine using source-backed underlying rows",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: accepted Continuation trigger is unavailable for this subset.",
+          "field_name": "trigger",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: accepted Continuation invalidation is unavailable for this subset.",
+          "field_name": "invalidation",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local rule engine",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: session-boundary freshness/final-signal decision remains TO_REVIEW.",
+          "field_name": "freshness_final_signal_state",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.day49_positive_entry_setup_evidence_completion",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen local lifecycle calculators",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "trade"
+          ],
+          "closure_note": "closed: optional macro/news/volatility context is CONTEXT_UNKNOWN; complete blocker/caution decision is not accepted.",
+          "field_name": "blocker_caution_review",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.context_caution_calculator",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": "CONTEXT_UNKNOWN_CONTINUE",
+          "primary_source": "SAFE-FAST context/caution calculator over exact source fields",
+          "requirement_class": "REQUIRED_FOR_TRADE_ELIGIBILITY",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: no accepted setup-time row means no accepted no-hindsight boundary for this subset.",
+          "field_name": "no_hindsight_boundary",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.run_signal_replay",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST frozen replay fixtures and signal logs",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        },
+        {
+          "blocking_scope": [
+            "setup",
+            "trade"
+          ],
+          "closure_note": "closed: session-boundary behavior remains unresolved and cannot promote the candidate.",
+          "field_name": "session_boundary_behavior",
+          "final_resolution": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+          "local_calculator_or_consumer": "historical_signal_replay.signal_replay",
+          "local_evidence_status": "closed_not_accepted",
+          "optional_context_absent_behavior": null,
+          "primary_source": "SAFE-FAST stage-transition and lifecycle rules",
+          "requirement_class": "REQUIRED_FOR_SETUP_LABEL",
+          "timestamp_window": "source timestamps <= 2026-05-01T14:30:00-04:00"
+        }
+      ],
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "first_run_result": "PASS",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "local_replay_evidence": "The IWM session-boundary subset is covered only as row-context/request material. The exact fixture does not accept a 2026-05-01 14:30 setup-time row and leaves session-boundary carry-forward and fresh/spent status TO_REVIEW.",
+      "optional_macro_news_volatility_context": "CONTEXT_UNKNOWN",
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "review_artifacts": [
+        "historical_signal_replay/fixtures/first_real_iwm_continuation_replay_v1_fixture.json",
+        "SAFE_FAST_IWM_GLD_SETUP_TIME_REVIEW_REQUEST_PACKETS.md",
+        "SAFE_FAST_IWM_GLD_SETUP_TIME_REVIEW_ROW_CONTEXT_PACKETS.md"
+      ],
+      "second_run_result": "PASS",
+      "setup_family": "Continuation",
+      "setup_label_result": "not_qualified_closed",
+      "setup_qualified": false,
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+      "source_rows": "190-210",
+      "source_window": "2026-04-28T15:30:00-04:00 through 2026-05-01T15:30:00-04:00",
+      "trade_candidate": false,
+      "underlying": "IWM"
+    }
+  ],
+  "databento_cost_check": {
+    "actual_billed_cost": "NOT_AVAILABLE",
+    "checked_cost": "NOT_AVAILABLE",
+    "credential_used": false,
+    "reason": "No paid-data request was created; the four remaining blockers are closed local setup-source evidence decisions, not vendor-downloadable fields."
+  },
+  "databento_downloaded": false,
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "exit_path_request_included": false,
+  "first_run_hash": "f399250a1c9dd1bc7f6c84f218e39f4b76d67592a7bb4780f41a19c3c14d073b",
+  "live_eligible": false,
+  "next_task": {
+    "filename": "SAFE_FAST_DAY50_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_SOURCE_CLOSURE_CODEX_TASK.md",
+    "reason": "All current Day 50 setup-source request slots are now formally closed without promotion; none reached TRADE_CANDIDATE, no paid-data request is valid, and no rule/harness defect was proven.",
+    "route": "positive_entry_expansion_after_all_current_slots_resolved_or_closed"
+  },
+  "option_request_included": false,
+  "paper_eligible": false,
+  "prior_result_path": "historical_signal_replay/results/day50_required_setup_source_resolution.json",
+  "profitability_claimed": false,
+  "promotion_decision_made": false,
+  "proof_accepted": false,
+  "raw_vendor_data_changed": false,
+  "result_version": "day50_exact_setup_source_evidence_completion_v1",
+  "run_timestamp": "2026-06-21T05:39:02.916444Z",
+  "schwab_authenticated": false,
+  "scorecard": {
+    "contracts_selected": 0,
+    "current_setup_source_slots_reviewed": 4,
+    "entries_recorded": 0,
+    "final_classifications": {
+      "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE": 4
+    },
+    "first_blockers_by_funnel_stage": {
+      "SETUP_QUALIFIED": 4
+    },
+    "invalid_trades_allowed": 0,
+    "missed_valid_trades": 0,
+    "setup_qualified_candidates": 0,
+    "setup_source_requests_remaining": 0,
+    "setup_source_slots_completed_with_accepted_evidence": 0,
+    "setup_source_slots_formally_closed": 4,
+    "trade_candidates": 0,
+    "true_no_trades": 0,
+    "unresolved_cases": 0,
+    "valid_trades_captured": 0
+  },
+  "second_run_hash": "f399250a1c9dd1bc7f6c84f218e39f4b76d67592a7bb4780f41a19c3c14d073b",
+  "setup_source_requests_remaining": 0,
+  "source_commit": "2c619c0"
+}

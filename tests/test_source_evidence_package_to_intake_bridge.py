@@ -61,14 +61,14 @@ class SourceEvidencePackageToIntakeBridgeTests(unittest.TestCase):
         self.assertFalse(qqq_cfb["all_required_requests_passed"])
         self.assertEqual(qqq_cfb["decision"], bridge.PARKED_STATUS)
 
-    def test_current_partial_work_package_has_zero_reconsideration_eligible_candidates(self):
+    def test_current_work_package_has_four_reconsideration_eligible_candidates(self):
         result = bridge.bridge_work_package_path()
 
-        self.assertEqual(result["passed_request_count"], 0)
-        self.assertEqual(result["failed_request_count"], 9)
-        self.assertEqual(result["reconsideration_eligible_count"], 0)
+        self.assertEqual(result["passed_request_count"], 9)
+        self.assertEqual(result["failed_request_count"], 0)
+        self.assertEqual(result["reconsideration_eligible_count"], 4)
         for row in result["candidate_bridge_results"]:
-            self.assertEqual(row["decision"], bridge.PARKED_STATUS)
+            self.assertEqual(row["decision"], bridge.RECONSIDERATION_STATUS)
 
     def test_counts_remain_unchanged(self):
         result = bridge.bridge_work_package_path()
@@ -97,9 +97,9 @@ class SourceEvidencePackageToIntakeBridgeTests(unittest.TestCase):
         self.assertIn("SAFE-FAST evidence package to intake bridge", report)
         self.assertIn("requests mapped: 9", report)
         self.assertIn("parked candidates mapped: 4", report)
-        self.assertIn("passed requests: 0", report)
-        self.assertIn("failed requests: 9", report)
-        self.assertIn("reconsideration-eligible candidates: 0", report)
+        self.assertIn("passed requests: 9", report)
+        self.assertIn("failed requests: 0", report)
+        self.assertIn("reconsideration-eligible candidates: 4", report)
         self.assertIn("intake-ready count: 0", report)
         self.assertIn("parked count: 4", report)
         self.assertIn("replace count: 3", report)

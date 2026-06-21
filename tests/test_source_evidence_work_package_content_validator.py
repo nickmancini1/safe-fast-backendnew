@@ -23,19 +23,19 @@ class SourceEvidenceWorkPackageContentValidatorTests(unittest.TestCase):
             },
         )
 
-    def test_current_work_files_are_prefilled_partial_rows(self):
+    def test_current_work_files_are_complete_source_backed_rows(self):
         result = validator.validate_work_package_content_path()
 
-        self.assertEqual(result["passed_request_count"], 0)
-        self.assertEqual(result["failed_request_count"], 9)
-        self.assertEqual(result["partial_row_count"], 9)
+        self.assertEqual(result["passed_request_count"], 9)
+        self.assertEqual(result["failed_request_count"], 0)
+        self.assertEqual(result["partial_row_count"], 0)
         self.assertEqual(result["header_only_count"], 0)
         for row in result["content_results"]:
-            self.assertFalse(row["passed"])
+            self.assertTrue(row["passed"])
             self.assertTrue(row["real_evidence_row_present"])
-            self.assertTrue(row["partial_row_present"])
+            self.assertFalse(row["partial_row_present"])
             self.assertFalse(row["header_only"])
-            self.assertEqual(row["row_status"], validator.PARTIAL_FILL_STATUS)
+            self.assertEqual(row["row_status"], "complete")
 
     def test_all_nine_work_files_have_prefill_or_explicit_reason(self):
         result = validator.validate_work_package_content_path()
@@ -43,11 +43,11 @@ class SourceEvidenceWorkPackageContentValidatorTests(unittest.TestCase):
         handled_files = {
             row["required_file_name"]
             for row in result["content_results"]
-            if row["partial_row_present"] or row["header_only"]
+            if row["real_evidence_row_present"] or row["header_only"]
         }
 
         self.assertEqual(len(handled_files), 9)
-        self.assertEqual(result["partial_row_count"], 9)
+        self.assertEqual(result["partial_row_count"], 0)
         self.assertEqual(result["header_only_count"], 0)
 
     def test_placeholder_fill_status_fails_validation(self):
@@ -157,12 +157,12 @@ class SourceEvidenceWorkPackageContentValidatorTests(unittest.TestCase):
             self.assertFalse(row["would_reactivate_parked_row"])
             self.assertFalse(row["proof_allowed"])
 
-    def test_current_work_package_has_zero_passed_and_nine_failed(self):
+    def test_current_work_package_has_nine_passed_and_zero_failed(self):
         result = validator.validate_work_package_content_path()
 
-        self.assertEqual(result["passed_request_count"], 0)
-        self.assertEqual(result["failed_request_count"], 9)
-        self.assertEqual(result["partial_row_count"], 9)
+        self.assertEqual(result["passed_request_count"], 9)
+        self.assertEqual(result["failed_request_count"], 0)
+        self.assertEqual(result["partial_row_count"], 0)
 
     def test_parked_rows_stay_parked_and_intake_ready_remains_zero(self):
         result = validator.validate_in_memory_rows(_complete_rows_by_file())
@@ -194,9 +194,9 @@ class SourceEvidenceWorkPackageContentValidatorTests(unittest.TestCase):
             report,
         )
         self.assertIn("work files checked: 9", report)
-        self.assertIn("passed requests: 0", report)
-        self.assertIn("failed requests: 9", report)
-        self.assertIn("partial rows: 9", report)
+        self.assertIn("passed requests: 9", report)
+        self.assertIn("failed requests: 0", report)
+        self.assertIn("partial rows: 0", report)
         self.assertIn("header-only rows: 0", report)
         self.assertIn("intake-ready count: 0", report)
         self.assertIn("parked count: 4", report)

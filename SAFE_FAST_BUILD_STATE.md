@@ -1,5 +1,43 @@
 # SAFE-FAST Build State
 
+## Day 50 exact setup-source evidence completion result
+
+- Current task file executed: `SAFE_FAST_DAY50_EXACT_SETUP_SOURCE_EVIDENCE_COMPLETION_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_EXACT_SETUP_SOURCE_EVIDENCE_COMPLETION_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day50_exact_setup_source_evidence_completion.json`.
+- Builder created: `historical_signal_replay/day50_exact_setup_source_evidence_completion.py`.
+- Focused tests created: `tests/test_day50_exact_setup_source_evidence_completion.py`.
+- Exact next grouped task created: `SAFE_FAST_DAY50_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_SOURCE_CLOSURE_CODEX_TASK.md`.
+- The four remaining exact setup-source requests were reviewed against existing local replay output and reviewer-completed packet material only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, and `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`.
+- All four were formally closed as `SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE`; none was promoted.
+- Closure reasons:
+  - `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`: exact GLD fixture and row-context packet are shape-only; setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and session behavior are not accepted.
+  - `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`: no exact accepted Clean Fast Break replay fixture exists for SPY rows `79-99`; the available SPY CFB fixture covers a different window.
+  - `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`: exact IWM fixture is shape-only; shelf base, trigger, invalidation, fresh/spent status, session-boundary carry-forward, and context remain unconfirmed or `TO_REVIEW`.
+  - `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`: session-boundary subset has row-context/request material only; no accepted `2026-05-01T14:30:00-04:00` setup-time row or session-boundary decision exists.
+- Required fields resolved by formal closure for all four: setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight boundary, and session-boundary behavior.
+- Optional macro/news/volatility context remained `CONTEXT_UNKNOWN`; no frozen rule made it mandatory for setup qualification.
+- Current Day 50 exact setup-source totals: `4` reviewed, `0` completed with accepted evidence, `4` formally closed, `0` setup-source requests remaining, `0` setup-qualified, `0` trade candidates, `0` contracts selected, `0` entries recorded, `0` true no-trades, `0` valid trades captured, `0` missed valid trades, `0` invalid trades allowed, and `0` unresolved cases.
+- Rerun comparison was deterministic: first and second hashes matched.
+- Checked cost: `NOT_AVAILABLE`; no paid-data request was created because the four remaining blockers are SAFE-FAST setup-source decisions, not vendor-downloadable fields.
+- `SAFE_FAST_DB_AUTH` was not printed, saved, documented, or used.
+- No Schwab authentication, Schwab endpoint call, Databento download, paid-data purchase approval, option request, exit-path request, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, broker/order/account, credential, `.env`, production/live backend, or frozen-threshold change was made.
+- Checks run:
+  - `python -B -m unittest discover -s tests -p "test_day50_exact_setup_source_evidence_completion.py"`: PASS, `5` tests.
+  - `python -B -m historical_signal_replay.day50_exact_setup_source_evidence_completion`: PASS, wrote `4` reviewed, `4` closed, `0` trade candidates.
+  - `python -B -m historical_signal_replay.day50_exact_setup_source_evidence_completion`: PASS second deterministic run, same summary.
+  - `python -B -m unittest discover -s tests -p "test_day50_required_setup_source_resolution.py"`: PASS, `5` tests.
+  - `python -B -m historical_signal_replay.day50_required_setup_source_resolution`: PASS, wrote `4` exact requests, `3` source conflicts excluded, `0` trade candidates.
+  - `python -B -m unittest discover -s tests -p "test_safe_fast_data_source_registry.py"`: PASS, `10` tests.
+  - `python -B -m historical_signal_replay.day48_positive_trade_capture_funnel`: PASS twice, wrote `15` candidates, `1` valid captured, `4` true no-trades, `6` missing-data cases.
+  - `python -B -m unittest discover -s tests -p "test_day48_positive_trade_capture_funnel.py"`: PASS, `4` tests.
+  - Relevant positive-entry/family/stage/session tests: PASS for `test_day49_positive_entry_candidate_expansion.py`, `test_day49_grouped_positive_entry_setup_field_completion.py`, `test_day49_grouped_positive_entry_setup_time.py`, `test_day48_actual_grouped_three_family_replay.py`, `test_day48_continuation_starter_coverage.py`, `test_day48_grouped_three_family_coverage_expansion.py`, and `test_day48_grouped_three_family_expansion_after_continuation.py`.
+  - Relevant contract/quote/context tests: PASS for `test_cfb_contract_selector.py`, `test_cfb_lifecycle_calculator.py`, `test_execution_context_calculator.py`, and `test_context_caution_calculator.py`.
+  - Evidence and bridge tests: PASS for `watcher_foundation.day49_positive_entry_setup_evidence_completion_validator`, `test_day49_positive_entry_setup_evidence_completion.py`, `test_source_evidence_package_to_intake_bridge.py`, `test_source_evidence_package_intake.py`, `test_source_evidence_work_package_content_validator.py`, `test_source_evidence_acquisition_validator.py`, and `test_source_evidence_gap_scanner.py`.
+  - Replacement setup-source tests: PASS for `test_replacement_source_row_setup_time_review*.py` and `test_replacement_source_row_packet*.py`.
+  - Future-chat consistency tests: PASS for `test_day48_positive_trade_handoff_consistency.py` and `test_day47_to_day90_audit_consistency.py`.
+  - `git diff --check`: PASS, with normal CRLF warnings only.
+
 ## Day 50 grouped required setup-source resolution and replay result
 
 - Current task file executed: `SAFE_FAST_DAY50_GROUPED_REQUIRED_SETUP_SOURCE_RESOLUTION_AND_REPLAY_CODEX_TASK.md`.
