@@ -1,5 +1,25 @@
 # SAFE-FAST Build State
 
+## Day 50 Schwab read-only auth and capability audit result
+
+- Current task file executed: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_RESULT.md`.
+- Isolated read-only Schwab helper created: `watcher_foundation/schwab_read_only_audit.py`.
+- Focused tests created: `tests/test_schwab_read_only_audit.py`.
+- Registry updated only for proven repo support: `schwab_live_fill` now points to `watcher_foundation.schwab_read_only_audit` and `tests/test_schwab_read_only_audit.py`.
+- Official Schwab source access observed: official `api.schwabapi.com` protected GET endpoints were reachable and returned unauthenticated `401`; Schwab Developer Portal documentation pages returned `403 Access Denied` from this environment, so no non-official documentation was used.
+- Schwab OAuth config was missing: `SCHWAB_CLIENT_ID` or `SCHWAB_APP_KEY`, `SCHWAB_CLIENT_SECRET` or `SCHWAB_APP_SECRET`, and `SCHWAB_REDIRECT_URI`.
+- OAuth browser authorization was not requested because credentials/redirect URI were not configured; asking for user OAuth action would have been premature.
+- No Schwab token was created, printed, documented, committed, or saved in the repo.
+- No authenticated Schwab endpoint was called.
+- No account-list, balances, buying power, positions, transaction-history, existing-order/fill, quote, option-chain, or price-history capability was verified.
+- No Databento comparison, tastytrade comparison, historical range/granularity/timestamp/adjustment/option-history/rate-limit/entitlement conclusion, or Schwab replacement claim was made.
+- The helper allow-lists only read-only GET endpoints and forbids submit, preview, replace, cancel, and saved-order mutation behavior.
+- No `main.py`, Railway/deploy file, frozen trading behavior, order-submission behavior, market-data download, proof, profitability, readiness, promotion, paper/live eligibility, or P&L change was made.
+- Checks run:
+  - `python -B -m unittest discover -s tests -p "test_schwab_read_only_audit.py"`: PASS, `7` tests.
+  - `python -B -m watcher_foundation.schwab_read_only_audit`: PASS, blocked status emitted with no broker mutation.
+
 ## Day 50 data-source registry and Schwab queue result
 
 - Current task file executed: `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_CODEX_TASK.md`.

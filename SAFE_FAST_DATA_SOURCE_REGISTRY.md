@@ -32,7 +32,7 @@ This registry replaces ad hoc source wording in prior result files. Older manife
 | Trade-linked quote context | Databento | `OPRA.PILLAR / tcbbo` | Supplemental only; not quote freshness by itself. |
 | Option trades | Databento | `OPRA.PILLAR / trades` | Blocks when trade volume is required. |
 | Volume/open interest/statistics | Databento | `OPRA.PILLAR / statistics` | Blocks when liquidity/OI is required and no accepted exception exists. |
-| Live account/order/fill records | Schwab | Schwab Trader API after read-only audit | Schwab controls actual live fills. |
+| Live account/order/fill records | Schwab | Schwab Trader API read-only audit helper; live OAuth verification blocked until credentials exist | Schwab controls actual live fills. |
 | Realized volatility | SAFE-FAST local calculation | underlying market-data calculator | Optional until frozen rule says otherwise. |
 | Option IV/Greeks | SAFE-FAST local calculation | quote, underlying, strike, expiration, rate, dividend inputs | Optional until frozen rule says otherwise. |
 | Official volatility indexes | Cboe | VIX/VIX9D, VXN, RVX, GVZ | Optional context unless a frozen rule makes it mandatory. |
@@ -72,3 +72,8 @@ Optional context removed as a silent blocker: realized volatility, option IV/Gre
 
 The resolver never contacts a vendor, never downloads data, and never reads or stores secrets.
 
+## Schwab Read-Only Audit Status
+
+`watcher_foundation.schwab_read_only_audit` defines the isolated read-only OAuth/token and capability audit path. It uses Schwab official `api.schwabapi.com` endpoints only, blocks token storage inside the repo, redacts tokens from outputs, and allow-lists only GET requests for accounts, positions, balances/account detail, transactions, existing orders, quotes, option chains, and price history.
+
+Live verification is still blocked because `SCHWAB_CLIENT_ID` or `SCHWAB_APP_KEY`, `SCHWAB_CLIENT_SECRET` or `SCHWAB_APP_SECRET`, and `SCHWAB_REDIRECT_URI` are not configured in this environment. No Schwab OAuth browser authorization was requested, no token was written, no authenticated Schwab endpoint was called, and no order preview/submission/replacement/cancellation endpoint is allowed.

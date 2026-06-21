@@ -11,6 +11,9 @@ git --no-pager status --short
 
 CURRENT DAY 50 ENTRY POINT:
 
+- Current Schwab read-only audit result: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_RESULT.md`
+- Schwab read-only helper: `watcher_foundation/schwab_read_only_audit.py`
+- Schwab audit tests: `tests/test_schwab_read_only_audit.py`
 - Current canonical registry: `SAFE_FAST_DATA_SOURCE_REGISTRY.md`
 - Machine registry: `historical_signal_replay/config/safe_fast_data_source_registry.json`
 - Resolver: `watcher_foundation/safe_fast_data_source_resolver.py`
@@ -20,6 +23,13 @@ CURRENT DAY 50 ENTRY POINT:
 Do not report vague MISSING_DATA. Every blocker must state exact field, exact source, exact dataset/schema/API/calculator, exact timestamp window, exact reason unavailable, whether it blocks setup/trade/execution/exit or only optional context, and exact next action.
 
 Charles Schwab is the live broker/account/order/fill authority. Databento is the primary historical options source. SAFE-FAST setup labels stay inside the SAFE-FAST frozen local rule engine.
+
+Schwab auth status:
+- Read-only audit helper exists, but live verification is blocked.
+- Missing local config: `SCHWAB_CLIENT_ID` or `SCHWAB_APP_KEY`, `SCHWAB_CLIENT_SECRET` or `SCHWAB_APP_SECRET`, and `SCHWAB_REDIRECT_URI`.
+- Do not request OAuth browser action until those values are configured outside repo files.
+- Do not print, document, commit, or save tokens/secrets.
+- Do not submit, preview, replace, cancel, or otherwise mutate orders.
 
 Required source rules:
 - Historical underlying: Databento `DBEQ.BASIC / ohlcv-1h / raw_symbol`.
