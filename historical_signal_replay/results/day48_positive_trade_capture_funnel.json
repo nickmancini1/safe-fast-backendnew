@@ -1940,9 +1940,9 @@
   "profitability_claimed": false,
   "promotion_decision_made": false,
   "proof_accepted": false,
-  "run_timestamp": "2026-06-20T16:44:38.550035Z",
+  "run_timestamp": "2026-06-21T03:35:38.751011Z",
   "second_run_hash": "ea810e461c02e4eacde0a63644c96419ad708a004bababf404f108df0b6a963f",
-  "source_commit": "46ab96e",
+  "source_commit": "0c59af1",
   "unresolved_evidence_requirements": [
     {
       "candidate_identifier": "first_real_gld_clean_fast_break_replay_v1_fixture",

@@ -485,7 +485,7 @@
   "proof_accepted": false,
   "raw_vendor_data_changed": false,
   "result_version": "day49_grouped_positive_entry_setup_field_completion_v1",
-  "run_timestamp": "2026-06-20T17:37:12.398375Z",
+  "run_timestamp": "2026-06-21T03:35:38.190435Z",
   "second_run_hash": "c71e09f5352ecc9f98939dd6794daba6d1893a12c715199dcfb8084285721840",
   "setup_time_option_cost_check": {
     "actual_billed_cost": "NOT_AVAILABLE",
@@ -494,5 +494,5 @@
     "created": false,
     "reason": "No frozen Day 49 development candidate reached TRADE_CANDIDATE from local setup-field evidence, so no option setup-time cost check is justified."
   },
-  "source_commit": "4bf898d"
+  "source_commit": "0c59af1"
 }

@@ -279,6 +279,6 @@
       "why_local_evidence_is_insufficient": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed"
     }
   ],
-  "run_timestamp": "2026-06-20T18:16:46.389398Z",
-  "source_commit": "ef97280"
+  "run_timestamp": "2026-06-21T03:35:39.317979Z",
+  "source_commit": "0c59af1"
 }

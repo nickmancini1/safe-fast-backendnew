@@ -4,22 +4,35 @@
 
 - Current task file executed: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_CODEX_TASK.md`.
 - Result document created: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_RESULT.md`.
-- Safe cost-checkable Databento mapping exists for the underlying 1h OHLCV subset only: `DBEQ.BASIC` / `ohlcv-1h` / `raw_symbol`, using manifest symbols `GLD`, `SPY`, `QQQ`, and `IWM`.
+- Helper created: `historical_signal_replay/day49_positive_entry_ohlcv_download.py`.
+- Focused tests created: `tests/test_day49_positive_entry_ohlcv_download.py`.
+- Raw local-only output folder created: `historical_signal_replay/source_data/external_underlying_data_drop/`, with `.gitignore` preserving downloaded vendor payloads as untracked/local-only.
+- Safe Databento mapping exists for the underlying 1h OHLCV subset only: `DBEQ.BASIC` / `ohlcv-1h` / `raw_symbol`, using manifest symbols `GLD`, `SPY`, `QQQ`, and `IWM`.
 - The full synthetic setup-context request shape is not fully mapped because Databento OHLCV does not supply SAFE-FAST setup labels, trigger/invalidation decisions, blocker/caution decisions, macro context, IV context, event/headline context, or no-hindsight replay decisions.
 - Strict manifest timestamps were tested first; four rows have `start_timestamp == end_timestamp` and Databento rejected those zero-length metadata-cost windows with `422 data_time_range_start_on_or_after_end`.
-- Exact cost-check repair used for metadata only: keep each manifest start timestamp unchanged and advance each manifest end timestamp by one hour as Databento's exclusive end so the requested `ohlcv-1h` setup bar can be included.
-- Exact checked total for the OHLCV subset: `$0.002040266989`.
+- Exact Databento end-exclusive repair used for cost check and download: keep each manifest start timestamp unchanged and advance each manifest end timestamp by one hour so the requested `ohlcv-1h` setup bar can be included.
+- User approval in this run was limited to this exact OHLCV subset with fresh-cost ceiling `$0.01`.
+- Fresh checked total for the OHLCV subset: `$0.002040266989`.
 - Actual billed cost: `NOT_AVAILABLE`.
 - Request-row checked costs: GLD 001 `$0.000496506691`, SPY CFB 003 `$0.000012516975`, QQQ Continuation 002 `$0.000012516975`, SPY Continuation 004 `$0.000012516975`, SPY Continuation 005 `$0.000012516975`, IWM Continuation 001 `$0.001155734062`, IWM Continuation 002 `$0.000337958336`.
-- `SAFE_FAST_DB_AUTH` was used only in-process for Databento metadata calls; the credential was not printed, logged, documented, saved, or written to a file.
-- Approval status: blocked; download status: blocked. No purchase/download approval exists, and the full setup-context request shape still needs grouped repair before a complete setup-data approval/download task is valid.
-- Databento downloaded: `NO`; raw vendor data changed: `NO`; option request included: `NO`; exit-path request included: `NO`; new P&L calculated: `NO`; proof accepted: `NO`; profitability claimed: `NO`; promotion/readiness/paper/live decision made: `NO`.
+- Download manifest written under ignored local-only raw-data folder: `historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_OHLCV_DOWNLOAD_MANIFEST.json`.
+- Download validation: PASS for all `7` OHLCV requests; row counts were GLD 001 `119`, SPY CFB 003 `3`, QQQ Continuation 002 `3`, SPY Continuation 004 `3`, SPY Continuation 005 `3`, IWM Continuation 001 `277`, and IWM Continuation 002 `81`.
+- `SAFE_FAST_DB_AUTH` was used only in-process for Databento metadata and timeseries calls; the credential was not printed, logged, documented, saved, or written to a file.
+- Limited OHLCV subset approval/download status: completed. Full setup-context approval/download status: blocked, because non-OHLCV setup/context fields remain unmapped.
+- Immediate replay after download: Day 49 setup-field completion remained `8` missing-data cases with `0` setup-qualified and `0` trade candidates; Day 49 setup-evidence completion remained `0` completed locally, `0` replaced, `4` exact external requests, `3` contradictions, and `1` unusable; Day 48 positive-trade funnel remained `15` candidates, `1` valid captured, `4` true no-trades, and `6` missing-data cases.
+- Databento downloaded: `YES`, OHLCV subset only; raw vendor data changed: `YES`, local ignored OHLCV files only; option request included: `NO`; exit-path request included: `NO`; macro/event/headline/IV/setup-label request included: `NO`; new P&L calculated: `NO`; proof accepted: `NO`; profitability claimed: `NO`; promotion/readiness/paper/live decision made: `NO`.
 - Exact next grouped task: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_DATA_REQUEST_SHAPE_REPAIR_CODEX_TASK.md`.
 - Checks run:
   - Databento metadata `list_datasets`: PASS, confirmed `DBEQ.BASIC`.
   - Databento metadata dataset/schema range review: PASS for `DBEQ.BASIC` `ohlcv-1h`; incidental metadata timeout occurred during broader exploratory schema listing after useful results were already returned.
   - Databento metadata strict-manifest cost check: PARTIAL, three nonzero windows returned costs and four zero-length windows returned expected `422 data_time_range_start_on_or_after_end`.
   - Databento metadata repaired end-exclusive OHLCV cost check: PASS, checked total `$0.002040266989`.
+  - `python -B -m unittest discover -s tests -p "test_day49_positive_entry_ohlcv_download.py"`: PASS, `5` tests.
+  - `python -B -m historical_signal_replay.day49_positive_entry_ohlcv_download`: PASS, downloaded `7` OHLCV requests, fresh checked total `$0.002040266989`, replayed `7` affected candidates.
+  - `python -B -m historical_signal_replay.day49_grouped_positive_entry_setup_field_completion`: PASS, `8` candidates, `0` setup-qualified, `0` trade candidates, `8` missing-data cases.
+  - `python -B -m historical_signal_replay.day49_positive_entry_setup_evidence_completion`: PASS, `8` slots, `0` completed locally, `0` replaced, `4` exact external requests, `3` contradictions, `1` unusable.
+  - `python -B -m historical_signal_replay.day48_positive_trade_capture_funnel`: PASS, `15` candidates, `1` valid captured, `4` true no-trades, `6` missing-data cases.
+  - Focused regression reruns after download: PASS for `test_day49_positive_entry_ohlcv_download.py`, `test_day49_positive_entry_setup_evidence_completion.py`, `test_day49_grouped_positive_entry_setup_field_completion.py`, and `test_day48_positive_trade_capture_funnel.py`.
 
 ## Day 49 grouped positive-entry setup evidence completion or replacement result
 

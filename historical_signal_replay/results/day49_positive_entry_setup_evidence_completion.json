@@ -1185,8 +1185,8 @@
         "why_local_evidence_is_insufficient": "local rows identify the window, but setup fields are not accepted and context fields remain unconfirmed"
       }
     ],
-    "run_timestamp": "2026-06-20T18:16:46.389398Z",
-    "source_commit": "ef97280"
+    "run_timestamp": "2026-06-21T03:35:39.317979Z",
+    "source_commit": "0c59af1"
   },
   "exact_setup_data_request_manifest_path": "historical_signal_replay/source_data/richer_export_package_work/day49_positive_entry_exact_setup_data_request_manifest.json",
   "existing_regression_control_result": {
@@ -1249,7 +1249,7 @@
     "deterministic_result": "PASS"
   },
   "exit_path_data_downloaded": false,
-  "first_run_hash": "4952eb7c722dbc4f194995c2b28a7ef0bd467b79b376b1e3a05d57b14c4629bb",
+  "first_run_hash": "992b634d493d89bace213692269cb7174d90ce754f1e7f48af110e0a97b240a6",
   "live_eligible": false,
   "local_evidence_search": [
     {
@@ -1994,7 +1994,7 @@
     "selection_result": "NO_REPLACEMENT_AVAILABLE"
   },
   "result_version": "day49_positive_entry_setup_evidence_completion_or_replacement_v1",
-  "run_timestamp": "2026-06-20T18:16:46.391041Z",
+  "run_timestamp": "2026-06-21T03:35:39.319864Z",
   "scorecard": {
     "candidate_slots_completed_locally": 0,
     "candidate_slots_replaced": 0,
@@ -2017,6 +2017,6 @@
     "unstable_cases": 0,
     "unusable_candidates": 1
   },
-  "second_run_hash": "4952eb7c722dbc4f194995c2b28a7ef0bd467b79b376b1e3a05d57b14c4629bb",
-  "source_commit": "ef97280"
+  "second_run_hash": "992b634d493d89bace213692269cb7174d90ce754f1e7f48af110e0a97b240a6",
+  "source_commit": "0c59af1"
 }

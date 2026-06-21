@@ -4,74 +4,71 @@
 
 - Current task file executed: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_CODEX_TASK.md`.
 - Required startup files were read first: `SAFE_FAST_BUILD_STATE.md`, the Day 49 setup-evidence result, the Day 49 setup-evidence JSON, the exact setup-data request manifest, `SAFE_FAST_PROJECT_PROOF_PIPELINE.md`, `SAFE_FAST_PROJECT_DASHBOARD.md`, and `SAFE_FAST_PROJECT_RULE_INDEX.md`.
-- This was a metadata/cost-check and request-shape review only.
-- No data was downloaded.
-- No option request, exit-path request, unrestricted full-session request, backtest, P&L calculation, proof acceptance, profitability claim, readiness decision, promotion decision, paper/live decision, real trade choice, `main.py`, Railway/deploy file, broker/account/order code, `.env`, credential file, frozen threshold, or raw vendor file was changed.
-- `SAFE_FAST_DB_AUTH` was used only in-process for Databento metadata calls. The credential was not printed, logged, documented, saved, or written to a file.
+- User approval in this run was limited to the exact previously cost-checked OHLCV subset: `DBEQ.BASIC` / `ohlcv-1h` / `raw_symbol`, manifest symbols only (`GLD`, `SPY`, `QQQ`, `IWM`), fresh-cost ceiling `$0.01`.
+- No option, exit-path, macro, event, headline, IV, setup-label, P&L, broker/account/order, `.env`, credential, `main.py`, Railway/deploy, or frozen-threshold data/code was requested or changed.
+- `SAFE_FAST_DB_AUTH` was used only in-process for Databento metadata and timeseries calls. The credential was not printed, logged, documented, saved, or written to a file.
 
 ## Mapping Result
 
-Safe cost-checkable Databento mapping exists for the 1h underlying OHLCV subset only:
+Safe Databento mapping exists for the underlying 1h OHLCV subset only:
 
 - Dataset: `DBEQ.BASIC`
 - Schema: `ohlcv-1h`
 - Symbol type: `raw_symbol`
 - Symbols: manifest `symbol` values only (`GLD`, `SPY`, `QQQ`, `IWM`)
-- Scope: underlying hourly OHLCV bars only, no options, no exit path, no P&L
+- Scope: underlying hourly OHLCV bars only
 
-The full manifest request shape is not fully mapped to a safe Databento schema because it asks for:
+The full setup-context request remains not fully mapped because OHLCV does not provide SAFE-FAST setup labels, trigger/invalidation decisions, blocker/caution decisions, macro context, IV context, event/headline context, or no-hindsight replay decisions.
 
-- `1h RTH OHLCV rows through setup timestamp`
-- `24H/daily context as-of setup timestamp`
-- `macro context as-of setup timestamp`
-- `IV context as-of setup timestamp`
-- `event/headline context as-of setup timestamp`
+## Cost And Download
 
-The Databento mapping above covers the OHLCV portion only. It does not provide SAFE-FAST setup labels, trigger/invalidation decisions, blocker/caution decisions, macro context, IV context, event/headline context, or no-hindsight replay decisions. Those fields still require grouped setup-rule/request-shape repair or a separate accepted source mapping before the full setup-context request can be treated as complete.
+Strict manifest timestamps had four zero-length windows, so the accepted Databento end-exclusive repair was used: keep each manifest start timestamp unchanged and advance each manifest end timestamp by one hour.
 
-## Cost Check
+Fresh checked total: `$0.002040266989`
 
-Strict manifest timestamps were first tested against Databento metadata. Four request rows have `start_timestamp == end_timestamp`; Databento rejected those strict zero-length windows with `422 data_time_range_start_on_or_after_end`.
-
-For cost-check purposes only, the exact Databento end-exclusive window repair was applied: keep each manifest start timestamp unchanged and advance each manifest end timestamp by one hour so the requested setup bar can be included by `ohlcv-1h`.
-
-Checked total: `$0.002040266989`
+Authorized ceiling: `$0.01`
 
 Actual billed cost: `NOT_AVAILABLE`
 
-No download was attempted.
+Download manifest: `historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_OHLCV_DOWNLOAD_MANIFEST.json`
 
-| Candidate | Dataset | Schema | Symbol | Start UTC | End UTC exclusive | Checked cost |
-| --- | --- | --- | --- | --- | --- | ---: |
-| `GLD-REPLACEMENT-IDEAL-CANDIDATE-001` | `DBEQ.BASIC` | `ohlcv-1h` | `GLD` | `2026-05-01T19:30:00Z` | `2026-05-08T19:30:00Z` | `$0.000496506691` |
-| `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003` | `DBEQ.BASIC` | `ohlcv-1h` | `SPY` | `2026-03-31T13:30:00Z` | `2026-03-31T14:30:00Z` | `$0.000012516975` |
-| `QQQ-SOURCE-WINDOW-CONTINUATION-002` | `DBEQ.BASIC` | `ohlcv-1h` | `QQQ` | `2026-04-02T13:30:00Z` | `2026-04-02T14:30:00Z` | `$0.000012516975` |
-| `SPY-SOURCE-WINDOW-CONTINUATION-004` | `DBEQ.BASIC` | `ohlcv-1h` | `SPY` | `2026-04-02T13:30:00Z` | `2026-04-02T14:30:00Z` | `$0.000012516975` |
-| `SPY-SOURCE-WINDOW-CONTINUATION-005` | `DBEQ.BASIC` | `ohlcv-1h` | `SPY` | `2026-05-01T13:30:00Z` | `2026-05-01T14:30:00Z` | `$0.000012516975` |
-| `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001` | `DBEQ.BASIC` | `ohlcv-1h` | `IWM` | `2026-04-17T19:30:00Z` | `2026-05-01T19:30:00Z` | `$0.001155734062` |
-| `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002` | `DBEQ.BASIC` | `ohlcv-1h` | `IWM` | `2026-04-28T19:30:00Z` | `2026-05-01T19:30:00Z` | `$0.000337958336` |
+Raw vendor files were written only under ignored `historical_signal_replay/source_data/external_underlying_data_drop/`.
 
-## Approval And Download Status
+| Candidate | Symbol | Checked cost | Rows | Validation |
+| --- | --- | ---: | ---: | --- |
+| `GLD-REPLACEMENT-IDEAL-CANDIDATE-001` | `GLD` | `$0.000496506691` | `119` | PASS |
+| `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003` | `SPY` | `$0.000012516975` | `3` | PASS |
+| `QQQ-SOURCE-WINDOW-CONTINUATION-002` | `QQQ` | `$0.000012516975` | `3` | PASS |
+| `SPY-SOURCE-WINDOW-CONTINUATION-004` | `SPY` | `$0.000012516975` | `3` | PASS |
+| `SPY-SOURCE-WINDOW-CONTINUATION-005` | `SPY` | `$0.000012516975` | `3` | PASS |
+| `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001` | `IWM` | `$0.001155734062` | `277` | PASS |
+| `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002` | `IWM` | `$0.000337958336` | `81` | PASS |
 
-- Approval status: blocked.
-- Download status: blocked.
-- Reason: no purchase/download approval exists, and the full setup-context request shape is not fully mapped beyond the OHLCV subset.
-- Ready for user approval: only the limited OHLCV-subset request shape could be presented for approval after the user explicitly accepts the end-exclusive one-hour repair and the fact that macro/IV/event/headline/setup-label fields remain unresolved.
-- Not ready for approval as a full setup-context package until grouped setup-rule/request-shape repair defines accepted sources for the non-OHLCV context fields.
+## Replay Result
 
-## No-Proof Boundary
+The affected Day 49 candidate replay surfaces were rerun immediately after validation:
 
-- Proof accepted: `NO`
-- Profitability claimed: `NO`
-- Promotion/readiness/paper/live decision made: `NO`
-- New P&L calculated: `NO`
-- Databento downloaded: `NO`
-- Raw vendor data changed: `NO`
-- Option request included: `NO`
-- Exit-path request included: `NO`
+- `python -B -m historical_signal_replay.day49_grouped_positive_entry_setup_field_completion`: PASS, `8` candidates, `0` setup-qualified, `0` trade candidates, `8` missing-data cases.
+- `python -B -m historical_signal_replay.day49_positive_entry_setup_evidence_completion`: PASS, `8` slots, `0` completed locally, `0` replaced, `4` exact external requests, `3` contradictions, `1` unusable.
+- `python -B -m historical_signal_replay.day48_positive_trade_capture_funnel`: PASS, `15` candidates, `1` valid captured, `4` true no-trades, `6` missing-data cases.
+
+Replay effect: unchanged. OHLCV validates the limited underlying bar subset, but it does not resolve setup-time row acceptance, trigger, invalidation, freshness/final-signal, blocker/caution, macro/IV/event/headline context, or no-hindsight boundaries.
+
+## Status
+
+- Safe exact setup-data dataset/schema mapping exists: `YES`, for OHLCV subset only.
+- OHLCV subset download approved and completed: `YES`.
+- Full setup-context approval/download ready: `NO`.
+- Option request included: `NO`.
+- Exit-path request included: `NO`.
+- Macro/event/headline/IV/setup-label request included: `NO`.
+- Proof accepted: `NO`.
+- Profitability claimed: `NO`.
+- Promotion/readiness/paper/live decision made: `NO`.
+- New P&L calculated: `NO`.
 
 ## Exact Next Grouped Task
 
 `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_DATA_REQUEST_SHAPE_REPAIR_CODEX_TASK.md`
 
-Reason: the OHLCV subset has a safe metadata-cost mapping, but the full setup-context request still needs grouped repair for non-OHLCV context fields and the Databento end-exclusive timestamp shape before any approval/download task can be valid.
+Reason: the approved OHLCV subset was downloaded and validated, but the full setup-context request still needs grouped repair for non-OHLCV context fields before the affected candidates can move beyond setup-evidence blockers.

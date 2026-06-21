@@ -1,0 +1,7 @@
+# Keep downloaded vendor payloads local-only.
+*.csv
+*.dbn
+*.dbn.zst
+*.jsonl
+*.zip
+*manifest*.json
