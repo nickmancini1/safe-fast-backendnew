@@ -1,5 +1,63 @@
 # SAFE-FAST Build State
 
+## Day 50 positive-entry remaining evidence-gap closeout result
+
+- Current task file executed: `SAFE_FAST_DAY50_POSITIVE_ENTRY_REMAINING_EVIDENCE_GAP_CLOSEOUT_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_POSITIVE_ENTRY_REMAINING_EVIDENCE_GAP_CLOSEOUT_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day50_positive_entry_remaining_evidence_gap_closeout.json`.
+- Builder created: `historical_signal_replay/day50_positive_entry_remaining_evidence_gap_closeout.py`.
+- Focused tests created: `tests/test_day50_positive_entry_remaining_evidence_gap_closeout.py`.
+- Exact next grouped task created: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_REQUIREMENT_REGRESSION_CODEX_TASK.md`.
+- Source of truth was the Day 50 active-path rule/evidence repair result only; no open-ended candidate scan was run.
+- Remaining evidence-gap records reviewed: `6`.
+- Active-path requirements still open after closeout: `4`.
+- Contract-selected gaps closed/preserved after closeout: `2`.
+- Affected active-path cases selected contracts before/after closeout: `0` / `0`.
+- Affected active-path cases eligible entries before/after closeout: `0` / `0`.
+- Affected active-path cases recorded entries before/after closeout: `0` / `0`.
+- Additional entries established: `0`.
+- Batch trade candidates before/after closeout: `9` / `9`.
+- Batch selected contracts before/after closeout: `5` / `5`.
+- Batch eligible entries before/after closeout: `1` / `1`.
+- Batch recorded entries before/after closeout: `1` / `1`.
+- GLD CFB active-path evidence was closed to an exact regression requirement for tested GLD Clean Fast Break fresh/spent active-path rules; it still blocks `TRADE_CANDIDATE`.
+- GLD Ideal active-path evidence was closed to an exact regression requirement for tested GLD Ideal fresh/spent active-path rules; it still blocks `TRADE_CANDIDATE`.
+- IWM Continuation active-path evidence was closed to an exact regression requirement for prior-completed-shelf-break spent/session-boundary freshness; it still blocks `TRADE_CANDIDATE`.
+- IWM Ideal active-path evidence was closed to an exact regression requirement for tested IWM Ideal fresh/spent active-path rules; it still blocks `TRADE_CANDIDATE`.
+- QQQ Continuation selected-contract spread remained closed/preserved as local no-entry blocker from Databento `OPRA.PILLAR / tcbbo` quote-update evidence, `spread_above_0_15`, under no-fallback precedence.
+- QQQ Ideal remained preserved as `replace` / outside narrowed Ideal path; the fresh raw quote remains preserved but does not authorize contract selection or paid option data.
+- QQQ Clean Fast Break 001 remained `TRUE_NO_TRADE_REGRESSION_ONLY` and was not rerun as a live candidate.
+- Scorecard categories remained separate: `VALID_TRADE_CAPTURED=1`, `TRUE_NO_TRADE=4`, `MISSING_DATA=6`, `MISSED_VALID_TRADE=0`, `INVALID_TRADE_ALLOWED=0`, and `UNRESOLVED=4`.
+- Paid-data request created: `NO`.
+- Checked cost: `NOT_AVAILABLE`; no credential was used, no paid-data request was created, and no data was downloaded.
+- Closed safety rejections rerun as live candidates: `0`.
+- Closed setup-source candidates reopened: `0`.
+- Rejected intake rows replayed: `0`.
+- Frozen rules weakened: `0`.
+- Governance-only chain created: `0`.
+- No Schwab authentication, Schwab endpoint call, Databento download, paid-data purchase approval, option request, exit-path request, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, broker/order/account, credential, `.env`, production/live backend, or frozen-threshold change was made.
+- Next route: define and regression-test active-path requirements via `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_REQUIREMENT_REGRESSION_CODEX_TASK.md`.
+- Checks run so far:
+  - `python -B -m unittest discover -s tests -p "test_day50_positive_entry_remaining_evidence_gap_closeout.py"`: PASS, `10` tests.
+  - `python -B -m historical_signal_replay.day50_positive_entry_remaining_evidence_gap_closeout`: PASS, wrote `6` reviewed gaps, `5->5` selected contracts, `1->1` eligible entries, `1->1` recorded entries.
+  - `python -B -m unittest discover -s tests -p "test_day50_positive_entry_active_path_rule_evidence_repair.py"`: PASS, `9` tests.
+  - `python -B -m historical_signal_replay.day50_positive_entry_active_path_rule_evidence_repair`: PASS, wrote `4` repaired cases, `9->9` trade candidates, `5->5` selected contracts, `1->1` eligible entries, `1->1` recorded entries.
+  - `python -B -m unittest discover -s tests -p "test_day50_positive_entry_trade_candidate_rule_gap_closeout.py"`: PASS, `7` tests.
+  - `python -B -m historical_signal_replay.day50_positive_entry_trade_candidate_rule_gap_closeout`: PASS, wrote `4` affected cases, `5` selected contracts, `1` eligible entry, `1` recorded entry, `0` additional entries.
+  - `python -B -m unittest discover -s tests -p "test_day50_positive_entry_contract_selected_missing_evidence.py"`: PASS, `7` tests.
+  - `python -B -m historical_signal_replay.day50_positive_entry_contract_selected_missing_evidence`: PASS, wrote `2` fresh quote cases, `1` stale case, `0` additional entries.
+  - `python -B -m unittest discover -s tests -p "test_day50_positive_entry_selected_contract_blocker_closeout.py"`: PASS, `6` tests.
+  - `python -B -m historical_signal_replay.day50_positive_entry_selected_contract_blocker_closeout`: PASS, wrote `4` failed before entry, `4` affected cases rerun, `0` additional entries established.
+  - `python -B -m unittest discover -s tests -p "test_day50_evidence_backed_positive_entry_testing_batch.py"`: PASS, `7` tests.
+  - `python -B -m historical_signal_replay.day50_evidence_backed_positive_entry_testing_batch`: PASS, wrote `13` setup-qualified, `9` trade candidates, `5` selected contracts, `1` eligible entry, `1` recorded entry.
+  - Required Day 50 dependency tests/builders: PASS for accepted setup evidence replay-after-intake closeout, accepted setup evidence replay-after-intake, accepted complete setup evidence intake, post-closure expansion, exact setup-source closure, source-resolution, and data-source registry.
+  - Day 48 positive-trade funnel regression: PASS twice, each wrote `15` candidates, `1` valid captured, `4` true no-trades, `6` missing-data cases.
+  - Relevant positive-entry/family/stage/session tests: PASS for Day 49 positive-entry candidate expansion, Day 49 setup-field completion, Day 49 setup-time, Day 48 actual grouped three-family replay, Continuation starter coverage, Continuation option-context request validator, grouped three-family coverage expansion, grouped three-family expansion after Continuation, and candidate freshness blocker rule gate.
+  - Contract-selection and quote-freshness tests: PASS for CFB contract selector, CFB lifecycle calculator, execution context calculator, and context caution calculator.
+  - Evidence and bridge checks: PASS for `watcher_foundation.day49_positive_entry_setup_evidence_completion_validator`, `watcher_foundation.source_evidence_work_package_content_validator`, `watcher_foundation.source_evidence_package_to_intake_bridge`, `watcher_foundation.source_evidence_gap_scanner`, `test_day49_positive_entry_setup_evidence_completion.py`, `test_source_evidence_work_package_content_validator.py`, `test_source_evidence_package_to_intake_bridge.py`, `test_source_evidence_package_intake.py`, `test_source_evidence_acquisition_validator.py`, and `test_source_evidence_gap_scanner.py`.
+  - Future-chat consistency tests: PASS for `test_day48_positive_trade_handoff_consistency.py` and `test_day47_to_day90_audit_consistency.py`.
+  - `git --no-pager diff --check`: PASS, with normal CRLF warnings only.
+
 ## Day 50 positive-entry active-path rule evidence repair result
 
 - Current task file executed: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_RULE_EVIDENCE_REPAIR_CODEX_TASK.md`.
