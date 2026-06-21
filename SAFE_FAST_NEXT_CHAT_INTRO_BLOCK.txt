@@ -11,16 +11,19 @@ git --no-pager status --short
 
 CURRENT DAY 50 ENTRY POINT:
 
-- Current accepted complete setup evidence intake result: `SAFE_FAST_DAY50_ACCEPTED_COMPLETE_SETUP_EVIDENCE_INTAKE_RESULT.md`
-- Current accepted complete setup evidence intake JSON: `historical_signal_replay/results/day50_accepted_complete_setup_evidence_intake.json`
-- Current accepted complete setup evidence intake builder: `historical_signal_replay/day50_accepted_complete_setup_evidence_intake.py`
-- Current accepted complete setup evidence intake tests: `tests/test_day50_accepted_complete_setup_evidence_intake.py`
-- Exact active task: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CODEX_TASK.md`
+- Current accepted setup evidence replay-after-intake result: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_RESULT.md`
+- Current accepted setup evidence replay-after-intake JSON: `historical_signal_replay/results/day50_accepted_setup_evidence_replay_after_intake.json`
+- Current accepted setup evidence replay-after-intake builder: `historical_signal_replay/day50_accepted_setup_evidence_replay_after_intake.py`
+- Current accepted setup evidence replay-after-intake tests: `tests/test_day50_accepted_setup_evidence_replay_after_intake.py`
+- Exact active task: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CLOSEOUT_CODEX_TASK.md`
+- Previous accepted complete setup evidence intake result: `SAFE_FAST_DAY50_ACCEPTED_COMPLETE_SETUP_EVIDENCE_INTAKE_RESULT.md`
+- Previous accepted complete setup evidence intake JSON: `historical_signal_replay/results/day50_accepted_complete_setup_evidence_intake.json`
+- Previous accepted complete setup evidence intake builder: `historical_signal_replay/day50_accepted_complete_setup_evidence_intake.py`
+- Previous accepted complete setup evidence intake tests: `tests/test_day50_accepted_complete_setup_evidence_intake.py`
 - Current post-closure expansion result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_SOURCE_CLOSURE_RESULT.md`
 - Current post-closure expansion JSON: `historical_signal_replay/results/day50_positive_entry_expansion_after_setup_source_closure.json`
 - Current post-closure expansion builder: `historical_signal_replay/day50_positive_entry_expansion_after_setup_source_closure.py`
 - Current post-closure expansion tests: `tests/test_day50_positive_entry_expansion_after_setup_source_closure.py`
-- Previous accepted intake task: `SAFE_FAST_DAY50_ACCEPTED_COMPLETE_SETUP_EVIDENCE_INTAKE_CODEX_TASK.md`
 - Current exact setup-source completion result: `SAFE_FAST_DAY50_EXACT_SETUP_SOURCE_EVIDENCE_COMPLETION_RESULT.md`
 - Current exact setup-source completion JSON: `historical_signal_replay/results/day50_exact_setup_source_evidence_completion.json`
 - Current exact setup-source completion builder: `historical_signal_replay/day50_exact_setup_source_evidence_completion.py`
@@ -29,15 +32,12 @@ CURRENT DAY 50 ENTRY POINT:
 - Current grouped setup-source JSON: `historical_signal_replay/results/day50_required_setup_source_resolution.json`
 - Current grouped setup-source builder: `historical_signal_replay/day50_required_setup_source_resolution.py`
 - Current grouped setup-source tests: `tests/test_day50_required_setup_source_resolution.py`
-- Previous exact setup-source task: `SAFE_FAST_DAY50_EXACT_SETUP_SOURCE_EVIDENCE_COMPLETION_CODEX_TASK.md`
 - Current Schwab read-only audit result: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_RESULT.md`
-- Schwab read-only helper: `watcher_foundation/schwab_read_only_audit.py`
-- Schwab audit tests: `tests/test_schwab_read_only_audit.py`
+- Previous Schwab audit task: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`
+- Current data-source registry and Schwab queue result: `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_RESULT.md`
 - Current canonical registry: `SAFE_FAST_DATA_SOURCE_REGISTRY.md`
 - Machine registry: `historical_signal_replay/config/safe_fast_data_source_registry.json`
 - Resolver: `watcher_foundation/safe_fast_data_source_resolver.py`
-- Current result: `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_RESULT.md`
-- Previous Schwab task: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`
 
 Do not report vague MISSING_DATA. Every blocker must state exact field, exact source, exact dataset/schema/API/calculator, exact timestamp window, exact reason unavailable, whether it blocks setup/trade/execution/exit or only optional context, and exact next action.
 
@@ -61,14 +61,14 @@ Required source rules:
 - Macro: ALFRED for historical vintages. Do not silently use revised current macro values.
 
 Current blocker status:
-- The eight Day 49 candidates are not no-trades.
-- The four remaining Day 50 exact setup-source request slots were reviewed and formally closed as `SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE`.
+- The accepted setup evidence replay after intake processed only `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- QQQ CFB 001 has accepted complete setup evidence and remains `SETUP_QUALIFIED`.
+- QQQ CFB 001 does not reach `TRADE_CANDIDATE` because accepted `blocker_caution_review=fail` is a frozen positive-entry stop.
+- Determination is `LEGITIMATE_SAFETY_REJECTION`, not an evidence or harness problem.
+- Exact blocker anchor is the existing Day 48 `quote_age_above_5_minutes` true no-trade regression.
+- The four Day 50 exact setup-source request slots remain formally closed as `SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE`.
 - Setup-source requests remaining: `0`.
-- Current exact setup-source totals are `4` reviewed, `0` completed with accepted evidence, `4` formally closed, `0` setup-qualified, `0` trade candidates, `0` contracts selected, `0` entries recorded, `0` true no-trades, and `0` valid trades captured.
-- Post-closure positive-entry expansion scanned `24` source-pool rows and selected `0` new candidates because no new candidate had accepted, complete setup evidence.
-- Accepted complete setup evidence intake reviewed `4` local richer work-package candidate records and ingested `1`: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
-- QQQ CFB 001 is setup-qualified for intake but not a trade candidate because accepted blocker/caution review is `fail`.
-- `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002`, `SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003`, and `SPY-REAL-HISTORICAL-IDEAL-001` remain not accepted complete because `blocker_caution_review` is `unknown`.
+- The three rejected intake rows remain not accepted complete because `blocker_caution_review` is `unknown`.
 - Do not turn rejected intake rows into another vague missing-data batch.
 - Do not resurrect the four closed setup-source candidates unless a later bounded task provides exact accepted setup-source evidence first.
 - Optional context cannot silently block setup qualification unless a frozen rule explicitly makes it mandatory.
@@ -79,7 +79,7 @@ Do not download paid data without an exact cost check and user approval.
 
 Correct Codex launch command for the next task:
 
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CODEX_TASK.md exactly."
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CLOSEOUT_CODEX_TASK.md exactly."
 
 Do not authenticate to Schwab until the task reaches the explicit OAuth browser authorization step. Do not submit, replace, cancel, preview, or call any order endpoint.
 

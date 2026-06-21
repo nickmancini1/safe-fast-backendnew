@@ -1,0 +1,125 @@
+{
+  "accepted_intake_record_count": 1,
+  "broker_mutation_attempted": false,
+  "databento_cost_check": {
+    "actual_billed_cost": "NOT_AVAILABLE",
+    "checked_cost": "NOT_AVAILABLE",
+    "credential_used": false,
+    "reason": "Replay did not produce a TRADE_CANDIDATE; accepted complete setup evidence was stopped by accepted blocker/caution status fail."
+  },
+  "databento_downloaded": false,
+  "day48_regression_result_path": "historical_signal_replay/results/day48_positive_trade_capture_funnel.json",
+  "determination": {
+    "evidence_problem_found": false,
+    "harness_problem_found": false,
+    "reason": "The accepted intake record has accepted complete setup evidence, but positive-entry replay must honor accepted blocker/caution status fail. The local regression record names the same failure as quote_age_above_5_minutes.",
+    "result": "LEGITIMATE_SAFETY_REJECTION"
+  },
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "exit_path_request_included": false,
+  "first_run_hash": "3dc41899976046b6c4ed95cfbe13567883093c7cc9c43e747eb0816cb3680bfc",
+  "live_eligible": false,
+  "next_task": {
+    "filename": "SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CLOSEOUT_CODEX_TASK.md",
+    "reason": "The only accepted intake record replayed as a legitimate safety rejection, not an evidence or harness problem. The next bounded step should close out this replay result and choose the next evidence-producing task without reopening closed candidates.",
+    "route": "accepted_setup_evidence_replay_after_intake_closeout"
+  },
+  "option_request_included": false,
+  "paper_eligible": false,
+  "prior_intake_result_path": "historical_signal_replay/results/day50_accepted_complete_setup_evidence_intake.json",
+  "profitability_claimed": false,
+  "promotion_decision_made": false,
+  "proof_accepted": false,
+  "raw_vendor_data_changed": false,
+  "replay_policy": {
+    "accepted_fail_blocks_trade_candidate": true,
+    "accepted_record_ids": [
+      "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"
+    ],
+    "closed_setup_source_candidates_reopened": false,
+    "forbidden_inputs": [
+      "new candidate scans",
+      "closed setup-source candidates",
+      "rejected intake rows",
+      "option requests before TRADE_CANDIDATE",
+      "exit-path requests before valid entry",
+      "P&L",
+      "proof",
+      "profitability",
+      "paper/live readiness"
+    ],
+    "new_candidate_scan_run": false,
+    "rejected_intake_rows_replayed": false,
+    "source": "accepted complete setup-evidence intake records only",
+    "trade_candidate_requires_blocker_caution_status": [
+      "clean",
+      "caution"
+    ]
+  },
+  "replay_record_count": 1,
+  "replay_records": [
+    {
+      "blocker_caution_review": "fail",
+      "blocker_caution_source": "accepted context/caution evidence row",
+      "candidate_identifier": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "contract_selected": false,
+      "day48_regression_blocker_category": "real frozen-rule failure",
+      "day48_regression_classification": "TRUE_NO_TRADE",
+      "day48_regression_entry_quote_time": "2026-04-13T16:06:30.640301+00:00",
+      "day48_regression_entry_time": "2026-04-13T16:30:00+00:00",
+      "day48_regression_evidence_source": "historical_signal_replay.cfb_backtest_runner",
+      "day48_regression_failure_reason": "quote_age_above_5_minutes",
+      "day48_regression_result_name": "no_trade_quote_age_above_5_minutes",
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "evidence_or_harness_problem": false,
+      "evidence_or_harness_problem_reason": "No harness/evidence defect found: setup evidence is accepted and complete, and accepted blocker/caution status fail is a frozen positive-entry stop.",
+      "exact_blocker_code": "quote_age_above_5_minutes",
+      "exact_blocker_field": "blocker_caution_review",
+      "exit_evaluated": false,
+      "exit_path_request_created": false,
+      "final_classification": "TRUE_NO_TRADE_LEGITIMATE_SAFETY_REJECTION",
+      "first_stage_not_reached": "TRADE_CANDIDATE",
+      "freshness_final_signal_state": "fresh",
+      "highest_stage_reached": "SETUP_QUALIFIED",
+      "invalidation": "609.58",
+      "option_request_created": false,
+      "price_acceptable": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "safety_rejection_legitimate": true,
+      "safety_rejection_reason": "accepted blocker/caution review is fail",
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": true,
+      "setup_time_row": "2026-04-13T12:30:00-04:00",
+      "source_time": "2026-04-13T12:30:00-04:00",
+      "trade_candidate": false,
+      "trigger": "613.67",
+      "underlying": "QQQ"
+    }
+  ],
+  "result_version": "day50_accepted_setup_evidence_replay_after_intake_v1",
+  "run_timestamp": "2026-06-21T15:16:28.966084Z",
+  "schwab_authenticated": false,
+  "scorecard": {
+    "accepted_intake_records_replayed": 1,
+    "contracts_selected": 0,
+    "entries_recorded": 0,
+    "evidence_or_harness_problems": 0,
+    "invalid_trades_allowed": 0,
+    "legitimate_safety_rejections": 1,
+    "missed_valid_trades": 0,
+    "missing_data_cases": 0,
+    "setup_qualified_candidates": 1,
+    "trade_candidates": 0,
+    "true_no_trades": 1,
+    "unresolved_cases": 0,
+    "valid_trades_captured": 0
+  },
+  "second_run_hash": "3dc41899976046b6c4ed95cfbe13567883093c7cc9c43e747eb0816cb3680bfc",
+  "source_commit": "af41e7c"
+}
