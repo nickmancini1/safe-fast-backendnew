@@ -1,5 +1,30 @@
 # SAFE-FAST Build State
 
+## Day 50 grouped required setup-source resolution and replay result
+
+- Current task file executed: `SAFE_FAST_DAY50_GROUPED_REQUIRED_SETUP_SOURCE_RESOLUTION_AND_REPLAY_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_GROUPED_REQUIRED_SETUP_SOURCE_RESOLUTION_AND_REPLAY_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day50_required_setup_source_resolution.json`.
+- Builder/resolver created: `historical_signal_replay/day50_required_setup_source_resolution.py`.
+- Focused tests created: `tests/test_day50_required_setup_source_resolution.py`.
+- Exact next grouped task created: `SAFE_FAST_DAY50_EXACT_SETUP_SOURCE_EVIDENCE_COMPLETION_CODEX_TASK.md`.
+- Baseline observed locally: branch `main`, HEAD `a262237`, clean except untracked `SAFE_FAST_DAY50_GROUPED_REQUIRED_SETUP_SOURCE_RESOLUTION_AND_REPLAY_CODEX_TASK.md` and known temp-directory permission warnings.
+- The four exact external setup-data cases were resolved by source routing, not promoted: existing local Databento OHLCV is raw bar input only, one-hour bars are not the remaining blocker, and the remaining required evidence is accepted SAFE-FAST setup-source decisions over exact rows.
+- External-data cases completed locally: `0`; external-data cases still requiring exact setup-source requests: `4`.
+- Remaining exact setup-source requests: `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, and `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`.
+- Required fields still outside accepted evidence: setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight boundary, and session-boundary behavior.
+- The three source conflicts were formally resolved by registry priority and excluded as `SOURCE_CONFLICT_EXCLUDED`: `QQQ-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, and `SPY-SOURCE-WINDOW-CONTINUATION-005`.
+- `GLD-REPLACEMENT-IDEAL-CANDIDATE-002` remains `CANDIDATE_UNUSABLE` because no second exact GLD Ideal source window and row range is repo-backed.
+- All eight current slots were rerun twice through the Day 50 replay path with deterministic hashes matching.
+- Current Day 50 grouped totals: `0` setup-qualified, `0` trade candidates, `0` contracts selected, `0` entries recorded, `0` true no-trades, `0` valid trades captured, `0` missed valid trades, `0` invalid trades allowed, and `0` unresolved cases.
+- First blockers: `setup_time_row=8` by field and `SETUP_QUALIFIED=8` by funnel stage.
+- Checked cost: `NOT_AVAILABLE`, because no paid vendor dataset/schema can supply SAFE-FAST setup labels, trigger, invalidation, freshness, or no-hindsight decisions; existing OHLCV is already local and no download was requested.
+- `SAFE_FAST_DB_AUTH` was not printed, saved, documented, or used.
+- No Schwab authentication, Schwab endpoint call, Databento download, paid-data purchase approval, option request, exit-path request, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, broker/order/account, credential, `.env`, production/live backend, or frozen-threshold change was made.
+- Checks run:
+  - `python -B -m unittest discover -s tests -p "test_day50_required_setup_source_resolution.py"`: PASS, `5` tests.
+  - `python -B -m historical_signal_replay.day50_required_setup_source_resolution`: PASS, wrote `4` exact setup-source requests, `3` source conflicts excluded, `0` trade candidates.
+
 ## Day 50 Schwab read-only auth and capability audit result
 
 - Current task file executed: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`.
