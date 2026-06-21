@@ -1,0 +1,308 @@
+{
+  "affected_selected_contract_records": [
+    {
+      "candidate_identifier": "first_real_spy_continuation_replay_v1_fixture",
+      "classification_after_closeout": "TRUE_NO_TRADE",
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "execution_context_status": "fail",
+      "final_classification": "TRUE_NO_TRADE",
+      "first_blocker": {
+        "blocking_scope": "blocks ENTRY_ELIGIBLE and ENTRY_RECORDED",
+        "calculator": "historical_signal_replay.execution_context_calculator",
+        "dataset_schema_or_api": "OPRA.PILLAR quote freshness; local replay/execution calculator",
+        "exact_blocker_code": "quote_age_above_5_minutes",
+        "field": "option_quote_freshness",
+        "next_action": "preserve as true no-trade regression control",
+        "source": "Databento historical options via local selected-contract evidence",
+        "stage": "ENTRY_ELIGIBLE",
+        "timestamp_window": {
+          "accepted_entry_stage_rows": [
+            {
+              "primary_blocker": null,
+              "stage": "triggered_signal_stage_candidate",
+              "timestamp": "2026-04-30T12:30:00-04:00"
+            }
+          ],
+          "quote_age_seconds": 3790.746258
+        },
+        "unavailable_or_failure_reason": "quote_age_above_5_minutes"
+      },
+      "first_stage_not_reached": "ENTRY_ELIGIBLE",
+      "highest_stage_reached": "PRICE_ACCEPTABLE",
+      "live_eligible": false,
+      "paper_eligible": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "quote_age_seconds": 3790.746258,
+      "regression_only": false,
+      "rerun_result": {
+        "additional_entry_established": false,
+        "rerun_source": "day50_evidence_backed_positive_entry_testing_batch",
+        "result": "blocked_before_entry"
+      },
+      "selected_contract": true,
+      "selected_option_contract": "SPY   260514C00720000",
+      "setup_family": "Continuation",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "second_real_spy_ideal_replay_v1_fixture",
+      "classification_after_closeout": "TRUE_NO_TRADE",
+      "entry_eligible": false,
+      "entry_recorded": false,
+      "execution_context_status": "fail",
+      "final_classification": "TRUE_NO_TRADE",
+      "first_blocker": {
+        "blocking_scope": "blocks ENTRY_ELIGIBLE and ENTRY_RECORDED",
+        "calculator": "historical_signal_replay.execution_context_calculator",
+        "dataset_schema_or_api": "OPRA.PILLAR quote freshness; local replay/execution calculator",
+        "exact_blocker_code": "quote_age_above_5_minutes",
+        "field": "option_quote_freshness",
+        "next_action": "preserve as true no-trade regression control",
+        "source": "Databento historical options via local selected-contract evidence",
+        "stage": "ENTRY_ELIGIBLE",
+        "timestamp_window": {
+          "accepted_entry_stage_rows": [
+            {
+              "primary_blocker": null,
+              "stage": "ideal_triggered_signal_stage_candidate",
+              "timestamp": "2026-05-13T11:30:00-04:00"
+            }
+          ],
+          "quote_age_seconds": 442.633927
+        },
+        "unavailable_or_failure_reason": "quote_age_above_5_minutes"
+      },
+      "first_stage_not_reached": "ENTRY_ELIGIBLE",
+      "highest_stage_reached": "PRICE_ACCEPTABLE",
+      "live_eligible": false,
+      "paper_eligible": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "quote_age_seconds": 442.633927,
+      "regression_only": false,
+      "rerun_result": {
+        "additional_entry_established": false,
+        "rerun_source": "day50_evidence_backed_positive_entry_testing_batch",
+        "result": "blocked_before_entry"
+      },
+      "selected_contract": true,
+      "selected_option_contract": "SPY   260527C00745000",
+      "setup_family": "Ideal",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+      "classification_after_closeout": "TRUE_NO_TRADE",
+      "entry_ask": 7.66,
+      "entry_eligible": false,
+      "entry_quote_time": "2026-04-15T18:22:33.366710+00:00",
+      "entry_recorded": false,
+      "entry_time": "2026-04-15T18:30:00+00:00",
+      "failure_reason": "quote_age_above_5_minutes",
+      "final_classification": "TRUE_NO_TRADE",
+      "first_blocker": {
+        "blocking_scope": "blocks ENTRY_ELIGIBLE and ENTRY_RECORDED",
+        "calculator": "historical_signal_replay.cfb_backtest_runner / cfb_trade_rule_checker",
+        "dataset_schema_or_api": "OPRA.PILLAR quote freshness; local replay/execution calculator",
+        "exact_blocker_code": "quote_age_above_5_minutes",
+        "field": "option_quote_freshness",
+        "next_action": "preserve as true no-trade regression control",
+        "source": "Databento historical options via local selected-contract evidence",
+        "stage": "ENTRY_ELIGIBLE",
+        "timestamp_window": {
+          "entry_quote_time": "2026-04-15T18:22:33.366710+00:00",
+          "entry_time": "2026-04-15T18:30:00+00:00"
+        },
+        "unavailable_or_failure_reason": "quote_age_above_5_minutes"
+      },
+      "first_stage_not_reached": "ENTRY_ELIGIBLE",
+      "highest_stage_reached": "PRICE_ACCEPTABLE",
+      "live_eligible": false,
+      "paper_eligible": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "regression_only": false,
+      "rejection_reason": "quote_age_above_5_minutes",
+      "rerun_result": {
+        "additional_entry_established": false,
+        "rerun_source": "day50_evidence_backed_positive_entry_testing_batch",
+        "result": "blocked_before_entry"
+      },
+      "result_name": "no_trade_quote_age_above_5_minutes",
+      "result_status": "no_trade",
+      "selected_contract": true,
+      "setup_family": "Clean Fast Break",
+      "trade_rule_status": "no_trade",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "classification_after_closeout": "TRUE_NO_TRADE_REGRESSION_ONLY",
+      "entry_ask": 7.8,
+      "entry_eligible": false,
+      "entry_quote_time": "2026-04-13T16:06:30.640301+00:00",
+      "entry_recorded": false,
+      "entry_time": "2026-04-13T16:30:00+00:00",
+      "failure_reason": "quote_age_above_5_minutes",
+      "final_classification": "TRUE_NO_TRADE",
+      "first_blocker": {
+        "blocking_scope": "blocks ENTRY_ELIGIBLE and ENTRY_RECORDED",
+        "calculator": "historical_signal_replay.cfb_backtest_runner / cfb_trade_rule_checker",
+        "dataset_schema_or_api": "OPRA.PILLAR quote freshness; local replay/execution calculator",
+        "exact_blocker_code": "quote_age_above_5_minutes",
+        "field": "option_quote_freshness",
+        "next_action": "preserve as true no-trade regression control",
+        "source": "Databento historical options via local selected-contract evidence",
+        "stage": "ENTRY_ELIGIBLE",
+        "timestamp_window": {
+          "entry_quote_time": "2026-04-13T16:06:30.640301+00:00",
+          "entry_time": "2026-04-13T16:30:00+00:00"
+        },
+        "unavailable_or_failure_reason": "quote_age_above_5_minutes"
+      },
+      "first_stage_not_reached": "ENTRY_ELIGIBLE",
+      "highest_stage_reached": "PRICE_ACCEPTABLE",
+      "live_eligible": false,
+      "paper_eligible": false,
+      "profitability_claimed": false,
+      "proof_accepted": false,
+      "regression_only": true,
+      "rejection_reason": "quote_age_above_5_minutes",
+      "rerun_result": {
+        "additional_entry_established": false,
+        "rerun_source": "day50_evidence_backed_positive_entry_testing_batch",
+        "result": "blocked_before_entry"
+      },
+      "result_name": "no_trade_quote_age_above_5_minutes",
+      "result_status": "no_trade",
+      "selected_contract": true,
+      "setup_family": "Clean Fast Break",
+      "trade_rule_status": "no_trade",
+      "underlying": "QQQ"
+    }
+  ],
+  "baseline_batch_scorecard": {
+    "candidates_found": 15,
+    "candidates_runnable": 15,
+    "closed_safety_rejections_rerun_as_live_candidates": 0,
+    "closed_setup_source_candidates_reopened": 0,
+    "deterministic_cases": 15,
+    "eligible_entries": 1,
+    "exits_evaluated": 1,
+    "invalid_trades_allowed": 0,
+    "losers": 0,
+    "missed_valid_trades": 0,
+    "missing_data_cases": 6,
+    "prices_accepted": 5,
+    "recorded_entries": 1,
+    "regression_only_closed_safety_rejections": 1,
+    "rejected_intake_rows_replayed": 0,
+    "selected_contracts": 5,
+    "setup_developing_count": 15,
+    "setup_qualified_candidates": 13,
+    "trade_candidates": 9,
+    "true_no_trades": 4,
+    "unresolved_cases": 4,
+    "unstable_cases": 0,
+    "valid_trades_captured": 1,
+    "winners": 1
+  },
+  "baseline_final_classifications": {
+    "INVALID_TRADE_ALLOWED": 0,
+    "MISSED_VALID_TRADE": 0,
+    "MISSING_DATA": 6,
+    "TRUE_NO_TRADE": 4,
+    "UNRESOLVED": 4,
+    "VALID_TRADE_CAPTURED": 1
+  },
+  "broker_mutation_attempted": false,
+  "closeout_policy": {
+    "classification_categories_preserved": [
+      "VALID_TRADE_CAPTURED",
+      "TRUE_NO_TRADE",
+      "MISSING_DATA",
+      "MISSED_VALID_TRADE",
+      "INVALID_TRADE_ALLOWED",
+      "UNRESOLVED"
+    ],
+    "closed_setup_source_candidates_reopened": false,
+    "confirmed_qqq_safety_rejection_rerun_as_live_candidate": false,
+    "exit_path_request_included": false,
+    "frozen_rules_weakened": false,
+    "governance_only_chain_created": false,
+    "new_candidate_scan_run": false,
+    "option_request_included": false,
+    "qqq_closed_candidate_preserved_as_regression_only": true,
+    "rejected_intake_rows_replayed": false,
+    "source": "Day 50 evidence-backed positive-entry batch only"
+  },
+  "databento_cost_check": {
+    "actual_billed_cost": "NOT_AVAILABLE",
+    "checked_cost": "NOT_AVAILABLE",
+    "credential_used": false,
+    "reason": "The affected selected contracts already have local selected-contract evidence and fail before entry on the frozen quote-age gate. No new paid-data request was created."
+  },
+  "databento_downloaded": false,
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "exit_path_request_included": false,
+  "first_run_hash": "b7ef41e948afc5998487eea8fe639ae08febc48cfeb807ec3e8427037e336e60",
+  "input_paths": {
+    "day50_accepted_setup_evidence_replay_after_intake_closeout": "historical_signal_replay/results/day50_accepted_setup_evidence_replay_after_intake_closeout.json",
+    "day50_evidence_backed_positive_entry_testing_batch": "historical_signal_replay/results/day50_evidence_backed_positive_entry_testing_batch.json"
+  },
+  "live_eligible": false,
+  "next_task": {
+    "filename": "SAFE_FAST_DAY50_POSITIVE_ENTRY_CONTRACT_SELECTED_MISSING_EVIDENCE_CODEX_TASK.md",
+    "reason": "The selected-contract rerun established zero additional entries; the remaining bounded positive-entry surface is the batch's CONTRACT_SELECTED blocker group with exact missing_setup_time_selected_option_evidence.",
+    "route": "positive_entry_contract_selected_missing_evidence"
+  },
+  "option_request_included": false,
+  "paper_eligible": false,
+  "profitability_claimed": false,
+  "promotion_decision_made": false,
+  "proof_accepted": false,
+  "raw_vendor_data_changed": false,
+  "result_version": "day50_positive_entry_selected_contract_blocker_closeout_v1",
+  "run_timestamp": "2026-06-21T19:02:17.445697Z",
+  "schwab_authenticated": false,
+  "scorecard": {
+    "additional_entries_established": 0,
+    "affected_cases_entries_recorded": 0,
+    "affected_cases_entry_eligible": 0,
+    "affected_cases_rerun": 4,
+    "closed_safety_rejections_rerun_as_live_candidates": 0,
+    "closed_setup_source_candidates_reopened": 0,
+    "invalid_trades_allowed": 0,
+    "missed_valid_trades": 0,
+    "missing_data_cases": 6,
+    "regression_only_closed_safety_rejections": 1,
+    "rejected_intake_rows_replayed": 0,
+    "selected_contracts_failed_before_entry": 4,
+    "selected_contracts_in_batch": 5,
+    "true_no_trades": 4,
+    "unresolved_cases": 4,
+    "valid_trades_captured": 1
+  },
+  "second_run_hash": "b7ef41e948afc5998487eea8fe639ae08febc48cfeb807ec3e8427037e336e60",
+  "selected_contract_first_blockers": {
+    "ENTRY_ELIGIBLE": {
+      "affected_candidate_count": 4,
+      "affected_candidates": [
+        "first_real_spy_continuation_replay_v1_fixture",
+        "second_real_spy_ideal_replay_v1_fixture",
+        "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+        "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001"
+      ],
+      "common_causes": {
+        "quote_age_above_5_minutes": 4
+      }
+    }
+  },
+  "source_commit": "ed15bca"
+}
