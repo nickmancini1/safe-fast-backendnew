@@ -11,32 +11,22 @@ git --no-pager status --short
 
 CURRENT DAY 50 ENTRY POINT:
 
-- Current contract-selected missing-evidence result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CONTRACT_SELECTED_MISSING_EVIDENCE_RESULT.md`
-- Current contract-selected missing-evidence JSON: `historical_signal_replay/results/day50_positive_entry_contract_selected_missing_evidence.json`
-- Current contract-selected missing-evidence builder: `historical_signal_replay/day50_positive_entry_contract_selected_missing_evidence.py`
-- Current contract-selected missing-evidence tests: `tests/test_day50_positive_entry_contract_selected_missing_evidence.py`
-- Exact active task: `SAFE_FAST_DAY50_POSITIVE_ENTRY_TRADE_CANDIDATE_RULE_GAP_CLOSEOUT_CODEX_TASK.md`
-- Previous selected-contract blocker closeout result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_SELECTED_CONTRACT_BLOCKER_CLOSEOUT_RESULT.md`
-- Previous selected-contract blocker closeout JSON: `historical_signal_replay/results/day50_positive_entry_selected_contract_blocker_closeout.json`
+- Current trade-candidate rule-gap closeout result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_TRADE_CANDIDATE_RULE_GAP_CLOSEOUT_RESULT.md`
+- Current trade-candidate rule-gap closeout JSON: `historical_signal_replay/results/day50_positive_entry_trade_candidate_rule_gap_closeout.json`
+- Current trade-candidate rule-gap closeout builder: `historical_signal_replay/day50_positive_entry_trade_candidate_rule_gap_closeout.py`
+- Current trade-candidate rule-gap closeout tests: `tests/test_day50_positive_entry_trade_candidate_rule_gap_closeout.py`
+- Exact active task: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_RULE_EVIDENCE_REPAIR_CODEX_TASK.md`
+- Previous contract-selected missing-evidence result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CONTRACT_SELECTED_MISSING_EVIDENCE_RESULT.md`
+- Previous contract-selected missing-evidence JSON: `historical_signal_replay/results/day50_positive_entry_contract_selected_missing_evidence.json`
 - Previous evidence-backed positive-entry testing batch result: `SAFE_FAST_DAY50_EVIDENCE_BACKED_POSITIVE_ENTRY_TESTING_BATCH_RESULT.md`
 - Previous evidence-backed positive-entry testing batch JSON: `historical_signal_replay/results/day50_evidence_backed_positive_entry_testing_batch.json`
 - Current canonical registry: `SAFE_FAST_DATA_SOURCE_REGISTRY.md`
 - Current data-source registry and Schwab queue result: `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_RESULT.md`
+- Current Schwab read-only audit task reference: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`
 - Machine registry: `historical_signal_replay/config/safe_fast_data_source_registry.json`
 - Resolver: `watcher_foundation/safe_fast_data_source_resolver.py`
-- Current Schwab read-only audit result: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_RESULT.md`
-- Current Schwab read-only audit task reference: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`
 
 Do not report vague MISSING_DATA. Every blocker must state exact field, exact source, exact dataset/schema/API/calculator, exact timestamp window, exact reason unavailable, whether it blocks setup/trade/execution/exit or only optional context, and exact next action.
-
-Charles Schwab is the live broker/account/order/fill authority. Databento is the primary historical options source. SAFE-FAST setup labels stay inside the SAFE-FAST frozen local rule engine.
-
-Schwab auth status:
-- Read-only audit helper exists, but live verification is blocked.
-- Missing local config: `SCHWAB_CLIENT_ID` or `SCHWAB_APP_KEY`, `SCHWAB_CLIENT_SECRET` or `SCHWAB_APP_SECRET`, and `SCHWAB_REDIRECT_URI`.
-- Do not request OAuth browser action until those values are configured outside repo files.
-- Do not print, document, commit, or save tokens/secrets.
-- Do not submit, preview, replace, cancel, or otherwise mutate orders.
 
 Current batch facts:
 - The evidence-backed positive-entry batch tested `15` existing regression-control candidate records.
@@ -56,18 +46,17 @@ Current batch facts:
 - Winners: `1`.
 - Losers: `0`.
 
-Contract-selected missing-evidence closeout facts:
-- Targeted group: first stage not reached `CONTRACT_SELECTED`, exact blocker `missing_setup_time_selected_option_evidence`.
-- Active selected-contract missing-evidence cases reviewed: `3`.
-- Fresh quote cases: `2`.
-- Genuinely stale cases: `1`.
-- Remaining evidence gaps: `2`.
+Trade-candidate rule-gap closeout facts:
+- Targeted group: first stage not reached `TRADE_CANDIDATE`.
+- Affected trade-candidate rule-gap cases reviewed: `4`.
+- Affected cases selected contracts after closeout: `0`.
+- Affected cases entry-eligible after closeout: `0`.
+- Affected cases entries recorded after closeout: `0`.
 - Additional entries established: `0`.
-- Entry-eligible after closeout: `0`.
-- Entries recorded after closeout: `0`.
-- QQQ Continuation: fresh selected top-ranked quote, but spread `0.35` fails the accepted cap and no fallback is allowed.
-- QQQ Ideal: fresh raw quote-universe evidence exists, but accepted selected-contract identity/rule evidence is still absent.
-- SPY CFB 003: selected-contract quote is genuinely stale, quote age `446.63329` seconds.
+- GLD CFB and GLD Ideal remain blocked by `fresh_or_spent_unconfirmed`.
+- IWM Continuation remains blocked by `prior_completed_shelf_break_spent_TO_REVIEW`.
+- IWM Ideal remains blocked by `fresh_or_spent_unconfirmed`.
+- QQQ Ideal selected-contract identity is resolved from accepted frozen evidence as `replace` / outside narrowed Ideal path; the fresh raw quote exists but does not authorize contract selection or paid option data.
 - QQQ CFB 001 remains `TRUE_NO_TRADE_REGRESSION_ONLY` and must not be rerun as a live candidate.
 
 Grouped work must preserve a funnel scorecard and keep these categories separate: VALID_TRADE_CAPTURED, TRUE_NO_TRADE, MISSING_DATA, MISSED_VALID_TRADE, INVALID_TRADE_ALLOWED, and UNRESOLVED.
@@ -86,9 +75,7 @@ Do not download paid data without an exact cost check and user approval.
 
 Correct Codex launch command for the next task:
 
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_POSITIVE_ENTRY_TRADE_CANDIDATE_RULE_GAP_CLOSEOUT_CODEX_TASK.md exactly."
-
-Do not authenticate to Schwab until the task reaches the explicit OAuth browser authorization step. Do not submit, replace, cancel, preview, or call any order endpoint.
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_RULE_EVIDENCE_REPAIR_CODEX_TASK.md exactly."
 
 Use this format for build work:
 Baseline:
