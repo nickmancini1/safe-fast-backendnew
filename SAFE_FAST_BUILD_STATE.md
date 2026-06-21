@@ -1,5 +1,49 @@
 # SAFE-FAST Build State
 
+## Day 50 accepted setup evidence replay after intake closeout result
+
+- Current task file executed: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CLOSEOUT_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CLOSEOUT_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day50_accepted_setup_evidence_replay_after_intake_closeout.json`.
+- Builder created: `historical_signal_replay/day50_accepted_setup_evidence_replay_after_intake_closeout.py`.
+- Focused tests created: `tests/test_day50_accepted_setup_evidence_replay_after_intake_closeout.py`.
+- Exact next grouped task created: `SAFE_FAST_DAY50_EVIDENCE_BACKED_POSITIVE_ENTRY_TESTING_BATCH_CODEX_TASK.md`.
+- Closed replay record: `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
+- Closeout status: `CLOSED_CONFIRMED_SAFETY_REJECTION`.
+- Final closeout classification: `TRUE_NO_TRADE_REGRESSION_ONLY`.
+- QQQ CFB 001 remains `SETUP_QUALIFIED`, does not reach `TRADE_CANDIDATE`, and is regression-only because accepted `blocker_caution_review=fail` maps to the Day 48 `quote_age_above_5_minutes` frozen-rule failure.
+- Determination remains a legitimate safety rejection, not an evidence or harness problem.
+- The confirmed safety rejection was closed as regression-only; it was not reopened as a candidate.
+- The four closed setup-source candidates were not reopened.
+- The three rejected intake rows were not replayed or turned into vague missing-data cases.
+- No open-ended candidate scan was run, no frozen rule was weakened, and no governance-only chain was created.
+- Current closeout scorecard: `1` accepted replay record closed, `1` confirmed safety rejection closed, `1` regression-only true no-trade, `1` setup-qualified candidate, `0` trade candidates, `0` evidence/harness problems, `0` missing-data cases, `0` unresolved cases, `0` closed setup-source candidates reopened, `0` rejected intake rows replayed, `0` contracts selected, `0` entries recorded, `0` valid trades captured, `0` missed valid trades, and `0` invalid trades allowed.
+- Checked cost: `NOT_AVAILABLE`; no paid-data request was created because closeout did not produce a `TRADE_CANDIDATE`.
+- `SAFE_FAST_DB_AUTH` was not printed, saved, documented, or used.
+- No Schwab authentication, Schwab endpoint call, Databento download, paid-data purchase approval, option request, exit-path request, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, broker/order/account, credential, `.env`, production/live backend, or frozen-threshold change was made.
+- Next route: directly to the next evidence-backed positive-entry testing batch via `SAFE_FAST_DAY50_EVIDENCE_BACKED_POSITIVE_ENTRY_TESTING_BATCH_CODEX_TASK.md`.
+- Checks run:
+  - `python -B -m unittest discover -s tests -p "test_day50_accepted_setup_evidence_replay_after_intake_closeout.py"`: PASS, `7` tests.
+  - `python -B -m historical_signal_replay.day50_accepted_setup_evidence_replay_after_intake_closeout`: PASS, wrote `1` safety rejection closed, `0` trade candidates, `0` evidence/harness problems.
+  - `python -B -m unittest discover -s tests -p "test_day50_accepted_setup_evidence_replay_after_intake.py"`: PASS, `7` tests.
+  - `python -B -m historical_signal_replay.day50_accepted_setup_evidence_replay_after_intake`: PASS, wrote `1` replayed, `0` trade candidates, `1` legitimate safety rejection, `0` evidence/harness problems.
+  - `python -B -m unittest discover -s tests -p "test_day50_accepted_complete_setup_evidence_intake.py"`: PASS, `7` tests.
+  - `python -B -m historical_signal_replay.day50_accepted_complete_setup_evidence_intake`: PASS, wrote `1` accepted, `0` trade candidates, `1` blocked by accepted caution fail.
+  - `python -B -m unittest discover -s tests -p "test_day50_positive_entry_expansion_after_setup_source_closure.py"`: PASS, `6` tests.
+  - `python -B -m historical_signal_replay.day50_positive_entry_expansion_after_setup_source_closure`: PASS, wrote `0` eligible new candidates, `0` trade candidates, `0` valid captured.
+  - `python -B -m unittest discover -s tests -p "test_day50_exact_setup_source_evidence_completion.py"`: PASS, `5` tests.
+  - `python -B -m historical_signal_replay.day50_exact_setup_source_evidence_completion`: PASS, wrote `4` reviewed, `4` closed, `0` trade candidates.
+  - `python -B -m unittest discover -s tests -p "test_day50_required_setup_source_resolution.py"`: PASS, `5` tests.
+  - `python -B -m historical_signal_replay.day50_required_setup_source_resolution`: PASS, wrote `4` exact requests, `3` source conflicts excluded, `0` trade candidates.
+  - `python -B -m unittest discover -s tests -p "test_safe_fast_data_source_registry.py"`: PASS, `10` tests.
+  - `python -B -m historical_signal_replay.day48_positive_trade_capture_funnel`: PASS twice, each wrote `15` candidates, `1` valid captured, `4` true no-trades, `6` missing-data cases.
+  - `python -B -m unittest discover -s tests -p "test_day48_positive_trade_capture_funnel.py"`: PASS, `4` tests.
+  - Relevant positive-entry/family/stage/session tests: PASS for `test_day49_positive_entry_candidate_expansion.py`, `test_day49_grouped_positive_entry_setup_field_completion.py`, `test_day49_grouped_positive_entry_setup_time.py`, `test_day48_actual_grouped_three_family_replay.py`, `test_day48_continuation_starter_coverage.py`, `test_day48_grouped_three_family_coverage_expansion.py`, and `test_day48_grouped_three_family_expansion_after_continuation.py`.
+  - Relevant contract/quote/context tests: PASS for `test_cfb_contract_selector.py`, `test_cfb_lifecycle_calculator.py`, `test_execution_context_calculator.py`, and `test_context_caution_calculator.py`.
+  - Evidence and bridge tests: PASS for `watcher_foundation.day49_positive_entry_setup_evidence_completion_validator`, `test_day49_positive_entry_setup_evidence_completion.py`, `test_source_evidence_package_to_intake_bridge.py`, `test_source_evidence_package_intake.py`, `test_source_evidence_work_package_content_validator.py`, `test_source_evidence_acquisition_validator.py`, and `test_source_evidence_gap_scanner.py`.
+  - Future-chat consistency tests: PASS for `test_day48_positive_trade_handoff_consistency.py` and `test_day47_to_day90_audit_consistency.py`.
+  - `git diff --check`: PASS, with normal CRLF warnings only.
+
 ## Day 50 accepted setup evidence replay after intake result
 
 - Current task file executed: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CODEX_TASK.md`.

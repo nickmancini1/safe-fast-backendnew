@@ -11,11 +11,16 @@ git --no-pager status --short
 
 CURRENT DAY 50 ENTRY POINT:
 
+- Current accepted setup evidence replay-after-intake closeout result: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CLOSEOUT_RESULT.md`
+- Current accepted setup evidence replay-after-intake closeout JSON: `historical_signal_replay/results/day50_accepted_setup_evidence_replay_after_intake_closeout.json`
+- Current accepted setup evidence replay-after-intake closeout builder: `historical_signal_replay/day50_accepted_setup_evidence_replay_after_intake_closeout.py`
+- Current accepted setup evidence replay-after-intake closeout tests: `tests/test_day50_accepted_setup_evidence_replay_after_intake_closeout.py`
+- Exact active task: `SAFE_FAST_DAY50_EVIDENCE_BACKED_POSITIVE_ENTRY_TESTING_BATCH_CODEX_TASK.md`
+- Previous closeout task: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CLOSEOUT_CODEX_TASK.md`
 - Current accepted setup evidence replay-after-intake result: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_RESULT.md`
 - Current accepted setup evidence replay-after-intake JSON: `historical_signal_replay/results/day50_accepted_setup_evidence_replay_after_intake.json`
 - Current accepted setup evidence replay-after-intake builder: `historical_signal_replay/day50_accepted_setup_evidence_replay_after_intake.py`
 - Current accepted setup evidence replay-after-intake tests: `tests/test_day50_accepted_setup_evidence_replay_after_intake.py`
-- Exact active task: `SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CLOSEOUT_CODEX_TASK.md`
 - Previous accepted complete setup evidence intake result: `SAFE_FAST_DAY50_ACCEPTED_COMPLETE_SETUP_EVIDENCE_INTAKE_RESULT.md`
 - Previous accepted complete setup evidence intake JSON: `historical_signal_replay/results/day50_accepted_complete_setup_evidence_intake.json`
 - Previous accepted complete setup evidence intake builder: `historical_signal_replay/day50_accepted_complete_setup_evidence_intake.py`
@@ -61,11 +66,13 @@ Required source rules:
 - Macro: ALFRED for historical vintages. Do not silently use revised current macro values.
 
 Current blocker status:
+- The accepted setup evidence replay-after-intake closeout closed `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` as `CLOSED_CONFIRMED_SAFETY_REJECTION` / `TRUE_NO_TRADE_REGRESSION_ONLY`.
 - The accepted setup evidence replay after intake processed only `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001`.
 - QQQ CFB 001 has accepted complete setup evidence and remains `SETUP_QUALIFIED`.
 - QQQ CFB 001 does not reach `TRADE_CANDIDATE` because accepted `blocker_caution_review=fail` is a frozen positive-entry stop.
 - Determination is `LEGITIMATE_SAFETY_REJECTION`, not an evidence or harness problem.
 - Exact blocker anchor is the existing Day 48 `quote_age_above_5_minutes` true no-trade regression.
+- QQQ CFB 001 is closed as regression-only and must not be rerun as a live candidate.
 - The four Day 50 exact setup-source request slots remain formally closed as `SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE`.
 - Setup-source requests remaining: `0`.
 - The three rejected intake rows remain not accepted complete because `blocker_caution_review` is `unknown`.
@@ -79,7 +86,7 @@ Do not download paid data without an exact cost check and user approval.
 
 Correct Codex launch command for the next task:
 
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_ACCEPTED_SETUP_EVIDENCE_REPLAY_AFTER_INTAKE_CLOSEOUT_CODEX_TASK.md exactly."
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_EVIDENCE_BACKED_POSITIVE_ENTRY_TESTING_BATCH_CODEX_TASK.md exactly."
 
 Do not authenticate to Schwab until the task reaches the explicit OAuth browser authorization step. Do not submit, replace, cancel, preview, or call any order endpoint.
 
