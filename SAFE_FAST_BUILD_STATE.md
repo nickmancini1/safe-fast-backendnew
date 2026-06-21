@@ -1,5 +1,42 @@
 # SAFE-FAST Build State
 
+## Day 50 positive-entry expansion after setup-source closure result
+
+- Current task file executed: `SAFE_FAST_DAY50_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_SOURCE_CLOSURE_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_SOURCE_CLOSURE_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day50_positive_entry_expansion_after_setup_source_closure.json`.
+- Builder created: `historical_signal_replay/day50_positive_entry_expansion_after_setup_source_closure.py`.
+- Focused tests created: `tests/test_day50_positive_entry_expansion_after_setup_source_closure.py`.
+- Exact next grouped task created: `SAFE_FAST_DAY50_ACCEPTED_COMPLETE_SETUP_EVIDENCE_INTAKE_CODEX_TASK.md`.
+- The post-closure expansion scanned the existing `24`-candidate source pool using the stricter rule requested for this task: use only new candidates with accepted, complete setup evidence.
+- New candidates selected: `0`.
+- No candidate had accepted complete setup evidence; all `24` scanned rows were excluded by the intake gate rather than being turned into another vague missing-data batch.
+- The four closed setup-source candidates remain regression records only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, and `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`.
+- The prior source-resolution exclusions also remain regression records only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-002`, `QQQ-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, and `SPY-SOURCE-WINDOW-CONTINUATION-005`.
+- Current post-closure expansion totals: `0` candidates found/runnable, `0` setup-qualified, `0` trade candidates, `0` contracts selected, `0` prices accepted, `0` entries eligible, `0` entries recorded, `0` exits evaluated, `0` valid trades captured, `0` true no-trades, `0` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, `0` unresolved cases, `0` winners, and `0` losers.
+- Existing 15-candidate regression control remained deterministic with `1` valid trade captured, `4` true no-trades, `6` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, and `4` unresolved cases.
+- Deterministic comparison was `PASS`; first and second hashes matched.
+- Checked cost: `NOT_AVAILABLE`; no paid-data request was created because no new candidate reached `TRADE_CANDIDATE`.
+- `SAFE_FAST_DB_AUTH` was not printed, saved, documented, or used.
+- No Schwab authentication, Schwab endpoint call, Databento download, paid-data purchase approval, option request, exit-path request, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, broker/order/account, credential, `.env`, production/live backend, or frozen-threshold change was made.
+- Checks run:
+  - `python -B -m unittest discover -s tests -p "test_day50_positive_entry_expansion_after_setup_source_closure.py"`: PASS, `6` tests.
+  - `python -B -m historical_signal_replay.day50_positive_entry_expansion_after_setup_source_closure`: PASS, wrote `0` eligible new candidates, `0` trade candidates, `0` valid captured.
+  - `python -B -m unittest discover -s tests -p "test_day50_exact_setup_source_evidence_completion.py"`: PASS, `5` tests.
+  - `python -B -m unittest discover -s tests -p "test_day50_required_setup_source_resolution.py"`: PASS, `5` tests.
+  - `python -B -m unittest discover -s tests -p "test_safe_fast_data_source_registry.py"`: PASS, `10` tests.
+  - `python -B -m unittest discover -s tests -p "test_day48_positive_trade_capture_funnel.py"`: PASS, `4` tests.
+  - `python -B -m historical_signal_replay.day48_positive_trade_capture_funnel`: PASS twice, wrote `15` candidates, `1` valid captured, `4` true no-trades, `6` missing-data cases.
+  - Relevant positive-entry/family/stage/session tests: PASS for `test_day49_positive_entry_candidate_expansion.py`, `test_day49_grouped_positive_entry_setup_field_completion.py`, `test_day49_grouped_positive_entry_setup_time.py`, `test_day48_actual_grouped_three_family_replay.py`, `test_day48_continuation_starter_coverage.py`, `test_day48_grouped_three_family_coverage_expansion.py`, and `test_day48_grouped_three_family_expansion_after_continuation.py`.
+  - Relevant contract/quote/context tests: PASS for `test_cfb_contract_selector.py`, `test_cfb_lifecycle_calculator.py`, `test_execution_context_calculator.py`, and `test_context_caution_calculator.py`.
+  - Evidence and bridge tests: PASS for `watcher_foundation.day49_positive_entry_setup_evidence_completion_validator`, `test_day49_positive_entry_setup_evidence_completion.py`, `test_source_evidence_package_to_intake_bridge.py`, `test_source_evidence_package_intake.py`, `test_source_evidence_work_package_content_validator.py`, `test_source_evidence_acquisition_validator.py`, and `test_source_evidence_gap_scanner.py`.
+  - Replacement setup-source tests: PASS for `test_replacement_source_row_setup_time_review*.py` and `test_replacement_source_row_packet*.py`.
+  - Future-chat consistency tests: PASS for `test_day48_positive_trade_handoff_consistency.py` and `test_day47_to_day90_audit_consistency.py`.
+  - `python -B -m historical_signal_replay.day50_required_setup_source_resolution`: PASS, wrote `4` exact requests, `3` source conflicts excluded, `0` trade candidates.
+  - `python -B -m historical_signal_replay.day50_exact_setup_source_evidence_completion`: PASS, wrote `4` reviewed, `4` closed, `0` trade candidates.
+  - `python -B -m historical_signal_replay.day50_positive_entry_expansion_after_setup_source_closure`: PASS final rerun after upstream JSON regeneration, wrote `0` eligible new candidates, `0` trade candidates, `0` valid captured.
+  - `git diff --check`: PASS, with normal CRLF warnings only.
+
 ## Day 50 exact setup-source evidence completion result
 
 - Current task file executed: `SAFE_FAST_DAY50_EXACT_SETUP_SOURCE_EVIDENCE_COMPLETION_CODEX_TASK.md`.

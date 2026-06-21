@@ -1,0 +1,951 @@
+{
+  "broker_mutation_attempted": false,
+  "candidate_count": 0,
+  "candidate_records": [],
+  "closed_candidates_regression_records": [
+    {
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "regression_only": true
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "regression_only": true
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "regression_only": true
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+      "final_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "regression_only": true
+    }
+  ],
+  "combined_scorecard": {
+    "candidates_found": 0,
+    "candidates_runnable": 0,
+    "contracts_selected": 0,
+    "entries_eligible": 0,
+    "entries_recorded": 0,
+    "exits_evaluated": 0,
+    "invalid_trades_allowed": 0,
+    "losers": 0,
+    "missed_valid_trades": 0,
+    "missing_data_cases": 0,
+    "prices_accepted": 0,
+    "setup_developing_count": 0,
+    "setup_qualified_count": 0,
+    "trade_candidate_count": 0,
+    "true_no_trades": 0,
+    "unresolved_cases": 0,
+    "valid_trades_captured": 0,
+    "winners": 0
+  },
+  "databento_cost_check": {
+    "actual_billed_cost": "NOT_AVAILABLE",
+    "checked_cost": "NOT_AVAILABLE",
+    "credential_used": false,
+    "reason": "No new candidate reached TRADE_CANDIDATE; no option, quote, or exit-path request is valid."
+  },
+  "databento_downloaded": false,
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "existing_regression_control_result": {
+    "candidate_count": 15,
+    "combined_scorecard": {
+      "candidates_found": 15,
+      "candidates_runnable": 15,
+      "contracts_selected": 5,
+      "conversion_rate_between_stages": {
+        "CONTRACT_SELECTED_to_PRICE_ACCEPTABLE": 1.0,
+        "ENTRY_ELIGIBLE_to_ENTRY_RECORDED": 1.0,
+        "ENTRY_RECORDED_to_EXIT_EVALUATED": 1.0,
+        "EXIT_EVALUATED_to_FINAL_OUTCOME": 1.0,
+        "PRICE_ACCEPTABLE_to_ENTRY_ELIGIBLE": 0.2,
+        "SETUP_DEVELOPING_to_SETUP_QUALIFIED": 0.8666666666666667,
+        "SETUP_QUALIFIED_to_TRADE_CANDIDATE": 0.6923076923076923,
+        "TRADE_CANDIDATE_to_CONTRACT_SELECTED": 0.5555555555555556
+      },
+      "deterministic_cases": 15,
+      "entries_eligible": 1,
+      "entries_recorded": 1,
+      "exits_evaluated": 1,
+      "first_blocker_totals_by_funnel_stage": {
+        "CONTRACT_SELECTED": 4,
+        "ENTRY_ELIGIBLE": 4,
+        "NONE": 1,
+        "SETUP_QUALIFIED": 2,
+        "TRADE_CANDIDATE": 4
+      },
+      "invalid_trades_allowed": 0,
+      "losers": 0,
+      "missed_valid_trades": 0,
+      "missing_data_cases": 6,
+      "prices_accepted": 5,
+      "sample_contract_progress": {
+        "accepted_entries": 1,
+        "accepted_entries_required": 20,
+        "ambiguous_boundary_cases": 4,
+        "ambiguous_boundary_cases_required": 5,
+        "losers": 0,
+        "losers_required": 5,
+        "protected_holdout_accepted_entries": 0,
+        "protected_holdout_accepted_entries_required": 8,
+        "protected_holdout_rejection_no_trade_controls": 0,
+        "protected_holdout_rejection_no_trade_controls_required": 4,
+        "rejection_no_trade_controls": 4,
+        "rejection_no_trade_controls_required": 10,
+        "winners": 1,
+        "winners_required": 5
+      },
+      "setup_developing_count": 15,
+      "setup_qualified_count": 13,
+      "trade_candidate_count": 9,
+      "true_no_trades": 4,
+      "unresolved_cases": 4,
+      "unstable_cases": 0,
+      "valid_trades_captured": 1,
+      "winners": 1
+    },
+    "deterministic_result": "PASS",
+    "final_classifications": {
+      "INVALID_TRADE_ALLOWED": 0,
+      "MISSED_VALID_TRADE": 0,
+      "MISSING_DATA": 6,
+      "TRUE_NO_TRADE": 4,
+      "UNRESOLVED": 4,
+      "VALID_TRADE_CAPTURED": 1
+    }
+  },
+  "exit_path_request_included": false,
+  "first_blockers": {},
+  "first_run_hash": "37bb46e29d296dbb376e5d7772e70e624102ad477ad1b1abc525f51b8d6af35c",
+  "ineligible_reason_totals": {
+    "accepted_complete_setup_evidence_absent": 24,
+    "candidate_status_drop": 1,
+    "candidate_status_not_ready": 24,
+    "candidate_status_replace": 3,
+    "closed_setup_source_regression_only": 4,
+    "duplicate_signal_same_underlying_opportunity": 3,
+    "prior_source_resolution_excluded_or_unusable": 4
+  },
+  "live_eligible": false,
+  "next_task": {
+    "filename": "SAFE_FAST_DAY50_ACCEPTED_COMPLETE_SETUP_EVIDENCE_INTAKE_CODEX_TASK.md",
+    "reason": "The post-closure expansion found zero new candidates with accepted, complete setup evidence. Closed candidates stay regression-only; the next bounded step must intake or validate exact accepted setup evidence before another expansion can select candidates.",
+    "route": "accepted_complete_setup_evidence_intake_before_next_expansion"
+  },
+  "option_request_included": false,
+  "paper_eligible": false,
+  "prior_closure_result_path": "historical_signal_replay/results/day50_exact_setup_source_evidence_completion.json",
+  "prior_source_resolution_result_path": "historical_signal_replay/results/day50_required_setup_source_resolution.json",
+  "profitability_claimed": false,
+  "promotion_decision_made": false,
+  "proof_accepted": false,
+  "raw_vendor_data_changed": false,
+  "result_version": "day50_positive_entry_expansion_after_setup_source_closure_v1",
+  "run_timestamp": "2026-06-21T13:53:10.538399Z",
+  "scan_records": [
+    {
+      "candidate_identifier": "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "freshness",
+        "blocker"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "UNCLEAR: primary blocker null; complete context/caution review incomplete",
+        "freshness": "UNCLEAR: replay signal/stage exists; stale/spent and gap-context rules incomplete",
+        "invalidation": "copied invalidation 609.58",
+        "no_hindsight_boundary": "through 2026-04-13T12:30:00-04:00 only",
+        "setup_candle": "source line 132; replay row 3; 2026-04-13T12:30:00-04:00",
+        "trigger": "triggered at 613.67; final_verdict TRADE; initial_break_candidate"
+      },
+      "setup_family": "Clean Fast Break",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv source CSV line 132; SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:26",
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "QQQ-REAL-HISTORICAL-CONTINUATION-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "freshness",
+        "blocker"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "UNCLEAR: primary blocker null; session-boundary and complete context/caution review incomplete",
+        "freshness": "UNCLEAR: next-session entry freshness/session-boundary unresolved",
+        "invalidation": "copied invalidation 653.81",
+        "no_hindsight_boundary": "through 2026-04-30T15:30:00-04:00 only",
+        "setup_candle": "source line 226; replay row 5; 2026-04-30T15:30:00-04:00",
+        "trigger": "triggered at 664.51; final_verdict TRADE; signal_stage"
+      },
+      "setup_family": "Continuation",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv source CSV line 226; SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:27",
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "QQQ-REAL-HISTORICAL-IDEAL-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "freshness",
+        "blocker"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "UNCLEAR: primary blocker null; wide-risk and complete context/caution review incomplete",
+        "freshness": "UNCLEAR: fast-swing hold and setup-specific stale/spent rules incomplete",
+        "invalidation": "copied invalidation 696.66",
+        "no_hindsight_boundary": "through 2026-05-13T12:30:00-04:00 only",
+        "setup_candle": "source line 286; replay row 5; 2026-05-13T12:30:00-04:00",
+        "trigger": "triggered at 714.59; final_verdict TRADE; ideal signal_stage"
+      },
+      "setup_family": "Ideal",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv source CSV line 286; SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:30",
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "freshness",
+        "blocker"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "UNCLEAR: primary blocker null; complete context/caution review incomplete",
+        "freshness": "UNCLEAR: signal/stage context exists; final freshness review incomplete",
+        "invalidation": "candidate invalidation 678.45",
+        "no_hindsight_boundary": "through 2026-04-13T12:30:00-04:00 replay row only",
+        "setup_candle": "signal log row; 2026-04-13T12:30:00-04:00",
+        "trigger": "triggered at 682.03; final_verdict TRADE; initial_break_candidate"
+      },
+      "setup_family": "Clean Fast Break",
+      "source_rows": "historical_signal_replay/reports/third_real_spy_clean_fast_break_replay_v1_signal_log.jsonl 2026-04-13T12:30:00-04:00 signal row; SAFE_FAST_DAY38_SPY_QQQ_BATCH_CANDIDATE_EXPANSION_REVIEW.md; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:31",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "freshness",
+        "blocker"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "UNCLEAR: primary blocker null; complete context/caution review incomplete",
+        "freshness": "UNCLEAR: replay signal/stage exists; stale/spent and intrabar ordering rules incomplete",
+        "invalidation": "copied pre-entry invalidation 708.37",
+        "no_hindsight_boundary": "through 2026-04-30T12:30:00-04:00 only",
+        "setup_candle": "source line 229; replay row 5; 2026-04-30T12:30:00-04:00",
+        "trigger": "triggered at 715.61; final_verdict TRADE; signal_stage"
+      },
+      "setup_family": "Continuation",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv source CSV line 229; SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:28",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-IDEAL-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "freshness",
+        "blocker"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "UNCLEAR: primary blocker null; complete context/caution review incomplete",
+        "freshness": "UNCLEAR: replay signal/stage exists; setup-specific stale/spent rules incomplete",
+        "invalidation": "copied pre-entry invalidation 731.83",
+        "no_hindsight_boundary": "through 2026-05-13T11:30:00-04:00 only",
+        "setup_candle": "source line 291; replay row 5; 2026-05-13T11:30:00-04:00",
+        "trigger": "triggered at 740.75; final_verdict TRADE; ideal signal_stage"
+      },
+      "setup_family": "Ideal",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv source CSV line 291; SAFE_FAST_DAY38_TOP_5_REPLAY_SETUP_TIME_FIELD_COMPLETION_REVIEW.md; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:29",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "GLD-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Clean Fast Break",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:42",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "GLD-REAL-HISTORICAL-CONTINUATION-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Continuation",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:43",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "GLD-REAL-HISTORICAL-IDEAL-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Ideal",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:39",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready",
+        "closed_setup_source_regression_only"
+      ],
+      "prior_closure_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "prior_source_resolution_classification": "EXACT_EXTERNAL_DATA_REQUIRED",
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Ideal",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:37",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "IWM-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Clean Fast Break",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:41",
+      "underlying": "IWM"
+    },
+    {
+      "candidate_identifier": "IWM-REAL-HISTORICAL-CONTINUATION-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Continuation",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:38",
+      "underlying": "IWM"
+    },
+    {
+      "candidate_identifier": "IWM-REAL-HISTORICAL-IDEAL-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Ideal",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:40",
+      "underlying": "IWM"
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready",
+        "closed_setup_source_regression_only"
+      ],
+      "prior_closure_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "prior_source_resolution_classification": "EXACT_EXTERNAL_DATA_REQUIRED",
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Continuation",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:35",
+      "underlying": "IWM"
+    },
+    {
+      "candidate_identifier": "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready",
+        "closed_setup_source_regression_only"
+      ],
+      "prior_closure_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "prior_source_resolution_classification": "EXACT_EXTERNAL_DATA_REQUIRED",
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Continuation",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:36",
+      "underlying": "IWM"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready",
+        "closed_setup_source_regression_only"
+      ],
+      "prior_closure_classification": "SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE",
+      "prior_source_resolution_classification": "EXACT_EXTERNAL_DATA_REQUIRED",
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING complete blocker/caution review",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Clean Fast Break",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 79-99; `2026-03-31T09:30:00-04:00` through `2026-04-02T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:70; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:70",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+      "candidate_status": "blocked",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready",
+        "prior_source_resolution_excluded_or_unusable"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": "SOURCE_CONFLICT_EXCLUDED",
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING complete blocker/caution review",
+        "freshness": "UNCLEAR",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Continuation",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 93-113; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:71; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:85",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+      "candidate_status": "blocked",
+      "duplicate_signal": true,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready",
+        "duplicate_signal_same_underlying_opportunity"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Clean Fast Break",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv CSV lines 66-86; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:34; SAFE_FAST_DAY38_REPLACEMENT_SOURCE_POOL_PASS_FOR_BAD_ADDED_CANDIDATES.md:68",
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+      "candidate_status": "blocked",
+      "duplicate_signal": true,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready",
+        "duplicate_signal_same_underlying_opportunity"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Continuation",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 156-169; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:32; SAFE_FAST_DAY38_REPLACEMENT_SOURCE_POOL_PASS_FOR_BAD_ADDED_CANDIDATES.md:66",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-003",
+      "candidate_status": "blocked",
+      "duplicate_signal": true,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready",
+        "duplicate_signal_same_underlying_opportunity"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Continuation",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 170-197; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:33; SAFE_FAST_DAY38_REPLACEMENT_SOURCE_POOL_PASS_FOR_BAD_ADDED_CANDIDATES.md:67",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-002",
+      "candidate_status": "replace",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready",
+        "candidate_status_replace",
+        "prior_source_resolution_excluded_or_unusable"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": "CANDIDATE_UNUSABLE",
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Ideal",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:45",
+      "underlying": "GLD"
+    },
+    {
+      "candidate_identifier": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+      "candidate_status": "replace",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready",
+        "candidate_status_replace",
+        "prior_source_resolution_excluded_or_unusable"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": "SOURCE_CONFLICT_EXCLUDED",
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING complete same-context/freshness and blocker/caution review",
+        "freshness": "UNCLEAR",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Continuation",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv CSV lines 87-107; `2026-04-02T09:30:00-04:00` through `2026-04-07T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:73; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:55",
+      "underlying": "QQQ"
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+      "candidate_status": "replace",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_not_ready",
+        "candidate_status_replace",
+        "prior_source_resolution_excluded_or_unusable"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": "SOURCE_CONFLICT_EXCLUDED",
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING complete same-lifecycle/freshness and blocker/caution review",
+        "freshness": "UNCLEAR",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Continuation",
+      "source_rows": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv CSV lines 233-253; `2026-05-01T09:30:00-04:00` through `2026-05-05T15:30:00-04:00`; SAFE_FAST_DAY38_LARGE_SPY_QQQ_SOURCE_POOL_EXPANSION_PASS.md:72; SAFE_FAST_DAY38_ADDED_4_FIXTURE_READY_REPLAY_REVIEW.md:40",
+      "underlying": "SPY"
+    },
+    {
+      "candidate_identifier": "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+      "candidate_status": "drop",
+      "duplicate_signal": false,
+      "eligible_for_expansion": false,
+      "incomplete_setup_evidence_fields": [
+        "setup_candle",
+        "trigger",
+        "invalidation",
+        "freshness",
+        "blocker",
+        "no_hindsight_boundary"
+      ],
+      "ineligible_reasons": [
+        "accepted_complete_setup_evidence_absent",
+        "candidate_status_drop",
+        "candidate_status_not_ready"
+      ],
+      "prior_closure_classification": null,
+      "prior_source_resolution_classification": null,
+      "required_setup_evidence_fields": {
+        "blocker": "MISSING",
+        "freshness": "MISSING",
+        "invalidation": "MISSING",
+        "no_hindsight_boundary": "MISSING",
+        "setup_candle": "MISSING",
+        "trigger": "MISSING"
+      },
+      "setup_family": "Clean Fast Break",
+      "source_rows": "source rows MISSING; SAFE_FAST_DAY38_FULL_20_CANDIDATE_BATCH_WORKLIST.md:44",
+      "underlying": "SPY"
+    }
+  ],
+  "schwab_authenticated": false,
+  "second_run_hash": "37bb46e29d296dbb376e5d7772e70e624102ad477ad1b1abc525f51b8d6af35c",
+  "selection_policy": {
+    "closed_candidate_ids": [
+      "GLD-REPLACEMENT-IDEAL-CANDIDATE-001",
+      "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001",
+      "IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002",
+      "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003"
+    ],
+    "closed_setup_source_candidates_are_regression_records_only": true,
+    "forbidden_selection_inputs": [
+      "closed setup-source slots without later accepted evidence",
+      "source-conflict candidates",
+      "unusable candidates",
+      "duplicates",
+      "drop or replace rows",
+      "outcome_window",
+      "option exit path",
+      "P&L",
+      "profitability"
+    ],
+    "only_new_candidates_with_accepted_complete_setup_evidence": true,
+    "required_setup_evidence_fields": [
+      "setup_candle",
+      "trigger",
+      "invalidation",
+      "freshness",
+      "blocker",
+      "no_hindsight_boundary"
+    ],
+    "source_universe": "watcher_foundation.candidate_completeness_screen.build_candidate_pool"
+  },
+  "source_commit": "1cd7b5f",
+  "source_pool_count": 24,
+  "source_resolution_regression_records": [
+    {
+      "candidate_identifier": "GLD-REPLACEMENT-IDEAL-CANDIDATE-002",
+      "final_classification": "CANDIDATE_UNUSABLE",
+      "regression_only": true
+    },
+    {
+      "candidate_identifier": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+      "final_classification": "SOURCE_CONFLICT_EXCLUDED",
+      "regression_only": true
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+      "final_classification": "SOURCE_CONFLICT_EXCLUDED",
+      "regression_only": true
+    },
+    {
+      "candidate_identifier": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+      "final_classification": "SOURCE_CONFLICT_EXCLUDED",
+      "regression_only": true
+    }
+  ]
+}
