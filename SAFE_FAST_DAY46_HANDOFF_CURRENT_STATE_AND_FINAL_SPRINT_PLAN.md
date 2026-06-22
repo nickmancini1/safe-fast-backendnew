@@ -1,3 +1,5 @@
+SUPERSEDED: Read SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md
+
 # SAFE-FAST Day 46 Current State And Final Sprint Plan
 
 ## Day 49 Current-State Update

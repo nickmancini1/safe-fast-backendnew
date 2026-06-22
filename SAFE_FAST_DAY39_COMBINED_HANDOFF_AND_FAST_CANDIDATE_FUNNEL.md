@@ -1,4 +1,6 @@
-﻿# SAFE-FAST Day 39 Combined Handoff and Fast Candidate Funnel
+SUPERSEDED: Read SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md
+
+# SAFE-FAST Day 39 Combined Handoff and Fast Candidate Funnel
 
 ## Day 41 Raw Tastytrade Handoff Correction
 

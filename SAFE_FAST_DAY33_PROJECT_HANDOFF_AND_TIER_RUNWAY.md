@@ -1,4 +1,6 @@
-﻿# REQUIRED TOP RULE: Day 38 speed discipline without quality loss
+SUPERSEDED: Read SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md
+
+# REQUIRED TOP RULE: Day 38 speed discipline without quality loss
 
 SAFE-FAST has wasted user time by moving too slowly.
 

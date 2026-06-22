@@ -1,6 +1,7 @@
 import json
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from historical_signal_replay import (
     day50_end_to_end_raw_data_positive_entry_generation as generation,
@@ -12,11 +13,12 @@ from watcher_foundation import (
 
 class Day50EndToEndRawDataPositiveEntryGenerationTests(unittest.TestCase):
     def _document(self):
-        return generation.build_generation_document(
-            source_commit="testsha",
-            run_timestamp="2026-06-21T00:00:00Z",
-            check_cost=False,
-        )
+        with mock.patch.object(generation.day50_underlying, "load_download_manifest", return_value=None):
+            return generation.build_generation_document(
+                source_commit="testsha",
+                run_timestamp="2026-06-21T00:00:00Z",
+                check_cost=False,
+            )
 
     def test_inventory_includes_tracked_and_ignored_underlying_data(self):
         document = self._document()
@@ -56,9 +58,12 @@ class Day50EndToEndRawDataPositiveEntryGenerationTests(unittest.TestCase):
         self.assertEqual(document["new_candidate_scorecard"]["recorded_entries"], 0)
         for opportunity in document["rejected_raw_data_opportunities"]:
             self.assertFalse(opportunity["candidate_generated"])
-            self.assertEqual(
+            self.assertIn(
                 opportunity["exclusion_reason"],
-                "underlying_resolution_insufficient_for_exact_setup_trigger",
+                {
+                    "underlying_resolution_insufficient_for_exact_setup_trigger",
+                    "setup_time_replay_mapping_not_established",
+                },
             )
             self.assertIn("trigger", opportunity["exact_failed_fields"])
             self.assertIn("no_hindsight_boundary", opportunity["exact_failed_fields"])
@@ -116,6 +121,42 @@ class Day50EndToEndRawDataPositiveEntryGenerationTests(unittest.TestCase):
         self.assertIn("Continuation", request["setup_family_decisions_resolved"])
         self.assertFalse(request["downloaded"])
 
+    def test_acquired_one_minute_evidence_is_inventoried_but_not_promoted_to_candidate(self):
+        manifest = {
+            "actual_billed_cost": "NOT_AVAILABLE",
+            "downloaded_request": {
+                "csv_path": (
+                    "historical_signal_replay/source_data/external_underlying_data_drop/"
+                    "SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv"
+                ),
+                "row_count": 390,
+            },
+            "problems": [],
+        }
+        source = {
+            "path": manifest["downloaded_request"]["csv_path"],
+            "complete_chronological_rows": True,
+            "tracked_or_ignored": "ignored_local_raw_data",
+            "symbol": "SPY",
+            "timestamp_start": "2026-03-16T14:30:00.000000000Z",
+            "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+            "supports_exact_underlying_setup_time_evidence": True,
+            "limitation": "one-minute evidence present but setup replay mapping missing",
+        }
+
+        opportunity = generation._rejected_opportunity(
+            source,
+            "Clean Fast Break",
+            "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-03-16T14:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+        )
+
+        self.assertTrue(opportunity["underlying_setup_time_evidence_supplied"])
+        self.assertEqual(
+            opportunity["exclusion_reason"],
+            "setup_time_replay_mapping_not_established",
+        )
+        self.assertIn("SAFE-FAST frozen local replay/calculators", opportunity["required_source"])
+
     def test_existing_regression_controls_are_reported_separately(self):
         document = self._document()
         existing = document["existing_regression_result"]
@@ -158,7 +199,10 @@ class Day50EndToEndRawDataPositiveEntryGenerationTests(unittest.TestCase):
         try:
             generation.RESULT_PATH = result_path
             generation.MANIFEST_PATH = manifest_path
-            written = generation.write_generation_outputs(check_cost=False)
+            with mock.patch.object(
+                generation.day50_underlying, "load_download_manifest", return_value=None
+            ):
+                written = generation.write_generation_outputs(check_cost=False)
             loaded_result = json.loads(result_path.read_text(encoding="utf-8"))
             loaded_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         finally:
@@ -186,7 +230,10 @@ class Day50EndToEndRawDataPositiveEntryGenerationTests(unittest.TestCase):
         try:
             generation.RESULT_PATH = result_path
             generation.MANIFEST_PATH = manifest_path
-            generation.write_generation_outputs(check_cost=False)
+            with mock.patch.object(
+                generation.day50_underlying, "load_download_manifest", return_value=None
+            ):
+                generation.write_generation_outputs(check_cost=False)
             validation = validator.validate_result_document(result_path, manifest_path)
         finally:
             generation.RESULT_PATH = original_result

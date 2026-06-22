@@ -8,6 +8,9 @@ from pathlib import Path
 
 from historical_signal_replay import day48_positive_trade_capture_funnel
 from historical_signal_replay import day50_evidence_backed_positive_entry_testing_batch
+from historical_signal_replay import (
+    day50_raw_data_positive_entry_underlying_setup_time_request as day50_underlying,
+)
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -27,7 +30,7 @@ MANIFEST_PATH = (
 RESULT_VERSION = "day50_end_to_end_raw_data_positive_entry_generation_v1"
 MANIFEST_VERSION = "day50_raw_data_positive_entry_candidate_manifest_v1"
 NEXT_TASK_FILENAME = (
-    "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_CODEX_TASK.md"
+    "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_CODEX_TASK.md"
 )
 
 FUNNEL_STAGES = [
@@ -76,12 +79,14 @@ def build_generation_document(*, source_commit=None, run_timestamp=None, check_c
     first_run = _run_full_trade_funnel(generated_candidates)
     second_run = _run_full_trade_funnel(generated_candidates)
     exact_data_request = _build_exact_underlying_request(inventory)
+    acquisition_manifest = day50_underlying.load_download_manifest()
     if check_cost:
         exact_data_request["cost_check"] = _check_databento_cost(exact_data_request)
     else:
         exact_data_request["cost_check"] = _not_available_cost(
             "cost check skipped by deterministic unit-test path"
         )
+    _apply_acquisition_status(exact_data_request, acquisition_manifest)
 
     manifest = _build_manifest(
         inventory=inventory,
@@ -135,7 +140,7 @@ def build_generation_document(*, source_commit=None, run_timestamp=None, check_c
             "frozen_rules_changed": False,
             "main_py_changed": False,
             "railway_or_deploy_changed": False,
-            "paid_data_downloaded": False,
+            "paid_data_downloaded": _acquired_without_problems(acquisition_manifest),
         },
         "raw_data_inventory": inventory,
         "minimum_underlying_data_requirements": _minimum_underlying_requirements(),
@@ -181,12 +186,26 @@ def build_generation_document(*, source_commit=None, run_timestamp=None, check_c
             ),
             "day50_evidence_backed_batch": day50_batch["scorecard"],
         },
-        "concrete_completion_outcome": (
-            "one exact grouped, cost-checked raw-data request"
-            if exact_data_request["cost_check"]["checked_cost"] != "NOT_AVAILABLE"
-            else "one exact grouped raw-data request with cost NOT_AVAILABLE"
+        "underlying_setup_time_evidence_acquired_or_supplied": _acquired_without_problems(
+            acquisition_manifest
         ),
-        "databento_downloaded": False,
+        "underlying_setup_time_evidence_manifest": (
+            _relative(
+                EXTERNAL_UNDERLYING_DIR / day50_underlying.MANIFEST_FILENAME
+            )
+            if acquisition_manifest
+            else None
+        ),
+        "concrete_completion_outcome": (
+            "exact underlying setup-time evidence acquired and raw-data generator rerun"
+            if _acquired_without_problems(acquisition_manifest)
+            else (
+                "one exact grouped, cost-checked raw-data request"
+                if exact_data_request["cost_check"]["checked_cost"] != "NOT_AVAILABLE"
+                else "one exact grouped raw-data request with cost NOT_AVAILABLE"
+            )
+        ),
+        "databento_downloaded": _acquired_without_problems(acquisition_manifest),
         "schwab_authenticated": False,
         "broker_mutation_attempted": False,
         "proof_accepted": False,
@@ -197,9 +216,10 @@ def build_generation_document(*, source_commit=None, run_timestamp=None, check_c
         "next_task": {
             "filename": NEXT_TASK_FILENAME,
             "reason": (
-                "Use the exact costed underlying setup-time request to acquire the "
-                "earliest unused one-minute SPY development window, then rerun this "
-                "raw-data generator without changing frozen trading rules."
+                "Map the acquired one-minute SPY setup-time evidence through accepted "
+                "SAFE-FAST replay/calculators to establish or reject exact setup-time "
+                "row, trigger, invalidation, freshness, blocker/caution, session-boundary, "
+                "and no-hindsight fields without changing frozen trading rules."
             ),
         },
     }
@@ -288,14 +308,28 @@ def _inventory_databento_underlying_csv(path):
     timestamps = [row["ts_event"] for row in rows]
     symbol = rows[0]["symbol"] if rows else _symbol_from_name(path.name)
     complete = _chronological(timestamps) and all(row.get("symbol") == symbol for row in rows)
+    is_day50_setup_time = day50_underlying.REQUEST_ID in path.name
+    schema = "ohlcv-1m" if is_day50_setup_time else "ohlcv-1h"
+    resolution = "1m" if is_day50_setup_time else "1h"
+    limitation = (
+        "Exact one-minute underlying setup-time evidence is present for the authorized "
+        "SPY session, but raw OHLCV rows alone do not name the accepted SAFE-FAST "
+        "setup-time row, trigger, invalidation, freshness/final-signal state, "
+        "blocker/caution state, session-boundary behavior, or no-hindsight boundary."
+        if is_day50_setup_time
+        else (
+            "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels "
+            "or setup-time trigger/invalidation/freshness decisions."
+        )
+    )
     return {
         "path": _relative(path),
         "tracked_or_ignored": "ignored_local_raw_data",
         "source": "Databento",
         "dataset": "DBEQ.BASIC",
-        "schema": "ohlcv-1h",
+        "schema": schema,
         "symbol": symbol,
-        "bar_or_event_resolution": "1h",
+        "bar_or_event_resolution": resolution,
         "timestamp_start": timestamps[0] if timestamps else None,
         "timestamp_end": timestamps[-1] if timestamps else None,
         "timezone": "UTC",
@@ -303,14 +337,12 @@ def _inventory_databento_underlying_csv(path):
         "row_count": len(rows),
         "complete_chronological_rows": complete,
         "candidate_families_evaluable": list(SETUP_FAMILIES),
+        "supports_exact_underlying_setup_time_evidence": is_day50_setup_time,
         "supports_exact_setup_trigger": False,
         "supports_invalidation": False,
         "supports_freshness_final_signal_state": False,
         "supports_session_boundary_evaluation": False,
-        "limitation": (
-            "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels "
-            "or setup-time trigger/invalidation/freshness decisions."
-        ),
+        "limitation": limitation,
     }
 
 
@@ -414,35 +446,46 @@ def _inspect_raw_opportunities(inventory, prior_candidate_ids):
             opportunity_id = _opportunity_id(source, family)
             if opportunity_id in prior_candidate_ids:
                 continue
-            opportunities.append(
-                {
-                    "raw_opportunity_id": opportunity_id,
-                    "source_path": source["path"],
-                    "setup_family": family,
-                    "symbol": source["symbol"],
-                    "timestamp_start": source["timestamp_start"],
-                    "timestamp_end": source["timestamp_end"],
-                    "candidate_generated": False,
-                    "exclusion_reason": (
-                        "underlying_resolution_insufficient_for_exact_setup_trigger"
-                    ),
-                    "exact_failed_fields": [
-                        "setup_time_row",
-                        "trigger",
-                        "invalidation",
-                        "freshness_final_signal_state",
-                        "blocker_caution_review",
-                        "session_boundary_behavior",
-                        "no_hindsight_boundary",
-                    ],
-                    "required_source": (
-                        "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus "
-                        "SAFE-FAST frozen local replay/calculators"
-                    ),
-                    "local_evidence_status": source["limitation"],
-                }
-            )
+            opportunities.append(_rejected_opportunity(source, family, opportunity_id))
     return opportunities
+
+
+def _rejected_opportunity(source, family, opportunity_id):
+    has_setup_time_evidence = source.get("supports_exact_underlying_setup_time_evidence")
+    return {
+        "raw_opportunity_id": opportunity_id,
+        "source_path": source["path"],
+        "setup_family": family,
+        "symbol": source["symbol"],
+        "timestamp_start": source["timestamp_start"],
+        "timestamp_end": source["timestamp_end"],
+        "candidate_generated": False,
+        "exclusion_reason": (
+            "setup_time_replay_mapping_not_established"
+            if has_setup_time_evidence
+            else "underlying_resolution_insufficient_for_exact_setup_trigger"
+        ),
+        "exact_failed_fields": [
+            "setup_time_row",
+            "trigger",
+            "invalidation",
+            "freshness_final_signal_state",
+            "blocker_caution_review",
+            "session_boundary_behavior",
+            "no_hindsight_boundary",
+        ],
+        "required_source": (
+            "SAFE-FAST frozen local replay/calculators over acquired Databento "
+            "DBEQ.BASIC / ohlcv-1m / raw_symbol evidence"
+            if has_setup_time_evidence
+            else (
+                "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus "
+                "SAFE-FAST frozen local replay/calculators"
+            )
+        ),
+        "local_evidence_status": source["limitation"],
+        "underlying_setup_time_evidence_supplied": bool(has_setup_time_evidence),
+    }
 
 
 def _build_exact_underlying_request(inventory):
@@ -499,6 +542,32 @@ def _build_exact_underlying_request(inventory):
         "downloaded": False,
     }
     return request
+
+
+def _apply_acquisition_status(request, acquisition_manifest):
+    if not acquisition_manifest:
+        request["downloaded"] = False
+        request["evidence_acquired_or_supplied"] = False
+        request["actual_billed_cost"] = "NOT_AVAILABLE"
+        return
+    downloaded = acquisition_manifest.get("downloaded_request", {})
+    request["downloaded"] = not acquisition_manifest.get("problems")
+    request["evidence_acquired_or_supplied"] = request["downloaded"]
+    request["download_manifest_path"] = _relative(
+        EXTERNAL_UNDERLYING_DIR / day50_underlying.MANIFEST_FILENAME
+    )
+    request["downloaded_csv_path"] = downloaded.get("csv_path")
+    request["downloaded_row_count"] = downloaded.get("row_count")
+    request["actual_billed_cost"] = acquisition_manifest.get(
+        "actual_billed_cost", "NOT_AVAILABLE"
+    )
+    if "cost_check" in request:
+        request["cost_check"]["actual_billed_cost"] = request["actual_billed_cost"]
+        request["cost_check"]["download_created"] = request["downloaded"]
+
+
+def _acquired_without_problems(acquisition_manifest):
+    return bool(acquisition_manifest) and not acquisition_manifest.get("problems")
 
 
 def _check_databento_cost(request):

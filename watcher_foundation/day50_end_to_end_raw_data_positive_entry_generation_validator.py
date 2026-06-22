@@ -44,12 +44,14 @@ def validate_result_document(result_path=RESULT_PATH, manifest_path=MANIFEST_PAT
         problems.append("unexpected_underlying_request_dataset")
     if request.get("schema") != "ohlcv-1m":
         problems.append("unexpected_underlying_request_schema")
-    if request.get("downloaded"):
-        problems.append("underlying_request_was_downloaded")
+    if request.get("downloaded") and not request.get("evidence_acquired_or_supplied"):
+        problems.append("underlying_request_downloaded_without_evidence_status")
     if not request.get("cost_check", {}).get("checked_cost"):
         problems.append("missing_checked_cost_field")
 
-    if result.get("databento_downloaded"):
+    if result.get("databento_downloaded") and not result.get(
+        "underlying_setup_time_evidence_acquired_or_supplied"
+    ):
         problems.append("databento_downloaded_true")
     if result.get("schwab_authenticated"):
         problems.append("schwab_authenticated_true")

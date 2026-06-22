@@ -4,12 +4,13 @@
     "candidate_count": 0,
     "candidate_records": [],
     "exact_grouped_underlying_data_request": {
+      "actual_billed_cost": "NOT_AVAILABLE",
       "cost_check": {
         "actual_billed_cost": "NOT_AVAILABLE",
-        "checked_at_utc": "2026-06-21T22:51:25.334955Z",
+        "checked_at_utc": "2026-06-22T00:17:04.567417Z",
         "checked_cost": "0.001370869577",
         "credential_used": true,
-        "download_created": false,
+        "download_created": true,
         "subtotal_by_symbol_and_window": [
           {
             "checked_cost": "0.001370869577",
@@ -23,7 +24,11 @@
       },
       "created": true,
       "dataset": "DBEQ.BASIC",
-      "downloaded": false,
+      "download_manifest_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M_DOWNLOAD_MANIFEST.json",
+      "downloaded": true,
+      "downloaded_csv_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+      "downloaded_row_count": 751,
+      "evidence_acquired_or_supplied": true,
       "field_consumers": [
         "setup_time_row",
         "trigger",
@@ -87,8 +92,8 @@
     ],
     "raw_data_inventory_summary": {
       "option_manifest_count": 7,
-      "underlying_file_count": 11,
-      "underlying_manifest_count": 1
+      "underlying_file_count": 12,
+      "underlying_manifest_count": 2
     },
     "rejected_raw_data_opportunities": [
       {
@@ -110,7 +115,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
         "symbol": "GLD",
         "timestamp_end": "2026-05-20T11:30:00-04:00",
-        "timestamp_start": "2026-03-23T09:30:00-04:00"
+        "timestamp_start": "2026-03-23T09:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -131,7 +137,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
         "symbol": "GLD",
         "timestamp_end": "2026-05-20T11:30:00-04:00",
-        "timestamp_start": "2026-03-23T09:30:00-04:00"
+        "timestamp_start": "2026-03-23T09:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -152,7 +159,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
         "symbol": "GLD",
         "timestamp_end": "2026-05-20T11:30:00-04:00",
-        "timestamp_start": "2026-03-23T09:30:00-04:00"
+        "timestamp_start": "2026-03-23T09:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -173,7 +181,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
         "symbol": "IWM",
         "timestamp_end": "2026-05-18T15:30:00-04:00",
-        "timestamp_start": "2026-03-20T09:30:00-04:00"
+        "timestamp_start": "2026-03-20T09:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -194,7 +203,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
         "symbol": "IWM",
         "timestamp_end": "2026-05-18T15:30:00-04:00",
-        "timestamp_start": "2026-03-20T09:30:00-04:00"
+        "timestamp_start": "2026-03-20T09:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -215,7 +225,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
         "symbol": "IWM",
         "timestamp_end": "2026-05-18T15:30:00-04:00",
-        "timestamp_start": "2026-03-20T09:30:00-04:00"
+        "timestamp_start": "2026-03-20T09:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -236,7 +247,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
         "symbol": "QQQ",
         "timestamp_end": "2026-05-15T14:30:00-04:00",
-        "timestamp_start": "2026-03-16T15:30:00-04:00"
+        "timestamp_start": "2026-03-16T15:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -257,7 +269,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
         "symbol": "QQQ",
         "timestamp_end": "2026-05-15T14:30:00-04:00",
-        "timestamp_start": "2026-03-16T15:30:00-04:00"
+        "timestamp_start": "2026-03-16T15:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -278,7 +291,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
         "symbol": "QQQ",
         "timestamp_end": "2026-05-15T14:30:00-04:00",
-        "timestamp_start": "2026-03-16T15:30:00-04:00"
+        "timestamp_start": "2026-03-16T15:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -299,7 +313,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-05-13T14:30:00-04:00",
-        "timestamp_start": "2026-03-16T09:30:00-04:00"
+        "timestamp_start": "2026-03-16T09:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -320,7 +335,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-05-13T14:30:00-04:00",
-        "timestamp_start": "2026-03-16T09:30:00-04:00"
+        "timestamp_start": "2026-03-16T09:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -341,7 +357,8 @@
         "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-05-13T14:30:00-04:00",
-        "timestamp_start": "2026-03-16T09:30:00-04:00"
+        "timestamp_start": "2026-03-16T09:30:00-04:00",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -362,7 +379,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_GLD-REPLACEMENT-IDEAL-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "GLD",
         "timestamp_end": "2026-05-08T19:00:00.000000000Z",
-        "timestamp_start": "2026-05-01T20:00:00.000000000Z"
+        "timestamp_start": "2026-05-01T20:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -383,7 +401,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_GLD-REPLACEMENT-IDEAL-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "GLD",
         "timestamp_end": "2026-05-08T19:00:00.000000000Z",
-        "timestamp_start": "2026-05-01T20:00:00.000000000Z"
+        "timestamp_start": "2026-05-01T20:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -404,7 +423,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_GLD-REPLACEMENT-IDEAL-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "GLD",
         "timestamp_end": "2026-05-08T19:00:00.000000000Z",
-        "timestamp_start": "2026-05-01T20:00:00.000000000Z"
+        "timestamp_start": "2026-05-01T20:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -425,7 +445,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "IWM",
         "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-        "timestamp_start": "2026-04-17T20:00:00.000000000Z"
+        "timestamp_start": "2026-04-17T20:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -446,7 +467,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "IWM",
         "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-        "timestamp_start": "2026-04-17T20:00:00.000000000Z"
+        "timestamp_start": "2026-04-17T20:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -467,7 +489,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "IWM",
         "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-        "timestamp_start": "2026-04-17T20:00:00.000000000Z"
+        "timestamp_start": "2026-04-17T20:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -488,7 +511,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "IWM",
         "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-        "timestamp_start": "2026-04-28T20:00:00.000000000Z"
+        "timestamp_start": "2026-04-28T20:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -509,7 +533,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "IWM",
         "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-        "timestamp_start": "2026-04-28T20:00:00.000000000Z"
+        "timestamp_start": "2026-04-28T20:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -530,7 +555,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "IWM",
         "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-        "timestamp_start": "2026-04-28T20:00:00.000000000Z"
+        "timestamp_start": "2026-04-28T20:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -551,7 +577,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_QQQ-SOURCE-WINDOW-CONTINUATION-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "QQQ",
         "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-        "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+        "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -572,7 +599,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_QQQ-SOURCE-WINDOW-CONTINUATION-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "QQQ",
         "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-        "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+        "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -593,7 +621,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_QQQ-SOURCE-WINDOW-CONTINUATION-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "QQQ",
         "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-        "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+        "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -614,7 +643,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-03-31T14:00:00.000000000Z",
-        "timestamp_start": "2026-03-31T14:00:00.000000000Z"
+        "timestamp_start": "2026-03-31T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -635,7 +665,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-03-31T14:00:00.000000000Z",
-        "timestamp_start": "2026-03-31T14:00:00.000000000Z"
+        "timestamp_start": "2026-03-31T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -656,7 +687,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-03-31T14:00:00.000000000Z",
-        "timestamp_start": "2026-03-31T14:00:00.000000000Z"
+        "timestamp_start": "2026-03-31T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -677,7 +709,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-004-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-        "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+        "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -698,7 +731,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-004-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-        "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+        "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -719,7 +753,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-004-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-        "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+        "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -740,7 +775,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-005-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-05-01T14:00:00.000000000Z",
-        "timestamp_start": "2026-05-01T14:00:00.000000000Z"
+        "timestamp_start": "2026-05-01T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -761,7 +797,8 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-005-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-05-01T14:00:00.000000000Z",
-        "timestamp_start": "2026-05-01T14:00:00.000000000Z"
+        "timestamp_start": "2026-05-01T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
       },
       {
         "candidate_generated": false,
@@ -782,27 +819,95 @@
         "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-005-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
         "symbol": "SPY",
         "timestamp_end": "2026-05-01T14:00:00.000000000Z",
-        "timestamp_start": "2026-05-01T14:00:00.000000000Z"
+        "timestamp_start": "2026-05-01T14:00:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": false
+      },
+      {
+        "candidate_generated": false,
+        "exact_failed_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "session_boundary_behavior",
+          "no_hindsight_boundary"
+        ],
+        "exclusion_reason": "setup_time_replay_mapping_not_established",
+        "local_evidence_status": "Exact one-minute underlying setup-time evidence is present for the authorized SPY session, but raw OHLCV rows alone do not name the accepted SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary.",
+        "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+        "required_source": "SAFE-FAST frozen local replay/calculators over acquired Databento DBEQ.BASIC / ohlcv-1m / raw_symbol evidence",
+        "setup_family": "Ideal",
+        "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "symbol": "SPY",
+        "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+        "timestamp_start": "2026-03-16T13:30:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": true
+      },
+      {
+        "candidate_generated": false,
+        "exact_failed_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "session_boundary_behavior",
+          "no_hindsight_boundary"
+        ],
+        "exclusion_reason": "setup_time_replay_mapping_not_established",
+        "local_evidence_status": "Exact one-minute underlying setup-time evidence is present for the authorized SPY session, but raw OHLCV rows alone do not name the accepted SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary.",
+        "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+        "required_source": "SAFE-FAST frozen local replay/calculators over acquired Databento DBEQ.BASIC / ohlcv-1m / raw_symbol evidence",
+        "setup_family": "Clean Fast Break",
+        "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "symbol": "SPY",
+        "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+        "timestamp_start": "2026-03-16T13:30:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": true
+      },
+      {
+        "candidate_generated": false,
+        "exact_failed_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "session_boundary_behavior",
+          "no_hindsight_boundary"
+        ],
+        "exclusion_reason": "setup_time_replay_mapping_not_established",
+        "local_evidence_status": "Exact one-minute underlying setup-time evidence is present for the authorized SPY session, but raw OHLCV rows alone do not name the accepted SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary.",
+        "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+        "required_source": "SAFE-FAST frozen local replay/calculators over acquired Databento DBEQ.BASIC / ohlcv-1m / raw_symbol evidence",
+        "setup_family": "Continuation",
+        "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "symbol": "SPY",
+        "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+        "timestamp_start": "2026-03-16T13:30:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": true
       }
     ],
-    "run_timestamp": "2026-06-21T22:51:16.651446Z",
-    "source_commit": "9f02212"
+    "run_timestamp": "2026-06-22T00:16:58.581066Z",
+    "source_commit": "50ed53e"
   },
   "candidate_manifest_path": "historical_signal_replay/fixtures/day50_raw_data_positive_entry_candidate_manifest.json",
-  "concrete_completion_outcome": "one exact grouped, cost-checked raw-data request",
-  "databento_downloaded": false,
+  "concrete_completion_outcome": "exact underlying setup-time evidence acquired and raw-data generator rerun",
+  "databento_downloaded": true,
   "deterministic_comparison": {
     "first_run_equals_second_run": true,
     "hashes_match": true,
     "result": "PASS"
   },
   "exact_grouped_underlying_data_request": {
+    "actual_billed_cost": "NOT_AVAILABLE",
     "cost_check": {
       "actual_billed_cost": "NOT_AVAILABLE",
-      "checked_at_utc": "2026-06-21T22:51:25.334955Z",
+      "checked_at_utc": "2026-06-22T00:17:04.567417Z",
       "checked_cost": "0.001370869577",
       "credential_used": true,
-      "download_created": false,
+      "download_created": true,
       "subtotal_by_symbol_and_window": [
         {
           "checked_cost": "0.001370869577",
@@ -816,7 +921,11 @@
     },
     "created": true,
     "dataset": "DBEQ.BASIC",
-    "downloaded": false,
+    "download_manifest_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M_DOWNLOAD_MANIFEST.json",
+    "downloaded": true,
+    "downloaded_csv_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+    "downloaded_row_count": 751,
+    "evidence_acquired_or_supplied": true,
     "field_consumers": [
       "setup_time_row",
       "trigger",
@@ -1062,7 +1171,7 @@
       "winners": 0
     }
   },
-  "first_run_hash": "cefcbdf8b59622941fb46bc72836f63fab99d15abbdb6a2f5716e43b0c17b851",
+  "first_run_hash": "c6cc7c382e8b151db5c3570ba4d06116a2d7dc2637dbfed2f6a2f2208a784f67",
   "full_trade_funnel_first_run": {
     "candidate_records": [],
     "scorecard": {
@@ -1113,7 +1222,7 @@
     "future_option_performance_used": false,
     "main_py_changed": false,
     "outcome_data_used_for_candidate_selection": false,
-    "paid_data_downloaded": false,
+    "paid_data_downloaded": true,
     "previously_measured_candidate_ids_excluded": [
       "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
       "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
@@ -1436,8 +1545,8 @@
     "winners": 0
   },
   "next_task": {
-    "filename": "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_CODEX_TASK.md",
-    "reason": "Use the exact costed underlying setup-time request to acquire the earliest unused one-minute SPY development window, then rerun this raw-data generator without changing frozen trading rules."
+    "filename": "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_CODEX_TASK.md",
+    "reason": "Map the acquired one-minute SPY setup-time evidence through accepted SAFE-FAST replay/calculators to establish or reject exact setup-time row, trigger, invalidation, freshness, blocker/caution, session-boundary, and no-hindsight fields without changing frozen trading rules."
   },
   "option_data_request": {
     "created": false,
@@ -1640,6 +1749,7 @@
         "session_coverage": "downloaded_request_window",
         "source": "Databento",
         "supports_exact_setup_trigger": false,
+        "supports_exact_underlying_setup_time_evidence": false,
         "supports_freshness_final_signal_state": false,
         "supports_invalidation": false,
         "supports_session_boundary_evaluation": false,
@@ -1665,6 +1775,7 @@
         "session_coverage": "downloaded_request_window",
         "source": "Databento",
         "supports_exact_setup_trigger": false,
+        "supports_exact_underlying_setup_time_evidence": false,
         "supports_freshness_final_signal_state": false,
         "supports_invalidation": false,
         "supports_session_boundary_evaluation": false,
@@ -1690,6 +1801,7 @@
         "session_coverage": "downloaded_request_window",
         "source": "Databento",
         "supports_exact_setup_trigger": false,
+        "supports_exact_underlying_setup_time_evidence": false,
         "supports_freshness_final_signal_state": false,
         "supports_invalidation": false,
         "supports_session_boundary_evaluation": false,
@@ -1715,6 +1827,7 @@
         "session_coverage": "downloaded_request_window",
         "source": "Databento",
         "supports_exact_setup_trigger": false,
+        "supports_exact_underlying_setup_time_evidence": false,
         "supports_freshness_final_signal_state": false,
         "supports_invalidation": false,
         "supports_session_boundary_evaluation": false,
@@ -1740,6 +1853,7 @@
         "session_coverage": "downloaded_request_window",
         "source": "Databento",
         "supports_exact_setup_trigger": false,
+        "supports_exact_underlying_setup_time_evidence": false,
         "supports_freshness_final_signal_state": false,
         "supports_invalidation": false,
         "supports_session_boundary_evaluation": false,
@@ -1765,6 +1879,7 @@
         "session_coverage": "downloaded_request_window",
         "source": "Databento",
         "supports_exact_setup_trigger": false,
+        "supports_exact_underlying_setup_time_evidence": false,
         "supports_freshness_final_signal_state": false,
         "supports_invalidation": false,
         "supports_session_boundary_evaluation": false,
@@ -1790,12 +1905,39 @@
         "session_coverage": "downloaded_request_window",
         "source": "Databento",
         "supports_exact_setup_trigger": false,
+        "supports_exact_underlying_setup_time_evidence": false,
         "supports_freshness_final_signal_state": false,
         "supports_invalidation": false,
         "supports_session_boundary_evaluation": false,
         "symbol": "SPY",
         "timestamp_end": "2026-05-01T14:00:00.000000000Z",
         "timestamp_start": "2026-05-01T14:00:00.000000000Z",
+        "timezone": "UTC",
+        "tracked_or_ignored": "ignored_local_raw_data"
+      },
+      {
+        "bar_or_event_resolution": "1m",
+        "candidate_families_evaluable": [
+          "Ideal",
+          "Clean Fast Break",
+          "Continuation"
+        ],
+        "complete_chronological_rows": true,
+        "dataset": "DBEQ.BASIC",
+        "limitation": "Exact one-minute underlying setup-time evidence is present for the authorized SPY session, but raw OHLCV rows alone do not name the accepted SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary.",
+        "path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "row_count": 751,
+        "schema": "ohlcv-1m",
+        "session_coverage": "downloaded_request_window",
+        "source": "Databento",
+        "supports_exact_setup_trigger": false,
+        "supports_exact_underlying_setup_time_evidence": true,
+        "supports_freshness_final_signal_state": false,
+        "supports_invalidation": false,
+        "supports_session_boundary_evaluation": false,
+        "symbol": "SPY",
+        "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+        "timestamp_start": "2026-03-16T13:30:00.000000000Z",
         "timezone": "UTC",
         "tracked_or_ignored": "ignored_local_raw_data"
       }
@@ -1810,10 +1952,20 @@
         "request_count": 7,
         "schema_version": "safe-fast-day49-positive-entry-ohlcv-download-manifest-v1",
         "tracked_or_ignored": "ignored_local_raw_data"
+      },
+      {
+        "actual_billed_cost": "NOT_AVAILABLE",
+        "checked_total": "NOT_AVAILABLE",
+        "dataset": null,
+        "kind": "ignored_local_underlying_manifest",
+        "path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M_DOWNLOAD_MANIFEST.json",
+        "request_count": 0,
+        "schema_version": "safe-fast-day50-raw-positive-entry-underlying-setup-time-v1",
+        "tracked_or_ignored": "ignored_local_raw_data"
       }
     ]
   },
-  "raw_opportunities_inspected": 33,
+  "raw_opportunities_inspected": 36,
   "rejected_raw_data_opportunities": [
     {
       "candidate_generated": false,
@@ -1834,7 +1986,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
       "symbol": "GLD",
       "timestamp_end": "2026-05-20T11:30:00-04:00",
-      "timestamp_start": "2026-03-23T09:30:00-04:00"
+      "timestamp_start": "2026-03-23T09:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -1855,7 +2008,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
       "symbol": "GLD",
       "timestamp_end": "2026-05-20T11:30:00-04:00",
-      "timestamp_start": "2026-03-23T09:30:00-04:00"
+      "timestamp_start": "2026-03-23T09:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -1876,7 +2030,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
       "symbol": "GLD",
       "timestamp_end": "2026-05-20T11:30:00-04:00",
-      "timestamp_start": "2026-03-23T09:30:00-04:00"
+      "timestamp_start": "2026-03-23T09:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -1897,7 +2052,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
       "symbol": "IWM",
       "timestamp_end": "2026-05-18T15:30:00-04:00",
-      "timestamp_start": "2026-03-20T09:30:00-04:00"
+      "timestamp_start": "2026-03-20T09:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -1918,7 +2074,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
       "symbol": "IWM",
       "timestamp_end": "2026-05-18T15:30:00-04:00",
-      "timestamp_start": "2026-03-20T09:30:00-04:00"
+      "timestamp_start": "2026-03-20T09:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -1939,7 +2096,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
       "symbol": "IWM",
       "timestamp_end": "2026-05-18T15:30:00-04:00",
-      "timestamp_start": "2026-03-20T09:30:00-04:00"
+      "timestamp_start": "2026-03-20T09:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -1960,7 +2118,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
       "symbol": "QQQ",
       "timestamp_end": "2026-05-15T14:30:00-04:00",
-      "timestamp_start": "2026-03-16T15:30:00-04:00"
+      "timestamp_start": "2026-03-16T15:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -1981,7 +2140,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
       "symbol": "QQQ",
       "timestamp_end": "2026-05-15T14:30:00-04:00",
-      "timestamp_start": "2026-03-16T15:30:00-04:00"
+      "timestamp_start": "2026-03-16T15:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2002,7 +2162,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
       "symbol": "QQQ",
       "timestamp_end": "2026-05-15T14:30:00-04:00",
-      "timestamp_start": "2026-03-16T15:30:00-04:00"
+      "timestamp_start": "2026-03-16T15:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2023,7 +2184,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-05-13T14:30:00-04:00",
-      "timestamp_start": "2026-03-16T09:30:00-04:00"
+      "timestamp_start": "2026-03-16T09:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2044,7 +2206,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-05-13T14:30:00-04:00",
-      "timestamp_start": "2026-03-16T09:30:00-04:00"
+      "timestamp_start": "2026-03-16T09:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2065,7 +2228,8 @@
       "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-05-13T14:30:00-04:00",
-      "timestamp_start": "2026-03-16T09:30:00-04:00"
+      "timestamp_start": "2026-03-16T09:30:00-04:00",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2086,7 +2250,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_GLD-REPLACEMENT-IDEAL-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "GLD",
       "timestamp_end": "2026-05-08T19:00:00.000000000Z",
-      "timestamp_start": "2026-05-01T20:00:00.000000000Z"
+      "timestamp_start": "2026-05-01T20:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2107,7 +2272,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_GLD-REPLACEMENT-IDEAL-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "GLD",
       "timestamp_end": "2026-05-08T19:00:00.000000000Z",
-      "timestamp_start": "2026-05-01T20:00:00.000000000Z"
+      "timestamp_start": "2026-05-01T20:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2128,7 +2294,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_GLD-REPLACEMENT-IDEAL-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "GLD",
       "timestamp_end": "2026-05-08T19:00:00.000000000Z",
-      "timestamp_start": "2026-05-01T20:00:00.000000000Z"
+      "timestamp_start": "2026-05-01T20:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2149,7 +2316,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "IWM",
       "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-      "timestamp_start": "2026-04-17T20:00:00.000000000Z"
+      "timestamp_start": "2026-04-17T20:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2170,7 +2338,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "IWM",
       "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-      "timestamp_start": "2026-04-17T20:00:00.000000000Z"
+      "timestamp_start": "2026-04-17T20:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2191,7 +2360,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "IWM",
       "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-      "timestamp_start": "2026-04-17T20:00:00.000000000Z"
+      "timestamp_start": "2026-04-17T20:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2212,7 +2382,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "IWM",
       "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-      "timestamp_start": "2026-04-28T20:00:00.000000000Z"
+      "timestamp_start": "2026-04-28T20:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2233,7 +2404,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "IWM",
       "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-      "timestamp_start": "2026-04-28T20:00:00.000000000Z"
+      "timestamp_start": "2026-04-28T20:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2254,7 +2426,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "IWM",
       "timestamp_end": "2026-05-01T19:00:00.000000000Z",
-      "timestamp_start": "2026-04-28T20:00:00.000000000Z"
+      "timestamp_start": "2026-04-28T20:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2275,7 +2448,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_QQQ-SOURCE-WINDOW-CONTINUATION-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "QQQ",
       "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2296,7 +2470,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_QQQ-SOURCE-WINDOW-CONTINUATION-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "QQQ",
       "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2317,7 +2492,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_QQQ-SOURCE-WINDOW-CONTINUATION-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "QQQ",
       "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2338,7 +2514,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-03-31T14:00:00.000000000Z",
-      "timestamp_start": "2026-03-31T14:00:00.000000000Z"
+      "timestamp_start": "2026-03-31T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2359,7 +2536,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-03-31T14:00:00.000000000Z",
-      "timestamp_start": "2026-03-31T14:00:00.000000000Z"
+      "timestamp_start": "2026-03-31T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2380,7 +2558,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-03-31T14:00:00.000000000Z",
-      "timestamp_start": "2026-03-31T14:00:00.000000000Z"
+      "timestamp_start": "2026-03-31T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2401,7 +2580,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-004-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2422,7 +2602,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-004-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2443,7 +2624,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-004-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-04-02T14:00:00.000000000Z",
-      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2464,7 +2646,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-005-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-05-01T14:00:00.000000000Z",
-      "timestamp_start": "2026-05-01T14:00:00.000000000Z"
+      "timestamp_start": "2026-05-01T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2485,7 +2668,8 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-005-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-05-01T14:00:00.000000000Z",
-      "timestamp_start": "2026-05-01T14:00:00.000000000Z"
+      "timestamp_start": "2026-05-01T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
     },
     {
       "candidate_generated": false,
@@ -2506,12 +2690,81 @@
       "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-005-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
       "symbol": "SPY",
       "timestamp_end": "2026-05-01T14:00:00.000000000Z",
-      "timestamp_start": "2026-05-01T14:00:00.000000000Z"
+      "timestamp_start": "2026-05-01T14:00:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": false
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "setup_time_replay_mapping_not_established",
+      "local_evidence_status": "Exact one-minute underlying setup-time evidence is present for the authorized SPY session, but raw OHLCV rows alone do not name the accepted SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "required_source": "SAFE-FAST frozen local replay/calculators over acquired Databento DBEQ.BASIC / ohlcv-1m / raw_symbol evidence",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+      "timestamp_start": "2026-03-16T13:30:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": true
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "setup_time_replay_mapping_not_established",
+      "local_evidence_status": "Exact one-minute underlying setup-time evidence is present for the authorized SPY session, but raw OHLCV rows alone do not name the accepted SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "required_source": "SAFE-FAST frozen local replay/calculators over acquired Databento DBEQ.BASIC / ohlcv-1m / raw_symbol evidence",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+      "timestamp_start": "2026-03-16T13:30:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": true
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "setup_time_replay_mapping_not_established",
+      "local_evidence_status": "Exact one-minute underlying setup-time evidence is present for the authorized SPY session, but raw OHLCV rows alone do not name the accepted SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "required_source": "SAFE-FAST frozen local replay/calculators over acquired Databento DBEQ.BASIC / ohlcv-1m / raw_symbol evidence",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+      "timestamp_start": "2026-03-16T13:30:00.000000000Z",
+      "underlying_setup_time_evidence_supplied": true
     }
   ],
   "result_version": "day50_end_to_end_raw_data_positive_entry_generation_v1",
-  "run_timestamp": "2026-06-21T22:51:16.651446Z",
+  "run_timestamp": "2026-06-22T00:16:58.581066Z",
   "schwab_authenticated": false,
-  "second_run_hash": "cefcbdf8b59622941fb46bc72836f63fab99d15abbdb6a2f5716e43b0c17b851",
-  "source_commit": "9f02212"
+  "second_run_hash": "c6cc7c382e8b151db5c3570ba4d06116a2d7dc2637dbfed2f6a2f2208a784f67",
+  "source_commit": "50ed53e",
+  "underlying_setup_time_evidence_acquired_or_supplied": true,
+  "underlying_setup_time_evidence_manifest": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M_DOWNLOAD_MANIFEST.json"
 }

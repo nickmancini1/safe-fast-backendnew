@@ -1,5 +1,122 @@
 # SAFE-FAST Build State
 
+<!-- SAFE_FAST_CURRENT_STATE_BEGIN -->
+- PROJECT_DAY: Day 51
+- PROJECT_DATE: 2026-06-22
+- ACTIVE_OBJECTIVE: Decide whether to create a bounded accepted SAFE-FAST setup-replay mapping path for raw one-minute underlying OHLCV evidence before retrying the Day 50 SPY raw-data positive-entry opportunities.
+- ACTIVE_TASK: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_CODEX_TASK.md
+- ACTIVE_TASK_PURPOSE: Planning/governance decision for an accepted raw OHLCV setup-replay mapping path, with replay/regression cases required before implementation.
+- PROVEN_SUMMARY: Valid SPY one-minute OHLCV evidence exists for 2026-03-16 and was mapped through available accepted paths; no accepted path established setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution review, session-boundary behavior, or no-hindsight boundary.
+- UNPROVEN_SUMMARY: No raw vendor bar can be treated as a SAFE-FAST label; no raw OHLCV-to-SAFE-FAST setup replay mapper, new candidate, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
+- CURRENT_FUNNEL_TOTALS: raw opportunities mapped 3; exact setup-time field packages 0; new generated candidates 0; setup-qualified 0; trade candidates 0; selected contracts 0; eligible entries 0; recorded entries 0; exact-data-required 3; preserved controls 13 setup-qualified, 9 trade candidates, 5 selected contracts, 1 eligible entry, 1 recorded entry; scorecard VALID_TRADE_CAPTURED=1, TRUE_NO_TRADE=4, MISSING_DATA=10, MISSED_VALID_TRADE=0, INVALID_TRADE_ALLOWED=0, UNRESOLVED=0, WINNERS=1, LOSERS=0.
+- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md; historical_signal_replay/results/day50_raw_data_positive_entry_setup_time_replay_mapping.json; historical_signal_replay/day50_raw_data_positive_entry_setup_time_replay_mapping.py; watcher_foundation/day50_raw_data_positive_entry_setup_time_replay_mapping_validator.py; tests/test_day50_raw_data_positive_entry_setup_time_replay_mapping.py.
+- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md
+- SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task.
+- DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md
+- NEXT_ACTION: Run SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_CODEX_TASK.md.
+<!-- SAFE_FAST_CURRENT_STATE_END -->
+
+## Day 50 raw-data positive-entry setup-time replay mapping result
+
+- Current task file executed: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day50_raw_data_positive_entry_setup_time_replay_mapping.json`.
+- Mapping helper created: `historical_signal_replay/day50_raw_data_positive_entry_setup_time_replay_mapping.py`.
+- Focused validator created: `watcher_foundation/day50_raw_data_positive_entry_setup_time_replay_mapping_validator.py`.
+- Focused tests created: `tests/test_day50_raw_data_positive_entry_setup_time_replay_mapping.py`.
+- Exact request mapped: `DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M`.
+- Evidence used: `historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv`.
+- Dataset/schema/stype: `DBEQ.BASIC / ohlcv-1m / raw_symbol`.
+- Evidence rows validated for mapping: `751` SPY rows, chronological, required OHLCV columns present, `2026-03-16T13:30:00.000000000Z` through `2026-03-16T19:59:00.000000000Z`.
+- Raw opportunities mapped: `3`, one each for Ideal, Clean Fast Break, and Continuation.
+- Exact setup-time field packages established: `0`.
+- New generated candidates: `0`.
+- New setup-qualified candidates: `0`.
+- New trade candidates: `0`.
+- New selected contracts: `0`.
+- New price-accepted candidates: `0`.
+- New eligible entries: `0`.
+- New recorded entries: `0`.
+- New exits evaluated: `0`.
+- New valid trades captured: `0`.
+- New true no-trades: `0`.
+- New exact-data-required cases: `3`.
+- New missed valid trades: `0`.
+- New invalid trades allowed: `0`.
+- New unresolved cases: `0`.
+- New winners: `0`.
+- New losers: `0`.
+- Exact blocker for all three SPY setup-family opportunities: `accepted_setup_time_replay_mapping_path_absent`.
+- Exact failed fields for all three SPY setup-family opportunities: `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`.
+- Accepted paths checked: SPY Ideal lifecycle path, SPY CFB lifecycle path, Continuation lifecycle/starter fixture path, and context/caution path where applicable.
+- Mapping conclusion: the acquired one-minute SPY OHLCV rows are valid underlying evidence, but no accepted local SAFE-FAST path maps this raw vendor file into the required setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, and no-hindsight boundary for any of the three setup families.
+- Deterministic comparison: `PASS`; first and second hashes matched.
+- Additional data requested: `NO`.
+- Option request created: `NO`.
+- Exit-path request created: `NO`.
+- No raw vendor bars were treated as SAFE-FAST labels.
+- No Schwab authentication, Schwab endpoint call, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, broker/order/account, credential file, `.env`, production/live backend, or frozen-threshold change was made.
+- Exact next task created: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_CODEX_TASK.md`.
+- Checks run so far:
+  - `python -B -m unittest discover -s tests -p "test_day50_raw_data_positive_entry_setup_time_replay_mapping.py"`: PASS, `7` tests.
+  - `python -B -m historical_signal_replay.day50_raw_data_positive_entry_setup_time_replay_mapping`: PASS, wrote `3` raw opportunities mapped, `0` exact setup-time fields established, `0` setup-qualified, `0` trade candidates.
+  - `python -B -m watcher_foundation.day50_raw_data_positive_entry_setup_time_replay_mapping_validator`: PASS, `0` problems.
+  - `python -B -m unittest discover -s tests -p "test_day50_end_to_end_raw_data_positive_entry_generation.py"`: PASS, `10` tests.
+  - `python -B -m watcher_foundation.day50_end_to_end_raw_data_positive_entry_generation_validator`: PASS, `0` problems.
+
+## Day 50 raw-data positive-entry underlying setup-time costed request result
+
+- Current task file executed: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_RESULT.md`.
+- Machine-readable acquisition result created: `historical_signal_replay/results/day50_raw_data_positive_entry_underlying_setup_time_costed_request.json`.
+- Machine-readable generator result updated: `historical_signal_replay/results/day50_end_to_end_raw_data_positive_entry_generation.json`.
+- Candidate manifest updated: `historical_signal_replay/fixtures/day50_raw_data_positive_entry_candidate_manifest.json`.
+- Acquisition helper created: `historical_signal_replay/day50_raw_data_positive_entry_underlying_setup_time_request.py`.
+- Focused acquisition tests created: `tests/test_day50_raw_data_positive_entry_underlying_setup_time_request.py`.
+- Raw-data generator updated to inventory the Day 50 one-minute setup-time evidence distinctly while preserving frozen-rule blockers.
+- Validator updated to allow only this approved underlying setup-time evidence acquisition, not option/exit-path/proof/readiness expansion.
+- Exact request handled: `DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M`.
+- Request scope: `SPY`, `2026-03-16T09:30:00-04:00` through `2026-03-16T16:00:00-04:00`, `DBEQ.BASIC / ohlcv-1m / raw_symbol`, underlying setup-time data only.
+- Exact underlying setup-time evidence acquired or supplied: `YES`.
+- Download manifest created: `historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M_DOWNLOAD_MANIFEST.json`.
+- CSV evidence created: `historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv`.
+- DBN evidence created: `historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.dbn.zst`.
+- Downloaded rows: `751`.
+- Evidence validation problems: `0`.
+- Checked cost: `0.001370869577`.
+- Actual billed cost: `NOT_AVAILABLE`.
+- Credential used for cost check/download: `YES`.
+- Raw opportunities inspected after rerun: `36`.
+- New generated candidates: `0`.
+- New setup-qualified candidates: `0`.
+- New trade candidates: `0`.
+- New selected contracts: `0`.
+- New price-accepted candidates: `0`.
+- New eligible entries: `0`.
+- New recorded entries: `0`.
+- New exits evaluated: `0`.
+- New valid trades captured: `0`.
+- New true no-trades: `0`.
+- New exact-data-required cases: `0`.
+- New missed valid trades: `0`.
+- New invalid trades allowed: `0`.
+- New unresolved cases: `0`.
+- New winners: `0`.
+- New losers: `0`.
+- Deterministic generated-candidate funnel comparison: `PASS`; first and second outputs matched.
+- Exact blockers: `33` prior local raw opportunities remain rejected as `underlying_resolution_insufficient_for_exact_setup_trigger`; `3` acquired SPY one-minute opportunities are rejected as `setup_time_replay_mapping_not_established`.
+- Exact failed fields for the `3` acquired SPY one-minute opportunities: `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`.
+- Reason for the `3` acquired SPY one-minute blockers: raw OHLCV evidence is present, but raw vendor bars alone do not name accepted SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary.
+- Option request created: `NO`.
+- Exit-path request created: `NO`.
+- No Schwab authentication, Schwab endpoint call, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, broker/order/account, credential file, `.env`, production/live backend, or frozen-threshold change was made.
+- Exact next task created: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_CODEX_TASK.md`.
+- Checks run so far:
+  - `python -B -m unittest discover -s tests -p "test_day50_raw_data_positive_entry_underlying_setup_time_request.py"`: PASS, `4` tests.
+  - `python -B -m unittest discover -s tests -p "test_day50_end_to_end_raw_data_positive_entry_generation.py"`: PASS, `10` tests.
+  - `python -B -m historical_signal_replay.day50_end_to_end_raw_data_positive_entry_generation`: PASS, wrote `36` raw opportunities inspected, `0` setup-qualified, `0` trade candidates, `0` selected contracts, `0` eligible entries, `0` recorded entries, checked cost `0.001370869577`.
+  - `python -B -m watcher_foundation.day50_end_to_end_raw_data_positive_entry_generation_validator`: PASS, `0` problems.
+
 ## Day 50 end-to-end raw-data positive-entry generation result
 
 - Current task file executed: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CLOSED_REQUIREMENT_SCORECARD_RECONCILIATION_CODEX_TASK.md` as superseded by the user instruction to run end-to-end raw-data positive-entry generation.

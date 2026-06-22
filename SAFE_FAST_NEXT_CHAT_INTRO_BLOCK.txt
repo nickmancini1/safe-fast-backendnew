@@ -1,92 +1,18 @@
-START HERE - SAFE-FAST NEXT CHAT OPERATING RULES
+SAFE-FAST build work. The repo is the source of truth, and the user will not explain the project again.
 
-Read SAFE_FAST_BUILD_STATE.md first.
+Full handoff: `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`
+Build-state authority: `SAFE_FAST_BUILD_STATE.md`
+Source registry: `SAFE_FAST_DATA_SOURCE_REGISTRY.md`
+Registry queue result: `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_RESULT.md`
+Schwab status reference: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`
 
-Then verify local branch, commit, and status:
+Read SAFE_FAST_BUILD_STATE.md first. The active task comes from the repo. Communication uses plain English and one action at a time. Do not report vague MISSING_DATA; use the exact field, source, dataset/schema/API/calculator, timestamp window, unavailable reason, blocking scope, and next action. Use funnel scorecard terms: VALID_TRADE_CAPTURED, TRUE_NO_TRADE, MISSING_DATA, MISSED_VALID_TRADE, INVALID_TRADE_ALLOWED, and UNRESOLVED. Paid data still requires exact cost check and user approval.
 
+First response in the new chat must ask the user to run exactly:
+
+```powershell
 Set-Location "C:\Users\nickm\Desktop\New folder\safe-fast-backendnew"
-git --no-pager branch --show-current
-git --no-pager log -1 --oneline
-git --no-pager status --short
+powershell -NoProfile -ExecutionPolicy Bypass -File ".\scripts\safe_fast_new_chat_status.ps1"
+```
 
-CURRENT DAY 50 ENTRY POINT:
-
-- Current raw-data positive-entry generation result: `SAFE_FAST_DAY50_END_TO_END_RAW_DATA_POSITIVE_ENTRY_GENERATION_RESULT.md`
-- Current raw-data generation JSON: `historical_signal_replay/results/day50_end_to_end_raw_data_positive_entry_generation.json`
-- Current raw-data candidate manifest: `historical_signal_replay/fixtures/day50_raw_data_positive_entry_candidate_manifest.json`
-- Current raw-data generator: `historical_signal_replay/day50_end_to_end_raw_data_positive_entry_generation.py`
-- Current raw-data validator: `watcher_foundation/day50_end_to_end_raw_data_positive_entry_generation_validator.py`
-- Current raw-data tests: `tests/test_day50_end_to_end_raw_data_positive_entry_generation.py`
-- Exact active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_CODEX_TASK.md`
-- Previous active-path requirement regression result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_REQUIREMENT_REGRESSION_RESULT.md`
-- Previous active-path requirement regression JSON: `historical_signal_replay/results/day50_positive_entry_active_path_requirement_regression.json`
-- Previous evidence-backed positive-entry testing batch result: `SAFE_FAST_DAY50_EVIDENCE_BACKED_POSITIVE_ENTRY_TESTING_BATCH_RESULT.md`
-- Previous evidence-backed positive-entry testing batch JSON: `historical_signal_replay/results/day50_evidence_backed_positive_entry_testing_batch.json`
-- Current canonical registry: `SAFE_FAST_DATA_SOURCE_REGISTRY.md`
-- Current data-source registry and Schwab queue result: `SAFE_FAST_DAY50_DATA_SOURCE_REGISTRY_AND_SCHWAB_QUEUE_RESULT.md`
-- Current Schwab read-only audit task reference: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`
-- Machine registry: `historical_signal_replay/config/safe_fast_data_source_registry.json`
-- Resolver: `watcher_foundation/safe_fast_data_source_resolver.py`
-
-Raw-data generation facts:
-- Raw opportunities inspected: `33`.
-- New generated candidates: `0`.
-- New setup-qualified candidates: `0`.
-- New trade candidates: `0`.
-- New selected contracts: `0`.
-- New eligible entries: `0`.
-- New recorded entries: `0`.
-- New valid trades captured: `0`.
-- New true no-trades: `0`.
-- New exact-data-required cases: `0`.
-- New missed valid trades: `0`.
-- New invalid trades allowed: `0`.
-- New winners: `0`.
-- New losers: `0`.
-- Deterministic generated-candidate funnel comparison: `PASS`.
-
-Exact blocker:
-- Existing local raw underlying data is one-hour OHLCV only for inspected windows.
-- One-hour bars do not establish exact setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary under frozen SAFE-FAST rules.
-
-Exact cost-checked request:
-- Request ID: `DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M`
-- Symbol: `SPY`
-- Window: `2026-03-16T09:30:00-04:00` through `2026-03-16T16:00:00-04:00`
-- Dataset/schema/stype: `DBEQ.BASIC / ohlcv-1m / raw_symbol`
-- Checked cost: `0.001370869577`
-- Credential used for cost check: `YES`
-- Download created: `NO`
-- Actual billed cost: `NOT_AVAILABLE`
-- Option request created: `NO`
-- Exit-path request created: `NO`
-
-Existing regression controls remain separate in the funnel scorecard:
-- Setup-qualified total: `13`
-- Trade-candidate total: `9`
-- Selected-contract total: `5`
-- Eligible-entry total: `1`
-- Recorded-entry total: `1`
-- VALID_TRADE_CAPTURED: `1`
-- TRUE_NO_TRADE: `4`
-- MISSING_DATA: `10`
-- MISSED_VALID_TRADE: `0`
-- INVALID_TRADE_ALLOWED: `0`
-- UNRESOLVED: `0`
-
-Do not report vague MISSING_DATA. Every blocker must state exact field, exact source, exact dataset/schema/API/calculator, exact timestamp window, exact reason unavailable, whether it blocks setup/trade/execution/exit or only optional context, and exact next action.
-
-Do not weaken frozen rules, reopen closed setup-source candidates, replay rejected intake rows, rerun QQQ CFB 001 as a live candidate, request options before TRADE_CANDIDATE, request exit-path data before entry, download paid data without exact cost check and user approval, claim proof/profitability/readiness/promotion/paper/live eligibility, or touch `main.py`, Railway/deploy, production/live backend, broker/order/account, credential, or `.env` files.
-
-Correct Codex launch command for the next task:
-
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_CODEX_TASK.md exactly."
-
-Use this format for build work:
-Baseline:
-Fixed:
-Blocked:
-Next:
-Tests:
-
-END START BLOCK
+After the user returns that output, state the actual baseline, identify the exact active task, give one action, continue without restarting discovery, and do not make the user explain completed work.

@@ -1,3 +1,5 @@
+SUPERSEDED: Read SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md
+
 # SAFE-FAST Day 41 Raw Tastytrade Next Chat Handoff
 
 ## Baseline

@@ -1,3 +1,5 @@
+SUPERSEDED: Read SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md
+
 # SAFE-FAST Day 46 PowerShell And Codex Workflow
 
 ## First Command For A New Chat
@@ -186,4 +188,3 @@ The user’s explicit correction:
 - Continue from local checkpoint `021bead Add Day 46 grouped backtest batch decision` unless local git says otherwise.
 
 This correction supersedes older handoff wording where workflow rules appear after project history.
-

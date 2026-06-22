@@ -1,0 +1,458 @@
+{
+  "authorized_window": {
+    "end_timestamp": "2026-03-16T16:00:00-04:00",
+    "start_timestamp": "2026-03-16T09:30:00-04:00",
+    "symbol": "SPY",
+    "timezone": "America/New_York"
+  },
+  "dataset_schema_stype": "DBEQ.BASIC / ohlcv-1m / raw_symbol",
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "first_run_hash": "dd439a055c82411f7fbc337244237f8f955d95801b10bfe3fd275c114ebe2550",
+  "guardrails": {
+    "broker_mutation_attempted": false,
+    "live_eligible": false,
+    "paper_eligible": false,
+    "profitability_claimed": false,
+    "promotion_decision_made": false,
+    "proof_accepted": false,
+    "schwab_authenticated": false
+  },
+  "mapping_policy": {
+    "accepted_local_rule_path_required": true,
+    "frozen_rules_changed": false,
+    "main_py_changed": false,
+    "railway_or_deploy_changed": false,
+    "raw_vendor_bars_treated_as_safe_fast_labels": false,
+    "requested_exit_path_data": false,
+    "requested_more_data": false,
+    "requested_option_data": false,
+    "used_only_acquired_day50_spy_underlying_evidence": true
+  },
+  "new_candidate_scorecard": {
+    "exact_setup_time_fields_established": 0,
+    "first_blockers_by_stage": {
+      "SETUP_QUALIFIED": 3
+    },
+    "new_eligible_entries": 0,
+    "new_exact_data_required_cases": 3,
+    "new_exits_evaluated": 0,
+    "new_generated_candidates": 0,
+    "new_invalid_trades_allowed": 0,
+    "new_losers": 0,
+    "new_missed_valid_trades": 0,
+    "new_price_accepted_candidates": 0,
+    "new_recorded_entries": 0,
+    "new_selected_contracts": 0,
+    "new_setup_qualified_candidates": 0,
+    "new_trade_candidates": 0,
+    "new_true_no_trades": 0,
+    "new_unresolved_cases": 0,
+    "new_valid_trades_captured": 0,
+    "new_winners": 0,
+    "raw_opportunities_mapped": 3
+  },
+  "next_task": {
+    "filename": "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_CODEX_TASK.md",
+    "reason": "Decide whether to create a bounded accepted setup-replay mapping path with replay/regression cases before any raw one-minute OHLCV evidence can generate setup-time labels."
+  },
+  "request_id": "DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M",
+  "result_version": "day50_raw_data_positive_entry_setup_time_replay_mapping_v1",
+  "run_timestamp": "2026-06-22T03:21:41.065709Z",
+  "second_run_hash": "dd439a055c82411f7fbc337244237f8f955d95801b10bfe3fd275c114ebe2550",
+  "setup_family_mapping_records": [
+    {
+      "accepted_paths_checked": [
+        {
+          "accepted_scope": "SPY Ideal lifecycle status only after setup identity, trigger, invalidation, stage, trigger_state, and row ordering already exist.",
+          "blocking_reason": "raw OHLCV does not supply accepted Ideal setup identity, trigger, invalidation, stage, trigger_state, or replay row.",
+          "mapping_result": "not_applicable_to_raw_ohlcv_only",
+          "path": "historical_signal_replay.cfb_lifecycle_calculator"
+        },
+        {
+          "accepted_scope": "component status only when source-backed setup-time component inputs and accepted component rule metadata already exist.",
+          "blocking_reason": "raw OHLCV does not supply accepted context/caution component inputs or headline/macro/event policy decisions.",
+          "mapping_result": "not_applicable_to_raw_ohlcv_only",
+          "path": "historical_signal_replay.context_caution_calculator"
+        }
+      ],
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exact_setup_time_fields_established": false,
+      "exclusion_reason": "accepted_setup_time_replay_mapping_path_absent",
+      "field_blockers": {
+        "blocker_caution_review": {
+          "blocks": [
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.context_caution_calculator plus official macro/news/volatility sources as inputs",
+          "exact_field": "blocker_caution_review",
+          "exact_next_action": "perform bounded source capability audit and update registry before using source",
+          "exact_reason_unavailable": "Ideal setup-time mapping lacks accepted source-backed context/caution component inputs and mandatory context policy decisions.",
+          "exact_source": "SAFE-FAST context/caution calculator over exact source fields",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "freshness_final_signal_state": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.cfb_lifecycle_calculator and setup-family lifecycle gates",
+          "exact_field": "freshness_final_signal_state",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Ideal setup-time mapping lacks prerequisite setup identity, trigger, invalidation, stage, and lifecycle inputs.",
+          "exact_source": "SAFE-FAST frozen local lifecycle calculators",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "invalidation": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "setup_recognition.invalidation_gate over underlying_ohlcv_1h and setup_time_row",
+          "exact_field": "invalidation",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Ideal setup-time mapping lacks an accepted invalidation calculator over this raw ohlcv-1m file.",
+          "exact_source": "SAFE-FAST frozen local rule engine",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "no_hindsight_boundary": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.signal_replay no-hindsight fixtures",
+          "exact_field": "no_hindsight_boundary",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Ideal setup-time mapping lacks an accepted replay fixture/log boundary for this raw ohlcv-1m session.",
+          "exact_source": "SAFE-FAST frozen replay fixtures and signal logs",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "session_boundary_behavior": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "stage_transition.session_boundary_gate",
+          "exact_field": "session_boundary_behavior",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Ideal setup-time mapping lacks accepted session-boundary rule inputs for this raw ohlcv-1m session.",
+          "exact_source": "SAFE-FAST stage-transition and lifecycle rules",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "setup_time_row": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.signal_replay and setup-family calculators over underlying_ohlcv_1h",
+          "exact_field": "setup_time_row",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Ideal setup-time mapping lacks an accepted raw ohlcv-1m to SAFE-FAST replay row mapper.",
+          "exact_source": "SAFE-FAST frozen local rule engine using source-backed underlying rows",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "trigger": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "setup_recognition.trigger_gate over underlying_ohlcv_1h and setup_time_row",
+          "exact_field": "trigger",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Ideal setup-time mapping lacks an accepted trigger calculator over this raw ohlcv-1m file.",
+          "exact_source": "SAFE-FAST frozen local rule engine",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        }
+      },
+      "final_classification": "EXACT_DATA_REQUIRED",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "mapping_conclusion": "The acquired one-minute SPY OHLCV rows are valid underlying evidence, but no accepted local SAFE-FAST path maps this raw vendor file into the required setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, and no-hindsight boundary for this setup family.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "setup_family": "Ideal",
+      "setup_qualified": false,
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+      "symbol": "SPY",
+      "trade_candidate": false,
+      "underlying_setup_time_evidence_supplied": true
+    },
+    {
+      "accepted_paths_checked": [
+        {
+          "accepted_scope": "SPY Clean Fast Break lifecycle status only after setup identity, trigger, invalidation, stage, trigger_state, prior state, accepted lifecycle rule, and row ordering already exist.",
+          "blocking_reason": "raw OHLCV does not supply accepted CFB trigger, invalidation, stage, trigger_state, prior-state, or replay row.",
+          "mapping_result": "not_applicable_to_raw_ohlcv_only",
+          "path": "historical_signal_replay.cfb_lifecycle_calculator"
+        },
+        {
+          "accepted_scope": "component status only when source-backed setup-time component inputs and accepted component rule metadata already exist.",
+          "blocking_reason": "raw OHLCV does not supply accepted CFB blocker/caution component inputs or mandatory context decisions.",
+          "mapping_result": "not_applicable_to_raw_ohlcv_only",
+          "path": "historical_signal_replay.context_caution_calculator"
+        }
+      ],
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exact_setup_time_fields_established": false,
+      "exclusion_reason": "accepted_setup_time_replay_mapping_path_absent",
+      "field_blockers": {
+        "blocker_caution_review": {
+          "blocks": [
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.context_caution_calculator plus official macro/news/volatility sources as inputs",
+          "exact_field": "blocker_caution_review",
+          "exact_next_action": "perform bounded source capability audit and update registry before using source",
+          "exact_reason_unavailable": "Clean Fast Break setup-time mapping lacks accepted source-backed context/caution component inputs and mandatory context policy decisions.",
+          "exact_source": "SAFE-FAST context/caution calculator over exact source fields",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "freshness_final_signal_state": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.cfb_lifecycle_calculator and setup-family lifecycle gates",
+          "exact_field": "freshness_final_signal_state",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Clean Fast Break setup-time mapping lacks prerequisite setup identity, trigger, invalidation, stage, and lifecycle inputs.",
+          "exact_source": "SAFE-FAST frozen local lifecycle calculators",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "invalidation": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "setup_recognition.invalidation_gate over underlying_ohlcv_1h and setup_time_row",
+          "exact_field": "invalidation",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Clean Fast Break setup-time mapping lacks an accepted invalidation calculator over this raw ohlcv-1m file.",
+          "exact_source": "SAFE-FAST frozen local rule engine",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "no_hindsight_boundary": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.signal_replay no-hindsight fixtures",
+          "exact_field": "no_hindsight_boundary",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Clean Fast Break setup-time mapping lacks an accepted replay fixture/log boundary for this raw ohlcv-1m session.",
+          "exact_source": "SAFE-FAST frozen replay fixtures and signal logs",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "session_boundary_behavior": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "stage_transition.session_boundary_gate",
+          "exact_field": "session_boundary_behavior",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Clean Fast Break setup-time mapping lacks accepted session-boundary rule inputs for this raw ohlcv-1m session.",
+          "exact_source": "SAFE-FAST stage-transition and lifecycle rules",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "setup_time_row": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.signal_replay and setup-family calculators over underlying_ohlcv_1h",
+          "exact_field": "setup_time_row",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Clean Fast Break setup-time mapping lacks an accepted raw ohlcv-1m to SAFE-FAST replay row mapper.",
+          "exact_source": "SAFE-FAST frozen local rule engine using source-backed underlying rows",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "trigger": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "setup_recognition.trigger_gate over underlying_ohlcv_1h and setup_time_row",
+          "exact_field": "trigger",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Clean Fast Break setup-time mapping lacks an accepted trigger calculator over this raw ohlcv-1m file.",
+          "exact_source": "SAFE-FAST frozen local rule engine",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        }
+      },
+      "final_classification": "EXACT_DATA_REQUIRED",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "mapping_conclusion": "The acquired one-minute SPY OHLCV rows are valid underlying evidence, but no accepted local SAFE-FAST path maps this raw vendor file into the required setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, and no-hindsight boundary for this setup family.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": false,
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+      "symbol": "SPY",
+      "trade_candidate": false,
+      "underlying_setup_time_evidence_supplied": true
+    },
+    {
+      "accepted_paths_checked": [
+        {
+          "accepted_scope": "Continuation lifecycle status only for fixture-shaped inputs with trigger, invalidation, stage, trigger_state, prior state, accepted lifecycle rule, and row ordering already present.",
+          "blocking_reason": "raw OHLCV does not supply accepted Continuation shelf/trigger/invalidation state, prior completed structure, or session-boundary rule inputs.",
+          "mapping_result": "not_applicable_to_raw_ohlcv_only",
+          "path": "historical_signal_replay.cfb_lifecycle_calculator"
+        },
+        {
+          "accepted_scope": "starter Continuation coverage over existing local lifecycle fixtures and source rows, not new raw-vendor setup discovery.",
+          "blocking_reason": "the starter fixtures do not define a generic raw OHLCV to Continuation setup-time row mapper.",
+          "mapping_result": "not_applicable_to_raw_ohlcv_only",
+          "path": "historical_signal_replay.fixtures.continuation_starter_coverage_fixtures"
+        }
+      ],
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exact_setup_time_fields_established": false,
+      "exclusion_reason": "accepted_setup_time_replay_mapping_path_absent",
+      "field_blockers": {
+        "blocker_caution_review": {
+          "blocks": [
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.context_caution_calculator plus official macro/news/volatility sources as inputs",
+          "exact_field": "blocker_caution_review",
+          "exact_next_action": "perform bounded source capability audit and update registry before using source",
+          "exact_reason_unavailable": "Continuation setup-time mapping lacks accepted source-backed context/caution component inputs and mandatory context policy decisions.",
+          "exact_source": "SAFE-FAST context/caution calculator over exact source fields",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "freshness_final_signal_state": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.cfb_lifecycle_calculator and setup-family lifecycle gates",
+          "exact_field": "freshness_final_signal_state",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Continuation setup-time mapping lacks prerequisite setup identity, trigger, invalidation, stage, and lifecycle inputs.",
+          "exact_source": "SAFE-FAST frozen local lifecycle calculators",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "invalidation": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "setup_recognition.invalidation_gate over underlying_ohlcv_1h and setup_time_row",
+          "exact_field": "invalidation",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Continuation setup-time mapping lacks an accepted invalidation calculator over this raw ohlcv-1m file.",
+          "exact_source": "SAFE-FAST frozen local rule engine",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "no_hindsight_boundary": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.signal_replay no-hindsight fixtures",
+          "exact_field": "no_hindsight_boundary",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Continuation setup-time mapping lacks an accepted replay fixture/log boundary for this raw ohlcv-1m session.",
+          "exact_source": "SAFE-FAST frozen replay fixtures and signal logs",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "session_boundary_behavior": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "stage_transition.session_boundary_gate",
+          "exact_field": "session_boundary_behavior",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Continuation setup-time mapping lacks accepted session-boundary rule inputs for this raw ohlcv-1m session.",
+          "exact_source": "SAFE-FAST stage-transition and lifecycle rules",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "setup_time_row": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "historical_signal_replay.signal_replay and setup-family calculators over underlying_ohlcv_1h",
+          "exact_field": "setup_time_row",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Continuation setup-time mapping lacks an accepted raw ohlcv-1m to SAFE-FAST replay row mapper.",
+          "exact_source": "SAFE-FAST frozen local rule engine using source-backed underlying rows",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        },
+        "trigger": {
+          "blocks": [
+            "setup",
+            "trade"
+          ],
+          "exact_dataset_schema_api_calculator": "setup_recognition.trigger_gate over underlying_ohlcv_1h and setup_time_row",
+          "exact_field": "trigger",
+          "exact_next_action": "exclude candidate or complete exact source-backed setup evidence before rerun",
+          "exact_reason_unavailable": "Continuation setup-time mapping lacks an accepted trigger calculator over this raw ohlcv-1m file.",
+          "exact_source": "SAFE-FAST frozen local rule engine",
+          "exact_timestamp_window": "source timestamps <= 2026-03-16T13:30:00.000000000Z"
+        }
+      },
+      "final_classification": "EXACT_DATA_REQUIRED",
+      "first_stage_not_reached": "SETUP_QUALIFIED",
+      "highest_stage_reached": "SETUP_DEVELOPING",
+      "mapping_conclusion": "The acquired one-minute SPY OHLCV rows are valid underlying evidence, but no accepted local SAFE-FAST path maps this raw vendor file into the required setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, and no-hindsight boundary for this setup family.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "setup_family": "Continuation",
+      "setup_qualified": false,
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+      "symbol": "SPY",
+      "trade_candidate": false,
+      "underlying_setup_time_evidence_supplied": true
+    }
+  ],
+  "source_commit": "50ed53e",
+  "source_csv": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+  "source_summary": {
+    "complete_chronological_rows": true,
+    "publisher_id_set": [
+      "39",
+      "40",
+      "41"
+    ],
+    "raw_vendor_data_modified": false,
+    "required_columns_present": true,
+    "row_count": 751,
+    "symbol_set": [
+      "SPY"
+    ],
+    "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+    "timestamp_start": "2026-03-16T13:30:00.000000000Z"
+  }
+}
