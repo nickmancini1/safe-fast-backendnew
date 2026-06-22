@@ -2,18 +2,20 @@
 
 ## Current Handoff System
 
-- Active objective: define bounded replay/regression cases and accepted field boundaries before any raw one-minute OHLCV setup-replay mapping implementation for the Day 50 SPY positive-entry retry.
-- Active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`.
-- Current technical result: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md`.
+- Active objective: implement the bounded raw one-minute OHLCV setup-replay mapper for the Day 50 SPY positive-entry retry under the accepted regression cases and field boundaries only.
+- Active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`.
+- Current technical result: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_RESULT.md`.
 - Current funnel totals: raw opportunities mapped `3`; exact setup-time field packages `0`; new setup-qualified `0`; trade candidates `0`; selected contracts `0`; eligible entries `0`; recorded entries `0`; exact-data-required `3`; preserved controls `13` setup-qualified, `9` trade candidates, `5` selected contracts, `1` eligible entry, `1` recorded entry.
 - Current handoff: `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`.
 - Current intro block: `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`.
 - Startup-status script: `scripts/safe_fast_new_chat_status.ps1`.
 - Canonical registry: `SAFE_FAST_DATA_SOURCE_REGISTRY.md`.
 - Schwab queue/reference task: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`.
-- Next action: run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`; define replay/regression cases and accepted field boundaries only, with no mapper implementation and no data, option, or exit-path request.
+- Next action: run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`; implement only the bounded accepted SPY March 16, 2026 raw OHLCV setup-replay mapper with all accepted regression cases, no data, option, or exit-path request, and no proof/readiness claim.
 
 ## Current Checkpoint
+
+- Day 50 raw-data positive-entry accepted setup-replay regression cases: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_RESULT.md` defines the accepted field boundaries and replay/regression cases required before implementation. Covered scope is SPY on March 16, 2026 only, setup families Ideal, Clean Fast Break, and Continuation, source evidence `DBEQ.BASIC / ohlcv-1m / raw_symbol`, and fields `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`. Required cases include positive per-family mapping, missing-field rejection, same-session and prior-session boundary behavior, no-hindsight rejection, wrong-symbol and wrong-window rejection, duplicate handling, raw-vendor-label rejection, determinism, and control preservation. No mapper was implemented; no additional data, option request, exit-path request, Schwab authentication, proof, profitability, readiness, promotion, paper/live claim, `main.py`, Railway/deploy, or production/live change was made. Exact next task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`.
 
 - Day 50 raw-data positive-entry accepted setup-replay path decision: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md` records the planning/governance decision after the setup-time replay mapping blocker. The decision is `YES`: a bounded accepted SAFE-FAST setup-replay mapping path should be created before retrying the three Day 50 SPY raw-data positive-entry opportunities, but only after replay/regression cases and accepted field boundaries are defined. Covered setup families are Ideal, Clean Fast Break, and Continuation for SPY on March 16, 2026 only. Covered fields are `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`. Required cases before implementation include positive per-family mapping cases, missing-field rejections, session-boundary cases, no-hindsight rejection, wrong-symbol and wrong-window rejection, duplicate handling, raw-vendor-label rejection, determinism, and control preservation. No mapper was implemented; no additional data, option request, exit-path request, Schwab authentication, proof, profitability, readiness, promotion, paper/live claim, `main.py`, Railway/deploy, or production/live change was made. Exact next task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`.
 
@@ -163,7 +165,7 @@ Next work: do not run the CFB harness until a later task explicitly authorizes a
 
 ## Next Single Action
 
-Run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`. The decision task concluded that a bounded accepted raw one-minute OHLCV setup-replay mapping path should be created before retrying the three SPY opportunities, but only after replay/regression cases and accepted field boundaries are defined. The next bounded task is regression-case and field-boundary definition only. Do not implement the mapper, retry opportunities, request more data, request option or exit-path data, weaken rules, infer labels from raw bars, claim proof/readiness, or touch production/live paths.
+Run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`. The regression-cases task defined the bounded field boundaries and required replay/regression cases. The next bounded task may implement only the accepted SPY March 16, 2026 raw one-minute OHLCV setup-replay mapper and must include all required regression cases. Do not request more data, request option or exit-path data, weaken rules, infer labels directly from raw bars, claim proof/readiness, or touch production/live paths.
 
 ## Data-Source Status
 

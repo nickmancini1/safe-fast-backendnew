@@ -40,13 +40,13 @@ This registry replaces ad hoc source wording in prior result files. Older manife
 | Timestamped headlines | Benzinga when entitled | Benzinga headline API | Optional unless a frozen rule makes it mandatory. |
 | Macro history | ALFRED | historical-vintage series values | Revised current values cannot replace vintages. |
 
-## Day 50 Raw One-Minute Underlying Setup-Replay Mapping Decision
+## Day 50 Raw One-Minute Underlying Setup-Replay Mapping Boundary
 
 `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md` decides that a bounded accepted setup-replay mapping path should be created before retrying the Day 50 SPY raw-data positive-entry opportunities, but replay/regression cases and accepted field boundaries must be defined first.
 
-The only current source evidence in that decision is the acquired SPY `DBEQ.BASIC / ohlcv-1m / raw_symbol` file for `2026-03-16`. The proposed bounded path may cover only Ideal, Clean Fast Break, and Continuation setup families for that SPY session, and only the fields `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`.
+`SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_RESULT.md` now defines the accepted field boundaries and required replay/regression cases before implementation. The only current source evidence is the acquired SPY `DBEQ.BASIC / ohlcv-1m / raw_symbol` file for `2026-03-16`. The bounded path may cover only Ideal, Clean Fast Break, and Continuation setup families for that SPY session, and only the fields `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`.
 
-The registry rule remains unchanged: raw vendor OHLCV bars do not supply SAFE-FAST labels. Any implementation must first have accepted replay/regression cases for positive per-family mapping, missing-field rejection, session-boundary behavior, no-hindsight rejection, wrong-symbol/wrong-window rejection, duplicate handling, raw-vendor-label rejection, determinism, and control preservation.
+The registry rule remains unchanged: raw vendor OHLCV bars do not supply SAFE-FAST labels. Any implementation must satisfy accepted replay/regression cases for positive per-family mapping, missing-field rejection, same-session and prior-session boundary behavior, no-hindsight rejection, wrong-symbol/wrong-window rejection, duplicate handling, raw-vendor-label rejection, determinism, and control preservation.
 
 ## Current Eight Candidate Blockers
 

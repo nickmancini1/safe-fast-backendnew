@@ -19,33 +19,33 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".\scripts\safe_fast_new_cha
 
 Project day and date: Day 51, 2026-06-22.
 
-Current technical checkpoint: Day 50 raw-data positive-entry accepted setup-replay path decision over acquired SPY one-minute OHLCV evidence.
+Current technical checkpoint: Day 50 raw-data positive-entry accepted setup-replay regression cases and field boundaries over acquired SPY one-minute OHLCV evidence.
 
 Git status at Day 51 handoff-cleanup startup: dirty before this task. Pre-existing modified and untracked files are recorded in `SAFE_FAST_DAY51_REPO_HANDOFF_CLEANUP_RESULT.md`.
 
-Pre-existing technical package: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md`, `historical_signal_replay/results/day50_raw_data_positive_entry_setup_time_replay_mapping.json`, `historical_signal_replay/day50_raw_data_positive_entry_setup_time_replay_mapping.py`, `watcher_foundation/day50_raw_data_positive_entry_setup_time_replay_mapping_validator.py`, `tests/test_day50_raw_data_positive_entry_setup_time_replay_mapping.py`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_RESULT.md`, `historical_signal_replay/day50_raw_data_positive_entry_underlying_setup_time_request.py`, `historical_signal_replay/results/day50_raw_data_positive_entry_underlying_setup_time_costed_request.json`, and the updated raw-data generator package.
+Pre-existing technical package: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_RESULT.md`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md`, `historical_signal_replay/results/day50_raw_data_positive_entry_setup_time_replay_mapping.json`, `historical_signal_replay/day50_raw_data_positive_entry_setup_time_replay_mapping.py`, `watcher_foundation/day50_raw_data_positive_entry_setup_time_replay_mapping_validator.py`, `tests/test_day50_raw_data_positive_entry_setup_time_replay_mapping.py`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_RESULT.md`, `historical_signal_replay/day50_raw_data_positive_entry_underlying_setup_time_request.py`, `historical_signal_replay/results/day50_raw_data_positive_entry_underlying_setup_time_costed_request.json`, and the updated raw-data generator package.
 
-Exact active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`.
+Exact active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`.
 
 Active task exists: yes.
 
-Exact active objective: define bounded replay/regression cases and accepted field boundaries before any raw one-minute OHLCV setup-replay mapping implementation for the Day 50 SPY positive-entry retry.
+Exact active objective: implement the bounded raw one-minute OHLCV setup-replay mapper for the Day 50 SPY positive-entry retry under the accepted regression cases and field boundaries only.
 
 Current funnel totals: raw opportunities mapped `3`; exact setup-time field packages established `0`; new generated candidates `0`; new setup-qualified candidates `0`; new trade candidates `0`; new selected contracts `0`; new eligible entries `0`; new recorded entries `0`; new exact-data-required cases `3`. Existing regression controls remain separate at `13` setup-qualified, `9` trade candidates, `5` selected contracts, `1` eligible entry, and `1` recorded entry.
 
-Proven behavior: valid SPY one-minute OHLCV evidence exists and is chronological for the authorized March 16, 2026 session. Existing accepted SAFE-FAST paths do not map raw vendor OHLCV bars into required setup fields. The decision task concluded that a bounded accepted setup-replay mapping path should be created before retrying the three SPY opportunities, but replay/regression cases and field boundaries must be defined first.
+Proven behavior: valid SPY one-minute OHLCV evidence exists and is chronological for the authorized March 16, 2026 session. Existing accepted SAFE-FAST paths do not map raw vendor OHLCV bars into required setup fields. The regression-cases task accepted field boundaries and required cases for `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary` before any mapper implementation.
 
-Unproven behavior: no replay/regression cases are accepted yet for raw OHLCV setup mapping; no accepted raw OHLCV-to-SAFE-FAST setup replay mapper exists; no new setup-qualified candidate, trade candidate, selected contract, eligible entry, recorded entry, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
+Unproven behavior: no accepted raw OHLCV-to-SAFE-FAST setup replay mapper exists yet; no new setup-qualified candidate, trade candidate, selected contract, eligible entry, recorded entry, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
 
 Schwab status: Schwab Trader API access remains pending approval/credential configuration unless a later repo result says otherwise. No Schwab authentication, token write, endpoint call, order, account, or fill action is part of the active task.
 
-Exact next action: run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`.
+Exact next action: run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`.
 
 ## Current technical objective
 
-The active technical task is a regression-case and field-boundary definition task. It must define the exact replay/regression cases and accepted boundaries for `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary` before any mapper can be implemented.
+The active technical task is a bounded mapper implementation task. It may implement only the accepted SPY March 16, 2026 raw one-minute OHLCV setup-replay mapper and must include the accepted replay/regression cases and field boundaries for `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`.
 
-The preceding decision task decided that a bounded accepted setup-replay mapping path should be created before retrying the downloaded SPY one-minute bars. The current task must not implement that mapper, retry opportunities, request data, request options, request exit paths, or make proof/readiness claims.
+The preceding regression-cases task defined the guardrails. The current task must not request data, request options, request exit paths, infer SAFE-FAST labels directly from raw bars, weaken rules, touch production/live paths, or make proof/readiness claims.
 
 ## Real progress measurement
 
@@ -140,10 +140,10 @@ Safety rejection and positive-trade capture are equal build objectives.
 
 ## Exact current task
 
-Exact active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`.
+Exact active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`.
 
-It must define the bounded replay/regression cases and accepted field boundaries required before implementation of a raw one-minute underlying OHLCV evidence setup-replay mapping path. Covered scope is SPY March 16, 2026 only, with Ideal, Clean Fast Break, and Continuation setup families.
+It must implement only the bounded raw one-minute underlying OHLCV evidence setup-replay mapping path under the accepted regression cases and field boundaries. Covered scope is SPY March 16, 2026 only, with Ideal, Clean Fast Break, and Continuation setup families.
 
-Measurable output: a regression-case and field-boundary planning result that creates the exact next task while preserving current funnel totals and avoiding mapper implementation, opportunity retry, option requests, and exit-path requests.
+Measurable output: a bounded mapper result with focused regression coverage, exact field packages or failed fields, deterministic comparison, preserved control totals, and no data, option, exit-path, proof, readiness, paper, or live expansion.
 
 After Codex runs, the user should paste Codex's `Baseline`, `Fixed`, `Blocked`, `Next`, `Tests`, and changed-files summary.
