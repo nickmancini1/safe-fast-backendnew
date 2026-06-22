@@ -1,0 +1,524 @@
+{
+  "accepted_mapper_regression_case_count": 17,
+  "accepted_mapper_regression_cases": [
+    {
+      "case_id": "DAY50-SPY-IDEAL-POSITIVE-MAPPING",
+      "detail": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-CFB-POSITIVE-MAPPING",
+      "detail": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-CONTINUATION-POSITIVE-MAPPING",
+      "detail": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-SETUP-TIME-ROW",
+      "detail": "rejected_fields=['setup_time_row']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-OR-AMBIGUOUS-TRIGGER",
+      "detail": "rejected_fields=['trigger']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-OR-AMBIGUOUS-INVALIDATION",
+      "detail": "rejected_fields=['invalidation']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-FRESHNESS-FINAL-SIGNAL",
+      "detail": "rejected_fields=['freshness_final_signal_state']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-BLOCKER-CAUTION",
+      "detail": "rejected_fields=['blocker_caution_review']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-SAME-SESSION-BOUNDARY",
+      "detail": "same-session reset accepted with authorized March 16 RTH rows only",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-PRIOR-SESSION-CONTAMINATION",
+      "detail": "rejected_fields=['session_boundary_behavior']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-NO-HINDSIGHT",
+      "detail": "packages unchanged when future bars after decision timestamp are removed; forced future dependency rejected",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-WRONG-SYMBOL",
+      "detail": "rejected_fields=['setup_time_row']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-WRONG-WINDOW",
+      "detail": "rejected_fields=['session_boundary_behavior']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-DUPLICATE-HANDLING",
+      "detail": "rejected_fields=['setup_time_row']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-RAW-VENDOR-LABEL-REJECTION",
+      "detail": "rejected_fields=['blocker_caution_review', 'freshness_final_signal_state', 'invalidation', 'no_hindsight_boundary', 'session_boundary_behavior', 'setup_time_row', 'trigger']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-DETERMINISM",
+      "detail": "first and second mapper hashes match exactly",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-CONTROL-PRESERVATION",
+      "detail": "preserved controls remain 13 setup-qualified, 9 trade candidates, 5 selected contracts, 1 eligible entry, 1 recorded entry",
+      "status": "PASS"
+    }
+  ],
+  "after_funnel_totals": {
+    "exact_setup_time_field_packages_established": 3,
+    "new_eligible_entries": 0,
+    "new_exact_data_required_cases": 0,
+    "new_exact_generation_contract_required_cases": 3,
+    "new_exits_evaluated": 0,
+    "new_generated_candidates": 0,
+    "new_invalid_trades_allowed": 0,
+    "new_losers": 0,
+    "new_missed_valid_trades": 0,
+    "new_recorded_entries": 0,
+    "new_selected_contracts": 0,
+    "new_setup_qualified_candidates": 0,
+    "new_trade_candidates": 0,
+    "new_true_no_trades": 0,
+    "new_unresolved_cases": 0,
+    "new_valid_trades_captured": 0,
+    "new_winners": 0,
+    "raw_opportunities_mapped": 3
+  },
+  "before_funnel_totals": {
+    "exact_setup_time_field_packages_established": 3,
+    "new_eligible_entries": 0,
+    "new_exact_data_required_cases": 0,
+    "new_generated_candidates": 0,
+    "new_recorded_entries": 0,
+    "new_selected_contracts": 0,
+    "new_setup_qualified_candidates": 0,
+    "new_trade_candidates": 0,
+    "raw_opportunities_mapped": 3
+  },
+  "costed_results_by_setup_family": {
+    "Clean Fast Break": {
+      "costed_entry_exit_replay_run": false,
+      "option_or_exit_evidence_requested": false,
+      "reason": "setup did not reach trade-candidate or selected-contract status",
+      "status": "NOT_RUN_NO_TRADE_CANDIDATE"
+    },
+    "Continuation": {
+      "costed_entry_exit_replay_run": false,
+      "option_or_exit_evidence_requested": false,
+      "reason": "setup did not reach trade-candidate or selected-contract status",
+      "status": "NOT_RUN_NO_TRADE_CANDIDATE"
+    },
+    "Ideal": {
+      "costed_entry_exit_replay_run": false,
+      "option_or_exit_evidence_requested": false,
+      "reason": "setup did not reach trade-candidate or selected-contract status",
+      "status": "NOT_RUN_NO_TRADE_CANDIDATE"
+    }
+  },
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "exact_grouped_evidence_request": {
+    "blocked_setup_families": [
+      "Ideal",
+      "Clean Fast Break",
+      "Continuation"
+    ],
+    "created": false,
+    "reason": "No setup reached trade-candidate or selected-contract status, so exact option or exit-path evidence is not yet the smallest blocker.",
+    "smallest_next_repair": "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_CODEX_TASK.md"
+  },
+  "family_scorecards": {
+    "Clean Fast Break": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 0,
+      "new_exact_generation_contract_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 0,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 0,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    },
+    "Continuation": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 0,
+      "new_exact_generation_contract_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 0,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 0,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    },
+    "Ideal": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 0,
+      "new_exact_generation_contract_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 0,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 0,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    }
+  },
+  "first_run_hash": "df756115be4b63e2172330655509a0b549c25eae7fb9459d9abdbe17f589434a",
+  "generation_retry_adapter": {
+    "bridge_behavior": "accepted mapper packages are submitted to the bounded retry adapter; review-only packages are stopped before generated-candidate status",
+    "existing_generation_module": "historical_signal_replay.day50_end_to_end_raw_data_positive_entry_generation",
+    "full_trade_funnel_called_for_generated_candidates": true,
+    "funnel_output": {
+      "candidate_records": [],
+      "scorecard": {
+        "candidates_generated": 0,
+        "eligible_entries": 0,
+        "exact_data_required_cases": 0,
+        "exits_evaluated": 0,
+        "first_blockers_by_stage": {},
+        "invalid_trades_allowed": 0,
+        "losers": 0,
+        "missed_valid_trades": 0,
+        "prices_accepted": 0,
+        "recorded_entries": 0,
+        "selected_contracts": 0,
+        "setup_qualified_candidates": 0,
+        "trade_candidates": 0,
+        "true_no_trades": 0,
+        "unresolved_cases": 0,
+        "valid_trades_captured": 0,
+        "winners": 0
+      }
+    },
+    "generated_candidate_count": 0,
+    "module": "__main__"
+  },
+  "guardrails": {
+    "broker_mutation_attempted": false,
+    "live_eligible": false,
+    "paper_eligible": false,
+    "profitability_claimed": false,
+    "promotion_decision_made": false,
+    "proof_accepted": false,
+    "schwab_authenticated": false
+  },
+  "input_paths": {
+    "accepted_mapper_result": "historical_signal_replay/results/day50_raw_data_positive_entry_accepted_setup_replay_mapper.json",
+    "accepted_regression_cases": "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_RESULT.md",
+    "raw_generation_result": "historical_signal_replay/results/day50_end_to_end_raw_data_positive_entry_generation.json"
+  },
+  "next_task": {
+    "filename": "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_CODEX_TASK.md",
+    "reason": "Define the accepted contract, if any, that can promote a bounded review-only setup-time field package into a generated candidate without weakening frozen rules or using option/exit evidence."
+  },
+  "preserved_day50_controls": {
+    "closed_safety_rejections_reopened": 0,
+    "eligible_entries": 1,
+    "recorded_entries": 1,
+    "selected_contracts": 5,
+    "setup_qualified": 13,
+    "trade_candidates": 9
+  },
+  "preserved_scorecard": {
+    "INVALID_TRADE_ALLOWED": 0,
+    "LOSERS": 0,
+    "MISSED_VALID_TRADE": 0,
+    "MISSING_DATA": 6,
+    "TRUE_NO_TRADE": 4,
+    "UNRESOLVED": 4,
+    "VALID_TRADE_CAPTURED": 1,
+    "WINNERS": 1
+  },
+  "result_version": "day50_raw_data_positive_entry_mapper_to_generation_retry_v1",
+  "retry_policy": {
+    "bounded_to_day50_spy_2026_03_16": true,
+    "covered_setup_families": [
+      "Ideal",
+      "Clean Fast Break",
+      "Continuation"
+    ],
+    "developing_stage_transitions_validated": true,
+    "frozen_trading_rules_changed": false,
+    "main_py_changed": false,
+    "missing_fields_invented": false,
+    "no_hindsight_preserved": true,
+    "no_trade_preservation_validated": true,
+    "option_evidence_invented": false,
+    "paid_data_downloaded": false,
+    "processes_each_setup_family_separately": true,
+    "railway_or_deploy_changed": false,
+    "raw_vendor_bars_treated_as_safe_fast_labels": false,
+    "session_boundary_preserved": true,
+    "setup_time_boundary_frozen": true,
+    "stable_winner_selection_preserved": true,
+    "thresholds_loosened": false
+  },
+  "run_timestamp": "2026-06-22T23:10:00.410378Z",
+  "second_run_hash": "df756115be4b63e2172330655509a0b549c25eae7fb9459d9abdbe17f589434a",
+  "setup_family_retry_records": [
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_generated": false,
+      "costed_entry_exit_replay_status": "NOT_RUN_NO_TRADE_CANDIDATE",
+      "eligible_entry": false,
+      "failed_stage": "generated_candidate",
+      "failure_category": "accepted_mapper_package_review_only_not_generation_input",
+      "final_classification": "EXACT_GENERATION_CONTRACT_REQUIRED",
+      "first_stage_not_reached": "generated_candidate",
+      "generation_opportunity_before_retry": {
+        "candidate_generated": false,
+        "exact_failed_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "session_boundary_behavior",
+          "no_hindsight_boundary"
+        ],
+        "exclusion_reason": "setup_time_replay_mapping_not_established",
+        "local_evidence_status": "Exact one-minute underlying setup-time evidence is present for the authorized SPY session, but raw OHLCV rows alone do not name the accepted SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary.",
+        "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+        "required_source": "SAFE-FAST frozen local replay/calculators over acquired Databento DBEQ.BASIC / ohlcv-1m / raw_symbol evidence",
+        "setup_family": "Ideal",
+        "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "symbol": "SPY",
+        "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+        "timestamp_start": "2026-03-16T13:30:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": true
+      },
+      "highest_stage_reached": "mapped_package",
+      "mapped_package_status": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "missing_or_rejected_evidence": [
+        "accepted_candidate_generation_contract_for_review_only_mapper_package"
+      ],
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "package_id": "DAY50-SPY-IDEAL-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "raw_vendor_bars_treated_as_safe_fast_labels": false,
+      "recorded_entry": false,
+      "required_regression_protection": [
+        "all_17_accepted_mapper_cases",
+        "generation_retry_determinism",
+        "developing_stage_transitions",
+        "session_boundary_and_carry_forward",
+        "stable_winner_selection",
+        "no_trade_preservation",
+        "no_hindsight_preservation",
+        "existing_positive_entry_funnel_controls"
+      ],
+      "selected_contract": false,
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Ideal",
+      "setup_qualified": false,
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "smallest_evidence_backed_repair": "define and regression-test a bounded review-only-package-to-generated-candidate contract, or keep this package stopped before candidate generation",
+      "stage_reached": {
+        "eligible_entry": false,
+        "generated_candidate": false,
+        "mapped_package": true,
+        "recorded_entry": false,
+        "selected_contract": false,
+        "setup_qualified": false,
+        "trade_candidate": false
+      },
+      "symbol": "SPY",
+      "trade_candidate": false
+    },
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_generated": false,
+      "costed_entry_exit_replay_status": "NOT_RUN_NO_TRADE_CANDIDATE",
+      "eligible_entry": false,
+      "failed_stage": "generated_candidate",
+      "failure_category": "accepted_mapper_package_review_only_not_generation_input",
+      "final_classification": "EXACT_GENERATION_CONTRACT_REQUIRED",
+      "first_stage_not_reached": "generated_candidate",
+      "generation_opportunity_before_retry": {
+        "candidate_generated": false,
+        "exact_failed_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "session_boundary_behavior",
+          "no_hindsight_boundary"
+        ],
+        "exclusion_reason": "setup_time_replay_mapping_not_established",
+        "local_evidence_status": "Exact one-minute underlying setup-time evidence is present for the authorized SPY session, but raw OHLCV rows alone do not name the accepted SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary.",
+        "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+        "required_source": "SAFE-FAST frozen local replay/calculators over acquired Databento DBEQ.BASIC / ohlcv-1m / raw_symbol evidence",
+        "setup_family": "Clean Fast Break",
+        "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "symbol": "SPY",
+        "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+        "timestamp_start": "2026-03-16T13:30:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": true
+      },
+      "highest_stage_reached": "mapped_package",
+      "mapped_package_status": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "missing_or_rejected_evidence": [
+        "accepted_candidate_generation_contract_for_review_only_mapper_package"
+      ],
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "package_id": "DAY50-SPY-CLEAN-FAST-BREAK-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "raw_vendor_bars_treated_as_safe_fast_labels": false,
+      "recorded_entry": false,
+      "required_regression_protection": [
+        "all_17_accepted_mapper_cases",
+        "generation_retry_determinism",
+        "developing_stage_transitions",
+        "session_boundary_and_carry_forward",
+        "stable_winner_selection",
+        "no_trade_preservation",
+        "no_hindsight_preservation",
+        "existing_positive_entry_funnel_controls"
+      ],
+      "selected_contract": false,
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": false,
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "smallest_evidence_backed_repair": "define and regression-test a bounded review-only-package-to-generated-candidate contract, or keep this package stopped before candidate generation",
+      "stage_reached": {
+        "eligible_entry": false,
+        "generated_candidate": false,
+        "mapped_package": true,
+        "recorded_entry": false,
+        "selected_contract": false,
+        "setup_qualified": false,
+        "trade_candidate": false
+      },
+      "symbol": "SPY",
+      "trade_candidate": false
+    },
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_generated": false,
+      "costed_entry_exit_replay_status": "NOT_RUN_NO_TRADE_CANDIDATE",
+      "eligible_entry": false,
+      "failed_stage": "generated_candidate",
+      "failure_category": "accepted_mapper_package_review_only_not_generation_input",
+      "final_classification": "EXACT_GENERATION_CONTRACT_REQUIRED",
+      "first_stage_not_reached": "generated_candidate",
+      "generation_opportunity_before_retry": {
+        "candidate_generated": false,
+        "exact_failed_fields": [
+          "setup_time_row",
+          "trigger",
+          "invalidation",
+          "freshness_final_signal_state",
+          "blocker_caution_review",
+          "session_boundary_behavior",
+          "no_hindsight_boundary"
+        ],
+        "exclusion_reason": "setup_time_replay_mapping_not_established",
+        "local_evidence_status": "Exact one-minute underlying setup-time evidence is present for the authorized SPY session, but raw OHLCV rows alone do not name the accepted SAFE-FAST setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary.",
+        "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+        "required_source": "SAFE-FAST frozen local replay/calculators over acquired Databento DBEQ.BASIC / ohlcv-1m / raw_symbol evidence",
+        "setup_family": "Continuation",
+        "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "symbol": "SPY",
+        "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+        "timestamp_start": "2026-03-16T13:30:00.000000000Z",
+        "underlying_setup_time_evidence_supplied": true
+      },
+      "highest_stage_reached": "mapped_package",
+      "mapped_package_status": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "missing_or_rejected_evidence": [
+        "accepted_candidate_generation_contract_for_review_only_mapper_package"
+      ],
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "package_id": "DAY50-SPY-CONTINUATION-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "raw_vendor_bars_treated_as_safe_fast_labels": false,
+      "recorded_entry": false,
+      "required_regression_protection": [
+        "all_17_accepted_mapper_cases",
+        "generation_retry_determinism",
+        "developing_stage_transitions",
+        "session_boundary_and_carry_forward",
+        "stable_winner_selection",
+        "no_trade_preservation",
+        "no_hindsight_preservation",
+        "existing_positive_entry_funnel_controls"
+      ],
+      "selected_contract": false,
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Continuation",
+      "setup_qualified": false,
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "smallest_evidence_backed_repair": "define and regression-test a bounded review-only-package-to-generated-candidate contract, or keep this package stopped before candidate generation",
+      "stage_reached": {
+        "eligible_entry": false,
+        "generated_candidate": false,
+        "mapped_package": true,
+        "recorded_entry": false,
+        "selected_contract": false,
+        "setup_qualified": false,
+        "trade_candidate": false
+      },
+      "symbol": "SPY",
+      "trade_candidate": false
+    }
+  ],
+  "source_commit": "cd9d211",
+  "task": "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_CODEX_TASK.md"
+}

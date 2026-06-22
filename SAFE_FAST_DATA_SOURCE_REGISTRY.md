@@ -42,6 +42,10 @@ This registry replaces ad hoc source wording in prior result files. Older manife
 
 ## Day 50 Raw One-Minute Underlying Setup-Replay Mapping Boundary
 
+`SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_RESULT.md` confirms the next boundary after accepted mapping: the three SPY setup-time field packages are review-only packages and do not by themselves authorize generated candidates. The bounded retry processed Ideal, Clean Fast Break, and Continuation separately and stopped each before `generated_candidate` with blocker `accepted_mapper_package_review_only_not_generation_input`.
+
+No option or exit-path data is currently the smallest blocker for these three packages because no setup reached trade-candidate or selected-contract status. The smallest named repair is an accepted review-only-package-to-generated-candidate contract with regression coverage, not a data download.
+
 `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md` decides that a bounded accepted setup-replay mapping path should be created before retrying the Day 50 SPY raw-data positive-entry opportunities, but replay/regression cases and accepted field boundaries must be defined first.
 
 `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_RESULT.md` now defines the accepted field boundaries and required replay/regression cases before implementation. The only current source evidence is the acquired SPY `DBEQ.BASIC / ohlcv-1m / raw_symbol` file for `2026-03-16`. The bounded path may cover only Ideal, Clean Fast Break, and Continuation setup families for that SPY session, and only the fields `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`.

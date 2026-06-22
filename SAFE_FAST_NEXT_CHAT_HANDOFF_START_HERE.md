@@ -19,33 +19,33 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".\scripts\safe_fast_new_cha
 
 Project day and date: Day 51, 2026-06-22.
 
-Current technical checkpoint: Day 50 raw-data positive-entry accepted setup-replay regression cases and field boundaries over acquired SPY one-minute OHLCV evidence.
+Current technical checkpoint: Day 50 raw-data positive-entry mapper-to-generation retry over the accepted SPY one-minute OHLCV setup-time packages.
 
 Git status at Day 51 handoff-cleanup startup: dirty before this task. Pre-existing modified and untracked files are recorded in `SAFE_FAST_DAY51_REPO_HANDOFF_CLEANUP_RESULT.md`.
 
 Pre-existing technical package: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_RESULT.md`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md`, `historical_signal_replay/results/day50_raw_data_positive_entry_setup_time_replay_mapping.json`, `historical_signal_replay/day50_raw_data_positive_entry_setup_time_replay_mapping.py`, `watcher_foundation/day50_raw_data_positive_entry_setup_time_replay_mapping_validator.py`, `tests/test_day50_raw_data_positive_entry_setup_time_replay_mapping.py`, `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_RESULT.md`, `historical_signal_replay/day50_raw_data_positive_entry_underlying_setup_time_request.py`, `historical_signal_replay/results/day50_raw_data_positive_entry_underlying_setup_time_costed_request.json`, and the updated raw-data generator package.
 
-Exact active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`.
+Exact active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_CODEX_TASK.md`.
 
 Active task exists: yes.
 
-Exact active objective: implement the bounded raw one-minute OHLCV setup-replay mapper for the Day 50 SPY positive-entry retry under the accepted regression cases and field boundaries only.
+Exact active objective: complete the bounded Day 50 SPY mapper-to-generation retry and identify the smallest accepted repair needed before generated-candidate promotion.
 
-Current funnel totals: raw opportunities mapped `3`; exact setup-time field packages established `0`; new generated candidates `0`; new setup-qualified candidates `0`; new trade candidates `0`; new selected contracts `0`; new eligible entries `0`; new recorded entries `0`; new exact-data-required cases `3`. Existing regression controls remain separate at `13` setup-qualified, `9` trade candidates, `5` selected contracts, `1` eligible entry, and `1` recorded entry.
+Current funnel totals: raw opportunities mapped `3`; exact setup-time field packages established `3`; new generated candidates `0`; new setup-qualified candidates `0`; new trade candidates `0`; new selected contracts `0`; new eligible entries `0`; new recorded entries `0`; exact-generation-contract-required cases `3`; new exact-data-required cases `0`. Existing regression controls remain separate at `13` setup-qualified, `9` trade candidates, `5` selected contracts, `1` eligible entry, and `1` recorded entry.
 
-Proven behavior: valid SPY one-minute OHLCV evidence exists and is chronological for the authorized March 16, 2026 session. Existing accepted SAFE-FAST paths do not map raw vendor OHLCV bars into required setup fields. The regression-cases task accepted field boundaries and required cases for `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary` before any mapper implementation.
+Proven behavior: valid SPY one-minute OHLCV evidence exists and is chronological for the authorized March 16, 2026 session. The accepted mapper establishes three review-only setup-time field packages and all 17 accepted mapper regression cases pass. The mapper-to-generation retry processed Ideal, Clean Fast Break, and Continuation separately and stopped all three before `generated_candidate` because review-only packages are not accepted generation inputs.
 
-Unproven behavior: no accepted raw OHLCV-to-SAFE-FAST setup replay mapper exists yet; no new setup-qualified candidate, trade candidate, selected contract, eligible entry, recorded entry, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
+Unproven behavior: no review-only mapper package is accepted as a generated candidate; no new setup-qualified candidate, trade candidate, selected contract, eligible entry, recorded entry, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
 
 Schwab status: Schwab Trader API access remains pending approval/credential configuration unless a later repo result says otherwise. No Schwab authentication, token write, endpoint call, order, account, or fill action is part of the active task.
 
-Exact next action: run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`.
+Exact next action: create `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_CODEX_TASK.md` only if the project wants to define and regression-test a bounded contract that can promote a review-only setup-time package into a generated candidate without weakening frozen rules.
 
 ## Current technical objective
 
-The active technical task is a bounded mapper implementation task. It may implement only the accepted SPY March 16, 2026 raw one-minute OHLCV setup-replay mapper and must include the accepted replay/regression cases and field boundaries for `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`.
+The active technical task is the completed bounded mapper-to-generation retry. It processed only the accepted SPY March 16, 2026 raw one-minute OHLCV setup-time packages and preserved the accepted replay/regression cases and field boundaries for `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`.
 
-The preceding regression-cases task defined the guardrails. The current task must not request data, request options, request exit paths, infer SAFE-FAST labels directly from raw bars, weaken rules, touch production/live paths, or make proof/readiness claims.
+The current result must not be read as candidate-generation approval. A later bounded task would need to define and regression-test a review-only-package-to-generated-candidate contract before any of the three packages can advance.
 
 ## Real progress measurement
 
@@ -140,10 +140,10 @@ Safety rejection and positive-trade capture are equal build objectives.
 
 ## Exact current task
 
-Exact active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md`.
+Exact active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_CODEX_TASK.md`.
 
-It must implement only the bounded raw one-minute underlying OHLCV evidence setup-replay mapping path under the accepted regression cases and field boundaries. Covered scope is SPY March 16, 2026 only, with Ideal, Clean Fast Break, and Continuation setup families.
+It retried only the bounded raw one-minute underlying OHLCV evidence setup-time packages through the existing historical generation boundary. Covered scope is SPY March 16, 2026 only, with Ideal, Clean Fast Break, and Continuation setup families.
 
-Measurable output: a bounded mapper result with focused regression coverage, exact field packages or failed fields, deterministic comparison, preserved control totals, and no data, option, exit-path, proof, readiness, paper, or live expansion.
+Measurable output: a bounded retry result showing `3` mapped packages, `0` generated candidates, exact blocker `accepted_mapper_package_review_only_not_generation_input`, deterministic comparison, preserved control totals, and no data, option, exit-path, proof, readiness, paper, or live expansion.
 
 After Codex runs, the user should paste Codex's `Baseline`, `Fixed`, `Blocked`, `Next`, `Tests`, and changed-files summary.

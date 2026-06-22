@@ -8,6 +8,12 @@ This pipeline is project-wide. It applies to QQQ, SPY, IWM, GLD, and any setup t
 
 This document is the canonical rule document for promotion gates, falsifiable Day 90 outcomes, sample-size and coverage requirements, protected holdout rules, candidate/option-contract freeze rules, Clean Fast Break execution-realism rules, risk/capital rules, portfolio/setup-family interaction rules, data-cost ledger rules, and grouped replay/regression rules. Supporting result and task files may cite this document, but they do not replace it.
 
+## Day 50 Review-Only Mapper Package Boundary
+
+`SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_RESULT.md` confirms that the accepted SPY March 16, 2026 setup-time mapper packages are review-only field packages, not generated candidates. A package may not advance from `mapped_package` to `generated_candidate` unless a later bounded task defines and regression-tests an accepted review-only-package-to-generated-candidate contract.
+
+The current retry preserves the proof pipeline: `3` exact setup-time field packages, `0` generated candidates, `0` setup-qualified, `0` trade candidates, `0` selected contracts, `0` eligible entries, and `0` recorded entries. No option request or exit-path request is permitted until a setup reaches the relevant trade-candidate or selected-contract stage under accepted rules.
+
 ## Day 45 Bounded Sprint Rule
 
 Day 60 is a progress checkpoint, not the finish line. The build target is a profitable trading plan, and the project will not cut corners to hit a date. The project also cannot run indefinitely. The next $200 month is the final high-intensity build sprint before moving toward the $20 tier.

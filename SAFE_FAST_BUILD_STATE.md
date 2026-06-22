@@ -3,18 +3,43 @@
 <!-- SAFE_FAST_CURRENT_STATE_BEGIN -->
 - PROJECT_DAY: Day 51
 - PROJECT_DATE: 2026-06-22
-- ACTIVE_OBJECTIVE: Implement the bounded raw one-minute OHLCV setup-replay mapper for the Day 50 SPY positive-entry retry under the accepted regression cases and field boundaries only.
-- ACTIVE_TASK: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md
-- ACTIVE_TASK_PURPOSE: Bounded implementation of the accepted SPY March 16, 2026 raw OHLCV setup-replay mapper with regression coverage; no data, option, exit-path, proof, readiness, paper, or live expansion.
-- PROVEN_SUMMARY: Accepted replay/regression cases and field boundaries are now defined for the proposed Day 50 SPY raw one-minute OHLCV setup-replay mapping path; valid SPY one-minute OHLCV evidence exists and current accepted paths still establish zero setup-time field packages until the mapper is implemented and tested.
-- UNPROVEN_SUMMARY: No raw vendor bar can be treated as a SAFE-FAST label; no raw OHLCV-to-SAFE-FAST setup replay mapper has been implemented yet; no new candidate, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
-- CURRENT_FUNNEL_TOTALS: raw opportunities mapped 3; exact setup-time field packages 0; new generated candidates 0; setup-qualified 0; trade candidates 0; selected contracts 0; eligible entries 0; recorded entries 0; exact-data-required 3; preserved controls 13 setup-qualified, 9 trade candidates, 5 selected contracts, 1 eligible entry, 1 recorded entry; scorecard VALID_TRADE_CAPTURED=1, TRUE_NO_TRADE=4, MISSING_DATA=10, MISSED_VALID_TRADE=0, INVALID_TRADE_ALLOWED=0, UNRESOLVED=0, WINNERS=1, LOSERS=0.
-- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_RESULT.md; SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md; SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md; SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md; historical_signal_replay/results/day50_raw_data_positive_entry_setup_time_replay_mapping.json.
-- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_RESULT.md
+- ACTIVE_OBJECTIVE: Complete the bounded Day 50 SPY mapper-to-generation retry and identify the smallest accepted repair needed before generated-candidate promotion.
+- ACTIVE_TASK: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_CODEX_TASK.md
+- ACTIVE_TASK_PURPOSE: Bounded retry of the three accepted SPY March 16, 2026 setup-time field packages through the existing historical generation boundary; no candidate fabrication, option/exit request, proof, readiness, paper, or live expansion.
+- PROVEN_SUMMARY: The accepted mapper establishes 3 exact setup-time field packages and all 17 accepted mapper regression cases pass; the mapper-to-generation retry processed Ideal, Clean Fast Break, and Continuation separately and deterministically stopped all three before generated-candidate status because review-only field packages are not accepted generation inputs.
+- UNPROVEN_SUMMARY: No review-only mapper package is accepted as a generated candidate; no setup-qualified candidate, trade candidate, selected contract, eligible entry, recorded entry, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
+- CURRENT_FUNNEL_TOTALS: raw opportunities mapped 3; exact setup-time field packages 3; new generated candidates 0; setup-qualified 0; trade candidates 0; selected contracts 0; eligible entries 0; recorded entries 0; exact-generation-contract-required 3; exact-data-required 0; preserved controls 13 setup-qualified, 9 trade candidates, 5 selected contracts, 1 eligible entry, 1 recorded entry; scorecard VALID_TRADE_CAPTURED=1, TRUE_NO_TRADE=4, MISSING_DATA=10, MISSED_VALID_TRADE=0, INVALID_TRADE_ALLOWED=0, UNRESOLVED=0, WINNERS=1, LOSERS=0.
+- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_RESULT.md; historical_signal_replay/results/day50_raw_data_positive_entry_mapper_to_generation_retry.json; historical_signal_replay/day50_raw_data_positive_entry_mapper_to_generation_retry.py; watcher_foundation/day50_raw_data_positive_entry_mapper_to_generation_retry_validator.py; tests/test_day50_raw_data_positive_entry_mapper_to_generation_retry.py; SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_RESULT.md; historical_signal_replay/results/day50_raw_data_positive_entry_accepted_setup_replay_mapper.json.
+- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_RESULT.md
 - SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task.
 - DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md
-- NEXT_ACTION: Run SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_CODEX_TASK.md.
+- NEXT_ACTION: Create SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_CODEX_TASK.md only if the project wants to define and regression-test a bounded contract that can promote a review-only setup-time package into a generated candidate without weakening frozen rules.
 <!-- SAFE_FAST_CURRENT_STATE_END -->
+
+## Day 50 raw-data positive-entry mapper-to-generation retry result
+
+- Current task file executed: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day50_raw_data_positive_entry_mapper_to_generation_retry.json`.
+- Bounded retry bridge created: `historical_signal_replay/day50_raw_data_positive_entry_mapper_to_generation_retry.py`.
+- Focused validator created: `watcher_foundation/day50_raw_data_positive_entry_mapper_to_generation_retry_validator.py`.
+- Focused tests created: `tests/test_day50_raw_data_positive_entry_mapper_to_generation_retry.py`.
+- Covered setup families: Ideal, Clean Fast Break, and Continuation for SPY on `2026-03-16` only.
+- Accepted mapper input: `3` exact setup-time field packages and `17` accepted mapper regression cases.
+- Retry outcome: all three setup families reached `mapped_package` and stopped before `generated_candidate`.
+- Exact blocker for all three setup families: `accepted_mapper_package_review_only_not_generation_input`.
+- Smallest evidence-backed repair: define and regression-test a bounded review-only-package-to-generated-candidate contract, or keep these packages stopped before candidate generation.
+- Before retry totals: `3` exact setup-time field packages, `0` generated candidates, `0` setup-qualified, `0` trade candidates, `0` selected contracts, `0` eligible entries, `0` recorded entries.
+- After retry totals: `3` exact setup-time field packages, `0` generated candidates, `0` setup-qualified, `0` trade candidates, `0` selected contracts, `0` eligible entries, `0` recorded entries, `3` exact-generation-contract-required cases, `0` exact-data-required cases.
+- Costed entry/exit replay: not run; no setup reached trade-candidate or selected-contract status.
+- Option request created: `NO`.
+- Exit-path request created: `NO`.
+- Deterministic comparison: `PASS`.
+- Preserved controls: `13` setup-qualified, `9` trade candidates, `5` selected contracts, `1` eligible entry, `1` recorded entry.
+- Scorecard preserved: `VALID_TRADE_CAPTURED=1`, `TRUE_NO_TRADE=4`, `MISSING_DATA=10`, `MISSED_VALID_TRADE=0`, `INVALID_TRADE_ALLOWED=0`, `UNRESOLVED=0`, `WINNERS=1`, `LOSERS=0`.
+- No raw vendor bars were treated as SAFE-FAST labels; no thresholds were loosened; no missing fields, option evidence, or exit evidence were invented.
+- No Schwab authentication, broker mutation, paid-data download, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, production/live backend, broker/order/account, credential file, or `.env` change was made.
+- Exact next substantive action: create `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_CODEX_TASK.md` only if the project wants to define and regression-test a bounded candidate-generation contract for review-only setup-time packages.
 
 ## Day 50 raw-data positive-entry accepted setup-replay regression cases result
 
