@@ -1,0 +1,788 @@
+{
+  "candidate_count": 0,
+  "candidate_records": [],
+  "exact_grouped_underlying_data_request": {
+    "cost_check": {
+      "actual_billed_cost": "NOT_AVAILABLE",
+      "checked_at_utc": "2026-06-21T22:51:25.334955Z",
+      "checked_cost": "0.001370869577",
+      "credential_used": true,
+      "download_created": false,
+      "subtotal_by_symbol_and_window": [
+        {
+          "checked_cost": "0.001370869577",
+          "end_timestamp": "2026-03-16T16:00:00-04:00",
+          "start_timestamp": "2026-03-16T09:30:00-04:00",
+          "subtotal_scope": "one earliest unused full RTH development session",
+          "symbol": "SPY",
+          "timezone": "America/New_York"
+        }
+      ]
+    },
+    "created": true,
+    "dataset": "DBEQ.BASIC",
+    "downloaded": false,
+    "field_consumers": [
+      "setup_time_row",
+      "trigger",
+      "invalidation",
+      "freshness_final_signal_state",
+      "prior_completed_structure",
+      "blocker_caution_review",
+      "session_boundary_behavior",
+      "no_hindsight_boundary"
+    ],
+    "forbidden_scope": [
+      "option data",
+      "exit-path data",
+      "macro data",
+      "headline data",
+      "IV/Greeks",
+      "fills",
+      "P&L",
+      "live broker decisions"
+    ],
+    "request_id": "DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M",
+    "request_type": "underlying_setup_time_data",
+    "required_resolution": "1 minute RTH bars",
+    "schema": "ohlcv-1m",
+    "setup_family_decisions_resolved": [
+      "Ideal",
+      "Clean Fast Break",
+      "Continuation"
+    ],
+    "stype_in": "raw_symbol",
+    "symbols": [
+      "SPY"
+    ],
+    "windows": [
+      {
+        "end_timestamp": "2026-03-16T16:00:00-04:00",
+        "start_timestamp": "2026-03-16T09:30:00-04:00",
+        "subtotal_scope": "one earliest unused full RTH development session",
+        "symbol": "SPY",
+        "timezone": "America/New_York"
+      }
+    ]
+  },
+  "manifest_version": "day50_raw_data_positive_entry_candidate_manifest_v1",
+  "prior_candidate_ids_excluded": [
+    "QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-002",
+    "SPY-REAL-HISTORICAL-CLEAN-FAST-BREAK-003",
+    "first_real_gld_clean_fast_break_replay_v1_fixture",
+    "first_real_gld_continuation_replay_v1_fixture",
+    "first_real_gld_ideal_replay_v1_fixture",
+    "first_real_iwm_clean_fast_break_replay_v1_fixture",
+    "first_real_iwm_continuation_replay_v1_fixture",
+    "first_real_iwm_ideal_replay_v1_fixture",
+    "first_real_qqq_clean_fast_break_replay_v1_fixture",
+    "first_real_qqq_continuation_replay_v1_fixture",
+    "first_real_qqq_ideal_replay_v1_fixture",
+    "first_real_spy_continuation_replay_v1_fixture",
+    "second_real_spy_ideal_replay_v1_fixture",
+    "third_real_spy_clean_fast_break_replay_v1_fixture"
+  ],
+  "raw_data_inventory_summary": {
+    "option_manifest_count": 7,
+    "underlying_file_count": 11,
+    "underlying_manifest_count": 1
+  },
+  "rejected_raw_data_opportunities": [
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-GLD-IDEAL-2026-03-23T09:30:00-04:00-2026-05-20T11:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
+      "symbol": "GLD",
+      "timestamp_end": "2026-05-20T11:30:00-04:00",
+      "timestamp_start": "2026-03-23T09:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-GLD-CLEAN-FAST-BREAK-2026-03-23T09:30:00-04:00-2026-05-20T11:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
+      "symbol": "GLD",
+      "timestamp_end": "2026-05-20T11:30:00-04:00",
+      "timestamp_start": "2026-03-23T09:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-GLD-CONTINUATION-2026-03-23T09:30:00-04:00-2026-05-20T11:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_GLD_source.csv",
+      "symbol": "GLD",
+      "timestamp_end": "2026-05-20T11:30:00-04:00",
+      "timestamp_start": "2026-03-23T09:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-IWM-IDEAL-2026-03-20T09:30:00-04:00-2026-05-18T15:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+      "symbol": "IWM",
+      "timestamp_end": "2026-05-18T15:30:00-04:00",
+      "timestamp_start": "2026-03-20T09:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-IWM-CLEAN-FAST-BREAK-2026-03-20T09:30:00-04:00-2026-05-18T15:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+      "symbol": "IWM",
+      "timestamp_end": "2026-05-18T15:30:00-04:00",
+      "timestamp_start": "2026-03-20T09:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-IWM-CONTINUATION-2026-03-20T09:30:00-04:00-2026-05-18T15:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_IWM_source.csv",
+      "symbol": "IWM",
+      "timestamp_end": "2026-05-18T15:30:00-04:00",
+      "timestamp_start": "2026-03-20T09:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-QQQ-IDEAL-2026-03-16T15:30:00-04:00-2026-05-15T14:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+      "symbol": "QQQ",
+      "timestamp_end": "2026-05-15T14:30:00-04:00",
+      "timestamp_start": "2026-03-16T15:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-QQQ-CLEAN-FAST-BREAK-2026-03-16T15:30:00-04:00-2026-05-15T14:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+      "symbol": "QQQ",
+      "timestamp_end": "2026-05-15T14:30:00-04:00",
+      "timestamp_start": "2026-03-16T15:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-QQQ-CONTINUATION-2026-03-16T15:30:00-04:00-2026-05-15T14:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+      "symbol": "QQQ",
+      "timestamp_end": "2026-05-15T14:30:00-04:00",
+      "timestamp_start": "2026-03-16T15:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-03-16T09:30:00-04:00-2026-05-13T14:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-05-13T14:30:00-04:00",
+      "timestamp_start": "2026-03-16T09:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-03-16T09:30:00-04:00-2026-05-13T14:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-05-13T14:30:00-04:00",
+      "timestamp_start": "2026-03-16T09:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "1h_rth bars support context only; frozen setup trigger, invalidation, freshness/final-signal state, prior structure, blocker/caution, and session-boundary behavior require accepted finer setup-time replay rows.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-03-16T09:30:00-04:00-2026-05-13T14:30:00-04:00",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-05-13T14:30:00-04:00",
+      "timestamp_start": "2026-03-16T09:30:00-04:00"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-GLD-IDEAL-2026-05-01T20:00:00.000000000Z-2026-05-08T19:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_GLD-REPLACEMENT-IDEAL-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "GLD",
+      "timestamp_end": "2026-05-08T19:00:00.000000000Z",
+      "timestamp_start": "2026-05-01T20:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-GLD-CLEAN-FAST-BREAK-2026-05-01T20:00:00.000000000Z-2026-05-08T19:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_GLD-REPLACEMENT-IDEAL-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "GLD",
+      "timestamp_end": "2026-05-08T19:00:00.000000000Z",
+      "timestamp_start": "2026-05-01T20:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-GLD-CONTINUATION-2026-05-01T20:00:00.000000000Z-2026-05-08T19:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_GLD-REPLACEMENT-IDEAL-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "GLD",
+      "timestamp_end": "2026-05-08T19:00:00.000000000Z",
+      "timestamp_start": "2026-05-01T20:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-IWM-IDEAL-2026-04-17T20:00:00.000000000Z-2026-05-01T19:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "IWM",
+      "timestamp_end": "2026-05-01T19:00:00.000000000Z",
+      "timestamp_start": "2026-04-17T20:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-IWM-CLEAN-FAST-BREAK-2026-04-17T20:00:00.000000000Z-2026-05-01T19:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "IWM",
+      "timestamp_end": "2026-05-01T19:00:00.000000000Z",
+      "timestamp_start": "2026-04-17T20:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-IWM-CONTINUATION-2026-04-17T20:00:00.000000000Z-2026-05-01T19:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "IWM",
+      "timestamp_end": "2026-05-01T19:00:00.000000000Z",
+      "timestamp_start": "2026-04-17T20:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-IWM-IDEAL-2026-04-28T20:00:00.000000000Z-2026-05-01T19:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "IWM",
+      "timestamp_end": "2026-05-01T19:00:00.000000000Z",
+      "timestamp_start": "2026-04-28T20:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-IWM-CLEAN-FAST-BREAK-2026-04-28T20:00:00.000000000Z-2026-05-01T19:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "IWM",
+      "timestamp_end": "2026-05-01T19:00:00.000000000Z",
+      "timestamp_start": "2026-04-28T20:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-IWM-CONTINUATION-2026-04-28T20:00:00.000000000Z-2026-05-01T19:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "IWM",
+      "timestamp_end": "2026-05-01T19:00:00.000000000Z",
+      "timestamp_start": "2026-04-28T20:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-QQQ-IDEAL-2026-04-02T14:00:00.000000000Z-2026-04-02T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_QQQ-SOURCE-WINDOW-CONTINUATION-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "QQQ",
+      "timestamp_end": "2026-04-02T14:00:00.000000000Z",
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-QQQ-CLEAN-FAST-BREAK-2026-04-02T14:00:00.000000000Z-2026-04-02T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_QQQ-SOURCE-WINDOW-CONTINUATION-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "QQQ",
+      "timestamp_end": "2026-04-02T14:00:00.000000000Z",
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-QQQ-CONTINUATION-2026-04-02T14:00:00.000000000Z-2026-04-02T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_QQQ-SOURCE-WINDOW-CONTINUATION-002-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "QQQ",
+      "timestamp_end": "2026-04-02T14:00:00.000000000Z",
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-03-31T14:00:00.000000000Z-2026-03-31T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-03-31T14:00:00.000000000Z",
+      "timestamp_start": "2026-03-31T14:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-03-31T14:00:00.000000000Z-2026-03-31T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-03-31T14:00:00.000000000Z",
+      "timestamp_start": "2026-03-31T14:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-03-31T14:00:00.000000000Z-2026-03-31T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-03-31T14:00:00.000000000Z",
+      "timestamp_start": "2026-03-31T14:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-04-02T14:00:00.000000000Z-2026-04-02T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-004-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-04-02T14:00:00.000000000Z",
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-04-02T14:00:00.000000000Z-2026-04-02T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-004-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-04-02T14:00:00.000000000Z",
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-04-02T14:00:00.000000000Z-2026-04-02T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-004-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-04-02T14:00:00.000000000Z",
+      "timestamp_start": "2026-04-02T14:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-05-01T14:00:00.000000000Z-2026-05-01T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Ideal",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-005-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-05-01T14:00:00.000000000Z",
+      "timestamp_start": "2026-05-01T14:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-05-01T14:00:00.000000000Z-2026-05-01T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Clean Fast Break",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-005-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-05-01T14:00:00.000000000Z",
+      "timestamp_start": "2026-05-01T14:00:00.000000000Z"
+    },
+    {
+      "candidate_generated": false,
+      "exact_failed_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "exclusion_reason": "underlying_resolution_insufficient_for_exact_setup_trigger",
+      "local_evidence_status": "Downloaded one-hour OHLCV did not resolve accepted SAFE-FAST setup labels or setup-time trigger/invalidation/freshness decisions.",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-05-01T14:00:00.000000000Z-2026-05-01T14:00:00.000000000Z",
+      "required_source": "Databento DBEQ.BASIC / ohlcv-1m / raw_symbol plus SAFE-FAST frozen local replay/calculators",
+      "setup_family": "Continuation",
+      "source_path": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY49_OHLCV_SPY-SOURCE-WINDOW-CONTINUATION-005-DBEQ-BASIC-OHLCV-1H-RAW-SYMBOL.csv",
+      "symbol": "SPY",
+      "timestamp_end": "2026-05-01T14:00:00.000000000Z",
+      "timestamp_start": "2026-05-01T14:00:00.000000000Z"
+    }
+  ],
+  "run_timestamp": "2026-06-21T22:51:16.651446Z",
+  "source_commit": "9f02212"
+}

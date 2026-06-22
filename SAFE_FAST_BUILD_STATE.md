@@ -1,5 +1,51 @@
 # SAFE-FAST Build State
 
+## Day 50 end-to-end raw-data positive-entry generation result
+
+- Current task file executed: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CLOSED_REQUIREMENT_SCORECARD_RECONCILIATION_CODEX_TASK.md` as superseded by the user instruction to run end-to-end raw-data positive-entry generation.
+- Result document created: `SAFE_FAST_DAY50_END_TO_END_RAW_DATA_POSITIVE_ENTRY_GENERATION_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day50_end_to_end_raw_data_positive_entry_generation.json`.
+- Candidate manifest created: `historical_signal_replay/fixtures/day50_raw_data_positive_entry_candidate_manifest.json`.
+- Focused generator created: `historical_signal_replay/day50_end_to_end_raw_data_positive_entry_generation.py`.
+- Focused validator created: `watcher_foundation/day50_end_to_end_raw_data_positive_entry_generation_validator.py`.
+- Focused tests created: `tests/test_day50_end_to_end_raw_data_positive_entry_generation.py`.
+- Raw-data inventory included tracked incoming underlying CSVs and ignored local Databento underlying/option manifests.
+- Raw opportunities inspected: `33`.
+- New generated candidates: `0`.
+- New setup-qualified candidates: `0`.
+- New trade candidates: `0`.
+- New selected contracts: `0`.
+- New price-accepted candidates: `0`.
+- New eligible entries: `0`.
+- New recorded entries: `0`.
+- New exits evaluated: `0`.
+- New valid trades captured: `0`.
+- New true no-trades: `0`.
+- New exact-data-required cases: `0`.
+- New missed valid trades: `0`.
+- New invalid trades allowed: `0`.
+- New unresolved cases: `0`.
+- New winners: `0`.
+- New losers: `0`.
+- Deterministic generated-candidate funnel comparison: `PASS`; first and second outputs matched.
+- Existing regression controls preserved separately: Day 50 evidence-backed batch stayed `13` setup-qualified, `9` trade candidates, `5` selected contracts, `1` eligible entry, `1` recorded entry.
+- Exact blocker: local underlying evidence is one-hour OHLCV only for inspected windows and does not establish exact setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary required by frozen SAFE-FAST rules.
+- Exact grouped underlying request created: `DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M`.
+- Request scope: `SPY`, `2026-03-16T09:30:00-04:00` through `2026-03-16T16:00:00-04:00`, `DBEQ.BASIC / ohlcv-1m / raw_symbol`, underlying setup-time data only.
+- Checked cost: `0.001370869577`.
+- Credential used for cost check: `YES`.
+- Databento downloaded: `NO`.
+- Option request created: `NO`.
+- Exit-path request created: `NO`.
+- Actual billed cost: `NOT_AVAILABLE`.
+- Concrete completion outcome: one exact grouped, cost-checked raw-data request capable of supplying the missing setup-time evidence needed to generate complete candidates.
+- No Schwab authentication, Schwab endpoint call, Databento download, paid-data purchase approval, option request, exit-path request, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, broker/order/account, credential, `.env`, production/live backend, or frozen-threshold change was made.
+- Exact next task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_CODEX_TASK.md`.
+- Checks run so far:
+  - `python -B -m unittest discover -s tests -p "test_day50_end_to_end_raw_data_positive_entry_generation.py"`: PASS, `9` tests.
+  - `python -B -m historical_signal_replay.day50_end_to_end_raw_data_positive_entry_generation`: PASS, wrote `33` raw opportunities inspected, `0` setup-qualified, `0` trade candidates, `0` selected contracts, `0` eligible entries, `0` recorded entries, checked cost `0.001370869577`.
+  - `python -B -m watcher_foundation.day50_end_to_end_raw_data_positive_entry_generation_validator`: PASS, `0` problems.
+
 ## Day 50 positive-entry active-path requirement regression result
 
 - Current task file executed: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_REQUIREMENT_REGRESSION_CODEX_TASK.md`.

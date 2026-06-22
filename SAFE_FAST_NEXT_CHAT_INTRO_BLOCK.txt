@@ -11,19 +11,15 @@ git --no-pager status --short
 
 CURRENT DAY 50 ENTRY POINT:
 
-- Current active-path requirement regression result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_REQUIREMENT_REGRESSION_RESULT.md`
-- Current active-path requirement regression JSON: `historical_signal_replay/results/day50_positive_entry_active_path_requirement_regression.json`
-- Current active-path requirement regression builder: `historical_signal_replay/day50_positive_entry_active_path_requirement_regression.py`
-- Current active-path requirement regression tests: `tests/test_day50_positive_entry_active_path_requirement_regression.py`
-- Exact active task: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CLOSED_REQUIREMENT_SCORECARD_RECONCILIATION_CODEX_TASK.md`
-- Previous remaining evidence-gap closeout result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_REMAINING_EVIDENCE_GAP_CLOSEOUT_RESULT.md`
-- Previous remaining evidence-gap closeout JSON: `historical_signal_replay/results/day50_positive_entry_remaining_evidence_gap_closeout.json`
-- Previous active-path rule/evidence repair result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_RULE_EVIDENCE_REPAIR_RESULT.md`
-- Previous active-path rule/evidence repair JSON: `historical_signal_replay/results/day50_positive_entry_active_path_rule_evidence_repair.json`
-- Previous trade-candidate rule-gap closeout result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_TRADE_CANDIDATE_RULE_GAP_CLOSEOUT_RESULT.md`
-- Previous trade-candidate rule-gap closeout JSON: `historical_signal_replay/results/day50_positive_entry_trade_candidate_rule_gap_closeout.json`
-- Previous contract-selected missing-evidence result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_CONTRACT_SELECTED_MISSING_EVIDENCE_RESULT.md`
-- Previous contract-selected missing-evidence JSON: `historical_signal_replay/results/day50_positive_entry_contract_selected_missing_evidence.json`
+- Current raw-data positive-entry generation result: `SAFE_FAST_DAY50_END_TO_END_RAW_DATA_POSITIVE_ENTRY_GENERATION_RESULT.md`
+- Current raw-data generation JSON: `historical_signal_replay/results/day50_end_to_end_raw_data_positive_entry_generation.json`
+- Current raw-data candidate manifest: `historical_signal_replay/fixtures/day50_raw_data_positive_entry_candidate_manifest.json`
+- Current raw-data generator: `historical_signal_replay/day50_end_to_end_raw_data_positive_entry_generation.py`
+- Current raw-data validator: `watcher_foundation/day50_end_to_end_raw_data_positive_entry_generation_validator.py`
+- Current raw-data tests: `tests/test_day50_end_to_end_raw_data_positive_entry_generation.py`
+- Exact active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_CODEX_TASK.md`
+- Previous active-path requirement regression result: `SAFE_FAST_DAY50_POSITIVE_ENTRY_ACTIVE_PATH_REQUIREMENT_REGRESSION_RESULT.md`
+- Previous active-path requirement regression JSON: `historical_signal_replay/results/day50_positive_entry_active_path_requirement_regression.json`
 - Previous evidence-backed positive-entry testing batch result: `SAFE_FAST_DAY50_EVIDENCE_BACKED_POSITIVE_ENTRY_TESTING_BATCH_RESULT.md`
 - Previous evidence-backed positive-entry testing batch JSON: `historical_signal_replay/results/day50_evidence_backed_positive_entry_testing_batch.json`
 - Current canonical registry: `SAFE_FAST_DATA_SOURCE_REGISTRY.md`
@@ -32,59 +28,59 @@ CURRENT DAY 50 ENTRY POINT:
 - Machine registry: `historical_signal_replay/config/safe_fast_data_source_registry.json`
 - Resolver: `watcher_foundation/safe_fast_data_source_resolver.py`
 
+Raw-data generation facts:
+- Raw opportunities inspected: `33`.
+- New generated candidates: `0`.
+- New setup-qualified candidates: `0`.
+- New trade candidates: `0`.
+- New selected contracts: `0`.
+- New eligible entries: `0`.
+- New recorded entries: `0`.
+- New valid trades captured: `0`.
+- New true no-trades: `0`.
+- New exact-data-required cases: `0`.
+- New missed valid trades: `0`.
+- New invalid trades allowed: `0`.
+- New winners: `0`.
+- New losers: `0`.
+- Deterministic generated-candidate funnel comparison: `PASS`.
+
+Exact blocker:
+- Existing local raw underlying data is one-hour OHLCV only for inspected windows.
+- One-hour bars do not establish exact setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution state, session-boundary behavior, or no-hindsight boundary under frozen SAFE-FAST rules.
+
+Exact cost-checked request:
+- Request ID: `DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M`
+- Symbol: `SPY`
+- Window: `2026-03-16T09:30:00-04:00` through `2026-03-16T16:00:00-04:00`
+- Dataset/schema/stype: `DBEQ.BASIC / ohlcv-1m / raw_symbol`
+- Checked cost: `0.001370869577`
+- Credential used for cost check: `YES`
+- Download created: `NO`
+- Actual billed cost: `NOT_AVAILABLE`
+- Option request created: `NO`
+- Exit-path request created: `NO`
+
+Existing regression controls remain separate in the funnel scorecard:
+- Setup-qualified total: `13`
+- Trade-candidate total: `9`
+- Selected-contract total: `5`
+- Eligible-entry total: `1`
+- Recorded-entry total: `1`
+- VALID_TRADE_CAPTURED: `1`
+- TRUE_NO_TRADE: `4`
+- MISSING_DATA: `10`
+- MISSED_VALID_TRADE: `0`
+- INVALID_TRADE_ALLOWED: `0`
+- UNRESOLVED: `0`
+
 Do not report vague MISSING_DATA. Every blocker must state exact field, exact source, exact dataset/schema/API/calculator, exact timestamp window, exact reason unavailable, whether it blocks setup/trade/execution/exit or only optional context, and exact next action.
 
-Current batch facts:
-- The evidence-backed positive-entry batch tested `15` existing regression-control candidate records.
-- Setup-qualified candidates: `13`.
-- Trade candidates before/after active-path requirement regression: `9` / `9`.
-- Selected contracts before/after active-path requirement regression: `5` / `5`.
-- Eligible entries before/after active-path requirement regression: `1` / `1`.
-- Recorded entries before/after active-path requirement regression: `1` / `1`.
-- Exits evaluated: `1`.
-- Valid trades captured: `1`.
-- True no-trades: `4`.
-- Missing-data cases before/after active-path requirement regression: `6` / `10`.
-- Unresolved cases before/after active-path requirement regression: `4` / `0`.
-- Missed valid trades: `0`.
-- Invalid trades allowed: `0`.
-- Winners: `1`.
-- Losers: `0`.
-
-Active-path requirement regression facts:
-- Open active-path requirements tested: `4`.
-- Advanced to `TRADE_CANDIDATE`: `0`.
-- Permanently closed with exact failed requirement: `4`.
-- Active-path requirements open after regression: `0`.
-- Affected active-path cases selected contracts before/after regression: `0` / `0`.
-- Affected active-path cases eligible entries before/after regression: `0` / `0`.
-- Affected active-path cases recorded entries before/after regression: `0` / `0`.
-- Additional entries established: `0`.
-- GLD CFB permanently closed because `freshness_final_signal_state` remained `fresh_or_spent_unconfirmed` at `2026-05-08T15:30:00-04:00`; no accepted Clean Fast Break fresh/spent active-path rule advances it.
-- GLD Ideal permanently closed because `freshness_final_signal_state` remained `fresh_or_spent_unconfirmed` at `2026-05-08T15:30:00-04:00`; no accepted Ideal fresh/spent active-path rule advances it.
-- IWM Continuation permanently closed because `prior_completed_shelf_break_spent_state` remained `prior_completed_shelf_break_spent_TO_REVIEW` at `2026-05-01T15:30:00-04:00`; no accepted session-boundary freshness rule advances it.
-- IWM Ideal permanently closed because `freshness_final_signal_state` remained `fresh_or_spent_unconfirmed` at `2026-05-14T15:30:00-04:00`; no accepted Ideal fresh/spent active-path rule advances it.
-- QQQ Continuation selected-contract spread is closed/preserved as a local no-entry blocker from Databento `OPRA.PILLAR / tcbbo` quote-update evidence.
-- QQQ Ideal selected-contract identity remains resolved from accepted frozen evidence as `replace` / outside narrowed Ideal path; the fresh raw quote exists but does not authorize contract selection or paid option data.
-- QQQ CFB 001 remains `TRUE_NO_TRADE_REGRESSION_ONLY` and must not be rerun as a live candidate.
-
-Grouped work must preserve a funnel scorecard and keep these categories separate: VALID_TRADE_CAPTURED, TRUE_NO_TRADE, MISSING_DATA, MISSED_VALID_TRADE, INVALID_TRADE_ALLOWED, and UNRESOLVED.
-
-Current blocker status:
-- `QQQ-REAL-HISTORICAL-CLEAN-FAST-BREAK-001` is closed as `CLOSED_CONFIRMED_SAFETY_REJECTION` / `TRUE_NO_TRADE_REGRESSION_ONLY`.
-- Do not rerun QQQ CFB 001 as a live candidate.
-- Do not reopen the four closed setup-source candidates.
-- Do not replay the three rejected intake rows.
-- Do not turn rejected rows into another vague missing-data batch.
-- Do not weaken frozen rules.
-- Do not run an open-ended candidate scan.
-- Do not create another governance-only chain.
-
-Do not download paid data without an exact cost check and user approval.
+Do not weaken frozen rules, reopen closed setup-source candidates, replay rejected intake rows, rerun QQQ CFB 001 as a live candidate, request options before TRADE_CANDIDATE, request exit-path data before entry, download paid data without exact cost check and user approval, claim proof/profitability/readiness/promotion/paper/live eligibility, or touch `main.py`, Railway/deploy, production/live backend, broker/order/account, credential, or `.env` files.
 
 Correct Codex launch command for the next task:
 
-codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_POSITIVE_ENTRY_CLOSED_REQUIREMENT_SCORECARD_RECONCILIATION_CODEX_TASK.md exactly."
+codex.cmd -c 'windows.sandbox="unelevated"' --sandbox workspace-write --ask-for-approval never "Read .\SAFE_FAST_BUILD_STATE.md first, then read and execute .\SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_UNDERLYING_SETUP_TIME_COSTED_REQUEST_CODEX_TASK.md exactly."
 
 Use this format for build work:
 Baseline:
