@@ -296,6 +296,8 @@ Data-cost ledger rules defined: YES, for future paid-data governance only; centr
 
 Grouped replay/regression rules defined: YES, for governance and countability prerequisites only; no grouped replay output becomes countable until frozen candidates/contracts/rules, cost ledgers, risk ledgers, portfolio manifests, reproducible commands, fixture mapping, and preservation of loser/no-trade controls are complete and tested.
 
+Day 50 raw one-minute OHLCV setup-replay path decision defined: YES, for planning/governance only. `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md` decides that a bounded accepted setup-replay mapping path should be created before retrying the three Day 50 SPY raw-data positive-entry opportunities, but replay/regression cases and accepted field boundaries must be defined first. Covered scope is SPY on `2026-03-16`, setup families Ideal, Clean Fast Break, and Continuation, and fields `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`. No mapper is implemented and raw vendor bars still cannot be treated as SAFE-FAST labels.
+
 Proof accepted: NO.
 
 Profitability claimed: NO.

@@ -2,18 +2,20 @@
 
 ## Current Handoff System
 
-- Active objective: decide whether to create a bounded accepted SAFE-FAST setup-replay mapping path for raw one-minute underlying OHLCV evidence before retrying the Day 50 SPY raw-data positive-entry opportunities.
-- Active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_CODEX_TASK.md`.
-- Current technical result: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md`.
+- Active objective: define bounded replay/regression cases and accepted field boundaries before any raw one-minute OHLCV setup-replay mapping implementation for the Day 50 SPY positive-entry retry.
+- Active task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`.
+- Current technical result: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md`.
 - Current funnel totals: raw opportunities mapped `3`; exact setup-time field packages `0`; new setup-qualified `0`; trade candidates `0`; selected contracts `0`; eligible entries `0`; recorded entries `0`; exact-data-required `3`; preserved controls `13` setup-qualified, `9` trade candidates, `5` selected contracts, `1` eligible entry, `1` recorded entry.
 - Current handoff: `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`.
 - Current intro block: `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`.
 - Startup-status script: `scripts/safe_fast_new_chat_status.ps1`.
 - Canonical registry: `SAFE_FAST_DATA_SOURCE_REGISTRY.md`.
 - Schwab queue/reference task: `SAFE_FAST_DAY50_SCHWAB_READ_ONLY_AUTH_AND_CAPABILITY_AUDIT_CODEX_TASK.md`.
-- Next action: run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_CODEX_TASK.md`; do not request more data, option data, or exit-path data for this decision task.
+- Next action: run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`; define replay/regression cases and accepted field boundaries only, with no mapper implementation and no data, option, or exit-path request.
 
 ## Current Checkpoint
+
+- Day 50 raw-data positive-entry accepted setup-replay path decision: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md` records the planning/governance decision after the setup-time replay mapping blocker. The decision is `YES`: a bounded accepted SAFE-FAST setup-replay mapping path should be created before retrying the three Day 50 SPY raw-data positive-entry opportunities, but only after replay/regression cases and accepted field boundaries are defined. Covered setup families are Ideal, Clean Fast Break, and Continuation for SPY on March 16, 2026 only. Covered fields are `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`. Required cases before implementation include positive per-family mapping cases, missing-field rejections, session-boundary cases, no-hindsight rejection, wrong-symbol and wrong-window rejection, duplicate handling, raw-vendor-label rejection, determinism, and control preservation. No mapper was implemented; no additional data, option request, exit-path request, Schwab authentication, proof, profitability, readiness, promotion, paper/live claim, `main.py`, Railway/deploy, or production/live change was made. Exact next task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`.
 
 - Day 50 raw-data positive-entry setup-time replay mapping: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md` records the bounded mapping over the acquired Day 50 SPY one-minute underlying evidence. The mapping helper is `historical_signal_replay/day50_raw_data_positive_entry_setup_time_replay_mapping.py`, the machine-readable result is `historical_signal_replay/results/day50_raw_data_positive_entry_setup_time_replay_mapping.json`, with validator `watcher_foundation/day50_raw_data_positive_entry_setup_time_replay_mapping_validator.py` and tests `tests/test_day50_raw_data_positive_entry_setup_time_replay_mapping.py`. Exact request `DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M` was mapped using only the acquired `DBEQ.BASIC / ohlcv-1m / raw_symbol` CSV for `SPY`, `2026-03-16T09:30:00-04:00` through `2026-03-16T16:00:00-04:00`. The file has `751` chronological SPY rows with required OHLCV columns. Three setup-family opportunities were mapped, one each for Ideal, Clean Fast Break, and Continuation. No exact setup-time fields were established, and no candidates were generated: all three remain blocked by `accepted_setup_time_replay_mapping_path_absent` for `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`. Deterministic comparison passed. No additional data, option request, exit-path request, Schwab authentication, proof, profitability, readiness, promotion, paper/live claim, `main.py`, Railway/deploy, or production/live change was made. Exact next task: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_CODEX_TASK.md`.
 
@@ -161,7 +163,7 @@ Next work: do not run the CFB harness until a later task explicitly authorizes a
 
 ## Next Single Action
 
-Run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_CODEX_TASK.md`. The exact Day 50 SPY one-minute underlying setup-time evidence has been acquired, validated, and mapped through available accepted paths; all three setup-family opportunities remain blocked because no accepted raw OHLCV-to-SAFE-FAST setup replay path exists. The next bounded task is a decision/planning task for whether to create such a path with replay/regression cases first. Do not request more data, request option or exit-path data, weaken rules, infer labels from raw bars, claim proof/readiness, or touch production/live paths.
+Run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`. The decision task concluded that a bounded accepted raw one-minute OHLCV setup-replay mapping path should be created before retrying the three SPY opportunities, but only after replay/regression cases and accepted field boundaries are defined. The next bounded task is regression-case and field-boundary definition only. Do not implement the mapper, retry opportunities, request more data, request option or exit-path data, weaken rules, infer labels from raw bars, claim proof/readiness, or touch production/live paths.
 
 ## Data-Source Status
 

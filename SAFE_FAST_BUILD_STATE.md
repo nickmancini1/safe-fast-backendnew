@@ -3,18 +3,34 @@
 <!-- SAFE_FAST_CURRENT_STATE_BEGIN -->
 - PROJECT_DAY: Day 51
 - PROJECT_DATE: 2026-06-22
-- ACTIVE_OBJECTIVE: Decide whether to create a bounded accepted SAFE-FAST setup-replay mapping path for raw one-minute underlying OHLCV evidence before retrying the Day 50 SPY raw-data positive-entry opportunities.
-- ACTIVE_TASK: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_CODEX_TASK.md
-- ACTIVE_TASK_PURPOSE: Planning/governance decision for an accepted raw OHLCV setup-replay mapping path, with replay/regression cases required before implementation.
-- PROVEN_SUMMARY: Valid SPY one-minute OHLCV evidence exists for 2026-03-16 and was mapped through available accepted paths; no accepted path established setup-time row, trigger, invalidation, freshness/final-signal state, blocker/caution review, session-boundary behavior, or no-hindsight boundary.
-- UNPROVEN_SUMMARY: No raw vendor bar can be treated as a SAFE-FAST label; no raw OHLCV-to-SAFE-FAST setup replay mapper, new candidate, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
+- ACTIVE_OBJECTIVE: Define bounded replay/regression cases and accepted field boundaries before any raw one-minute OHLCV setup-replay mapping implementation for the Day 50 SPY positive-entry retry.
+- ACTIVE_TASK: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md
+- ACTIVE_TASK_PURPOSE: Planning/governance regression-case and field-boundary definition for the proposed accepted raw OHLCV setup-replay mapping path; no mapper implementation.
+- PROVEN_SUMMARY: A bounded accepted setup-replay mapping path should be created before retrying the Day 50 SPY raw-data opportunities, but only after replay/regression cases and accepted field boundaries are defined; valid SPY one-minute OHLCV evidence exists and current accepted paths still establish zero setup-time field packages.
+- UNPROVEN_SUMMARY: No raw vendor bar can be treated as a SAFE-FAST label; no replay/regression cases are accepted yet for raw OHLCV setup mapping; no raw OHLCV-to-SAFE-FAST setup replay mapper, new candidate, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
 - CURRENT_FUNNEL_TOTALS: raw opportunities mapped 3; exact setup-time field packages 0; new generated candidates 0; setup-qualified 0; trade candidates 0; selected contracts 0; eligible entries 0; recorded entries 0; exact-data-required 3; preserved controls 13 setup-qualified, 9 trade candidates, 5 selected contracts, 1 eligible entry, 1 recorded entry; scorecard VALID_TRADE_CAPTURED=1, TRUE_NO_TRADE=4, MISSING_DATA=10, MISSED_VALID_TRADE=0, INVALID_TRADE_ALLOWED=0, UNRESOLVED=0, WINNERS=1, LOSERS=0.
-- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md; historical_signal_replay/results/day50_raw_data_positive_entry_setup_time_replay_mapping.json; historical_signal_replay/day50_raw_data_positive_entry_setup_time_replay_mapping.py; watcher_foundation/day50_raw_data_positive_entry_setup_time_replay_mapping_validator.py; tests/test_day50_raw_data_positive_entry_setup_time_replay_mapping.py.
-- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md
+- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md; SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md; SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_SETUP_TIME_REPLAY_MAPPING_RESULT.md; historical_signal_replay/results/day50_raw_data_positive_entry_setup_time_replay_mapping.json.
+- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md
 - SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task.
 - DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md
-- NEXT_ACTION: Run SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_CODEX_TASK.md.
+- NEXT_ACTION: Run SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md.
 <!-- SAFE_FAST_CURRENT_STATE_END -->
+
+## Day 50 raw-data positive-entry accepted setup-replay path decision result
+
+- Current task file executed: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md`.
+- Exact next task created: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`.
+- Decision: a bounded accepted SAFE-FAST setup-replay mapping path should be created before retrying the three Day 50 SPY raw-data positive-entry opportunities, but not as a direct implementation task.
+- Required sequencing: replay/regression cases and accepted field boundaries must be defined first; only a later task may implement the mapper after those cases are accepted.
+- Covered setup families: Ideal, Clean Fast Break, and Continuation for SPY on `2026-03-16` only.
+- Covered source evidence: `historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv`, `DBEQ.BASIC / ohlcv-1m / raw_symbol`.
+- Covered fields for boundary definition: `setup_time_row`, `trigger`, `invalidation`, `freshness_final_signal_state`, `blocker_caution_review`, `session_boundary_behavior`, and `no_hindsight_boundary`.
+- Required replay/regression cases before implementation: positive Ideal, Clean Fast Break, and Continuation mapping cases; missing setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, session-boundary, no-hindsight, wrong-symbol, wrong-window, duplicate, raw-vendor-label rejection, determinism, and control-preservation cases.
+- Preserved funnel totals: raw opportunities mapped `3`; exact setup-time field packages `0`; new generated candidates `0`; setup-qualified `0`; trade candidates `0`; selected contracts `0`; eligible entries `0`; recorded entries `0`; exact-data-required `3`; preserved controls `13` setup-qualified, `9` trade candidates, `5` selected contracts, `1` eligible entry, `1` recorded entry.
+- Scorecard preserved: `VALID_TRADE_CAPTURED=1`, `TRUE_NO_TRADE=4`, `MISSING_DATA=10`, `MISSED_VALID_TRADE=0`, `INVALID_TRADE_ALLOWED=0`, `UNRESOLVED=0`, `WINNERS=1`, `LOSERS=0`.
+- Non-goals preserved: no additional data request, option request, exit-path request, mapper implementation, raw-vendor label inference, rule weakening, closed safety-rejection reopen, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, production/live backend, broker/order/account code, credentials, `.env`, Schwab authentication, or broker mutation.
+- Exact next action: run `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_REGRESSION_CASES_CODEX_TASK.md`.
 
 ## Day 50 raw-data positive-entry setup-time replay mapping result
 
