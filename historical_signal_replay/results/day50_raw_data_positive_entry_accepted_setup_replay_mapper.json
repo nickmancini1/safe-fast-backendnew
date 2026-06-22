@@ -1,0 +1,415 @@
+{
+  "after_funnel_totals": {
+    "exact_setup_time_field_packages_established": 3,
+    "new_eligible_entries": 0,
+    "new_exact_data_required_cases": 0,
+    "new_exits_evaluated": 0,
+    "new_generated_candidates": 0,
+    "new_invalid_trades_allowed": 0,
+    "new_losers": 0,
+    "new_missed_valid_trades": 0,
+    "new_price_accepted_candidates": 0,
+    "new_recorded_entries": 0,
+    "new_selected_contracts": 0,
+    "new_setup_qualified_candidates": 0,
+    "new_trade_candidates": 0,
+    "new_true_no_trades": 0,
+    "new_unresolved_cases": 0,
+    "new_valid_trades_captured": 0,
+    "new_winners": 0,
+    "raw_opportunities_mapped": 3
+  },
+  "authorized_window": {
+    "end_timestamp": "2026-03-16T16:00:00-04:00",
+    "start_timestamp": "2026-03-16T09:30:00-04:00",
+    "symbol": "SPY",
+    "timezone": "America/New_York"
+  },
+  "before_funnel_totals": {
+    "exact_setup_time_field_packages_established": 0,
+    "new_eligible_entries": 0,
+    "new_exact_data_required_cases": 3,
+    "new_generated_candidates": 0,
+    "new_recorded_entries": 0,
+    "new_selected_contracts": 0,
+    "new_setup_qualified_candidates": 0,
+    "new_trade_candidates": 0,
+    "raw_opportunities_mapped": 3
+  },
+  "dataset_schema_stype": "DBEQ.BASIC / ohlcv-1m / raw_symbol",
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "first_run_hash": "ec6bd5a9a294d023dff7c286df16b7440c365cf16bd60f54880ebe6ec90e59a6",
+  "guardrails": {
+    "broker_mutation_attempted": false,
+    "live_eligible": false,
+    "paper_eligible": false,
+    "profitability_claimed": false,
+    "promotion_decision_made": false,
+    "proof_accepted": false,
+    "schwab_authenticated": false
+  },
+  "mapper_policy": {
+    "bounded_to_day50_spy_2026_03_16": true,
+    "covered_fields": [
+      "setup_time_row",
+      "trigger",
+      "invalidation",
+      "freshness_final_signal_state",
+      "blocker_caution_review",
+      "session_boundary_behavior",
+      "no_hindsight_boundary"
+    ],
+    "covered_setup_families": [
+      "Ideal",
+      "Clean Fast Break",
+      "Continuation"
+    ],
+    "frozen_trading_rules_changed": false,
+    "main_py_changed": false,
+    "railway_or_deploy_changed": false,
+    "raw_vendor_bars_treated_as_safe_fast_labels": false,
+    "raw_vendor_label_input_rejected": true,
+    "requested_exit_path_data": false,
+    "requested_more_data": false,
+    "requested_option_data": false,
+    "source_rows_may_supply_evidence_not_labels": true,
+    "uses_accepted_local_mapper_path": true
+  },
+  "next_task": {
+    "filename": "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_CODEX_TASK.md",
+    "reason": "Rerun the Day 50 raw positive-entry generation path against this bounded accepted setup-replay mapper, without adding data, option, exit-path, proof, readiness, paper, or live scope."
+  },
+  "preserved_day50_controls": {
+    "closed_safety_rejections_reopened": 0,
+    "eligible_entries": 1,
+    "recorded_entries": 1,
+    "selected_contracts": 5,
+    "setup_qualified": 13,
+    "trade_candidates": 9
+  },
+  "preserved_scorecard": {
+    "INVALID_TRADE_ALLOWED": 0,
+    "LOSERS": 0,
+    "MISSED_VALID_TRADE": 0,
+    "MISSING_DATA": 10,
+    "TRUE_NO_TRADE": 4,
+    "UNRESOLVED": 0,
+    "VALID_TRADE_CAPTURED": 1,
+    "WINNERS": 1
+  },
+  "regression_case_results": [
+    {
+      "case_id": "DAY50-SPY-IDEAL-POSITIVE-MAPPING",
+      "detail": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-CFB-POSITIVE-MAPPING",
+      "detail": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-CONTINUATION-POSITIVE-MAPPING",
+      "detail": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-SETUP-TIME-ROW",
+      "detail": "rejected_fields=['setup_time_row']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-OR-AMBIGUOUS-TRIGGER",
+      "detail": "rejected_fields=['trigger']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-OR-AMBIGUOUS-INVALIDATION",
+      "detail": "rejected_fields=['invalidation']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-FRESHNESS-FINAL-SIGNAL",
+      "detail": "rejected_fields=['freshness_final_signal_state']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-BLOCKER-CAUTION",
+      "detail": "rejected_fields=['blocker_caution_review']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-SAME-SESSION-BOUNDARY",
+      "detail": "same-session reset accepted with authorized March 16 RTH rows only",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-PRIOR-SESSION-CONTAMINATION",
+      "detail": "rejected_fields=['session_boundary_behavior']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-NO-HINDSIGHT",
+      "detail": "packages unchanged when future bars after decision timestamp are removed; forced future dependency rejected",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-WRONG-SYMBOL",
+      "detail": "rejected_fields=['setup_time_row']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-WRONG-WINDOW",
+      "detail": "rejected_fields=['session_boundary_behavior']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-DUPLICATE-HANDLING",
+      "detail": "rejected_fields=['setup_time_row']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-RAW-VENDOR-LABEL-REJECTION",
+      "detail": "rejected_fields=['blocker_caution_review', 'freshness_final_signal_state', 'invalidation', 'no_hindsight_boundary', 'session_boundary_behavior', 'setup_time_row', 'trigger']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-DETERMINISM",
+      "detail": "first and second mapper hashes match exactly",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-CONTROL-PRESERVATION",
+      "detail": "preserved controls remain 13 setup-qualified, 9 trade candidates, 5 selected contracts, 1 eligible entry, 1 recorded entry",
+      "status": "PASS"
+    }
+  ],
+  "rejections": [],
+  "request_id": "DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M",
+  "result_version": "day50_raw_data_positive_entry_accepted_setup_replay_mapper_v1",
+  "run_timestamp": "2026-06-22T21:42:01.357253Z",
+  "second_run_hash": "ec6bd5a9a294d023dff7c286df16b7440c365cf16bd60f54880ebe6ec90e59a6",
+  "setup_family_field_packages": [
+    {
+      "accepted_mapper_path": "historical_signal_replay.day50_raw_data_positive_entry_accepted_setup_replay_mapper",
+      "accepted_source_evidence": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+      "candidate_generated": false,
+      "exact_failed_fields": [],
+      "fields": {
+        "blocker_caution_review": {
+          "source_boundary": "optional context cannot silently block without a frozen mandatory rule",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.registry_optional_context_non_blocking_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "optional_context_absent_non_blocking_under_registry_rule"
+        },
+        "freshness_final_signal_state": {
+          "source_boundary": "accepted bounded lifecycle contract for this family/session",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_lifecycle_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "fresh_final_signal_state_at_setup_time"
+        },
+        "invalidation": {
+          "source_boundary": "accepted bounded mapper rule, not repaired from later bars",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_invalidation_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "Ideal bounded accepted invalidation contract"
+        },
+        "no_hindsight_boundary": {
+          "source_boundary": "field package hash is stable with bars after decision removed",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.decision_timestamp_replay_contract",
+          "timestamp_boundary": "decision timestamp 2026-03-16T13:30:00Z",
+          "value": "future_rows_ignored_for_setup_labels"
+        },
+        "session_boundary_behavior": {
+          "source_boundary": "authorized March 16 2026 RTH session only",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.same_session_reset_contract",
+          "timestamp_boundary": "2026-03-16T09:30:00-04:00 through 2026-03-16T16:00:00-04:00",
+          "value": "same_session_reset_only_no_prior_session_carry"
+        },
+        "setup_time_row": {
+          "source_boundary": "publisher-collapsed authorized DBEQ.BASIC ohlcv-1m row, not a vendor label",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.publisher_collapsed_decision_row",
+          "timestamp_boundary": "source rows <= 2026-03-16T13:30:00Z",
+          "value": "SPY-2026-03-16T09:30:00-04:00-DBEQ.BASIC-ohlcv-1m-publisher-collapsed"
+        },
+        "trigger": {
+          "source_boundary": "accepted bounded mapper rule, not raw high/low/open/close inference",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_trigger_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "Ideal bounded accepted setup trigger contract"
+        }
+      },
+      "package_id": "DAY50-SPY-IDEAL-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "raw_vendor_bars_treated_as_safe_fast_labels": false,
+      "setup_family": "Ideal",
+      "setup_qualified": false,
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "source_publishers_used": [
+        "39",
+        "40",
+        "41"
+      ],
+      "source_rows_used_for_decision": 3,
+      "status": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "symbol": "SPY",
+      "trade_candidate": false
+    },
+    {
+      "accepted_mapper_path": "historical_signal_replay.day50_raw_data_positive_entry_accepted_setup_replay_mapper",
+      "accepted_source_evidence": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+      "candidate_generated": false,
+      "exact_failed_fields": [],
+      "fields": {
+        "blocker_caution_review": {
+          "source_boundary": "optional context cannot silently block without a frozen mandatory rule",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.registry_optional_context_non_blocking_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "optional_context_absent_non_blocking_under_registry_rule"
+        },
+        "freshness_final_signal_state": {
+          "source_boundary": "accepted bounded lifecycle contract for this family/session",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_lifecycle_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "fresh_final_signal_state_at_setup_time"
+        },
+        "invalidation": {
+          "source_boundary": "accepted bounded mapper rule, not repaired from later bars",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_invalidation_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "Clean Fast Break bounded accepted invalidation contract"
+        },
+        "no_hindsight_boundary": {
+          "source_boundary": "field package hash is stable with bars after decision removed",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.decision_timestamp_replay_contract",
+          "timestamp_boundary": "decision timestamp 2026-03-16T13:30:00Z",
+          "value": "future_rows_ignored_for_setup_labels"
+        },
+        "session_boundary_behavior": {
+          "source_boundary": "authorized March 16 2026 RTH session only",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.same_session_reset_contract",
+          "timestamp_boundary": "2026-03-16T09:30:00-04:00 through 2026-03-16T16:00:00-04:00",
+          "value": "same_session_reset_only_no_prior_session_carry"
+        },
+        "setup_time_row": {
+          "source_boundary": "publisher-collapsed authorized DBEQ.BASIC ohlcv-1m row, not a vendor label",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.publisher_collapsed_decision_row",
+          "timestamp_boundary": "source rows <= 2026-03-16T13:30:00Z",
+          "value": "SPY-2026-03-16T09:30:00-04:00-DBEQ.BASIC-ohlcv-1m-publisher-collapsed"
+        },
+        "trigger": {
+          "source_boundary": "accepted bounded mapper rule, not raw high/low/open/close inference",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_trigger_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "Clean Fast Break bounded accepted setup trigger contract"
+        }
+      },
+      "package_id": "DAY50-SPY-CLEAN-FAST-BREAK-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "raw_vendor_bars_treated_as_safe_fast_labels": false,
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": false,
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "source_publishers_used": [
+        "39",
+        "40",
+        "41"
+      ],
+      "source_rows_used_for_decision": 3,
+      "status": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "symbol": "SPY",
+      "trade_candidate": false
+    },
+    {
+      "accepted_mapper_path": "historical_signal_replay.day50_raw_data_positive_entry_accepted_setup_replay_mapper",
+      "accepted_source_evidence": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+      "candidate_generated": false,
+      "exact_failed_fields": [],
+      "fields": {
+        "blocker_caution_review": {
+          "source_boundary": "optional context cannot silently block without a frozen mandatory rule",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.registry_optional_context_non_blocking_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "optional_context_absent_non_blocking_under_registry_rule"
+        },
+        "freshness_final_signal_state": {
+          "source_boundary": "accepted bounded lifecycle contract for this family/session",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_lifecycle_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "fresh_final_signal_state_at_setup_time"
+        },
+        "invalidation": {
+          "source_boundary": "accepted bounded mapper rule, not repaired from later bars",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_invalidation_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "Continuation bounded accepted invalidation contract"
+        },
+        "no_hindsight_boundary": {
+          "source_boundary": "field package hash is stable with bars after decision removed",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.decision_timestamp_replay_contract",
+          "timestamp_boundary": "decision timestamp 2026-03-16T13:30:00Z",
+          "value": "future_rows_ignored_for_setup_labels"
+        },
+        "session_boundary_behavior": {
+          "source_boundary": "authorized March 16 2026 RTH session only",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.same_session_reset_contract",
+          "timestamp_boundary": "2026-03-16T09:30:00-04:00 through 2026-03-16T16:00:00-04:00",
+          "value": "same_session_reset_only_no_prior_session_carry"
+        },
+        "setup_time_row": {
+          "source_boundary": "publisher-collapsed authorized DBEQ.BASIC ohlcv-1m row, not a vendor label",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.publisher_collapsed_decision_row",
+          "timestamp_boundary": "source rows <= 2026-03-16T13:30:00Z",
+          "value": "SPY-2026-03-16T09:30:00-04:00-DBEQ.BASIC-ohlcv-1m-publisher-collapsed"
+        },
+        "trigger": {
+          "source_boundary": "accepted bounded mapper rule, not raw high/low/open/close inference",
+          "source_rule_path": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_trigger_contract",
+          "timestamp_boundary": "inputs <= 2026-03-16T13:30:00Z",
+          "value": "Continuation bounded accepted setup trigger contract"
+        }
+      },
+      "package_id": "DAY50-SPY-CONTINUATION-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "raw_vendor_bars_treated_as_safe_fast_labels": false,
+      "setup_family": "Continuation",
+      "setup_qualified": false,
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "source_publishers_used": [
+        "39",
+        "40",
+        "41"
+      ],
+      "source_rows_used_for_decision": 3,
+      "status": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "symbol": "SPY",
+      "trade_candidate": false
+    }
+  ],
+  "source_commit": "24ae1b1",
+  "source_csv": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+  "source_summary": {
+    "collapsed_minute_count": 390,
+    "complete_chronological_rows": true,
+    "publisher_id_set": [
+      "39",
+      "40",
+      "41"
+    ],
+    "raw_vendor_data_modified": false,
+    "required_columns_present": true,
+    "row_count": 751,
+    "symbol_set": [
+      "SPY"
+    ],
+    "timestamp_end": "2026-03-16T19:59:00.000000000Z",
+    "timestamp_start": "2026-03-16T13:30:00.000000000Z"
+  }
+}
