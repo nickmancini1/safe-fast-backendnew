@@ -60,6 +60,18 @@ class Day52FullSessionRecognitionManifestTests(unittest.TestCase):
         self.assertEqual(accounting["rejected_records"], 1167)
         self.assertEqual(accounting["blocked_missing_evidence_records"], 3)
 
+    def test_numeric_trigger_invalidation_reference_is_exact(self):
+        document = self._document()
+        summary = document["numeric_trigger_invalidation_reference"]["summary"]
+
+        self.assertEqual(summary["numeric_values_established"], 0)
+        self.assertEqual(summary["numeric_values_unresolved"], 6)
+        self.assertEqual(summary["setup_qualified_allowed_count"], 0)
+        self.assertEqual(
+            summary["by_family"]["Clean Fast Break"]["blockers"]["trigger"],
+            "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER",
+        )
+
     def test_known_window_versus_complete_session_bias_exposure(self):
         document = self._document()
         bias = document["known_window_bias_exposure"]
@@ -108,7 +120,9 @@ class Day52FullSessionRecognitionManifestTests(unittest.TestCase):
             reason_codes,
             {
                 "no_accepted_setup_signal_at_timestamp",
-                "numeric_trigger_and_invalidation_missing",
+                "NUMERIC_RULE_UNRESOLVED_IDEAL_TRIGGER__NUMERIC_RULE_UNRESOLVED_IDEAL_INVALIDATION",
+                "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER__NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_INVALIDATION",
+                "NUMERIC_RULE_UNRESOLVED_CONTINUATION_TRIGGER__NUMERIC_RULE_UNRESOLVED_CONTINUATION_INVALIDATION",
                 "duplicate_same_timestamp_publisher_row",
             },
         )
@@ -219,8 +233,10 @@ class Day52FullSessionRecognitionManifestTests(unittest.TestCase):
         self.assertEqual(len(blocked), 3)
         for record in blocked:
             self.assertEqual(record["missing_required_evidence"], ["numeric_trigger", "numeric_invalidation"])
-            self.assertIsNone(record["trigger"])
-            self.assertIsNone(record["invalidation"])
+            self.assertIsNone(record["trigger"]["numeric_value"])
+            self.assertIsNone(record["invalidation"]["numeric_value"])
+            self.assertTrue(record["trigger"]["blocker_code"].startswith("NUMERIC_RULE_UNRESOLVED_"))
+            self.assertTrue(record["invalidation"]["blocker_code"].startswith("NUMERIC_RULE_UNRESOLVED_"))
             self.assertFalse(record["stage_contract_predicates"]["setup_qualified_predicate_passed"])
 
     def test_repeated_run_determinism(self):
@@ -251,13 +267,19 @@ class Day52FullSessionRecognitionManifestTests(unittest.TestCase):
         result_path = root / "historical_signal_replay" / "results" / "test_day52_manifest.json"
         review_path = root / "historical_signal_replay" / "results" / "test_day52_review.json"
         doc_path = root / "test_day52_result.md"
+        numeric_path = root / "historical_signal_replay" / "results" / "test_day52_numeric_sidecar.json"
+        numeric_doc_path = root / "test_day52_numeric_sidecar.md"
         original_result = day52.RESULT_PATH
         original_review = day52.REVIEW_PATH
         original_doc = day52.RESULT_DOC_PATH
+        original_numeric = day52.NUMERIC_RESULT_PATH
+        original_numeric_doc = day52.NUMERIC_RESULT_DOC_PATH
         try:
             day52.RESULT_PATH = result_path
             day52.REVIEW_PATH = review_path
             day52.RESULT_DOC_PATH = doc_path
+            day52.NUMERIC_RESULT_PATH = numeric_path
+            day52.NUMERIC_RESULT_DOC_PATH = numeric_doc_path
             written = day52.write_outputs(
                 source_commit="testsha",
                 run_timestamp="2026-06-23T00:00:00Z",
@@ -268,7 +290,9 @@ class Day52FullSessionRecognitionManifestTests(unittest.TestCase):
             day52.RESULT_PATH = original_result
             day52.REVIEW_PATH = original_review
             day52.RESULT_DOC_PATH = original_doc
-            for path in (result_path, review_path, doc_path):
+            day52.NUMERIC_RESULT_PATH = original_numeric
+            day52.NUMERIC_RESULT_DOC_PATH = original_numeric_doc
+            for path in (result_path, review_path, doc_path, numeric_path, numeric_doc_path):
                 if path.exists():
                     path.unlink()
 

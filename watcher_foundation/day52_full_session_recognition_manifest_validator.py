@@ -30,6 +30,23 @@ REQUIRED_SETUP_QUALIFIED_FIELDS = {
     "session_boundary_behavior",
     "no_hindsight_boundary",
 }
+EXPECTED_NUMERIC_BLOCKERS = {
+    "Ideal": {
+        "trigger": "NUMERIC_RULE_UNRESOLVED_IDEAL_TRIGGER",
+        "invalidation": "NUMERIC_RULE_UNRESOLVED_IDEAL_INVALIDATION",
+        "combined": "NUMERIC_RULE_UNRESOLVED_IDEAL_TRIGGER__NUMERIC_RULE_UNRESOLVED_IDEAL_INVALIDATION",
+    },
+    "Clean Fast Break": {
+        "trigger": "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER",
+        "invalidation": "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_INVALIDATION",
+        "combined": "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER__NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_INVALIDATION",
+    },
+    "Continuation": {
+        "trigger": "NUMERIC_RULE_UNRESOLVED_CONTINUATION_TRIGGER",
+        "invalidation": "NUMERIC_RULE_UNRESOLVED_CONTINUATION_INVALIDATION",
+        "combined": "NUMERIC_RULE_UNRESOLVED_CONTINUATION_TRIGGER__NUMERIC_RULE_UNRESOLVED_CONTINUATION_INVALIDATION",
+    },
+}
 
 
 def validate_result_document(result_path=RESULT_PATH):
@@ -84,8 +101,19 @@ def validate_result_document(result_path=RESULT_PATH):
     transition = contracts.get("transitions", {}).get("setup_time_fields_to_setup_qualified", {})
     if set(transition.get("required_fields", [])) != REQUIRED_SETUP_QUALIFIED_FIELDS:
         problems.append("setup_qualified_required_fields_changed")
-    if transition.get("blocker_code") != "numeric_trigger_and_invalidation_missing":
+    if transition.get("blocker_code") != "family_field_specific_numeric_rule_unresolved":
         problems.append("unexpected_setup_qualified_blocker_code")
+
+    numeric_ref = result.get("numeric_trigger_invalidation_reference", {})
+    if numeric_ref.get("result_version") != "day52_numeric_trigger_invalidation_v1":
+        problems.append("missing_numeric_trigger_invalidation_reference")
+    if numeric_ref.get("deterministic_result") != "PASS":
+        problems.append("numeric_trigger_invalidation_determinism_not_pass")
+    numeric_summary = numeric_ref.get("summary", {})
+    if numeric_summary.get("numeric_values_established") != 0:
+        problems.append("numeric_values_established_unexpected")
+    if numeric_summary.get("numeric_values_unresolved") != 6:
+        problems.append("expected_six_numeric_values_unresolved")
 
     sessions = result.get("sessions", [])
     if len(sessions) != 1:
@@ -152,10 +180,18 @@ def validate_result_document(result_path=RESULT_PATH):
             problems.append("blocked_record_not_at_known_setup_time")
         if record.get("missing_required_evidence") != ["numeric_trigger", "numeric_invalidation"]:
             problems.append("blocked_record_missing_evidence_changed")
-        if record.get("exact_rejection_or_blocker_code") != "numeric_trigger_and_invalidation_missing":
+        family = record.get("setup_family")
+        expected = EXPECTED_NUMERIC_BLOCKERS.get(family, {})
+        if record.get("exact_rejection_or_blocker_code") != expected.get("combined"):
             problems.append("blocked_record_reason_changed")
-        if record.get("trigger") is not None or record.get("invalidation") is not None:
-            problems.append("blocked_record_invented_trigger_or_invalidation")
+        trigger = record.get("trigger") or {}
+        invalidation = record.get("invalidation") or {}
+        if trigger.get("blocker_code") != expected.get("trigger"):
+            problems.append(f"{family}_trigger_blocker_changed")
+        if invalidation.get("blocker_code") != expected.get("invalidation"):
+            problems.append(f"{family}_invalidation_blocker_changed")
+        if trigger.get("numeric_value") is not None or invalidation.get("numeric_value") is not None:
+            problems.append("blocked_record_invented_numeric_trigger_or_invalidation")
 
     review = result.get("setup_time_review_output", {})
     if review.get("post_cutoff_fields_excluded") is not True:

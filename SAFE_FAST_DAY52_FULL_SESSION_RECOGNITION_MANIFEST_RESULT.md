@@ -6,6 +6,8 @@
 - Machine-readable manifest: `historical_signal_replay/results/day52_full_session_recognition_manifest.json`.
 - Setup-time review output: `historical_signal_replay/results/day52_full_session_setup_time_review.json`.
 - Implementation: `historical_signal_replay/day52_full_session_recognition_manifest.py`.
+- Numeric trigger/invalidation implementation: `historical_signal_replay/day52_numeric_trigger_invalidation.py`.
+- Numeric trigger/invalidation result: `historical_signal_replay/results/day52_numeric_trigger_invalidation.json`.
 - Validator: `watcher_foundation/day52_full_session_recognition_manifest_validator.py`.
 - Focused tests: `tests/test_day52_full_session_recognition_manifest.py`.
 
@@ -17,7 +19,13 @@ The replay scans the complete SPY March 16, 2026 one-minute session, not only th
 - Clean Fast Break: rejected `389`, duplicate `361`, blocked by missing evidence `1`, setup-qualified `0`, selected winner `0`.
 - Continuation: rejected `389`, duplicate `361`, blocked by missing evidence `1`, setup-qualified `0`, selected winner `0`.
 
-The known setup timestamp remains blocked from setup-qualified advancement because the machine-enforced Day 52 predicate requires numeric trigger and numeric invalidation, and those values are still exact rule gaps in the accepted Day 51 state. Missing evidence was not converted into confidence, guessed values, or inferred approval.
+The known setup timestamp remains blocked from setup-qualified advancement because no accepted local rule binds the family trigger or invalidation contracts to numeric OHLCV fields. Missing evidence was not converted into confidence, guessed values, or inferred approval.
+
+Exact numeric blockers by family:
+
+- Ideal: trigger `NUMERIC_RULE_UNRESOLVED_IDEAL_TRIGGER`, invalidation `NUMERIC_RULE_UNRESOLVED_IDEAL_INVALIDATION`.
+- Clean Fast Break: trigger `NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER`, invalidation `NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_INVALIDATION`.
+- Continuation: trigger `NUMERIC_RULE_UNRESOLVED_CONTINUATION_TRIGGER`, invalidation `NUMERIC_RULE_UNRESOLVED_CONTINUATION_INVALIDATION`.
 
 ## Determinism
 

@@ -7,6 +7,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from historical_signal_replay import day50_raw_data_positive_entry_accepted_setup_replay_mapper
+from historical_signal_replay import day52_numeric_trigger_invalidation
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -30,6 +31,8 @@ REVIEW_PATH = (
     / "day52_full_session_setup_time_review.json"
 )
 RESULT_DOC_PATH = REPO_ROOT / "SAFE_FAST_DAY52_FULL_SESSION_RECOGNITION_MANIFEST_RESULT.md"
+NUMERIC_RESULT_PATH = day52_numeric_trigger_invalidation.RESULT_PATH
+NUMERIC_RESULT_DOC_PATH = day52_numeric_trigger_invalidation.RESULT_DOC_PATH
 
 RESULT_VERSION = "day52_full_session_recognition_manifest_v1"
 IMPLEMENTATION_VERSION = "day52_full_session_recognition_manifest_impl_v1"
@@ -85,9 +88,22 @@ def build_manifest_document(
         source_commit=source_commit,
         run_timestamp=run_timestamp,
     )
+    numeric_document = day52_numeric_trigger_invalidation.build_numeric_trigger_invalidation_document(
+        source_commit=source_commit,
+        run_timestamp=run_timestamp,
+        rows=source_rows,
+    )
+    numeric_by_family = {
+        item["setup_family"]: item for item in numeric_document["numeric_constructors"]
+    }
     stage_contracts = _stage_contracts()
     session_manifests = [
-        _scan_session(session, stage_contracts=stage_contracts, chunk_size=chunk_size)
+        _scan_session(
+            session,
+            stage_contracts=stage_contracts,
+            numeric_by_family=numeric_by_family,
+            chunk_size=chunk_size,
+        )
         for session in sessions
     ]
     records = [
@@ -177,6 +193,14 @@ def build_manifest_document(
             "numeric_trigger_status_from_day51": "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
             "numeric_invalidation_status_from_day51": "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
         },
+        "numeric_trigger_invalidation_reference": {
+            "result_version": numeric_document["result_version"],
+            "implementation_version": numeric_document["implementation_version"],
+            "result_path": "historical_signal_replay/results/day52_numeric_trigger_invalidation.json",
+            "result_doc_path": "SAFE_FAST_DAY52_NUMERIC_TRIGGER_INVALIDATION_RESULT.md",
+            "deterministic_result": numeric_document["deterministic_comparison"]["result"],
+            "summary": numeric_document["summary"],
+        },
         "sessions": session_manifests,
         "setup_time_review_output": {
             "path": "historical_signal_replay/results/day52_full_session_setup_time_review.json",
@@ -226,6 +250,10 @@ def build_manifest_document(
 
 def write_outputs(*, source_commit=None, run_timestamp=None):
     document = build_manifest_document(source_commit=source_commit, run_timestamp=run_timestamp)
+    numeric_document = day52_numeric_trigger_invalidation.build_numeric_trigger_invalidation_document(
+        source_commit=source_commit,
+        run_timestamp=run_timestamp,
+    )
     RESULT_PATH.parent.mkdir(parents=True, exist_ok=True)
     RESULT_PATH.write_text(json.dumps(document, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     REVIEW_PATH.write_text(
@@ -233,10 +261,18 @@ def write_outputs(*, source_commit=None, run_timestamp=None):
         encoding="utf-8",
     )
     RESULT_DOC_PATH.write_text(_markdown_result(document), encoding="utf-8")
+    NUMERIC_RESULT_PATH.write_text(
+        json.dumps(numeric_document, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    NUMERIC_RESULT_DOC_PATH.write_text(
+        day52_numeric_trigger_invalidation._markdown_result(numeric_document),
+        encoding="utf-8",
+    )
     return document
 
 
-def _scan_session(session, *, stage_contracts, chunk_size=None):
+def _scan_session(session, *, stage_contracts, numeric_by_family, chunk_size=None):
     rows = session["rows"]
     records = []
     grouped = defaultdict(list)
@@ -261,6 +297,7 @@ def _scan_session(session, *, stage_contracts, chunk_size=None):
                             duplicate_group_id=duplicate_group_id,
                             duplicate_sequence=sequence,
                             stage_contracts=stage_contracts,
+                            numeric_by_family=numeric_by_family,
                         )
                     )
 
@@ -305,6 +342,7 @@ def _recognition_record(
     duplicate_group_id,
     duplicate_sequence,
     stage_contracts,
+    numeric_by_family,
 ):
     is_duplicate = duplicate_sequence > 0
     is_known_setup_time = row["timestamp_utc"] == KNOWN_SETUP_UTC
@@ -319,7 +357,8 @@ def _recognition_record(
         stage_history = _stage_history(row, "duplicate", reason)
     elif is_known_setup_time:
         final_disposition = "blocked by missing evidence"
-        reason = "numeric_trigger_and_invalidation_missing"
+        numeric = numeric_by_family[family]
+        reason = numeric["combined_blocker_code"]
         missing = ["numeric_trigger", "numeric_invalidation"]
         stage_history = _stage_history(row, "blocked_missing_evidence", reason)
     else:
@@ -329,8 +368,9 @@ def _recognition_record(
         stage_history = _stage_history(row, "rejected", reason)
 
     setup_time_row = _setup_time_row(row) if is_known_setup_time else None
-    trigger = None if is_known_setup_time else None
-    invalidation = None if is_known_setup_time else None
+    numeric = numeric_by_family.get(family) if is_known_setup_time else None
+    trigger = numeric["trigger"] if numeric else None
+    invalidation = numeric["invalidation"] if numeric else None
     return {
         "candidate_id": base_id,
         "session_date": session["session_date"],
@@ -364,6 +404,7 @@ def _recognition_record(
             "setup_qualified_predicate_passed": False,
             "failed_predicates": missing or ["accepted_setup_signal_at_timestamp"],
             "illegal_stage_skipping_detected": False,
+            "numeric_constructor_status": numeric["status"] if numeric else None,
         },
         "source_row": {
             "row_hash": row["source_row_hash"],
@@ -471,7 +512,7 @@ def _stage_contracts():
             "setup_time_fields_to_setup_qualified": {
                 "predicate": "all_required_setup_qualified_fields_present_and_numeric",
                 "required_fields": list(REQUIRED_SETUP_QUALIFIED_FIELDS),
-                "blocker_code": "numeric_trigger_and_invalidation_missing",
+                "blocker_code": "family_field_specific_numeric_rule_unresolved",
             },
             "setup_qualified_to_winner_selection": {
                 "predicate": "stable_duplicate_group_economic_winner_rule",
@@ -482,7 +523,12 @@ def _stage_contracts():
         "illegal_stage_skipping_rule": "a later stage is invalid unless every prior transition status is pass",
         "stable_reason_codes": [
             "no_accepted_setup_signal_at_timestamp",
-            "numeric_trigger_and_invalidation_missing",
+            "NUMERIC_RULE_UNRESOLVED_IDEAL_TRIGGER",
+            "NUMERIC_RULE_UNRESOLVED_IDEAL_INVALIDATION",
+            "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER",
+            "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_INVALIDATION",
+            "NUMERIC_RULE_UNRESOLVED_CONTINUATION_TRIGGER",
+            "NUMERIC_RULE_UNRESOLVED_CONTINUATION_INVALIDATION",
             "duplicate_same_timestamp_publisher_row",
             "suppressed_by_stable_economic_winner",
         ],
@@ -512,8 +558,21 @@ def _equivalent_hash(*, source_rows, chunk_size=None):
     rows = _normalize_source_rows(source_rows)
     sessions = _discover_compatible_sessions(rows)
     stage_contracts = _stage_contracts()
+    numeric_document = day52_numeric_trigger_invalidation.build_numeric_trigger_invalidation_document(
+        source_commit="determinism",
+        run_timestamp="2026-06-23T00:00:00Z",
+        rows=source_rows,
+    )
+    numeric_by_family = {
+        item["setup_family"]: item for item in numeric_document["numeric_constructors"]
+    }
     session_manifests = [
-        _scan_session(session, stage_contracts=stage_contracts, chunk_size=chunk_size)
+        _scan_session(
+            session,
+            stage_contracts=stage_contracts,
+            numeric_by_family=numeric_by_family,
+            chunk_size=chunk_size,
+        )
         for session in sessions
     ]
     setup_time_review = [
@@ -743,6 +802,15 @@ def _markdown_result(document):
         )
         for family, family_counts in counts.items()
     )
+    numeric_rows = "\n".join(
+        (
+            f"- {family}: trigger `{item['blockers']['trigger']}`, invalidation "
+            f"`{item['blockers']['invalidation']}`."
+        )
+        for family, item in document["numeric_trigger_invalidation_reference"]["summary"][
+            "by_family"
+        ].items()
+    )
     return f"""# SAFE-FAST Day 52 Full-Session Recognition Manifest Result
 
 ## Scope
@@ -751,6 +819,8 @@ def _markdown_result(document):
 - Machine-readable manifest: `historical_signal_replay/results/day52_full_session_recognition_manifest.json`.
 - Setup-time review output: `historical_signal_replay/results/day52_full_session_setup_time_review.json`.
 - Implementation: `historical_signal_replay/day52_full_session_recognition_manifest.py`.
+- Numeric trigger/invalidation implementation: `historical_signal_replay/day52_numeric_trigger_invalidation.py`.
+- Numeric trigger/invalidation result: `historical_signal_replay/results/day52_numeric_trigger_invalidation.json`.
 - Validator: `watcher_foundation/day52_full_session_recognition_manifest_validator.py`.
 - Focused tests: `tests/test_day52_full_session_recognition_manifest.py`.
 
@@ -760,7 +830,11 @@ The replay scans the complete SPY March 16, 2026 one-minute session, not only th
 
 {rows}
 
-The known setup timestamp remains blocked from setup-qualified advancement because the machine-enforced Day 52 predicate requires numeric trigger and numeric invalidation, and those values are still exact rule gaps in the accepted Day 51 state. Missing evidence was not converted into confidence, guessed values, or inferred approval.
+The known setup timestamp remains blocked from setup-qualified advancement because no accepted local rule binds the family trigger or invalidation contracts to numeric OHLCV fields. Missing evidence was not converted into confidence, guessed values, or inferred approval.
+
+Exact numeric blockers by family:
+
+{numeric_rows}
 
 ## Determinism
 
