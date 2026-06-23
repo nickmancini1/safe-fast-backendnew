@@ -1,6 +1,6 @@
 # SAFE-FAST Data Source Registry
 
-Status: canonical as of Day 50.
+Status: canonical as of Day 51.
 
 Machine-readable registry: `historical_signal_replay/config/safe_fast_data_source_registry.json`.
 
@@ -40,7 +40,17 @@ This registry replaces ad hoc source wording in prior result files. Older manife
 | Timestamped headlines | Benzinga when entitled | Benzinga headline API | Optional unless a frozen rule makes it mandatory. |
 | Macro history | ALFRED | historical-vintage series values | Revised current values cannot replace vintages. |
 
+## Day 51 SPY Numeric Setup And OPRA Cost Boundary
+
+`SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_RESULT.md` is the current data-source boundary for the three setup-qualified SPY March 16, 2026 candidates. Frozen setup-time `DBEQ.BASIC / ohlcv-1m / raw_symbol` evidence establishes the setup timestamp, setup-minute OHLCV envelope, volume-weighted close, freshness deadline, no-hindsight boundary, and same-session behavior. It does not establish numeric trigger or invalidation thresholds because the accepted SAFE-FAST mapper does not bind the trigger/invalidation contracts to a numeric OHLCV field.
+
+The exact OPRA specification is Databento `OPRA.PILLAR / definition`, `OPRA.PILLAR / tcbbo`, `OPRA.PILLAR / trades`, and `OPRA.PILLAR / statistics`, constrained to SPY parent definitions at setup time, nearest DTE >= 14 expiration `2026-03-30`, entry evidence from `2026-03-16T13:30:00Z` through `2026-03-16T13:35:00Z`, and conditional selected-contract exit evidence through `2026-03-16T19:45:00Z`. The local Databento metadata cost-check path was run, but grouped cost is `NOT_AVAILABLE USD` because `SAFE_FAST_DB_AUTH` is not configured. No paid download is authorized.
+
 ## Day 50 Raw One-Minute Underlying Setup-Replay Mapping Boundary
+
+`SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_OPTION_CONTRACT_EVIDENCE_REQUEST_REVIEW_RESULT.md` is the current option-evidence boundary for the three setup-qualified SPY March 16, 2026 candidates. It inspected existing local option files/manifests under `historical_signal_replay/source_data/external_option_data_drop` and found no March 16 SPY OPRA `definition`, `tcbbo`, `trades`, or `statistics` evidence. The frozen setup trigger and invalidation fields remain accepted contract labels, not numeric option-selection values. Therefore no local selected contract, eligible entry, recorded entry, costed backtest, or net P&L is established.
+
+The exact grouped request now requires Databento `OPRA.PILLAR / definition`, `OPRA.PILLAR / tcbbo`, `OPRA.PILLAR / trades`, `OPRA.PILLAR / statistics`, selected-contract quote path through `15:45 ET`, and numeric trigger/invalidation repair before full net-P&L can be calculated. Exact local cost is `NOT_AVAILABLE` because no external Databento cost API call or paid download was authorized or run.
 
 `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_RESULT.md` confirms the next boundary after accepted mapping: the three SPY setup-time field packages satisfy the bounded contract for generated-candidate and setup-qualified status, but do not satisfy the trade-candidate contract. The bounded contract processed Ideal, Clean Fast Break, and Continuation separately and stopped each before `trade_candidate` with blocker `selected_contract_option_evidence_missing`.
 

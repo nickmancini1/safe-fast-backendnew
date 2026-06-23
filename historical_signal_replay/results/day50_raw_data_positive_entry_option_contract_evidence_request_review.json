@@ -1,0 +1,2030 @@
+{
+  "accepted_mapper_regression_case_count": 17,
+  "after_funnel_totals": {
+    "exact_setup_time_field_packages_established": 3,
+    "new_eligible_entries": 0,
+    "new_exact_data_required_cases": 3,
+    "new_exact_option_contract_evidence_required_cases": 3,
+    "new_exits_evaluated": 0,
+    "new_generated_candidates": 3,
+    "new_invalid_trades_allowed": 0,
+    "new_losers": 0,
+    "new_missed_valid_trades": 0,
+    "new_recorded_entries": 0,
+    "new_selected_contracts": 0,
+    "new_setup_qualified_candidates": 3,
+    "new_trade_candidates": 0,
+    "new_true_no_trades": 0,
+    "new_unresolved_cases": 0,
+    "new_valid_trades_captured": 0,
+    "new_winners": 0,
+    "raw_opportunities_mapped": 3
+  },
+  "costed_results_by_setup_family": {
+    "Clean Fast Break": {
+      "ask": null,
+      "bid": null,
+      "commissions": null,
+      "costed_entry_exit_replay_run": false,
+      "eligible_entry": false,
+      "entry_price": null,
+      "execution_delay_seconds": null,
+      "exit_price": null,
+      "exit_rule": null,
+      "exit_time": null,
+      "fees": null,
+      "fill_assumption": null,
+      "gross_pnl": null,
+      "holding_duration_seconds": null,
+      "intended_entry_time": "2026-03-16T13:30:00Z",
+      "midpoint": null,
+      "net_pnl": null,
+      "quote_age_seconds": null,
+      "reason": "selected contract and exact entry/exit evidence are not locally established",
+      "recorded_entry": false,
+      "signal_time": "2026-03-16T13:30:00Z",
+      "simulated_entry_time": null,
+      "slippage": null,
+      "spread": null,
+      "spread_cost": null,
+      "status": "NOT_RUN_NO_SELECTED_CONTRACT"
+    },
+    "Continuation": {
+      "ask": null,
+      "bid": null,
+      "commissions": null,
+      "costed_entry_exit_replay_run": false,
+      "eligible_entry": false,
+      "entry_price": null,
+      "execution_delay_seconds": null,
+      "exit_price": null,
+      "exit_rule": null,
+      "exit_time": null,
+      "fees": null,
+      "fill_assumption": null,
+      "gross_pnl": null,
+      "holding_duration_seconds": null,
+      "intended_entry_time": "2026-03-16T13:30:00Z",
+      "midpoint": null,
+      "net_pnl": null,
+      "quote_age_seconds": null,
+      "reason": "selected contract and exact entry/exit evidence are not locally established",
+      "recorded_entry": false,
+      "signal_time": "2026-03-16T13:30:00Z",
+      "simulated_entry_time": null,
+      "slippage": null,
+      "spread": null,
+      "spread_cost": null,
+      "status": "NOT_RUN_NO_SELECTED_CONTRACT"
+    },
+    "Ideal": {
+      "ask": null,
+      "bid": null,
+      "commissions": null,
+      "costed_entry_exit_replay_run": false,
+      "eligible_entry": false,
+      "entry_price": null,
+      "execution_delay_seconds": null,
+      "exit_price": null,
+      "exit_rule": null,
+      "exit_time": null,
+      "fees": null,
+      "fill_assumption": null,
+      "gross_pnl": null,
+      "holding_duration_seconds": null,
+      "intended_entry_time": "2026-03-16T13:30:00Z",
+      "midpoint": null,
+      "net_pnl": null,
+      "quote_age_seconds": null,
+      "reason": "selected contract and exact entry/exit evidence are not locally established",
+      "recorded_entry": false,
+      "signal_time": "2026-03-16T13:30:00Z",
+      "simulated_entry_time": null,
+      "slippage": null,
+      "spread": null,
+      "spread_cost": null,
+      "status": "NOT_RUN_NO_SELECTED_CONTRACT"
+    }
+  },
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "exact_grouped_evidence_request": {
+    "cost_check": {
+      "actual_billed_cost": "NOT_AVAILABLE",
+      "attempted": true,
+      "checked_cost": "NOT_AVAILABLE",
+      "credential_used": false,
+      "downloaded": false,
+      "exact_estimated_cost": "NOT_AVAILABLE",
+      "external_cost_api_called": false,
+      "reason": "Exact Databento cost cannot be computed from local files alone; network access and paid-data download are not authorized in this task run."
+    },
+    "created": true,
+    "downloaded": false,
+    "request_type": "option_contract_selection_and_costed_backtest_evidence",
+    "requests": [
+      {
+        "approval_would_enable": [
+          "family_selector_review",
+          "entry_replay",
+          "exit_replay",
+          "full_net_pnl_calculation"
+        ],
+        "current_local_blocking_reasons": [
+          "no_accepted_local_selector_for_setup_family",
+          "numeric_trigger_missing_for_strike_selection",
+          "numeric_invalidation_missing_for_entry_exit_replay",
+          "local_march16_option_evidence_missing",
+          "no_setup_time_candidate_contracts_from_local_evidence"
+        ],
+        "dataset": "OPRA.PILLAR",
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "entry_exit_evidence_required": {
+          "entry_window_end_utc": "2026-03-16T13:35:00Z",
+          "entry_window_start_utc": "2026-03-16T13:30:00Z",
+          "exit_window_end_utc": "2026-03-16T19:45:00Z",
+          "required_fields": [
+            "definition instrument_id/raw_symbol/expiration/strike/right",
+            "setup-safe bid/ask/midpoint/spread/bid_size/ask_size",
+            "quote ts_event/ts_recv",
+            "setup-safe trades/volume",
+            "setup-safe open_interest/statistics",
+            "selected-contract quote path through accepted exit boundary"
+          ]
+        },
+        "exact_blocker_scope": "numeric_trigger_missing_for_strike_selection",
+        "exact_contract_identifier": "NOT_DERIVABLE_FROM_LOCAL_EVIDENCE",
+        "exact_estimated_cost": "NOT_AVAILABLE",
+        "intended_expiration_strike_right_or_selection_range": {
+          "expiration": "nearest listed expiration with DTE >= 14 when an accepted selector applies",
+          "right": "REQUIRES_ACCEPTED_FAMILY_SELECTOR",
+          "selection_range": "SPY OPRA contracts discoverable at setup time only",
+          "strike": "first call strike at or above numeric trigger when numeric trigger is established"
+        },
+        "schemas": [
+          "definition",
+          "tcbbo",
+          "trades",
+          "statistics"
+        ],
+        "setup_family": "Ideal",
+        "signal_timestamp_utc": "2026-03-16T13:30:00Z",
+        "spy_setup_timestamp": "2026-03-16T09:30:00-04:00",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "stype_in": "raw_symbol"
+      },
+      {
+        "approval_would_enable": [
+          "contract_selection",
+          "entry_replay",
+          "exit_replay",
+          "full_net_pnl_calculation"
+        ],
+        "current_local_blocking_reasons": [
+          "numeric_trigger_missing_for_strike_selection",
+          "numeric_invalidation_missing_for_entry_exit_replay",
+          "local_march16_option_evidence_missing",
+          "no_setup_time_candidate_contracts_from_local_evidence"
+        ],
+        "dataset": "OPRA.PILLAR",
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "entry_exit_evidence_required": {
+          "entry_window_end_utc": "2026-03-16T13:35:00Z",
+          "entry_window_start_utc": "2026-03-16T13:30:00Z",
+          "exit_window_end_utc": "2026-03-16T19:45:00Z",
+          "required_fields": [
+            "definition instrument_id/raw_symbol/expiration/strike/right",
+            "setup-safe bid/ask/midpoint/spread/bid_size/ask_size",
+            "quote ts_event/ts_recv",
+            "setup-safe trades/volume",
+            "setup-safe open_interest/statistics",
+            "selected-contract quote path through accepted exit boundary"
+          ]
+        },
+        "exact_blocker_scope": "numeric_trigger_missing_for_strike_selection",
+        "exact_contract_identifier": "NOT_DERIVABLE_FROM_LOCAL_EVIDENCE",
+        "exact_estimated_cost": "NOT_AVAILABLE",
+        "intended_expiration_strike_right_or_selection_range": {
+          "expiration": "nearest listed expiration with DTE >= 14 when an accepted selector applies",
+          "right": "C",
+          "selection_range": "SPY OPRA contracts discoverable at setup time only",
+          "strike": "first call strike at or above numeric trigger when numeric trigger is established"
+        },
+        "schemas": [
+          "definition",
+          "tcbbo",
+          "trades",
+          "statistics"
+        ],
+        "setup_family": "Clean Fast Break",
+        "signal_timestamp_utc": "2026-03-16T13:30:00Z",
+        "spy_setup_timestamp": "2026-03-16T09:30:00-04:00",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "stype_in": "raw_symbol"
+      },
+      {
+        "approval_would_enable": [
+          "family_selector_review",
+          "entry_replay",
+          "exit_replay",
+          "full_net_pnl_calculation"
+        ],
+        "current_local_blocking_reasons": [
+          "no_accepted_local_selector_for_setup_family",
+          "numeric_trigger_missing_for_strike_selection",
+          "numeric_invalidation_missing_for_entry_exit_replay",
+          "local_march16_option_evidence_missing",
+          "no_setup_time_candidate_contracts_from_local_evidence"
+        ],
+        "dataset": "OPRA.PILLAR",
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "entry_exit_evidence_required": {
+          "entry_window_end_utc": "2026-03-16T13:35:00Z",
+          "entry_window_start_utc": "2026-03-16T13:30:00Z",
+          "exit_window_end_utc": "2026-03-16T19:45:00Z",
+          "required_fields": [
+            "definition instrument_id/raw_symbol/expiration/strike/right",
+            "setup-safe bid/ask/midpoint/spread/bid_size/ask_size",
+            "quote ts_event/ts_recv",
+            "setup-safe trades/volume",
+            "setup-safe open_interest/statistics",
+            "selected-contract quote path through accepted exit boundary"
+          ]
+        },
+        "exact_blocker_scope": "numeric_trigger_missing_for_strike_selection",
+        "exact_contract_identifier": "NOT_DERIVABLE_FROM_LOCAL_EVIDENCE",
+        "exact_estimated_cost": "NOT_AVAILABLE",
+        "intended_expiration_strike_right_or_selection_range": {
+          "expiration": "nearest listed expiration with DTE >= 14 when an accepted selector applies",
+          "right": "REQUIRES_ACCEPTED_FAMILY_SELECTOR",
+          "selection_range": "SPY OPRA contracts discoverable at setup time only",
+          "strike": "first call strike at or above numeric trigger when numeric trigger is established"
+        },
+        "schemas": [
+          "definition",
+          "tcbbo",
+          "trades",
+          "statistics"
+        ],
+        "setup_family": "Continuation",
+        "signal_timestamp_utc": "2026-03-16T13:30:00Z",
+        "spy_setup_timestamp": "2026-03-16T09:30:00-04:00",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "stype_in": "raw_symbol"
+      }
+    ]
+  },
+  "execution_scope": {
+    "bounded_to_day50_spy_2026_03_16": true,
+    "broker_or_account_or_order_touched": false,
+    "covered_setup_families": [
+      "Ideal",
+      "Clean Fast Break",
+      "Continuation"
+    ],
+    "credentials_or_env_changed": false,
+    "external_cost_api_called": false,
+    "frozen_patch8_thresholds_changed": false,
+    "live_eligible": false,
+    "local_option_evidence_only": true,
+    "main_py_changed": false,
+    "paid_data_downloaded": false,
+    "paper_eligible": false,
+    "processes_each_setup_family_separately": true,
+    "profitability_claimed": false,
+    "railway_or_deploy_changed": false
+  },
+  "family_scorecards": {
+    "Clean Fast Break": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 1,
+      "new_exact_option_contract_evidence_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 1,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 1,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    },
+    "Continuation": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 1,
+      "new_exact_option_contract_evidence_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 1,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 1,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    },
+    "Ideal": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 1,
+      "new_exact_option_contract_evidence_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 1,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 1,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    }
+  },
+  "first_run_hash": "2ee1e988673883b9ae526a5e1608bf272e151a48ff71e8057264fe022498f5b1",
+  "guardrails": {
+    "broker_mutation_attempted": false,
+    "live_eligible": false,
+    "paper_eligible": false,
+    "profitability_claimed": false,
+    "promotion_decision_made": false,
+    "proof_accepted": false,
+    "schwab_authenticated": false
+  },
+  "input_paths": {
+    "local_option_data_dir": "historical_signal_replay/source_data/external_option_data_drop",
+    "package_to_candidate_result": "historical_signal_replay/results/day50_raw_data_positive_entry_review_only_package_to_candidate_contract.json",
+    "underlying_source_csv": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv"
+  },
+  "local_option_evidence_inventory": {
+    "directory": "historical_signal_replay/source_data/external_option_data_drop",
+    "exists": true,
+    "file_count": 102,
+    "files": [
+      {
+        "byte_count": 98,
+        "mentions_march16_in_name": false,
+        "name": ".gitignore",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/.gitignore",
+        "suffix": ""
+      },
+      {
+        "byte_count": 2292,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_2026-04-13_download_manifest.json",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_2026-04-13_download_manifest.json",
+        "suffix": ".json"
+      },
+      {
+        "byte_count": 4420147,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_definitions_2026_04_10_parent.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_definitions_2026_04_10_parent.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 325218,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_definitions_2026_04_10_parent.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_definitions_2026_04_10_parent.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 4649118,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_definitions_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_definitions_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 328057,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_definitions_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_definitions_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 118024070,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_statistics_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_statistics_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 3747829,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_statistics_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_statistics_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 4616967,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_tcbbo_1225_1235_et.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_tcbbo_1225_1235_et.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 813080,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_tcbbo_1225_1235_et.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_tcbbo_1225_1235_et.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 139,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_top_contract_1023411456_statistics_0930_1230_et.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_statistics_0930_1230_et.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 99,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_top_contract_1023411456_statistics_0930_1230_et.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_statistics_0930_1230_et.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 4065,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_top_contract_1023411456_tcbbo_0930_1230_et.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_tcbbo_0930_1230_et.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 1246,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_top_contract_1023411456_tcbbo_0930_1230_et.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_tcbbo_0930_1230_et.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 807,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_top_contract_1023411456_tcbbo_0930_1230_et_manifest.json",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_tcbbo_0930_1230_et_manifest.json",
+        "suffix": ".json"
+      },
+      {
+        "byte_count": 3293,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_top_contract_1023411456_trades_0930_1230_et.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_trades_0930_1230_et.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 863,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_top_contract_1023411456_trades_0930_1230_et.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_trades_0930_1230_et.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 1218,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_top_contract_1023411456_trades_statistics_0930_1230_et_manifest.json",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_trades_statistics_0930_1230_et_manifest.json",
+        "suffix": ".json"
+      },
+      {
+        "byte_count": 3867578,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_trades_1225_1235_et.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_trades_1225_1235_et.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 596747,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_OPRA_trades_1225_1235_et.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_trades_1225_1235_et.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 5053246,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_CONTINUATION_001_definitions_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_definitions_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 408408,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_CONTINUATION_001_definitions_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_definitions_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 128962407,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_CONTINUATION_001_statistics_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_statistics_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 4251990,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_CONTINUATION_001_statistics_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_statistics_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 2241665,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 449764,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 1888243,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 342337,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 5287740,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_IDEAL_001_definitions_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_definitions_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 427116,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_IDEAL_001_definitions_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_definitions_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 133728951,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_IDEAL_001_statistics_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_statistics_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 4356736,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_IDEAL_001_statistics_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_statistics_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 3266364,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_IDEAL_001_tcbbo_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_tcbbo_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 638132,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_IDEAL_001_tcbbo_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_tcbbo_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 2746721,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_IDEAL_001_trades_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_trades_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 469779,
+        "mentions_march16_in_name": false,
+        "name": "QQQ_REAL_HISTORICAL_IDEAL_001_trades_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_REAL_HISTORICAL_IDEAL_001_trades_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 1347,
+        "mentions_march16_in_name": false,
+        "name": "README.md",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/README.md",
+        "suffix": ".md"
+      },
+      {
+        "byte_count": 13196,
+        "mentions_march16_in_name": false,
+        "name": "SAFE_FAST_CHEAP_STARTER_DATABENTO_DOWNLOAD_MANIFEST.json",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_CHEAP_STARTER_DATABENTO_DOWNLOAD_MANIFEST.json",
+        "suffix": ".json"
+      },
+      {
+        "byte_count": 6797,
+        "mentions_march16_in_name": false,
+        "name": "SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_MANIFEST.json",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_MANIFEST.json",
+        "suffix": ".json"
+      },
+      {
+        "byte_count": 1467,
+        "mentions_march16_in_name": false,
+        "name": "SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 519,
+        "mentions_march16_in_name": false,
+        "name": "SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 1198,
+        "mentions_march16_in_name": false,
+        "name": "SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 389,
+        "mentions_march16_in_name": false,
+        "name": "SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 3751,
+        "mentions_march16_in_name": false,
+        "name": "SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 1025,
+        "mentions_march16_in_name": false,
+        "name": "SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 3098,
+        "mentions_march16_in_name": false,
+        "name": "SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 724,
+        "mentions_march16_in_name": false,
+        "name": "SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_DAY49_SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 6094062,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_definitions_utc_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_definitions_utc_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 422799,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_definitions_utc_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_definitions_utc_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 1191,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_selected_contract_exit_path_manifest.json",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_selected_contract_exit_path_manifest.json",
+        "suffix": ".json"
+      },
+      {
+        "byte_count": 9625,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_selected_contract_tcbbo_entry_to_1545_et.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_selected_contract_tcbbo_entry_to_1545_et.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 2342,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_selected_contract_tcbbo_entry_to_1545_et.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_selected_contract_tcbbo_entry_to_1545_et.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 7806,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_selected_contract_trades_entry_to_1545_et.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_selected_contract_trades_entry_to_1545_et.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 1716,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_selected_contract_trades_entry_to_1545_et.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_selected_contract_trades_entry_to_1545_et.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 154378590,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_statistics_utc_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_statistics_utc_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 4873218,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_statistics_utc_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_statistics_utc_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 8787356,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_tcbbo_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_tcbbo_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 1463976,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_tcbbo_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_tcbbo_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 0,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_002_trades_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_trades_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 10000,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_003_selected_contract_download_manifest.json",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_download_manifest.json",
+        "suffix": ".json"
+      },
+      {
+        "byte_count": 13582,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_003_selected_contract_statistics_signal_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_statistics_signal_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 840,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_003_selected_contract_statistics_signal_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_statistics_signal_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 12697,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_003_selected_contract_tcbbo_open_to_signal.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_tcbbo_open_to_signal.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 2713,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_003_selected_contract_tcbbo_open_to_signal.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_tcbbo_open_to_signal.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 4215,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_003_selected_contract_tcbbo_signal_to_1545_et.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_tcbbo_signal_to_1545_et.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 954,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_003_selected_contract_tcbbo_signal_to_1545_et.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_tcbbo_signal_to_1545_et.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 10583,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_003_selected_contract_trades_open_to_signal.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_trades_open_to_signal.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 1886,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_003_selected_contract_trades_open_to_signal.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_trades_open_to_signal.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 3529,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_003_selected_contract_trades_signal_to_1545_et.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_trades_signal_to_1545_et.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 687,
+        "mentions_march16_in_name": false,
+        "name": "SPY_CFB_003_selected_contract_trades_signal_to_1545_et.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_trades_signal_to_1545_et.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 6094062,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_definitions_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_definitions_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 489558,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_definitions_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_definitions_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 154378590,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_statistics_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_statistics_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 4940070,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_statistics_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_statistics_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 8787356,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_tcbbo_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_tcbbo_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 1463943,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_tcbbo_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_tcbbo_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 7327278,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_trades_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_trades_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 1069148,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_trades_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_002_trades_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 6108622,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_definitions_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_definitions_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 486199,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_definitions_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_definitions_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 156349307,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_statistics_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_statistics_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 5047373,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_statistics_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_statistics_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 4379496,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_tcbbo_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_tcbbo_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 782186,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_tcbbo_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_tcbbo_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 3653105,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_trades_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_trades_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 585684,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_trades_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CLEAN_FAST_BREAK_003_trades_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 5890018,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CONTINUATION_001_definitions_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_definitions_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 478143,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CONTINUATION_001_definitions_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_definitions_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 150131251,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CONTINUATION_001_statistics_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_statistics_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 4862393,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CONTINUATION_001_statistics_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_statistics_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 2230302,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 470741,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_tcbbo_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 1857732,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 359970,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_CONTINUATION_001_trades_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 6191496,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_IDEAL_001_definitions_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_IDEAL_001_definitions_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 498661,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_IDEAL_001_definitions_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_IDEAL_001_definitions_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 155942080,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_IDEAL_001_statistics_full_day.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_IDEAL_001_statistics_full_day.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 4969489,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_IDEAL_001_statistics_full_day.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_IDEAL_001_statistics_full_day.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 3924564,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_IDEAL_001_tcbbo_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_IDEAL_001_tcbbo_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 716295,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_IDEAL_001_tcbbo_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_IDEAL_001_tcbbo_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      },
+      {
+        "byte_count": 3262716,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_IDEAL_001_trades_signal_10min.csv",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_IDEAL_001_trades_signal_10min.csv",
+        "suffix": ".csv"
+      },
+      {
+        "byte_count": 538262,
+        "mentions_march16_in_name": false,
+        "name": "SPY_REAL_HISTORICAL_IDEAL_001_trades_signal_10min.dbn.zst",
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_REAL_HISTORICAL_IDEAL_001_trades_signal_10min.dbn.zst",
+        "suffix": ".zst"
+      }
+    ],
+    "has_march16_spy_opra_evidence": false,
+    "manifest_march16_requests": [],
+    "manifests": [
+      {
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_2026-04-13_download_manifest.json",
+        "readable_json": true,
+        "request_count": 4,
+        "requests": [
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "definition",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "tcbbo",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "trades",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "statistics",
+            "start_timestamp_utc": null
+          }
+        ],
+        "schema_version": null
+      },
+      {
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_tcbbo_0930_1230_et_manifest.json",
+        "readable_json": true,
+        "request_count": 0,
+        "requests": [],
+        "schema_version": null
+      },
+      {
+        "path": "historical_signal_replay/source_data/external_option_data_drop/QQQ_OPRA_top_contract_1023411456_trades_statistics_0930_1230_et_manifest.json",
+        "readable_json": true,
+        "request_count": 2,
+        "requests": [
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "trades",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "statistics",
+            "start_timestamp_utc": null
+          }
+        ],
+        "schema_version": null
+      },
+      {
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_CHEAP_STARTER_DATABENTO_DOWNLOAD_MANIFEST.json",
+        "readable_json": true,
+        "request_count": 24,
+        "requests": [
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "definition",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "statistics",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "tcbbo",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "trades",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "definition",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "statistics",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "tcbbo",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "trades",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "definition",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "statistics",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "tcbbo",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "trades",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "definition",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "statistics",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "tcbbo",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "trades",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "definition",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "statistics",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "tcbbo",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "trades",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "definition",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "statistics",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "tcbbo",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "trades",
+            "start_timestamp_utc": null
+          }
+        ],
+        "schema_version": null
+      },
+      {
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_SETUP_TIME_DOWNLOAD_MANIFEST.json",
+        "readable_json": true,
+        "request_count": 4,
+        "requests": [
+          {
+            "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+            "checked_cost": "0.000344216824",
+            "end_timestamp_utc": "2026-05-13T15:30:00Z",
+            "mentions_march16": false,
+            "raw_symbol": "SPY   260527C00745000",
+            "request_id": "SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL",
+            "schema": "tcbbo",
+            "start_timestamp_utc": "2026-05-13T13:30:00Z"
+          },
+          {
+            "candidate_id": "SPY-REAL-HISTORICAL-IDEAL-001",
+            "checked_cost": "0.000275373459",
+            "end_timestamp_utc": "2026-05-13T15:30:00Z",
+            "mentions_march16": false,
+            "raw_symbol": "SPY   260527C00745000",
+            "request_id": "SPY-REAL-HISTORICAL-IDEAL-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL",
+            "schema": "trades",
+            "start_timestamp_utc": "2026-05-13T13:30:00Z"
+          },
+          {
+            "candidate_id": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+            "checked_cost": "0.000125169754",
+            "end_timestamp_utc": "2026-04-30T16:30:00Z",
+            "mentions_march16": false,
+            "raw_symbol": "SPY   260514C00720000",
+            "request_id": "SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TCBBO-RAW-SYMBOL-OPEN-TO-SIGNAL",
+            "schema": "tcbbo",
+            "start_timestamp_utc": "2026-04-30T13:30:00Z"
+          },
+          {
+            "candidate_id": "SPY-REAL-HISTORICAL-CONTINUATION-001",
+            "checked_cost": "0.000100135803",
+            "end_timestamp_utc": "2026-04-30T16:30:00Z",
+            "mentions_march16": false,
+            "raw_symbol": "SPY   260514C00720000",
+            "request_id": "SPY-REAL-HISTORICAL-CONTINUATION-001-SETUP-TRADES-RAW-SYMBOL-OPEN-TO-SIGNAL",
+            "schema": "trades",
+            "start_timestamp_utc": "2026-04-30T13:30:00Z"
+          }
+        ],
+        "schema_version": "safe-fast-day49-setup-time-download-manifest-v1"
+      },
+      {
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_002_selected_contract_exit_path_manifest.json",
+        "readable_json": true,
+        "request_count": 2,
+        "requests": [
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "tcbbo",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": null,
+            "request_id": null,
+            "schema": "trades",
+            "start_timestamp_utc": null
+          }
+        ],
+        "schema_version": null
+      },
+      {
+        "path": "historical_signal_replay/source_data/external_option_data_drop/SPY_CFB_003_selected_contract_download_manifest.json",
+        "readable_json": true,
+        "request_count": 5,
+        "requests": [
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": "SPY   260429C00700000",
+            "request_id": null,
+            "schema": "tcbbo",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": "SPY   260429C00700000",
+            "request_id": null,
+            "schema": "trades",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": "SPY   260429C00700000",
+            "request_id": null,
+            "schema": "statistics",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": "SPY   260429C00700000",
+            "request_id": null,
+            "schema": "tcbbo",
+            "start_timestamp_utc": null
+          },
+          {
+            "candidate_id": null,
+            "checked_cost": null,
+            "end_timestamp_utc": null,
+            "mentions_march16": false,
+            "raw_symbol": "SPY   260429C00700000",
+            "request_id": null,
+            "schema": "trades",
+            "start_timestamp_utc": null
+          }
+        ],
+        "schema_version": null
+      }
+    ],
+    "march16_matching_files": []
+  },
+  "next_action": "Obtain explicit approval for the exact grouped OPRA cost check/download only if the project wants to supply March 16 selected-contract identity, setup-time quote/liquidity, and entry/exit evidence.",
+  "package_to_candidate_control_result": {
+    "deterministic_result": "PASS",
+    "generated_candidates": 3,
+    "result_version": "day50_raw_data_positive_entry_review_only_package_to_candidate_contract_v1",
+    "setup_qualified": 3
+  },
+  "preserved_day50_controls": {
+    "closed_safety_rejections_reopened": 0,
+    "eligible_entries": 1,
+    "recorded_entries": 1,
+    "selected_contracts": 5,
+    "setup_qualified": 13,
+    "trade_candidates": 9
+  },
+  "preserved_scorecard": {
+    "INVALID_TRADE_ALLOWED": 0,
+    "LOSERS": 0,
+    "MISSED_VALID_TRADE": 0,
+    "MISSING_DATA": 6,
+    "TRUE_NO_TRADE": 4,
+    "UNRESOLVED": 4,
+    "VALID_TRADE_CAPTURED": 1,
+    "WINNERS": 1
+  },
+  "result_version": "day50_raw_data_positive_entry_option_contract_evidence_request_review_v1",
+  "run_timestamp": "2026-06-23T00:15:09.822744Z",
+  "second_run_hash": "2ee1e988673883b9ae526a5e1608bf272e151a48ff71e8057264fe022498f5b1",
+  "setup_records": [
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_identifier": "DAY50-GENERATED-SPY-IDEAL-2026-03-16T09:30:00-04:00",
+      "contract_selection_inputs": {
+        "candidate_contract_count": 0,
+        "candidate_contracts": [],
+        "cannot_run_reasons": [
+          "no_accepted_local_selector_for_setup_family",
+          "numeric_trigger_missing_for_strike_selection",
+          "numeric_invalidation_missing_for_entry_exit_replay",
+          "local_march16_option_evidence_missing",
+          "no_setup_time_candidate_contracts_from_local_evidence"
+        ],
+        "expected_setup_type": "Ideal",
+        "expected_symbol": "SPY",
+        "open_interest_required": true,
+        "rule_applies_to_family": false,
+        "rule_name": "NO_ACCEPTED_LOCAL_FAMILY_SELECTOR",
+        "signal_time": "2026-03-16T13:30:00Z",
+        "trigger_price": null
+      },
+      "contract_selection_rule": "NO_ACCEPTED_LOCAL_FAMILY_SELECTOR",
+      "costed_backtest_result": {
+        "ask": null,
+        "bid": null,
+        "commissions": null,
+        "costed_entry_exit_replay_run": false,
+        "eligible_entry": false,
+        "entry_price": null,
+        "execution_delay_seconds": null,
+        "exit_price": null,
+        "exit_rule": null,
+        "exit_time": null,
+        "fees": null,
+        "fill_assumption": null,
+        "gross_pnl": null,
+        "holding_duration_seconds": null,
+        "intended_entry_time": "2026-03-16T13:30:00Z",
+        "midpoint": null,
+        "net_pnl": null,
+        "quote_age_seconds": null,
+        "reason": "selected contract and exact entry/exit evidence are not locally established",
+        "recorded_entry": false,
+        "signal_time": "2026-03-16T13:30:00Z",
+        "simulated_entry_time": null,
+        "slippage": null,
+        "spread": null,
+        "spread_cost": null,
+        "status": "NOT_RUN_NO_SELECTED_CONTRACT"
+      },
+      "eligible_entry": false,
+      "exact_blocker": "numeric_trigger_missing_for_strike_selection",
+      "final_classification": "EXACT_OPTION_CONTRACT_EVIDENCE_REQUIRED",
+      "first_stage_not_reached": "trade_candidate",
+      "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+      "highest_stage_reached": "setup_qualified",
+      "invalidation": "Ideal bounded accepted invalidation contract",
+      "invalidation_numeric": null,
+      "local_option_evidence": {
+        "candidate_contracts": [],
+        "definitions_available": false,
+        "matching_files": [],
+        "matching_manifest_requests": [],
+        "quotes_available": false,
+        "schemas_present": {
+          "definition": false,
+          "statistics": false,
+          "tcbbo": false,
+          "trades": false
+        },
+        "statistics_available": false,
+        "trades_available": false
+      },
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "package_id": "DAY50-SPY-IDEAL-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "recorded_entry": false,
+      "selected_contract": false,
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Ideal",
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "stage_reached": {
+        "eligible_entry": false,
+        "generated_candidate": true,
+        "recorded_entry": false,
+        "selected_contract": false,
+        "setup_qualified": true,
+        "trade_candidate": false
+      },
+      "symbol": "SPY",
+      "trade_candidate": false,
+      "trigger": "Ideal bounded accepted setup trigger contract",
+      "trigger_numeric": null,
+      "underlying_price_evidence": {
+        "close_values": [
+          "668.000000000",
+          "668.165000000",
+          "668.180000000"
+        ],
+        "high_values": [
+          "668.370000000",
+          "668.475000000",
+          "668.360000000"
+        ],
+        "low_values": [
+          "668.000000000",
+          "667.730000000",
+          "667.870000000"
+        ],
+        "open_values": [
+          "668.370000000",
+          "668.410000000",
+          "668.360000000"
+        ],
+        "publisher_ids": [
+          "39",
+          "40",
+          "41"
+        ],
+        "rows_found": 3,
+        "setup_time_utc": "2026-03-16T13:30:00Z",
+        "source_csv": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "volume_values": [
+          "140",
+          "6791",
+          "3163"
+        ],
+        "volume_weighted_close": "668.1674118288091935803447593"
+      },
+      "winner_selection_result": {
+        "blocking_reasons": [
+          "no_accepted_local_selector_for_setup_family",
+          "numeric_trigger_missing_for_strike_selection",
+          "numeric_invalidation_missing_for_entry_exit_replay",
+          "local_march16_option_evidence_missing",
+          "no_setup_time_candidate_contracts_from_local_evidence"
+        ],
+        "contract_selection_status": "abstain",
+        "errors": [],
+        "rejection_reason": "no_accepted_local_selector_for_setup_family",
+        "selected_contract": null
+      }
+    },
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_identifier": "DAY50-GENERATED-SPY-CLEAN-FAST-BREAK-2026-03-16T09:30:00-04:00",
+      "contract_selection_inputs": {
+        "candidate_contract_count": 0,
+        "candidate_contracts": [],
+        "cannot_run_reasons": [
+          "numeric_trigger_missing_for_strike_selection",
+          "numeric_invalidation_missing_for_entry_exit_replay",
+          "local_march16_option_evidence_missing",
+          "no_setup_time_candidate_contracts_from_local_evidence"
+        ],
+        "expected_setup_type": "Clean Fast Break",
+        "expected_symbol": "SPY",
+        "open_interest_required": true,
+        "rule_applies_to_family": true,
+        "rule_name": "historical_signal_replay.cfb_contract_selector",
+        "signal_time": "2026-03-16T13:30:00Z",
+        "trigger_price": null
+      },
+      "contract_selection_rule": "historical_signal_replay.cfb_contract_selector",
+      "costed_backtest_result": {
+        "ask": null,
+        "bid": null,
+        "commissions": null,
+        "costed_entry_exit_replay_run": false,
+        "eligible_entry": false,
+        "entry_price": null,
+        "execution_delay_seconds": null,
+        "exit_price": null,
+        "exit_rule": null,
+        "exit_time": null,
+        "fees": null,
+        "fill_assumption": null,
+        "gross_pnl": null,
+        "holding_duration_seconds": null,
+        "intended_entry_time": "2026-03-16T13:30:00Z",
+        "midpoint": null,
+        "net_pnl": null,
+        "quote_age_seconds": null,
+        "reason": "selected contract and exact entry/exit evidence are not locally established",
+        "recorded_entry": false,
+        "signal_time": "2026-03-16T13:30:00Z",
+        "simulated_entry_time": null,
+        "slippage": null,
+        "spread": null,
+        "spread_cost": null,
+        "status": "NOT_RUN_NO_SELECTED_CONTRACT"
+      },
+      "eligible_entry": false,
+      "exact_blocker": "numeric_trigger_missing_for_strike_selection",
+      "final_classification": "EXACT_OPTION_CONTRACT_EVIDENCE_REQUIRED",
+      "first_stage_not_reached": "trade_candidate",
+      "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+      "highest_stage_reached": "setup_qualified",
+      "invalidation": "Clean Fast Break bounded accepted invalidation contract",
+      "invalidation_numeric": null,
+      "local_option_evidence": {
+        "candidate_contracts": [],
+        "definitions_available": false,
+        "matching_files": [],
+        "matching_manifest_requests": [],
+        "quotes_available": false,
+        "schemas_present": {
+          "definition": false,
+          "statistics": false,
+          "tcbbo": false,
+          "trades": false
+        },
+        "statistics_available": false,
+        "trades_available": false
+      },
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "package_id": "DAY50-SPY-CLEAN-FAST-BREAK-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "recorded_entry": false,
+      "selected_contract": false,
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Clean Fast Break",
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "stage_reached": {
+        "eligible_entry": false,
+        "generated_candidate": true,
+        "recorded_entry": false,
+        "selected_contract": false,
+        "setup_qualified": true,
+        "trade_candidate": false
+      },
+      "symbol": "SPY",
+      "trade_candidate": false,
+      "trigger": "Clean Fast Break bounded accepted setup trigger contract",
+      "trigger_numeric": null,
+      "underlying_price_evidence": {
+        "close_values": [
+          "668.000000000",
+          "668.165000000",
+          "668.180000000"
+        ],
+        "high_values": [
+          "668.370000000",
+          "668.475000000",
+          "668.360000000"
+        ],
+        "low_values": [
+          "668.000000000",
+          "667.730000000",
+          "667.870000000"
+        ],
+        "open_values": [
+          "668.370000000",
+          "668.410000000",
+          "668.360000000"
+        ],
+        "publisher_ids": [
+          "39",
+          "40",
+          "41"
+        ],
+        "rows_found": 3,
+        "setup_time_utc": "2026-03-16T13:30:00Z",
+        "source_csv": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "volume_values": [
+          "140",
+          "6791",
+          "3163"
+        ],
+        "volume_weighted_close": "668.1674118288091935803447593"
+      },
+      "winner_selection_result": {
+        "blocking_reasons": [
+          "numeric_trigger_missing_for_strike_selection",
+          "numeric_invalidation_missing_for_entry_exit_replay",
+          "local_march16_option_evidence_missing",
+          "no_setup_time_candidate_contracts_from_local_evidence"
+        ],
+        "contract_selection_status": "abstain",
+        "errors": [],
+        "rejection_reason": "numeric_trigger_missing_for_strike_selection",
+        "selected_contract": null
+      }
+    },
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_identifier": "DAY50-GENERATED-SPY-CONTINUATION-2026-03-16T09:30:00-04:00",
+      "contract_selection_inputs": {
+        "candidate_contract_count": 0,
+        "candidate_contracts": [],
+        "cannot_run_reasons": [
+          "no_accepted_local_selector_for_setup_family",
+          "numeric_trigger_missing_for_strike_selection",
+          "numeric_invalidation_missing_for_entry_exit_replay",
+          "local_march16_option_evidence_missing",
+          "no_setup_time_candidate_contracts_from_local_evidence"
+        ],
+        "expected_setup_type": "Continuation",
+        "expected_symbol": "SPY",
+        "open_interest_required": true,
+        "rule_applies_to_family": false,
+        "rule_name": "NO_ACCEPTED_LOCAL_FAMILY_SELECTOR",
+        "signal_time": "2026-03-16T13:30:00Z",
+        "trigger_price": null
+      },
+      "contract_selection_rule": "NO_ACCEPTED_LOCAL_FAMILY_SELECTOR",
+      "costed_backtest_result": {
+        "ask": null,
+        "bid": null,
+        "commissions": null,
+        "costed_entry_exit_replay_run": false,
+        "eligible_entry": false,
+        "entry_price": null,
+        "execution_delay_seconds": null,
+        "exit_price": null,
+        "exit_rule": null,
+        "exit_time": null,
+        "fees": null,
+        "fill_assumption": null,
+        "gross_pnl": null,
+        "holding_duration_seconds": null,
+        "intended_entry_time": "2026-03-16T13:30:00Z",
+        "midpoint": null,
+        "net_pnl": null,
+        "quote_age_seconds": null,
+        "reason": "selected contract and exact entry/exit evidence are not locally established",
+        "recorded_entry": false,
+        "signal_time": "2026-03-16T13:30:00Z",
+        "simulated_entry_time": null,
+        "slippage": null,
+        "spread": null,
+        "spread_cost": null,
+        "status": "NOT_RUN_NO_SELECTED_CONTRACT"
+      },
+      "eligible_entry": false,
+      "exact_blocker": "numeric_trigger_missing_for_strike_selection",
+      "final_classification": "EXACT_OPTION_CONTRACT_EVIDENCE_REQUIRED",
+      "first_stage_not_reached": "trade_candidate",
+      "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+      "highest_stage_reached": "setup_qualified",
+      "invalidation": "Continuation bounded accepted invalidation contract",
+      "invalidation_numeric": null,
+      "local_option_evidence": {
+        "candidate_contracts": [],
+        "definitions_available": false,
+        "matching_files": [],
+        "matching_manifest_requests": [],
+        "quotes_available": false,
+        "schemas_present": {
+          "definition": false,
+          "statistics": false,
+          "tcbbo": false,
+          "trades": false
+        },
+        "statistics_available": false,
+        "trades_available": false
+      },
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "package_id": "DAY50-SPY-CONTINUATION-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "recorded_entry": false,
+      "selected_contract": false,
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Continuation",
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "stage_reached": {
+        "eligible_entry": false,
+        "generated_candidate": true,
+        "recorded_entry": false,
+        "selected_contract": false,
+        "setup_qualified": true,
+        "trade_candidate": false
+      },
+      "symbol": "SPY",
+      "trade_candidate": false,
+      "trigger": "Continuation bounded accepted setup trigger contract",
+      "trigger_numeric": null,
+      "underlying_price_evidence": {
+        "close_values": [
+          "668.000000000",
+          "668.165000000",
+          "668.180000000"
+        ],
+        "high_values": [
+          "668.370000000",
+          "668.475000000",
+          "668.360000000"
+        ],
+        "low_values": [
+          "668.000000000",
+          "667.730000000",
+          "667.870000000"
+        ],
+        "open_values": [
+          "668.370000000",
+          "668.410000000",
+          "668.360000000"
+        ],
+        "publisher_ids": [
+          "39",
+          "40",
+          "41"
+        ],
+        "rows_found": 3,
+        "setup_time_utc": "2026-03-16T13:30:00Z",
+        "source_csv": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "volume_values": [
+          "140",
+          "6791",
+          "3163"
+        ],
+        "volume_weighted_close": "668.1674118288091935803447593"
+      },
+      "winner_selection_result": {
+        "blocking_reasons": [
+          "no_accepted_local_selector_for_setup_family",
+          "numeric_trigger_missing_for_strike_selection",
+          "numeric_invalidation_missing_for_entry_exit_replay",
+          "local_march16_option_evidence_missing",
+          "no_setup_time_candidate_contracts_from_local_evidence"
+        ],
+        "contract_selection_status": "abstain",
+        "errors": [],
+        "rejection_reason": "no_accepted_local_selector_for_setup_family",
+        "selected_contract": null
+      }
+    }
+  ],
+  "source_commit": "266ef69",
+  "task": "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_OPTION_CONTRACT_EVIDENCE_REQUEST_REVIEW_CODEX_TASK.md"
+}

@@ -3,18 +3,67 @@
 <!-- SAFE_FAST_CURRENT_STATE_BEGIN -->
 - PROJECT_DAY: Day 51
 - PROJECT_DATE: 2026-06-22
-- ACTIVE_OBJECTIVE: Complete the bounded Day 50 SPY review-only package-to-candidate contract and identify the next exact blocker after generated-candidate promotion.
-- ACTIVE_TASK: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_CODEX_TASK.md
-- ACTIVE_TASK_PURPOSE: Define, implement, and regression-test the smallest contract that can promote the three accepted SPY March 16, 2026 review-only setup-time field packages into generated/setup-qualified candidates when the package satisfies all setup-time evidence requirements; no option download, exit-path download, proof, readiness, paper, or live expansion.
-- PROVEN_SUMMARY: The accepted mapper establishes 3 exact setup-time field packages and all 17 accepted mapper regression cases pass; the bounded contract processed Ideal, Clean Fast Break, and Continuation separately and created 3 generated candidates and 3 setup-qualified candidates while preserving no-hindsight, session-boundary, stable-winner, no-trade, mapper, retry, and control regressions.
-- UNPROVEN_SUMMARY: No new trade candidate, selected contract, eligible entry, recorded entry, costed backtest, exit evaluation, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established; selected-contract option evidence remains missing for all three setup-qualified SPY candidates.
+- ACTIVE_OBJECTIVE: Complete the bounded Day 51 SPY numeric setup review, exact OPRA evidence specification, Databento cost-check attempt, and costed-backtest boundary for the three setup-qualified March 16, 2026 candidates.
+- ACTIVE_TASK: SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_CODEX_TASK.md
+- ACTIVE_TASK_PURPOSE: Establish every evidence-backed numeric setup field from frozen SPY one-minute OHLCV evidence, identify exact numeric trigger/invalidation rule gaps, produce the smallest exact OPRA evidence specification, run the existing Databento metadata cost-check path without download, and replay only if evidence is sufficient; no paid download, proof, readiness, paper, or live expansion.
+- PROVEN_SUMMARY: The accepted mapper and package-to-candidate contract remain preserved; all three SPY March 16, 2026 setup families were processed separately through the Day 51 numeric setup and OPRA cost-check boundary. Setup timestamp, setup-minute OHLCV envelope, volume-weighted close, freshness deadline, no-hindsight boundary, and same-session behavior are evidence-backed. Local March 16 SPY OPRA evidence is still absent. Databento metadata cost check was attempted locally, but grouped cost remains NOT_AVAILABLE because SAFE_FAST_DB_AUTH is not configured in this environment.
+- UNPROVEN_SUMMARY: Numeric trigger and invalidation thresholds remain exact rule gaps because the accepted mapper names trigger/invalidation contracts but does not bind them to numeric OHLCV fields. No new trade candidate, selected contract, eligible entry, recorded entry, costed backtest, exit evaluation, net P&L, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
 - CURRENT_FUNNEL_TOTALS: raw opportunities mapped 3; exact setup-time field packages 3; new generated candidates 3; setup-qualified 3; trade candidates 0; selected contracts 0; eligible entries 0; recorded entries 0; exact-generation-contract-required 0; exact-option-contract-evidence-required 3; exact-data-required 3; preserved controls 13 setup-qualified, 9 trade candidates, 5 selected contracts, 1 eligible entry, 1 recorded entry; scorecard VALID_TRADE_CAPTURED=1, TRUE_NO_TRADE=4, MISSING_DATA=10, MISSED_VALID_TRADE=0, INVALID_TRADE_ALLOWED=0, UNRESOLVED=0, WINNERS=1, LOSERS=0.
-- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_RESULT.md; historical_signal_replay/results/day50_raw_data_positive_entry_review_only_package_to_candidate_contract.json; historical_signal_replay/day50_raw_data_positive_entry_review_only_package_to_candidate_contract.py; watcher_foundation/day50_raw_data_positive_entry_review_only_package_to_candidate_contract_validator.py; tests/test_day50_raw_data_positive_entry_review_only_package_to_candidate_contract.py; SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_MAPPER_RESULT.md; historical_signal_replay/results/day50_raw_data_positive_entry_accepted_setup_replay_mapper.json; SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_RESULT.md; historical_signal_replay/results/day50_raw_data_positive_entry_mapper_to_generation_retry.json.
-- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_RESULT.md
+- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_RESULT.md; historical_signal_replay/results/day51_spy_numeric_setup_and_opra_cost_check.json; historical_signal_replay/day51_spy_numeric_setup_and_opra_cost_check.py; watcher_foundation/day51_spy_numeric_setup_and_opra_cost_check_validator.py; tests/test_day51_spy_numeric_setup_and_opra_cost_check.py; SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_OPTION_CONTRACT_EVIDENCE_REQUEST_REVIEW_RESULT.md; historical_signal_replay/results/day50_raw_data_positive_entry_option_contract_evidence_request_review.json.
+- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_RESULT.md
 - SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task.
 - DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md
-- NEXT_ACTION: Create SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_OPTION_CONTRACT_EVIDENCE_REQUEST_REVIEW_CODEX_TASK.md only if the project wants to review and cost-check the grouped option-contract evidence request for the three setup-qualified SPY candidates; do not download paid data without explicit approval.
+- NEXT_ACTION: Stop here unless SAFE_FAST_DB_AUTH and Databento metadata access are explicitly supplied for a successful exact OPRA cost estimate, then stop again for explicit approval before any paid download; numeric trigger/invalidation rule repair is still required before costed backtest.
 <!-- SAFE_FAST_CURRENT_STATE_END -->
+
+## Day 51 SPY numeric setup and OPRA cost check result
+
+- Current task file executed: `SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day51_spy_numeric_setup_and_opra_cost_check.json`.
+- Focused implementation created: `historical_signal_replay/day51_spy_numeric_setup_and_opra_cost_check.py`.
+- Focused validator created: `watcher_foundation/day51_spy_numeric_setup_and_opra_cost_check_validator.py`.
+- Focused tests created: `tests/test_day51_spy_numeric_setup_and_opra_cost_check.py`.
+- Covered setup families: Ideal, Clean Fast Break, and Continuation for SPY on `2026-03-16` only.
+- Evidence-backed numeric setup fields established: setup timestamp `2026-03-16T13:30:00Z`, setup-minute OHLCV envelope, setup-minute volume-weighted close `668.1674118288091935803447593`, freshness deadline, no-hindsight boundary, and same-session behavior.
+- Exact numeric rule gap preserved: accepted trigger/invalidation contracts do not bind to numeric OHLCV fields; raw high/low/open/close values were not promoted into trigger/invalidation thresholds.
+- Exact OPRA specification created: Databento `OPRA.PILLAR` `definition`, `tcbbo`, `trades`, and `statistics`; SPY parent definitions at setup time, nearest DTE >= 14 expiration `2026-03-30`, entry evidence `2026-03-16T13:30:00Z` through `2026-03-16T13:35:00Z`, and conditional selected-contract exit evidence through `2026-03-16T19:45:00Z`.
+- Databento metadata cost-check path run: yes, through `python -m historical_signal_replay.day51_spy_numeric_setup_and_opra_cost_check`.
+- Grouped OPRA cost result: `NOT_AVAILABLE USD`; `SAFE_FAST_DB_AUTH` was not configured, so no Databento external cost API call, paid download, or actual billed cost occurred.
+- Approval status: `APPROVAL_REQUIRED_COST_ESTIMATE_BLOCKED`; the estimate is not sufficient for explicit paid-data approval.
+- New trade candidates: `0`.
+- New selected contracts: `0`.
+- New eligible entries: `0`.
+- New recorded entries: `0`.
+- Costed entry/exit replay run: `NO`; selected-contract evidence, numeric trigger, and numeric invalidation remain incomplete.
+- No `main.py`, Railway/deploy, production/live backend, broker/account/order, credential, `.env`, sizing, alert, frozen `patch8` threshold, paid download, proof, profitability, promotion, paper eligibility, or live eligibility change was made.
+
+## Day 50 raw-data positive-entry option-contract evidence request review result
+
+- Current task file executed: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_OPTION_CONTRACT_EVIDENCE_REQUEST_REVIEW_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_OPTION_CONTRACT_EVIDENCE_REQUEST_REVIEW_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day50_raw_data_positive_entry_option_contract_evidence_request_review.json`.
+- Focused implementation created: `historical_signal_replay/day50_raw_data_positive_entry_option_contract_evidence_request_review.py`.
+- Focused validator created: `watcher_foundation/day50_raw_data_positive_entry_option_contract_evidence_request_review_validator.py`.
+- Focused tests created: `tests/test_day50_raw_data_positive_entry_option_contract_evidence_request_review.py`.
+- Covered setup families: Ideal, Clean Fast Break, and Continuation for SPY on `2026-03-16` only.
+- Per-setup highest stage reached: Ideal `setup_qualified`, Clean Fast Break `setup_qualified`, Continuation `setup_qualified`.
+- Local option evidence inspected: existing local OPRA files/manifests under `historical_signal_replay/source_data/external_option_data_drop`; no March 16 SPY OPRA definition, quote, trade, or statistics evidence was found.
+- Frozen setup context recovered: setup timestamp `2026-03-16T13:30:00Z`, publisher-collapsed underlying setup row evidence, fresh final-signal state, same-session boundary, and no-hindsight boundary for all three setup families.
+- Exact local selector blocker: `numeric_trigger_missing_for_strike_selection`; frozen trigger/invalidation values are accepted contract labels, not numeric option-selection values.
+- New generated candidates: `3`.
+- New setup-qualified candidates: `3`.
+- New trade candidates: `0`.
+- New selected contracts: `0`.
+- New eligible entries: `0`.
+- New recorded entries: `0`.
+- Costed entry/exit replay run: `NO`; no selected contract, eligible entry, exit path, or numeric cost inputs were established.
+- Grouped evidence request created: `YES`, for March 16 SPY OPRA `definition`, `tcbbo`, `trades`, and `statistics`, plus selected-contract quote path through the accepted exit boundary before any full net-P&L calculation.
+- Exact local cost check status: `NOT_AVAILABLE`; no external Databento cost API call, paid-data download, credential use, or broker action was run.
+- Accepted mapper regression cases preserved: `17` of `17`.
+- Preserved controls: `13` setup-qualified, `9` trade candidates, `5` selected contracts, `1` eligible entry, `1` recorded entry.
+- No raw vendor labels, numeric trigger/invalidation, option evidence, exit evidence, selected contract, fill, P&L, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, production/live backend, broker/order/account, credential file, or `.env` change was made.
+- Exact next action: stop unless the project explicitly approves a later external Databento cost-check/download task for exact March 16 SPY OPRA selected-contract evidence and numeric trigger/invalidation repair.
 
 ## Day 50 raw-data positive-entry review-only package-to-candidate contract result
 
