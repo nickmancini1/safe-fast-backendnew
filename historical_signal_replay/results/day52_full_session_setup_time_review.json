@@ -1,0 +1,102 @@
+{
+  "path": "historical_signal_replay/results/day52_full_session_setup_time_review.json",
+  "post_cutoff_fields_excluded": true,
+  "records": [
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_id": "DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39",
+      "carry_forward_state": "no_prior_session_carry_forward",
+      "direction": "long_call_only_when_family_selector_is_accepted",
+      "exact_rejection_or_blocker_code": "numeric_trigger_and_invalidation_missing",
+      "final_disposition": "blocked by missing evidence",
+      "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+      "invalidation": null,
+      "missing_required_evidence": [
+        "numeric_trigger",
+        "numeric_invalidation"
+      ],
+      "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
+      "observation_timestamp_utc": "2026-03-16T13:30:00Z",
+      "post_cutoff_fields_excluded": true,
+      "session_boundary_state": "same_session_reset_only_no_prior_session_carry",
+      "session_date": "2026-03-16",
+      "setup_family": "Clean Fast Break",
+      "setup_time_row": {
+        "close": "668.180000000",
+        "high": "668.360000000",
+        "instrument_id": "15144",
+        "low": "667.870000000",
+        "open": "668.360000000",
+        "publisher_id": "39",
+        "timestamp_et": "2026-03-16T09:30:00-04:00",
+        "timestamp_utc": "2026-03-16T13:30:00Z",
+        "volume": "3163"
+      },
+      "trigger": null
+    },
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_id": "DAY52-SPY-2026-03-16-CONTINUATION-20260316T133000Z-P39",
+      "carry_forward_state": "no_prior_session_carry_forward",
+      "direction": "rule_gap_no_accepted_local_family_selector",
+      "exact_rejection_or_blocker_code": "numeric_trigger_and_invalidation_missing",
+      "final_disposition": "blocked by missing evidence",
+      "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+      "invalidation": null,
+      "missing_required_evidence": [
+        "numeric_trigger",
+        "numeric_invalidation"
+      ],
+      "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
+      "observation_timestamp_utc": "2026-03-16T13:30:00Z",
+      "post_cutoff_fields_excluded": true,
+      "session_boundary_state": "same_session_reset_only_no_prior_session_carry",
+      "session_date": "2026-03-16",
+      "setup_family": "Continuation",
+      "setup_time_row": {
+        "close": "668.180000000",
+        "high": "668.360000000",
+        "instrument_id": "15144",
+        "low": "667.870000000",
+        "open": "668.360000000",
+        "publisher_id": "39",
+        "timestamp_et": "2026-03-16T09:30:00-04:00",
+        "timestamp_utc": "2026-03-16T13:30:00Z",
+        "volume": "3163"
+      },
+      "trigger": null
+    },
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_id": "DAY52-SPY-2026-03-16-IDEAL-20260316T133000Z-P39",
+      "carry_forward_state": "no_prior_session_carry_forward",
+      "direction": "rule_gap_no_accepted_local_family_selector",
+      "exact_rejection_or_blocker_code": "numeric_trigger_and_invalidation_missing",
+      "final_disposition": "blocked by missing evidence",
+      "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+      "invalidation": null,
+      "missing_required_evidence": [
+        "numeric_trigger",
+        "numeric_invalidation"
+      ],
+      "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
+      "observation_timestamp_utc": "2026-03-16T13:30:00Z",
+      "post_cutoff_fields_excluded": true,
+      "session_boundary_state": "same_session_reset_only_no_prior_session_carry",
+      "session_date": "2026-03-16",
+      "setup_family": "Ideal",
+      "setup_time_row": {
+        "close": "668.180000000",
+        "high": "668.360000000",
+        "instrument_id": "15144",
+        "low": "667.870000000",
+        "open": "668.360000000",
+        "publisher_id": "39",
+        "timestamp_et": "2026-03-16T09:30:00-04:00",
+        "timestamp_utc": "2026-03-16T13:30:00Z",
+        "volume": "3163"
+      },
+      "trigger": null
+    }
+  ]
+}

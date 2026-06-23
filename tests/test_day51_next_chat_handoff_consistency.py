@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_HANDOFF = "SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md"
 CANONICAL_INTRO = "SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt"
 STARTUP_SCRIPT = "scripts/safe_fast_new_chat_status.ps1"
-ACTIVE_TASK = "SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_CODEX_TASK.md"
+ACTIVE_TASK = "SAFE_FAST_DAY52_FULL_SESSION_REPLAY_MANIFEST_CODEX_TASK.md"
 
 
 def read_text(relative_path: str) -> str:
@@ -101,8 +101,8 @@ class Day51NextChatHandoffConsistencyTests(unittest.TestCase):
             "Data-source hierarchy",
             "Schwab Trader API access is pending approval",
             "Current technical objective",
-            "raw one-minute underlying OHLCV evidence",
-            "OPRA cost-check boundary",
+            "raw one-minute underlying OHLCV session",
+            "full-session recognition manifest",
         ):
             self.assertIn(phrase, handoff)
 

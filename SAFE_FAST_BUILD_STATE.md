@@ -1,20 +1,42 @@
 # SAFE-FAST Build State
 
 <!-- SAFE_FAST_CURRENT_STATE_BEGIN -->
-- PROJECT_DAY: Day 51
-- PROJECT_DATE: 2026-06-22
-- ACTIVE_OBJECTIVE: Complete the bounded Day 51 SPY numeric setup review, exact OPRA evidence specification, Databento cost-check attempt, and costed-backtest boundary for the three setup-qualified March 16, 2026 candidates.
-- ACTIVE_TASK: SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_CODEX_TASK.md
-- ACTIVE_TASK_PURPOSE: Establish every evidence-backed numeric setup field from frozen SPY one-minute OHLCV evidence, identify exact numeric trigger/invalidation rule gaps, produce the smallest exact OPRA evidence specification, run the existing Databento metadata cost-check path without download, and replay only if evidence is sufficient; no paid download, proof, readiness, paper, or live expansion.
-- PROVEN_SUMMARY: The accepted mapper and package-to-candidate contract remain preserved; all three SPY March 16, 2026 setup families were processed separately through the Day 51 numeric setup and OPRA cost-check boundary. Setup timestamp, setup-minute OHLCV envelope, volume-weighted close, freshness deadline, no-hindsight boundary, and same-session behavior are evidence-backed. Local March 16 SPY OPRA evidence is still absent. Databento metadata cost check was attempted locally and reached the HTTPS metadata path, but grouped cost remains NOT_AVAILABLE because this environment refused the Databento proxy connection and no SAFE_FAST_DB_AUTH credential was configured.
-- UNPROVEN_SUMMARY: Numeric trigger and invalidation thresholds remain exact rule gaps because the accepted mapper names trigger/invalidation contracts but does not bind them to numeric OHLCV fields. No new trade candidate, selected contract, eligible entry, recorded entry, costed backtest, exit evaluation, net P&L, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
-- CURRENT_FUNNEL_TOTALS: raw opportunities mapped 3; exact setup-time field packages 3; new generated candidates 3; setup-qualified 3; trade candidates 0; selected contracts 0; eligible entries 0; recorded entries 0; exact-generation-contract-required 0; exact-option-contract-evidence-required 3; exact-data-required 3; preserved controls 13 setup-qualified, 9 trade candidates, 5 selected contracts, 1 eligible entry, 1 recorded entry; scorecard VALID_TRADE_CAPTURED=1, TRUE_NO_TRADE=4, MISSING_DATA=10, MISSED_VALID_TRADE=0, INVALID_TRADE_ALLOWED=0, UNRESOLVED=0, WINNERS=1, LOSERS=0.
-- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_RESULT.md; historical_signal_replay/results/day51_spy_numeric_setup_and_opra_cost_check.json; historical_signal_replay/day51_spy_numeric_setup_and_opra_cost_check.py; watcher_foundation/day51_spy_numeric_setup_and_opra_cost_check_validator.py; tests/test_day51_spy_numeric_setup_and_opra_cost_check.py; SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_OPTION_CONTRACT_EVIDENCE_REQUEST_REVIEW_RESULT.md; historical_signal_replay/results/day50_raw_data_positive_entry_option_contract_evidence_request_review.json.
-- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_RESULT.md
+- PROJECT_DAY: Day 52
+- PROJECT_DATE: 2026-06-23
+- ACTIVE_OBJECTIVE: Implement and validate a deterministic full-session recognition replay manifest for the locally available March 16, 2026 SPY one-minute session, scanning the complete session rather than only the three previously identified favorable windows.
+- ACTIVE_TASK: SAFE_FAST_DAY52_FULL_SESSION_REPLAY_MANIFEST_CODEX_TASK.md
+- ACTIVE_TASK_PURPOSE: Produce focused implementation, machine-readable manifest, validator, tests, result document, and compact setup-time review output for underlying recognition/lifecycle only; no OPRA dependency, option contract selection, fills, exits, costs, profitability, paper/live readiness, or production changes.
+- PROVEN_SUMMARY: Day 52 scans the complete validated SPY March 16, 2026 one-minute session: 751 source rows, 390 unique timestamps, and 2253 setup-family recognition records across Ideal, Clean Fast Break, and Continuation. The manifest records deterministic stage histories, duplicate groups, exact no-hindsight cutoffs, setup-time review output with post-cutoff fields excluded, complete-session versus known-window bias exposure, stable no-winner selection, and strict no-trade behavior. Validator and focused tests pass.
+- UNPROVEN_SUMMARY: Full-session setup-qualified recognition is still blocked because Day 52's machine-enforced setup-qualified predicate requires numeric trigger and numeric invalidation, and those values remain exact rule gaps from Day 51. No selected winner, trade candidate, selected contract, eligible entry, recorded entry, OPRA layer, costed backtest, exit evaluation, net P&L, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
+- CURRENT_FUNNEL_TOTALS: sessions scanned 1; rows scanned 751; recognition records 2253; per setup family rejected 389, duplicate 361, blocked by missing evidence 1, setup-qualified 0, selected winner 0, suppressed 0, developing at session end 0, recognition-layer executable 0; trade candidates 0; selected contracts 0; eligible entries 0; recorded entries 0; profitability proof NO; paper/live eligibility NO.
+- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY52_FULL_SESSION_RECOGNITION_MANIFEST_RESULT.md; historical_signal_replay/results/day52_full_session_recognition_manifest.json; historical_signal_replay/results/day52_full_session_setup_time_review.json; historical_signal_replay/day52_full_session_recognition_manifest.py; watcher_foundation/day52_full_session_recognition_manifest_validator.py; tests/test_day52_full_session_recognition_manifest.py.
+- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY52_FULL_SESSION_RECOGNITION_MANIFEST_RESULT.md
 - SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task.
 - DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md
-- NEXT_ACTION: Stop here unless SAFE_FAST_DB_AUTH and working Databento metadata network access are explicitly supplied for a successful exact OPRA cost estimate, then stop again for explicit approval before any paid download; numeric trigger/invalidation rule repair is still required before costed backtest.
+- NEXT_ACTION: Repair numeric trigger and numeric invalidation rule predicates with replay/regression cases before any setup-qualified full-session recognition claim or OPRA/economic work.
 <!-- SAFE_FAST_CURRENT_STATE_END -->
+
+## Day 52 full-session recognition manifest result
+
+- Current task file executed: `SAFE_FAST_DAY52_FULL_SESSION_REPLAY_MANIFEST_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY52_FULL_SESSION_RECOGNITION_MANIFEST_RESULT.md`.
+- Machine-readable manifest created: `historical_signal_replay/results/day52_full_session_recognition_manifest.json`.
+- Compact setup-time review output created: `historical_signal_replay/results/day52_full_session_setup_time_review.json`.
+- Focused implementation created: `historical_signal_replay/day52_full_session_recognition_manifest.py`.
+- Focused validator created: `watcher_foundation/day52_full_session_recognition_manifest_validator.py`.
+- Focused tests created: `tests/test_day52_full_session_recognition_manifest.py`.
+- Sessions scanned: `1`, SPY on `2026-03-16`.
+- Rows scanned: `751`; unique timestamps `390`; missing intervals `0`.
+- Recognition records: `2253`, covering Ideal, Clean Fast Break, and Continuation across the full session.
+- Counts per setup family: `389` rejected, `361` duplicate, `1` blocked by missing evidence, `0` setup-qualified, `0` selected winner, `0` suppressed, `0` developing at session end, `0` recognition-layer executable.
+- Known-window-only bias exposed: the three known primary setup-time records would omit `1167` other primary timestamp/family records.
+- Exact blocker for the three known setup-time records: `numeric_trigger_and_invalidation_missing`.
+- No-hindsight proof: every decision cutoff equals the observation timestamp; setup-time review excludes post-cutoff and economic fields.
+- Determinism: repeated run, input-order, timestamp-preserving reorder, and chunk-size invariance pass.
+- Recognition versus economics remains separated: OPRA is not required for layer-1 accounting, and no layer-2/layer-3 economic work was run.
+- Profitability proof: `NO`.
+- Paper/live eligibility: `NO`.
+- No `main.py`, Railway/deploy, production/live backend, broker/account/order/fill/alert, credential, `.env`, sizing, frozen `patch8` threshold, paid download, OPRA download, selected contract, entry, exit, P&L, promotion, paper, or live change was made.
 
 ## Day 51 SPY numeric setup and OPRA cost check result
 
