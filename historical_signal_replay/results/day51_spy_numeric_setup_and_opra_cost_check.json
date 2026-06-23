@@ -1,0 +1,810 @@
+{
+  "after_funnel_totals": {
+    "exact_setup_time_field_packages_established": 3,
+    "new_eligible_entries": 0,
+    "new_exact_data_required_cases": 3,
+    "new_exact_option_contract_evidence_required_cases": 3,
+    "new_exits_evaluated": 0,
+    "new_generated_candidates": 3,
+    "new_invalid_trades_allowed": 0,
+    "new_losers": 0,
+    "new_missed_valid_trades": 0,
+    "new_recorded_entries": 0,
+    "new_selected_contracts": 0,
+    "new_setup_qualified_candidates": 3,
+    "new_trade_candidates": 0,
+    "new_true_no_trades": 0,
+    "new_unresolved_cases": 0,
+    "new_valid_trades_captured": 0,
+    "new_winners": 0,
+    "raw_opportunities_mapped": 3
+  },
+  "approval_required": {
+    "currency": "USD",
+    "estimate_sufficient_for_explicit_approval": false,
+    "grouped_cost": "NOT_AVAILABLE",
+    "next_action": "Provide a successful Databento OPRA metadata cost estimate for the exact grouped request before any download or costed backtest.",
+    "precise_data_unlocked": [
+      {
+        "dataset": "OPRA.PILLAR",
+        "definition": {
+          "end_timestamp_utc": "2026-03-16T13:31:00Z",
+          "post_filter": "expiration=2026-03-30 and right=C and strike>=accepted_numeric_trigger",
+          "query_type": "parent_symbol",
+          "schema": "definition",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "SPY"
+        },
+        "entry_quote": {
+          "end_timestamp_utc": "2026-03-16T13:35:00Z",
+          "schema": "tcbbo",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "selected_raw_symbol_after_definition_filter"
+        },
+        "entry_trades": {
+          "end_timestamp_utc": "2026-03-16T13:35:00Z",
+          "schema": "trades",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "selected_raw_symbol_after_definition_filter"
+        },
+        "exit": {
+          "end_timestamp_utc": "2026-03-16T19:45:00Z",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "status": "conditional_on_selected_contract_and_eligible_entry"
+        },
+        "setup_family": "Ideal",
+        "statistics": {
+          "end_timestamp_utc": "2026-03-16T13:35:00Z",
+          "schema": "statistics",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "selected_raw_symbol_after_definition_filter"
+        }
+      },
+      {
+        "dataset": "OPRA.PILLAR",
+        "definition": {
+          "end_timestamp_utc": "2026-03-16T13:31:00Z",
+          "post_filter": "expiration=2026-03-30 and right=C and strike>=accepted_numeric_trigger",
+          "query_type": "parent_symbol",
+          "schema": "definition",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "SPY"
+        },
+        "entry_quote": {
+          "end_timestamp_utc": "2026-03-16T13:35:00Z",
+          "schema": "tcbbo",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "selected_raw_symbol_after_definition_filter"
+        },
+        "entry_trades": {
+          "end_timestamp_utc": "2026-03-16T13:35:00Z",
+          "schema": "trades",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "selected_raw_symbol_after_definition_filter"
+        },
+        "exit": {
+          "end_timestamp_utc": "2026-03-16T19:45:00Z",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "status": "conditional_on_selected_contract_and_eligible_entry"
+        },
+        "setup_family": "Clean Fast Break",
+        "statistics": {
+          "end_timestamp_utc": "2026-03-16T13:35:00Z",
+          "schema": "statistics",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "selected_raw_symbol_after_definition_filter"
+        }
+      },
+      {
+        "dataset": "OPRA.PILLAR",
+        "definition": {
+          "end_timestamp_utc": "2026-03-16T13:31:00Z",
+          "post_filter": "expiration=2026-03-30 and right=C and strike>=accepted_numeric_trigger",
+          "query_type": "parent_symbol",
+          "schema": "definition",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "SPY"
+        },
+        "entry_quote": {
+          "end_timestamp_utc": "2026-03-16T13:35:00Z",
+          "schema": "tcbbo",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "selected_raw_symbol_after_definition_filter"
+        },
+        "entry_trades": {
+          "end_timestamp_utc": "2026-03-16T13:35:00Z",
+          "schema": "trades",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "selected_raw_symbol_after_definition_filter"
+        },
+        "exit": {
+          "end_timestamp_utc": "2026-03-16T19:45:00Z",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "status": "conditional_on_selected_contract_and_eligible_entry"
+        },
+        "setup_family": "Continuation",
+        "statistics": {
+          "end_timestamp_utc": "2026-03-16T13:35:00Z",
+          "schema": "statistics",
+          "start_timestamp_utc": "2026-03-16T13:30:00Z",
+          "symbols": "selected_raw_symbol_after_definition_filter"
+        }
+      }
+    ],
+    "status": "APPROVAL_REQUIRED_COST_ESTIMATE_BLOCKED"
+  },
+  "control_results": {
+    "accepted_mapper_regression_case_count": 17,
+    "package_to_candidate_control_result": {
+      "deterministic_result": "PASS",
+      "generated_candidates": 3,
+      "result_version": "day50_raw_data_positive_entry_review_only_package_to_candidate_contract_v1",
+      "setup_qualified": 3
+    },
+    "preserved_day50_controls": {
+      "closed_safety_rejections_reopened": 0,
+      "eligible_entries": 1,
+      "recorded_entries": 1,
+      "selected_contracts": 5,
+      "setup_qualified": 13,
+      "trade_candidates": 9
+    },
+    "preserved_scorecard": {
+      "INVALID_TRADE_ALLOWED": 0,
+      "LOSERS": 0,
+      "MISSED_VALID_TRADE": 0,
+      "MISSING_DATA": 6,
+      "TRUE_NO_TRADE": 4,
+      "UNRESOLVED": 4,
+      "VALID_TRADE_CAPTURED": 1,
+      "WINNERS": 1
+    }
+  },
+  "costed_backtest_results_by_setup_family": {
+    "Clean Fast Break": {
+      "blocking_reasons": [
+        "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
+        "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
+        "LOCAL_MARCH16_SPY_OPRA_EVIDENCE_MISSING"
+      ],
+      "costed_exit_replay_run": false,
+      "eligible_entry": false,
+      "entry_price": null,
+      "entry_timestamp": null,
+      "exit_price": null,
+      "exit_reason": null,
+      "exit_timestamp": null,
+      "gross_pnl": null,
+      "hold_duration": null,
+      "net_pnl": null,
+      "recorded_entry": false,
+      "selected_contract": null,
+      "selected_contract_stage": false,
+      "setup_family": "Clean Fast Break",
+      "signal_timestamp": "2026-03-16T13:30:00Z",
+      "spread_slippage_fees": null,
+      "status": "APPROVAL_REQUIRED_BEFORE_COSTED_BACKTEST",
+      "trade_candidate": false
+    },
+    "Continuation": {
+      "blocking_reasons": [
+        "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
+        "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
+        "LOCAL_MARCH16_SPY_OPRA_EVIDENCE_MISSING"
+      ],
+      "costed_exit_replay_run": false,
+      "eligible_entry": false,
+      "entry_price": null,
+      "entry_timestamp": null,
+      "exit_price": null,
+      "exit_reason": null,
+      "exit_timestamp": null,
+      "gross_pnl": null,
+      "hold_duration": null,
+      "net_pnl": null,
+      "recorded_entry": false,
+      "selected_contract": null,
+      "selected_contract_stage": false,
+      "setup_family": "Continuation",
+      "signal_timestamp": "2026-03-16T13:30:00Z",
+      "spread_slippage_fees": null,
+      "status": "APPROVAL_REQUIRED_BEFORE_COSTED_BACKTEST",
+      "trade_candidate": false
+    },
+    "Ideal": {
+      "blocking_reasons": [
+        "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
+        "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
+        "LOCAL_MARCH16_SPY_OPRA_EVIDENCE_MISSING"
+      ],
+      "costed_exit_replay_run": false,
+      "eligible_entry": false,
+      "entry_price": null,
+      "entry_timestamp": null,
+      "exit_price": null,
+      "exit_reason": null,
+      "exit_timestamp": null,
+      "gross_pnl": null,
+      "hold_duration": null,
+      "net_pnl": null,
+      "recorded_entry": false,
+      "selected_contract": null,
+      "selected_contract_stage": false,
+      "setup_family": "Ideal",
+      "signal_timestamp": "2026-03-16T13:30:00Z",
+      "spread_slippage_fees": null,
+      "status": "APPROVAL_REQUIRED_BEFORE_COSTED_BACKTEST",
+      "trade_candidate": false
+    }
+  },
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "exact_option_evidence_specifications": [
+    {
+      "call_or_put": "RULE_GAP_REQUIRES_ACCEPTED_FAMILY_SELECTOR",
+      "contract_selection_timestamp_utc": "2026-03-16T13:30:00Z",
+      "dataset": "OPRA.PILLAR",
+      "definition_window": {
+        "end_timestamp_utc": "2026-03-16T13:31:00Z",
+        "post_filter": "expiration=2026-03-30 and right=C and strike>=accepted_numeric_trigger",
+        "query_type": "parent_symbol",
+        "schema": "definition",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "SPY"
+      },
+      "entry_evidence_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z"
+      },
+      "exit_evidence_window": {
+        "end_timestamp_utc": "2026-03-16T19:45:00Z",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "status": "conditional_on_selected_contract_and_eligible_entry"
+      },
+      "permitted_expiration_range": {
+        "end_date": "2026-03-30",
+        "rule": "nearest listed expiration with DTE >= 14",
+        "start_date": "2026-03-30",
+        "status": "exact_rule_window_ready_definition_evidence_required"
+      },
+      "permitted_strike_range": {
+        "lower_bound": null,
+        "rule": "first call strike at or above accepted numeric trigger",
+        "status": "APPROVAL_UNLOCKS_AFTER_NUMERIC_TRIGGER_RULE_GAP_CLOSES",
+        "upper_bound": null
+      },
+      "quote_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "tcbbo",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      },
+      "request_blockers_before_download": [
+        "numeric_trigger_rule_gap",
+        "numeric_invalidation_rule_gap",
+        "family_selector_rule_gap",
+        "selected_contract_raw_symbol_not_known_locally"
+      ],
+      "required_symbols_or_parent_symbol_query": {
+        "definition": "SPY parent-symbol query only",
+        "quotes_trades_statistics": "selected raw_symbol only after definition and selector filtering"
+      },
+      "schemas": [
+        "definition",
+        "tcbbo",
+        "trades",
+        "statistics"
+      ],
+      "setup_family": "Ideal",
+      "statistics_volume_open_interest_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "statistics",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      },
+      "stype_in": "raw_symbol",
+      "symbol": "SPY",
+      "trade_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "trades",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      }
+    },
+    {
+      "call_or_put": "C",
+      "contract_selection_timestamp_utc": "2026-03-16T13:30:00Z",
+      "dataset": "OPRA.PILLAR",
+      "definition_window": {
+        "end_timestamp_utc": "2026-03-16T13:31:00Z",
+        "post_filter": "expiration=2026-03-30 and right=C and strike>=accepted_numeric_trigger",
+        "query_type": "parent_symbol",
+        "schema": "definition",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "SPY"
+      },
+      "entry_evidence_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z"
+      },
+      "exit_evidence_window": {
+        "end_timestamp_utc": "2026-03-16T19:45:00Z",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "status": "conditional_on_selected_contract_and_eligible_entry"
+      },
+      "permitted_expiration_range": {
+        "end_date": "2026-03-30",
+        "rule": "nearest listed expiration with DTE >= 14",
+        "start_date": "2026-03-30",
+        "status": "exact_rule_window_ready_definition_evidence_required"
+      },
+      "permitted_strike_range": {
+        "lower_bound": null,
+        "rule": "first call strike at or above accepted numeric trigger",
+        "status": "APPROVAL_UNLOCKS_AFTER_NUMERIC_TRIGGER_RULE_GAP_CLOSES",
+        "upper_bound": null
+      },
+      "quote_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "tcbbo",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      },
+      "request_blockers_before_download": [
+        "numeric_trigger_rule_gap",
+        "numeric_invalidation_rule_gap",
+        "selected_contract_raw_symbol_not_known_locally"
+      ],
+      "required_symbols_or_parent_symbol_query": {
+        "definition": "SPY parent-symbol query only",
+        "quotes_trades_statistics": "selected raw_symbol only after definition and selector filtering"
+      },
+      "schemas": [
+        "definition",
+        "tcbbo",
+        "trades",
+        "statistics"
+      ],
+      "setup_family": "Clean Fast Break",
+      "statistics_volume_open_interest_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "statistics",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      },
+      "stype_in": "raw_symbol",
+      "symbol": "SPY",
+      "trade_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "trades",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      }
+    },
+    {
+      "call_or_put": "RULE_GAP_REQUIRES_ACCEPTED_FAMILY_SELECTOR",
+      "contract_selection_timestamp_utc": "2026-03-16T13:30:00Z",
+      "dataset": "OPRA.PILLAR",
+      "definition_window": {
+        "end_timestamp_utc": "2026-03-16T13:31:00Z",
+        "post_filter": "expiration=2026-03-30 and right=C and strike>=accepted_numeric_trigger",
+        "query_type": "parent_symbol",
+        "schema": "definition",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "SPY"
+      },
+      "entry_evidence_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z"
+      },
+      "exit_evidence_window": {
+        "end_timestamp_utc": "2026-03-16T19:45:00Z",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "status": "conditional_on_selected_contract_and_eligible_entry"
+      },
+      "permitted_expiration_range": {
+        "end_date": "2026-03-30",
+        "rule": "nearest listed expiration with DTE >= 14",
+        "start_date": "2026-03-30",
+        "status": "exact_rule_window_ready_definition_evidence_required"
+      },
+      "permitted_strike_range": {
+        "lower_bound": null,
+        "rule": "first call strike at or above accepted numeric trigger",
+        "status": "APPROVAL_UNLOCKS_AFTER_NUMERIC_TRIGGER_RULE_GAP_CLOSES",
+        "upper_bound": null
+      },
+      "quote_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "tcbbo",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      },
+      "request_blockers_before_download": [
+        "numeric_trigger_rule_gap",
+        "numeric_invalidation_rule_gap",
+        "family_selector_rule_gap",
+        "selected_contract_raw_symbol_not_known_locally"
+      ],
+      "required_symbols_or_parent_symbol_query": {
+        "definition": "SPY parent-symbol query only",
+        "quotes_trades_statistics": "selected raw_symbol only after definition and selector filtering"
+      },
+      "schemas": [
+        "definition",
+        "tcbbo",
+        "trades",
+        "statistics"
+      ],
+      "setup_family": "Continuation",
+      "statistics_volume_open_interest_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "statistics",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      },
+      "stype_in": "raw_symbol",
+      "symbol": "SPY",
+      "trade_window": {
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "trades",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      }
+    }
+  ],
+  "execution_scope": {
+    "bounded_to_spy_2026_03_16": true,
+    "broker_or_account_or_order_touched": false,
+    "cost_check_only": true,
+    "covered_setup_families": [
+      "Ideal",
+      "Clean Fast Break",
+      "Continuation"
+    ],
+    "credentials_or_env_changed": false,
+    "frozen_patch8_thresholds_changed": false,
+    "live_eligible": false,
+    "main_py_changed": false,
+    "paid_data_downloaded": false,
+    "paper_eligible": false,
+    "processes_each_setup_family_separately": true,
+    "profitability_claimed": false,
+    "railway_or_deploy_changed": false,
+    "sizing_or_alerts_changed": false,
+    "timeseries_download_called": false
+  },
+  "family_scorecards": {
+    "Clean Fast Break": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 1,
+      "new_exact_option_contract_evidence_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 1,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 1,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    },
+    "Continuation": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 1,
+      "new_exact_option_contract_evidence_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 1,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 1,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    },
+    "Ideal": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 1,
+      "new_exact_option_contract_evidence_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 1,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 1,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    }
+  },
+  "first_run_hash": "45847af6070fd34c2bd405dc083d494376d144fac6c09afe3ef695a17c70db62",
+  "grouped_opra_cost_check": {
+    "actual_billed_cost": "NOT_AVAILABLE",
+    "api_or_local_command_used": "python -m historical_signal_replay.day51_spy_numeric_setup_and_opra_cost_check",
+    "approval_status": "APPROVAL_REQUIRED_COST_ESTIMATE_BLOCKED",
+    "attempted": true,
+    "checked_at_utc": "2026-06-23T00:39:57.029820Z",
+    "checked_total": "NOT_AVAILABLE",
+    "credential_used": false,
+    "currency": "USD",
+    "download_created": false,
+    "external_cost_api_called": false,
+    "grouped_total": "NOT_AVAILABLE",
+    "paid_data_downloaded": false,
+    "reason": "SAFE_FAST_DB_AUTH is not configured",
+    "schema_window_costs": [
+      {
+        "checked_cost": "NOT_AVAILABLE",
+        "currency": "USD",
+        "dataset": "OPRA.PILLAR",
+        "end_timestamp_utc": "2026-03-16T13:31:00Z",
+        "schema": "definition",
+        "setup_family": "Ideal",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "stype_in": "raw_symbol",
+        "symbols": "SPY"
+      },
+      {
+        "checked_cost": "NOT_AVAILABLE",
+        "currency": "USD",
+        "dataset": "OPRA.PILLAR",
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "tcbbo",
+        "setup_family": "Ideal",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "stype_in": "raw_symbol",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      },
+      {
+        "checked_cost": "NOT_AVAILABLE",
+        "currency": "USD",
+        "dataset": "OPRA.PILLAR",
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "trades",
+        "setup_family": "Ideal",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "stype_in": "raw_symbol",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      },
+      {
+        "checked_cost": "NOT_AVAILABLE",
+        "currency": "USD",
+        "dataset": "OPRA.PILLAR",
+        "end_timestamp_utc": "2026-03-16T13:35:00Z",
+        "schema": "statistics",
+        "setup_family": "Ideal",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "stype_in": "raw_symbol",
+        "symbols": "selected_raw_symbol_after_definition_filter"
+      }
+    ],
+    "status": "NOT_AVAILABLE",
+    "sufficient_for_explicit_approval": false
+  },
+  "guardrails": {
+    "broker_mutation_attempted": false,
+    "live_eligible": false,
+    "paper_eligible": false,
+    "profitability_claimed": false,
+    "promotion_decision_made": false,
+    "proof_accepted": false,
+    "schwab_authenticated": false
+  },
+  "input_paths": {
+    "day50_option_review_result": "historical_signal_replay/results/day50_raw_data_positive_entry_option_contract_evidence_request_review.json",
+    "day50_package_to_candidate_result": "historical_signal_replay/results/day50_raw_data_positive_entry_review_only_package_to_candidate_contract.json",
+    "local_option_data_dir": "historical_signal_replay/source_data/external_option_data_drop",
+    "underlying_source_csv": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv"
+  },
+  "local_option_evidence_inventory": {
+    "directory": "historical_signal_replay/source_data/external_option_data_drop",
+    "exists": true,
+    "file_count": 102,
+    "has_march16_spy_opra_evidence": false,
+    "manifest_march16_requests": [],
+    "march16_matching_files": []
+  },
+  "next_action": "Provide a successful Databento OPRA metadata cost estimate for the exact grouped request before any download or costed backtest.",
+  "numeric_setup_contracts": [
+    {
+      "direction": "long_call_only_when_family_selector_is_accepted",
+      "direction_rule_status": "rule_gap_no_accepted_local_family_selector",
+      "evidence_backed_fields_implemented": [
+        "setup_timestamp",
+        "direction_rule_status",
+        "freshness_deadline",
+        "no_hindsight_boundary",
+        "session_boundary_behavior",
+        "setup_minute_open_high_low_close_volume_envelope",
+        "setup_minute_volume_weighted_close"
+      ],
+      "freshness_deadline_utc": "2026-03-16T13:30:00Z",
+      "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+      "invalidation": "Ideal bounded accepted invalidation contract",
+      "invalidation_numeric": null,
+      "invalidation_numeric_status": "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "numeric_room_or_target": null,
+      "numeric_room_or_target_required": true,
+      "numeric_room_or_target_status": "BLOCKED_UNTIL_TRIGGER_AND_INVALIDATION_NUMERIC",
+      "numeric_underlying_evidence": {
+        "close_max": "668.180000000",
+        "close_min": "668.000000000",
+        "high_max": "668.475000000",
+        "high_min": "668.360000000",
+        "low_max": "668.000000000",
+        "low_min": "667.730000000",
+        "numeric_values_are_evidence_not_trigger_or_invalidation": true,
+        "open_max": "668.410000000",
+        "open_min": "668.360000000",
+        "publisher_ids": [
+          "39",
+          "40",
+          "41"
+        ],
+        "rows_found": 3,
+        "setup_time_utc": "2026-03-16T13:30:00Z",
+        "source_csv": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "volume_total": "10094",
+        "volume_weighted_close": "668.1674118288091935803447593"
+      },
+      "rule_gap": "accepted Day 50 mapper names family trigger/invalidation contracts but does not bind those contracts to a numeric OHLCV field; raw high/low/open/close may not be promoted to trigger or invalidation without an accepted family rule",
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Ideal",
+      "setup_timestamp_et": "2026-03-16T09:30:00-04:00",
+      "setup_timestamp_utc": "2026-03-16T13:30:00Z",
+      "symbol": "SPY",
+      "trigger": "Ideal bounded accepted setup trigger contract",
+      "trigger_numeric": null,
+      "trigger_numeric_status": "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED"
+    },
+    {
+      "direction": "long_call_only_when_family_selector_is_accepted",
+      "direction_rule_status": "accepted_for_clean_fast_break",
+      "evidence_backed_fields_implemented": [
+        "setup_timestamp",
+        "direction_rule_status",
+        "freshness_deadline",
+        "no_hindsight_boundary",
+        "session_boundary_behavior",
+        "setup_minute_open_high_low_close_volume_envelope",
+        "setup_minute_volume_weighted_close"
+      ],
+      "freshness_deadline_utc": "2026-03-16T13:30:00Z",
+      "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+      "invalidation": "Clean Fast Break bounded accepted invalidation contract",
+      "invalidation_numeric": null,
+      "invalidation_numeric_status": "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "numeric_room_or_target": null,
+      "numeric_room_or_target_required": true,
+      "numeric_room_or_target_status": "BLOCKED_UNTIL_TRIGGER_AND_INVALIDATION_NUMERIC",
+      "numeric_underlying_evidence": {
+        "close_max": "668.180000000",
+        "close_min": "668.000000000",
+        "high_max": "668.475000000",
+        "high_min": "668.360000000",
+        "low_max": "668.000000000",
+        "low_min": "667.730000000",
+        "numeric_values_are_evidence_not_trigger_or_invalidation": true,
+        "open_max": "668.410000000",
+        "open_min": "668.360000000",
+        "publisher_ids": [
+          "39",
+          "40",
+          "41"
+        ],
+        "rows_found": 3,
+        "setup_time_utc": "2026-03-16T13:30:00Z",
+        "source_csv": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "volume_total": "10094",
+        "volume_weighted_close": "668.1674118288091935803447593"
+      },
+      "rule_gap": "accepted Day 50 mapper names family trigger/invalidation contracts but does not bind those contracts to a numeric OHLCV field; raw high/low/open/close may not be promoted to trigger or invalidation without an accepted family rule",
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Clean Fast Break",
+      "setup_timestamp_et": "2026-03-16T09:30:00-04:00",
+      "setup_timestamp_utc": "2026-03-16T13:30:00Z",
+      "symbol": "SPY",
+      "trigger": "Clean Fast Break bounded accepted setup trigger contract",
+      "trigger_numeric": null,
+      "trigger_numeric_status": "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED"
+    },
+    {
+      "direction": "long_call_only_when_family_selector_is_accepted",
+      "direction_rule_status": "rule_gap_no_accepted_local_family_selector",
+      "evidence_backed_fields_implemented": [
+        "setup_timestamp",
+        "direction_rule_status",
+        "freshness_deadline",
+        "no_hindsight_boundary",
+        "session_boundary_behavior",
+        "setup_minute_open_high_low_close_volume_envelope",
+        "setup_minute_volume_weighted_close"
+      ],
+      "freshness_deadline_utc": "2026-03-16T13:30:00Z",
+      "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+      "invalidation": "Continuation bounded accepted invalidation contract",
+      "invalidation_numeric": null,
+      "invalidation_numeric_status": "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "numeric_room_or_target": null,
+      "numeric_room_or_target_required": true,
+      "numeric_room_or_target_status": "BLOCKED_UNTIL_TRIGGER_AND_INVALIDATION_NUMERIC",
+      "numeric_underlying_evidence": {
+        "close_max": "668.180000000",
+        "close_min": "668.000000000",
+        "high_max": "668.475000000",
+        "high_min": "668.360000000",
+        "low_max": "668.000000000",
+        "low_min": "667.730000000",
+        "numeric_values_are_evidence_not_trigger_or_invalidation": true,
+        "open_max": "668.410000000",
+        "open_min": "668.360000000",
+        "publisher_ids": [
+          "39",
+          "40",
+          "41"
+        ],
+        "rows_found": 3,
+        "setup_time_utc": "2026-03-16T13:30:00Z",
+        "source_csv": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
+        "volume_total": "10094",
+        "volume_weighted_close": "668.1674118288091935803447593"
+      },
+      "rule_gap": "accepted Day 50 mapper names family trigger/invalidation contracts but does not bind those contracts to a numeric OHLCV field; raw high/low/open/close may not be promoted to trigger or invalidation without an accepted family rule",
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Continuation",
+      "setup_timestamp_et": "2026-03-16T09:30:00-04:00",
+      "setup_timestamp_utc": "2026-03-16T13:30:00Z",
+      "symbol": "SPY",
+      "trigger": "Continuation bounded accepted setup trigger contract",
+      "trigger_numeric": null,
+      "trigger_numeric_status": "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED"
+    }
+  ],
+  "result_version": "day51_spy_numeric_setup_and_opra_cost_check_v1",
+  "run_timestamp": "2026-06-23T00:39:55.503203Z",
+  "second_run_hash": "45847af6070fd34c2bd405dc083d494376d144fac6c09afe3ef695a17c70db62",
+  "source_commit": "27b5bd7",
+  "task": "SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_CODEX_TASK.md",
+  "test_coverage_contract": {
+    "day51_handoff_consistency": true,
+    "deterministic_winner_selection": true,
+    "developing_stage_transitions": true,
+    "focused_validators": true,
+    "git_diff_check": true,
+    "mapper_regressions": true,
+    "mapper_to_generation_regressions": true,
+    "no_hindsight": true,
+    "no_trade_preservation": true,
+    "numeric_setup_contracts_all_three_families": true,
+    "option_selection_and_execution_cost_controls": true,
+    "package_to_candidate_regressions": true,
+    "safe_checks_execution_policy_bypass": true,
+    "session_boundaries_and_carry_forward": true,
+    "stale_spent_and_blocker_rejection": true
+  }
+}
