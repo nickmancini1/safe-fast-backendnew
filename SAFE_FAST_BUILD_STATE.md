@@ -4,17 +4,40 @@
 - PROJECT_DAY: Day 52
 - PROJECT_DATE: 2026-06-23
 - ACTIVE_OBJECTIVE: Resolve the remaining family-specific numeric trigger and invalidation rule gaps before any setup-qualified full-session recognition claim or OPRA/economic work.
-- ACTIVE_TASK: SAFE_FAST_DAY52_NUMERIC_TRIGGER_INVALIDATION_CODEX_TASK.md
-- ACTIVE_TASK_PURPOSE: Implement and validate deterministic setup-time numeric trigger/invalidation constructors for the March 16, 2026 SPY full-session recognition path, returning exact family-field blockers when local accepted rules do not bind OHLCV evidence to numeric thresholds.
-- PROVEN_SUMMARY: Day 52 now scans the complete validated SPY March 16, 2026 one-minute session with 751 source rows, 390 unique timestamps, and 2253 setup-family recognition records across Ideal, Clean Fast Break, and Continuation. The old blanket `numeric_trigger_and_invalidation_missing` blocker was replaced with six exact family-field blockers, while setup-time OHLCV provenance, no-hindsight cutoffs, deterministic duplicate behavior, setup-time review field exclusion, stable no-winner selection, and strict no-trade behavior are preserved. Validators and focused tests pass.
-- UNPROVEN_SUMMARY: Full-session setup-qualified recognition is still blocked because no accepted local rule binds the family trigger or invalidation contracts to numeric OHLCV fields. No numeric trigger, numeric invalidation, selected winner, trade candidate, selected contract, eligible entry, recorded entry, OPRA layer, costed backtest, exit evaluation, net P&L, proof, profitability, readiness, promotion, paper eligibility, or live eligibility is established.
-- CURRENT_FUNNEL_TOTALS: sessions scanned 1; rows scanned 751; recognition records 2253; per setup family rejected 389, duplicate 361, blocked by missing evidence 1, setup-qualified 0, selected winner 0, suppressed 0, developing at session end 0, recognition-layer executable 0; numeric values established 0; numeric values unresolved 6; trade candidates 0; selected contracts 0; eligible entries 0; recorded entries 0; profitability proof NO; paper/live eligibility NO.
-- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY52_NUMERIC_TRIGGER_INVALIDATION_RESULT.md; historical_signal_replay/results/day52_numeric_trigger_invalidation.json; historical_signal_replay/day52_numeric_trigger_invalidation.py; watcher_foundation/day52_numeric_trigger_invalidation_validator.py; tests/test_day52_numeric_trigger_invalidation.py; SAFE_FAST_DAY52_FULL_SESSION_RECOGNITION_MANIFEST_RESULT.md; historical_signal_replay/results/day52_full_session_recognition_manifest.json; historical_signal_replay/results/day52_full_session_setup_time_review.json; historical_signal_replay/day52_full_session_recognition_manifest.py; watcher_foundation/day52_full_session_recognition_manifest_validator.py; tests/test_day52_full_session_recognition_manifest.py.
-- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY52_FULL_SESSION_RECOGNITION_MANIFEST_RESULT.md
+- ACTIVE_TASK: SAFE_FAST_DAY52_REPLAY_ONLY_NUMERIC_RULE_CANDIDATES_CODEX_TASK.md
+- ACTIVE_TASK_PURPOSE: Build and validate a strictly separate `PROVISIONAL_REPLAY_ONLY` numeric rule candidate layer for SPY March 16, 2026 without overwriting accepted unresolved numeric blockers or promoting a trading rule.
+- PROVEN_SUMMARY: Day 52 now has a separate provisional replay-only numeric candidate package. Candidate A setup-bar range produces actual provisional values for Ideal, Clean Fast Break, and Continuation from the primary setup-time row: trigger `668.360000000` and invalidation `667.870000000` for all three bullish positive-entry packages. Candidate B and Candidate C remain blocked by exact missing accepted structure-boundary and named-level fields. The complete-session provisional replay preserves 751 source rows, 390 unique timestamps, and 2253 recognition records; provisional mode has 3 setup-qualified-under-provisional records, 1 selected winner, 2 suppressed records, 0 trade candidates, and strict no-trade behavior. Validators and focused tests pass.
+- UNPROVEN_SUMMARY: Accepted numeric rules remain unresolved because no accepted local rule has promoted Candidate A, B, or C into a frozen trigger/invalidation contract. The provisional replay-only values are research evidence only and are not profitability proof, OPRA evidence, selected contract evidence, entry/exit evidence, P&L, readiness, paper eligibility, or live eligibility.
+- CURRENT_FUNNEL_TOTALS: accepted mode sessions scanned 1; rows scanned 751; recognition records 2253; per setup family rejected 389, duplicate 361, blocked by missing evidence 1, setup-qualified 0, selected winner 0, suppressed 0, recognition-layer executable 0; accepted numeric values established 0; accepted numeric values unresolved 6. Provisional mode setup-qualified-under-provisional 3, selected winner 1, suppressed 2, recognition-layer executable 1, trade candidates 0, selected contracts 0, eligible entries 0, recorded entries 0; profitability proof NO; paper/live eligibility NO.
+- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY52_REPLAY_ONLY_NUMERIC_RULE_CANDIDATES_RESULT.md; historical_signal_replay/results/day52_replay_only_numeric_rule_candidates.json; historical_signal_replay/results/day52_replay_only_numeric_rule_candidates_manifest.json; historical_signal_replay/results/day52_replay_only_numeric_rule_candidates_setup_time_review.json; historical_signal_replay/day52_replay_only_numeric_rule_candidates.py; watcher_foundation/day52_replay_only_numeric_rule_candidates_validator.py; tests/test_day52_replay_only_numeric_rule_candidates.py; plus accepted references SAFE_FAST_DAY52_NUMERIC_TRIGGER_INVALIDATION_RESULT.md; historical_signal_replay/results/day52_numeric_trigger_invalidation.json; historical_signal_replay/day52_numeric_trigger_invalidation.py; SAFE_FAST_DAY52_FULL_SESSION_RECOGNITION_MANIFEST_RESULT.md; historical_signal_replay/results/day52_full_session_recognition_manifest.json; historical_signal_replay/results/day52_full_session_setup_time_review.json.
+- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY52_REPLAY_ONLY_NUMERIC_RULE_CANDIDATES_RESULT.md
 - SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task.
 - DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md
-- NEXT_ACTION: Accept explicit family-specific numeric trigger and invalidation rules, with replay/regression cases, before any setup-qualified full-session recognition claim or OPRA/economic work.
+- NEXT_ACTION: Decide whether to promote, revise, or reject the `PROVISIONAL_REPLAY_ONLY` setup-bar range candidate for each setup family with explicit accepted-rule regression cases before any accepted setup-qualified full-session recognition claim or OPRA/economic work.
 <!-- SAFE_FAST_CURRENT_STATE_END -->
+
+## Day 52 replay-only numeric rule candidates result
+
+- Current task file executed: `SAFE_FAST_DAY52_REPLAY_ONLY_NUMERIC_RULE_CANDIDATES_CODEX_TASK.md`.
+- Result document created: `SAFE_FAST_DAY52_REPLAY_ONLY_NUMERIC_RULE_CANDIDATES_RESULT.md`.
+- Machine-readable result created: `historical_signal_replay/results/day52_replay_only_numeric_rule_candidates.json`.
+- Provisional full-session manifest created: `historical_signal_replay/results/day52_replay_only_numeric_rule_candidates_manifest.json`.
+- Compact setup-time review created: `historical_signal_replay/results/day52_replay_only_numeric_rule_candidates_setup_time_review.json`.
+- Focused implementation created: `historical_signal_replay/day52_replay_only_numeric_rule_candidates.py`.
+- Focused validator created: `watcher_foundation/day52_replay_only_numeric_rule_candidates_validator.py`.
+- Focused tests created: `tests/test_day52_replay_only_numeric_rule_candidates.py`.
+- Covered setup families: Ideal, Clean Fast Break, and Continuation for SPY on `2026-03-16`.
+- Provisional status: `PROVISIONAL_REPLAY_ONLY`.
+- Candidate A setup-bar range values: trigger `668.360000000`, invalidation `667.870000000` for Ideal, Clean Fast Break, and Continuation, sourced from the primary setup-time row high/low at `2026-03-16T13:30:00Z`.
+- Candidate B setup-structure range status: blocked for missing accepted structure-boundary fields.
+- Candidate C named-level status: blocked for missing explicit accepted named breakout/reclaim/resistance/support/pivot/base level fields.
+- Accepted numeric values established remain `0`; accepted numeric values unresolved remain `6`.
+- Provisional complete-session counts: setup-qualified-under-provisional `3`, selected winner `1`, suppressed `2`, recognition-layer executable `1`, trade candidates `0`, selected contracts `0`, eligible entries `0`, recorded entries `0`.
+- Trigger observation after cutoff: trigger observed first at `2026-03-16T13:31:00Z` for all three provisional pairs; this observation was descriptive only and was not used to construct or select the candidate.
+- Profitability proof: `NO`.
+- Paper/live eligibility: `NO`.
+- Exact next decision required: promote, revise, or reject the setup-bar range candidate for each family with explicit accepted-rule regression cases.
+- No accepted blockers were overwritten; no OPRA download, option selection, fills, exits, costs, proof, profitability, readiness, promotion, paper/live eligibility, `main.py`, Railway/deploy, production/live backend, broker/account/order/fill/alert, credential, `.env`, sizing, or frozen `patch8` threshold change was made.
 
 ## Day 52 numeric trigger and invalidation result
 

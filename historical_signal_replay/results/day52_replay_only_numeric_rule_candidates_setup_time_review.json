@@ -1,0 +1,282 @@
+{
+  "path": "historical_signal_replay/results/day52_replay_only_numeric_rule_candidates_setup_time_review.json",
+  "post_cutoff_fields_excluded": true,
+  "records": [
+    {
+      "candidate_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+      "direction": "bullish",
+      "information_cutoff": "2026-03-16T13:30:00Z",
+      "invalidation": {
+        "calculation": "bullish setup-bar range invalidation = setup-time bar low",
+        "candidate_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "comparison_operator": "<=",
+        "direction": "bullish",
+        "field": "invalidation",
+        "final_numeric_value": "667.870000000",
+        "future_row_exclusion_proof": "value copied from source field low on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
+        "information_cutoff": "2026-03-16T13:30:00Z",
+        "numeric_value": "667.870000000",
+        "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+        "setup_family": "Ideal",
+        "source_field": "low",
+        "source_row": {
+          "close": "668.180000000",
+          "high": "668.360000000",
+          "instrument_id": "15144",
+          "low": "667.870000000",
+          "open": "668.360000000",
+          "publisher_id": "39",
+          "symbol": "SPY",
+          "timestamp_et": "2026-03-16T09:30:00-04:00",
+          "timestamp_utc": "2026-03-16T13:30:00Z",
+          "volume": "3163"
+        },
+        "source_timestamp": "2026-03-16T13:30:00Z",
+        "source_value": "667.870000000"
+      },
+      "post_cutoff_fields_excluded": true,
+      "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+      "setup_family": "Ideal",
+      "source_row": {
+        "close": "668.180000000",
+        "high": "668.360000000",
+        "instrument_id": "15144",
+        "low": "667.870000000",
+        "open": "668.360000000",
+        "publisher_id": "39",
+        "symbol": "SPY",
+        "timestamp_et": "2026-03-16T09:30:00-04:00",
+        "timestamp_utc": "2026-03-16T13:30:00Z",
+        "volume": "3163"
+      },
+      "trigger": {
+        "calculation": "bullish setup-bar range trigger = setup-time bar high",
+        "candidate_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "comparison_operator": ">=",
+        "direction": "bullish",
+        "field": "trigger",
+        "final_numeric_value": "668.360000000",
+        "future_row_exclusion_proof": "value copied from source field high on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
+        "information_cutoff": "2026-03-16T13:30:00Z",
+        "numeric_value": "668.360000000",
+        "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+        "setup_family": "Ideal",
+        "source_field": "high",
+        "source_row": {
+          "close": "668.180000000",
+          "high": "668.360000000",
+          "instrument_id": "15144",
+          "low": "667.870000000",
+          "open": "668.360000000",
+          "publisher_id": "39",
+          "symbol": "SPY",
+          "timestamp_et": "2026-03-16T09:30:00-04:00",
+          "timestamp_utc": "2026-03-16T13:30:00Z",
+          "volume": "3163"
+        },
+        "source_timestamp": "2026-03-16T13:30:00Z",
+        "source_value": "668.360000000"
+      },
+      "unavailable_higher_priority_candidates": [
+        {
+          "candidate_rule_id": "CANDIDATE_C_NAMED_LEVEL",
+          "missing_structural_field": "explicit_named_level_field_missing",
+          "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+          "setup_family": "Ideal",
+          "status": "BLOCKED_MISSING_STRUCTURAL_FIELD"
+        },
+        {
+          "candidate_rule_id": "CANDIDATE_B_SETUP_STRUCTURE_RANGE",
+          "missing_structural_field": "accepted_signal_or_setup_structure_boundary_field_missing",
+          "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+          "setup_family": "Ideal",
+          "status": "BLOCKED_MISSING_STRUCTURAL_FIELD"
+        }
+      ]
+    },
+    {
+      "candidate_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+      "direction": "bullish",
+      "information_cutoff": "2026-03-16T13:30:00Z",
+      "invalidation": {
+        "calculation": "bullish setup-bar range invalidation = setup-time bar low",
+        "candidate_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "comparison_operator": "<=",
+        "direction": "bullish",
+        "field": "invalidation",
+        "final_numeric_value": "667.870000000",
+        "future_row_exclusion_proof": "value copied from source field low on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
+        "information_cutoff": "2026-03-16T13:30:00Z",
+        "numeric_value": "667.870000000",
+        "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+        "setup_family": "Clean Fast Break",
+        "source_field": "low",
+        "source_row": {
+          "close": "668.180000000",
+          "high": "668.360000000",
+          "instrument_id": "15144",
+          "low": "667.870000000",
+          "open": "668.360000000",
+          "publisher_id": "39",
+          "symbol": "SPY",
+          "timestamp_et": "2026-03-16T09:30:00-04:00",
+          "timestamp_utc": "2026-03-16T13:30:00Z",
+          "volume": "3163"
+        },
+        "source_timestamp": "2026-03-16T13:30:00Z",
+        "source_value": "667.870000000"
+      },
+      "post_cutoff_fields_excluded": true,
+      "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+      "setup_family": "Clean Fast Break",
+      "source_row": {
+        "close": "668.180000000",
+        "high": "668.360000000",
+        "instrument_id": "15144",
+        "low": "667.870000000",
+        "open": "668.360000000",
+        "publisher_id": "39",
+        "symbol": "SPY",
+        "timestamp_et": "2026-03-16T09:30:00-04:00",
+        "timestamp_utc": "2026-03-16T13:30:00Z",
+        "volume": "3163"
+      },
+      "trigger": {
+        "calculation": "bullish setup-bar range trigger = setup-time bar high",
+        "candidate_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "comparison_operator": ">=",
+        "direction": "bullish",
+        "field": "trigger",
+        "final_numeric_value": "668.360000000",
+        "future_row_exclusion_proof": "value copied from source field high on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
+        "information_cutoff": "2026-03-16T13:30:00Z",
+        "numeric_value": "668.360000000",
+        "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+        "setup_family": "Clean Fast Break",
+        "source_field": "high",
+        "source_row": {
+          "close": "668.180000000",
+          "high": "668.360000000",
+          "instrument_id": "15144",
+          "low": "667.870000000",
+          "open": "668.360000000",
+          "publisher_id": "39",
+          "symbol": "SPY",
+          "timestamp_et": "2026-03-16T09:30:00-04:00",
+          "timestamp_utc": "2026-03-16T13:30:00Z",
+          "volume": "3163"
+        },
+        "source_timestamp": "2026-03-16T13:30:00Z",
+        "source_value": "668.360000000"
+      },
+      "unavailable_higher_priority_candidates": [
+        {
+          "candidate_rule_id": "CANDIDATE_C_NAMED_LEVEL",
+          "missing_structural_field": "explicit_named_level_field_missing",
+          "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+          "setup_family": "Clean Fast Break",
+          "status": "BLOCKED_MISSING_STRUCTURAL_FIELD"
+        },
+        {
+          "candidate_rule_id": "CANDIDATE_B_SETUP_STRUCTURE_RANGE",
+          "missing_structural_field": "accepted_base_or_initial_break_structure_boundary_field_missing",
+          "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+          "setup_family": "Clean Fast Break",
+          "status": "BLOCKED_MISSING_STRUCTURAL_FIELD"
+        }
+      ]
+    },
+    {
+      "candidate_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+      "direction": "bullish",
+      "information_cutoff": "2026-03-16T13:30:00Z",
+      "invalidation": {
+        "calculation": "bullish setup-bar range invalidation = setup-time bar low",
+        "candidate_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "comparison_operator": "<=",
+        "direction": "bullish",
+        "field": "invalidation",
+        "final_numeric_value": "667.870000000",
+        "future_row_exclusion_proof": "value copied from source field low on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
+        "information_cutoff": "2026-03-16T13:30:00Z",
+        "numeric_value": "667.870000000",
+        "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+        "setup_family": "Continuation",
+        "source_field": "low",
+        "source_row": {
+          "close": "668.180000000",
+          "high": "668.360000000",
+          "instrument_id": "15144",
+          "low": "667.870000000",
+          "open": "668.360000000",
+          "publisher_id": "39",
+          "symbol": "SPY",
+          "timestamp_et": "2026-03-16T09:30:00-04:00",
+          "timestamp_utc": "2026-03-16T13:30:00Z",
+          "volume": "3163"
+        },
+        "source_timestamp": "2026-03-16T13:30:00Z",
+        "source_value": "667.870000000"
+      },
+      "post_cutoff_fields_excluded": true,
+      "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+      "setup_family": "Continuation",
+      "source_row": {
+        "close": "668.180000000",
+        "high": "668.360000000",
+        "instrument_id": "15144",
+        "low": "667.870000000",
+        "open": "668.360000000",
+        "publisher_id": "39",
+        "symbol": "SPY",
+        "timestamp_et": "2026-03-16T09:30:00-04:00",
+        "timestamp_utc": "2026-03-16T13:30:00Z",
+        "volume": "3163"
+      },
+      "trigger": {
+        "calculation": "bullish setup-bar range trigger = setup-time bar high",
+        "candidate_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "comparison_operator": ">=",
+        "direction": "bullish",
+        "field": "trigger",
+        "final_numeric_value": "668.360000000",
+        "future_row_exclusion_proof": "value copied from source field high on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
+        "information_cutoff": "2026-03-16T13:30:00Z",
+        "numeric_value": "668.360000000",
+        "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+        "setup_family": "Continuation",
+        "source_field": "high",
+        "source_row": {
+          "close": "668.180000000",
+          "high": "668.360000000",
+          "instrument_id": "15144",
+          "low": "667.870000000",
+          "open": "668.360000000",
+          "publisher_id": "39",
+          "symbol": "SPY",
+          "timestamp_et": "2026-03-16T09:30:00-04:00",
+          "timestamp_utc": "2026-03-16T13:30:00Z",
+          "volume": "3163"
+        },
+        "source_timestamp": "2026-03-16T13:30:00Z",
+        "source_value": "668.360000000"
+      },
+      "unavailable_higher_priority_candidates": [
+        {
+          "candidate_rule_id": "CANDIDATE_C_NAMED_LEVEL",
+          "missing_structural_field": "explicit_named_level_field_missing",
+          "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+          "setup_family": "Continuation",
+          "status": "BLOCKED_MISSING_STRUCTURAL_FIELD"
+        },
+        {
+          "candidate_rule_id": "CANDIDATE_B_SETUP_STRUCTURE_RANGE",
+          "missing_structural_field": "accepted_pullback_or_continuation_base_boundary_field_missing",
+          "provisional_status": "PROVISIONAL_REPLAY_ONLY",
+          "setup_family": "Continuation",
+          "status": "BLOCKED_MISSING_STRUCTURAL_FIELD"
+        }
+      ]
+    }
+  ]
+}
