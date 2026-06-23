@@ -10,9 +10,9 @@ This document is the canonical rule document for promotion gates, falsifiable Da
 
 ## Day 50 Review-Only Mapper Package Boundary
 
-`SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_RESULT.md` confirms that the accepted SPY March 16, 2026 setup-time mapper packages are review-only field packages, not generated candidates. A package may not advance from `mapped_package` to `generated_candidate` unless a later bounded task defines and regression-tests an accepted review-only-package-to-generated-candidate contract.
+`SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_RESULT.md` defines and regression-tests the bounded review-only-package-to-generated-candidate contract for the accepted SPY March 16, 2026 setup-time mapper packages. Under that contract, a package may advance from `mapped_package` to `generated_candidate` only when it contains all seven accepted setup-time fields, preserves same-session and no-hindsight boundaries, has fresh final-signal state, and has no accepted blocker/caution failure.
 
-The current retry preserves the proof pipeline: `3` exact setup-time field packages, `0` generated candidates, `0` setup-qualified, `0` trade candidates, `0` selected contracts, `0` eligible entries, and `0` recorded entries. No option request or exit-path request is permitted until a setup reaches the relevant trade-candidate or selected-contract stage under accepted rules.
+The current contract preserves the proof pipeline: `3` exact setup-time field packages, `3` generated candidates, `3` setup-qualified candidates, `0` trade candidates, `0` selected contracts, `0` eligible entries, and `0` recorded entries. The exact remaining blocker for all three setup families is `selected_contract_option_evidence_missing`. One grouped option-contract evidence request is recorded for selected-contract identity, quote freshness, liquidity, and entry execution context, but no cost check or paid-data download is authorized by the contract result. No exit-path request is permitted until a setup reaches selected-contract or entry status under accepted rules.
 
 ## Day 45 Bounded Sprint Rule
 

@@ -42,9 +42,11 @@ This registry replaces ad hoc source wording in prior result files. Older manife
 
 ## Day 50 Raw One-Minute Underlying Setup-Replay Mapping Boundary
 
-`SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_RESULT.md` confirms the next boundary after accepted mapping: the three SPY setup-time field packages are review-only packages and do not by themselves authorize generated candidates. The bounded retry processed Ideal, Clean Fast Break, and Continuation separately and stopped each before `generated_candidate` with blocker `accepted_mapper_package_review_only_not_generation_input`.
+`SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_RESULT.md` confirms the next boundary after accepted mapping: the three SPY setup-time field packages satisfy the bounded contract for generated-candidate and setup-qualified status, but do not satisfy the trade-candidate contract. The bounded contract processed Ideal, Clean Fast Break, and Continuation separately and stopped each before `trade_candidate` with blocker `selected_contract_option_evidence_missing`.
 
-No option or exit-path data is currently the smallest blocker for these three packages because no setup reached trade-candidate or selected-contract status. The smallest named repair is an accepted review-only-package-to-generated-candidate contract with regression coverage, not a data download.
+Option contract evidence is now the smallest named blocker for these three setup-qualified SPY candidates. The grouped request is for selected-contract identity, selected-contract quote freshness, selected-contract liquidity, and entry execution context. Required sources are Databento `OPRA.PILLAR / definition`, an accepted OPRA quote-freshness source such as `cmbp-1`, `OPRA.PILLAR / trades`, and `OPRA.PILLAR / statistics`. The requested setup-time window is `2026-03-16T09:30:00-04:00` through `2026-03-16T09:35:00-04:00`. The contract result does not authorize a cost check or paid-data download by itself.
+
+`SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_MAPPER_TO_GENERATION_RETRY_RESULT.md` remains the historical retry boundary showing that, before the contract existed, the same three packages stopped before `generated_candidate` with blocker `accepted_mapper_package_review_only_not_generation_input`.
 
 `SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_ACCEPTED_SETUP_REPLAY_PATH_DECISION_RESULT.md` decides that a bounded accepted setup-replay mapping path should be created before retrying the Day 50 SPY raw-data positive-entry opportunities, but replay/regression cases and accepted field boundaries must be defined first.
 

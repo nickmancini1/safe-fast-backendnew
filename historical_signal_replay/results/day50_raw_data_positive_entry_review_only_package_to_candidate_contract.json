@@ -1,0 +1,724 @@
+{
+  "accepted_mapper_regression_case_count": 17,
+  "accepted_mapper_regression_cases": [
+    {
+      "case_id": "DAY50-SPY-IDEAL-POSITIVE-MAPPING",
+      "detail": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-CFB-POSITIVE-MAPPING",
+      "detail": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-CONTINUATION-POSITIVE-MAPPING",
+      "detail": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-SETUP-TIME-ROW",
+      "detail": "rejected_fields=['setup_time_row']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-OR-AMBIGUOUS-TRIGGER",
+      "detail": "rejected_fields=['trigger']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-OR-AMBIGUOUS-INVALIDATION",
+      "detail": "rejected_fields=['invalidation']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-FRESHNESS-FINAL-SIGNAL",
+      "detail": "rejected_fields=['freshness_final_signal_state']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-MISSING-BLOCKER-CAUTION",
+      "detail": "rejected_fields=['blocker_caution_review']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-SAME-SESSION-BOUNDARY",
+      "detail": "same-session reset accepted with authorized March 16 RTH rows only",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-PRIOR-SESSION-CONTAMINATION",
+      "detail": "rejected_fields=['session_boundary_behavior']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-NO-HINDSIGHT",
+      "detail": "packages unchanged when future bars after decision timestamp are removed; forced future dependency rejected",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-WRONG-SYMBOL",
+      "detail": "rejected_fields=['setup_time_row']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-WRONG-WINDOW",
+      "detail": "rejected_fields=['session_boundary_behavior']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-DUPLICATE-HANDLING",
+      "detail": "rejected_fields=['setup_time_row']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-RAW-VENDOR-LABEL-REJECTION",
+      "detail": "rejected_fields=['blocker_caution_review', 'freshness_final_signal_state', 'invalidation', 'no_hindsight_boundary', 'session_boundary_behavior', 'setup_time_row', 'trigger']",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-DETERMINISM",
+      "detail": "first and second mapper hashes match exactly",
+      "status": "PASS"
+    },
+    {
+      "case_id": "DAY50-SPY-CONTROL-PRESERVATION",
+      "detail": "preserved controls remain 13 setup-qualified, 9 trade candidates, 5 selected contracts, 1 eligible entry, 1 recorded entry",
+      "status": "PASS"
+    }
+  ],
+  "after_funnel_totals": {
+    "exact_setup_time_field_packages_established": 3,
+    "new_eligible_entries": 0,
+    "new_exact_data_required_cases": 3,
+    "new_exact_generation_contract_required_cases": 0,
+    "new_exact_option_contract_evidence_required_cases": 3,
+    "new_exits_evaluated": 0,
+    "new_generated_candidates": 3,
+    "new_invalid_trades_allowed": 0,
+    "new_losers": 0,
+    "new_missed_valid_trades": 0,
+    "new_recorded_entries": 0,
+    "new_selected_contracts": 0,
+    "new_setup_qualified_candidates": 3,
+    "new_trade_candidates": 0,
+    "new_true_no_trades": 0,
+    "new_unresolved_cases": 0,
+    "new_valid_trades_captured": 0,
+    "new_winners": 0,
+    "raw_opportunities_mapped": 3
+  },
+  "before_funnel_totals": {
+    "exact_setup_time_field_packages_established": 3,
+    "new_eligible_entries": 0,
+    "new_exact_data_required_cases": 0,
+    "new_exact_generation_contract_required_cases": 3,
+    "new_generated_candidates": 0,
+    "new_recorded_entries": 0,
+    "new_selected_contracts": 0,
+    "new_setup_qualified_candidates": 0,
+    "new_trade_candidates": 0,
+    "raw_opportunities_mapped": 3
+  },
+  "contract_definition": {
+    "accepted_mapper_package_contract": {
+      "required_boundaries": [
+        "source rows at or before setup decision timestamp",
+        "same March 16 2026 SPY RTH session only",
+        "raw vendor OHLCV rows may supply evidence but not SAFE-FAST labels",
+        "field package hash must not depend on future rows"
+      ],
+      "required_fields": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "status_required": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY"
+    },
+    "generated_candidate_contract": {
+      "created_when": "all required setup fields are accepted, nonempty, timestamp-bounded, and raw_vendor_bars_treated_as_safe_fast_labels is false",
+      "required_from_mapper_package": [
+        "setup_time_row",
+        "trigger",
+        "invalidation",
+        "freshness_final_signal_state",
+        "blocker_caution_review",
+        "session_boundary_behavior",
+        "no_hindsight_boundary"
+      ],
+      "required_identifiers": [
+        "candidate_identifier",
+        "raw_opportunity_id",
+        "setup_family",
+        "symbol",
+        "setup_time_utc",
+        "setup_time_et"
+      ]
+    },
+    "setup_qualified_contract": {
+      "created_when": "generated candidate exists, setup field package is complete, freshness_final_signal_state is fresh at setup time, same-session boundary is preserved, no-hindsight boundary is preserved, and blocker/caution review is not an accepted blocking failure",
+      "does_not_require": [
+        "option contract identity",
+        "option quote freshness",
+        "exit path",
+        "costed P&L",
+        "proof",
+        "paper/live readiness"
+      ]
+    },
+    "trade_candidate_contract_gap": {
+      "first_stage_not_reached": "trade_candidate",
+      "required_missing_fields": [
+        "selected_contract_identity",
+        "selected_contract_quote_freshness",
+        "selected_contract_liquidity",
+        "entry_execution_context"
+      ]
+    }
+  },
+  "contract_policy": {
+    "bounded_to_day50_spy_2026_03_16": true,
+    "covered_setup_families": [
+      "Ideal",
+      "Clean Fast Break",
+      "Continuation"
+    ],
+    "developing_stage_transitions_validated": true,
+    "exit_evidence_invented": false,
+    "frozen_trading_rules_changed": false,
+    "generated_candidate_requires_all_setup_fields": [
+      "setup_time_row",
+      "trigger",
+      "invalidation",
+      "freshness_final_signal_state",
+      "blocker_caution_review",
+      "session_boundary_behavior",
+      "no_hindsight_boundary"
+    ],
+    "main_py_changed": false,
+    "missing_fields_invented": false,
+    "no_hindsight_preserved": true,
+    "no_trade_preservation_validated": true,
+    "option_evidence_invented": false,
+    "paid_data_downloaded": false,
+    "processes_each_setup_family_separately": true,
+    "railway_or_deploy_changed": false,
+    "raw_vendor_bars_treated_as_safe_fast_labels": false,
+    "session_boundary_preserved": true,
+    "setup_qualified_requires_generated_candidate": true,
+    "setup_time_boundary_frozen": true,
+    "stable_winner_selection_preserved": true,
+    "thresholds_loosened": false,
+    "trade_candidate_requires_fields": [
+      "selected_contract_identity",
+      "selected_contract_quote_freshness",
+      "selected_contract_liquidity",
+      "entry_execution_context"
+    ]
+  },
+  "costed_results_by_setup_family": {
+    "Clean Fast Break": {
+      "costed_entry_exit_replay_run": false,
+      "option_or_exit_evidence_requested": false,
+      "reason": "setup did not reach trade-candidate or selected-contract status",
+      "status": "NOT_RUN_NO_TRADE_CANDIDATE"
+    },
+    "Continuation": {
+      "costed_entry_exit_replay_run": false,
+      "option_or_exit_evidence_requested": false,
+      "reason": "setup did not reach trade-candidate or selected-contract status",
+      "status": "NOT_RUN_NO_TRADE_CANDIDATE"
+    },
+    "Ideal": {
+      "costed_entry_exit_replay_run": false,
+      "option_or_exit_evidence_requested": false,
+      "reason": "setup did not reach trade-candidate or selected-contract status",
+      "status": "NOT_RUN_NO_TRADE_CANDIDATE"
+    }
+  },
+  "deterministic_comparison": {
+    "first_run_equals_second_run": true,
+    "hashes_match": true,
+    "result": "PASS"
+  },
+  "exact_grouped_evidence_request": {
+    "cost_checked": false,
+    "created": true,
+    "downloaded": false,
+    "reason": "Generated/setup-qualified candidates exist, but selected-contract option identity, setup-time quote freshness, liquidity, and execution context are not locally established. No option data was guessed or downloaded.",
+    "request_type": "option_contract_identity_and_setup_time_entry_evidence",
+    "requests": [
+      {
+        "blocks": [
+          "trade_candidate",
+          "entry",
+          "costs",
+          "P&L"
+        ],
+        "contract": "NOT_KNOWN_BEFORE_SELECTED_CONTRACT_EVIDENCE",
+        "exact_fields_missing": [
+          "selected_contract_identity",
+          "selected_contract_quote_freshness",
+          "selected_contract_liquidity",
+          "entry_execution_context"
+        ],
+        "setup_family": "Ideal",
+        "source_dataset_schema_needed": [
+          "Databento OPRA.PILLAR / definition / raw_symbol",
+          "Databento OPRA.PILLAR / cmbp-1 or accepted quote-freshness source",
+          "Databento OPRA.PILLAR / trades",
+          "Databento OPRA.PILLAR / statistics"
+        ],
+        "symbol": "SPY",
+        "timestamp_window": {
+          "end_timestamp": "2026-03-16T09:35:00-04:00",
+          "start_timestamp": "2026-03-16T09:30:00-04:00",
+          "timezone": "America/New_York"
+        }
+      },
+      {
+        "blocks": [
+          "trade_candidate",
+          "entry",
+          "costs",
+          "P&L"
+        ],
+        "contract": "NOT_KNOWN_BEFORE_SELECTED_CONTRACT_EVIDENCE",
+        "exact_fields_missing": [
+          "selected_contract_identity",
+          "selected_contract_quote_freshness",
+          "selected_contract_liquidity",
+          "entry_execution_context"
+        ],
+        "setup_family": "Clean Fast Break",
+        "source_dataset_schema_needed": [
+          "Databento OPRA.PILLAR / definition / raw_symbol",
+          "Databento OPRA.PILLAR / cmbp-1 or accepted quote-freshness source",
+          "Databento OPRA.PILLAR / trades",
+          "Databento OPRA.PILLAR / statistics"
+        ],
+        "symbol": "SPY",
+        "timestamp_window": {
+          "end_timestamp": "2026-03-16T09:35:00-04:00",
+          "start_timestamp": "2026-03-16T09:30:00-04:00",
+          "timezone": "America/New_York"
+        }
+      },
+      {
+        "blocks": [
+          "trade_candidate",
+          "entry",
+          "costs",
+          "P&L"
+        ],
+        "contract": "NOT_KNOWN_BEFORE_SELECTED_CONTRACT_EVIDENCE",
+        "exact_fields_missing": [
+          "selected_contract_identity",
+          "selected_contract_quote_freshness",
+          "selected_contract_liquidity",
+          "entry_execution_context"
+        ],
+        "setup_family": "Continuation",
+        "source_dataset_schema_needed": [
+          "Databento OPRA.PILLAR / definition / raw_symbol",
+          "Databento OPRA.PILLAR / cmbp-1 or accepted quote-freshness source",
+          "Databento OPRA.PILLAR / trades",
+          "Databento OPRA.PILLAR / statistics"
+        ],
+        "symbol": "SPY",
+        "timestamp_window": {
+          "end_timestamp": "2026-03-16T09:35:00-04:00",
+          "start_timestamp": "2026-03-16T09:30:00-04:00",
+          "timezone": "America/New_York"
+        }
+      }
+    ]
+  },
+  "family_scorecards": {
+    "Clean Fast Break": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 1,
+      "new_exact_generation_contract_required_cases": 0,
+      "new_exact_option_contract_evidence_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 1,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 1,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    },
+    "Continuation": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 1,
+      "new_exact_generation_contract_required_cases": 0,
+      "new_exact_option_contract_evidence_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 1,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 1,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    },
+    "Ideal": {
+      "exact_setup_time_field_packages_established": 1,
+      "new_eligible_entries": 0,
+      "new_exact_data_required_cases": 1,
+      "new_exact_generation_contract_required_cases": 0,
+      "new_exact_option_contract_evidence_required_cases": 1,
+      "new_exits_evaluated": 0,
+      "new_generated_candidates": 1,
+      "new_invalid_trades_allowed": 0,
+      "new_losers": 0,
+      "new_missed_valid_trades": 0,
+      "new_recorded_entries": 0,
+      "new_selected_contracts": 0,
+      "new_setup_qualified_candidates": 1,
+      "new_trade_candidates": 0,
+      "new_true_no_trades": 0,
+      "new_unresolved_cases": 0,
+      "new_valid_trades_captured": 0,
+      "new_winners": 0,
+      "raw_opportunities_mapped": 1
+    }
+  },
+  "first_run_hash": "89b0d6ecd718aa93855362003b0e5d907ae6a026b5aa6a3302d7abdb84b25387",
+  "funnel_output": {
+    "candidate_records": [
+      {
+        "candidate_identifier": "DAY50-GENERATED-SPY-IDEAL-2026-03-16T09:30:00-04:00",
+        "exact_blocker": "selected_contract_option_evidence_missing",
+        "final_classification": "EXACT_OPTION_CONTRACT_EVIDENCE_REQUIRED",
+        "first_stage_not_reached": "TRADE_CANDIDATE",
+        "highest_stage_reached": "SETUP_QUALIFIED",
+        "setup_family": "Ideal",
+        "symbol": "SPY"
+      },
+      {
+        "candidate_identifier": "DAY50-GENERATED-SPY-CLEAN-FAST-BREAK-2026-03-16T09:30:00-04:00",
+        "exact_blocker": "selected_contract_option_evidence_missing",
+        "final_classification": "EXACT_OPTION_CONTRACT_EVIDENCE_REQUIRED",
+        "first_stage_not_reached": "TRADE_CANDIDATE",
+        "highest_stage_reached": "SETUP_QUALIFIED",
+        "setup_family": "Clean Fast Break",
+        "symbol": "SPY"
+      },
+      {
+        "candidate_identifier": "DAY50-GENERATED-SPY-CONTINUATION-2026-03-16T09:30:00-04:00",
+        "exact_blocker": "selected_contract_option_evidence_missing",
+        "final_classification": "EXACT_OPTION_CONTRACT_EVIDENCE_REQUIRED",
+        "first_stage_not_reached": "TRADE_CANDIDATE",
+        "highest_stage_reached": "SETUP_QUALIFIED",
+        "setup_family": "Continuation",
+        "symbol": "SPY"
+      }
+    ],
+    "scorecard": {
+      "candidates_generated": 3,
+      "eligible_entries": 0,
+      "exact_data_required_cases": 0,
+      "exits_evaluated": 0,
+      "first_blockers_by_stage": {
+        "TRADE_CANDIDATE": 3
+      },
+      "invalid_trades_allowed": 0,
+      "losers": 0,
+      "missed_valid_trades": 0,
+      "prices_accepted": 0,
+      "recorded_entries": 0,
+      "selected_contracts": 0,
+      "setup_qualified_candidates": 3,
+      "trade_candidates": 0,
+      "true_no_trades": 0,
+      "unresolved_cases": 0,
+      "valid_trades_captured": 0,
+      "winners": 0
+    }
+  },
+  "guardrails": {
+    "broker_mutation_attempted": false,
+    "live_eligible": false,
+    "paper_eligible": false,
+    "profitability_claimed": false,
+    "promotion_decision_made": false,
+    "proof_accepted": false,
+    "schwab_authenticated": false
+  },
+  "input_paths": {
+    "accepted_mapper_result": "historical_signal_replay/results/day50_raw_data_positive_entry_accepted_setup_replay_mapper.json",
+    "mapper_to_generation_retry_result": "historical_signal_replay/results/day50_raw_data_positive_entry_mapper_to_generation_retry.json",
+    "raw_generation_result": "historical_signal_replay/results/day50_end_to_end_raw_data_positive_entry_generation.json"
+  },
+  "next_task": {
+    "filename": "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_OPTION_CONTRACT_EVIDENCE_REQUEST_REVIEW_CODEX_TASK.md",
+    "reason": "The bounded contract now creates three generated/setup-qualified SPY candidates and stops before trade-candidate status on exact missing selected-contract option evidence. The next substantive step is a grouped option-contract evidence request review only if the project wants to cost-check that data."
+  },
+  "preserved_day50_controls": {
+    "closed_safety_rejections_reopened": 0,
+    "eligible_entries": 1,
+    "recorded_entries": 1,
+    "selected_contracts": 5,
+    "setup_qualified": 13,
+    "trade_candidates": 9
+  },
+  "preserved_scorecard": {
+    "INVALID_TRADE_ALLOWED": 0,
+    "LOSERS": 0,
+    "MISSED_VALID_TRADE": 0,
+    "MISSING_DATA": 6,
+    "TRUE_NO_TRADE": 4,
+    "UNRESOLVED": 4,
+    "VALID_TRADE_CAPTURED": 1,
+    "WINNERS": 1
+  },
+  "raw_generation_control_result": {
+    "deterministic_result": "PASS",
+    "prior_raw_generation_candidates": 0,
+    "result_version": "day50_end_to_end_raw_data_positive_entry_generation_v1"
+  },
+  "result_version": "day50_raw_data_positive_entry_review_only_package_to_candidate_contract_v1",
+  "retry_control_result": {
+    "deterministic_result": "PASS",
+    "original_generation_contract_required_cases": 3,
+    "preserved_controls": {
+      "closed_safety_rejections_reopened": 0,
+      "eligible_entries": 1,
+      "recorded_entries": 1,
+      "selected_contracts": 5,
+      "setup_qualified": 13,
+      "trade_candidates": 9
+    },
+    "result_version": "day50_raw_data_positive_entry_mapper_to_generation_retry_v1"
+  },
+  "run_timestamp": "2026-06-22T23:41:09.189186Z",
+  "second_run_hash": "89b0d6ecd718aa93855362003b0e5d907ae6a026b5aa6a3302d7abdb84b25387",
+  "setup_family_contract_records": [
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_generated": true,
+      "candidate_identifier": "DAY50-GENERATED-SPY-IDEAL-2026-03-16T09:30:00-04:00",
+      "contract_gap": {
+        "blocks": "trade_candidate_entry_costs_and_pnl",
+        "missing_setup_fields": [],
+        "missing_trade_candidate_fields": [
+          "selected_contract_identity",
+          "selected_contract_quote_freshness",
+          "selected_contract_liquidity",
+          "entry_execution_context"
+        ]
+      },
+      "costed_entry_exit_replay_status": "NOT_RUN_NO_TRADE_CANDIDATE",
+      "eligible_entry": false,
+      "exact_blocker": "selected_contract_option_evidence_missing",
+      "exact_outcome": "setup_qualified_created",
+      "exact_remaining_blocker": "selected_contract_option_evidence_missing",
+      "failed_stage": "trade_candidate",
+      "failure_category": "selected_contract_option_evidence_missing",
+      "field_values": {
+        "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+        "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+        "invalidation": "Ideal bounded accepted invalidation contract",
+        "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+        "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+        "setup_time_row": "SPY-2026-03-16T09:30:00-04:00-DBEQ.BASIC-ohlcv-1m-publisher-collapsed",
+        "trigger": "Ideal bounded accepted setup trigger contract"
+      },
+      "final_classification": "EXACT_OPTION_CONTRACT_EVIDENCE_REQUIRED",
+      "first_stage_not_reached": "trade_candidate",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "GENERATED_CANDIDATE",
+        "SETUP_QUALIFIED"
+      ],
+      "highest_stage_reached": "setup_qualified",
+      "mapped_package_status": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "missing_or_rejected_evidence": [
+        "selected_contract_identity",
+        "selected_contract_quote_freshness",
+        "selected_contract_liquidity",
+        "entry_execution_context"
+      ],
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "package_id": "DAY50-SPY-IDEAL-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-IDEAL-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "raw_vendor_bars_treated_as_safe_fast_labels": false,
+      "recorded_entry": false,
+      "selected_contract": false,
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Ideal",
+      "setup_qualified": true,
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "stage_reached": {
+        "eligible_entry": false,
+        "generated_candidate": true,
+        "mapped_package": true,
+        "recorded_entry": false,
+        "selected_contract": false,
+        "setup_qualified": true,
+        "trade_candidate": false
+      },
+      "symbol": "SPY",
+      "trade_candidate": false
+    },
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_generated": true,
+      "candidate_identifier": "DAY50-GENERATED-SPY-CLEAN-FAST-BREAK-2026-03-16T09:30:00-04:00",
+      "contract_gap": {
+        "blocks": "trade_candidate_entry_costs_and_pnl",
+        "missing_setup_fields": [],
+        "missing_trade_candidate_fields": [
+          "selected_contract_identity",
+          "selected_contract_quote_freshness",
+          "selected_contract_liquidity",
+          "entry_execution_context"
+        ]
+      },
+      "costed_entry_exit_replay_status": "NOT_RUN_NO_TRADE_CANDIDATE",
+      "eligible_entry": false,
+      "exact_blocker": "selected_contract_option_evidence_missing",
+      "exact_outcome": "setup_qualified_created",
+      "exact_remaining_blocker": "selected_contract_option_evidence_missing",
+      "failed_stage": "trade_candidate",
+      "failure_category": "selected_contract_option_evidence_missing",
+      "field_values": {
+        "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+        "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+        "invalidation": "Clean Fast Break bounded accepted invalidation contract",
+        "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+        "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+        "setup_time_row": "SPY-2026-03-16T09:30:00-04:00-DBEQ.BASIC-ohlcv-1m-publisher-collapsed",
+        "trigger": "Clean Fast Break bounded accepted setup trigger contract"
+      },
+      "final_classification": "EXACT_OPTION_CONTRACT_EVIDENCE_REQUIRED",
+      "first_stage_not_reached": "trade_candidate",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "GENERATED_CANDIDATE",
+        "SETUP_QUALIFIED"
+      ],
+      "highest_stage_reached": "setup_qualified",
+      "mapped_package_status": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "missing_or_rejected_evidence": [
+        "selected_contract_identity",
+        "selected_contract_quote_freshness",
+        "selected_contract_liquidity",
+        "entry_execution_context"
+      ],
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "package_id": "DAY50-SPY-CLEAN-FAST-BREAK-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CLEAN-FAST-BREAK-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "raw_vendor_bars_treated_as_safe_fast_labels": false,
+      "recorded_entry": false,
+      "selected_contract": false,
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Clean Fast Break",
+      "setup_qualified": true,
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "stage_reached": {
+        "eligible_entry": false,
+        "generated_candidate": true,
+        "mapped_package": true,
+        "recorded_entry": false,
+        "selected_contract": false,
+        "setup_qualified": true,
+        "trade_candidate": false
+      },
+      "symbol": "SPY",
+      "trade_candidate": false
+    },
+    {
+      "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+      "candidate_generated": true,
+      "candidate_identifier": "DAY50-GENERATED-SPY-CONTINUATION-2026-03-16T09:30:00-04:00",
+      "contract_gap": {
+        "blocks": "trade_candidate_entry_costs_and_pnl",
+        "missing_setup_fields": [],
+        "missing_trade_candidate_fields": [
+          "selected_contract_identity",
+          "selected_contract_quote_freshness",
+          "selected_contract_liquidity",
+          "entry_execution_context"
+        ]
+      },
+      "costed_entry_exit_replay_status": "NOT_RUN_NO_TRADE_CANDIDATE",
+      "eligible_entry": false,
+      "exact_blocker": "selected_contract_option_evidence_missing",
+      "exact_outcome": "setup_qualified_created",
+      "exact_remaining_blocker": "selected_contract_option_evidence_missing",
+      "failed_stage": "trade_candidate",
+      "failure_category": "selected_contract_option_evidence_missing",
+      "field_values": {
+        "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
+        "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
+        "invalidation": "Continuation bounded accepted invalidation contract",
+        "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+        "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+        "setup_time_row": "SPY-2026-03-16T09:30:00-04:00-DBEQ.BASIC-ohlcv-1m-publisher-collapsed",
+        "trigger": "Continuation bounded accepted setup trigger contract"
+      },
+      "final_classification": "EXACT_OPTION_CONTRACT_EVIDENCE_REQUIRED",
+      "first_stage_not_reached": "trade_candidate",
+      "funnel_stage_path": [
+        "SETUP_DEVELOPING",
+        "GENERATED_CANDIDATE",
+        "SETUP_QUALIFIED"
+      ],
+      "highest_stage_reached": "setup_qualified",
+      "mapped_package_status": "FIELD_PACKAGE_ESTABLISHED_REVIEW_ONLY",
+      "missing_or_rejected_evidence": [
+        "selected_contract_identity",
+        "selected_contract_quote_freshness",
+        "selected_contract_liquidity",
+        "entry_execution_context"
+      ],
+      "no_hindsight_boundary": "future_rows_ignored_for_setup_labels",
+      "package_id": "DAY50-SPY-CONTINUATION-2026-03-16T09:30:00-04:00",
+      "raw_opportunity_id": "DAY50-RAW-SPY-CONTINUATION-2026-03-16T13:30:00.000000000Z-2026-03-16T19:59:00.000000000Z",
+      "raw_vendor_bars_treated_as_safe_fast_labels": false,
+      "recorded_entry": false,
+      "selected_contract": false,
+      "session_boundary_behavior": "same_session_reset_only_no_prior_session_carry",
+      "setup_family": "Continuation",
+      "setup_qualified": true,
+      "setup_time_et": "2026-03-16T09:30:00-04:00",
+      "setup_time_utc": "2026-03-16T13:30:00Z",
+      "stage_reached": {
+        "eligible_entry": false,
+        "generated_candidate": true,
+        "mapped_package": true,
+        "recorded_entry": false,
+        "selected_contract": false,
+        "setup_qualified": true,
+        "trade_candidate": false
+      },
+      "symbol": "SPY",
+      "trade_candidate": false
+    }
+  ],
+  "source_commit": "7bedb40",
+  "task": "SAFE_FAST_DAY50_RAW_DATA_POSITIVE_ENTRY_REVIEW_ONLY_PACKAGE_TO_CANDIDATE_CONTRACT_CODEX_TASK.md"
+}
