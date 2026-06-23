@@ -542,18 +542,33 @@
   "first_run_hash": "45847af6070fd34c2bd405dc083d494376d144fac6c09afe3ef695a17c70db62",
   "grouped_opra_cost_check": {
     "actual_billed_cost": "NOT_AVAILABLE",
+    "api_attempts": [
+      {
+        "attempted": true,
+        "dataset": "OPRA.PILLAR",
+        "end_timestamp_utc": "2026-03-16T13:31:00Z",
+        "schema": "definition",
+        "setup_family": "Ideal",
+        "start_timestamp_utc": "2026-03-16T13:30:00Z",
+        "status": "FAILED",
+        "stype_in": "raw_symbol",
+        "symbols": "SPY",
+        "technical_failure": "ProxyError: HTTPSConnectionPool(host='hist.databento.com', port=443): Max retries exceeded with url: /v0/metadata.get_cost (Caused by ProxyError('Unable to connect to proxy', NewConnectionError(\"HTTPSConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it\")))"
+      }
+    ],
     "api_or_local_command_used": "python -m historical_signal_replay.day51_spy_numeric_setup_and_opra_cost_check",
     "approval_status": "APPROVAL_REQUIRED_COST_ESTIMATE_BLOCKED",
     "attempted": true,
-    "checked_at_utc": "2026-06-23T00:39:57.029820Z",
+    "checked_at_utc": "2026-06-23T03:59:54.448607Z",
     "checked_total": "NOT_AVAILABLE",
+    "credential_configured": false,
     "credential_used": false,
     "currency": "USD",
     "download_created": false,
-    "external_cost_api_called": false,
+    "external_cost_api_called": true,
     "grouped_total": "NOT_AVAILABLE",
     "paid_data_downloaded": false,
-    "reason": "SAFE_FAST_DB_AUTH is not configured",
+    "reason": "Databento cost check failed: HTTPSConnectionPool(host='hist.databento.com', port=443): Max retries exceeded with url: /v0/metadata.get_cost (Caused by ProxyError('Unable to connect to proxy', NewConnectionError(\"HTTPSConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it\")))",
     "schema_window_costs": [
       {
         "checked_cost": "NOT_AVAILABLE",
@@ -786,9 +801,9 @@
     }
   ],
   "result_version": "day51_spy_numeric_setup_and_opra_cost_check_v1",
-  "run_timestamp": "2026-06-23T00:39:55.503203Z",
+  "run_timestamp": "2026-06-23T03:59:46.668532Z",
   "second_run_hash": "45847af6070fd34c2bd405dc083d494376d144fac6c09afe3ef695a17c70db62",
-  "source_commit": "27b5bd7",
+  "source_commit": "56b8360",
   "task": "SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_CODEX_TASK.md",
   "test_coverage_contract": {
     "day51_handoff_consistency": true,

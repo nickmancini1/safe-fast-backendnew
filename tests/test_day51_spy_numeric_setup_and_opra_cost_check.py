@@ -84,8 +84,19 @@ class Day51SpyNumericSetupAndOpraCostCheckTests(unittest.TestCase):
                 "2026-03-16T19:45:00Z",
             )
 
-    def test_cost_check_reports_not_available_without_credentials(self):
-        with mock.patch.dict("os.environ", {}, clear=True):
+    def test_cost_check_records_api_failure_without_credentials(self):
+        def failing_cost(**kwargs):
+            raise RuntimeError("proxy refused test")
+
+        fake_client = mock.Mock()
+        fake_client.metadata.get_cost.side_effect = failing_cost
+        fake_db = mock.Mock()
+        fake_db.Historical.return_value = fake_client
+
+        with mock.patch.dict("os.environ", {}, clear=True), mock.patch.dict(
+            "sys.modules",
+            {"databento": fake_db},
+        ):
             document = day51.build_day51_document(
                 source_commit="testsha",
                 run_timestamp="2026-06-23T00:00:00Z",
@@ -95,10 +106,13 @@ class Day51SpyNumericSetupAndOpraCostCheckTests(unittest.TestCase):
         cost = document["grouped_opra_cost_check"]
         self.assertEqual(cost["status"], "NOT_AVAILABLE")
         self.assertEqual(cost["grouped_total"], "NOT_AVAILABLE")
+        self.assertFalse(cost["credential_configured"])
         self.assertFalse(cost["credential_used"])
-        self.assertFalse(cost["external_cost_api_called"])
+        self.assertTrue(cost["external_cost_api_called"])
         self.assertFalse(cost["download_created"])
-        self.assertIn("SAFE_FAST_DB_AUTH", cost["reason"])
+        self.assertIn("Databento cost check failed", cost["reason"])
+        self.assertEqual(cost["api_attempts"][0]["status"], "FAILED")
+        self.assertIn("proxy refused test", cost["api_attempts"][0]["technical_failure"])
         self.assertEqual(
             document["approval_required"]["status"],
             "APPROVAL_REQUIRED_COST_ESTIMATE_BLOCKED",
@@ -164,14 +178,22 @@ class Day51SpyNumericSetupAndOpraCostCheckTests(unittest.TestCase):
         doc_path = root / "test_day51_result.md"
         original_result = day51.RESULT_PATH
         original_doc = day51.RESULT_DOC_PATH
+        fake_client = mock.Mock()
+        fake_client.metadata.get_cost.side_effect = RuntimeError("proxy refused test")
+        fake_db = mock.Mock()
+        fake_db.Historical.return_value = fake_client
         try:
             day51.RESULT_PATH = result_path
             day51.RESULT_DOC_PATH = doc_path
-            written = day51.write_outputs(
-                source_commit="testsha",
-                run_timestamp="2026-06-23T00:00:00Z",
-                check_cost=False,
-            )
+            with mock.patch.dict("os.environ", {}, clear=True), mock.patch.dict(
+                "sys.modules",
+                {"databento": fake_db},
+            ):
+                written = day51.write_outputs(
+                    source_commit="testsha",
+                    run_timestamp="2026-06-23T00:00:00Z",
+                    check_cost=True,
+                )
             loaded = json.loads(result_path.read_text(encoding="utf-8"))
             validation = validator.validate_result_document(result_path)
         finally:

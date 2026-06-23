@@ -91,6 +91,12 @@ def validate_result_document(result_path=RESULT_PATH):
         problems.append("unexpected_cost_currency")
     if not cost.get("api_or_local_command_used"):
         problems.append("missing_cost_command")
+    if cost.get("status") != "CHECKED":
+        if cost.get("external_cost_api_called") is not True:
+            problems.append("unchecked_cost_without_external_api_attempt")
+        attempts = cost.get("api_attempts") or []
+        if not any(item.get("attempted") for item in attempts):
+            problems.append("unchecked_cost_missing_attempt_record")
     if cost.get("status") == "CHECKED":
         if cost.get("grouped_total") in (None, "NOT_AVAILABLE"):
             problems.append("checked_cost_missing_grouped_total")

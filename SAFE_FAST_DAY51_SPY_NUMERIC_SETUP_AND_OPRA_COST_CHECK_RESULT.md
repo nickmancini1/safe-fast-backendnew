@@ -26,7 +26,10 @@ One grouped request specification was produced for Databento `OPRA.PILLAR` schem
 - Status: `NOT_AVAILABLE`.
 - Grouped total: `NOT_AVAILABLE` `USD`.
 - API/local command used: `python -m historical_signal_replay.day51_spy_numeric_setup_and_opra_cost_check`.
+- External metadata API called: `True`.
+- Credential configured: `False`.
 - Credential used: `False`.
+- API attempt result: `FAILED on OPRA.PILLAR definition SPY 2026-03-16T13:30:00Z to 2026-03-16T13:31:00Z: ProxyError: HTTPSConnectionPool(host='hist.databento.com', port=443): Max retries exceeded with url: /v0/metadata.get_cost (Caused by ProxyError('Unable to connect to proxy', NewConnectionError("HTTPSConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it")))`.
 - Estimate sufficient for explicit approval: `False`.
 - Download created: `False`.
 

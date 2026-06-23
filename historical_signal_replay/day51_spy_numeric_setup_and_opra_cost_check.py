@@ -34,6 +34,7 @@ OPRA_SCHEMAS = ("definition", "tcbbo", "trades", "statistics")
 ENTRY_START_UTC = "2026-03-16T13:30:00Z"
 ENTRY_END_UTC = "2026-03-16T13:35:00Z"
 EXIT_END_UTC = "2026-03-16T19:45:00Z"
+MISSING_AUTH_SENTINEL = "SAFE_FAST_MISSING_DATABENTO_AUTH_SENTINEL"
 
 
 def build_day51_document(*, source_commit=None, run_timestamp=None, check_cost=True):
@@ -294,12 +295,6 @@ def _check_grouped_opra_cost(option_specs):
     command = (
         "python -m historical_signal_replay.day51_spy_numeric_setup_and_opra_cost_check"
     )
-    if not api_key:
-        return _cost_not_available(
-            "SAFE_FAST_DB_AUTH is not configured",
-            windows=windows,
-            command=command,
-        )
     try:
         import databento as db
     except Exception as exc:
@@ -307,11 +302,30 @@ def _check_grouped_opra_cost(option_specs):
             f"databento package unavailable: {exc}",
             windows=windows,
             command=command,
+            credential_configured=bool(api_key),
         )
     try:
-        client = db.Historical(key=api_key)
+        credential_configured = bool(api_key)
+        client_key = api_key or MISSING_AUTH_SENTINEL
+        client = db.Historical(key=client_key)
         checked = []
+        attempts = []
         for window in windows:
+            if _window_requires_selected_contract_symbol(window):
+                checked.append({
+                    **window,
+                    "checked_cost": "NOT_AVAILABLE",
+                    "currency": "USD",
+                    "status": "BLOCKED_BEFORE_API_CALL",
+                    "reason": "selected raw_symbol is not known because numeric trigger/selector evidence is incomplete",
+                })
+                attempts.append({
+                    **window,
+                    "attempted": False,
+                    "status": "BLOCKED_SELECTED_RAW_SYMBOL_UNKNOWN",
+                    "technical_failure": "selected raw_symbol placeholder cannot be sent as an exact Databento symbol",
+                })
+                continue
             cost = Decimal(
                 str(
                     client.metadata.get_cost(
@@ -324,13 +338,31 @@ def _check_grouped_opra_cost(option_specs):
                     )
                 )
             )
-            checked.append({**window, "checked_cost": str(cost), "currency": "USD"})
-        total = sum(Decimal(item["checked_cost"]) for item in checked)
+            checked.append({**window, "checked_cost": str(cost), "currency": "USD", "status": "CHECKED"})
+            attempts.append({**window, "attempted": True, "status": "CHECKED", "checked_cost": str(cost)})
+        checked_costs = [
+            Decimal(item["checked_cost"])
+            for item in checked
+            if item.get("checked_cost") not in (None, "NOT_AVAILABLE")
+        ]
+        if len(checked_costs) != len(windows):
+            return _cost_not_available(
+                "Databento cost check incomplete because selected raw_symbol windows cannot be priced before contract selection",
+                windows=windows,
+                command=command,
+                credential_used=credential_configured,
+                credential_configured=credential_configured,
+                external_cost_api_called=True,
+                api_attempts=attempts,
+                checked_windows=checked,
+            )
+        total = sum(checked_costs)
         return {
             "status": "CHECKED",
             "attempted": True,
             "api_or_local_command_used": command,
-            "credential_used": True,
+            "credential_configured": credential_configured,
+            "credential_used": credential_configured,
             "external_cost_api_called": True,
             "download_created": False,
             "paid_data_downloaded": False,
@@ -340,6 +372,7 @@ def _check_grouped_opra_cost(option_specs):
             "sufficient_for_explicit_approval": True,
             "approval_status": "APPROVAL_REQUIRED",
             "schema_window_costs": checked,
+            "api_attempts": attempts,
             "actual_billed_cost": "NOT_AVAILABLE",
             "checked_at_utc": _utc_now(),
         }
@@ -348,7 +381,15 @@ def _check_grouped_opra_cost(option_specs):
             f"Databento cost check failed: {exc}",
             windows=windows,
             command=command,
-            credential_used=True,
+            credential_used=bool(api_key),
+            credential_configured=bool(api_key),
+            external_cost_api_called=True,
+            api_attempts=[{
+                **_first_api_attemptable_window(windows),
+                "attempted": True,
+                "status": "FAILED",
+                "technical_failure": f"{type(exc).__name__}: {exc}",
+            }],
         )
 
 
@@ -388,15 +429,41 @@ def _cost_windows(option_specs):
     return windows
 
 
-def _cost_not_available(reason, *, windows=None, command=None, credential_used=False):
+def _window_requires_selected_contract_symbol(window):
+    return str(window.get("symbols")) == "selected_raw_symbol_after_definition_filter"
+
+
+def _first_api_attemptable_window(windows):
+    for window in windows or []:
+        if not _window_requires_selected_contract_symbol(window):
+            return window
+    return {}
+
+
+def _cost_not_available(
+    reason,
+    *,
+    windows=None,
+    command=None,
+    credential_used=False,
+    credential_configured=False,
+    external_cost_api_called=False,
+    api_attempts=None,
+    checked_windows=None,
+):
     windows = windows or []
+    checked_windows = checked_windows or [
+        {**window, "checked_cost": "NOT_AVAILABLE", "currency": "USD"}
+        for window in windows
+    ]
     return {
         "status": "NOT_AVAILABLE",
         "attempted": True,
         "api_or_local_command_used": command
         or "python -m historical_signal_replay.day51_spy_numeric_setup_and_opra_cost_check",
+        "credential_configured": credential_configured,
         "credential_used": credential_used,
-        "external_cost_api_called": False,
+        "external_cost_api_called": external_cost_api_called,
         "download_created": False,
         "paid_data_downloaded": False,
         "currency": "USD",
@@ -404,10 +471,8 @@ def _cost_not_available(reason, *, windows=None, command=None, credential_used=F
         "grouped_total": "NOT_AVAILABLE",
         "sufficient_for_explicit_approval": False,
         "approval_status": "APPROVAL_REQUIRED_COST_ESTIMATE_BLOCKED",
-        "schema_window_costs": [
-            {**window, "checked_cost": "NOT_AVAILABLE", "currency": "USD"}
-            for window in windows
-        ],
+        "schema_window_costs": checked_windows,
+        "api_attempts": api_attempts or [],
         "actual_billed_cost": "NOT_AVAILABLE",
         "reason": reason,
         "checked_at_utc": _utc_now(),
@@ -579,6 +644,14 @@ def _markdown_result(document):
         )
         for family, result in document["costed_backtest_results_by_setup_family"].items()
     )
+    attempt = (cost.get("api_attempts") or [{}])[0]
+    attempt_summary = (
+        f"{attempt.get('status')} on {attempt.get('dataset')} {attempt.get('schema')} "
+        f"{attempt.get('symbols')} {attempt.get('start_timestamp_utc')} to "
+        f"{attempt.get('end_timestamp_utc')}: {attempt.get('technical_failure')}"
+        if attempt
+        else "No API attempt record"
+    )
     return f"""# SAFE-FAST Day 51 SPY Numeric Setup and OPRA Cost Check Result
 
 ## Scope
@@ -605,7 +678,10 @@ One grouped request specification was produced for Databento `OPRA.PILLAR` schem
 - Status: `{cost['status']}`.
 - Grouped total: `{cost['grouped_total']}` `{cost['currency']}`.
 - API/local command used: `{cost['api_or_local_command_used']}`.
+- External metadata API called: `{cost['external_cost_api_called']}`.
+- Credential configured: `{cost.get('credential_configured')}`.
 - Credential used: `{cost['credential_used']}`.
+- API attempt result: `{attempt_summary}`.
 - Estimate sufficient for explicit approval: `{cost['sufficient_for_explicit_approval']}`.
 - Download created: `{cost['download_created']}`.
 
