@@ -8,6 +8,16 @@ This pipeline is project-wide. It applies to QQQ, SPY, IWM, GLD, and any setup t
 
 This document is the canonical rule document for promotion gates, falsifiable Day 90 outcomes, sample-size and coverage requirements, protected holdout rules, candidate/option-contract freeze rules, Clean Fast Break execution-realism rules, risk/capital rules, portfolio/setup-family interaction rules, data-cost ledger rules, and grouped replay/regression rules. Supporting result and task files may cite this document, but they do not replace it.
 
+## Day 52 Existing-Setup Option Evidence Boundary
+
+`SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_RESULT.md` is the current proof-pipeline boundary for the accepted March 16, 2026 SPY selected winner. The selected economic winner is `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`; the duplicate Ideal and Continuation records remain suppressed and cannot create three economic trades from one duplicate group.
+
+The accepted trigger is `668.360000000`, accepted invalidation is `667.870000000`, and the observed trigger timestamp used for economic evidence is `2026-03-16T13:31:00Z`. The frozen Clean Fast Break rule shape gives the deterministic candidate contract shape `SPY   260330C00669000`, expiration `2026-03-30`, strike `669`, call, but contract selection is `BLOCKED_DEFINITION_EVIDENCE_MISSING` until OPRA definition evidence confirms listing and instrument identity.
+
+The accepted option-entry window is `2026-03-16T13:31:00Z` through `2026-03-16T13:36:00Z`, with ask plus `0.02` entry slippage, quote-freshness and spread/liquidity gates, bid minus `0.02` exit slippage, `+25%` profit target, `-15%` option premium stop, setup invalidation stop, and `15:45 ET` time exit. The complete entry window is `BLOCKED_COMPLETE_OPTION_PRICE_WINDOW_MISSING`; no local March 16 SPY OPRA evidence exists. Tastytrade is `FIELD_LIMITATION_BLOCKED` because the local helper proves only underlying OHLCV export. Databento is `NETWORK_EXECUTION_BLOCKED` in the sandbox, and the operator cost script is `scripts/safe_fast_day52_existing_setup_databento_cost_request.py`.
+
+The proof pipeline remains blocked at `EXACT_EVIDENCE_REQUEST`: trade candidates `0`, selected contracts `0`, eligible entries `0`, recorded entries `0`, costed exits `0`, net P&L results `0`, exact priced requests pending `1`, profitability proof `NO`, paper/live eligibility `NO`. Future work must continue this same objective, use local evidence first, tastytrade second, Databento fallback, not wait for Schwab, and not claim P&L until complete selected-contract evidence is present.
+
 ## Day 51 SPY Numeric Setup And OPRA Cost Boundary
 
 `SAFE_FAST_DAY51_SPY_NUMERIC_SETUP_AND_OPRA_COST_CHECK_RESULT.md` is the current boundary for the three setup-qualified SPY March 16, 2026 records. It establishes every numeric field that is evidence-backed by frozen setup-time one-minute OHLCV evidence: setup timestamp, setup-minute OHLCV envelope, setup-minute volume-weighted close, freshness deadline, no-hindsight boundary, and same-session behavior. It does not promote raw OHLCV high/low/open/close values into trigger or invalidation thresholds because the accepted Day 50 mapper names trigger/invalidation contracts but does not bind those contracts to numeric OHLCV fields.

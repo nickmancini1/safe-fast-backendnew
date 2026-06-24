@@ -1,6 +1,6 @@
 # SAFE-FAST Data Source Registry
 
-Status: canonical as of Day 51.
+Status: canonical as of Day 52 option-evidence request.
 
 Machine-readable registry: `historical_signal_replay/config/safe_fast_data_source_registry.json`.
 
@@ -39,6 +39,16 @@ This registry replaces ad hoc source wording in prior result files. Older manife
 | News/events/filings | Official issuer/agency source | SEC, Fed, BLS, BEA, Treasury, issuer IR | Official source controls conflicts. |
 | Timestamped headlines | Benzinga when entitled | Benzinga headline API | Optional unless a frozen rule makes it mandatory. |
 | Macro history | ALFRED | historical-vintage series values | Revised current values cannot replace vintages. |
+
+## Day 52 Existing-Setup Option Evidence Boundary
+
+`SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_RESULT.md` is the current data-source boundary for the selected March 16, 2026 SPY economic winner. The selected winner is `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`; Ideal and Continuation are suppressed duplicates and must not create separate economic trades.
+
+Local evidence was checked first. No local March 16 SPY OPRA definition, quote, trade, or statistics evidence exists for the deterministic candidate contract shape. Tastytrade was checked second through the existing local helper path; that path proves underlying OHLCV export capability only and does not prove historical option bid/ask evidence. Databento is the fallback and is classified as `NETWORK_EXECUTION_BLOCKED` inside the Codex sandbox, not as market data `NOT_AVAILABLE`.
+
+The deterministic candidate contract shape, pending OPRA definition confirmation, is `SPY   260330C00669000`, expiration `2026-03-30`, strike `669`, call. The accepted entry window is `2026-03-16T13:31:00Z` through `2026-03-16T13:36:00Z`; the accepted exit boundary is `2026-03-16T19:45:00Z`. The exact Databento request is `OPRA.PILLAR` `definition` for parent `SPY`, `cmbp-1` for primary quote freshness over the complete entry window, `tcbbo` for trade-linked quote context and bid path through the exit boundary, `trades` for trade volume/context, and `statistics` for open-interest/statistics evidence. The operator cost script is `scripts/safe_fast_day52_existing_setup_databento_cost_request.py`; expected output is `historical_signal_replay/results/day52_existing_setup_databento_cost_request_operator_output.json`.
+
+Current stage is `EXACT_EVIDENCE_REQUEST`: no selected contract is confirmed, no eligible entry or recorded entry exists, no exit or net P&L is calculated, and profitability proof plus paper/live eligibility remain `NO`.
 
 ## Day 51 SPY Numeric Setup And OPRA Cost Boundary
 

@@ -17,6 +17,20 @@ A network/proxy failure is not proof that data is unavailable.
 
 Future chats must continue this objective until committed evidence produces a costed result or one exact priced data request.
 
+Current result: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_RESULT.md`.
+
+Selected winner: `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`.
+
+Contract-selection result: `BLOCKED_DEFINITION_EVIDENCE_MISSING`; deterministic candidate if OPRA confirms listing is `SPY   260330C00669000`.
+
+Tastytrade result: `FIELD_LIMITATION_BLOCKED`.
+
+Databento result: `NETWORK_EXECUTION_BLOCKED`; operator command is `python scripts/safe_fast_day52_existing_setup_databento_cost_request.py`.
+
+Entry-window result: `BLOCKED_COMPLETE_OPTION_PRICE_WINDOW_MISSING`.
+
+Stage reached: `EXACT_EVIDENCE_REQUEST`.
+
 Profitability proof: `NO`.
 
 Paper/live eligibility: `NO`.
