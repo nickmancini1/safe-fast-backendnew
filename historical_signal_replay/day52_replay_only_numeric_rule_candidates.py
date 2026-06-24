@@ -99,7 +99,7 @@ def build_replay_only_document(
             "setup_timestamp_utc": KNOWN_SETUP_UTC,
             "mode": PROVISIONAL_STATUS,
             "research_evidence_only": True,
-            "accepted_numeric_rules_remain_unresolved": True,
+            "accepted_numeric_rules_remain_unresolved": False,
             "option_contract_selection": False,
             "entry_exit_costs_or_net_result": False,
             "profitability_proof": "NO",
@@ -633,7 +633,7 @@ def _accepted_mode_reference(accepted_doc, accepted_numeric_doc):
     return {
         "accepted_numeric_result_path": "historical_signal_replay/results/day52_numeric_trigger_invalidation.json",
         "accepted_manifest_path": "historical_signal_replay/results/day52_full_session_recognition_manifest.json",
-        "accepted_numeric_rules_remain_unresolved": True,
+        "accepted_numeric_rules_remain_unresolved": accepted_numeric_doc["summary"]["numeric_values_unresolved"] > 0,
         "numeric_values_established": accepted_numeric_doc["summary"]["numeric_values_established"],
         "numeric_values_unresolved": accepted_numeric_doc["summary"]["numeric_values_unresolved"],
         "counts_by_setup_family_and_final_disposition": session["counts_by_setup_family_and_final_disposition"],

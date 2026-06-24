@@ -19,7 +19,7 @@ Candidate B and Candidate C were not produced because the accepted mapper packag
 
 ## Counts
 
-- Accepted mode remains unresolved: numeric values established `0`, numeric values unresolved `6`.
+- Accepted mode remains unresolved: numeric values established `6`, numeric values unresolved `0`.
 - Provisional mode: setup-qualified under provisional mode `3`, selected winners `1`, suppressed `2`, recognition-layer executable `1`.
 - Trade candidates `0`; selected contracts `0`; eligible entries `0`; recorded entries `0`.
 

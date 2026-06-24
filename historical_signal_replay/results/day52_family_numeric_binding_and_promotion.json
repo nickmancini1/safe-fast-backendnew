@@ -1,0 +1,278 @@
+{
+  "accepted_mode_full_session_counts": {
+    "complete_session_accounting": {
+      "blocked_missing_evidence_records": 0,
+      "duplicate_records": 1083,
+      "eligible_entries": 0,
+      "primary_timestamp_family_records": 1170,
+      "recognition_layer_executable_records": 1,
+      "recognition_records": 2253,
+      "recorded_entries": 0,
+      "rejected_records": 1167,
+      "rows_scanned": 751,
+      "selected_contracts": 0,
+      "selected_winner_records": 1,
+      "sessions_scanned": 1,
+      "setup_families_scanned": [
+        "Ideal",
+        "Clean Fast Break",
+        "Continuation"
+      ],
+      "setup_qualified_records": 3,
+      "suppressed_records": 2,
+      "trade_candidates": 0
+    },
+    "counts_by_setup_family_and_final_disposition": {
+      "Clean Fast Break": {
+        "blocked by missing evidence": 0,
+        "developing at session end": 0,
+        "duplicate": 361,
+        "recognition-layer executable": 0,
+        "rejected": 389,
+        "selected winner": 1,
+        "setup-qualified": 0,
+        "suppressed": 0
+      },
+      "Continuation": {
+        "blocked by missing evidence": 0,
+        "developing at session end": 0,
+        "duplicate": 361,
+        "recognition-layer executable": 0,
+        "rejected": 389,
+        "selected winner": 0,
+        "setup-qualified": 0,
+        "suppressed": 1
+      },
+      "Ideal": {
+        "blocked by missing evidence": 0,
+        "developing at session end": 0,
+        "duplicate": 361,
+        "recognition-layer executable": 0,
+        "rejected": 389,
+        "selected winner": 0,
+        "setup-qualified": 0,
+        "suppressed": 1
+      }
+    },
+    "stage_transition_summary": {
+      "blocked_missing_evidence_count": 0,
+      "illegal_stage_skipping_candidate_ids": [],
+      "illegal_stage_skipping_count": 0,
+      "setup_qualified_count": 3
+    },
+    "winner_selection": {
+      "reason": "accepted numeric layer-1 winner accounting only; no trade is authorized",
+      "selected_winner_count": 1,
+      "selected_winner_ids": [
+        "DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39"
+      ],
+      "stable_rule_executed": true,
+      "stable_rule_result": "ACCEPTED_LAYER1_WINNER_SELECTED",
+      "suppressed_count": 2
+    }
+  },
+  "accepted_numeric_summary": {
+    "blockers_by_code": {},
+    "by_family": {
+      "Clean Fast Break": {
+        "accepted_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "blockers": {
+          "invalidation": null,
+          "trigger": null
+        },
+        "invalidation_numeric": "667.870000000",
+        "promotion_decision": "PROMOTE_CANDIDATE_A",
+        "setup_qualified_allowed": true,
+        "trigger_numeric": "668.360000000"
+      },
+      "Continuation": {
+        "accepted_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "blockers": {
+          "invalidation": null,
+          "trigger": null
+        },
+        "invalidation_numeric": "667.870000000",
+        "promotion_decision": "PROMOTE_CANDIDATE_A",
+        "setup_qualified_allowed": true,
+        "trigger_numeric": "668.360000000"
+      },
+      "Ideal": {
+        "accepted_rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "blockers": {
+          "invalidation": null,
+          "trigger": null
+        },
+        "invalidation_numeric": "667.870000000",
+        "promotion_decision": "PROMOTE_CANDIDATE_A",
+        "setup_qualified_allowed": true,
+        "trigger_numeric": "668.360000000"
+      }
+    },
+    "families_processed": 3,
+    "numeric_values_established": 6,
+    "numeric_values_unresolved": 0,
+    "setup_qualified_allowed_count": 3
+  },
+  "binding_audit": [
+    {
+      "actual_bound_setup_time_timestamp": "2026-03-16T13:30:00Z",
+      "binding_result": "LEGITIMATE_SHARED_SETUP_TIME_ROW",
+      "candidate_package_id": "DAY50-SPY-IDEAL-2026-03-16T09:30:00-04:00",
+      "code_path": "day52_numeric_trigger_invalidation.construct_family_numeric_fields -> _primary_setup_row",
+      "direction": "bullish",
+      "expected_opportunity_timestamp": "2026-03-16T13:30:00Z",
+      "family": "Ideal",
+      "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
+      "shared_row_reason": "Day 50 accepted mapper created separate family packages that intentionally reference the same publisher-collapsed setup-time decision row.",
+      "source_row": {
+        "close": "668.180000000",
+        "high": "668.360000000",
+        "instrument_id": "15144",
+        "low": "667.870000000",
+        "open": "668.360000000",
+        "publisher_id": "39",
+        "source_index": 2,
+        "symbol": "SPY",
+        "timestamp_et": "2026-03-16T09:30:00-04:00",
+        "timestamp_utc": "2026-03-16T13:30:00Z",
+        "volume": "3163"
+      },
+      "source_row_index": 2
+    },
+    {
+      "actual_bound_setup_time_timestamp": "2026-03-16T13:30:00Z",
+      "binding_result": "LEGITIMATE_SHARED_SETUP_TIME_ROW",
+      "candidate_package_id": "DAY50-SPY-CLEAN-FAST-BREAK-2026-03-16T09:30:00-04:00",
+      "code_path": "day52_numeric_trigger_invalidation.construct_family_numeric_fields -> _primary_setup_row",
+      "direction": "bullish",
+      "expected_opportunity_timestamp": "2026-03-16T13:30:00Z",
+      "family": "Clean Fast Break",
+      "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
+      "shared_row_reason": "Day 50 accepted mapper created separate family packages that intentionally reference the same publisher-collapsed setup-time decision row.",
+      "source_row": {
+        "close": "668.180000000",
+        "high": "668.360000000",
+        "instrument_id": "15144",
+        "low": "667.870000000",
+        "open": "668.360000000",
+        "publisher_id": "39",
+        "source_index": 2,
+        "symbol": "SPY",
+        "timestamp_et": "2026-03-16T09:30:00-04:00",
+        "timestamp_utc": "2026-03-16T13:30:00Z",
+        "volume": "3163"
+      },
+      "source_row_index": 2
+    },
+    {
+      "actual_bound_setup_time_timestamp": "2026-03-16T13:30:00Z",
+      "binding_result": "LEGITIMATE_SHARED_SETUP_TIME_ROW",
+      "candidate_package_id": "DAY50-SPY-CONTINUATION-2026-03-16T09:30:00-04:00",
+      "code_path": "day52_numeric_trigger_invalidation.construct_family_numeric_fields -> _primary_setup_row",
+      "direction": "bullish",
+      "expected_opportunity_timestamp": "2026-03-16T13:30:00Z",
+      "family": "Continuation",
+      "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
+      "shared_row_reason": "Day 50 accepted mapper created separate family packages that intentionally reference the same publisher-collapsed setup-time decision row.",
+      "source_row": {
+        "close": "668.180000000",
+        "high": "668.360000000",
+        "instrument_id": "15144",
+        "low": "667.870000000",
+        "open": "668.360000000",
+        "publisher_id": "39",
+        "source_index": 2,
+        "symbol": "SPY",
+        "timestamp_et": "2026-03-16T09:30:00-04:00",
+        "timestamp_utc": "2026-03-16T13:30:00Z",
+        "volume": "3163"
+      },
+      "source_row_index": 2
+    }
+  ],
+  "binding_audit_result": "LEGITIMATE_SHARED_SETUP_TIME_ROW",
+  "family_decision_matrix": [
+    {
+      "accepted_status": "ACCEPTED",
+      "decision": "PROMOTE_CANDIDATE_A",
+      "direction": "bullish",
+      "family": "Ideal",
+      "invalidation": "667.870000000",
+      "rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+      "rule_source": "SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION",
+      "setup_time_timestamp": "2026-03-16T13:30:00Z",
+      "source_row_index": 2,
+      "trigger": "668.360000000"
+    },
+    {
+      "accepted_status": "ACCEPTED",
+      "decision": "PROMOTE_CANDIDATE_A",
+      "direction": "bullish",
+      "family": "Clean Fast Break",
+      "invalidation": "667.870000000",
+      "rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+      "rule_source": "SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION",
+      "setup_time_timestamp": "2026-03-16T13:30:00Z",
+      "source_row_index": 2,
+      "trigger": "668.360000000"
+    },
+    {
+      "accepted_status": "ACCEPTED",
+      "decision": "PROMOTE_CANDIDATE_A",
+      "direction": "bullish",
+      "family": "Continuation",
+      "invalidation": "667.870000000",
+      "rule_id": "CANDIDATE_A_SETUP_BAR_RANGE",
+      "rule_source": "SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION",
+      "setup_time_timestamp": "2026-03-16T13:30:00Z",
+      "source_row_index": 2,
+      "trigger": "668.360000000"
+    }
+  ],
+  "guardrails": {
+    "entry_or_exit_recorded": false,
+    "future_rows_used": false,
+    "live_eligible": false,
+    "opra_downloaded": false,
+    "option_selection_performed": false,
+    "paper_eligible": false,
+    "pnl_calculated": false,
+    "post_cutoff_mutation_influenced_values": false,
+    "profitability_claimed": false,
+    "selected_contract_created": false,
+    "trade_candidate_created": false
+  },
+  "implementation_version": "day52_family_numeric_binding_and_promotion_impl_v1",
+  "remaining_blockers": [
+    "selected_contract_option_evidence_missing",
+    "opra_definition_quote_trade_statistics_evidence_missing",
+    "entry_exit_costs_net_result_missing",
+    "profitability_proof_missing",
+    "paper_live_eligibility_missing"
+  ],
+  "result_version": "day52_family_numeric_binding_and_promotion_v1",
+  "run_timestamp": "2026-06-23T20:10:59.007591Z",
+  "scope": {
+    "broker_account_order_fill_alert_touched": false,
+    "credentials_or_env_changed": false,
+    "entry_exit_costs_or_net_result": false,
+    "frozen_patch8_thresholds_changed": false,
+    "layer": "accepted_underlying_recognition_only",
+    "main_py_changed": false,
+    "option_contract_selection": false,
+    "paper_live_eligibility": "NO",
+    "profitability_proof": "NO",
+    "railway_or_deploy_changed": false,
+    "session_date": "2026-03-16",
+    "sizing_changed": false,
+    "symbol": "SPY"
+  },
+  "separation_from_provisional_mode": {
+    "accepted_and_provisional_modes_remain_separate": true,
+    "accepted_manifest_path": "historical_signal_replay/results/day52_full_session_recognition_manifest.json",
+    "accepted_result_path": "historical_signal_replay/results/day52_numeric_trigger_invalidation.json",
+    "provisional_result_path": "historical_signal_replay/results/day52_replay_only_numeric_rule_candidates.json"
+  },
+  "source_commit": "6ff985b",
+  "task": "SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION_CODEX_TASK.md"
+}

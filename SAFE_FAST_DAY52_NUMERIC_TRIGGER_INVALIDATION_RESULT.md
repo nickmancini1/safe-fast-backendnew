@@ -2,19 +2,19 @@
 
 ## Scope
 
-- Task executed: `SAFE_FAST_DAY52_NUMERIC_TRIGGER_INVALIDATION_CODEX_TASK.md`.
+- Task executed: `SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION_CODEX_TASK.md`.
 - Machine-readable result: `historical_signal_replay/results/day52_numeric_trigger_invalidation.json`.
 - Implementation: `historical_signal_replay/day52_numeric_trigger_invalidation.py`.
 - Covered setup families: Ideal, Clean Fast Break, and Continuation for SPY on `2026-03-16`.
 
 ## Result
 
-No accepted local rule binds the family trigger or invalidation contracts to numeric SPY OHLCV fields.
-The constructors therefore preserve setup-time source-row provenance and return exact family-and-field blockers.
+Candidate A setup-bar range is promoted separately for each family after binding audit.
+The constructors bind trigger to the setup-time high and invalidation to the setup-time low for the bullish accepted packages.
 
-- Ideal: trigger `None` (NUMERIC_RULE_UNRESOLVED_IDEAL_TRIGGER), invalidation `None` (NUMERIC_RULE_UNRESOLVED_IDEAL_INVALIDATION); setup-qualified allowed `False`.
-- Clean Fast Break: trigger `None` (NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER), invalidation `None` (NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_INVALIDATION); setup-qualified allowed `False`.
-- Continuation: trigger `None` (NUMERIC_RULE_UNRESOLVED_CONTINUATION_TRIGGER), invalidation `None` (NUMERIC_RULE_UNRESOLVED_CONTINUATION_INVALIDATION); setup-qualified allowed `False`.
+- Ideal: trigger `668.360000000` (PROMOTE_CANDIDATE_A), invalidation `667.870000000` (CANDIDATE_A_SETUP_BAR_RANGE); setup-qualified allowed `True`.
+- Clean Fast Break: trigger `668.360000000` (PROMOTE_CANDIDATE_A), invalidation `667.870000000` (CANDIDATE_A_SETUP_BAR_RANGE); setup-qualified allowed `True`.
+- Continuation: trigger `668.360000000` (PROMOTE_CANDIDATE_A), invalidation `667.870000000` (CANDIDATE_A_SETUP_BAR_RANGE); setup-qualified allowed `True`.
 
 ## Guardrails
 

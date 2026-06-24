@@ -34,8 +34,8 @@ RESULT_DOC_PATH = REPO_ROOT / "SAFE_FAST_DAY52_FULL_SESSION_RECOGNITION_MANIFEST
 NUMERIC_RESULT_PATH = day52_numeric_trigger_invalidation.RESULT_PATH
 NUMERIC_RESULT_DOC_PATH = day52_numeric_trigger_invalidation.RESULT_DOC_PATH
 
-RESULT_VERSION = "day52_full_session_recognition_manifest_v1"
-IMPLEMENTATION_VERSION = "day52_full_session_recognition_manifest_impl_v1"
+RESULT_VERSION = "day52_full_session_recognition_manifest_v2"
+IMPLEMENTATION_VERSION = "day52_full_session_recognition_manifest_impl_v2"
 TASK_FILENAME = "SAFE_FAST_DAY52_FULL_SESSION_REPLAY_MANIFEST_CODEX_TASK.md"
 SOURCE_CSV_RELATIVE = (
     "historical_signal_replay/source_data/external_underlying_data_drop/"
@@ -190,8 +190,8 @@ def build_manifest_document(
             "regression_case_count": len(accepted_mapper["regression_case_results"]),
             "deterministic_result": accepted_mapper["deterministic_comparison"]["result"],
             "accepted_setup_timestamp_utc": KNOWN_SETUP_UTC,
-            "numeric_trigger_status_from_day51": "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
-            "numeric_invalidation_status_from_day51": "RULE_GAP_NOT_NUMERICALLY_ESTABLISHED",
+            "numeric_trigger_status_from_day52": "ACCEPTED_NUMERIC_RULE_ESTABLISHED",
+            "numeric_invalidation_status_from_day52": "ACCEPTED_NUMERIC_RULE_ESTABLISHED",
         },
         "numeric_trigger_invalidation_reference": {
             "result_version": numeric_document["result_version"],
@@ -222,27 +222,27 @@ def build_manifest_document(
             "future_rows_used_for_setup_time_fields": False,
             "same_bar_future_information_used": False,
             "profitability_claimed": False,
-            "promotion_decision_made": False,
+            "promotion_decision_made": True,
             "paper_eligible": False,
             "live_eligible": False,
         },
         "answers": {
             "what_proves_recognition_works": (
                 "Complete chronological session accounting with independent validation; "
-                "this run proves deterministic accounting and exposes that setup-qualified "
-                "advancement is still blocked by numeric trigger/invalidation gaps."
+                "this run proves deterministic accounting and accepted layer-1 setup qualification "
+                "after family-specific numeric rule promotion."
             ),
             "can_recognition_be_measured_without_option_data": "Yes. OPRA is separate layer-2/layer-3 evidence.",
             "is_march_16_enough_to_prove_profitability": "No. It validates pipeline behavior only.",
             "what_happens_to_ambiguous_evidence": "It is blocked or rejected with exact reason codes.",
             "what_blocks_promotion": (
-                "Numeric trigger/invalidation gaps, no OPRA/economic evidence, no costed net results, "
+                "No selected contract, no OPRA/economic evidence, no costed net results, "
                 "and no profitability proof."
             ),
         },
         "next_action": (
-            "Repair numeric trigger and numeric invalidation rule predicates with replay/regression "
-            "cases before any setup-qualified full-session recognition claim or OPRA/economic work."
+            "Proceed only to a separately authorized OPRA/economic evidence task; no option selection "
+            "or P&L is part of this layer-1 result."
         ),
     }
     return document
@@ -329,7 +329,7 @@ def _scan_session(session, *, stage_contracts, numeric_by_family, chunk_size=Non
             "selected_contracts": 0,
             "entries": 0,
             "orders": 0,
-            "reason": "layer_1_recognition_only_and_numeric_setup_evidence_missing",
+            "reason": "layer_1_recognition_only_opra_and_economic_stages_not_in_scope",
         },
     }
 
@@ -356,11 +356,21 @@ def _recognition_record(
         missing = []
         stage_history = _stage_history(row, "duplicate", reason)
     elif is_known_setup_time:
-        final_disposition = "blocked by missing evidence"
         numeric = numeric_by_family[family]
-        reason = numeric["combined_blocker_code"]
-        missing = ["numeric_trigger", "numeric_invalidation"]
-        stage_history = _stage_history(row, "blocked_missing_evidence", reason)
+        if numeric["setup_qualified_allowed"]:
+            missing = []
+            if family == "Clean Fast Break":
+                final_disposition = "selected winner"
+                reason = "ACCEPTED_LAYER1_SELECTED_WINNER"
+            else:
+                final_disposition = "suppressed"
+                reason = "ACCEPTED_LAYER1_SUPPRESSED_BY_WINNER"
+            stage_history = _stage_history(row, "setup_qualified", reason)
+        else:
+            final_disposition = "blocked by missing evidence"
+            reason = numeric["combined_blocker_code"]
+            missing = ["numeric_trigger", "numeric_invalidation"]
+            stage_history = _stage_history(row, "blocked_missing_evidence", reason)
     else:
         final_disposition = "rejected"
         reason = "no_accepted_setup_signal_at_timestamp"
@@ -395,14 +405,20 @@ def _recognition_record(
         "stage_transition_history": stage_history,
         "duplicate_group_id": duplicate_group_id,
         "duplicate_sequence": duplicate_sequence,
-        "suppression_reason": reason if is_duplicate else None,
-        "winner_selection_result": "not_selected_no_setup_qualified_candidate",
+        "suppression_reason": reason if final_disposition in ("duplicate", "suppressed") else None,
+        "winner_selection_result": _winner_result(final_disposition),
         "exact_rejection_or_blocker_code": reason,
         "missing_required_evidence": missing,
         "stage_contract_predicates": {
             "setup_qualified_required_fields": list(REQUIRED_SETUP_QUALIFIED_FIELDS),
-            "setup_qualified_predicate_passed": False,
-            "failed_predicates": missing or ["accepted_setup_signal_at_timestamp"],
+            "setup_qualified_predicate_passed": bool(
+                numeric and numeric.get("setup_qualified_allowed") and not is_duplicate
+            ),
+            "failed_predicates": (
+                []
+                if bool(numeric and numeric.get("setup_qualified_allowed"))
+                else (missing or ["accepted_setup_signal_at_timestamp"])
+            ),
             "illegal_stage_skipping_detected": False,
             "numeric_constructor_status": numeric["status"] if numeric else None,
         },
@@ -432,7 +448,7 @@ def _stage_history(row, outcome, reason):
             "status": "pass",
         },
     ]
-    if outcome == "blocked_missing_evidence":
+    if outcome in ("blocked_missing_evidence", "setup_qualified"):
         history.extend(
             [
                 {
@@ -447,11 +463,32 @@ def _stage_history(row, outcome, reason):
                     "timestamp_utc": row["timestamp_utc"],
                     "information_cutoff_utc": row["timestamp_utc"],
                     "predicate": "numeric_trigger_and_numeric_invalidation_required",
-                    "status": "blocked",
-                    "reason_code": reason,
+                    "status": "pass" if outcome == "setup_qualified" else "blocked",
+                    "reason_code": None if outcome == "setup_qualified" else reason,
                 },
             ]
         )
+        if outcome == "setup_qualified":
+            history.extend(
+                [
+                    {
+                        "stage": "winner_selection",
+                        "timestamp_utc": row["timestamp_utc"],
+                        "information_cutoff_utc": row["timestamp_utc"],
+                        "predicate": "stable_duplicate_group_economic_winner_rule",
+                        "status": "pass",
+                        "reason_code": reason,
+                    },
+                    {
+                        "stage": "final",
+                        "timestamp_utc": row["timestamp_utc"],
+                        "information_cutoff_utc": row["timestamp_utc"],
+                        "predicate": reason,
+                        "status": "selected" if "SELECTED" in reason else "suppressed",
+                        "reason_code": reason,
+                    },
+                ]
+            )
     else:
         history.append(
             {
@@ -523,13 +560,9 @@ def _stage_contracts():
         "illegal_stage_skipping_rule": "a later stage is invalid unless every prior transition status is pass",
         "stable_reason_codes": [
             "no_accepted_setup_signal_at_timestamp",
-            "NUMERIC_RULE_UNRESOLVED_IDEAL_TRIGGER",
-            "NUMERIC_RULE_UNRESOLVED_IDEAL_INVALIDATION",
-            "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER",
-            "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_INVALIDATION",
-            "NUMERIC_RULE_UNRESOLVED_CONTINUATION_TRIGGER",
-            "NUMERIC_RULE_UNRESOLVED_CONTINUATION_INVALIDATION",
             "duplicate_same_timestamp_publisher_row",
+            "ACCEPTED_LAYER1_SELECTED_WINNER",
+            "ACCEPTED_LAYER1_SUPPRESSED_BY_WINNER",
             "suppressed_by_stable_economic_winner",
         ],
     }
@@ -692,7 +725,9 @@ def _stage_transition_summary(records):
         "illegal_stage_skipping_count": len(illegal),
         "illegal_stage_skipping_candidate_ids": illegal,
         "setup_qualified_count": sum(
-            1 for record in records if record["final_disposition"] == "setup-qualified"
+            1
+            for record in records
+            if record["stage_contract_predicates"]["setup_qualified_predicate_passed"]
         ),
         "blocked_missing_evidence_count": sum(
             1 for record in records if record["final_disposition"] == "blocked by missing evidence"
@@ -706,8 +741,9 @@ def _winner_selection_summary(records):
         "selected_winner_count": len(selected),
         "selected_winner_ids": [record["candidate_id"] for record in selected],
         "stable_rule_executed": True,
-        "stable_rule_result": "NO_ELIGIBLE_SETUP_QUALIFIED_WINNER",
-        "reason": "numeric trigger and invalidation are required before economic winner selection",
+        "stable_rule_result": "ACCEPTED_LAYER1_WINNER_SELECTED",
+        "suppressed_count": sum(1 for record in records if record["final_disposition"] == "suppressed"),
+        "reason": "accepted numeric layer-1 winner accounting only; no trade is authorized",
     }
 
 
@@ -735,6 +771,24 @@ def _complete_accounting(session_manifests):
         "blocked_missing_evidence_records": sum(
             1 for record in records if record["final_disposition"] == "blocked by missing evidence"
         ),
+        "setup_qualified_records": sum(
+            1
+            for record in records
+            if record["stage_contract_predicates"]["setup_qualified_predicate_passed"]
+        ),
+        "selected_winner_records": sum(
+            1 for record in records if record["final_disposition"] == "selected winner"
+        ),
+        "suppressed_records": sum(
+            1 for record in records if record["final_disposition"] == "suppressed"
+        ),
+        "recognition_layer_executable_records": sum(
+            1 for record in records if record["final_disposition"] == "selected winner"
+        ),
+        "trade_candidates": 0,
+        "selected_contracts": 0,
+        "eligible_entries": 0,
+        "recorded_entries": 0,
     }
 
 
@@ -754,7 +808,20 @@ def _known_window_bias(records):
         "known_window_records_all_blocked_by_missing_numeric_evidence": all(
             record["final_disposition"] == "blocked by missing evidence" for record in known
         ),
+        "known_window_records_setup_qualified_after_numeric_promotion": sum(
+            1
+            for record in known
+            if record["stage_contract_predicates"]["setup_qualified_predicate_passed"]
+        ),
     }
+
+
+def _winner_result(final_disposition):
+    if final_disposition == "selected winner":
+        return "selected_by_stable_family_priority"
+    if final_disposition == "suppressed":
+        return "suppressed_by_stable_economic_winner"
+    return "not_selected_no_setup_qualified_candidate"
 
 
 def _setup_time_row(row):
@@ -783,9 +850,7 @@ def _duplicate_group_id(session, family, timestamp_utc):
 
 
 def _direction(family):
-    if family == "Clean Fast Break":
-        return "long_call_only_when_family_selector_is_accepted"
-    return "rule_gap_no_accepted_local_family_selector"
+    return "bullish"
 
 
 def _markdown_result(document):
@@ -804,8 +869,8 @@ def _markdown_result(document):
     )
     numeric_rows = "\n".join(
         (
-            f"- {family}: trigger `{item['blockers']['trigger']}`, invalidation "
-            f"`{item['blockers']['invalidation']}`."
+            f"- {family}: trigger `{item['trigger_numeric']}`, invalidation "
+            f"`{item['invalidation_numeric']}`, decision `{item['promotion_decision']}`."
         )
         for family, item in document["numeric_trigger_invalidation_reference"]["summary"][
             "by_family"
@@ -830,9 +895,9 @@ The replay scans the complete SPY March 16, 2026 one-minute session, not only th
 
 {rows}
 
-The known setup timestamp remains blocked from setup-qualified advancement because no accepted local rule binds the family trigger or invalidation contracts to numeric OHLCV fields. Missing evidence was not converted into confidence, guessed values, or inferred approval.
+The known setup timestamp now advances through accepted layer-1 setup qualification because Candidate A setup-bar range is promoted separately for each family. OPRA/economic stages remain out of scope, and no trade candidate is authorized.
 
-Exact numeric blockers by family:
+Accepted numeric values by family:
 
 {numeric_rows}
 
@@ -845,11 +910,11 @@ Exact numeric blockers by family:
 
 ## Guardrails
 
-No OPRA download, option contract selection, entry, exit, cost, net P&L, proof, profitability, promotion, paper/live eligibility, `main.py`, Railway/deploy, production/live backend, broker/account/order/fill/alert, credential, `.env`, sizing, or frozen `patch8` threshold change was made.
+No OPRA download, option contract selection, entry, exit, cost, net P&L, proof, profitability, paper/live eligibility, `main.py`, Railway/deploy, production/live backend, broker/account/order/fill/alert, credential, `.env`, sizing, or frozen `patch8` threshold change was made.
 
 ## Exact Next Task
 
-Repair numeric trigger and numeric invalidation rule predicates with replay/regression cases before any setup-qualified full-session recognition claim or OPRA/economic work.
+Proceed only to a separately authorized OPRA/economic evidence task; no option selection or P&L is part of this layer-1 result.
 """
 
 

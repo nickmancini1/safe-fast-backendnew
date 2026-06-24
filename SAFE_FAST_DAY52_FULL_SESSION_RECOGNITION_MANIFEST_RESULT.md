@@ -15,17 +15,17 @@
 
 The replay scans the complete SPY March 16, 2026 one-minute session, not only the three previously identified favorable windows. It records `2253` family-level recognition records from `751` source rows and `390` unique timestamps.
 
-- Ideal: rejected `389`, duplicate `361`, blocked by missing evidence `1`, setup-qualified `0`, selected winner `0`.
-- Clean Fast Break: rejected `389`, duplicate `361`, blocked by missing evidence `1`, setup-qualified `0`, selected winner `0`.
-- Continuation: rejected `389`, duplicate `361`, blocked by missing evidence `1`, setup-qualified `0`, selected winner `0`.
+- Ideal: rejected `389`, duplicate `361`, blocked by missing evidence `0`, setup-qualified `0`, selected winner `0`.
+- Clean Fast Break: rejected `389`, duplicate `361`, blocked by missing evidence `0`, setup-qualified `0`, selected winner `1`.
+- Continuation: rejected `389`, duplicate `361`, blocked by missing evidence `0`, setup-qualified `0`, selected winner `0`.
 
-The known setup timestamp remains blocked from setup-qualified advancement because no accepted local rule binds the family trigger or invalidation contracts to numeric OHLCV fields. Missing evidence was not converted into confidence, guessed values, or inferred approval.
+The known setup timestamp now advances through accepted layer-1 setup qualification because Candidate A setup-bar range is promoted separately for each family. OPRA/economic stages remain out of scope, and no trade candidate is authorized.
 
-Exact numeric blockers by family:
+Accepted numeric values by family:
 
-- Ideal: trigger `NUMERIC_RULE_UNRESOLVED_IDEAL_TRIGGER`, invalidation `NUMERIC_RULE_UNRESOLVED_IDEAL_INVALIDATION`.
-- Clean Fast Break: trigger `NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER`, invalidation `NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_INVALIDATION`.
-- Continuation: trigger `NUMERIC_RULE_UNRESOLVED_CONTINUATION_TRIGGER`, invalidation `NUMERIC_RULE_UNRESOLVED_CONTINUATION_INVALIDATION`.
+- Ideal: trigger `668.360000000`, invalidation `667.870000000`, decision `PROMOTE_CANDIDATE_A`.
+- Clean Fast Break: trigger `668.360000000`, invalidation `667.870000000`, decision `PROMOTE_CANDIDATE_A`.
+- Continuation: trigger `668.360000000`, invalidation `667.870000000`, decision `PROMOTE_CANDIDATE_A`.
 
 ## Determinism
 
@@ -36,8 +36,8 @@ Exact numeric blockers by family:
 
 ## Guardrails
 
-No OPRA download, option contract selection, entry, exit, cost, net P&L, proof, profitability, promotion, paper/live eligibility, `main.py`, Railway/deploy, production/live backend, broker/account/order/fill/alert, credential, `.env`, sizing, or frozen `patch8` threshold change was made.
+No OPRA download, option contract selection, entry, exit, cost, net P&L, proof, profitability, paper/live eligibility, `main.py`, Railway/deploy, production/live backend, broker/account/order/fill/alert, credential, `.env`, sizing, or frozen `patch8` threshold change was made.
 
 ## Exact Next Task
 
-Repair numeric trigger and numeric invalidation rule predicates with replay/regression cases before any setup-qualified full-session recognition claim or OPRA/economic work.
+Proceed only to a separately authorized OPRA/economic evidence task; no option selection or P&L is part of this layer-1 result.

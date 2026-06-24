@@ -6,52 +6,27 @@
       "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
       "candidate_id": "DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39",
       "carry_forward_state": "no_prior_session_carry_forward",
-      "direction": "long_call_only_when_family_selector_is_accepted",
-      "exact_rejection_or_blocker_code": "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER__NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_INVALIDATION",
-      "final_disposition": "blocked by missing evidence",
+      "direction": "bullish",
+      "exact_rejection_or_blocker_code": "ACCEPTED_LAYER1_SELECTED_WINNER",
+      "final_disposition": "selected winner",
       "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
       "invalidation": {
-        "blocker_code": "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_INVALIDATION",
-        "calculation": "no numeric calculation accepted; local mapper records a family contract but does not bind that contract to open, high, low, close, volume, VWAP, offset, buffer, tolerance, or any other numeric threshold",
-        "comparison_operator": null,
-        "direction": "long_call_only_when_family_selector_is_accepted",
-        "directionally_valid": false,
+        "blocker_code": null,
+        "calculation": "bullish Candidate A invalidation = correctly bound setup-time bar low",
+        "comparison_operator": "<=",
+        "direction": "bullish",
+        "directionally_valid": true,
         "field": "invalidation",
-        "final_numeric_value": null,
-        "finite_numeric_value": false,
+        "final_numeric_value": "667.870000000",
+        "finite_numeric_value": true,
+        "future_row_exclusion_proof": "value copied from source field low on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
         "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
-        "numeric_value": null,
-        "observable_ohlcv_fields": {
-          "close": [
-            "668.000000000",
-            "668.165000000",
-            "668.180000000"
-          ],
-          "high": [
-            "668.360000000",
-            "668.370000000",
-            "668.475000000"
-          ],
-          "low": [
-            "667.730000000",
-            "667.870000000",
-            "668.000000000"
-          ],
-          "open": [
-            "668.360000000",
-            "668.370000000",
-            "668.410000000"
-          ],
-          "volume": [
-            "140",
-            "3163",
-            "6791"
-          ]
-        },
-        "rule_identifier": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_invalidation_contract",
+        "numeric_value": "667.870000000",
+        "rule_identifier": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "rule_source": "SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION",
         "setup_family": "Clean Fast Break",
         "source_bar_timestamp": "2026-03-16T13:30:00Z",
-        "source_field": "family_invalidation_contract",
+        "source_field": "low",
         "source_file": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
         "source_rows_used": [
           {
@@ -61,43 +36,17 @@
             "low": "667.870000000",
             "open": "668.360000000",
             "publisher_id": "39",
+            "source_index": 2,
             "symbol": "SPY",
             "timestamp_et": "2026-03-16T09:30:00-04:00",
             "timestamp_utc": "2026-03-16T13:30:00Z",
             "volume": "3163"
-          },
-          {
-            "close": "668.000000000",
-            "high": "668.370000000",
-            "instrument_id": "15144",
-            "low": "668.000000000",
-            "open": "668.370000000",
-            "publisher_id": "40",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "140"
-          },
-          {
-            "close": "668.165000000",
-            "high": "668.475000000",
-            "instrument_id": "15144",
-            "low": "667.730000000",
-            "open": "668.410000000",
-            "publisher_id": "41",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "6791"
           }
         ],
-        "source_value": "Clean Fast Break bounded accepted invalidation contract",
-        "status": "BLOCKED_NUMERIC_RULE_UNRESOLVED"
+        "source_value": "667.870000000",
+        "status": "ACCEPTED_NUMERIC_RULE_ESTABLISHED"
       },
-      "missing_required_evidence": [
-        "numeric_trigger",
-        "numeric_invalidation"
-      ],
+      "missing_required_evidence": [],
       "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
       "observation_timestamp_utc": "2026-03-16T13:30:00Z",
       "post_cutoff_fields_excluded": true,
@@ -116,47 +65,22 @@
         "volume": "3163"
       },
       "trigger": {
-        "blocker_code": "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER",
-        "calculation": "no numeric calculation accepted; local mapper records a family contract but does not bind that contract to open, high, low, close, volume, VWAP, offset, buffer, tolerance, or any other numeric threshold",
-        "comparison_operator": null,
-        "direction": "long_call_only_when_family_selector_is_accepted",
-        "directionally_valid": false,
+        "blocker_code": null,
+        "calculation": "bullish Candidate A trigger = correctly bound setup-time bar high",
+        "comparison_operator": ">=",
+        "direction": "bullish",
+        "directionally_valid": true,
         "field": "trigger",
-        "final_numeric_value": null,
-        "finite_numeric_value": false,
+        "final_numeric_value": "668.360000000",
+        "finite_numeric_value": true,
+        "future_row_exclusion_proof": "value copied from source field high on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
         "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
-        "numeric_value": null,
-        "observable_ohlcv_fields": {
-          "close": [
-            "668.000000000",
-            "668.165000000",
-            "668.180000000"
-          ],
-          "high": [
-            "668.360000000",
-            "668.370000000",
-            "668.475000000"
-          ],
-          "low": [
-            "667.730000000",
-            "667.870000000",
-            "668.000000000"
-          ],
-          "open": [
-            "668.360000000",
-            "668.370000000",
-            "668.410000000"
-          ],
-          "volume": [
-            "140",
-            "3163",
-            "6791"
-          ]
-        },
-        "rule_identifier": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_trigger_contract",
+        "numeric_value": "668.360000000",
+        "rule_identifier": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "rule_source": "SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION",
         "setup_family": "Clean Fast Break",
         "source_bar_timestamp": "2026-03-16T13:30:00Z",
-        "source_field": "family_trigger_contract",
+        "source_field": "high",
         "source_file": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
         "source_rows_used": [
           {
@@ -166,90 +90,42 @@
             "low": "667.870000000",
             "open": "668.360000000",
             "publisher_id": "39",
+            "source_index": 2,
             "symbol": "SPY",
             "timestamp_et": "2026-03-16T09:30:00-04:00",
             "timestamp_utc": "2026-03-16T13:30:00Z",
             "volume": "3163"
-          },
-          {
-            "close": "668.000000000",
-            "high": "668.370000000",
-            "instrument_id": "15144",
-            "low": "668.000000000",
-            "open": "668.370000000",
-            "publisher_id": "40",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "140"
-          },
-          {
-            "close": "668.165000000",
-            "high": "668.475000000",
-            "instrument_id": "15144",
-            "low": "667.730000000",
-            "open": "668.410000000",
-            "publisher_id": "41",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "6791"
           }
         ],
-        "source_value": "Clean Fast Break bounded accepted trigger contract",
-        "status": "BLOCKED_NUMERIC_RULE_UNRESOLVED"
+        "source_value": "668.360000000",
+        "status": "ACCEPTED_NUMERIC_RULE_ESTABLISHED"
       }
     },
     {
       "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
       "candidate_id": "DAY52-SPY-2026-03-16-CONTINUATION-20260316T133000Z-P39",
       "carry_forward_state": "no_prior_session_carry_forward",
-      "direction": "rule_gap_no_accepted_local_family_selector",
-      "exact_rejection_or_blocker_code": "NUMERIC_RULE_UNRESOLVED_CONTINUATION_TRIGGER__NUMERIC_RULE_UNRESOLVED_CONTINUATION_INVALIDATION",
-      "final_disposition": "blocked by missing evidence",
+      "direction": "bullish",
+      "exact_rejection_or_blocker_code": "ACCEPTED_LAYER1_SUPPRESSED_BY_WINNER",
+      "final_disposition": "suppressed",
       "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
       "invalidation": {
-        "blocker_code": "NUMERIC_RULE_UNRESOLVED_CONTINUATION_INVALIDATION",
-        "calculation": "no numeric calculation accepted; local mapper records a family contract but does not bind that contract to open, high, low, close, volume, VWAP, offset, buffer, tolerance, or any other numeric threshold",
-        "comparison_operator": null,
-        "direction": "rule_gap_no_accepted_local_family_selector",
-        "directionally_valid": false,
+        "blocker_code": null,
+        "calculation": "bullish Candidate A invalidation = correctly bound setup-time bar low",
+        "comparison_operator": "<=",
+        "direction": "bullish",
+        "directionally_valid": true,
         "field": "invalidation",
-        "final_numeric_value": null,
-        "finite_numeric_value": false,
+        "final_numeric_value": "667.870000000",
+        "finite_numeric_value": true,
+        "future_row_exclusion_proof": "value copied from source field low on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
         "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
-        "numeric_value": null,
-        "observable_ohlcv_fields": {
-          "close": [
-            "668.000000000",
-            "668.165000000",
-            "668.180000000"
-          ],
-          "high": [
-            "668.360000000",
-            "668.370000000",
-            "668.475000000"
-          ],
-          "low": [
-            "667.730000000",
-            "667.870000000",
-            "668.000000000"
-          ],
-          "open": [
-            "668.360000000",
-            "668.370000000",
-            "668.410000000"
-          ],
-          "volume": [
-            "140",
-            "3163",
-            "6791"
-          ]
-        },
-        "rule_identifier": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_invalidation_contract",
+        "numeric_value": "667.870000000",
+        "rule_identifier": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "rule_source": "SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION",
         "setup_family": "Continuation",
         "source_bar_timestamp": "2026-03-16T13:30:00Z",
-        "source_field": "family_invalidation_contract",
+        "source_field": "low",
         "source_file": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
         "source_rows_used": [
           {
@@ -259,43 +135,17 @@
             "low": "667.870000000",
             "open": "668.360000000",
             "publisher_id": "39",
+            "source_index": 2,
             "symbol": "SPY",
             "timestamp_et": "2026-03-16T09:30:00-04:00",
             "timestamp_utc": "2026-03-16T13:30:00Z",
             "volume": "3163"
-          },
-          {
-            "close": "668.000000000",
-            "high": "668.370000000",
-            "instrument_id": "15144",
-            "low": "668.000000000",
-            "open": "668.370000000",
-            "publisher_id": "40",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "140"
-          },
-          {
-            "close": "668.165000000",
-            "high": "668.475000000",
-            "instrument_id": "15144",
-            "low": "667.730000000",
-            "open": "668.410000000",
-            "publisher_id": "41",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "6791"
           }
         ],
-        "source_value": "Continuation bounded accepted invalidation contract",
-        "status": "BLOCKED_NUMERIC_RULE_UNRESOLVED"
+        "source_value": "667.870000000",
+        "status": "ACCEPTED_NUMERIC_RULE_ESTABLISHED"
       },
-      "missing_required_evidence": [
-        "numeric_trigger",
-        "numeric_invalidation"
-      ],
+      "missing_required_evidence": [],
       "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
       "observation_timestamp_utc": "2026-03-16T13:30:00Z",
       "post_cutoff_fields_excluded": true,
@@ -314,47 +164,22 @@
         "volume": "3163"
       },
       "trigger": {
-        "blocker_code": "NUMERIC_RULE_UNRESOLVED_CONTINUATION_TRIGGER",
-        "calculation": "no numeric calculation accepted; local mapper records a family contract but does not bind that contract to open, high, low, close, volume, VWAP, offset, buffer, tolerance, or any other numeric threshold",
-        "comparison_operator": null,
-        "direction": "rule_gap_no_accepted_local_family_selector",
-        "directionally_valid": false,
+        "blocker_code": null,
+        "calculation": "bullish Candidate A trigger = correctly bound setup-time bar high",
+        "comparison_operator": ">=",
+        "direction": "bullish",
+        "directionally_valid": true,
         "field": "trigger",
-        "final_numeric_value": null,
-        "finite_numeric_value": false,
+        "final_numeric_value": "668.360000000",
+        "finite_numeric_value": true,
+        "future_row_exclusion_proof": "value copied from source field high on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
         "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
-        "numeric_value": null,
-        "observable_ohlcv_fields": {
-          "close": [
-            "668.000000000",
-            "668.165000000",
-            "668.180000000"
-          ],
-          "high": [
-            "668.360000000",
-            "668.370000000",
-            "668.475000000"
-          ],
-          "low": [
-            "667.730000000",
-            "667.870000000",
-            "668.000000000"
-          ],
-          "open": [
-            "668.360000000",
-            "668.370000000",
-            "668.410000000"
-          ],
-          "volume": [
-            "140",
-            "3163",
-            "6791"
-          ]
-        },
-        "rule_identifier": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_trigger_contract",
+        "numeric_value": "668.360000000",
+        "rule_identifier": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "rule_source": "SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION",
         "setup_family": "Continuation",
         "source_bar_timestamp": "2026-03-16T13:30:00Z",
-        "source_field": "family_trigger_contract",
+        "source_field": "high",
         "source_file": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
         "source_rows_used": [
           {
@@ -364,90 +189,42 @@
             "low": "667.870000000",
             "open": "668.360000000",
             "publisher_id": "39",
+            "source_index": 2,
             "symbol": "SPY",
             "timestamp_et": "2026-03-16T09:30:00-04:00",
             "timestamp_utc": "2026-03-16T13:30:00Z",
             "volume": "3163"
-          },
-          {
-            "close": "668.000000000",
-            "high": "668.370000000",
-            "instrument_id": "15144",
-            "low": "668.000000000",
-            "open": "668.370000000",
-            "publisher_id": "40",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "140"
-          },
-          {
-            "close": "668.165000000",
-            "high": "668.475000000",
-            "instrument_id": "15144",
-            "low": "667.730000000",
-            "open": "668.410000000",
-            "publisher_id": "41",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "6791"
           }
         ],
-        "source_value": "Continuation bounded accepted trigger contract",
-        "status": "BLOCKED_NUMERIC_RULE_UNRESOLVED"
+        "source_value": "668.360000000",
+        "status": "ACCEPTED_NUMERIC_RULE_ESTABLISHED"
       }
     },
     {
       "blocker_caution_review": "optional_context_absent_non_blocking_under_registry_rule",
       "candidate_id": "DAY52-SPY-2026-03-16-IDEAL-20260316T133000Z-P39",
       "carry_forward_state": "no_prior_session_carry_forward",
-      "direction": "rule_gap_no_accepted_local_family_selector",
-      "exact_rejection_or_blocker_code": "NUMERIC_RULE_UNRESOLVED_IDEAL_TRIGGER__NUMERIC_RULE_UNRESOLVED_IDEAL_INVALIDATION",
-      "final_disposition": "blocked by missing evidence",
+      "direction": "bullish",
+      "exact_rejection_or_blocker_code": "ACCEPTED_LAYER1_SUPPRESSED_BY_WINNER",
+      "final_disposition": "suppressed",
       "freshness_final_signal_state": "fresh_final_signal_state_at_setup_time",
       "invalidation": {
-        "blocker_code": "NUMERIC_RULE_UNRESOLVED_IDEAL_INVALIDATION",
-        "calculation": "no numeric calculation accepted; local mapper records a family contract but does not bind that contract to open, high, low, close, volume, VWAP, offset, buffer, tolerance, or any other numeric threshold",
-        "comparison_operator": null,
-        "direction": "rule_gap_no_accepted_local_family_selector",
-        "directionally_valid": false,
+        "blocker_code": null,
+        "calculation": "bullish Candidate A invalidation = correctly bound setup-time bar low",
+        "comparison_operator": "<=",
+        "direction": "bullish",
+        "directionally_valid": true,
         "field": "invalidation",
-        "final_numeric_value": null,
-        "finite_numeric_value": false,
+        "final_numeric_value": "667.870000000",
+        "finite_numeric_value": true,
+        "future_row_exclusion_proof": "value copied from source field low on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
         "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
-        "numeric_value": null,
-        "observable_ohlcv_fields": {
-          "close": [
-            "668.000000000",
-            "668.165000000",
-            "668.180000000"
-          ],
-          "high": [
-            "668.360000000",
-            "668.370000000",
-            "668.475000000"
-          ],
-          "low": [
-            "667.730000000",
-            "667.870000000",
-            "668.000000000"
-          ],
-          "open": [
-            "668.360000000",
-            "668.370000000",
-            "668.410000000"
-          ],
-          "volume": [
-            "140",
-            "3163",
-            "6791"
-          ]
-        },
-        "rule_identifier": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_invalidation_contract",
+        "numeric_value": "667.870000000",
+        "rule_identifier": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "rule_source": "SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION",
         "setup_family": "Ideal",
         "source_bar_timestamp": "2026-03-16T13:30:00Z",
-        "source_field": "family_invalidation_contract",
+        "source_field": "low",
         "source_file": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
         "source_rows_used": [
           {
@@ -457,43 +234,17 @@
             "low": "667.870000000",
             "open": "668.360000000",
             "publisher_id": "39",
+            "source_index": 2,
             "symbol": "SPY",
             "timestamp_et": "2026-03-16T09:30:00-04:00",
             "timestamp_utc": "2026-03-16T13:30:00Z",
             "volume": "3163"
-          },
-          {
-            "close": "668.000000000",
-            "high": "668.370000000",
-            "instrument_id": "15144",
-            "low": "668.000000000",
-            "open": "668.370000000",
-            "publisher_id": "40",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "140"
-          },
-          {
-            "close": "668.165000000",
-            "high": "668.475000000",
-            "instrument_id": "15144",
-            "low": "667.730000000",
-            "open": "668.410000000",
-            "publisher_id": "41",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "6791"
           }
         ],
-        "source_value": "Ideal bounded accepted invalidation contract",
-        "status": "BLOCKED_NUMERIC_RULE_UNRESOLVED"
+        "source_value": "667.870000000",
+        "status": "ACCEPTED_NUMERIC_RULE_ESTABLISHED"
       },
-      "missing_required_evidence": [
-        "numeric_trigger",
-        "numeric_invalidation"
-      ],
+      "missing_required_evidence": [],
       "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
       "observation_timestamp_utc": "2026-03-16T13:30:00Z",
       "post_cutoff_fields_excluded": true,
@@ -512,47 +263,22 @@
         "volume": "3163"
       },
       "trigger": {
-        "blocker_code": "NUMERIC_RULE_UNRESOLVED_IDEAL_TRIGGER",
-        "calculation": "no numeric calculation accepted; local mapper records a family contract but does not bind that contract to open, high, low, close, volume, VWAP, offset, buffer, tolerance, or any other numeric threshold",
-        "comparison_operator": null,
-        "direction": "rule_gap_no_accepted_local_family_selector",
-        "directionally_valid": false,
+        "blocker_code": null,
+        "calculation": "bullish Candidate A trigger = correctly bound setup-time bar high",
+        "comparison_operator": ">=",
+        "direction": "bullish",
+        "directionally_valid": true,
         "field": "trigger",
-        "final_numeric_value": null,
-        "finite_numeric_value": false,
+        "final_numeric_value": "668.360000000",
+        "finite_numeric_value": true,
+        "future_row_exclusion_proof": "value copied from source field high on row 2026-03-16T13:30:00Z; no rows after 2026-03-16T13:30:00Z are read by the constructor",
         "no_hindsight_cutoff": "2026-03-16T13:30:00Z",
-        "numeric_value": null,
-        "observable_ohlcv_fields": {
-          "close": [
-            "668.000000000",
-            "668.165000000",
-            "668.180000000"
-          ],
-          "high": [
-            "668.360000000",
-            "668.370000000",
-            "668.475000000"
-          ],
-          "low": [
-            "667.730000000",
-            "667.870000000",
-            "668.000000000"
-          ],
-          "open": [
-            "668.360000000",
-            "668.370000000",
-            "668.410000000"
-          ],
-          "volume": [
-            "140",
-            "3163",
-            "6791"
-          ]
-        },
-        "rule_identifier": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_trigger_contract",
+        "numeric_value": "668.360000000",
+        "rule_identifier": "CANDIDATE_A_SETUP_BAR_RANGE",
+        "rule_source": "SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION",
         "setup_family": "Ideal",
         "source_bar_timestamp": "2026-03-16T13:30:00Z",
-        "source_field": "family_trigger_contract",
+        "source_field": "high",
         "source_file": "historical_signal_replay/source_data/external_underlying_data_drop/SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv",
         "source_rows_used": [
           {
@@ -562,38 +288,15 @@
             "low": "667.870000000",
             "open": "668.360000000",
             "publisher_id": "39",
+            "source_index": 2,
             "symbol": "SPY",
             "timestamp_et": "2026-03-16T09:30:00-04:00",
             "timestamp_utc": "2026-03-16T13:30:00Z",
             "volume": "3163"
-          },
-          {
-            "close": "668.000000000",
-            "high": "668.370000000",
-            "instrument_id": "15144",
-            "low": "668.000000000",
-            "open": "668.370000000",
-            "publisher_id": "40",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "140"
-          },
-          {
-            "close": "668.165000000",
-            "high": "668.475000000",
-            "instrument_id": "15144",
-            "low": "667.730000000",
-            "open": "668.410000000",
-            "publisher_id": "41",
-            "symbol": "SPY",
-            "timestamp_et": "2026-03-16T09:30:00-04:00",
-            "timestamp_utc": "2026-03-16T13:30:00Z",
-            "volume": "6791"
           }
         ],
-        "source_value": "Ideal bounded accepted trigger contract",
-        "status": "BLOCKED_NUMERIC_RULE_UNRESOLVED"
+        "source_value": "668.360000000",
+        "status": "ACCEPTED_NUMERIC_RULE_ESTABLISHED"
       }
     }
   ]

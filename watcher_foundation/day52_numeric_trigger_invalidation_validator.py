@@ -11,29 +11,17 @@ RESULT_PATH = (
 )
 
 EXPECTED_FAMILIES = {"Ideal", "Clean Fast Break", "Continuation"}
-EXPECTED_BLOCKERS = {
-    "Ideal": {
-        "trigger": "NUMERIC_RULE_UNRESOLVED_IDEAL_TRIGGER",
-        "invalidation": "NUMERIC_RULE_UNRESOLVED_IDEAL_INVALIDATION",
-    },
-    "Clean Fast Break": {
-        "trigger": "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_TRIGGER",
-        "invalidation": "NUMERIC_RULE_UNRESOLVED_CLEAN_FAST_BREAK_INVALIDATION",
-    },
-    "Continuation": {
-        "trigger": "NUMERIC_RULE_UNRESOLVED_CONTINUATION_TRIGGER",
-        "invalidation": "NUMERIC_RULE_UNRESOLVED_CONTINUATION_INVALIDATION",
-    },
-}
+EXPECTED_TRIGGER = "668.360000000"
+EXPECTED_INVALIDATION = "667.870000000"
 
 
 def validate_result_document(result_path=RESULT_PATH):
     result = json.loads(Path(result_path).read_text(encoding="utf-8"))
     problems = []
 
-    if result.get("result_version") != "day52_numeric_trigger_invalidation_v1":
+    if result.get("result_version") != "day52_numeric_trigger_invalidation_v2":
         problems.append("unexpected_result_version")
-    if result.get("implementation_version") != "day52_numeric_trigger_invalidation_impl_v1":
+    if result.get("implementation_version") != "day52_numeric_trigger_invalidation_impl_v2":
         problems.append("unexpected_implementation_version")
 
     scope = result.get("scope", {})
@@ -77,30 +65,39 @@ def validate_result_document(result_path=RESULT_PATH):
         family = constructor.get("setup_family")
         if constructor.get("setup_timestamp_utc") != "2026-03-16T13:30:00Z":
             problems.append(f"{family}_unexpected_setup_timestamp")
-        if constructor.get("setup_qualified_allowed") is not False:
-            problems.append(f"{family}_setup_qualified_allowed")
+        if constructor.get("setup_qualified_allowed") is not True:
+            problems.append(f"{family}_setup_qualified_not_allowed")
+        if constructor.get("promotion_decision") != "PROMOTE_CANDIDATE_A":
+            problems.append(f"{family}_unexpected_promotion_decision")
+        audit = constructor.get("binding_audit", {})
+        if audit.get("source_row_index") != 2:
+            problems.append(f"{family}_unexpected_source_row_index")
+        if audit.get("binding_result") != "LEGITIMATE_SHARED_SETUP_TIME_ROW":
+            problems.append(f"{family}_binding_not_legitimate_shared_row")
         for field in ("trigger", "invalidation"):
             item = constructor.get(field, {})
-            if item.get("blocker_code") != EXPECTED_BLOCKERS.get(family, {}).get(field):
+            expected_value = EXPECTED_TRIGGER if field == "trigger" else EXPECTED_INVALIDATION
+            expected_source = "high" if field == "trigger" else "low"
+            if item.get("blocker_code") is not None:
                 problems.append(f"{family}_{field}_unexpected_blocker")
-            if item.get("numeric_value") is not None:
-                problems.append(f"{family}_{field}_numeric_value_invented")
-            if item.get("finite_numeric_value") is not False:
-                problems.append(f"{family}_{field}_finite_flag_not_false")
+            if item.get("numeric_value") != expected_value:
+                problems.append(f"{family}_{field}_unexpected_numeric_value")
+            if item.get("finite_numeric_value") is not True:
+                problems.append(f"{family}_{field}_finite_flag_not_true")
             if item.get("no_hindsight_cutoff") != "2026-03-16T13:30:00Z":
                 problems.append(f"{family}_{field}_no_hindsight_cutoff_changed")
-            if "open" not in item.get("observable_ohlcv_fields", {}):
-                problems.append(f"{family}_{field}_missing_ohlcv_provenance")
-            if "does not bind" not in item.get("calculation", ""):
-                problems.append(f"{family}_{field}_missing_rule_gap_calculation")
+            if item.get("source_field") != expected_source:
+                problems.append(f"{family}_{field}_unexpected_source_field")
+            if item.get("comparison_operator") != (">=" if field == "trigger" else "<="):
+                problems.append(f"{family}_{field}_unexpected_operator")
 
     summary = result.get("summary", {})
-    if summary.get("numeric_values_established") != 0:
-        problems.append("numeric_values_established_nonzero")
-    if summary.get("numeric_values_unresolved") != 6:
-        problems.append("expected_six_unresolved_numeric_values")
-    if summary.get("setup_qualified_allowed_count") != 0:
-        problems.append("setup_qualified_allowed_count_nonzero")
+    if summary.get("numeric_values_established") != 6:
+        problems.append("numeric_values_established_not_six")
+    if summary.get("numeric_values_unresolved") != 0:
+        problems.append("numeric_values_unresolved_nonzero")
+    if summary.get("setup_qualified_allowed_count") != 3:
+        problems.append("setup_qualified_allowed_count_not_three")
 
     determinism = result.get("deterministic_comparison", {})
     if determinism.get("result") != "PASS":
@@ -108,11 +105,9 @@ def validate_result_document(result_path=RESULT_PATH):
 
     guardrails = result.get("guardrails", {})
     for field in (
-        "raw_ohlcv_promoted_without_rule",
         "future_rows_used",
         "missing_evidence_converted_to_confidence",
         "profitability_claimed",
-        "promotion_decision_made",
         "paper_eligible",
         "live_eligible",
     ):

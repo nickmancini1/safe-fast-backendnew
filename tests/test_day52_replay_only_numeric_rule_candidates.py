@@ -140,9 +140,9 @@ class Day52ReplayOnlyNumericRuleCandidatesTests(unittest.TestCase):
         accepted = document["accepted_mode_reference"]
         provisional = document["complete_session_opportunity_accounting"]
 
-        self.assertEqual(accepted["numeric_values_established"], 0)
-        self.assertEqual(accepted["numeric_values_unresolved"], 6)
-        self.assertTrue(accepted["accepted_numeric_rules_remain_unresolved"])
+        self.assertEqual(accepted["numeric_values_established"], 6)
+        self.assertEqual(accepted["numeric_values_unresolved"], 0)
+        self.assertFalse(accepted["accepted_numeric_rules_remain_unresolved"])
         self.assertEqual(provisional["setup_qualified_under_provisional_mode_records"], 3)
         self.assertFalse(document["guardrails"]["accepted_blockers_overwritten"])
 

@@ -27,8 +27,8 @@ def validate_result_document(result_path=RESULT_PATH):
     scope = result.get("scope", {})
     if scope.get("mode") != "PROVISIONAL_REPLAY_ONLY":
         problems.append("mode_not_provisional_replay_only")
-    if scope.get("accepted_numeric_rules_remain_unresolved") is not True:
-        problems.append("accepted_rules_not_marked_unresolved")
+    if scope.get("accepted_numeric_rules_remain_unresolved") is not False:
+        problems.append("accepted_rules_not_marked_established")
     if scope.get("profitability_proof") != "NO":
         problems.append("profitability_proof_not_no")
     if scope.get("paper_live_eligibility") != "NO":
@@ -48,11 +48,11 @@ def validate_result_document(result_path=RESULT_PATH):
             problems.append(f"{field}_true")
 
     accepted = result.get("accepted_mode_reference", {})
-    if accepted.get("accepted_numeric_rules_remain_unresolved") is not True:
-        problems.append("accepted_reference_not_unresolved")
-    if accepted.get("numeric_values_established") != 0:
+    if accepted.get("accepted_numeric_rules_remain_unresolved") is not False:
+        problems.append("accepted_reference_not_established")
+    if accepted.get("numeric_values_established") != 6:
         problems.append("accepted_numeric_values_established_changed")
-    if accepted.get("numeric_values_unresolved") != 6:
+    if accepted.get("numeric_values_unresolved") != 0:
         problems.append("accepted_numeric_values_unresolved_changed")
 
     records = result.get("setup_time_candidate_records", [])

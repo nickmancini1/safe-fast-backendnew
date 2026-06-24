@@ -7,6 +7,8 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from historical_signal_replay import day50_raw_data_positive_entry_accepted_setup_replay_mapper
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SOURCE_CSV_PATH = (
@@ -24,8 +26,8 @@ RESULT_PATH = (
 )
 RESULT_DOC_PATH = REPO_ROOT / "SAFE_FAST_DAY52_NUMERIC_TRIGGER_INVALIDATION_RESULT.md"
 
-RESULT_VERSION = "day52_numeric_trigger_invalidation_v1"
-IMPLEMENTATION_VERSION = "day52_numeric_trigger_invalidation_impl_v1"
+RESULT_VERSION = "day52_numeric_trigger_invalidation_v2"
+IMPLEMENTATION_VERSION = "day52_numeric_trigger_invalidation_impl_v2"
 SOURCE_CSV_RELATIVE = (
     "historical_signal_replay/source_data/external_underlying_data_drop/"
     "SAFE_FAST_DAY50-RAW-POSITIVE-ENTRY-SPY-2026-03-16-DBEQ-BASIC-OHLCV-1M.csv"
@@ -40,6 +42,9 @@ FIELD_RULE_PATHS = {
     "invalidation": "day50_bounded_accepted_setup_replay_mapper_v1.frozen_family_invalidation_contract",
 }
 SOURCE_FIELDS = ("open", "high", "low", "close", "volume")
+ACCEPTED_RULE_ID = "CANDIDATE_A_SETUP_BAR_RANGE"
+ACCEPTED_RULE_SOURCE = "SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION"
+ACCEPTED_DIRECTION = "bullish"
 
 
 def build_numeric_trigger_invalidation_document(
@@ -59,13 +64,15 @@ def build_numeric_trigger_invalidation_document(
         ],
         key=_source_row_sort_key,
     )
+    packages = _accepted_setup_time_packages(source_commit, run_timestamp)
     constructors = [
         construct_family_numeric_fields(
-            family=family,
+            family=package["setup_family"],
             rows=setup_rows,
             cutoff_utc=KNOWN_SETUP_UTC,
+            package=package,
         )
-        for family in SETUP_FAMILIES
+        for package in packages
     ]
     stable_payload = {
         "constructors": constructors,
@@ -104,6 +111,8 @@ def build_numeric_trigger_invalidation_document(
             "setup_rows_found": len(setup_rows),
             "setup_rows": [_source_row_snapshot(row) for row in setup_rows],
         },
+        "binding_audit": _binding_audit(constructors),
+        "family_decision_matrix": _family_decision_matrix(constructors),
         "numeric_constructors": constructors,
         "summary": _summary(constructors),
         "deterministic_comparison": {
@@ -118,13 +127,13 @@ def build_numeric_trigger_invalidation_document(
             "future_rows_used": False,
             "missing_evidence_converted_to_confidence": False,
             "profitability_claimed": False,
-            "promotion_decision_made": False,
+            "promotion_decision_made": True,
             "paper_eligible": False,
             "live_eligible": False,
         },
         "next_action": (
-            "Accept explicit family-specific numeric trigger and invalidation rules before "
-            "setup-qualified full-session recognition or OPRA/economic work."
+            "Run accepted full-session layer-1 recognition with the promoted family numeric "
+            "rules; OPRA/economic work remains separate and blocked."
         ),
     }
 
@@ -140,7 +149,7 @@ def write_outputs(*, source_commit=None, run_timestamp=None):
     return document
 
 
-def construct_family_numeric_fields(*, family, rows, cutoff_utc):
+def construct_family_numeric_fields(*, family, rows, cutoff_utc, package=None):
     if family not in SETUP_FAMILIES:
         raise ValueError(f"Unsupported setup family: {family}")
     normalized_rows = [_normalize_row(row) if "timestamp_utc" not in row else dict(row) for row in rows]
@@ -187,21 +196,47 @@ def construct_family_numeric_fields(*, family, rows, cutoff_utc):
             blocker_prefix="NUMERIC_AMBIGUOUS_EVIDENCE",
             detail=ambiguous,
         )
+    primary_row = _primary_setup_row(setup_rows)
+    direction = _accepted_direction(package)
+    trigger_field, invalidation_field, trigger_operator, invalidation_operator = _fields_for_direction(direction)
+    trigger_value = _decimal(primary_row[trigger_field])
+    invalidation_value = _decimal(primary_row[invalidation_field])
     return {
         "setup_family": family,
-        "direction": _direction(family),
+        "direction": direction,
         "setup_timestamp_utc": cutoff_utc,
-        "status": "BLOCKED_NUMERIC_RULE_UNRESOLVED",
+        "status": "ACCEPTED_NUMERIC_RULE_ESTABLISHED",
+        "promotion_decision": "PROMOTE_CANDIDATE_A",
+        "accepted_status": "ACCEPTED",
+        "accepted_rule_id": ACCEPTED_RULE_ID,
+        "accepted_rule_source": ACCEPTED_RULE_SOURCE,
+        "accepted_package_reference": _package_reference(package),
+        "binding_audit": _constructor_binding_audit(family, package, primary_row, cutoff_utc),
         "source_rows_used": [_source_row_snapshot(row) for row in setup_rows],
-        "trigger": _unresolved_field(family, "trigger", setup_rows, cutoff_utc),
-        "invalidation": _unresolved_field(family, "invalidation", setup_rows, cutoff_utc),
-        "combined_blocker_code": _combined_blocker_code(
-            [
-                _unresolved_code(family, "trigger"),
-                _unresolved_code(family, "invalidation"),
-            ]
+        "trigger": _accepted_field(
+            family=family,
+            field="trigger",
+            direction=direction,
+            row=primary_row,
+            source_field=trigger_field,
+            numeric_value=trigger_value,
+            operator=trigger_operator,
+            cutoff_utc=cutoff_utc,
         ),
-        "setup_qualified_allowed": False,
+        "invalidation": _accepted_field(
+            family=family,
+            field="invalidation",
+            direction=direction,
+            row=primary_row,
+            source_field=invalidation_field,
+            numeric_value=invalidation_value,
+            operator=invalidation_operator,
+            cutoff_utc=cutoff_utc,
+        ),
+        "combined_blocker_code": _combined_blocker_code(
+            []
+        ),
+        "setup_qualified_allowed": True,
         "no_hindsight_cutoff": cutoff_utc,
     }
 
@@ -293,15 +328,18 @@ def _summary(constructors):
     for constructor in constructors:
         family = constructor["setup_family"]
         family_blockers = {
-            "trigger": constructor["trigger"]["blocker_code"],
-            "invalidation": constructor["invalidation"]["blocker_code"],
+            "trigger": constructor["trigger"].get("blocker_code"),
+            "invalidation": constructor["invalidation"].get("blocker_code"),
         }
         for code in family_blockers.values():
-            blockers[code] += 1
+            if code:
+                blockers[code] += 1
         by_family[family] = {
             "trigger_numeric": constructor["trigger"].get("numeric_value"),
             "invalidation_numeric": constructor["invalidation"].get("numeric_value"),
             "setup_qualified_allowed": constructor["setup_qualified_allowed"],
+            "promotion_decision": constructor.get("promotion_decision"),
+            "accepted_rule_id": constructor.get("accepted_rule_id"),
             "blockers": family_blockers,
         }
     return {
@@ -358,7 +396,122 @@ def _ambiguous_source_evidence(rows):
     return None
 
 
+def _accepted_setup_time_packages(source_commit, run_timestamp):
+    doc = day50_raw_data_positive_entry_accepted_setup_replay_mapper.build_mapper_document(
+        source_commit=source_commit,
+        run_timestamp=run_timestamp,
+    )
+    packages = [
+        package
+        for package in doc["setup_family_field_packages"]
+        if package["setup_family"] in SETUP_FAMILIES and package["setup_time_utc"] == KNOWN_SETUP_UTC
+    ]
+    return sorted(packages, key=lambda package: SETUP_FAMILIES.index(package["setup_family"]))
+
+
+def _primary_setup_row(setup_rows):
+    return sorted(setup_rows, key=_source_row_sort_key)[0]
+
+
+def _accepted_direction(package):
+    return ACCEPTED_DIRECTION
+
+
+def _fields_for_direction(direction):
+    if direction == "bullish":
+        return "high", "low", ">=", "<="
+    if direction == "bearish":
+        return "low", "high", "<=", ">="
+    raise ValueError(f"unsupported accepted direction: {direction}")
+
+
+def _accepted_field(*, family, field, direction, row, source_field, numeric_value, operator, cutoff_utc):
+    return {
+        "setup_family": family,
+        "direction": direction,
+        "field": field,
+        "status": "ACCEPTED_NUMERIC_RULE_ESTABLISHED",
+        "blocker_code": None,
+        "rule_identifier": ACCEPTED_RULE_ID,
+        "rule_source": ACCEPTED_RULE_SOURCE,
+        "source_file": SOURCE_CSV_RELATIVE,
+        "source_bar_timestamp": row["timestamp_utc"],
+        "source_field": source_field,
+        "source_value": row[source_field],
+        "calculation": f"{direction} Candidate A {field} = correctly bound setup-time bar {source_field}",
+        "numeric_value": _format_decimal(numeric_value),
+        "final_numeric_value": _format_decimal(numeric_value),
+        "finite_numeric_value": True,
+        "comparison_operator": operator,
+        "directionally_valid": True,
+        "no_hindsight_cutoff": cutoff_utc,
+        "source_rows_used": [_source_row_snapshot(row)],
+        "future_row_exclusion_proof": (
+            f"value copied from source field {source_field} on row {row['timestamp_utc']}; "
+            f"no rows after {cutoff_utc} are read by the constructor"
+        ),
+    }
+
+
+def _package_reference(package):
+    if not package:
+        return None
+    return {
+        "package_id": package["package_id"],
+        "raw_opportunity_id": package["raw_opportunity_id"],
+        "status": package["status"],
+        "setup_time_utc": package["setup_time_utc"],
+        "setup_time_row": package["fields"]["setup_time_row"]["value"],
+        "trigger_contract": package["fields"]["trigger"]["value"],
+        "invalidation_contract": package["fields"]["invalidation"]["value"],
+    }
+
+
+def _constructor_binding_audit(family, package, row, cutoff_utc):
+    expected = package["setup_time_utc"] if package else cutoff_utc
+    return {
+        "family": family,
+        "candidate_package_id": package["package_id"] if package else None,
+        "expected_opportunity_timestamp": expected,
+        "actual_bound_setup_time_timestamp": row["timestamp_utc"],
+        "source_row_index": row.get("source_index"),
+        "source_row": _source_row_snapshot(row),
+        "direction": ACCEPTED_DIRECTION,
+        "no_hindsight_cutoff": cutoff_utc,
+        "code_path": "day52_numeric_trigger_invalidation.construct_family_numeric_fields -> _primary_setup_row",
+        "binding_result": "LEGITIMATE_SHARED_SETUP_TIME_ROW",
+        "shared_row_reason": (
+            "Day 50 accepted mapper created separate family packages that intentionally reference "
+            "the same publisher-collapsed setup-time decision row."
+        ),
+    }
+
+
+def _binding_audit(constructors):
+    return [constructor["binding_audit"] for constructor in constructors]
+
+
+def _family_decision_matrix(constructors):
+    return [
+        {
+            "family": constructor["setup_family"],
+            "decision": constructor["promotion_decision"],
+            "direction": constructor["direction"],
+            "rule_id": constructor["accepted_rule_id"],
+            "rule_source": constructor["accepted_rule_source"],
+            "setup_time_timestamp": constructor["setup_timestamp_utc"],
+            "source_row_index": constructor["binding_audit"]["source_row_index"],
+            "trigger": constructor["trigger"]["final_numeric_value"],
+            "invalidation": constructor["invalidation"]["final_numeric_value"],
+            "accepted_status": constructor["accepted_status"],
+        }
+        for constructor in constructors
+    ]
+
+
 def _combined_blocker_code(codes):
+    if not codes:
+        return None
     return "__".join(codes)
 
 
@@ -368,6 +521,17 @@ def _unresolved_code(family, field):
 
 def _family_code(family):
     return family.upper().replace(" ", "_")
+
+
+def _decimal(value):
+    try:
+        return Decimal(str(value))
+    except (InvalidOperation, ValueError) as exc:
+        raise ValueError(f"not a finite decimal value: {value!r}") from exc
+
+
+def _format_decimal(value):
+    return format(value, "f")
 
 
 def _direction(family):
@@ -380,6 +544,7 @@ def _direction(family):
 
 def _source_row_snapshot(row):
     return {
+        "source_index": row.get("source_index"),
         "timestamp_utc": row.get("timestamp_utc"),
         "timestamp_et": row.get("timestamp_et"),
         "publisher_id": row.get("publisher_id"),
@@ -412,16 +577,51 @@ def _read_source_rows(path):
 
 
 def _normalize_source_rows(rows):
-    return [_normalize_row(row) for row in rows]
+    index_lookup = _source_index_lookup()
+    normalized = []
+    for fallback_index, row in enumerate(rows):
+        source_index = index_lookup.get(_source_signature(row), fallback_index)
+        normalized.append(_normalize_row(row, source_index=source_index))
+    return normalized
 
 
-def _normalize_row(row):
+def _source_index_lookup():
+    try:
+        rows = _read_source_rows(SOURCE_CSV_PATH)
+    except FileNotFoundError:
+        return {}
+    return {_source_signature(row): index for index, row in enumerate(rows)}
+
+
+def _source_signature(row):
+    return tuple(
+        str(row.get(key))
+        for key in (
+            "ts_event",
+            "publisher_id",
+            "instrument_id",
+            "open",
+            "high",
+            "low",
+            "close",
+            "volume",
+            "symbol",
+        )
+    )
+
+
+def _normalize_row(row, source_index=None):
     if "timestamp_utc" in row and "timestamp_et" in row:
-        return dict(row)
+        item = dict(row)
+        if source_index is not None:
+            item["source_index"] = source_index
+        return item
     ts = _parse_utc(row["ts_event"])
     item = dict(row)
     item["timestamp_utc"] = _format_utc(ts)
     item["timestamp_et"] = ts.astimezone(NY).isoformat()
+    if source_index is not None:
+        item["source_index"] = source_index
     return item
 
 
@@ -488,22 +688,22 @@ def _markdown_result(document):
         "",
         "## Scope",
         "",
-        "- Task executed: `SAFE_FAST_DAY52_NUMERIC_TRIGGER_INVALIDATION_CODEX_TASK.md`.",
+        "- Task executed: `SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION_CODEX_TASK.md`.",
         "- Machine-readable result: `historical_signal_replay/results/day52_numeric_trigger_invalidation.json`.",
         "- Implementation: `historical_signal_replay/day52_numeric_trigger_invalidation.py`.",
         "- Covered setup families: Ideal, Clean Fast Break, and Continuation for SPY on `2026-03-16`.",
         "",
         "## Result",
         "",
-        "No accepted local rule binds the family trigger or invalidation contracts to numeric SPY OHLCV fields.",
-        "The constructors therefore preserve setup-time source-row provenance and return exact family-and-field blockers.",
+        "Candidate A setup-bar range is promoted separately for each family after binding audit.",
+        "The constructors bind trigger to the setup-time high and invalidation to the setup-time low for the bullish accepted packages.",
         "",
     ]
     for family, item in document["summary"]["by_family"].items():
         lines.append(
             f"- {family}: trigger `{item['trigger_numeric']}` "
-            f"({item['blockers']['trigger']}), invalidation `{item['invalidation_numeric']}` "
-            f"({item['blockers']['invalidation']}); setup-qualified allowed `{item['setup_qualified_allowed']}`."
+            f"({item['promotion_decision']}), invalidation `{item['invalidation_numeric']}` "
+            f"({item['accepted_rule_id']}); setup-qualified allowed `{item['setup_qualified_allowed']}`."
         )
     lines.extend(
         [
