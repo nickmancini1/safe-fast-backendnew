@@ -1,5 +1,27 @@
 # SAFE-FAST Next Chat Handoff - Start Here
 
+<!-- SAFE_FAST_OPERATOR_TIME_PROTECTION_START -->
+## MANDATORY OPERATOR-TIME PROTECTION
+
+Every future chat must read and follow this rule before issuing commands.
+
+Before any Codex run, network request, data request, download, broad test batch, repository-wide scan, or other potentially long-running or mutating command:
+
+1. Perform a fast read-only preflight first.
+2. Verify branch, HEAD, git status, exact input files, exact output path resolved from code or configuration, output parent directory, required environment-variable names, executable availability, and whether the requested result already exists.
+3. Do not launch the long-running or mutating command until the preflight passes.
+4. Keep requested pasteback to 3?6 decisive lines unless actual failure details are required.
+5. Never claim success from an echoed label, variable, or previous chat statement. Verify the real process exit code, actual output-file existence, parseable output content, expected git changes, and final git status.
+6. When a command fails, inspect its existing log and partial output first. Do not rerun it automatically.
+7. Do not repeat completed tests, Codex work, downloads, cost requests, or data requests unless a specific verified evidence gap requires the rerun.
+8. Use the smallest bounded command and smallest relevant test set.
+9. Do not send giant command blocks when a short read-only check can resolve uncertainty.
+10. A task is complete only when expected files are verified, required checks pass, the correct commit exists, and `git status --short` is empty.
+11. Protect the operator?s time. After any failed assumption, diagnose it with a read-only check before attempting another operation.
+
+This rule applies regardless of the current technical objective and supersedes any older workflow instruction that would cause unnecessary reruns or unverified long-running work.
+<!-- SAFE_FAST_OPERATOR_TIME_PROTECTION_END -->
+
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
