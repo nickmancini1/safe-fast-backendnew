@@ -1,5 +1,27 @@
 # SAFE-FAST Next Chat Handoff - Start Here
 
+<!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
+## CURRENT MANDATORY OBJECTIVE
+
+Active task: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_CODEX_TASK.md`
+
+Continue the accepted March 16, 2026 setup through deterministic contract selection, the complete allowed option-price window, entry, exit, costs, and net P&L.
+
+Do not return to broad candidate hunting.
+
+Use existing local evidence first, tastytrade second, and Databento for exact OPRA fallback.
+
+Do not wait for Schwab.
+
+A network/proxy failure is not proof that data is unavailable.
+
+Future chats must continue this objective until committed evidence produces a costed result or one exact priced data request.
+
+Profitability proof: `NO`.
+
+Paper/live eligibility: `NO`.
+<!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_END -->
+
 ## Start here
 
 This is SAFE-FAST build and replay work.
