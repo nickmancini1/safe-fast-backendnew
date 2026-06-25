@@ -67,18 +67,35 @@ def validate_result_document(result_path=RESULT_PATH):
     if local.get("has_selected_candidate_contract_evidence") is not False:
         problems.append("local_selected_contract_evidence_unexpected")
 
+    resolution = result.get("contract_resolution_evidence", {})
+    if resolution.get("status") != "CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVIDENCE":
+        problems.append("unexpected_resolution_status")
+    if resolution.get("source_dbn_local_only") is not True:
+        problems.append("source_dbn_not_local_only")
+    if resolution.get("no_second_definition_download") is not True:
+        problems.append("second_definition_download_not_blocked")
+
     contract = result.get("contract_selection_result", {})
-    if contract.get("status") != "BLOCKED_DEFINITION_EVIDENCE_MISSING":
+    if contract.get("status") != "CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVIDENCE":
         problems.append("unexpected_contract_selection_status")
-    if contract.get("selected_contract") is not None:
-        problems.append("selected_contract_invented")
-    candidate = contract.get("deterministic_candidate_if_listed", {})
-    if candidate.get("vendor_symbol") != "SPY   260330C00669000":
+    selected = contract.get("selected_contract") or {}
+    if selected.get("raw_symbol") != "SPY   260330C00670000":
         problems.append("unexpected_vendor_symbol")
-    if candidate.get("expiration") != "2026-03-30":
+    if selected.get("expiration") != "2026-03-30":
         problems.append("unexpected_expiration")
-    if candidate.get("strike") != "669":
+    if selected.get("strike") != 670.0:
         problems.append("unexpected_strike")
+    if selected.get("instrument_id") != 1241515301:
+        problems.append("unexpected_instrument_id")
+    if selected.get("publisher_id") != 30:
+        problems.append("unexpected_publisher_id")
+    rejected = contract.get("rejected_contract") or {}
+    if rejected.get("raw_symbol") != "SPY   260330C00669000":
+        problems.append("unlisted_669c_not_rejected")
+    if rejected.get("reason") != "CONTRACT_UNLISTED":
+        problems.append("unexpected_669c_rejection_reason")
+    if contract.get("future_option_performance_used") is not False:
+        problems.append("future_option_performance_used")
 
     entry = result.get("complete_entry_window_result", {})
     if entry.get("status") != "BLOCKED_COMPLETE_OPTION_PRICE_WINDOW_MISSING":
@@ -97,6 +114,10 @@ def validate_result_document(result_path=RESULT_PATH):
     databento = result.get("databento_result", {})
     if databento.get("status") != "NETWORK_EXECUTION_BLOCKED":
         problems.append("unexpected_databento_status")
+    if databento.get("definition_evidence_status") != "COMPLETE_FROM_COMMITTED_LOCAL_CONTRACT_RESOLUTION_JSON":
+        problems.append("definition_evidence_not_marked_complete")
+    if "definition" in set(databento.get("schemas", [])):
+        problems.append("databento_definition_schema_unexpected")
     if databento.get("cost_check_run_in_sandbox") is not False:
         problems.append("sandbox_cost_check_claimed")
     if not databento.get("operator_script"):
@@ -107,27 +128,45 @@ def validate_result_document(result_path=RESULT_PATH):
     replay = result.get("entry_exit_pnl_result", {})
     if replay.get("stage_reached") != "EXACT_EVIDENCE_REQUEST":
         problems.append("unexpected_stage")
-    for field in ("entry_price", "exit_price", "net_pnl", "contract"):
+    for field in ("entry_price", "exit_price", "net_pnl"):
         if replay.get(field) is not None:
             problems.append(f"{field}_invented")
+    replay_contract = replay.get("contract") or {}
+    if replay_contract.get("raw_symbol") != "SPY   260330C00670000":
+        problems.append("replay_contract_not_selected_670c")
 
     request = result.get("exact_evidence_request", {})
     if request.get("request_status") != "EXACT_PRICED_REQUEST_PENDING_OPERATOR_COST_OUTPUT":
         problems.append("unexpected_request_status")
     schemas = {item.get("schema") for item in request.get("schemas", [])}
-    for schema in ("definition", "cmbp-1", "tcbbo", "trades", "statistics"):
+    if schemas != {"cmbp-1", "tcbbo", "trades", "statistics"}:
+        problems.append(f"unexpected_request_schemas_{sorted(schemas)}")
+    for schema in ("cmbp-1", "tcbbo", "trades", "statistics"):
         if schema not in schemas:
             problems.append(f"missing_request_schema_{schema}")
+    if "definition" in schemas:
+        problems.append("definition_request_schema_unexpected")
+    if request.get("definition_evidence_status") != "COMPLETE_FROM_COMMITTED_LOCAL_CONTRACT_RESOLUTION_JSON":
+        problems.append("request_definition_evidence_not_complete")
+    if request.get("current_blocker") != "complete 670C economic evidence":
+        problems.append("unexpected_current_blocker")
+    unlocked = set(request.get("exact_stages_unlocked", []))
+    for stage in ("contract_definition_confirmation", "deterministic_contract_selection"):
+        if stage in unlocked:
+            problems.append(f"resolved_stage_unexpected_{stage}")
     if request.get("numerical_cost") != "PENDING_OPERATOR_COST_OUTPUT":
         problems.append("cost_invented")
+    request_contract = request.get("selected_contract") or {}
+    if request_contract.get("raw_symbol") != "SPY   260330C00670000":
+        problems.append("request_contract_not_670c")
 
     after = result.get("after_funnel_totals", {})
     expected_counts = {
         "selected_duplicate_groups_processed": 1,
         "selected_winner_records": 1,
         "suppressed_duplicate_records": 2,
-        "trade_candidates": 0,
-        "selected_contracts": 0,
+        "trade_candidates": 1,
+        "selected_contracts": 1,
         "eligible_entries": 0,
         "recorded_entries": 0,
         "costed_exits": 0,
@@ -142,6 +181,8 @@ def validate_result_document(result_path=RESULT_PATH):
     guardrails = result.get("guardrails", {})
     for field in (
         "pre_trigger_price_rejected",
+        "definition_driven_contract_selection",
+        "rejected_unlisted_669c",
         "late_price_rejected",
         "stale_quote_rejected",
         "spread_liquidity_rejected_when_over_limits",

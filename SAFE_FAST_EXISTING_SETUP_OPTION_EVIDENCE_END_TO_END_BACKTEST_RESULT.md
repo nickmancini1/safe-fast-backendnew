@@ -12,10 +12,10 @@
 
 ## Contract Selection
 
-- Status: `BLOCKED_DEFINITION_EVIDENCE_MISSING`.
-- Deterministic candidate if OPRA definition confirms listing: `SPY   260330C00669000`; expiration `2026-03-30`; strike `669`; side `C`.
-- Selected contract: `None`.
-- Rejection reason: local March 16 SPY OPRA definition evidence is absent, so the candidate raw symbol cannot be confirmed as a listed contract with instrument_id and setup-safe liquidity.
+- Status: `CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVIDENCE`.
+- Rejected contract: `SPY   260330C00669000`; reason `CONTRACT_UNLISTED`.
+- Selected contract: `SPY   260330C00670000`; expiration `2026-03-30`; strike `670`; side `C`; instrument ID `1241515301`; publisher ID `30`.
+- Rejection reason: SPY   260330C00669000 is rejected as CONTRACT_UNLISTED; SPY   260330C00670000 is the lowest listed call strike greater than or equal to the accepted trigger under the frozen rule.
 
 ## Entry Window
 
@@ -23,7 +23,7 @@
 - Accepted window: `2026-03-16T13:31:00Z` through `2026-03-16T13:36:00Z`.
 - Price basis: ask plus `0.02` entry slippage.
 - First valid price: `None`.
-- Rejection reason: no local March 16 SPY OPRA quote stream exists for the deterministic candidate contract; the complete accepted entry window cannot be evaluated.
+- Rejection reason: no complete local March 16 SPY OPRA quote stream exists for the selected 670C contract; the complete accepted entry window cannot be evaluated.
 
 ## Vendor Results
 
@@ -37,7 +37,7 @@ No entry, exit, or net P&L was recorded. Stage reached: `EXACT_EVIDENCE_REQUEST`
 
 ## Exact Request
 
-Dataset: `OPRA.PILLAR`. Schemas: `definition`, `cmbp-1`, `tcbbo`, `trades`, and `statistics`. Numerical cost is `PENDING_OPERATOR_COST_OUTPUT` until the operator-run script succeeds.
+Definition evidence is complete from the committed local contract-resolution JSON. Dataset: `OPRA.PILLAR`. Remaining schemas: `cmbp-1`, `tcbbo`, `trades`, and `statistics`. Numerical cost is `PENDING_OPERATOR_COST_OUTPUT` until the operator-run script succeeds. Current blocker: complete 670C economic evidence.
 
 ## Guardrails
 

@@ -1,10 +1,12 @@
 import json
+import inspect
 import unittest
 from pathlib import Path
 
 from historical_signal_replay import (
     day52_existing_setup_option_evidence_end_to_end_backtest as day52_option,
 )
+from scripts import safe_fast_day52_existing_setup_databento_cost_request as cost_request
 from watcher_foundation import (
     day52_existing_setup_option_evidence_end_to_end_backtest_validator as validator,
 )
@@ -32,19 +34,50 @@ class Day52ExistingSetupOptionEvidenceEndToEndBacktestTests(unittest.TestCase):
             ["Ideal", "Continuation"],
         )
 
-    def test_contract_selection_uses_frozen_cfb_rule_without_future_outcome(self):
+    def test_contract_selection_rejects_669c_and_selects_670c_without_future_outcome(self):
         document = self._document()
         result = document["contract_selection_result"]
-        candidate = result["deterministic_candidate_if_listed"]
+        candidate = result["definition_driven_candidate"]
+        selected = result["selected_contract"]
+        rejected = result["rejected_contract"]
 
-        self.assertEqual(result["status"], "BLOCKED_DEFINITION_EVIDENCE_MISSING")
-        self.assertIsNone(result["selected_contract"])
+        self.assertEqual(
+            result["status"],
+            "CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVIDENCE",
+        )
+        self.assertEqual(rejected["raw_symbol"], "SPY   260330C00669000")
+        self.assertEqual(rejected["reason"], "CONTRACT_UNLISTED")
+        self.assertEqual(selected["raw_symbol"], "SPY   260330C00670000")
+        self.assertEqual(selected["expiration"], "2026-03-30")
+        self.assertEqual(selected["strike"], 670.0)
+        self.assertEqual(selected["side"], "call")
+        self.assertEqual(selected["instrument_id"], 1241515301)
+        self.assertEqual(selected["publisher_id"], 30)
         self.assertEqual(candidate["expiration"], "2026-03-30")
-        self.assertEqual(candidate["strike"], "669")
+        self.assertEqual(candidate["strike"], "670")
         self.assertEqual(candidate["call_or_put"], "C")
-        self.assertEqual(candidate["vendor_symbol"], "SPY   260330C00669000")
-        self.assertFalse(
+        self.assertEqual(candidate["vendor_symbol"], "SPY   260330C00670000")
+        self.assertTrue(
             candidate["selection_inputs_available_by_cutoff"]["definition_evidence"]
+        )
+        self.assertFalse(
+            result["future_option_performance_used"]
+        )
+
+    def test_resolution_rule_preserves_expiration_strike_and_input_order_invariance(self):
+        first = self._document()["contract_selection_result"]["selected_contract"]
+        second = self._document()["contract_selection_result"]["selected_contract"]
+
+        self.assertEqual(first, second)
+        self.assertEqual(first["expiration"], "2026-03-30")
+        self.assertEqual(first["raw_symbol"], "SPY   260330C00670000")
+        self.assertEqual(
+            self._document()["contract_resolution_evidence"]["selection_rule"]["expiration_rule"],
+            "nearest listed expiration with DTE at least 14",
+        )
+        self.assertEqual(
+            self._document()["contract_resolution_evidence"]["selection_rule"]["strike_rule"],
+            "lowest listed call strike greater than or equal to the accepted underlying trigger",
         )
 
     def test_complete_entry_window_is_required_before_entry(self):
@@ -104,7 +137,7 @@ class Day52ExistingSetupOptionEvidenceEndToEndBacktestTests(unittest.TestCase):
         replay = document["entry_exit_pnl_result"]
 
         self.assertEqual(replay["stage_reached"], "EXACT_EVIDENCE_REQUEST")
-        self.assertIsNone(replay["contract"])
+        self.assertEqual(replay["contract"]["raw_symbol"], "SPY   260330C00670000")
         self.assertIsNone(replay["entry_timestamp"])
         self.assertIsNone(replay["entry_price"])
         self.assertIsNone(replay["exit_timestamp"])
@@ -124,7 +157,21 @@ class Day52ExistingSetupOptionEvidenceEndToEndBacktestTests(unittest.TestCase):
         )
         self.assertEqual(
             schemas,
-            {"definition", "cmbp-1", "tcbbo", "trades", "statistics"},
+            {"cmbp-1", "tcbbo", "trades", "statistics"},
+        )
+        self.assertNotIn("definition", schemas)
+        self.assertEqual(
+            request["definition_evidence_status"],
+            "COMPLETE_FROM_COMMITTED_LOCAL_CONTRACT_RESOLUTION_JSON",
+        )
+        self.assertEqual(request["current_blocker"], "complete 670C economic evidence")
+        self.assertNotIn(
+            "contract_definition_confirmation",
+            request["exact_stages_unlocked"],
+        )
+        self.assertNotIn(
+            "deterministic_contract_selection",
+            request["exact_stages_unlocked"],
         )
         self.assertEqual(request["numerical_cost"], "PENDING_OPERATOR_COST_OUTPUT")
 
@@ -135,8 +182,8 @@ class Day52ExistingSetupOptionEvidenceEndToEndBacktestTests(unittest.TestCase):
         self.assertEqual(after["selected_duplicate_groups_processed"], 1)
         self.assertEqual(after["selected_winner_records"], 1)
         self.assertEqual(after["suppressed_duplicate_records"], 2)
-        self.assertEqual(after["trade_candidates"], 0)
-        self.assertEqual(after["selected_contracts"], 0)
+        self.assertEqual(after["trade_candidates"], 1)
+        self.assertEqual(after["selected_contracts"], 1)
         self.assertEqual(after["eligible_entries"], 0)
         self.assertEqual(after["recorded_entries"], 0)
         self.assertEqual(after["net_pnl_results"], 0)
@@ -169,6 +216,72 @@ class Day52ExistingSetupOptionEvidenceEndToEndBacktestTests(unittest.TestCase):
         self.assertEqual(written, loaded)
         self.assertEqual(validation["status"], "PASS")
         self.assertEqual(validation["problems"], [])
+
+    def test_operator_cost_request_is_exact_670c_cost_only_and_no_download(self):
+        self.assertEqual(cost_request.ENV_VAR_NAME, "SAFE_FAST_DB_AUTH")
+        self.assertEqual(cost_request.SELECTED_RAW_SYMBOL, "SPY   260330C00670000")
+        self.assertEqual(cost_request.REJECTED_RAW_SYMBOL, "SPY   260330C00669000")
+        self.assertEqual({item["schema"] for item in cost_request.REQUESTS}, {
+            "cmbp-1",
+            "tcbbo",
+            "trades",
+            "statistics",
+        })
+        self.assertNotIn("definition", {item["schema"] for item in cost_request.REQUESTS})
+        self.assertTrue(all(item["dataset"] == "OPRA.PILLAR" for item in cost_request.REQUESTS))
+        self.assertTrue(all(item["symbols"] == "SPY   260330C00670000" for item in cost_request.REQUESTS))
+        self.assertNotIn("get_range", inspect.getsource(cost_request.run_cost_check))
+        self.assertIn("metadata.get_cost", inspect.getsource(cost_request.run_cost_check))
+
+        output = cost_request.build_success_output(
+            [
+                {**cost_request.REQUESTS[0], "checked_cost": "0.10", "currency": "USD"},
+                {**cost_request.REQUESTS[1], "checked_cost": "0.20", "currency": "USD"},
+            ],
+            checked_at_utc="2026-06-24T00:00:00Z",
+        )
+        serialized = json.dumps(output, sort_keys=True)
+        self.assertEqual(output["status"], "SUCCESS")
+        self.assertTrue(output["cost_only"])
+        self.assertFalse(output["download_performed"])
+        self.assertFalse(output["credential_value_printed"])
+        self.assertEqual(output["credential_env_var"], "SAFE_FAST_DB_AUTH")
+        self.assertEqual(output["selected_contract"]["vendor_symbol"], "SPY   260330C00670000")
+        self.assertEqual(output["selected_contract"]["instrument_id"], 1241515301)
+        self.assertEqual(output["selected_contract"]["publisher_id"], 30)
+        self.assertEqual(output["grouped_cost"], "0.30")
+        self.assertNotIn(
+            "contract_definition_confirmation",
+            output["stages_unlocked_after_approval_and_download"],
+        )
+        self.assertNotIn(
+            "deterministic_contract_selection",
+            output["stages_unlocked_after_approval_and_download"],
+        )
+        self.assertNotIn("secret", serialized.lower())
+
+    def test_operator_cost_request_failure_json_and_output_path_validation(self):
+        failure = cost_request.build_failure_output(
+            "SAFE_FAST_DB_AUTH is not configured",
+            checked_at_utc="2026-06-24T00:00:00Z",
+        )
+        parsed = json.loads(json.dumps(failure))
+
+        self.assertEqual(parsed["status"], "FAILURE")
+        self.assertEqual(parsed["credential_env_var"], "SAFE_FAST_DB_AUTH")
+        self.assertFalse(parsed["credential_value_printed"])
+        self.assertFalse(parsed["download_performed"])
+        self.assertTrue(parsed["cost_only"])
+        self.assertEqual(parsed["grouped_cost"], None)
+
+        bad_path = cost_request.OUTPUT_PATH.parent / "not_the_operator_output.json"
+        with self.assertRaises(ValueError):
+            cost_request.validate_output_path(bad_path)
+
+        self.assertEqual(
+            cost_request.validate_output_path(cost_request.OUTPUT_PATH),
+            cost_request.OUTPUT_PATH.resolve(),
+        )
 
 
 if __name__ == "__main__":

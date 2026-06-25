@@ -27,6 +27,12 @@ RESULT_DOC_PATH = (
 OPTION_DATA_DIR = (
     REPO_ROOT / "historical_signal_replay" / "source_data" / "external_option_data_drop"
 )
+CONTRACT_RESOLUTION_PATH = (
+    REPO_ROOT
+    / "historical_signal_replay"
+    / "results"
+    / "day52_spy_opra_contract_resolution.json"
+)
 OPERATOR_SCRIPT_PATH = (
     REPO_ROOT / "scripts" / "safe_fast_day52_existing_setup_databento_cost_request.py"
 )
@@ -43,9 +49,10 @@ TRIGGER_TIMESTAMP_ET = "2026-03-16T09:31:00-04:00"
 TRIGGER_NUMERIC = "668.360000000"
 INVALIDATION_NUMERIC = "667.870000000"
 EXPIRATION = "2026-03-30"
-STRIKE = "669"
+STRIKE = "670"
 CALL_OR_PUT = "C"
-VENDOR_SYMBOL = "SPY   260330C00669000"
+VENDOR_SYMBOL = "SPY   260330C00670000"
+REJECTED_VENDOR_SYMBOL = "SPY   260330C00669000"
 ENTRY_WINDOW_START_UTC = "2026-03-16T13:31:00Z"
 ENTRY_WINDOW_END_UTC = "2026-03-16T13:36:00Z"
 EXIT_WINDOW_END_UTC = "2026-03-16T19:45:00Z"
@@ -54,8 +61,9 @@ EXIT_WINDOW_END_UTC = "2026-03-16T19:45:00Z"
 def build_document(*, source_commit=None, run_timestamp=None):
     run_timestamp = run_timestamp or _utc_now()
     local_evidence = _local_evidence_inventory()
+    resolution_evidence = _contract_resolution_evidence()
     selected_winner = _selected_winner()
-    contract_selection = _contract_selection_result(local_evidence)
+    contract_selection = _contract_selection_result(local_evidence, resolution_evidence)
     timing_rule = _timing_rule()
     entry_window = _entry_window_result(local_evidence, timing_rule)
     tastytrade = _tastytrade_result()
@@ -97,6 +105,7 @@ def build_document(*, source_commit=None, run_timestamp=None):
         },
         "selected_winner": selected_winner,
         "local_evidence": local_evidence,
+        "contract_resolution_evidence": resolution_evidence,
         "contract_selection_result": contract_selection,
         "complete_entry_window_result": entry_window,
         "tastytrade_result": tastytrade,
@@ -109,8 +118,8 @@ def build_document(*, source_commit=None, run_timestamp=None):
             "setup_qualified_layer1_records": 3,
             "selected_winner_records": 1,
             "suppressed_duplicate_records": 2,
-            "trade_candidates": 0,
-            "selected_contracts": 0,
+            "trade_candidates": 1,
+            "selected_contracts": 1,
             "eligible_entries": 0,
             "recorded_entries": 0,
             "costed_exits": 0,
@@ -125,6 +134,8 @@ def build_document(*, source_commit=None, run_timestamp=None):
         },
         "guardrails": {
             "no_future_price_performance_used_for_contract": True,
+            "definition_driven_contract_selection": True,
+            "rejected_unlisted_669c": True,
             "pre_trigger_price_rejected": True,
             "late_price_rejected": True,
             "stale_quote_rejected": True,
@@ -181,13 +192,16 @@ def _selected_contract_rule():
     }
 
 
-def _contract_selection_result(local_evidence):
+def _contract_selection_result(local_evidence, resolution_evidence):
+    selected = resolution_evidence["selected_contract"]
+    rejected = resolution_evidence["rejected_contract"]
     attempted = {
         "expiration": EXPIRATION,
         "strike": STRIKE,
         "call_or_put": CALL_OR_PUT,
         "vendor_symbol": VENDOR_SYMBOL,
-        "instrument_id": None,
+        "instrument_id": selected["instrument_id"],
+        "publisher_id": selected["publisher_id"],
         "selection_inputs_available_by_cutoff": {
             "underlying_symbol": SYMBOL,
             "setup_family": SELECTED_FAMILY,
@@ -195,35 +209,37 @@ def _contract_selection_result(local_evidence):
             "trigger_numeric": TRIGGER_NUMERIC,
             "setup_timestamp_utc": SETUP_TIMESTAMP_UTC,
             "expiration_rule": "nearest DTE >= 14 gives 2026-03-30",
-            "strike_rule": "first standard call strike >= 668.360000000 gives 669",
-            "definition_evidence": False,
+            "strike_rule": "lowest listed call strike >= 668.360000000 gives 670 because 669C is unlisted",
+            "definition_evidence": True,
             "setup_safe_quote_evidence": False,
             "trade_volume_evidence": False,
             "open_interest_statistics_evidence": False,
         },
     }
     return {
-        "status": "BLOCKED_DEFINITION_EVIDENCE_MISSING",
-        "selected_contract": None,
-        "deterministic_candidate_if_listed": attempted,
+        "status": "CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVIDENCE",
+        "selected_contract": selected,
+        "definition_driven_candidate": attempted,
+        "rejected_contract": rejected,
         "rule_used": _selected_contract_rule(),
         "liquidity_checks": {
-            "spread": "not_evaluated_definition_and_quote_missing",
-            "spread_percent": "not_evaluated_definition_and_quote_missing",
-            "bid_size": "not_evaluated_definition_and_quote_missing",
-            "ask_size": "not_evaluated_definition_and_quote_missing",
+            "spread": "not_evaluated_quote_missing",
+            "spread_percent": "not_evaluated_quote_missing",
+            "bid_size": "not_evaluated_quote_missing",
+            "ask_size": "not_evaluated_quote_missing",
             "trade_volume": "not_evaluated_trades_missing",
             "open_interest": "not_evaluated_statistics_missing",
         },
         "deterministic_tie_break": _selected_contract_rule()["tie_break"],
         "rejection_reason": (
-            "local March 16 SPY OPRA definition evidence is absent, so the "
-            "candidate raw symbol cannot be confirmed as a listed contract with "
-            "instrument_id and setup-safe liquidity"
+            "SPY   260330C00669000 is rejected as CONTRACT_UNLISTED; "
+            "SPY   260330C00670000 is the lowest listed call strike greater "
+            "than or equal to the accepted trigger under the frozen rule"
         ),
         "local_march16_spy_opra_evidence_present": local_evidence[
             "has_march16_spy_opra_evidence"
         ],
+        "future_option_performance_used": False,
     }
 
 
@@ -273,8 +289,8 @@ def _entry_window_result(local_evidence, timing_rule):
         "first_valid_price": None,
         "invalid_price_rejections": [],
         "rejection_reason": (
-            "no local March 16 SPY OPRA quote stream exists for the deterministic "
-            "candidate contract; the complete accepted entry window cannot be evaluated"
+            "no complete local March 16 SPY OPRA quote stream exists for the selected "
+            "670C contract; the complete accepted entry window cannot be evaluated"
         ),
         "local_files_considered": local_evidence["candidate_local_files_considered"],
     }
@@ -298,7 +314,9 @@ def _databento_result():
     return {
         "status": "NETWORK_EXECUTION_BLOCKED",
         "dataset": "OPRA.PILLAR",
-        "schemas": ["definition", "cmbp-1", "tcbbo", "trades", "statistics"],
+        "schemas": ["cmbp-1", "tcbbo", "trades", "statistics"],
+        "definition_evidence_status": "COMPLETE_FROM_COMMITTED_LOCAL_CONTRACT_RESOLUTION_JSON",
+        "remaining_evidence_scope": "selected 670C quote, trade, and statistics evidence only",
         "cost_check_run_in_sandbox": False,
         "download_run_in_sandbox": False,
         "reason": (
@@ -345,16 +363,13 @@ def _replay_result(contract_selection, entry_window):
         "fees": None,
         "net_pnl": None,
         "blocking_stage": (
-            contract_selection["status"]
-            if contract_selection["selected_contract"] is None
-            else entry_window["status"]
+            entry_window["status"]
         ),
         "smallest_missing_evidence": [
-            "Databento OPRA.PILLAR definition evidence confirming SPY 2026-03-30 669C listing and instrument_id",
+            "operator-run Databento cost estimate for the selected SPY 2026-03-30 670C quote/trade/statistics request",
             "complete selected-contract quote-freshness stream for 2026-03-16T13:31:00Z through 2026-03-16T13:36:00Z",
             "selected-contract trades and statistics/open-interest evidence through setup/entry cutoff",
             "selected-contract bid path and underlying invalidation path through 2026-03-16T19:45:00Z",
-            "operator-run Databento cost estimate for the grouped request",
         ],
     }
 
@@ -362,17 +377,13 @@ def _replay_result(contract_selection, entry_window):
 def _exact_evidence_request(contract_selection, timing_rule, databento):
     return {
         "request_status": "EXACT_PRICED_REQUEST_PENDING_OPERATOR_COST_OUTPUT",
-        "selected_contract": contract_selection["deterministic_candidate_if_listed"],
+        "selected_contract": contract_selection["selected_contract"],
+        "rejected_contract": contract_selection["rejected_contract"],
         "dataset": "OPRA.PILLAR",
+        "definition_evidence_status": "COMPLETE_FROM_COMMITTED_LOCAL_CONTRACT_RESOLUTION_JSON",
+        "remaining_request_scope": "quote/trade/statistics evidence only for the selected 670C",
+        "current_blocker": "complete 670C economic evidence",
         "schemas": [
-            {
-                "schema": "definition",
-                "symbols": "SPY",
-                "stype_in": "raw_symbol",
-                "start": SETUP_TIMESTAMP_UTC,
-                "end": "2026-03-16T13:32:00Z",
-                "purpose": "confirm listed contract identity, raw symbol, instrument_id, expiration, strike, and right",
-            },
             {
                 "schema": "cmbp-1",
                 "symbols": VENDOR_SYMBOL,
@@ -425,8 +436,6 @@ def _exact_evidence_request(contract_selection, timing_rule, databento):
         "numerical_cost": "PENDING_OPERATOR_COST_OUTPUT",
         "cost_status": databento["status"],
         "exact_stages_unlocked": [
-            "contract_definition_confirmation",
-            "deterministic_contract_selection",
             "complete_entry_window_validation",
             "eligible_entry_or_exact_no_trade",
             "exit_replay",
@@ -447,7 +456,7 @@ def _local_evidence_inventory():
         path for path in files
         if "2026-03-16" in path or "20260316" in path or "260316" in path
     ]
-    candidate_tokens = ("260330", "00669000", "C00669000")
+    candidate_tokens = ("260330", "00670000", "C00670000")
     candidate_files = [
         path for path in files
         if all(token in path for token in ("SPY",))
@@ -461,6 +470,28 @@ def _local_evidence_inventory():
         "candidate_local_files_considered": candidate_files,
         "has_march16_spy_opra_evidence": bool(march16),
         "has_selected_candidate_contract_evidence": bool(candidate_files),
+    }
+
+
+def _contract_resolution_evidence():
+    resolution = json.loads(CONTRACT_RESOLUTION_PATH.read_text(encoding="utf-8"))
+    selected = resolution["selected_contract"]
+    rejected = resolution["rejected_contract"]
+    if selected["raw_symbol"] != VENDOR_SYMBOL:
+        raise ValueError(f"unexpected selected contract {selected['raw_symbol']!r}")
+    if rejected["raw_symbol"] != REJECTED_VENDOR_SYMBOL:
+        raise ValueError(f"unexpected rejected contract {rejected['raw_symbol']!r}")
+    if resolution["selection_rule"]["future_option_performance_used"] is not False:
+        raise ValueError("contract resolution used future option performance")
+    return {
+        "source_result": _relative(CONTRACT_RESOLUTION_PATH),
+        "status": resolution["status"],
+        "source_dbn_local_only": resolution["source_dbn"]["local_only"],
+        "no_second_definition_download": resolution["no_second_definition_download"],
+        "selection_rule": resolution["selection_rule"],
+        "rejected_contract": rejected,
+        "selected_contract": selected,
+        "proof_status": resolution["proof_status"],
     }
 
 
@@ -483,8 +514,8 @@ def _markdown(document):
 ## Contract Selection
 
 - Status: `{contract['status']}`.
-- Deterministic candidate if OPRA definition confirms listing: `{VENDOR_SYMBOL}`; expiration `{EXPIRATION}`; strike `{STRIKE}`; side `{CALL_OR_PUT}`.
-- Selected contract: `None`.
+- Rejected contract: `{REJECTED_VENDOR_SYMBOL}`; reason `CONTRACT_UNLISTED`.
+- Selected contract: `{VENDOR_SYMBOL}`; expiration `{EXPIRATION}`; strike `{STRIKE}`; side `{CALL_OR_PUT}`; instrument ID `{contract['selected_contract']['instrument_id']}`; publisher ID `{contract['selected_contract']['publisher_id']}`.
 - Rejection reason: {contract['rejection_reason']}.
 
 ## Entry Window
@@ -507,7 +538,7 @@ No entry, exit, or net P&L was recorded. Stage reached: `{document['stage_reache
 
 ## Exact Request
 
-Dataset: `{request['dataset']}`. Schemas: `definition`, `cmbp-1`, `tcbbo`, `trades`, and `statistics`. Numerical cost is `{request['numerical_cost']}` until the operator-run script succeeds.
+Definition evidence is complete from the committed local contract-resolution JSON. Dataset: `{request['dataset']}`. Remaining schemas: `cmbp-1`, `tcbbo`, `trades`, and `statistics`. Numerical cost is `{request['numerical_cost']}` until the operator-run script succeeds. Current blocker: complete 670C economic evidence.
 
 ## Guardrails
 

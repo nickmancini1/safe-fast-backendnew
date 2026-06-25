@@ -8,12 +8,12 @@
     "missing_data_cases": 1,
     "net_pnl_results": 0,
     "recorded_entries": 0,
-    "selected_contracts": 0,
+    "selected_contracts": 1,
     "selected_duplicate_groups_processed": 1,
     "selected_winner_records": 1,
     "setup_qualified_layer1_records": 3,
     "suppressed_duplicate_records": 2,
-    "trade_candidates": 0,
+    "trade_candidates": 1,
     "true_no_trades": 0,
     "unresolved_cases": 0,
     "valid_trades_captured": 0
@@ -23,44 +23,95 @@
     "first_valid_price": null,
     "invalid_price_rejections": [],
     "local_files_considered": [],
-    "rejection_reason": "no local March 16 SPY OPRA quote stream exists for the deterministic candidate contract; the complete accepted entry window cannot be evaluated",
+    "rejection_reason": "no complete local March 16 SPY OPRA quote stream exists for the selected 670C contract; the complete accepted entry window cannot be evaluated",
     "status": "BLOCKED_COMPLETE_OPTION_PRICE_WINDOW_MISSING",
     "updates_inspected": [],
     "window_end_utc": "2026-03-16T13:36:00Z",
     "window_start_utc": "2026-03-16T13:31:00Z"
   },
+  "contract_resolution_evidence": {
+    "no_second_definition_download": true,
+    "proof_status": {
+      "complete_670c_quote_window": "NO",
+      "complete_end_to_end_backtest": "NO",
+      "exit": "NO",
+      "live_eligibility": "NO",
+      "net_pnl": "NO",
+      "paper_eligibility": "NO",
+      "profitability_proof": "NO",
+      "valid_entry": "NO"
+    },
+    "rejected_contract": {
+      "expiration": "2026-03-30",
+      "raw_symbol": "SPY   260330C00669000",
+      "reason": "CONTRACT_UNLISTED",
+      "side": "call",
+      "strike": 669
+    },
+    "selected_contract": {
+      "definition_match_rows": 1,
+      "expiration": "2026-03-30",
+      "instrument_id": 1241515301,
+      "publisher_id": 30,
+      "raw_symbol": "SPY   260330C00670000",
+      "side": "call",
+      "strike": 670.0
+    },
+    "selection_rule": {
+      "deterministic": true,
+      "direction": "long",
+      "expiration_rule": "nearest listed expiration with DTE at least 14",
+      "future_option_performance_used": false,
+      "minimum_dte": 14,
+      "moneyness_rule": "nearest OTM by trigger",
+      "option_side": "call",
+      "strike_rule": "lowest listed call strike greater than or equal to the accepted underlying trigger"
+    },
+    "source_dbn_local_only": true,
+    "source_result": "historical_signal_replay/results/day52_spy_opra_contract_resolution.json",
+    "status": "CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVIDENCE"
+  },
   "contract_selection_result": {
-    "deterministic_candidate_if_listed": {
+    "definition_driven_candidate": {
       "call_or_put": "C",
       "expiration": "2026-03-30",
-      "instrument_id": null,
+      "instrument_id": 1241515301,
+      "publisher_id": 30,
       "selection_inputs_available_by_cutoff": {
-        "definition_evidence": false,
+        "definition_evidence": true,
         "direction": "bullish_long_call",
         "expiration_rule": "nearest DTE >= 14 gives 2026-03-30",
         "open_interest_statistics_evidence": false,
         "setup_family": "Clean Fast Break",
         "setup_safe_quote_evidence": false,
         "setup_timestamp_utc": "2026-03-16T13:30:00Z",
-        "strike_rule": "first standard call strike >= 668.360000000 gives 669",
+        "strike_rule": "lowest listed call strike >= 668.360000000 gives 670 because 669C is unlisted",
         "trade_volume_evidence": false,
         "trigger_numeric": "668.360000000",
         "underlying_symbol": "SPY"
       },
-      "strike": "669",
-      "vendor_symbol": "SPY   260330C00669000"
+      "strike": "670",
+      "vendor_symbol": "SPY   260330C00670000"
     },
     "deterministic_tie_break": "latest ts_event at or before cutoff, earliest ts_recv for same event timestamp",
+    "future_option_performance_used": false,
     "liquidity_checks": {
-      "ask_size": "not_evaluated_definition_and_quote_missing",
-      "bid_size": "not_evaluated_definition_and_quote_missing",
+      "ask_size": "not_evaluated_quote_missing",
+      "bid_size": "not_evaluated_quote_missing",
       "open_interest": "not_evaluated_statistics_missing",
-      "spread": "not_evaluated_definition_and_quote_missing",
-      "spread_percent": "not_evaluated_definition_and_quote_missing",
+      "spread": "not_evaluated_quote_missing",
+      "spread_percent": "not_evaluated_quote_missing",
       "trade_volume": "not_evaluated_trades_missing"
     },
     "local_march16_spy_opra_evidence_present": false,
-    "rejection_reason": "local March 16 SPY OPRA definition evidence is absent, so the candidate raw symbol cannot be confirmed as a listed contract with instrument_id and setup-safe liquidity",
+    "rejected_contract": {
+      "expiration": "2026-03-30",
+      "raw_symbol": "SPY   260330C00669000",
+      "reason": "CONTRACT_UNLISTED",
+      "side": "call",
+      "strike": 669
+    },
+    "rejection_reason": "SPY   260330C00669000 is rejected as CONTRACT_UNLISTED; SPY   260330C00670000 is the lowest listed call strike greater than or equal to the accepted trigger under the frozen rule",
     "rule_used": {
       "expiration_rule": "nearest listed expiration with DTE >= 14",
       "fallback_rule": "no fallback scan after top-ranked contract fails a gate",
@@ -77,19 +128,28 @@
       "strike_rule": "lowest reviewed-universe call strike greater than or equal to trigger",
       "tie_break": "latest ts_event at or before cutoff, earliest ts_recv for same event timestamp"
     },
-    "selected_contract": null,
-    "status": "BLOCKED_DEFINITION_EVIDENCE_MISSING"
+    "selected_contract": {
+      "definition_match_rows": 1,
+      "expiration": "2026-03-30",
+      "instrument_id": 1241515301,
+      "publisher_id": 30,
+      "raw_symbol": "SPY   260330C00670000",
+      "side": "call",
+      "strike": 670.0
+    },
+    "status": "CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVIDENCE"
   },
   "databento_result": {
     "cost_check_run_in_sandbox": false,
     "dataset": "OPRA.PILLAR",
+    "definition_evidence_status": "COMPLETE_FROM_COMMITTED_LOCAL_CONTRACT_RESOLUTION_JSON",
     "download_run_in_sandbox": false,
     "expected_output_file": "historical_signal_replay/results/day52_existing_setup_databento_cost_request_operator_output.json",
     "operator_command": "python scripts/safe_fast_day52_existing_setup_databento_cost_request.py",
     "operator_script": "scripts/safe_fast_day52_existing_setup_databento_cost_request.py",
     "reason": "network access is restricted for this Codex sandbox and approval policy does not permit escalating network execution; prior repo evidence also shows Databento HTTPS proxy refusal in this environment",
+    "remaining_evidence_scope": "selected 670C quote, trade, and statistics evidence only",
     "schemas": [
-      "definition",
       "cmbp-1",
       "tcbbo",
       "trades",
@@ -102,9 +162,17 @@
       "end_utc": "2026-03-16T13:36:00Z",
       "start_utc": "2026-03-16T13:31:00Z"
     },
-    "blocking_stage": "BLOCKED_DEFINITION_EVIDENCE_MISSING",
+    "blocking_stage": "BLOCKED_COMPLETE_OPTION_PRICE_WINDOW_MISSING",
     "commissions": null,
-    "contract": null,
+    "contract": {
+      "definition_match_rows": 1,
+      "expiration": "2026-03-30",
+      "instrument_id": 1241515301,
+      "publisher_id": 30,
+      "raw_symbol": "SPY   260330C00670000",
+      "side": "call",
+      "strike": 670.0
+    },
     "entry_price": null,
     "entry_timestamp": null,
     "exit_price": null,
@@ -121,11 +189,10 @@
     "signal_time": "2026-03-16T13:30:00Z",
     "slippage": null,
     "smallest_missing_evidence": [
-      "Databento OPRA.PILLAR definition evidence confirming SPY 2026-03-30 669C listing and instrument_id",
+      "operator-run Databento cost estimate for the selected SPY 2026-03-30 670C quote/trade/statistics request",
       "complete selected-contract quote-freshness stream for 2026-03-16T13:31:00Z through 2026-03-16T13:36:00Z",
       "selected-contract trades and statistics/open-interest evidence through setup/entry cutoff",
-      "selected-contract bid path and underlying invalidation path through 2026-03-16T19:45:00Z",
-      "operator-run Databento cost estimate for the grouped request"
+      "selected-contract bid path and underlying invalidation path through 2026-03-16T19:45:00Z"
     ],
     "spread": null,
     "spread_cost": null,
@@ -134,15 +201,15 @@
   },
   "exact_evidence_request": {
     "cost_status": "NETWORK_EXECUTION_BLOCKED",
+    "current_blocker": "complete 670C economic evidence",
     "dataset": "OPRA.PILLAR",
+    "definition_evidence_status": "COMPLETE_FROM_COMMITTED_LOCAL_CONTRACT_RESOLUTION_JSON",
     "entry_window": {
       "end_utc": "2026-03-16T13:36:00Z",
       "must_record_every_update": true,
       "start_utc": "2026-03-16T13:31:00Z"
     },
     "exact_stages_unlocked": [
-      "contract_definition_confirmation",
-      "deterministic_contract_selection",
       "complete_entry_window_validation",
       "eligible_entry_or_exact_no_trade",
       "exit_replay",
@@ -160,23 +227,23 @@
       "start_utc": "2026-03-16T13:31:00Z"
     },
     "numerical_cost": "PENDING_OPERATOR_COST_OUTPUT",
+    "rejected_contract": {
+      "expiration": "2026-03-30",
+      "raw_symbol": "SPY   260330C00669000",
+      "reason": "CONTRACT_UNLISTED",
+      "side": "call",
+      "strike": 669
+    },
+    "remaining_request_scope": "quote/trade/statistics evidence only for the selected 670C",
     "request_status": "EXACT_PRICED_REQUEST_PENDING_OPERATOR_COST_OUTPUT",
     "schemas": [
-      {
-        "end": "2026-03-16T13:32:00Z",
-        "purpose": "confirm listed contract identity, raw symbol, instrument_id, expiration, strike, and right",
-        "schema": "definition",
-        "start": "2026-03-16T13:30:00Z",
-        "stype_in": "raw_symbol",
-        "symbols": "SPY"
-      },
       {
         "end": "2026-03-16T13:36:00Z",
         "purpose": "primary quote freshness and complete entry-window bid/ask stream",
         "schema": "cmbp-1",
         "start": "2026-03-16T13:31:00Z",
         "stype_in": "raw_symbol",
-        "symbols": "SPY   260330C00669000"
+        "symbols": "SPY   260330C00670000"
       },
       {
         "end": "2026-03-16T19:45:00Z",
@@ -184,7 +251,7 @@
         "schema": "tcbbo",
         "start": "2026-03-16T13:31:00Z",
         "stype_in": "raw_symbol",
-        "symbols": "SPY   260330C00669000"
+        "symbols": "SPY   260330C00670000"
       },
       {
         "end": "2026-03-16T19:45:00Z",
@@ -192,7 +259,7 @@
         "schema": "trades",
         "start": "2026-03-16T13:30:00Z",
         "stype_in": "raw_symbol",
-        "symbols": "SPY   260330C00669000"
+        "symbols": "SPY   260330C00670000"
       },
       {
         "end": "2026-03-16T13:36:00Z",
@@ -200,28 +267,17 @@
         "schema": "statistics",
         "start": "2026-03-16T13:30:00Z",
         "stype_in": "raw_symbol",
-        "symbols": "SPY   260330C00669000"
+        "symbols": "SPY   260330C00670000"
       }
     ],
     "selected_contract": {
-      "call_or_put": "C",
+      "definition_match_rows": 1,
       "expiration": "2026-03-30",
-      "instrument_id": null,
-      "selection_inputs_available_by_cutoff": {
-        "definition_evidence": false,
-        "direction": "bullish_long_call",
-        "expiration_rule": "nearest DTE >= 14 gives 2026-03-30",
-        "open_interest_statistics_evidence": false,
-        "setup_family": "Clean Fast Break",
-        "setup_safe_quote_evidence": false,
-        "setup_timestamp_utc": "2026-03-16T13:30:00Z",
-        "strike_rule": "first standard call strike >= 668.360000000 gives 669",
-        "trade_volume_evidence": false,
-        "trigger_numeric": "668.360000000",
-        "underlying_symbol": "SPY"
-      },
-      "strike": "669",
-      "vendor_symbol": "SPY   260330C00669000"
+      "instrument_id": 1241515301,
+      "publisher_id": 30,
+      "raw_symbol": "SPY   260330C00670000",
+      "side": "call",
+      "strike": 670.0
     }
   },
   "first_required_decision": {
@@ -277,6 +333,7 @@
     "trigger_timestamp_utc": "2026-03-16T13:31:00Z"
   },
   "guardrails": {
+    "definition_driven_contract_selection": true,
     "duplicate_suppression_preserved": true,
     "late_price_rejected": true,
     "live_eligible": false,
@@ -285,6 +342,7 @@
     "paper_eligible": false,
     "pre_trigger_price_rejected": true,
     "profitability_claimed": false,
+    "rejected_unlisted_669c": true,
     "spread_liquidity_rejected_when_over_limits": true,
     "stale_quote_rejected": true,
     "strict_no_trade_until_valid_entry": true
@@ -299,7 +357,7 @@
     "march16_matching_files": []
   },
   "result_version": "day52_existing_setup_option_evidence_end_to_end_backtest_v1",
-  "run_timestamp": "2026-06-24T02:41:49.271636Z",
+  "run_timestamp": "2026-06-25T13:57:21.770314Z",
   "scope": {
     "broad_candidate_hunting": false,
     "broker_account_order_alert_touched": false,
@@ -336,7 +394,7 @@
       "suppressed_count": 2
     }
   },
-  "source_commit": "37cda01",
+  "source_commit": "4e87dc4",
   "stage_reached": "EXACT_EVIDENCE_REQUEST",
   "task": "SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_CODEX_TASK.md",
   "tastytrade_result": {
