@@ -21,9 +21,9 @@ Verified result:
 
 Next path:
 
-definition-driven 670C implementation
--> exact cost-only request
--> explicit approval for nonzero cost
+operator review
+-> run `$env:SAFE_FAST_DB_AUTH='<operator Databento key>'; python scripts/safe_fast_day52_spy_670c_databento_download.py`
+-> inspect manifest `historical_signal_replay/source_data/external_option_data_drop/day52_spy_670c/day52_spy_670c_databento_download_manifest.json`
 -> complete accepted quote window
 -> valid entry or exact rejection
 -> exit
@@ -60,7 +60,7 @@ This rule applies regardless of the current technical objective and supersedes a
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
-Active task: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_CODEX_TASK.md`
+Active task: `SAFE_FAST_DAY52_SPY_670C_DATABENTO_DOWNLOAD_CODEX_TASK.md`
 
 Continue the accepted March 16, 2026 setup through deterministic contract selection, the complete allowed option-price window, entry, exit, costs, and net P&L.
 
@@ -72,7 +72,7 @@ Do not wait for Schwab.
 
 A network/proxy failure is not proof that data is unavailable.
 
-Future chats must continue this objective until committed evidence produces a costed result or one exact priced data request.
+Future chats must continue this objective until committed selected-contract raw evidence produces entry/exit/P&L or an exact vendor/download failure is recorded.
 
 Latest current result: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_RESULT.md`.
 
@@ -80,23 +80,23 @@ Latest machine result: `historical_signal_replay/results/day52_existing_setup_op
 
 Latest verified commit at task start: `37cda01 Make option-evidence backtest mandatory`.
 
-Dirty status after this Codex task: `DIRTY` until operator commit. Modified tracked files: `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`, `SAFE_FAST_PROJECT_DASHBOARD.md`, `SAFE_FAST_PROJECT_RULE_INDEX.md`, `SAFE_FAST_DATA_SOURCE_REGISTRY.md`, and `SAFE_FAST_PROJECT_PROOF_PIPELINE.md`. New untracked files: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_RESULT.md`, `historical_signal_replay/day52_existing_setup_option_evidence_end_to_end_backtest.py`, `historical_signal_replay/results/day52_existing_setup_option_evidence_end_to_end_backtest.json`, `watcher_foundation/day52_existing_setup_option_evidence_end_to_end_backtest_validator.py`, `tests/test_day52_existing_setup_option_evidence_end_to_end_backtest.py`, and `scripts/safe_fast_day52_existing_setup_databento_cost_request.py`.
+Dirty status after this Codex task: `DIRTY` until operator commit. Modified tracked files include `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_PROJECT_DASHBOARD.md`, and `SAFE_FAST_PROJECT_RULE_INDEX.md`. New files include `scripts/safe_fast_day52_spy_670c_databento_download.py` and `tests/test_day52_spy_670c_databento_download.py`. The task file `SAFE_FAST_DAY52_SPY_670C_DATABENTO_DOWNLOAD_CODEX_TASK.md` remains the expected preexisting untracked task file.
 
 Selected winner: `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`.
 
-Contract-selection result: `BLOCKED_DEFINITION_EVIDENCE_MISSING`; deterministic candidate if OPRA definition confirms listing is `SPY   260330C00669000`, expiration `2026-03-30`, strike `669`, call.
+Contract-selection result: `CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVIDENCE`; rejected candidate is `SPY   260330C00669000` because it is unlisted; selected contract is `SPY   260330C00670000`, expiration `2026-03-30`, strike `670`, call, instrument ID `1241515301`, publisher ID `30`.
 
 Tastytrade result: `FIELD_LIMITATION_BLOCKED`; local helper proves underlying OHLCV only, not historical option bid/ask.
 
-Databento result: `NETWORK_EXECUTION_BLOCKED`; run `python scripts/safe_fast_day52_existing_setup_databento_cost_request.py` from an operator environment with `SAFE_FAST_DB_AUTH` and working HTTPS.
+Databento result: cost output is `SUCCESS`, cost-only, no download performed, grouped cost `$0.006495481730`, approved ceiling `$0.01`; run `$env:SAFE_FAST_DB_AUTH='<operator Databento key>'; python scripts/safe_fast_day52_spy_670c_databento_download.py` from normal local PowerShell with working HTTPS.
 
 Complete entry-window result: `BLOCKED_COMPLETE_OPTION_PRICE_WINDOW_MISSING`; accepted entry window is `2026-03-16T13:31:00Z` through `2026-03-16T13:36:00Z`; first valid option price is not established.
 
 Stage reached: `EXACT_EVIDENCE_REQUEST`.
 
-Remaining blocker: operator-run Databento cost output and then approved selected-contract OPRA definition/quote/trade/statistics evidence for the complete entry and exit windows.
+Remaining blocker: operator-run selected-contract OPRA raw evidence download for exact schemas `cmbp-1`, `tcbbo`, `trades`, and `statistics`; `definition` is forbidden because committed definition evidence is complete.
 
-Tests passed: focused Day 52 option-evidence tests; CFB selector/trade-rule/backtest tests; affected Day 50, Day 51, and Day 52 regressions; affected validators; `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`; `git diff --check`.
+Tests passed: focused SPY 670C downloader tests; focused Day 52 option-evidence tests; Databento OPRA normalizer tests; Day 52 option-evidence validator; `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`; `git diff --check`.
 
 Profitability proof: `NO`.
 
@@ -122,13 +122,13 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".\scripts\safe_fast_new_cha
 
 Project day and date: Day 52, 2026-06-23.
 
-Current technical checkpoint: Day 52 existing-setup option evidence request, with the accepted March 16 SPY Clean Fast Break selected winner advanced to an exact Databento priced-request blocker.
+Current technical checkpoint: Day 52 existing-setup option evidence request, with the accepted March 16 SPY Clean Fast Break selected winner advanced to an approved exact Databento downloader blocker.
 
 Latest verified commit at current option-evidence task start: `37cda01 Make option-evidence backtest mandatory`.
 
 Current technical package: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_RESULT.md`, `historical_signal_replay/results/day52_existing_setup_option_evidence_end_to_end_backtest.json`, `historical_signal_replay/day52_existing_setup_option_evidence_end_to_end_backtest.py`, `watcher_foundation/day52_existing_setup_option_evidence_end_to_end_backtest_validator.py`, `tests/test_day52_existing_setup_option_evidence_end_to_end_backtest.py`, and `scripts/safe_fast_day52_existing_setup_databento_cost_request.py`; accepted layer-1 references remain `SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION_RESULT.md`, `historical_signal_replay/results/day52_family_numeric_binding_and_promotion.json`, `SAFE_FAST_DAY52_FULL_SESSION_RECOGNITION_MANIFEST_RESULT.md`, and `historical_signal_replay/results/day52_full_session_recognition_manifest.json`.
 
-Exact active task: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_CODEX_TASK.md`.
+Exact active task: `SAFE_FAST_DAY52_SPY_670C_DATABENTO_DOWNLOAD_CODEX_TASK.md`.
 
 Active task exists: yes.
 
@@ -138,9 +138,9 @@ Current accepted full-session manifest result: sessions scanned `1`; rows scanne
 
 What is fixed: the repo now has complete chronological accepted-mode layer-1 accounting for the SPY March 16, 2026 one-minute session, a binding audit proving legitimate shared setup-time row use, and accepted Candidate A numeric trigger/invalidation rules for Ideal, Clean Fast Break, and Continuation. Trigger is `668.360000000`; invalidation is `667.870000000`; setup timestamp is `2026-03-16T13:30:00Z`; source row index is `2` / publisher `39`. Validators and focused tests pass.
 
-What remains unproven: no selected contract is confirmed, no complete entry quote window exists, no eligible entry, recorded entry, exit evaluation, net P&L, proof, profitability, readiness, paper eligibility, or live eligibility is established.
+What remains unproven: no complete 670C entry quote window exists, no eligible entry, recorded entry, exit evaluation, net P&L, proof, profitability, readiness, paper eligibility, or live eligibility is established.
 
-Exact remaining blocker: run the operator Databento cost script and obtain approved selected-contract OPRA `definition`, `cmbp-1`, `tcbbo`, `trades`, and `statistics` evidence for `SPY   260330C00669000` across the complete entry window and exit boundary. Network/proxy failure is `NETWORK_EXECUTION_BLOCKED`, not market-data unavailability.
+Exact remaining blocker: run the operator Databento downloader and obtain selected-contract OPRA `cmbp-1`, `tcbbo`, `trades`, and `statistics` evidence for `SPY   260330C00670000` across the complete entry window and exit boundary. Do not request `definition`; committed definition evidence already rejected 669C and selected 670C.
 
 Schwab status: Schwab Trader API access remains pending approval/credential configuration unless a later repo result says otherwise. No Schwab authentication, token write, endpoint call, order, account, or fill action is part of the active task.
 
