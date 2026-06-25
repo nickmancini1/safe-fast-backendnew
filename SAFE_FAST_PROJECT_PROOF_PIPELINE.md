@@ -1,5 +1,31 @@
 # SAFE-FAST Project Proof Pipeline
 
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_START -->
+## CURRENT REQUIRED ECONOMIC PROOF PATH
+
+Accepted setup
+-> verified listed contract `SPY   260330C00670000`
+-> complete accepted option quote window
+-> valid entry or exact rejection
+-> frozen exit rule
+-> spread
+-> slippage
+-> commissions and fees
+-> gross P&L
+-> net P&L
+
+Current state:
+
+- accepted setup: `YES`
+- listed contract resolved: `YES`
+- definition-driven implementation committed: `NOT YET`
+- complete quote window: `NO`
+- valid entry: `NO`
+- exit: `NO`
+- net P&L: `NO`
+- profitability proof: `NO`
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_END -->
+
 ## Purpose
 
 SAFE-FAST is still being turned from a setup-recognition system into a complete trade plan. Recognition success is required, but it is not proof of profitability.

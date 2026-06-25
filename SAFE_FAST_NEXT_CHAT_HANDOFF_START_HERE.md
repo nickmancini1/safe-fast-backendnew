@@ -1,5 +1,40 @@
 # SAFE-FAST Next Chat Handoff - Start Here
 
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_START -->
+## MANDATORY ACTIVE RECOVERY TASK
+
+Read:
+
+1. `SAFE_FAST_OPRA_670C_RECOVERY_HANDOFF_START_HERE.md`
+2. `SAFE_FAST_OPRA_670C_RECOVERY_CODEX_TASK.md`
+3. `historical_signal_replay/results/day52_spy_opra_contract_resolution.json`
+4. `SAFE_FAST_DAY52_SPY_OPRA_670C_CONTRACT_RESOLUTION_RESULT.md`
+
+Verified result:
+
+- raw definition DBN remains local-only
+- 669C is unlisted
+- frozen-rule selected contract is `SPY   260330C00670000`
+- instrument ID is `1241515301`
+- publisher ID is `30`
+- do not redownload definitions
+
+Next path:
+
+definition-driven 670C implementation
+-> exact cost-only request
+-> explicit approval for nonzero cost
+-> complete accepted quote window
+-> valid entry or exact rejection
+-> exit
+-> costs
+-> net P&L
+
+Profitability proof: `NO`.
+
+Paper/live eligibility: `NO`.
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_END -->
+
 <!-- SAFE_FAST_OPERATOR_TIME_PROTECTION_START -->
 ## MANDATORY OPERATOR-TIME PROTECTION
 

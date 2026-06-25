@@ -1,0 +1,78 @@
+{
+  "accepted_entry_window": {
+    "end": "2026-03-16T13:36:00Z",
+    "start": "2026-03-16T13:31:00Z"
+  },
+  "coverage": {
+    "end": "2026-03-17T00:00:00Z",
+    "start": "2026-03-16T00:00:00Z"
+  },
+  "dataset": "OPRA.PILLAR",
+  "march30_spy_call_count": 30,
+  "no_second_definition_download": true,
+  "parent_symbol": "SPY.OPT",
+  "proof_status": {
+    "complete_670c_quote_window": "NO",
+    "complete_end_to_end_backtest": "NO",
+    "exit": "NO",
+    "live_eligibility": "NO",
+    "net_pnl": "NO",
+    "paper_eligibility": "NO",
+    "profitability_proof": "NO",
+    "valid_entry": "NO"
+  },
+  "rejected_contract": {
+    "expiration": "2026-03-30",
+    "raw_symbol": "SPY   260330C00669000",
+    "reason": "CONTRACT_UNLISTED",
+    "side": "call",
+    "strike": 669
+  },
+  "remaining_economic_blockers": [
+    "exact 670C quote-request cost",
+    "complete accepted 670C entry quote window",
+    "valid option entry or exact rejection",
+    "exit replay",
+    "spread",
+    "slippage",
+    "commissions and fees",
+    "gross P&L",
+    "net P&L"
+  ],
+  "schema": "definition",
+  "selected_contract": {
+    "definition_match_rows": 1,
+    "expiration": "2026-03-30",
+    "instrument_id": 1241515301,
+    "publisher_id": 30,
+    "raw_symbol": "SPY   260330C00670000",
+    "side": "call",
+    "strike": 670.0
+  },
+  "selection_rule": {
+    "deterministic": true,
+    "direction": "long",
+    "expiration_rule": "nearest listed expiration with DTE at least 14",
+    "future_option_performance_used": false,
+    "minimum_dte": 14,
+    "moneyness_rule": "nearest OTM by trigger",
+    "option_side": "call",
+    "strike_rule": "lowest listed call strike greater than or equal to the accepted underlying trigger"
+  },
+  "source_dbn": {
+    "bytes": 485786,
+    "definition_record_count": 13472,
+    "definition_request_cost_usd": "0.022584199905",
+    "local_only": true,
+    "path": "historical_signal_replay/results/day52_spy_opra_parent_definition_20260316.dbn.zst",
+    "sha256": "2dfabeaae6eef16f752ef105daf8d469bf932d1e9ee11b7d560ff824bf24011f"
+  },
+  "status": "CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVIDENCE",
+  "underlying_setup": {
+    "invalidation": 667.87,
+    "selected_winner": "DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39",
+    "setup_timestamp": "2026-03-16T13:30:00Z",
+    "symbol": "SPY",
+    "trigger": 668.36
+  }
+}

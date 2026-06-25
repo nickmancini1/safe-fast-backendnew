@@ -347,6 +347,33 @@ Use plain English.
 ## End Day 46 handoff correction
 
 
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_START -->
+## CURRENT ACTIVE BUILD OBJECTIVE
+
+Verified local definition evidence rejects 669C and selects `SPY   260330C00670000` under the frozen rule.
+
+The raw DBN remains local-only.
+
+Derived contract-resolution evidence is preserved in:
+
+- `historical_signal_replay/results/day52_spy_opra_contract_resolution.json`
+- `SAFE_FAST_DAY52_SPY_OPRA_670C_CONTRACT_RESOLUTION_RESULT.md`
+
+Next milestone:
+
+- definition-driven 670C implementation
+- corrected exact cost-only request
+- complete accepted 670C quote window
+- valid entry or exact rejection
+- exit, costs, and net P&L
+
+Complete backtest: `NO`.
+
+Profitability proof: `NO`.
+
+Paper/live eligibility: `NO`.
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_END -->
+
 ## Day 47 handoff hard correction — workflow first
 
 The next chat must treat workflow and interaction rules as the top priority before doing project work.
@@ -365,4 +392,3 @@ The user’s explicit correction:
 - Continue from local checkpoint `021bead Add Day 46 grouped backtest batch decision` unless local git says otherwise.
 
 This correction supersedes older handoff wording where workflow rules appear after project history.
-

@@ -1,5 +1,38 @@
 SAFE-FAST build work. The repo is the source of truth, and the user will not explain the project again.
 
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_START -->
+MANDATORY NEXT ACTION:
+
+Reconcile local branch, HEAD, and status.
+
+Then read:
+
+SAFE_FAST_OPRA_670C_RECOVERY_HANDOFF_START_HERE.md
+
+Verified local evidence:
+
+- 669C unlisted
+- selected contract: SPY   260330C00670000
+- instrument ID: 1241515301
+- publisher ID: 30
+- raw DBN is local-only
+- do not redownload definitions
+
+Active path:
+
+670C implementation
+-> exact cost-only request
+-> complete entry window
+-> valid entry or exact rejection
+-> exit
+-> costs
+-> net P&L
+
+No candidate hunting.
+No provisional layer.
+No documentation-only loop.
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_END -->
+
 <!-- SAFE_FAST_OPERATOR_TIME_PROTECTION_START -->
 ## MANDATORY OPERATOR-TIME PROTECTION
 

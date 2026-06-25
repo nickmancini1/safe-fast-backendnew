@@ -5064,6 +5064,28 @@
 - No `main.py`, engine/live trading logic, Railway/deploy files, watcher loops, broker/order/account/options/P&L, alerts, sizing, secrets, `.env`, credentials, tokens, generated live reports/logs, generated market data files, or raw vendor data files were changed.
 
 
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_START -->
+## CURRENT AUTHORITATIVE OPRA 670C RECOVERY STATE
+
+- Existing local SPY parent-definition DBN independently verified.
+- Raw DBN remains local-only and is excluded from Git.
+- DBN bytes: `485786`.
+- DBN SHA-256: `2dfabeaae6eef16f752ef105daf8d469bf932d1e9ee11b7d560ff824bf24011f`.
+- Definition records: `13472`.
+- 669C listed: `NO`.
+- Frozen-rule selected contract: `SPY   260330C00670000`.
+- Instrument ID: `1241515301`.
+- Publisher ID: `30`.
+- Derived resolution JSON: `historical_signal_replay/results/day52_spy_opra_contract_resolution.json`.
+- Result document: `SAFE_FAST_DAY52_SPY_OPRA_670C_CONTRACT_RESOLUTION_RESULT.md`.
+- Do not redownload the SPY parent definition chain.
+- Active task: `SAFE_FAST_OPRA_670C_RECOVERY_CODEX_TASK.md`.
+- Next objective: implement definition-driven 670C selection and correct the cost-only request before any vendor call.
+- Complete backtest: `NO`.
+- Profitability proof: `NO`.
+- Paper/live eligibility: `NO`.
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_END -->
+
 <!-- SAFE_FAST_OPERATOR_TIME_PROTECTION_START -->
 ## MANDATORY OPERATOR-TIME PROTECTION
 
@@ -14636,4 +14658,3 @@ The user’s explicit correction:
 - Continue from local checkpoint `021bead Add Day 46 grouped backtest batch decision` unless local git says otherwise.
 
 This correction supersedes older handoff wording where workflow rules appear after project history.
-

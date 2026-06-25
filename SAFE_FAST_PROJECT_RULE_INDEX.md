@@ -289,6 +289,24 @@ Use plain English.
 ## End Day 46 handoff correction
 
 
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_START -->
+## OPRA 670C RECOVERY RULES
+
+- SF-OPRA-001: Preserve the verified raw definition DBN locally; never stage or commit it.
+- SF-OPRA-002: Never redownload the verified SPY parent definition chain.
+- SF-OPRA-003: Reject 669C because it is unlisted.
+- SF-OPRA-004: Select contracts from verified definition evidence under frozen rules.
+- SF-OPRA-005: The frozen-rule contract is `SPY   260330C00670000`.
+- SF-OPRA-006: Use `SAFE_FAST_DB_AUTH` for current Databento operator scripts.
+- SF-OPRA-007: Codex must not perform vendor calls.
+- SF-OPRA-008: Cost-only mode must not download market data.
+- SF-OPRA-009: Nonzero later data cost requires fresh explicit approval.
+- SF-OPRA-010: Apply the existing entry timing rule unchanged.
+- SF-OPRA-011: Do not return to broad candidate hunting before resolving this path.
+- SF-OPRA-012: Do not create another provisional or documentation-only loop.
+- SF-OPRA-013: Completion requires commit proof and clean Git status.
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_END -->
+
 <!-- SAFE_FAST_OPERATOR_TIME_PROTECTION_START -->
 ## MANDATORY OPERATOR-TIME PROTECTION
 
@@ -329,4 +347,3 @@ The user’s explicit correction:
 - Continue from local checkpoint `021bead Add Day 46 grouped backtest batch decision` unless local git says otherwise.
 
 This correction supersedes older handoff wording where workflow rules appear after project history.
-

@@ -1,5 +1,24 @@
 # SAFE-FAST Data Source Registry
 
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_START -->
+## CURRENT OPTION-EVIDENCE SOURCE STATE
+
+- Existing local Databento `OPRA.PILLAR / definition` DBN verified.
+- Raw DBN is local-only and must not be committed.
+- DBN SHA-256: `2dfabeaae6eef16f752ef105daf8d469bf932d1e9ee11b7d560ff824bf24011f`.
+- Definition records: `13472`.
+- 669C is unlisted.
+- Frozen-rule selected raw symbol: `SPY   260330C00670000`.
+- Instrument ID: `1241515301`.
+- Publisher ID: `30`.
+- No second definition request is allowed.
+- Current Databento credential variable: `SAFE_FAST_DB_AUTH`.
+- Codex must not perform vendor calls.
+- Normal local PowerShell handles credentials, cost checks, approvals, and downloads.
+- Schwab is not required for this historical backtest.
+- Raw vendors provide evidence; SAFE-FAST calculates its own labels and decisions.
+<!-- SAFE_FAST_OPRA_670C_RECOVERY_END -->
+
 Status: canonical as of Day 52 option-evidence request.
 
 Machine-readable registry: `historical_signal_replay/config/safe_fast_data_source_registry.json`.

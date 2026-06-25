@@ -1,0 +1,37 @@
+SAFE-FAST OPRA 670C RECOVERY TAKEOVER
+
+Local repo is the source of truth.
+
+Read first:
+
+1. SAFE_FAST_BUILD_STATE.md
+2. SAFE_FAST_OPRA_670C_RECOVERY_HANDOFF_START_HERE.md
+3. SAFE_FAST_OPRA_670C_RECOVERY_CODEX_TASK.md
+4. historical_signal_replay/results/day52_spy_opra_contract_resolution.json
+5. SAFE_FAST_DAY52_SPY_OPRA_670C_CONTRACT_RESOLUTION_RESULT.md
+
+Verified evidence:
+
+- raw definition DBN is local-only
+- DBN SHA-256: 2dfabeaae6eef16f752ef105daf8d469bf932d1e9ee11b7d560ff824bf24011f
+- definition records: 13472
+- 669C listed: NO
+- 670C listed: YES
+- selected raw symbol: SPY   260330C00670000
+- instrument ID: 1241515301
+- publisher ID: 30
+- do not redownload definitions
+
+Active objective:
+
+Implement definition-driven 670C selection, correct the cost-only request, obtain explicit approval for any nonzero cost, retrieve the complete accepted quote window, and produce a valid entry or exact rejection before continuing through exit and net P&L.
+
+Proof: NO
+Profitability proof: NO
+Paper/live eligibility: NO
+
+Use Codex only for code and offline tests.
+
+Use normal local PowerShell for credentials, vendor calls, approvals, and final commits.
+
+Do not push.
