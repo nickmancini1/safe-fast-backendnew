@@ -8,3 +8,6 @@
 
 # temporary files used for atomic Databento downloads
 *.tmp
+
+# suffixed temp files left by interrupted atomic downloads
+*.tmp.*
