@@ -95,6 +95,8 @@ Write-Host "CURRENT_TECHNICAL_PACKAGE: $($fields["CURRENT_TECHNICAL_PACKAGE"])"
 Write-Host "CURRENT_TECHNICAL_RESULT: $($fields["CURRENT_TECHNICAL_RESULT"])"
 Write-Host "SCHWAB_STATUS: $($fields["SCHWAB_STATUS"])"
 Write-Host "NEXT_ACTION: $($fields["NEXT_ACTION"])"
+Write-Host "FREEZE_RULE: If PowerShell stops progressing, press Ctrl+C once. Do not rerun. First inspect logs, partial files, output, manifest, and Git status."
+Write-Host "FREEZE_RECOVERY: First determine whether PowerShell is waiting for hidden input; if not, press Ctrl+C once; do not assume success or failure; inspect process status, logs, partial files, output, manifest, sizes, hashes, parseability, and Git status; rerun only for a specific verified missing or failed result; never repeat a paid request or completed schema merely because output was quiet."
 
 if (-not $activeTaskExists) {
     Fail-Conflict "Active task is missing: $activeTask"

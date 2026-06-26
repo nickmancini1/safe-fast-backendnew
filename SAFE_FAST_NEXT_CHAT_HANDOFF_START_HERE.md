@@ -40,6 +40,17 @@ Paper/live eligibility: `NO`.
 
 Every future chat must read and follow this rule before issuing commands.
 
+If PowerShell stops progressing, press Ctrl+C once. Do not rerun. First inspect logs, partial files, output, manifest, and Git status.
+
+Expanded freeze-recovery rule:
+
+1. First determine whether PowerShell is waiting for hidden input.
+2. If not, press Ctrl+C once.
+3. Do not assume success or failure.
+4. Inspect process status, logs, partial files, output, manifest, sizes, hashes, parseability, and Git status.
+5. Rerun only for a specific verified missing or failed result.
+6. Never repeat a paid request or completed schema merely because output was quiet.
+
 Before any Codex run, network request, data request, download, broad test batch, repository-wide scan, or other potentially long-running or mutating command:
 
 1. Perform a fast read-only preflight first.
@@ -60,7 +71,7 @@ This rule applies regardless of the current technical objective and supersedes a
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
-Active task: `SAFE_FAST_DAY52_SPY_670C_DATABENTO_DOWNLOAD_CODEX_TASK.md`
+Active task: `SAFE_FAST_DAY54_SPY_670C_RESUMABLE_DOWNLOAD_CODEX_TASK.md`
 
 Continue the accepted March 16, 2026 setup through deterministic contract selection, the complete allowed option-price window, entry, exit, costs, and net P&L.
 
@@ -80,7 +91,7 @@ Latest machine result: `historical_signal_replay/results/day52_existing_setup_op
 
 Latest verified commit at task start: `37cda01 Make option-evidence backtest mandatory`.
 
-Dirty status after this Codex task: `DIRTY` until operator commit. Modified tracked files include `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_PROJECT_DASHBOARD.md`, and `SAFE_FAST_PROJECT_RULE_INDEX.md`. New files include `scripts/safe_fast_day52_spy_670c_databento_download.py` and `tests/test_day52_spy_670c_databento_download.py`. The task file `SAFE_FAST_DAY52_SPY_670C_DATABENTO_DOWNLOAD_CODEX_TASK.md` remains the expected preexisting untracked task file.
+Dirty status after this Codex task: `DIRTY` until operator commit. Modified tracked files include `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`, `SAFE_FAST_PROJECT_RULE_INDEX.md`, `scripts/safe_fast_new_chat_status.ps1`, `scripts/safe_fast_day52_spy_670c_databento_download.py`, `tests/test_day52_spy_670c_databento_download.py`, and `tests/test_day51_next_chat_handoff_consistency.py`. The task file `SAFE_FAST_DAY54_SPY_670C_RESUMABLE_DOWNLOAD_CODEX_TASK.md` remains the expected preexisting untracked task file.
 
 Selected winner: `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`.
 
@@ -128,7 +139,7 @@ Latest verified commit at current option-evidence task start: `37cda01 Make opti
 
 Current technical package: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_RESULT.md`, `historical_signal_replay/results/day52_existing_setup_option_evidence_end_to_end_backtest.json`, `historical_signal_replay/day52_existing_setup_option_evidence_end_to_end_backtest.py`, `watcher_foundation/day52_existing_setup_option_evidence_end_to_end_backtest_validator.py`, `tests/test_day52_existing_setup_option_evidence_end_to_end_backtest.py`, and `scripts/safe_fast_day52_existing_setup_databento_cost_request.py`; accepted layer-1 references remain `SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION_RESULT.md`, `historical_signal_replay/results/day52_family_numeric_binding_and_promotion.json`, `SAFE_FAST_DAY52_FULL_SESSION_RECOGNITION_MANIFEST_RESULT.md`, and `historical_signal_replay/results/day52_full_session_recognition_manifest.json`.
 
-Exact active task: `SAFE_FAST_DAY52_SPY_670C_DATABENTO_DOWNLOAD_CODEX_TASK.md`.
+Exact active task: `SAFE_FAST_DAY54_SPY_670C_RESUMABLE_DOWNLOAD_CODEX_TASK.md`.
 
 Active task exists: yes.
 

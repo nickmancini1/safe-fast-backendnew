@@ -8,7 +8,11 @@ ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_HANDOFF = "SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md"
 CANONICAL_INTRO = "SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt"
 STARTUP_SCRIPT = "scripts/safe_fast_new_chat_status.ps1"
-ACTIVE_TASK = "SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_CODEX_TASK.md"
+ACTIVE_TASK = "SAFE_FAST_DAY54_SPY_670C_RESUMABLE_DOWNLOAD_CODEX_TASK.md"
+FREEZE_RULE = (
+    "If PowerShell stops progressing, press Ctrl+C once. Do not rerun. "
+    "First inspect logs, partial files, output, manifest, and Git status."
+)
 
 
 def read_text(relative_path: str) -> str:
@@ -54,6 +58,20 @@ class Day51NextChatHandoffConsistencyTests(unittest.TestCase):
         self.assertIn(STARTUP_SCRIPT.replace("/", "\\"), intro)
         self.assertIn("powershell -NoProfile -ExecutionPolicy Bypass -File", intro)
 
+    def test_freeze_recovery_rule_is_canonical(self):
+        for relative_path in (
+            "SAFE_FAST_BUILD_STATE.md",
+            CANONICAL_HANDOFF,
+            CANONICAL_INTRO,
+            "SAFE_FAST_PROJECT_RULE_INDEX.md",
+            STARTUP_SCRIPT,
+        ):
+            text = read_text(relative_path)
+            with self.subTest(path=relative_path):
+                self.assertIn(FREEZE_RULE, text)
+                self.assertIn("First determine whether PowerShell is waiting for hidden input", text)
+                self.assertIn("paid request or completed schema", text)
+
     def test_build_state_current_section_has_required_fields_and_active_task_exists(self):
         build_state = read_text("SAFE_FAST_BUILD_STATE.md")
         match = re.search(
@@ -85,9 +103,9 @@ class Day51NextChatHandoffConsistencyTests(unittest.TestCase):
     def test_active_task_references_agree_across_control_files(self):
         for relative_path in (
             "SAFE_FAST_BUILD_STATE.md",
-            "SAFE_FAST_PROJECT_DASHBOARD.md",
             "SAFE_FAST_PROJECT_RULE_INDEX.md",
             CANONICAL_HANDOFF,
+            CANONICAL_INTRO,
         ):
             with self.subTest(path=relative_path):
                 self.assertIn(ACTIVE_TASK, read_text(relative_path))

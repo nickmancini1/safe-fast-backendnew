@@ -38,6 +38,17 @@ No documentation-only loop.
 
 Every future chat must read and follow this rule before issuing commands.
 
+If PowerShell stops progressing, press Ctrl+C once. Do not rerun. First inspect logs, partial files, output, manifest, and Git status.
+
+Expanded freeze-recovery rule:
+
+1. First determine whether PowerShell is waiting for hidden input.
+2. If not, press Ctrl+C once.
+3. Do not assume success or failure.
+4. Inspect process status, logs, partial files, output, manifest, sizes, hashes, parseability, and Git status.
+5. Rerun only for a specific verified missing or failed result.
+6. Never repeat a paid request or completed schema merely because output was quiet.
+
 Before any Codex run, network request, data request, download, broad test batch, repository-wide scan, or other potentially long-running or mutating command:
 
 1. Perform a fast read-only preflight first.
@@ -58,7 +69,7 @@ This rule applies regardless of the current technical objective and supersedes a
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
-Active task: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_CODEX_TASK.md`
+Active task: `SAFE_FAST_DAY54_SPY_670C_RESUMABLE_DOWNLOAD_CODEX_TASK.md`
 
 Continue the accepted March 16, 2026 setup through deterministic contract selection, the complete allowed option-price window, entry, exit, costs, and net P&L.
 
