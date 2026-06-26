@@ -7,8 +7,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 CANONICAL_HANDOFF = "SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md"
 CANONICAL_INTRO = "SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt"
+OPERATING_LOOP = "SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md"
 STARTUP_SCRIPT = "scripts/safe_fast_new_chat_status.ps1"
-ACTIVE_TASK = "SAFE_FAST_DAY54_SPY_670C_RESUMABLE_DOWNLOAD_CODEX_TASK.md"
+ACTIVE_TASK = "SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md"
 FREEZE_RULE = (
     "If PowerShell stops progressing, press Ctrl+C once. Do not rerun. "
     "First inspect logs, partial files, output, manifest, and Git status."
@@ -23,6 +24,7 @@ class Day51NextChatHandoffConsistencyTests(unittest.TestCase):
     def test_canonical_files_exist(self):
         self.assertTrue((ROOT / CANONICAL_HANDOFF).is_file())
         self.assertTrue((ROOT / CANONICAL_INTRO).is_file())
+        self.assertTrue((ROOT / OPERATING_LOOP).is_file())
         self.assertTrue((ROOT / STARTUP_SCRIPT).is_file())
 
     def test_rule_index_names_exactly_one_current_handoff_intro_and_script(self):
@@ -30,6 +32,7 @@ class Day51NextChatHandoffConsistencyTests(unittest.TestCase):
         self.assertEqual(rule_index.count(f"Current full handoff: `{CANONICAL_HANDOFF}`"), 1)
         self.assertEqual(rule_index.count(f"Current intro block: `{CANONICAL_INTRO}`"), 1)
         self.assertEqual(rule_index.count(f"Current startup script: `{STARTUP_SCRIPT}`"), 1)
+        self.assertEqual(rule_index.count(f"Current canonical operating loop: `{OPERATING_LOOP}`"), 1)
         self.assertIn("Historical handoffs", rule_index)
 
     def test_older_handoffs_are_historical(self):
@@ -54,6 +57,7 @@ class Day51NextChatHandoffConsistencyTests(unittest.TestCase):
     def test_intro_points_to_handoff_and_startup_script(self):
         intro = read_text(CANONICAL_INTRO)
         self.assertIn(CANONICAL_HANDOFF, intro)
+        self.assertIn(OPERATING_LOOP, intro)
         self.assertIn("SAFE_FAST_BUILD_STATE.md", intro)
         self.assertIn(STARTUP_SCRIPT.replace("/", "\\"), intro)
         self.assertIn("powershell -NoProfile -ExecutionPolicy Bypass -File", intro)
@@ -71,6 +75,50 @@ class Day51NextChatHandoffConsistencyTests(unittest.TestCase):
                 self.assertIn(FREEZE_RULE, text)
                 self.assertIn("First determine whether PowerShell is waiting for hidden input", text)
                 self.assertIn("paid request or completed schema", text)
+
+    def test_source_to_decision_operating_loop_is_canonical(self):
+        required_phrases = (
+            "Required opening report",
+            "Baseline",
+            "Active objective",
+            "Raw-data source",
+            "SAFE-FAST translation required",
+            "Blocker category",
+            "Candidate state",
+            "Next executable step",
+            "Why this is the fastest safe path",
+            "Required tests",
+            "Commit proof",
+            "Do not replace, broaden, or abandon the active objective",
+            "RAW_DATA_GAP",
+            "RULE_DEFINITION_GAP",
+            "CALCULATOR_OR_IMPLEMENTATION_GAP",
+            "CANDIDATE_QUALITY_GAP",
+            "ECONOMIC_EVIDENCE_GAP",
+            "REGRESSION_OR_PROOF_GAP",
+            "Vendors provide evidence; SAFE-FAST provides labels and decisions.",
+            "No-documentation",
+            "Uncommitted accepted work is unfinished work.",
+            "Is this task moving SAFE-FAST closer to a tested profitable trading plan",
+        )
+        for relative_path in (
+            OPERATING_LOOP,
+            CANONICAL_HANDOFF,
+            CANONICAL_INTRO,
+        ):
+            text = read_text(relative_path)
+            with self.subTest(path=relative_path):
+                for phrase in required_phrases:
+                    self.assertIn(phrase, text)
+
+        for relative_path in (
+            "SAFE_FAST_BUILD_STATE.md",
+            "SAFE_FAST_PROJECT_DASHBOARD.md",
+            "SAFE_FAST_PROJECT_RULE_INDEX.md",
+            STARTUP_SCRIPT,
+        ):
+            with self.subTest(path=relative_path):
+                self.assertIn(OPERATING_LOOP, read_text(relative_path))
 
     def test_build_state_current_section_has_required_fields_and_active_task_exists(self):
         build_state = read_text("SAFE_FAST_BUILD_STATE.md")
@@ -120,8 +168,8 @@ class Day51NextChatHandoffConsistencyTests(unittest.TestCase):
             "Schwab Trader API access is pending approval",
             "Current technical objective",
             "selected winner",
-            "complete quote window",
-            "NETWORK_EXECUTION_BLOCKED",
+            "NO_ENTRY_EXACT_REJECTION",
+            "open_interest_statistics_zero_rows",
         ):
             self.assertIn(phrase, handoff)
 

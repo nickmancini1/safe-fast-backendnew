@@ -1,5 +1,33 @@
 SAFE-FAST build work. The repo is the source of truth, and the user will not explain the project again.
 
+<!-- SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP_START -->
+MANDATORY SOURCE-TO-DECISION OPERATING LOOP:
+
+Read SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md before any task.
+
+Required opening report: Baseline; Active objective; Raw-data source; SAFE-FAST translation required; Blocker category; Candidate state; Next executable step; Why this is the fastest safe path; Required tests; Commit proof.
+
+One-active-objective rule: Do not replace, broaden, or abandon the active objective unless a completed result or hard blocker exists. A direction change must name the blocker category and smallest replacement action.
+
+Blocker categories: RAW_DATA_GAP; RULE_DEFINITION_GAP; CALCULATOR_OR_IMPLEMENTATION_GAP; CANDIDATE_QUALITY_GAP; ECONOMIC_EVIDENCE_GAP; REGRESSION_OR_PROOF_GAP.
+
+Source ownership: Databento supplies primary raw historical underlying and option evidence; tastytrade/dxLink is secondary raw data only; official agencies / ALFRED supply macro and event facts; Schwab is future live-data and broker/account/order authority after access approval. SAFE-FAST alone calculates setup identity, trigger, invalidation, freshness, stale/spent, blocker, stage, winner, no-trade, entry, exit, and profitability-related decisions. Vendors provide evidence; SAFE-FAST provides labels and decisions.
+
+Candidate funnel: scan broad bounded pool; fast field screen; remove duplicates and known structural blockers; rank by completeness; deep-review strongest batch only; drop/replace weak candidates quickly; one-candidate work only when complete enough for economic proof.
+
+No-documentation-loop rule: no new review/plan/status/handoff merely restating a known blocker. Documentation is allowed only when it establishes a decision, closes contradiction, defines a testable contract, records a completed result, repairs canonical handoff, or enables the immediate executable step.
+
+PowerShell / Codex freeze recovery: if waiting for hidden input, enter it. If not waiting for input and output stops, press Ctrl+C once. Do not rerun. Inspect exit status, logs, partial files, checkpoint manifest, sizes, hashes, parseability, Git status, and whether the step already completed. Rerun only for a specific verified missing or failed result. Never repeat paid requests, completed vendor schemas, Codex tasks, test batches, or downloads merely because terminal output was quiet.
+
+Build/test/commit rule: focused tests; affected regressions; validators; safe checks; git diff --check; exact commit when authorized; empty git status when authorized. Uncommitted accepted work is unfinished work.
+
+Red-flag stop conditions: same blocker repeated twice; more data proposed when rule/implementation is missing; one candidate repeatedly reviewed without advancing; more documentation than evidence/code/tests/economic results; canonical docs contradict machine-readable results; active objective cannot be explained in one sentence.
+
+Progress metrics: complete economic replays; valid entries; exact rejections/no-trades; exits and net P&L; blockers permanently closed; candidates screened versus promoted; tests passed; clean commits.
+
+Final question: Is this task moving SAFE-FAST closer to a tested profitable trading plan, or only making it sound more sophisticated?
+<!-- SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP_END -->
+
 <!-- SAFE_FAST_OPRA_670C_RECOVERY_START -->
 MANDATORY NEXT ACTION:
 
@@ -69,33 +97,35 @@ This rule applies regardless of the current technical objective and supersedes a
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
-Active task: `SAFE_FAST_DAY54_SPY_670C_RESUMABLE_DOWNLOAD_CODEX_TASK.md`
+Active task: `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md`
 
-Continue the accepted March 16, 2026 setup through deterministic contract selection, the complete allowed option-price window, entry, exit, costs, and net P&L.
+Preserve the mandatory source-to-decision / anti-rabbit-hole operating contract at the front of the canonical handoff system while preserving the accepted March 16, 2026 SPY 670C exact no-entry result.
 
 Do not return to broad candidate hunting.
 
-Use existing local evidence first, tastytrade second, and Databento for exact OPRA fallback.
+Use the committed local Day 55 result first unless a later explicit task supersedes it.
 
 Do not wait for Schwab.
 
 A network/proxy failure is not proof that data is unavailable.
 
-Future chats must continue this objective until committed evidence produces a costed result or one exact priced data request.
+Future chats must start from the Day 55 exact no-entry result unless a later explicit task supersedes it.
 
-Current result: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_RESULT.md`.
+Current result: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`.
 
 Selected winner: `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`.
 
-Contract-selection result: `BLOCKED_DEFINITION_EVIDENCE_MISSING`; deterministic candidate if OPRA confirms listing is `SPY   260330C00669000`.
+Contract-selection result: `CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVIDENCE`; rejected candidate is `SPY   260330C00669000` because it is unlisted; selected contract is `SPY   260330C00670000`, expiration `2026-03-30`, strike `670`, call, instrument ID `1241515301`, publisher ID `30`.
 
-Tastytrade result: `FIELD_LIMITATION_BLOCKED`.
+Tastytrade result: `FIELD_LIMITATION_BLOCKED`; local helper proves underlying OHLCV only, not historical option bid/ask.
 
-Databento result: `NETWORK_EXECUTION_BLOCKED`; operator command is `python scripts/safe_fast_day52_existing_setup_databento_cost_request.py`.
+Databento result: local manifest is `SUCCESS`; completed/reused schemas are `cmbp-1`, `tcbbo`, `trades`, and `statistics`; no `definition` request is needed.
 
-Entry-window result: `BLOCKED_COMPLETE_OPTION_PRICE_WINDOW_MISSING`.
+Entry-window result: quotes are present and inspected; first quote at `2026-03-16T13:31:00.010890Z` has bid `9.970000000`, ask `10.040000000`, spread `0.070000000`, and valid displayed sizes.
 
-Stage reached: `EXACT_EVIDENCE_REQUEST`.
+Stage reached: `NO_ENTRY_EXACT_REJECTION`.
+
+Remaining blocker: `open_interest_statistics_zero_rows`; statistics has zero rows, so the accepted open-interest rule blocks entry. Exit and net P&L are blocked.
 
 Profitability proof: `NO`.
 

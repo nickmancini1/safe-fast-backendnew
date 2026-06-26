@@ -8,6 +8,7 @@ Set-Location $repoRoot
 $buildStatePath = Join-Path $repoRoot "SAFE_FAST_BUILD_STATE.md"
 $handoffPath = "SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md"
 $introPath = "SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt"
+$operatingLoopPath = "SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md"
 
 function Fail-Conflict {
     param([string]$Message)
@@ -85,6 +86,10 @@ foreach ($commit in $latestCommits) {
 Write-Host "GIT_STATUS: $statusText"
 Write-Host "CANONICAL_HANDOFF: $handoffPath"
 Write-Host "CANONICAL_INTRO_BLOCK: $introPath"
+Write-Host "CANONICAL_OPERATING_LOOP: $operatingLoopPath"
+Write-Host "OPENING_REPORT_REQUIRED: Baseline; Active objective; Raw-data source; SAFE-FAST translation required; Blocker category; Candidate state; Next executable step; Why this is the fastest safe path; Required tests; Commit proof."
+Write-Host "BLOCKER_CATEGORIES: RAW_DATA_GAP; RULE_DEFINITION_GAP; CALCULATOR_OR_IMPLEMENTATION_GAP; CANDIDATE_QUALITY_GAP; ECONOMIC_EVIDENCE_GAP; REGRESSION_OR_PROOF_GAP"
+Write-Host "SOURCE_OWNERSHIP: Vendors provide evidence; SAFE-FAST provides labels and decisions."
 Write-Host "ACTIVE_OBJECTIVE: $($fields["ACTIVE_OBJECTIVE"])"
 Write-Host "ACTIVE_TASK: $activeTask"
 Write-Host "ACTIVE_TASK_EXISTS: $activeTaskExists"

@@ -3,18 +3,28 @@
 <!-- SAFE_FAST_CURRENT_STATE_BEGIN -->
 - PROJECT_DAY: Day 55
 - PROJECT_DATE: 2026-06-26
-- ACTIVE_OBJECTIVE: Review the bounded local Day 55 SPY 670C entry/exit/P&L evaluation result; do not request more data under the completed task.
-- ACTIVE_TASK: SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_CODEX_TASK.md
-- ACTIVE_TASK_PURPOSE: Evaluate the local Databento OPRA `SPY   260330C00670000` evidence package for exact entry, exit, gross P&L, and net P&L, or produce the first exact evidence-backed no-entry blocker; no vendor call, data request, proof, profitability, paper, or live decision.
+- ACTIVE_OBJECTIVE: Preserve the mandatory source-to-decision / anti-rabbit-hole operating contract at the front of the canonical handoff system while preserving the completed Day 55 SPY 670C exact no-entry result.
+- ACTIVE_TASK: SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md
+- ACTIVE_TASK_PURPOSE: Create and enforce the canonical source-to-decision operating loop in startup/handoff surfaces without vendor calls, trading-logic changes, deploy changes, proof, profitability, paper, or live decision.
 - PROVEN_SUMMARY: Day 52 accepted numeric binding remains proven: Ideal, Clean Fast Break, and Continuation intentionally share the publisher-collapsed setup-time row at `2026-03-16T13:30:00Z`; accepted trigger is `668.360000000`, accepted invalidation is `667.870000000`; accepted full-session layer-1 replay has 3 setup-qualified records, 1 selected winner, and 2 suppressed duplicates. The selected economic winner is `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`. Committed derived OPRA definition evidence rejects `SPY   260330C00669000` as `CONTRACT_UNLISTED` and selects `SPY   260330C00670000`, expiration `2026-03-30`, strike `670`, call, instrument ID `1241515301`, publisher ID `30`. Operator cost output is `SUCCESS`, cost-only, no download performed, grouped cost `$0.006495481730`, approved ceiling `$0.01`, exact schemas `cmbp-1`, `tcbbo`, `trades`, and `statistics`, with `definition` forbidden. Local Day 55 evaluation validated the manifest and selected-contract identity, inspected `9017` entry-window `cmbp-1` rows and valid trade volume, then rejected entry exactly because statistics/OI evidence has zero rows: `open_interest_statistics_zero_rows`.
 - UNPROVEN_SUMMARY: No valid entry, recorded entry, exit, gross P&L, net P&L, profitability proof, readiness, paper eligibility, or live eligibility is established for the Day 55 SPY 670C case because entry is exactly rejected by missing statistics/OI evidence.
 - CURRENT_FUNNEL_TOTALS: accepted layer-1 setup-qualified records 3; selected winner records 1; suppressed duplicate records 2; selected duplicate groups processed for economics 1; trade candidates 1; selected contracts 1; eligible entries 0; recorded entries 0; costed exits 0; net P&L results 0; exact priced requests pending 0; valid trades captured 0; true no-trades 1; missing-data cases 1; missed valid trades 0; invalid trades allowed 0; unresolved cases 0; profitability proof NO; paper/live eligibility NO.
-- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md; historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json; historical_signal_replay/day55_spy_670c_entry_exit_pnl_evaluation.py; watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py; tests/test_day55_spy_670c_entry_exit_pnl_evaluation.py; plus Day 52 input evidence files and accepted layer-1 references.
+- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md; SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md; historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json; historical_signal_replay/day55_spy_670c_entry_exit_pnl_evaluation.py; watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py; tests/test_day55_spy_670c_entry_exit_pnl_evaluation.py; plus Day 52 input evidence files and accepted layer-1 references.
 - CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md
 - SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task.
 - DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md
 - NEXT_ACTION: Operator review of Day 55 exact no-entry result. Entry result is `NO_ENTRY_EXACT_REJECTION`; first blocker is `open_interest_statistics_zero_rows`; exit and net P&L are blocked. Do not broad-hunt candidates, do not redownload definitions, do not call vendors, do not wait for Schwab, and do not claim profitability, paper eligibility, or live eligibility.
 <!-- SAFE_FAST_CURRENT_STATE_END -->
+
+## Day 55 canonical workflow cleanup status
+
+- Canonical operating-loop file: `SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md`.
+- Enforcement surfaces updated: `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`, `SAFE_FAST_PROJECT_DASHBOARD.md`, `SAFE_FAST_PROJECT_RULE_INDEX.md`, `scripts/safe_fast_new_chat_status.ps1`, and `tests/test_day51_next_chat_handoff_consistency.py`.
+- Required loop preserves the Day 55 SPY 670C economic result: `NO_ENTRY_EXACT_REJECTION`; first blocker `open_interest_statistics_zero_rows`; no valid entry; exit blocked; gross P&L none; net P&L none; complete end-to-end backtest `NO`; profitability proof `NO`; paper/live eligibility `NO`.
+- No Databento, tastytrade, Schwab, `main.py`, Railway/deploy, production/live backend, broker/account/order/fill/alert code, credentials, `.env`, sizing, stage, commit, push, profitability claim, or paper/live eligibility change was made.
+- Remaining active objective: operator review of the Day 55 exact no-entry result unless a later explicit task supersedes it.
+- Freeze recovery rule preserved: If PowerShell stops progressing, press Ctrl+C once. Do not rerun. First inspect logs, partial files, output, manifest, and Git status.
+- Expanded freeze recovery preserved: First determine whether PowerShell is waiting for hidden input; if not, press Ctrl+C once; do not assume success or failure; inspect process status, logs, partial files, output, manifest, sizes, hashes, parseability, and Git status; rerun only for a specific verified missing or failed result; never repeat a paid request or completed schema merely because output was quiet.
 
 ## Day 52 existing-setup option evidence and end-to-end backtest result
 

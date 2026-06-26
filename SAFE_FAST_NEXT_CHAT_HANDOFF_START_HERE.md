@@ -1,5 +1,33 @@
 # SAFE-FAST Next Chat Handoff - Start Here
 
+<!-- SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP_START -->
+## MANDATORY SOURCE-TO-DECISION OPERATING LOOP
+
+Read `SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md` before any task.
+
+Required opening report: Baseline; Active objective; Raw-data source; SAFE-FAST translation required; Blocker category; Candidate state; Next executable step; Why this is the fastest safe path; Required tests; Commit proof.
+
+One-active-objective rule: Do not replace, broaden, or abandon the active objective unless a completed result or hard blocker exists. A direction change must name the blocker category and smallest replacement action.
+
+Blocker categories: `RAW_DATA_GAP`, `RULE_DEFINITION_GAP`, `CALCULATOR_OR_IMPLEMENTATION_GAP`, `CANDIDATE_QUALITY_GAP`, `ECONOMIC_EVIDENCE_GAP`, `REGRESSION_OR_PROOF_GAP`.
+
+Source ownership: Databento supplies primary raw historical underlying and option evidence; tastytrade/dxLink is secondary raw data only; official agencies / ALFRED supply macro and event facts; Schwab is future live-data and broker/account/order authority after access approval. SAFE-FAST alone calculates setup identity, trigger, invalidation, freshness, stale/spent, blocker, stage, winner, no-trade, entry, exit, and profitability-related decisions. Vendors provide evidence; SAFE-FAST provides labels and decisions.
+
+Candidate funnel: scan broad bounded pool; fast field screen; remove duplicates and known structural blockers; rank by completeness; deep-review strongest batch only; drop/replace weak candidates quickly; one-candidate work only when complete enough for economic proof.
+
+No-documentation-loop rule: no new review/plan/status/handoff merely restating a known blocker. Documentation is allowed only when it establishes a decision, closes contradiction, defines a testable contract, records a completed result, repairs canonical handoff, or enables the immediate executable step.
+
+PowerShell / Codex freeze recovery: if waiting for hidden input, enter it. If not waiting for input and output stops, press Ctrl+C once. Do not rerun. Inspect exit status, logs, partial files, checkpoint manifest, sizes, hashes, parseability, Git status, and whether the step already completed. Rerun only for a specific verified missing or failed result. Never repeat paid requests, completed vendor schemas, Codex tasks, test batches, or downloads merely because terminal output was quiet.
+
+Build/test/commit rule: focused tests; affected regressions; validators; safe checks; `git diff --check`; exact commit when authorized; empty git status when authorized. Uncommitted accepted work is unfinished work.
+
+Red-flag stop conditions: same blocker repeated twice; more data proposed when rule/implementation is missing; one candidate repeatedly reviewed without advancing; more documentation than evidence/code/tests/economic results; canonical docs contradict machine-readable results; active objective cannot be explained in one sentence.
+
+Progress metrics: complete economic replays; valid entries; exact rejections/no-trades; exits and net P&L; blockers permanently closed; candidates screened versus promoted; tests passed; clean commits.
+
+Final question: Is this task moving SAFE-FAST closer to a tested profitable trading plan, or only making it sound more sophisticated?
+<!-- SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP_END -->
+
 <!-- SAFE_FAST_OPRA_670C_RECOVERY_START -->
 ## CURRENT DAY 55 SPY 670C RESULT
 
@@ -75,9 +103,9 @@ This rule applies regardless of the current technical objective and supersedes a
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
-Active task: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_CODEX_TASK.md`
+Active task: `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md`
 
-Review the accepted March 16, 2026 SPY 670C local evaluation result and its exact no-entry blocker.
+Preserve the mandatory source-to-decision / anti-rabbit-hole operating contract at the front of the canonical handoff system while preserving the accepted March 16, 2026 SPY 670C exact no-entry result.
 
 Do not return to broad candidate hunting.
 
@@ -95,7 +123,7 @@ Latest machine result: `historical_signal_replay/results/day55_spy_670c_entry_ex
 
 Latest verified commit at task start: `37cda01 Make option-evidence backtest mandatory`.
 
-Dirty status after this Codex task: `DIRTY` until operator commit. Modified tracked files include `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`, `SAFE_FAST_PROJECT_RULE_INDEX.md`, `scripts/safe_fast_new_chat_status.ps1`, `scripts/safe_fast_day52_spy_670c_databento_download.py`, `tests/test_day52_spy_670c_databento_download.py`, and `tests/test_day51_next_chat_handoff_consistency.py`. The task file `SAFE_FAST_DAY54_SPY_670C_RESUMABLE_DOWNLOAD_CODEX_TASK.md` remains the expected preexisting untracked task file.
+Dirty status after the Day 55 canonical workflow cleanup task: `DIRTY` until operator review/commit. Modified tracked files include `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`, `SAFE_FAST_PROJECT_DASHBOARD.md`, `SAFE_FAST_PROJECT_RULE_INDEX.md`, `scripts/safe_fast_new_chat_status.ps1`, and `tests/test_day51_next_chat_handoff_consistency.py`. New file: `SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md`. The task file `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md` remains the expected preexisting untracked task file.
 
 Selected winner: `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`.
 
@@ -143,7 +171,7 @@ Latest verified commit at current option-evidence task start: `37cda01 Make opti
 
 Current technical package: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`, `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json`, `historical_signal_replay/day55_spy_670c_entry_exit_pnl_evaluation.py`, `watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py`, and `tests/test_day55_spy_670c_entry_exit_pnl_evaluation.py`; accepted layer-1 and Day 52 input references remain available.
 
-Exact active task: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_CODEX_TASK.md`.
+Exact active task: `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md`.
 
 Active task exists: yes.
 
@@ -163,9 +191,9 @@ Exact next task: operator review of the Day 55 exact no-entry result, unless a l
 
 ## Current technical objective
 
-The active technical task is the existing-setup option evidence and end-to-end backtest path for the accepted March 16, 2026 SPY Clean Fast Break winner. It must continue from the selected winner, preserve duplicate suppression, apply the frozen Clean Fast Break contract and timing rules to the complete quote window, and finish with either entry/exit/net P&L or one exact priced evidence request.
+The active technical objective is operator review of the bounded local Day 55 SPY 670C selected-contract economic evaluation result.
 
-The current result is `EXACT_EVIDENCE_REQUEST`. Contract selection is blocked by missing OPRA definition evidence, the complete entry quote window is missing, tastytrade is field-limited, and Databento network execution is blocked in the sandbox. It must not be read as selected-contract approval, eligible-entry approval, P&L, profitability proof, paper eligibility, or live eligibility.
+The current result is `NO_ENTRY_EXACT_REJECTION`. Contract selection is resolved from committed local definition evidence: 669C is unlisted and selected contract `SPY   260330C00670000` matches instrument ID `1241515301` / publisher ID `30`. Entry-window quotes and trade volume are present, but statistics/OI has zero rows, so the accepted open-interest rule blocks entry with `open_interest_statistics_zero_rows`. Exit, gross P&L, and net P&L remain blocked. This must not be read as valid entry, P&L, profitability proof, paper eligibility, or live eligibility.
 
 ## Real progress measurement
 
@@ -260,10 +288,10 @@ Safety rejection and positive-trade capture are equal build objectives.
 
 ## Exact current task
 
-Exact active task: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_CODEX_TASK.md`.
+Exact active task: `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md`.
 
-It applies the existing selected-winner, contract-selection, entry-window, exit, cost, and no-hindsight rules to the accepted SPY March 16, 2026 Clean Fast Break economic winner only.
+It creates and enforces the canonical source-to-decision operating loop in startup and handoff surfaces while preserving the Day 55 selected-contract economic evaluation result.
 
-Measurable output: exact evidence-request result showing selected winner `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`, deterministic candidate contract shape `SPY   260330C00669000`, contract-selection status `BLOCKED_DEFINITION_EVIDENCE_MISSING`, complete entry-window status `BLOCKED_COMPLETE_OPTION_PRICE_WINDOW_MISSING`, tastytrade status `FIELD_LIMITATION_BLOCKED`, Databento status `NETWORK_EXECUTION_BLOCKED`, stage `EXACT_EVIDENCE_REQUEST`, profitability proof `NO`, paper/live eligibility `NO`, and no paid-data download, broker work, proof, readiness, paper, or live expansion.
+Measurable output: result doc `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md` and machine result `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json` record selected winner `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`, selected contract `SPY   260330C00670000`, entry result `NO_ENTRY_EXACT_REJECTION`, first blocker `open_interest_statistics_zero_rows`, exit result `EXIT_BLOCKED`, gross P&L `None`, net P&L `None`, complete end-to-end backtest `NO`, profitability proof `NO`, paper/live eligibility `NO`, and no vendor call, broker work, proof, readiness, paper, or live expansion.
 
 After Codex runs, the user should paste Codex's `Baseline`, `Fixed`, `Blocked`, `Next`, `Tests`, and changed-files summary.
