@@ -1,0 +1,143 @@
+{
+  "accepted_setup": {
+    "entry_window": {
+      "end": "2026-03-16T13:36:00Z",
+      "end_inclusive": false,
+      "start": "2026-03-16T13:31:00Z"
+    },
+    "invalidation": "667.870000000",
+    "selected_winner": "DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39",
+    "setup_family": "Clean Fast Break",
+    "setup_timestamp": "2026-03-16T13:30:00Z",
+    "trigger": "668.360000000",
+    "trigger_timestamp": "2026-03-16T13:31:00Z",
+    "underlying": "SPY"
+  },
+  "evaluation": {
+    "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+    "entry_context": {
+      "accepted_window_end": "2026-03-16T13:36:00Z",
+      "accepted_window_start": "2026-03-16T13:31:00Z",
+      "entry_ask": null,
+      "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+      "entry_price": null,
+      "first_quote_ask": "10.040000000",
+      "first_quote_ask_size": "65",
+      "first_quote_bid": "9.970000000",
+      "first_quote_bid_size": "121",
+      "first_quote_timestamp": "2026-03-16T13:31:00.010890Z",
+      "quote_age_seconds": "0.01089",
+      "quote_timestamp": "2026-03-16T13:31:00.010890Z",
+      "quotes_considered": 9017,
+      "spread": "0.070000000",
+      "spread_percent": "0.006996501749125437281359320340",
+      "window_end_inclusive": false
+    },
+    "entry_price": null,
+    "entry_status": "NO_ENTRY_EXACT_REJECTION",
+    "entry_timestamp": null,
+    "exit_result": {
+      "exit_timestamp": null,
+      "status": "EXIT_BLOCKED"
+    },
+    "exit_status": "EXIT_BLOCKED",
+    "first_blocker": "open_interest_statistics_zero_rows",
+    "gross_pnl": null,
+    "input_status": "INPUTS_VALIDATED",
+    "net_pnl": null,
+    "net_pnl_status": "ECONOMIC_REPLAY_BLOCKED",
+    "paper_live_eligibility": "NO",
+    "pnl_result": null,
+    "profitability_status": "NO",
+    "quote_age": "0.01089",
+    "spread": "0.070000000",
+    "spread_percent": "0.006996501749125437281359320340",
+    "statistics_open_interest_status": {
+      "first_blocker": "open_interest_statistics_zero_rows",
+      "open_interest": null,
+      "rows": 0,
+      "status": "STATISTICS_ZERO_ROWS"
+    },
+    "trade_volume_context": {
+      "first_trade_timestamp": "2026-03-16T13:31:41.642190Z",
+      "minimum_trade_volume": "1",
+      "status": "TRADE_VOLUME_VALID",
+      "trade_count_through_entry_window": 4,
+      "trade_volume_through_entry_window": "4"
+    }
+  },
+  "input_validation": {
+    "completed_or_reused_schemas": [
+      "cmbp-1",
+      "tcbbo",
+      "trades",
+      "statistics"
+    ],
+    "contract_identity_verified": true,
+    "definition_requested_or_needed": false,
+    "first_blocker": null,
+    "manifest_status": "SUCCESS",
+    "problems": [],
+    "schema_file_status": {
+      "cmbp-1": {
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day52_spy_670c/day52_spy_670c_cmbp-1.csv",
+        "exists": true,
+        "manifest_empty": false,
+        "manifest_record_count": 9017
+      },
+      "statistics": {
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day52_spy_670c/day52_spy_670c_statistics.csv",
+        "exists": true,
+        "manifest_empty": true,
+        "manifest_record_count": 0
+      },
+      "tcbbo": {
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day52_spy_670c/day52_spy_670c_tcbbo.csv",
+        "exists": true,
+        "manifest_empty": false,
+        "manifest_record_count": 220
+      },
+      "trades": {
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day52_spy_670c/day52_spy_670c_trades.csv",
+        "exists": true,
+        "manifest_empty": false,
+        "manifest_record_count": 220
+      }
+    },
+    "status": "INPUTS_VALIDATED"
+  },
+  "paper_live_eligibility": "NO",
+  "profitability_status": "NO",
+  "proof_status": {
+    "complete_end_to_end_backtest": "NO",
+    "paper_live_eligibility": "NO",
+    "profitability_proof": "NO"
+  },
+  "remaining_blocker": "open_interest_statistics_zero_rows",
+  "result_version": "day55_spy_670c_entry_exit_pnl_evaluation_v1",
+  "run_timestamp": "2026-06-26T14:28:14.326299Z",
+  "scope": {
+    "broker_account_order_alert_touched": false,
+    "credentials_or_env_changed": false,
+    "databento_called": false,
+    "definition_requested_or_needed": false,
+    "local_raw_databento_files_only": true,
+    "main_py_changed": false,
+    "more_data_requested": false,
+    "railway_or_deploy_changed": false,
+    "raw_vendor_files_mutated": false,
+    "schwab_called": false,
+    "sizing_changed": false,
+    "tastytrade_called": false
+  },
+  "selected_contract": {
+    "expiration": "2026-03-30",
+    "instrument_id": 1241515301,
+    "publisher_id": 30,
+    "raw_symbol": "SPY   260330C00670000",
+    "side": "call",
+    "strike": "670"
+  },
+  "source_commit": "cb4bc0e",
+  "task": "SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_CODEX_TASK.md"
+}

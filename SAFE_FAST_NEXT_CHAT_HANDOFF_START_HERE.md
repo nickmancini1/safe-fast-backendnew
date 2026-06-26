@@ -1,7 +1,7 @@
 # SAFE-FAST Next Chat Handoff - Start Here
 
 <!-- SAFE_FAST_OPRA_670C_RECOVERY_START -->
-## MANDATORY ACTIVE RECOVERY TASK
+## CURRENT DAY 55 SPY 670C RESULT
 
 Read:
 
@@ -19,16 +19,20 @@ Verified result:
 - publisher ID is `30`
 - do not redownload definitions
 
+Day 55 local evaluation:
+
+- result doc: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`
+- machine result: `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json`
+- entry result: `NO_ENTRY_EXACT_REJECTION`
+- first blocker: `open_interest_statistics_zero_rows`
+- exit result: `EXIT_BLOCKED`
+- gross P&L: `None`
+- net P&L: `None`
+- complete end-to-end backtest: `NO`
+
 Next path:
 
-operator review
--> run `$env:SAFE_FAST_DB_AUTH='<operator Databento key>'; python scripts/safe_fast_day52_spy_670c_databento_download.py`
--> inspect manifest `historical_signal_replay/source_data/external_option_data_drop/day52_spy_670c/day52_spy_670c_databento_download_manifest.json`
--> complete accepted quote window
--> valid entry or exact rejection
--> exit
--> costs
--> net P&L
+operator review of the exact no-entry result. Do not request more data under the completed Day 55 task unless a later explicit task authorizes it.
 
 Profitability proof: `NO`.
 
@@ -71,23 +75,23 @@ This rule applies regardless of the current technical objective and supersedes a
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
-Active task: `SAFE_FAST_DAY54_SPY_670C_RESUMABLE_DOWNLOAD_CODEX_TASK.md`
+Active task: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_CODEX_TASK.md`
 
-Continue the accepted March 16, 2026 setup through deterministic contract selection, the complete allowed option-price window, entry, exit, costs, and net P&L.
+Review the accepted March 16, 2026 SPY 670C local evaluation result and its exact no-entry blocker.
 
 Do not return to broad candidate hunting.
 
-Use existing local evidence first, tastytrade second, and Databento for exact OPRA fallback.
+Use the committed local Day 55 result first unless a later explicit task supersedes it.
 
 Do not wait for Schwab.
 
 A network/proxy failure is not proof that data is unavailable.
 
-Future chats must continue this objective until committed selected-contract raw evidence produces entry/exit/P&L or an exact vendor/download failure is recorded.
+Future chats must start from the Day 55 exact no-entry result unless a later explicit task supersedes it.
 
-Latest current result: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_RESULT.md`.
+Latest current result: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`.
 
-Latest machine result: `historical_signal_replay/results/day52_existing_setup_option_evidence_end_to_end_backtest.json`.
+Latest machine result: `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json`.
 
 Latest verified commit at task start: `37cda01 Make option-evidence backtest mandatory`.
 
@@ -99,13 +103,13 @@ Contract-selection result: `CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVI
 
 Tastytrade result: `FIELD_LIMITATION_BLOCKED`; local helper proves underlying OHLCV only, not historical option bid/ask.
 
-Databento result: cost output is `SUCCESS`, cost-only, no download performed, grouped cost `$0.006495481730`, approved ceiling `$0.01`; run `$env:SAFE_FAST_DB_AUTH='<operator Databento key>'; python scripts/safe_fast_day52_spy_670c_databento_download.py` from normal local PowerShell with working HTTPS.
+Databento result: local manifest is `SUCCESS`; completed/reused schemas are `cmbp-1`, `tcbbo`, `trades`, and `statistics`; no `definition` request is needed.
 
-Complete entry-window result: `BLOCKED_COMPLETE_OPTION_PRICE_WINDOW_MISSING`; accepted entry window is `2026-03-16T13:31:00Z` through `2026-03-16T13:36:00Z`; first valid option price is not established.
+Complete entry-window result: quotes are present and inspected; first quote at `2026-03-16T13:31:00.010890Z` has bid `9.970000000`, ask `10.040000000`, spread `0.070000000`, and valid displayed sizes.
 
-Stage reached: `EXACT_EVIDENCE_REQUEST`.
+Stage reached: `NO_ENTRY_EXACT_REJECTION`.
 
-Remaining blocker: operator-run selected-contract OPRA raw evidence download for exact schemas `cmbp-1`, `tcbbo`, `trades`, and `statistics`; `definition` is forbidden because committed definition evidence is complete.
+Remaining blocker: `open_interest_statistics_zero_rows`; statistics has zero rows, so the accepted open-interest rule blocks entry. Exit and net P&L are blocked.
 
 Tests passed: focused SPY 670C downloader tests; focused Day 52 option-evidence tests; Databento OPRA normalizer tests; Day 52 option-evidence validator; `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`; `git diff --check`.
 
@@ -131,31 +135,31 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".\scripts\safe_fast_new_cha
 
 ## Current verified state
 
-Project day and date: Day 52, 2026-06-23.
+Project day and date: Day 55, 2026-06-26.
 
-Current technical checkpoint: Day 52 existing-setup option evidence request, with the accepted March 16 SPY Clean Fast Break selected winner advanced to an approved exact Databento downloader blocker.
+Current technical checkpoint: Day 55 local selected-contract economic evaluation, with the accepted March 16 SPY Clean Fast Break selected winner stopped at exact no-entry blocker `open_interest_statistics_zero_rows`.
 
 Latest verified commit at current option-evidence task start: `37cda01 Make option-evidence backtest mandatory`.
 
-Current technical package: `SAFE_FAST_EXISTING_SETUP_OPTION_EVIDENCE_END_TO_END_BACKTEST_RESULT.md`, `historical_signal_replay/results/day52_existing_setup_option_evidence_end_to_end_backtest.json`, `historical_signal_replay/day52_existing_setup_option_evidence_end_to_end_backtest.py`, `watcher_foundation/day52_existing_setup_option_evidence_end_to_end_backtest_validator.py`, `tests/test_day52_existing_setup_option_evidence_end_to_end_backtest.py`, and `scripts/safe_fast_day52_existing_setup_databento_cost_request.py`; accepted layer-1 references remain `SAFE_FAST_DAY52_FAMILY_NUMERIC_BINDING_AND_PROMOTION_RESULT.md`, `historical_signal_replay/results/day52_family_numeric_binding_and_promotion.json`, `SAFE_FAST_DAY52_FULL_SESSION_RECOGNITION_MANIFEST_RESULT.md`, and `historical_signal_replay/results/day52_full_session_recognition_manifest.json`.
+Current technical package: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`, `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json`, `historical_signal_replay/day55_spy_670c_entry_exit_pnl_evaluation.py`, `watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py`, and `tests/test_day55_spy_670c_entry_exit_pnl_evaluation.py`; accepted layer-1 and Day 52 input references remain available.
 
-Exact active task: `SAFE_FAST_DAY54_SPY_670C_RESUMABLE_DOWNLOAD_CODEX_TASK.md`.
+Exact active task: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_CODEX_TASK.md`.
 
 Active task exists: yes.
 
-Exact active objective: continue the accepted March 16, 2026 SPY selected winner through option evidence and end-to-end backtest completion, or stop only at one exact priced evidence request.
+Exact active objective: review the Day 55 bounded local selected-contract economic evaluation and its exact no-entry blocker.
 
 Current accepted full-session manifest result: sessions scanned `1`; rows scanned `751`; unique timestamps `390`; recognition records `2253`. Per setup family: rejected `389`, duplicate `361`, blocked by missing evidence `0`; Clean Fast Break selected winner `1`; Ideal suppressed `1`; Continuation suppressed `1`; setup-qualified layer-1 records `3`; recognition-layer executable `1`. Accepted numeric values established `6`; accepted numeric values unresolved `0`. Current provisional replay-only result remains separate: setup-qualified-under-provisional `3`, selected winner `1`, suppressed `2`, recognition-layer executable `1`, trade candidates `0`, selected contracts `0`, eligible entries `0`, recorded entries `0`; profitability proof `NO`; paper/live eligibility `NO`.
 
 What is fixed: the repo now has complete chronological accepted-mode layer-1 accounting for the SPY March 16, 2026 one-minute session, a binding audit proving legitimate shared setup-time row use, and accepted Candidate A numeric trigger/invalidation rules for Ideal, Clean Fast Break, and Continuation. Trigger is `668.360000000`; invalidation is `667.870000000`; setup timestamp is `2026-03-16T13:30:00Z`; source row index is `2` / publisher `39`. Validators and focused tests pass.
 
-What remains unproven: no complete 670C entry quote window exists, no eligible entry, recorded entry, exit evaluation, net P&L, proof, profitability, readiness, paper eligibility, or live eligibility is established.
+What remains unproven: no valid entry, recorded entry, exit evaluation, gross P&L, net P&L, proof, profitability, readiness, paper eligibility, or live eligibility is established.
 
-Exact remaining blocker: run the operator Databento downloader and obtain selected-contract OPRA `cmbp-1`, `tcbbo`, `trades`, and `statistics` evidence for `SPY   260330C00670000` across the complete entry window and exit boundary. Do not request `definition`; committed definition evidence already rejected 669C and selected 670C.
+Exact remaining blocker: `open_interest_statistics_zero_rows`. The local Day 55 manifest is `SUCCESS`, selected-contract identity matches, entry-window quotes and trade volume are present, but statistics/OI has zero rows, so the accepted open-interest rule blocks entry. Do not request `definition`; committed definition evidence already rejected 669C and selected 670C.
 
 Schwab status: Schwab Trader API access remains pending approval/credential configuration unless a later repo result says otherwise. No Schwab authentication, token write, endpoint call, order, account, or fill action is part of the active task.
 
-Exact next task: continue the same option-evidence objective; use local evidence first, tastytrade second, Databento fallback; apply the existing timing rule to the complete quote window; do not broad-hunt candidates, do not create another provisional layer, do not wait for Schwab, and do not claim P&L until evidence is complete.
+Exact next task: operator review of the Day 55 exact no-entry result, unless a later explicit task supersedes it. Do not broad-hunt candidates, do not create another provisional layer, do not wait for Schwab, and do not claim P&L, profitability, paper eligibility, or live eligibility.
 
 ## Current technical objective
 
