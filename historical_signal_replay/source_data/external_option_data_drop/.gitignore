@@ -5,3 +5,6 @@
 *.jsonl
 *.zip
 *manifest*.json
+
+# temporary files used for atomic Databento downloads
+*.tmp
