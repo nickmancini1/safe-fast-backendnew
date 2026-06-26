@@ -3,8 +3,8 @@
 ## Current Handoff System
 
 - Canonical operating loop: `SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md`; it is mandatory at the top of the next-chat handoff and intro block.
-- Active objective: preserve the mandatory source-to-decision / anti-rabbit-hole operating contract while preserving the Day 55 bounded local SPY 670C entry/exit/P&L evaluation result.
-- Active task: `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md`.
+- Active objective: choose the next fastest safe economic replay path after completed canonical workflow cleanup at `3210251`, while preserving the Day 55 bounded local SPY 670C exact no-entry result.
+- Active task: `NONE_PENDING_OPERATOR_REVIEW`; no code/Codex task is currently authorized.
 - Current technical result: Day 55 local evaluator produced exact no-entry rejection for `SPY   260330C00670000`: `open_interest_statistics_zero_rows`; no exit, gross P&L, or net P&L.
 - Current funnel totals: accepted layer-1 setup-qualified records `3`; Clean Fast Break selected winner `1`; Ideal suppressed `1`; Continuation suppressed `1`; selected duplicate groups processed for economics `1`; trade candidates `1`; selected contracts `1`; eligible entries `0`; recorded entries `0`; costed exits `0`; net P&L results `0`; exact priced requests pending `0`; valid trades captured `0`; true no-trades `1`; missing-data cases `1`; missed valid trades `0`; invalid trades allowed `0`; unresolved cases `0`; profitability proof `NO`; paper/live eligibility `NO`.
 - Current handoff: `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`.

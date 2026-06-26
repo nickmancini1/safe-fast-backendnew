@@ -60,8 +60,14 @@ foreach ($field in $requiredFields) {
 }
 
 $activeTask = $fields["ACTIVE_TASK"]
-$activeTaskPath = Join-Path $repoRoot $activeTask
-$activeTaskExists = Test-Path -LiteralPath $activeTaskPath
+$activeTaskRequiresFile = ($activeTask -ne "NONE_PENDING_OPERATOR_REVIEW")
+if ($activeTaskRequiresFile) {
+    $activeTaskPath = Join-Path $repoRoot $activeTask
+    $activeTaskExists = Test-Path -LiteralPath $activeTaskPath
+} else {
+    $activeTaskPath = $null
+    $activeTaskExists = "not applicable"
+}
 
 $branch = (& git --no-pager branch --show-current).Trim()
 $head = (& git --no-pager rev-parse --short HEAD).Trim()
@@ -103,7 +109,7 @@ Write-Host "NEXT_ACTION: $($fields["NEXT_ACTION"])"
 Write-Host "FREEZE_RULE: If PowerShell stops progressing, press Ctrl+C once. Do not rerun. First inspect logs, partial files, output, manifest, and Git status."
 Write-Host "FREEZE_RECOVERY: First determine whether PowerShell is waiting for hidden input; if not, press Ctrl+C once; do not assume success or failure; inspect process status, logs, partial files, output, manifest, sizes, hashes, parseability, and Git status; rerun only for a specific verified missing or failed result; never repeat a paid request or completed schema merely because output was quiet."
 
-if (-not $activeTaskExists) {
+if ($activeTaskRequiresFile -and (-not $activeTaskExists)) {
     Fail-Conflict "Active task is missing: $activeTask"
 }
 

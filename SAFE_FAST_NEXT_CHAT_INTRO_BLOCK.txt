@@ -97,9 +97,9 @@ This rule applies regardless of the current technical objective and supersedes a
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
-Active task: `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md`
+Active task: `NONE_PENDING_OPERATOR_REVIEW`
 
-Preserve the mandatory source-to-decision / anti-rabbit-hole operating contract at the front of the canonical handoff system while preserving the accepted March 16, 2026 SPY 670C exact no-entry result.
+Cleanup completed at `3210251`: the mandatory source-to-decision / anti-rabbit-hole operating contract is installed. Preserve the accepted March 16, 2026 SPY 670C exact no-entry result. Current objective: operator review chooses the next fastest safe economic replay path; no active code/Codex task is authorized yet.
 
 Do not return to broad candidate hunting.
 

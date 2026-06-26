@@ -7,7 +7,7 @@
 - Current startup script: `scripts/safe_fast_new_chat_status.ps1`
 - Current consistency test: `tests/test_day51_next_chat_handoff_consistency.py`
 - Current canonical operating loop: `SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md`
-- Current active task: `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md`
+- Current active task: `NONE_PENDING_OPERATOR_REVIEW`; canonical workflow cleanup completed at `3210251` and must not be recreated.
 - Current technical result: bounded local Day 55 SPY 670C evaluator produced exact no-entry rejection from zero statistics/open-interest rows; no exit or net P&L.
 
 ## Historical handoffs

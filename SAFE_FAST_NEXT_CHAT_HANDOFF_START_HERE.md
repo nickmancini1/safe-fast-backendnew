@@ -103,9 +103,9 @@ This rule applies regardless of the current technical objective and supersedes a
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
-Active task: `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md`
+Active task: `NONE_PENDING_OPERATOR_REVIEW`
 
-Preserve the mandatory source-to-decision / anti-rabbit-hole operating contract at the front of the canonical handoff system while preserving the accepted March 16, 2026 SPY 670C exact no-entry result.
+Cleanup completed at `3210251`: the mandatory source-to-decision / anti-rabbit-hole operating contract is installed. Preserve the accepted March 16, 2026 SPY 670C exact no-entry result. Current objective: operator review chooses the next fastest safe economic replay path; no active code/Codex task is authorized yet.
 
 Do not return to broad candidate hunting.
 
@@ -123,7 +123,7 @@ Latest machine result: `historical_signal_replay/results/day55_spy_670c_entry_ex
 
 Latest verified commit at task start: `37cda01 Make option-evidence backtest mandatory`.
 
-Dirty status after the Day 55 canonical workflow cleanup task: `DIRTY` until operator review/commit. Modified tracked files include `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`, `SAFE_FAST_PROJECT_DASHBOARD.md`, `SAFE_FAST_PROJECT_RULE_INDEX.md`, `scripts/safe_fast_new_chat_status.ps1`, and `tests/test_day51_next_chat_handoff_consistency.py`. New file: `SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md`. The task file `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md` remains the expected preexisting untracked task file.
+Dirty status after the Day 55 canonical workflow cleanup task: `DIRTY` until operator review/commit. Modified tracked files include `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`, `SAFE_FAST_PROJECT_DASHBOARD.md`, `SAFE_FAST_PROJECT_RULE_INDEX.md`, `scripts/safe_fast_new_chat_status.ps1`, and `tests/test_day51_next_chat_handoff_consistency.py`. New file: `SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md`. The task file `NONE_PENDING_OPERATOR_REVIEW` remains the expected preexisting untracked task file.
 
 Selected winner: `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`.
 
@@ -171,11 +171,11 @@ Latest verified commit at current option-evidence task start: `37cda01 Make opti
 
 Current technical package: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`, `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json`, `historical_signal_replay/day55_spy_670c_entry_exit_pnl_evaluation.py`, `watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py`, and `tests/test_day55_spy_670c_entry_exit_pnl_evaluation.py`; accepted layer-1 and Day 52 input references remain available.
 
-Exact active task: `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md`.
+Exact active task: `NONE_PENDING_OPERATOR_REVIEW`.
 
 Active task exists: yes.
 
-Exact active objective: review the Day 55 bounded local selected-contract economic evaluation and its exact no-entry blocker.
+Exact active objective: operator review chooses the next fastest safe economic replay path while preserving the Day 55 SPY 670C exact no-entry result.
 
 Current accepted full-session manifest result: sessions scanned `1`; rows scanned `751`; unique timestamps `390`; recognition records `2253`. Per setup family: rejected `389`, duplicate `361`, blocked by missing evidence `0`; Clean Fast Break selected winner `1`; Ideal suppressed `1`; Continuation suppressed `1`; setup-qualified layer-1 records `3`; recognition-layer executable `1`. Accepted numeric values established `6`; accepted numeric values unresolved `0`. Current provisional replay-only result remains separate: setup-qualified-under-provisional `3`, selected winner `1`, suppressed `2`, recognition-layer executable `1`, trade candidates `0`, selected contracts `0`, eligible entries `0`, recorded entries `0`; profitability proof `NO`; paper/live eligibility `NO`.
 
@@ -187,11 +187,11 @@ Exact remaining blocker: `open_interest_statistics_zero_rows`. The local Day 55 
 
 Schwab status: Schwab Trader API access remains pending approval/credential configuration unless a later repo result says otherwise. No Schwab authentication, token write, endpoint call, order, account, or fill action is part of the active task.
 
-Exact next task: operator review of the Day 55 exact no-entry result, unless a later explicit task supersedes it. Do not broad-hunt candidates, do not create another provisional layer, do not wait for Schwab, and do not claim P&L, profitability, paper eligibility, or live eligibility.
+Exact next task: operator decision only. Do not broad-hunt candidates, do not create another provisional layer, do not wait for Schwab, and do not claim P&L, profitability, paper eligibility, or live eligibility.
 
 ## Current technical objective
 
-The active technical objective is operator review of the bounded local Day 55 SPY 670C selected-contract economic evaluation result.
+The active technical objective is operator review to choose the next fastest safe economic replay path while preserving the bounded local Day 55 SPY 670C selected-contract economic evaluation result.
 
 The current result is `NO_ENTRY_EXACT_REJECTION`. Contract selection is resolved from committed local definition evidence: 669C is unlisted and selected contract `SPY   260330C00670000` matches instrument ID `1241515301` / publisher ID `30`. Entry-window quotes and trade volume are present, but statistics/OI has zero rows, so the accepted open-interest rule blocks entry with `open_interest_statistics_zero_rows`. Exit, gross P&L, and net P&L remain blocked. This must not be read as valid entry, P&L, profitability proof, paper eligibility, or live eligibility.
 
@@ -288,9 +288,9 @@ Safety rejection and positive-trade capture are equal build objectives.
 
 ## Exact current task
 
-Exact active task: `SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md`.
+Exact active task: `NONE_PENDING_OPERATOR_REVIEW`.
 
-It creates and enforces the canonical source-to-decision operating loop in startup and handoff surfaces while preserving the Day 55 selected-contract economic evaluation result.
+Cleanup completed at `3210251`; do not recreate the completed task file. The current task state is operator review only, with no active code/Codex task authorized yet.
 
 Measurable output: result doc `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md` and machine result `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json` record selected winner `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`, selected contract `SPY   260330C00670000`, entry result `NO_ENTRY_EXACT_REJECTION`, first blocker `open_interest_statistics_zero_rows`, exit result `EXIT_BLOCKED`, gross P&L `None`, net P&L `None`, complete end-to-end backtest `NO`, profitability proof `NO`, paper/live eligibility `NO`, and no vendor call, broker work, proof, readiness, paper, or live expansion.
 
