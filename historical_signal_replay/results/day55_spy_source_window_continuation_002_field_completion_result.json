@@ -1,0 +1,40 @@
+﻿{
+  "schema": "safe_fast_day55_spy_source_window_continuation_002_field_completion_result_v1",
+  "created_from_head": "0a7d61b Add SPY Continuation 002 setup-time replay worksheet",
+  "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+  "ticker": "SPY",
+  "setup_type": "Continuation",
+  "source_window": {
+    "date_range": "2026-04-16 through 2026-04-17",
+    "source_csv_lines": "156-169"
+  },
+  "decision": "EXACT_BLOCKED_EVIDENCE_GAP",
+  "blocker_category": "CANDIDATE_QUALITY_GAP",
+  "blocker": "accepted_setup_time_replay_fields_not_completed",
+  "known_candidates": {
+    "setup_time_row_candidate": "2026-04-17T09:30:00-04:00",
+    "trigger_candidate": "702.78",
+    "primary_invalidation_candidate": "698.53",
+    "alternate_invalidation_candidate": "700.83",
+    "terminal_window_max_high": "712.38",
+    "terminal_window_min_low": "708.99",
+    "terminal_window_final_close": "710.04"
+  },
+  "not_accepted_as_proof": [
+    "setup_time_row",
+    "trigger",
+    "invalidation",
+    "freshness_final_signal",
+    "blocker_caution",
+    "no_hindsight_output",
+    "terminal_chart_only_outcome",
+    "economics"
+  ],
+  "entry_status": "NOT_EVALUATED",
+  "exit_status": "NOT_EVALUATED",
+  "gross_pnl": null,
+  "net_pnl": null,
+  "profitability_proof": "NO",
+  "paper_live_eligibility": "NO",
+  "next_source_action": "Complete accepted setup-time replay fields from exact source rows 156-169 before economics or P&L."
+}
