@@ -9,7 +9,7 @@ CANONICAL_HANDOFF = "SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md"
 CANONICAL_INTRO = "SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt"
 OPERATING_LOOP = "SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md"
 STARTUP_SCRIPT = "scripts/safe_fast_new_chat_status.ps1"
-ACTIVE_TASK = "SAFE_FAST_DAY55_CANONICAL_WORKFLOW_CLEANUP_CODEX_TASK.md"
+ACTIVE_TASK = "NONE_PENDING_OPERATOR_REVIEW"
 FREEZE_RULE = (
     "If PowerShell stops progressing, press Ctrl+C once. Do not rerun. "
     "First inspect logs, partial files, output, manifest, and Git status."
@@ -146,7 +146,8 @@ class Day51NextChatHandoffConsistencyTests(unittest.TestCase):
         ):
             self.assertRegex(section, rf"- {field}: .+")
         self.assertIn(ACTIVE_TASK, section)
-        self.assertTrue((ROOT / ACTIVE_TASK).is_file())
+        if ACTIVE_TASK != "NONE_PENDING_OPERATOR_REVIEW":
+            self.assertTrue((ROOT / ACTIVE_TASK).is_file())
 
     def test_active_task_references_agree_across_control_files(self):
         for relative_path in (
