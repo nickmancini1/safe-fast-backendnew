@@ -1,0 +1,51 @@
+﻿{
+    "schema":  "safe_fast_day55_spy_source_window_continuation_002_setup_time_replay_worksheet_v1",
+    "created_from_head":  "dd291f1 Sync handoff test with no active task sentinel",
+    "candidate_id":  "SPY-SOURCE-WINDOW-CONTINUATION-002",
+    "ticker":  "SPY",
+    "setup_type":  "Continuation",
+    "source_window":  {
+                          "date_range":  "2026-04-16 through 2026-04-17",
+                          "source_csv_lines":  "156-169",
+                          "source_start":  "2026-04-16T09:30:00-04:00",
+                          "source_end":  "2026-04-17T15:30:00-04:00"
+                      },
+    "current_decision":  "EXACT_BLOCKED_EVIDENCE_GAP",
+    "blocker_category":  "CANDIDATE_QUALITY_GAP",
+    "blocker":  "missing_accepted_setup_time_replay_fields",
+    "setup_time_row_candidate":  "2026-04-17T09:30:00-04:00",
+    "trigger_candidate":  "702.78",
+    "invalidation_candidate_primary":  "698.53",
+    "invalidation_candidate_alternate":  "700.83",
+    "after_setup_window":  {
+                               "start":  "2026-04-17T10:30:00-04:00",
+                               "end":  "2026-04-17T15:30:00-04:00",
+                               "max_high":  "712.38",
+                               "min_low":  "708.99",
+                               "final_close":  "710.04"
+                           },
+    "required_before_proof_review":  [
+                                         "accepted replay fixture row",
+                                         "accepted trigger",
+                                         "accepted invalidation",
+                                         "freshness/final-signal review",
+                                         "blocker/caution review",
+                                         "no-hindsight replay output",
+                                         "exact terminal chart-only outcome review",
+                                         "economics"
+                                     ],
+    "accepted_proof_count":  0,
+    "entry_status":  "NOT_EVALUATED",
+    "exit_status":  "NOT_EVALUATED",
+    "gross_pnl":  null,
+    "net_pnl":  null,
+    "profitability_proof":  "NO",
+    "paper_live_eligibility":  "NO",
+    "spy_670c_preserved":  {
+                               "result":  "NO_ENTRY_EXACT_REJECTION",
+                               "first_blocker":  "open_interest_statistics_zero_rows",
+                               "profitability_proof":  "NO",
+                               "paper_live_eligibility":  "NO"
+                           },
+    "next_action":  "Complete the required accepted setup-time replay fields for SPY-SOURCE-WINDOW-CONTINUATION-002 before proof review or economics."
+}
