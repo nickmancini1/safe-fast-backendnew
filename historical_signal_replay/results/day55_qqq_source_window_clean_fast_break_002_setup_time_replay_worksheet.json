@@ -1,0 +1,35 @@
+﻿{
+    "schema":  "safe_fast_day55_qqq_source_window_clean_fast_break_002_setup_time_replay_worksheet_v1",
+    "created_from_head":  "05c5bf5 Record SPY Continuation 002 field completion blocker",
+    "candidate_id":  "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+    "ticker":  "QQQ",
+    "setup_type":  "Clean Fast Break",
+    "source_window":  {
+                          "source_csv_lines":  "66-86",
+                          "status":  "BLOCKED_REPEAT_ROW_WORK_READY"
+                      },
+    "current_decision":  "EXACT_BLOCKED_EVIDENCE_GAP",
+    "blocker_category":  "CANDIDATE_QUALITY_GAP",
+    "blocker":  "missing_accepted_setup_time_replay_fields",
+    "required_before_proof_review":  [
+                                         "accepted setup-time replay row",
+                                         "accepted trigger",
+                                         "accepted invalidation",
+                                         "freshness/final-signal review",
+                                         "blocker/caution review",
+                                         "no-hindsight replay output",
+                                         "terminal chart-only outcome",
+                                         "economics",
+                                         "options",
+                                         "spread/slippage/fill",
+                                         "entry/exit usefulness",
+                                         "regression protection"
+                                     ],
+    "entry_status":  "NOT_EVALUATED",
+    "exit_status":  "NOT_EVALUATED",
+    "gross_pnl":  null,
+    "net_pnl":  null,
+    "profitability_proof":  "NO",
+    "paper_live_eligibility":  "NO",
+    "next_action":  "Complete accepted setup-time replay fields from QQQ source rows 66-86 before economics or P\u0026L."
+}

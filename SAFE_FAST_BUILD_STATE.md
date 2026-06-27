@@ -3,7 +3,7 @@
 <!-- SAFE_FAST_CURRENT_STATE_BEGIN -->
 - PROJECT_DAY: Day 55
 - PROJECT_DATE: 2026-06-26
-- ACTIVE_OBJECTIVE: Process the committed SPY-SOURCE-WINDOW-CONTINUATION-002 setup-time replay worksheet toward one exact result: replay-ready setup-time record, exact no-replay rejection, or exact blocked evidence gap with next source/action.
+- ACTIVE_OBJECTIVE: Process `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002` source rows `66-86` toward one exact result: replay-ready setup-time record, exact no-replay rejection, or exact blocked evidence gap with next source/action.
 - ACTIVE_TASK: NONE_PENDING_OPERATOR_REVIEW
 - ACTIVE_TASK_PURPOSE: No active task file is currently authorized. The completed canonical workflow cleanup must not be recreated; the next action is operator selection of the next fastest safe economic replay path while preserving the Day 55 exact no-entry result.
 - PROVEN_SUMMARY: Day 52 accepted numeric binding remains proven: Ideal, Clean Fast Break, and Continuation intentionally share the publisher-collapsed setup-time row at `2026-03-16T13:30:00Z`; accepted trigger is `668.360000000`, accepted invalidation is `667.870000000`; accepted full-session layer-1 replay has 3 setup-qualified records, 1 selected winner, and 2 suppressed duplicates. The selected economic winner is `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`. Committed derived OPRA definition evidence rejects `SPY   260330C00669000` as `CONTRACT_UNLISTED` and selects `SPY   260330C00670000`, expiration `2026-03-30`, strike `670`, call, instrument ID `1241515301`, publisher ID `30`. Operator cost output is `SUCCESS`, cost-only, no download performed, grouped cost `$0.006495481730`, approved ceiling `$0.01`, exact schemas `cmbp-1`, `tcbbo`, `trades`, and `statistics`, with `definition` forbidden. Local Day 55 evaluation validated the manifest and selected-contract identity, inspected `9017` entry-window `cmbp-1` rows and valid trade volume, then rejected entry exactly because statistics/OI evidence has zero rows: `open_interest_statistics_zero_rows`.
@@ -13,7 +13,7 @@
 - CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md
 - SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task.
 - DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md
-- NEXT_ACTION: Use the committed SPY-SOURCE-WINDOW-CONTINUATION-002 setup-time replay worksheet to complete accepted setup-time, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, terminal chart-only outcome, and economics fields before proof review. Preserve the completed Day 55 SPY 670C result as `NO_ENTRY_EXACT_REJECTION` with first blocker `open_interest_statistics_zero_rows`; profitability proof `NO`; paper/live eligibility `NO`.
+- NEXT_ACTION: Use the committed `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002` worksheet to complete accepted setup-time, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight output, terminal chart-only outcome, and economics fields before proof review. Do not claim profitability, paper eligibility, or live eligibility.
 <!-- SAFE_FAST_CURRENT_STATE_END -->
 
 ## Day 55 canonical workflow cleanup status
@@ -14687,3 +14687,20 @@ This correction supersedes older handoff wording where workflow rules appear aft
 - Paper/live eligibility: `NO`.
 - Preserved completed result: SPY 670C remains `NO_ENTRY_EXACT_REJECTION` with first blocker `open_interest_statistics_zero_rows`.
 - Next objective: complete the missing accepted setup-time replay fields, then classify as replay-ready, exact no-replay, or exact blocked evidence gap with next source/action.
+## Day 55 QQQ source-window Clean Fast Break 002 setup-time replay worksheet status
+
+- Latest local commit before this worksheet: $head.
+- Worksheet: SAFE_FAST_DAY55_QQQ_SOURCE_WINDOW_CLEAN_FAST_BREAK_002_SETUP_TIME_REPLAY_WORKSHEET.md.
+- Machine result: historical_signal_replay/results/day55_qqq_source_window_clean_fast_break_002_setup_time_replay_worksheet.json.
+- Test: 	ests/test_day55_qqq_source_window_clean_fast_break_002_setup_time_replay_worksheet.py.
+- Candidate: QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002.
+- Source rows: 66-86.
+- Current decision: EXACT_BLOCKED_EVIDENCE_GAP.
+- Blocker: missing_accepted_setup_time_replay_fields.
+- Entry: NOT_EVALUATED.
+- Exit: NOT_EVALUATED.
+- Gross P&L: none.
+- Net P&L: none.
+- Profitability proof: NO.
+- Paper/live eligibility: NO.
+- Next action: complete accepted setup-time replay fields before economics or P&L.
