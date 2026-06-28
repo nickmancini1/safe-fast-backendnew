@@ -1,0 +1,16 @@
+﻿{
+    "schema":  "safe_fast_day55_definition_cost_request_for_replay_ready_candidates_v1",
+    "created_from_head":  "32aed75 Review option evidence cost check readiness",
+    "source_cost_review":  "historical_signal_replay/results/day55_option_evidence_cost_check_review.json",
+    "decision":  "DEFINITION_COST_REQUEST_READY_FOR_OPERATOR_REVIEW",
+    "request_count":  0,
+    "vendor_call_performed":  false,
+    "contract_selection_ready":  false,
+    "economics_ready_count":  0,
+    "requests":  [
+
+                 ],
+    "profitability_proof":  "NO",
+    "paper_live_eligibility":  "NO",
+    "next_action":  "Run operator cost check for definition-only contract-selection evidence. Do not call vendors until cost is explicit and approved."
+}
