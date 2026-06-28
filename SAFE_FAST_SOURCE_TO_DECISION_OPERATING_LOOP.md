@@ -19,6 +19,34 @@ Busy work means another worksheet, task file, broad scan, handoff tweak, stale-o
 Hard rule: Busy work is forbidden unless current `git status --short` proves it physically blocks the priority task.
 
 Top red flag: if the assistant cannot explain in one sentence how the next command advances the current priority, it must not give the command.
+
+### Vertical execution gate
+
+A substance command must complete the full vertical step whenever possible:
+
+1. create or update the actual result,
+2. run the required focused tests,
+3. run `git diff --check`,
+4. commit the expected files,
+5. print the final decision, next action, latest commit, and clean status.
+
+Do not split a substance step into repeated readback, summary, worksheet, or confirmation commands.
+
+A read-only command is allowed only when it is a real hard gate:
+- current Git status is unknown or dirty,
+- a test failed and exact failure lines are needed,
+- paid cost approval is needed,
+- vendor/API auth is missing,
+- vendor call approval is needed,
+- script arguments are unknown and running the script would mutate files,
+- current machine-readable result is missing or unparseable.
+
+After one read-only gate command, the next response must either:
+- run the next substance command,
+- ask for operator approval on a paid/vendor action,
+- or close the blocker exactly.
+
+Top anti-drift rule: if the information already exists in the latest machine-readable result, do not ask for another readback just to summarize it. Use it to advance the priority step.
 <!-- SAFE_FAST_PRIORITY_DRIFT_GATE_END -->
 
 
