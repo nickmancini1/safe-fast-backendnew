@@ -1,0 +1,1442 @@
+{
+  "cost_only": true,
+  "credential_env_var_read": false,
+  "dataset": "OPRA.PILLAR",
+  "decision": "QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW",
+  "download_performed": false,
+  "entry_status": "NOT_EVALUATED",
+  "exit_status": "NOT_EVALUATED",
+  "forbidden_schemas": [
+    "definition"
+  ],
+  "gross_pnl": null,
+  "net_pnl": null,
+  "next_action": "Operator review/cost-check these exact quote/trade/statistics requests. Do not download until cost is explicitly approved.",
+  "paper_live_eligibility": "NO",
+  "profitability_proof": "NO",
+  "request_count": 32,
+  "requests": [
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "SPY-SOURCE-WINDOW-CONTINUATION-005"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Clean Fast Break",
+          "strike": "645.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Continuation",
+          "strike": "645.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Continuation",
+          "strike": "645.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T19:45:00Z",
+      "leg": "long",
+      "purpose": "trade volume and trade context from setup through exit boundary",
+      "schema": "trades",
+      "start": "2026-03-31T16:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00645000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "SPY-SOURCE-WINDOW-CONTINUATION-005"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Clean Fast Break",
+          "strike": "645.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Continuation",
+          "strike": "645.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Continuation",
+          "strike": "645.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T16:36:00Z",
+      "leg": "long",
+      "purpose": "open-interest/statistics liquidity evidence through entry window",
+      "schema": "statistics",
+      "start": "2026-03-31T16:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00645000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "SPY-SOURCE-WINDOW-CONTINUATION-005"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Clean Fast Break",
+          "strike": "650.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Continuation",
+          "strike": "650.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Continuation",
+          "strike": "650.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T19:45:00Z",
+      "leg": "short",
+      "purpose": "trade volume and trade context from setup through exit boundary",
+      "schema": "trades",
+      "start": "2026-03-31T16:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00650000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "SPY-SOURCE-WINDOW-CONTINUATION-005"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Clean Fast Break",
+          "strike": "650.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Continuation",
+          "strike": "650.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Continuation",
+          "strike": "650.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T16:36:00Z",
+      "leg": "short",
+      "purpose": "open-interest/statistics liquidity evidence through entry window",
+      "schema": "statistics",
+      "start": "2026-03-31T16:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00650000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "SPY-SOURCE-WINDOW-CONTINUATION-005"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Clean Fast Break",
+          "strike": "645.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Continuation",
+          "strike": "645.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Continuation",
+          "strike": "645.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T16:36:00Z",
+      "leg": "long",
+      "purpose": "complete entry-window bid/ask stream for quote freshness and spread/liquidity gates",
+      "schema": "cmbp-1",
+      "start": "2026-03-31T16:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00645000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "SPY-SOURCE-WINDOW-CONTINUATION-005"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Clean Fast Break",
+          "strike": "645.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Continuation",
+          "strike": "645.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070451",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00645000",
+          "setup_type": "Continuation",
+          "strike": "645.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T19:45:00Z",
+      "leg": "long",
+      "purpose": "selected-contract bid path through the 15:45 ET exit boundary",
+      "schema": "tcbbo",
+      "start": "2026-03-31T16:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00645000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "SPY-SOURCE-WINDOW-CONTINUATION-005"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Clean Fast Break",
+          "strike": "650.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Continuation",
+          "strike": "650.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Continuation",
+          "strike": "650.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T16:36:00Z",
+      "leg": "short",
+      "purpose": "complete entry-window bid/ask stream for quote freshness and spread/liquidity gates",
+      "schema": "cmbp-1",
+      "start": "2026-03-31T16:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00650000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "SPY-SOURCE-WINDOW-CONTINUATION-005"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Clean Fast Break",
+          "strike": "650.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Continuation",
+          "strike": "650.0",
+          "ticker": "SPY"
+        },
+        {
+          "accepted_invalidation": "637.98",
+          "accepted_setup_time": "2026-03-31T12:30:00-04:00",
+          "accepted_trigger": "642.95",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-14",
+          "gross_pnl": null,
+          "instrument_id": "1275070438",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260414C00650000",
+          "setup_type": "Continuation",
+          "strike": "650.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T19:45:00Z",
+      "leg": "short",
+      "purpose": "selected-contract bid path through the 15:45 ET exit boundary",
+      "schema": "tcbbo",
+      "start": "2026-03-31T16:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00650000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "581.14",
+          "accepted_setup_time": "2026-04-02T15:30:00-04:00",
+          "accepted_trigger": "583.96",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-16",
+          "gross_pnl": null,
+          "instrument_id": "1040189341",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260416C00585000",
+          "setup_type": "Continuation",
+          "strike": "585.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:45:00Z",
+      "leg": "long",
+      "purpose": "trade volume and trade context from setup through exit boundary",
+      "schema": "trades",
+      "start": "2026-04-02T19:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00585000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "581.14",
+          "accepted_setup_time": "2026-04-02T15:30:00-04:00",
+          "accepted_trigger": "583.96",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-16",
+          "gross_pnl": null,
+          "instrument_id": "1040189341",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260416C00585000",
+          "setup_type": "Continuation",
+          "strike": "585.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:36:00Z",
+      "leg": "long",
+      "purpose": "open-interest/statistics liquidity evidence through entry window",
+      "schema": "statistics",
+      "start": "2026-04-02T19:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00585000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "581.14",
+          "accepted_setup_time": "2026-04-02T15:30:00-04:00",
+          "accepted_trigger": "583.96",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-16",
+          "gross_pnl": null,
+          "instrument_id": "1040189318",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260416C00590000",
+          "setup_type": "Continuation",
+          "strike": "590.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:45:00Z",
+      "leg": "short",
+      "purpose": "trade volume and trade context from setup through exit boundary",
+      "schema": "trades",
+      "start": "2026-04-02T19:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00590000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "581.14",
+          "accepted_setup_time": "2026-04-02T15:30:00-04:00",
+          "accepted_trigger": "583.96",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-16",
+          "gross_pnl": null,
+          "instrument_id": "1040189318",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260416C00590000",
+          "setup_type": "Continuation",
+          "strike": "590.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:36:00Z",
+      "leg": "short",
+      "purpose": "open-interest/statistics liquidity evidence through entry window",
+      "schema": "statistics",
+      "start": "2026-04-02T19:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00590000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "581.14",
+          "accepted_setup_time": "2026-04-02T15:30:00-04:00",
+          "accepted_trigger": "583.96",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-16",
+          "gross_pnl": null,
+          "instrument_id": "1040189341",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260416C00585000",
+          "setup_type": "Continuation",
+          "strike": "585.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:36:00Z",
+      "leg": "long",
+      "purpose": "complete entry-window bid/ask stream for quote freshness and spread/liquidity gates",
+      "schema": "cmbp-1",
+      "start": "2026-04-02T19:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00585000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "581.14",
+          "accepted_setup_time": "2026-04-02T15:30:00-04:00",
+          "accepted_trigger": "583.96",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-16",
+          "gross_pnl": null,
+          "instrument_id": "1040189341",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260416C00585000",
+          "setup_type": "Continuation",
+          "strike": "585.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:45:00Z",
+      "leg": "long",
+      "purpose": "selected-contract bid path through the 15:45 ET exit boundary",
+      "schema": "tcbbo",
+      "start": "2026-04-02T19:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00585000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "581.14",
+          "accepted_setup_time": "2026-04-02T15:30:00-04:00",
+          "accepted_trigger": "583.96",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-16",
+          "gross_pnl": null,
+          "instrument_id": "1040189318",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260416C00590000",
+          "setup_type": "Continuation",
+          "strike": "590.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:36:00Z",
+      "leg": "short",
+      "purpose": "complete entry-window bid/ask stream for quote freshness and spread/liquidity gates",
+      "schema": "cmbp-1",
+      "start": "2026-04-02T19:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00590000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "581.14",
+          "accepted_setup_time": "2026-04-02T15:30:00-04:00",
+          "accepted_trigger": "583.96",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-04-16",
+          "gross_pnl": null,
+          "instrument_id": "1040189318",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260416C00590000",
+          "setup_type": "Continuation",
+          "strike": "590.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:45:00Z",
+      "leg": "short",
+      "purpose": "selected-contract bid path through the 15:45 ET exit boundary",
+      "schema": "tcbbo",
+      "start": "2026-04-02T19:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00590000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "699.4737",
+          "accepted_setup_time": "2026-04-17T09:30:00-04:00",
+          "accepted_trigger": "701.94",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "1224736926",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260501C00702000",
+          "setup_type": "Continuation",
+          "strike": "702.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "leg": "long",
+      "purpose": "trade volume and trade context from setup through exit boundary",
+      "schema": "trades",
+      "start": "2026-04-17T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00702000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "699.4737",
+          "accepted_setup_time": "2026-04-17T09:30:00-04:00",
+          "accepted_trigger": "701.94",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "1224736926",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260501C00702000",
+          "setup_type": "Continuation",
+          "strike": "702.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T13:36:00Z",
+      "leg": "long",
+      "purpose": "open-interest/statistics liquidity evidence through entry window",
+      "schema": "statistics",
+      "start": "2026-04-17T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00702000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "699.4737",
+          "accepted_setup_time": "2026-04-17T09:30:00-04:00",
+          "accepted_trigger": "701.94",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "1224738270",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260501C00707000",
+          "setup_type": "Continuation",
+          "strike": "707.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "leg": "short",
+      "purpose": "trade volume and trade context from setup through exit boundary",
+      "schema": "trades",
+      "start": "2026-04-17T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00707000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "699.4737",
+          "accepted_setup_time": "2026-04-17T09:30:00-04:00",
+          "accepted_trigger": "701.94",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "1224738270",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260501C00707000",
+          "setup_type": "Continuation",
+          "strike": "707.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T13:36:00Z",
+      "leg": "short",
+      "purpose": "open-interest/statistics liquidity evidence through entry window",
+      "schema": "statistics",
+      "start": "2026-04-17T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00707000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "699.4737",
+          "accepted_setup_time": "2026-04-17T09:30:00-04:00",
+          "accepted_trigger": "701.94",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "1224736926",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260501C00702000",
+          "setup_type": "Continuation",
+          "strike": "702.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T13:36:00Z",
+      "leg": "long",
+      "purpose": "complete entry-window bid/ask stream for quote freshness and spread/liquidity gates",
+      "schema": "cmbp-1",
+      "start": "2026-04-17T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00702000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "699.4737",
+          "accepted_setup_time": "2026-04-17T09:30:00-04:00",
+          "accepted_trigger": "701.94",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "1224736926",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260501C00702000",
+          "setup_type": "Continuation",
+          "strike": "702.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "leg": "long",
+      "purpose": "selected-contract bid path through the 15:45 ET exit boundary",
+      "schema": "tcbbo",
+      "start": "2026-04-17T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00702000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "699.4737",
+          "accepted_setup_time": "2026-04-17T09:30:00-04:00",
+          "accepted_trigger": "701.94",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "1224738270",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260501C00707000",
+          "setup_type": "Continuation",
+          "strike": "707.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T13:36:00Z",
+      "leg": "short",
+      "purpose": "complete entry-window bid/ask stream for quote freshness and spread/liquidity gates",
+      "schema": "cmbp-1",
+      "start": "2026-04-17T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00707000"
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "699.4737",
+          "accepted_setup_time": "2026-04-17T09:30:00-04:00",
+          "accepted_trigger": "701.94",
+          "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "1224738270",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "SPY   260501C00707000",
+          "setup_type": "Continuation",
+          "strike": "707.0",
+          "ticker": "SPY"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "leg": "short",
+      "purpose": "selected-contract bid path through the 15:45 ET exit boundary",
+      "schema": "tcbbo",
+      "start": "2026-04-17T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00707000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "639.2209",
+          "accepted_setup_time": "2026-04-17T10:30:00-04:00",
+          "accepted_trigger": "647.53",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "989856791",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260501C00650000",
+          "setup_type": "Clean Fast Break",
+          "strike": "650.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "leg": "long",
+      "purpose": "trade volume and trade context from setup through exit boundary",
+      "schema": "trades",
+      "start": "2026-04-17T14:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00650000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "639.2209",
+          "accepted_setup_time": "2026-04-17T10:30:00-04:00",
+          "accepted_trigger": "647.53",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "989856791",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260501C00650000",
+          "setup_type": "Clean Fast Break",
+          "strike": "650.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T14:36:00Z",
+      "leg": "long",
+      "purpose": "open-interest/statistics liquidity evidence through entry window",
+      "schema": "statistics",
+      "start": "2026-04-17T14:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00650000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "639.2209",
+          "accepted_setup_time": "2026-04-17T10:30:00-04:00",
+          "accepted_trigger": "647.53",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "989855873",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260501C00655000",
+          "setup_type": "Clean Fast Break",
+          "strike": "655.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "leg": "short",
+      "purpose": "trade volume and trade context from setup through exit boundary",
+      "schema": "trades",
+      "start": "2026-04-17T14:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00655000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "639.2209",
+          "accepted_setup_time": "2026-04-17T10:30:00-04:00",
+          "accepted_trigger": "647.53",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "989855873",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260501C00655000",
+          "setup_type": "Clean Fast Break",
+          "strike": "655.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T14:36:00Z",
+      "leg": "short",
+      "purpose": "open-interest/statistics liquidity evidence through entry window",
+      "schema": "statistics",
+      "start": "2026-04-17T14:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00655000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "639.2209",
+          "accepted_setup_time": "2026-04-17T10:30:00-04:00",
+          "accepted_trigger": "647.53",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "989856791",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260501C00650000",
+          "setup_type": "Clean Fast Break",
+          "strike": "650.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T14:36:00Z",
+      "leg": "long",
+      "purpose": "complete entry-window bid/ask stream for quote freshness and spread/liquidity gates",
+      "schema": "cmbp-1",
+      "start": "2026-04-17T14:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00650000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "639.2209",
+          "accepted_setup_time": "2026-04-17T10:30:00-04:00",
+          "accepted_trigger": "647.53",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "989856791",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260501C00650000",
+          "setup_type": "Clean Fast Break",
+          "strike": "650.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "leg": "long",
+      "purpose": "selected-contract bid path through the 15:45 ET exit boundary",
+      "schema": "tcbbo",
+      "start": "2026-04-17T14:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00650000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "639.2209",
+          "accepted_setup_time": "2026-04-17T10:30:00-04:00",
+          "accepted_trigger": "647.53",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "989855873",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260501C00655000",
+          "setup_type": "Clean Fast Break",
+          "strike": "655.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T14:36:00Z",
+      "leg": "short",
+      "purpose": "complete entry-window bid/ask stream for quote freshness and spread/liquidity gates",
+      "schema": "cmbp-1",
+      "start": "2026-04-17T14:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00655000"
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+      ],
+      "contract_identities": [
+        {
+          "accepted_invalidation": "639.2209",
+          "accepted_setup_time": "2026-04-17T10:30:00-04:00",
+          "accepted_trigger": "647.53",
+          "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+          "entry_status": "NOT_EVALUATED",
+          "exit_status": "NOT_EVALUATED",
+          "expiration": "2026-05-01",
+          "gross_pnl": null,
+          "instrument_id": "989855873",
+          "net_pnl": null,
+          "paper_live_eligibility": "NO",
+          "profitability_proof": "NO",
+          "publisher_id": "30",
+          "raw_symbol": "QQQ   260501C00655000",
+          "setup_type": "Clean Fast Break",
+          "strike": "655.0",
+          "ticker": "QQQ"
+        }
+      ],
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "leg": "short",
+      "purpose": "selected-contract bid path through the 15:45 ET exit boundary",
+      "schema": "tcbbo",
+      "start": "2026-04-17T14:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00655000"
+    }
+  ],
+  "required_schemas": [
+    "cmbp-1",
+    "tcbbo",
+    "trades",
+    "statistics"
+  ],
+  "result_version": "safe_fast_day55_quote_trade_statistics_cost_request_for_selected_contracts_v1",
+  "run_timestamp": "2026-06-28T22:06:04.635760Z",
+  "selected_candidate_count": 6,
+  "selected_contract_leg_count": 12,
+  "source_commit": "7d7683c",
+  "source_selected_contract_result": "historical_signal_replay/results/day55_definition_contract_selection_for_replay_ready_candidates.json",
+  "unique_request_key_count": 32,
+  "vendor_call_performed": false
+}
