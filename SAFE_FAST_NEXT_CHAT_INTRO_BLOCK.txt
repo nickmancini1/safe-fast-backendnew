@@ -1,3 +1,27 @@
+<!-- SAFE_FAST_PRIORITY_DRIFT_GATE_BEGIN -->
+## SAFE-FAST PRIORITY DRIFT GATE
+
+This is the top red-flag gate. Every future chat must answer it before any baseline, explanation, or command.
+
+Priority check: Am I efficiently working on the current priority task and not drifting?
+
+Required answer format:
+- Priority check: YES or NO.
+- Current priority: one sentence.
+- This step is: Substance or busy work.
+- Why allowed: one sentence.
+- If NO: stop and correct before giving a command.
+
+Substance means the step directly moves SAFE-FAST toward one of: cost approval, vendor-ready request, contract selection, option evidence, entry/exit/P&L, exact rejection, exact blocker closure, or regression protection.
+
+Busy work means another worksheet, task file, broad scan, handoff tweak, stale-output cleanup, or documentation update that does not unlock the current priority.
+
+Hard rule: Busy work is forbidden unless current `git status --short` proves it physically blocks the priority task.
+
+Top red flag: if the assistant cannot explain in one sentence how the next command advances the current priority, it must not give the command.
+<!-- SAFE_FAST_PRIORITY_DRIFT_GATE_END -->
+
+
 SAFE-FAST build work. The repo is the source of truth, and the user will not explain the project again.
 
 <!-- SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP_START -->
