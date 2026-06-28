@@ -1,4 +1,4 @@
-<!-- SAFE_FAST_PRIORITY_DRIFT_GATE_BEGIN -->
+﻿<!-- SAFE_FAST_PRIORITY_DRIFT_GATE_BEGIN -->
 ## SAFE-FAST PRIORITY DRIFT GATE
 
 This is the top red-flag gate. Every future chat must answer it before any baseline, explanation, or command.
@@ -50,12 +50,12 @@ Top anti-drift rule: if the information already exists in the latest machine-rea
 <!-- SAFE_FAST_PRIORITY_DRIFT_GATE_END -->
 
 
-﻿# SAFE-FAST Build State
+ï»¿# SAFE-FAST Build State
 
 <!-- SAFE_FAST_CURRENT_STATE_BEGIN -->
 - PROJECT_DAY: Day 55
 - PROJECT_DATE: 2026-06-26
-- ACTIVE_OBJECTIVE: Move replay-ready source-window candidates from the accepted field-completion result directly to economics/P&L.
+- ACTIVE_OBJECTIVE: Move selected Day 55 contracts to exact quote/trade/statistics cost request for option evidence and economics/P&L.
 - ACTIVE_TASK: NONE_PENDING_OPERATOR_REVIEW
 - ACTIVE_TASK_PURPOSE: No active task file is currently authorized. The completed canonical workflow cleanup must not be recreated; the next action is operator selection of the next fastest safe economic replay path while preserving the Day 55 exact no-entry result.
 - PROVEN_SUMMARY: Day 52 accepted numeric binding remains proven: Ideal, Clean Fast Break, and Continuation intentionally share the publisher-collapsed setup-time row at `2026-03-16T13:30:00Z`; accepted trigger is `668.360000000`, accepted invalidation is `667.870000000`; accepted full-session layer-1 replay has 3 setup-qualified records, 1 selected winner, and 2 suppressed duplicates. The selected economic winner is `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`. Committed derived OPRA definition evidence rejects `SPY   260330C00669000` as `CONTRACT_UNLISTED` and selects `SPY   260330C00670000`, expiration `2026-03-30`, strike `670`, call, instrument ID `1241515301`, publisher ID `30`. Operator cost output is `SUCCESS`, cost-only, no download performed, grouped cost `$0.006495481730`, approved ceiling `$0.01`, exact schemas `cmbp-1`, `tcbbo`, `trades`, and `statistics`, with `definition` forbidden. Local Day 55 evaluation validated the manifest and selected-contract identity, inspected `9017` entry-window `cmbp-1` rows and valid trade volume, then rejected entry exactly because statistics/OI evidence has zero rows: `open_interest_statistics_zero_rows`.
@@ -65,7 +65,7 @@ Top anti-drift rule: if the information already exists in the latest machine-rea
 - CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md
 - SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task.
 - DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md
-- NEXT_ACTION: Use historical_signal_replay/results/day55_source_window_batch_accepted_field_completion.json; replay-ready candidates exist, so move only those candidates directly to economics/P&L. Do not run another worksheet loop.
+- NEXT_ACTION: Use historical_signal_replay/results/day55_definition_contract_selection_for_replay_ready_candidates.json; selected contracts exist, so create the exact quote/trade/statistics cost request for those contracts. Keep profitability proof NO and paper/live eligibility NO.
 <!-- SAFE_FAST_CURRENT_STATE_END -->
 
 ## Day 55 canonical workflow cleanup status
@@ -14702,11 +14702,11 @@ Use plain English.
 ## End Day 46 handoff correction
 
 
-## Day 47 handoff hard correction â€” workflow first
+## Day 47 handoff hard correction Ã¢â‚¬â€ workflow first
 
 The next chat must treat workflow and interaction rules as the top priority before doing project work.
 
-The userâ€™s explicit correction:
+The userÃ¢â‚¬â„¢s explicit correction:
 - Do not waste time and money.
 - Plain English first.
 - Direct answers.
@@ -14790,3 +14790,18 @@ This correction supersedes older handoff wording where workflow rules appear aft
 - Profitability proof: NO.
 - Paper/live eligibility: NO.
 - Next action: $(@{schema=safe_fast_day55_source_window_batch_accepted_field_completion_v1; created_from_head=a75914c Create source-window batch source-row packet; source_packet=historical_signal_replay/results/day55_source_window_batch_source_row_packet.json; decision=BATCH_ACCEPTED_FIELD_COMPLETION_COMPLETE; total_candidates=7; replay_ready_count=6; exact_blocked_count=1; entry_status=NOT_EVALUATED; exit_status=NOT_EVALUATED; gross_pnl=; net_pnl=; profitability_proof=NO; paper_live_eligibility=NO; candidates=System.Object[]; next_action=Move replay-ready candidates directly to economics/P&L.}.next_action).
+## Day 55 definition contract-selection status
+
+- Result: historical_signal_replay/results/day55_definition_contract_selection_for_replay_ready_candidates.json.
+- Summary: SAFE_FAST_DAY55_DEFINITION_CONTRACT_SELECTION_FOR_REPLAY_READY_CANDIDATES.md.
+- Test: 	ests/test_day55_definition_contract_selection_for_replay_ready_candidates.py.
+- Decision: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.decision).
+- Candidate count: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.candidate_count).
+- Contracts selected: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.contracts_selected_count).
+- Exact blocked: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.exact_blocked_count).
+- Definition vendor call performed: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.vendor_call_performed).
+- Definition download performed: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.download_performed).
+- Quote/trade/statistics download performed: alse.
+- Profitability proof: NO.
+- Paper/live eligibility: NO.
+- Next action: Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.
