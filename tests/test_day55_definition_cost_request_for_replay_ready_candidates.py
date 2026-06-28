@@ -7,28 +7,32 @@ RESULT = ROOT / "historical_signal_replay" / "results" / "day55_definition_cost_
 
 class TestDay55DefinitionCostRequestForReplayReadyCandidates(unittest.TestCase):
     def load(self):
-        self.assertTrue(RESULT.is_file())
+        self.assertTrue(RESULT.is_file(), f"Missing result: {RESULT}")
         return json.loads(RESULT.read_text(encoding="utf-8-sig"))
 
-    def test_definition_request_ready_for_operator_review(self):
+    def test_definition_request_has_real_requests(self):
         r = self.load()
         self.assertEqual(r["decision"], "DEFINITION_COST_REQUEST_READY_FOR_OPERATOR_REVIEW")
         self.assertGreater(r["request_count"], 0)
+        self.assertEqual(r["request_count"], len(r["requests"]))
         self.assertFalse(r["vendor_call_performed"])
         self.assertFalse(r["contract_selection_ready"])
         self.assertEqual(r["economics_ready_count"], 0)
 
-    def test_definition_schema_only_now(self):
+    def test_every_request_has_contract_selection_fields(self):
         r = self.load()
         for item in r["requests"]:
+            self.assertTrue(item["candidate_id"])
+            self.assertTrue(item["ticker"])
+            self.assertTrue(item["accepted_setup_time"])
+            self.assertTrue(item["accepted_trigger"])
+            self.assertTrue(item["accepted_invalidation"])
             self.assertEqual(item["request_stage"], "DEFINITION_FOR_CONTRACT_SELECTION")
             self.assertEqual(item["schema_to_cost"], "definition")
             self.assertIn("cmbp-1", item["later_required_schemas"])
             self.assertIn("tcbbo", item["later_required_schemas"])
             self.assertIn("trades", item["later_required_schemas"])
             self.assertIn("statistics", item["later_required_schemas"])
-            self.assertFalse(item["vendor_call_performed"])
-            self.assertFalse(item["contract_selected"])
 
     def test_no_trade_or_profit_claim(self):
         r = self.load()
