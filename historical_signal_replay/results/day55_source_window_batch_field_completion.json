@@ -1,0 +1,811 @@
+{
+  "schema": "safe_fast_day55_source_window_batch_field_completion_v1",
+  "created_from_head": "920136d Add QQQ Clean Fast Break 002 setup-time replay worksheet",
+  "decision": "BATCH_FIELD_COMPLETION_COMPLETE",
+  "total_candidates": 7,
+  "replay_ready_count": 0,
+  "exact_blocked_count": 7,
+  "candidates": [
+    {
+      "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+      "ticker": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "source_rows": "156-169",
+      "batch_decision": "EXACT_BLOCKED_EVIDENCE_GAP",
+      "blocker_category": "CANDIDATE_QUALITY_GAP",
+      "field_status": {
+        "accepted_setup_time_row": "CANDIDATE_NOT_ACCEPTED",
+        "accepted_trigger": "CANDIDATE_NOT_ACCEPTED",
+        "accepted_invalidation": "CANDIDATE_NOT_ACCEPTED",
+        "freshness_final_signal": "CANDIDATE_NOT_ACCEPTED",
+        "blocker_caution_review": "CANDIDATE_NOT_ACCEPTED",
+        "no_hindsight_output": "CANDIDATE_NOT_ACCEPTED",
+        "terminal_chart_only_outcome": "CANDIDATE_NOT_ACCEPTED"
+      },
+      "missing_or_unaccepted_fields": [
+        "accepted_setup_time_row",
+        "accepted_trigger",
+        "accepted_invalidation",
+        "freshness_final_signal",
+        "blocker_caution_review",
+        "no_hindsight_output",
+        "terminal_chart_only_outcome"
+      ],
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "evidence_context": [
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "<!-- SAFE_FAST_CURRENT_STATE_BEGIN -->"
+        },
+        {
+          "line": 4,
+          "text": "- PROJECT_DAY: Day 55"
+        },
+        {
+          "line": 5,
+          "text": "- PROJECT_DATE: 2026-06-26"
+        },
+        {
+          "line": 6,
+          "text": "- ACTIVE_OBJECTIVE: Process `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002` source rows `66-86` toward one exact result: replay-ready setup-time record, exact no-replay rejection, or exact blocked evidence gap with next source/action."
+        },
+        {
+          "line": 7,
+          "text": "- ACTIVE_TASK: NONE_PENDING_OPERATOR_REVIEW"
+        },
+        {
+          "line": 8,
+          "text": "- ACTIVE_TASK_PURPOSE: No active task file is currently authorized. The completed canonical workflow cleanup must not be recreated; the next action is operator selection of the next fastest safe economic replay path while preserving the Day 55 exact no-entry result."
+        },
+        {
+          "line": 9,
+          "text": "- PROVEN_SUMMARY: Day 52 accepted numeric binding remains proven: Ideal, Clean Fast Break, and Continuation intentionally share the publisher-collapsed setup-time row at `2026-03-16T13:30:00Z`; accepted trigger is `668.360000000`, accepted invalidation is `667.870000000`; accepted full-session layer-1 replay has 3 setup-qualified records, 1 selected winner, and 2 suppressed duplicates. The selected economic winner is `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`. Committed derived OPRA definition evidence rejects `SPY   260330C00669000` as `CONTRACT_UNLISTED` and selects `SPY   260330C00670000`, expiration `2026-03-30`, strike `670`, call, instrument ID `1241515301`, publisher ID `30`. Operator cost output is `SUCCESS`, cost-only, no download performed, grouped cost `$0.006495481730`, approved ceiling `$0.01`, exact schemas `cmbp-1`, `tcbbo`, `trades`, and `statistics`, with `definition` forbidden. Local Day 55 evaluation validated the manifest and selected-contract identity, inspected `9017` entry-window `cmbp-1` rows and valid trade volume, then rejected entry exactly because statistics/OI evidence has zero rows: `open_interest_statistics_zero_rows`."
+        },
+        {
+          "line": 10,
+          "text": "- UNPROVEN_SUMMARY: No valid entry, recorded entry, exit, gross P&L, net P&L, profitability proof, readiness, paper eligibility, or live eligibility is established for the Day 55 SPY 670C case because entry is exactly rejected by missing statistics/OI evidence."
+        },
+        {
+          "line": 12,
+          "text": "- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md; SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md; historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json; historical_signal_replay/day55_spy_670c_entry_exit_pnl_evaluation.py; watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py; tests/test_day55_spy_670c_entry_exit_pnl_evaluation.py; plus Day 52 input evidence files and accepted layer-1 references."
+        },
+        {
+          "line": 13,
+          "text": "- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md"
+        },
+        {
+          "line": 14,
+          "text": "- SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task."
+        },
+        {
+          "line": 15,
+          "text": "- DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md"
+        },
+        {
+          "line": 16,
+          "text": "- NEXT_ACTION: Use the committed `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002` worksheet to complete accepted setup-time, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight output, terminal chart-only outcome, and economics fields before proof review. Do not claim profitability, paper eligibility, or live eligibility."
+        },
+        {
+          "line": 17,
+          "text": "<!-- SAFE_FAST_CURRENT_STATE_END -->"
+        },
+        {
+          "line": 18,
+          "text": ""
+        },
+        {
+          "line": 19,
+          "text": "## Day 55 canonical workflow cleanup status"
+        },
+        {
+          "line": 20,
+          "text": ""
+        },
+        {
+          "line": 5728,
+          "text": "- New file: `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`."
+        },
+        {
+          "line": 5729,
+          "text": "- Purpose: preserve the full Day 39 takeover handoff, hard profitability/trading-usefulness rules, holding-period rule, Codex unelevated/failure-recovery rule, current Day 38 candidate state, and the new fast candidate-discovery funnel."
+        }
+      ]
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+      "ticker": "SPY",
+      "setup_type": "Clean Fast Break",
+      "source_rows": "79-99",
+      "batch_decision": "EXACT_BLOCKED_EVIDENCE_GAP",
+      "blocker_category": "CANDIDATE_QUALITY_GAP",
+      "field_status": {
+        "accepted_setup_time_row": "UNCLEAR",
+        "accepted_trigger": "UNCLEAR",
+        "accepted_invalidation": "UNCLEAR",
+        "freshness_final_signal": "UNCLEAR",
+        "blocker_caution_review": "UNCLEAR",
+        "no_hindsight_output": "UNCLEAR",
+        "terminal_chart_only_outcome": "UNCLEAR"
+      },
+      "missing_or_unaccepted_fields": [
+        "accepted_setup_time_row",
+        "accepted_trigger",
+        "accepted_invalidation",
+        "freshness_final_signal",
+        "blocker_caution_review",
+        "no_hindsight_output",
+        "terminal_chart_only_outcome"
+      ],
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "evidence_context": [
+        {
+          "line": 899,
+          "text": "- Exact next grouped task created: `SAFE_FAST_DAY50_ACCEPTED_COMPLETE_SETUP_EVIDENCE_INTAKE_CODEX_TASK.md`."
+        },
+        {
+          "line": 900,
+          "text": "- The post-closure expansion scanned the existing `24`-candidate source pool using the stricter rule requested for this task: use only new candidates with accepted, complete setup evidence."
+        },
+        {
+          "line": 901,
+          "text": "- New candidates selected: `0`."
+        },
+        {
+          "line": 902,
+          "text": "- No candidate had accepted complete setup evidence; all `24` scanned rows were excluded by the intake gate rather than being turned into another vague missing-data batch."
+        },
+        {
+          "line": 903,
+          "text": "- The four closed setup-source candidates remain regression records only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, and `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`."
+        },
+        {
+          "line": 904,
+          "text": "- The prior source-resolution exclusions also remain regression records only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-002`, `QQQ-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, and `SPY-SOURCE-WINDOW-CONTINUATION-005`."
+        },
+        {
+          "line": 905,
+          "text": "- Current post-closure expansion totals: `0` candidates found/runnable, `0` setup-qualified, `0` trade candidates, `0` contracts selected, `0` prices accepted, `0` entries eligible, `0` entries recorded, `0` exits evaluated, `0` valid trades captured, `0` true no-trades, `0` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, `0` unresolved cases, `0` winners, and `0` losers."
+        },
+        {
+          "line": 906,
+          "text": "- Existing 15-candidate regression control remained deterministic with `1` valid trade captured, `4` true no-trades, `6` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, and `4` unresolved cases."
+        },
+        {
+          "line": 907,
+          "text": "- Deterministic comparison was `PASS`; first and second hashes matched."
+        },
+        {
+          "line": 933,
+          "text": "- Machine-readable result created: `historical_signal_replay/results/day50_exact_setup_source_evidence_completion.json`."
+        },
+        {
+          "line": 934,
+          "text": "- Builder created: `historical_signal_replay/day50_exact_setup_source_evidence_completion.py`."
+        },
+        {
+          "line": 935,
+          "text": "- Focused tests created: `tests/test_day50_exact_setup_source_evidence_completion.py`."
+        },
+        {
+          "line": 936,
+          "text": "- Exact next grouped task created: `SAFE_FAST_DAY50_POSITIVE_ENTRY_EXPANSION_AFTER_SETUP_SOURCE_CLOSURE_CODEX_TASK.md`."
+        },
+        {
+          "line": 937,
+          "text": "- The four remaining exact setup-source requests were reviewed against existing local replay output and reviewer-completed packet material only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, and `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`."
+        },
+        {
+          "line": 938,
+          "text": "- All four were formally closed as `SETUP_SOURCE_CLOSED_NO_ACCEPTED_EVIDENCE`; none was promoted."
+        },
+        {
+          "line": 939,
+          "text": "- Closure reasons:"
+        },
+        {
+          "line": 940,
+          "text": "- `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`: exact GLD fixture and row-context packet are shape-only; setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight, and session behavior are not accepted."
+        },
+        {
+          "line": 941,
+          "text": "- `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`: no exact accepted Clean Fast Break replay fixture exists for SPY rows `79-99`; the available SPY CFB fixture covers a different window."
+        },
+        {
+          "line": 942,
+          "text": "- `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`: exact IWM fixture is shape-only; shelf base, trigger, invalidation, fresh/spent status, session-boundary carry-forward, and context remain unconfirmed or `TO_REVIEW`."
+        },
+        {
+          "line": 943,
+          "text": "- `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`: session-boundary subset has row-context/request material only; no accepted `2026-05-01T14:30:00-04:00` setup-time row or session-boundary decision exists."
+        }
+      ]
+    },
+    {
+      "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+      "ticker": "QQQ",
+      "setup_type": "Continuation",
+      "source_rows": "79-99",
+      "batch_decision": "EXACT_BLOCKED_EVIDENCE_GAP",
+      "blocker_category": "CANDIDATE_QUALITY_GAP",
+      "field_status": {
+        "accepted_setup_time_row": "UNCLEAR",
+        "accepted_trigger": "UNCLEAR",
+        "accepted_invalidation": "UNCLEAR",
+        "freshness_final_signal": "UNCLEAR",
+        "blocker_caution_review": "UNCLEAR",
+        "no_hindsight_output": "UNCLEAR",
+        "terminal_chart_only_outcome": "UNCLEAR"
+      },
+      "missing_or_unaccepted_fields": [
+        "accepted_setup_time_row",
+        "accepted_trigger",
+        "accepted_invalidation",
+        "freshness_final_signal",
+        "blocker_caution_review",
+        "no_hindsight_output",
+        "terminal_chart_only_outcome"
+      ],
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "evidence_context": [
+        {
+          "line": 900,
+          "text": "- The post-closure expansion scanned the existing `24`-candidate source pool using the stricter rule requested for this task: use only new candidates with accepted, complete setup evidence."
+        },
+        {
+          "line": 901,
+          "text": "- New candidates selected: `0`."
+        },
+        {
+          "line": 902,
+          "text": "- No candidate had accepted complete setup evidence; all `24` scanned rows were excluded by the intake gate rather than being turned into another vague missing-data batch."
+        },
+        {
+          "line": 903,
+          "text": "- The four closed setup-source candidates remain regression records only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, and `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`."
+        },
+        {
+          "line": 904,
+          "text": "- The prior source-resolution exclusions also remain regression records only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-002`, `QQQ-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, and `SPY-SOURCE-WINDOW-CONTINUATION-005`."
+        },
+        {
+          "line": 905,
+          "text": "- Current post-closure expansion totals: `0` candidates found/runnable, `0` setup-qualified, `0` trade candidates, `0` contracts selected, `0` prices accepted, `0` entries eligible, `0` entries recorded, `0` exits evaluated, `0` valid trades captured, `0` true no-trades, `0` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, `0` unresolved cases, `0` winners, and `0` losers."
+        },
+        {
+          "line": 906,
+          "text": "- Existing 15-candidate regression control remained deterministic with `1` valid trade captured, `4` true no-trades, `6` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, and `4` unresolved cases."
+        },
+        {
+          "line": 907,
+          "text": "- Deterministic comparison was `PASS`; first and second hashes matched."
+        },
+        {
+          "line": 908,
+          "text": "- Checked cost: `NOT_AVAILABLE`; no paid-data request was created because no new candidate reached `TRADE_CANDIDATE`."
+        },
+        {
+          "line": 976,
+          "text": "- The four exact external setup-data cases were resolved by source routing, not promoted: existing local Databento OHLCV is raw bar input only, one-hour bars are not the remaining blocker, and the remaining required evidence is accepted SAFE-FAST setup-source decisions over exact rows."
+        },
+        {
+          "line": 977,
+          "text": "- External-data cases completed locally: `0`; external-data cases still requiring exact setup-source requests: `4`."
+        },
+        {
+          "line": 978,
+          "text": "- Remaining exact setup-source requests: `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, and `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`."
+        },
+        {
+          "line": 979,
+          "text": "- Required fields still outside accepted evidence: setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight boundary, and session-boundary behavior."
+        },
+        {
+          "line": 980,
+          "text": "- The three source conflicts were formally resolved by registry priority and excluded as `SOURCE_CONFLICT_EXCLUDED`: `QQQ-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, and `SPY-SOURCE-WINDOW-CONTINUATION-005`."
+        },
+        {
+          "line": 981,
+          "text": "- `GLD-REPLACEMENT-IDEAL-CANDIDATE-002` remains `CANDIDATE_UNUSABLE` because no second exact GLD Ideal source window and row range is repo-backed."
+        },
+        {
+          "line": 982,
+          "text": "- All eight current slots were rerun twice through the Day 50 replay path with deterministic hashes matching."
+        },
+        {
+          "line": 983,
+          "text": "- Current Day 50 grouped totals: `0` setup-qualified, `0` trade candidates, `0` contracts selected, `0` entries recorded, `0` true no-trades, `0` valid trades captured, `0` missed valid trades, `0` invalid trades allowed, and `0` unresolved cases."
+        },
+        {
+          "line": 984,
+          "text": "- First blockers: `setup_time_row=8` by field and `SETUP_QUALIFIED=8` by funnel stage."
+        },
+        {
+          "line": 1079,
+          "text": "- Exact next grouped task created: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_CODEX_TASK.md`."
+        },
+        {
+          "line": 1080,
+          "text": "- The exact `8` frozen Day 49 development candidate slots were completed into formal outcomes; no slot remains labeled only as vague `MISSING_DATA`."
+        }
+      ]
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "source_rows": "79-99",
+      "batch_decision": "EXACT_BLOCKED_EVIDENCE_GAP",
+      "blocker_category": "CANDIDATE_QUALITY_GAP",
+      "field_status": {
+        "accepted_setup_time_row": "UNCLEAR",
+        "accepted_trigger": "UNCLEAR",
+        "accepted_invalidation": "UNCLEAR",
+        "freshness_final_signal": "UNCLEAR",
+        "blocker_caution_review": "UNCLEAR",
+        "no_hindsight_output": "UNCLEAR",
+        "terminal_chart_only_outcome": "UNCLEAR"
+      },
+      "missing_or_unaccepted_fields": [
+        "accepted_setup_time_row",
+        "accepted_trigger",
+        "accepted_invalidation",
+        "freshness_final_signal",
+        "blocker_caution_review",
+        "no_hindsight_output",
+        "terminal_chart_only_outcome"
+      ],
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "evidence_context": [
+        {
+          "line": 900,
+          "text": "- The post-closure expansion scanned the existing `24`-candidate source pool using the stricter rule requested for this task: use only new candidates with accepted, complete setup evidence."
+        },
+        {
+          "line": 901,
+          "text": "- New candidates selected: `0`."
+        },
+        {
+          "line": 902,
+          "text": "- No candidate had accepted complete setup evidence; all `24` scanned rows were excluded by the intake gate rather than being turned into another vague missing-data batch."
+        },
+        {
+          "line": 903,
+          "text": "- The four closed setup-source candidates remain regression records only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, and `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`."
+        },
+        {
+          "line": 904,
+          "text": "- The prior source-resolution exclusions also remain regression records only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-002`, `QQQ-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, and `SPY-SOURCE-WINDOW-CONTINUATION-005`."
+        },
+        {
+          "line": 905,
+          "text": "- Current post-closure expansion totals: `0` candidates found/runnable, `0` setup-qualified, `0` trade candidates, `0` contracts selected, `0` prices accepted, `0` entries eligible, `0` entries recorded, `0` exits evaluated, `0` valid trades captured, `0` true no-trades, `0` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, `0` unresolved cases, `0` winners, and `0` losers."
+        },
+        {
+          "line": 906,
+          "text": "- Existing 15-candidate regression control remained deterministic with `1` valid trade captured, `4` true no-trades, `6` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, and `4` unresolved cases."
+        },
+        {
+          "line": 907,
+          "text": "- Deterministic comparison was `PASS`; first and second hashes matched."
+        },
+        {
+          "line": 908,
+          "text": "- Checked cost: `NOT_AVAILABLE`; no paid-data request was created because no new candidate reached `TRADE_CANDIDATE`."
+        },
+        {
+          "line": 976,
+          "text": "- The four exact external setup-data cases were resolved by source routing, not promoted: existing local Databento OHLCV is raw bar input only, one-hour bars are not the remaining blocker, and the remaining required evidence is accepted SAFE-FAST setup-source decisions over exact rows."
+        },
+        {
+          "line": 977,
+          "text": "- External-data cases completed locally: `0`; external-data cases still requiring exact setup-source requests: `4`."
+        },
+        {
+          "line": 978,
+          "text": "- Remaining exact setup-source requests: `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, and `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`."
+        },
+        {
+          "line": 979,
+          "text": "- Required fields still outside accepted evidence: setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight boundary, and session-boundary behavior."
+        },
+        {
+          "line": 980,
+          "text": "- The three source conflicts were formally resolved by registry priority and excluded as `SOURCE_CONFLICT_EXCLUDED`: `QQQ-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, and `SPY-SOURCE-WINDOW-CONTINUATION-005`."
+        },
+        {
+          "line": 981,
+          "text": "- `GLD-REPLACEMENT-IDEAL-CANDIDATE-002` remains `CANDIDATE_UNUSABLE` because no second exact GLD Ideal source window and row range is repo-backed."
+        },
+        {
+          "line": 982,
+          "text": "- All eight current slots were rerun twice through the Day 50 replay path with deterministic hashes matching."
+        },
+        {
+          "line": 983,
+          "text": "- Current Day 50 grouped totals: `0` setup-qualified, `0` trade candidates, `0` contracts selected, `0` entries recorded, `0` true no-trades, `0` valid trades captured, `0` missed valid trades, `0` invalid trades allowed, and `0` unresolved cases."
+        },
+        {
+          "line": 984,
+          "text": "- First blockers: `setup_time_row=8` by field and `SETUP_QUALIFIED=8` by funnel stage."
+        },
+        {
+          "line": 1079,
+          "text": "- Exact next grouped task created: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_CODEX_TASK.md`."
+        },
+        {
+          "line": 1080,
+          "text": "- The exact `8` frozen Day 49 development candidate slots were completed into formal outcomes; no slot remains labeled only as vague `MISSING_DATA`."
+        }
+      ]
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "source_rows": "79-99",
+      "batch_decision": "EXACT_BLOCKED_EVIDENCE_GAP",
+      "blocker_category": "CANDIDATE_QUALITY_GAP",
+      "field_status": {
+        "accepted_setup_time_row": "UNCLEAR",
+        "accepted_trigger": "UNCLEAR",
+        "accepted_invalidation": "UNCLEAR",
+        "freshness_final_signal": "UNCLEAR",
+        "blocker_caution_review": "UNCLEAR",
+        "no_hindsight_output": "UNCLEAR",
+        "terminal_chart_only_outcome": "UNCLEAR"
+      },
+      "missing_or_unaccepted_fields": [
+        "accepted_setup_time_row",
+        "accepted_trigger",
+        "accepted_invalidation",
+        "freshness_final_signal",
+        "blocker_caution_review",
+        "no_hindsight_output",
+        "terminal_chart_only_outcome"
+      ],
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "evidence_context": [
+        {
+          "line": 900,
+          "text": "- The post-closure expansion scanned the existing `24`-candidate source pool using the stricter rule requested for this task: use only new candidates with accepted, complete setup evidence."
+        },
+        {
+          "line": 901,
+          "text": "- New candidates selected: `0`."
+        },
+        {
+          "line": 902,
+          "text": "- No candidate had accepted complete setup evidence; all `24` scanned rows were excluded by the intake gate rather than being turned into another vague missing-data batch."
+        },
+        {
+          "line": 903,
+          "text": "- The four closed setup-source candidates remain regression records only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, and `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`."
+        },
+        {
+          "line": 904,
+          "text": "- The prior source-resolution exclusions also remain regression records only: `GLD-REPLACEMENT-IDEAL-CANDIDATE-002`, `QQQ-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, and `SPY-SOURCE-WINDOW-CONTINUATION-005`."
+        },
+        {
+          "line": 905,
+          "text": "- Current post-closure expansion totals: `0` candidates found/runnable, `0` setup-qualified, `0` trade candidates, `0` contracts selected, `0` prices accepted, `0` entries eligible, `0` entries recorded, `0` exits evaluated, `0` valid trades captured, `0` true no-trades, `0` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, `0` unresolved cases, `0` winners, and `0` losers."
+        },
+        {
+          "line": 906,
+          "text": "- Existing 15-candidate regression control remained deterministic with `1` valid trade captured, `4` true no-trades, `6` missing-data cases, `0` missed valid trades, `0` invalid trades allowed, and `4` unresolved cases."
+        },
+        {
+          "line": 907,
+          "text": "- Deterministic comparison was `PASS`; first and second hashes matched."
+        },
+        {
+          "line": 908,
+          "text": "- Checked cost: `NOT_AVAILABLE`; no paid-data request was created because no new candidate reached `TRADE_CANDIDATE`."
+        },
+        {
+          "line": 976,
+          "text": "- The four exact external setup-data cases were resolved by source routing, not promoted: existing local Databento OHLCV is raw bar input only, one-hour bars are not the remaining blocker, and the remaining required evidence is accepted SAFE-FAST setup-source decisions over exact rows."
+        },
+        {
+          "line": 977,
+          "text": "- External-data cases completed locally: `0`; external-data cases still requiring exact setup-source requests: `4`."
+        },
+        {
+          "line": 978,
+          "text": "- Remaining exact setup-source requests: `GLD-REPLACEMENT-IDEAL-CANDIDATE-001`, `SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003`, `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-001`, and `IWM-REPLACEMENT-CONTINUATION-CANDIDATE-002`."
+        },
+        {
+          "line": 979,
+          "text": "- Required fields still outside accepted evidence: setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight boundary, and session-boundary behavior."
+        },
+        {
+          "line": 980,
+          "text": "- The three source conflicts were formally resolved by registry priority and excluded as `SOURCE_CONFLICT_EXCLUDED`: `QQQ-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-004`, and `SPY-SOURCE-WINDOW-CONTINUATION-005`."
+        },
+        {
+          "line": 981,
+          "text": "- `GLD-REPLACEMENT-IDEAL-CANDIDATE-002` remains `CANDIDATE_UNUSABLE` because no second exact GLD Ideal source window and row range is repo-backed."
+        },
+        {
+          "line": 982,
+          "text": "- All eight current slots were rerun twice through the Day 50 replay path with deterministic hashes matching."
+        },
+        {
+          "line": 983,
+          "text": "- Current Day 50 grouped totals: `0` setup-qualified, `0` trade candidates, `0` contracts selected, `0` entries recorded, `0` true no-trades, `0` valid trades captured, `0` missed valid trades, `0` invalid trades allowed, and `0` unresolved cases."
+        },
+        {
+          "line": 984,
+          "text": "- First blockers: `setup_time_row=8` by field and `SETUP_QUALIFIED=8` by funnel stage."
+        },
+        {
+          "line": 1079,
+          "text": "- Exact next grouped task created: `SAFE_FAST_DAY49_GROUPED_POSITIVE_ENTRY_EXACT_SETUP_DATA_APPROVAL_DOWNLOAD_CODEX_TASK.md`."
+        },
+        {
+          "line": 1080,
+          "text": "- The exact `8` frozen Day 49 development candidate slots were completed into formal outcomes; no slot remains labeled only as vague `MISSING_DATA`."
+        }
+      ]
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "source_rows": "156-169",
+      "batch_decision": "EXACT_BLOCKED_EVIDENCE_GAP",
+      "blocker_category": "CANDIDATE_QUALITY_GAP",
+      "field_status": {
+        "accepted_setup_time_row": "CANDIDATE_NOT_ACCEPTED",
+        "accepted_trigger": "CANDIDATE_NOT_ACCEPTED",
+        "accepted_invalidation": "CANDIDATE_NOT_ACCEPTED",
+        "freshness_final_signal": "CANDIDATE_NOT_ACCEPTED",
+        "blocker_caution_review": "CANDIDATE_NOT_ACCEPTED",
+        "no_hindsight_output": "CANDIDATE_NOT_ACCEPTED",
+        "terminal_chart_only_outcome": "CANDIDATE_NOT_ACCEPTED"
+      },
+      "missing_or_unaccepted_fields": [
+        "accepted_setup_time_row",
+        "accepted_trigger",
+        "accepted_invalidation",
+        "freshness_final_signal",
+        "blocker_caution_review",
+        "no_hindsight_output",
+        "terminal_chart_only_outcome"
+      ],
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "evidence_context": [
+        {
+          "line": 5728,
+          "text": "- New file: `SAFE_FAST_DAY39_COMBINED_HANDOFF_AND_FAST_CANDIDATE_FUNNEL.md`."
+        },
+        {
+          "line": 5729,
+          "text": "- Purpose: preserve the full Day 39 takeover handoff, hard profitability/trading-usefulness rules, holding-period rule, Codex unelevated/failure-recovery rule, current Day 38 candidate state, and the new fast candidate-discovery funnel."
+        },
+        {
+          "line": 5730,
+          "text": "- Current evidence state: pool expanded to 24 candidates; no proof accepted; no profitability claim; IWM/GLD remain missing-evidence/inconclusive unless exact accepted setup-time, trigger, invalidation, freshness, blocker, no-hindsight, and outcome proof exists."
+        },
+        {
+          "line": 5731,
+          "text": "- Candidate-discovery speedup rule: use a fast completeness screen before deep review; classify candidates as ready for deep review, blocked but maybe fixable, duplicate/already counted, or drop/replace; deep-review only the best batch."
+        },
+        {
+          "line": 5732,
+          "text": "- Best available next work remains a batch setup-time replay review for `SPY-SOURCE-WINDOW-CONTINUATION-002` lines 156-169 and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002` lines 66-86, unless real local repo state says a newer objective supersedes it."
+        },
+        {
+          "line": 5733,
+          "text": "- If both remain blocked, stop drilling them and expand the source pool again."
+        },
+        {
+          "line": 5734,
+          "text": "- Scope preserved: docs-only preservation; no main.py, engine logic, live data, live trading, controlled shadow, watcher loops, alerts, broker/order/account/options/P&L, account sizing, Railway/production/deploy, generated reports/logs, secrets, live trade decisions, fake proof, hindsight filling, or profitability claim."
+        },
+        {
+          "line": 5735,
+          "text": ""
+        },
+        {
+          "line": 5736,
+          "text": "## Current baseline"
+        },
+        {
+          "line": 12852,
+          "text": ""
+        },
+        {
+          "line": 12853,
+          "text": "- Latest committed baseline before this status: `9a110e2 Add Day 38 SPY QQQ batch candidate expansion review`."
+        },
+        {
+          "line": 12854,
+          "text": "- New review file: `SAFE_FAST_DAY38_SPY_QQQ_SOURCE_WINDOW_CANDIDATE_PASS.md`."
+        },
+        {
+          "line": 12855,
+          "text": "- Result: bounded local source-window pass found three additional non-duplicate SPY/QQQ candidate windows from accepted local source CSV rows."
+        },
+        {
+          "line": 12856,
+          "text": "- Added candidates: `SPY-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-003`, and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002`."
+        },
+        {
+          "line": 12857,
+          "text": "- Previous batch size: 17."
+        },
+        {
+          "line": 12858,
+          "text": "- New clean candidates found: 3."
+        },
+        {
+          "line": 12859,
+          "text": "- Candidates added: 3."
+        },
+        {
+          "line": 12860,
+          "text": "- New estimated batch size: 20."
+        },
+        {
+          "line": 12862,
+          "text": "- Strongest pairs remain QQQ Clean Fast Break, QQQ Continuation, SPY Continuation, and SPY Ideal."
+        },
+        {
+          "line": 12863,
+          "text": "- Weakest pairs remain prior SPY Clean Fast Break 04-15, QQQ Ideal wide-risk review, and the three new source-window candidates until exact replay/outcome proof exists."
+        }
+      ]
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-003",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "source_rows": "51-78",
+      "batch_decision": "EXACT_BLOCKED_EVIDENCE_GAP",
+      "blocker_category": "CANDIDATE_QUALITY_GAP",
+      "field_status": {
+        "accepted_setup_time_row": "UNCLEAR",
+        "accepted_trigger": "UNCLEAR",
+        "accepted_invalidation": "UNCLEAR",
+        "freshness_final_signal": "UNCLEAR",
+        "blocker_caution_review": "UNCLEAR",
+        "no_hindsight_output": "MISSING",
+        "terminal_chart_only_outcome": "UNCLEAR"
+      },
+      "missing_or_unaccepted_fields": [
+        "accepted_setup_time_row",
+        "accepted_trigger",
+        "accepted_invalidation",
+        "freshness_final_signal",
+        "blocker_caution_review",
+        "no_hindsight_output",
+        "terminal_chart_only_outcome"
+      ],
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "evidence_context": [
+        {
+          "line": 12852,
+          "text": ""
+        },
+        {
+          "line": 12853,
+          "text": "- Latest committed baseline before this status: `9a110e2 Add Day 38 SPY QQQ batch candidate expansion review`."
+        },
+        {
+          "line": 12854,
+          "text": "- New review file: `SAFE_FAST_DAY38_SPY_QQQ_SOURCE_WINDOW_CANDIDATE_PASS.md`."
+        },
+        {
+          "line": 12855,
+          "text": "- Result: bounded local source-window pass found three additional non-duplicate SPY/QQQ candidate windows from accepted local source CSV rows."
+        },
+        {
+          "line": 12856,
+          "text": "- Added candidates: `SPY-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-003`, and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002`."
+        },
+        {
+          "line": 12857,
+          "text": "- Previous batch size: 17."
+        },
+        {
+          "line": 12858,
+          "text": "- New clean candidates found: 3."
+        },
+        {
+          "line": 12859,
+          "text": "- Candidates added: 3."
+        },
+        {
+          "line": 12860,
+          "text": "- New estimated batch size: 20."
+        },
+        {
+          "line": 13154,
+          "text": "- Add-as-replacement count: 0."
+        },
+        {
+          "line": 13155,
+          "text": "- Duplicate count: 3."
+        },
+        {
+          "line": 13156,
+          "text": "- Drop count: 2."
+        },
+        {
+          "line": 13157,
+          "text": "- Unavailable count: 1."
+        },
+        {
+          "line": 13158,
+          "text": "- Cleaner-looking candidates found but not added: `SPY-SOURCE-WINDOW-CONTINUATION-002`, `SPY-SOURCE-WINDOW-CONTINUATION-003`, and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002`."
+        },
+        {
+          "line": 13159,
+          "text": "- Reason not added: all three are already counted in the Day 38 pool, so adding them again would violate the duplicate rule."
+        },
+        {
+          "line": 13160,
+          "text": "- Unused reviewed ranges `SPY` CSV lines 51-78, `SPY` CSV lines 114-127, and `QQQ` CSV lines 45-65 did not provide cleaner non-duplicate setup identities."
+        },
+        {
+          "line": 13161,
+          "text": "- `SPY-SOURCE-WINDOW-CONTINUATION-005` and `QQQ-SOURCE-WINDOW-CONTINUATION-002` remain removed from the replacement path because their fresh/non-duplicate identity stayed `UNCLEAR`."
+        },
+        {
+          "line": 13162,
+          "text": "- Fastest next action: stop searching the exhausted current SPY/QQQ source pool for the same replacement slots; run the already-defined bounded setup-time replay work for `SPY-SOURCE-WINDOW-CONTINUATION-002` lines 156-169 and `QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002` lines 66-86, or add new non-duplicate replacements only if new repo-backed source rows become available."
+        },
+        {
+          "line": 13172,
+          "text": "- Result: built the smallest local stdout-only helper to batch-screen the Day 39 24-candidate pool from local Markdown source files."
+        },
+        {
+          "line": 13173,
+          "text": "- Source pool represented: 24 candidates total, using the Day 38 full 20-candidate worklist plus the 4 counted SPY/QQQ added source-window candidates."
+        }
+      ]
+    }
+  ],
+  "profitability_proof": "NO",
+  "paper_live_eligibility": "NO",
+  "next_action": "If replay_ready_count is greater than zero, move replay-ready candidates to economics/P&L. If zero, close the batch as an exact blocker and use the missing field list as the next source/action."
+}
