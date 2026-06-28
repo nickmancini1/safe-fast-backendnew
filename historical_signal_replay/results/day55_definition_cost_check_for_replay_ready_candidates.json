@@ -1,0 +1,67 @@
+{
+  "schema": "safe_fast_day55_definition_cost_check_for_replay_ready_candidates_v1",
+  "created_from_head": "c1543e6 Add priority drift gate",
+  "source_request": "historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json",
+  "status": "BLOCKED",
+  "dataset": "OPRA.PILLAR",
+  "request_count": 4,
+  "requests": [
+    {
+      "dataset": "OPRA.PILLAR",
+      "schema": "definition",
+      "stype_in": "parent",
+      "symbols": "QQQ.OPT",
+      "start": "2026-04-17T00:00:00Z",
+      "end": "2026-04-18T00:00:00Z",
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+      ]
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "schema": "definition",
+      "stype_in": "parent",
+      "symbols": "SPY.OPT",
+      "start": "2026-03-31T00:00:00Z",
+      "end": "2026-04-01T00:00:00Z",
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "SPY-SOURCE-WINDOW-CONTINUATION-005"
+      ]
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "schema": "definition",
+      "stype_in": "parent",
+      "symbols": "QQQ.OPT",
+      "start": "2026-04-02T00:00:00Z",
+      "end": "2026-04-03T00:00:00Z",
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+      ]
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "schema": "definition",
+      "stype_in": "parent",
+      "symbols": "SPY.OPT",
+      "start": "2026-04-17T00:00:00Z",
+      "end": "2026-04-18T00:00:00Z",
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CONTINUATION-002"
+      ]
+    }
+  ],
+  "cost_only": true,
+  "download_performed": false,
+  "vendor_metadata_call_performed": false,
+  "contract_selection_ready": false,
+  "economics_ready_count": 0,
+  "grouped_cost": null,
+  "currency": "USD",
+  "profitability_proof": "NO",
+  "paper_live_eligibility": "NO",
+  "failure_reason": "SAFE_FAST_DB_AUTH_NOT_CONFIGURED",
+  "next_action": "Configure SAFE_FAST_DB_AUTH, then rerun this cost-only checker. No download is performed."
+}
