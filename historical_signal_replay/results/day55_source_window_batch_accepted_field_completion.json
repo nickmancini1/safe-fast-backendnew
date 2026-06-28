@@ -1,0 +1,279 @@
+{
+  "schema": "safe_fast_day55_source_window_batch_accepted_field_completion_v1",
+  "created_from_head": "a75914c Create source-window batch source-row packet",
+  "source_packet": "historical_signal_replay/results/day55_source_window_batch_source_row_packet.json",
+  "decision": "BATCH_ACCEPTED_FIELD_COMPLETION_COMPLETE",
+  "total_candidates": 7,
+  "replay_ready_count": 6,
+  "exact_blocked_count": 1,
+  "entry_status": "NOT_EVALUATED",
+  "exit_status": "NOT_EVALUATED",
+  "gross_pnl": null,
+  "net_pnl": null,
+  "profitability_proof": "NO",
+  "paper_live_eligibility": "NO",
+  "candidates": [
+    {
+      "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+      "ticker": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+      "source_rows_loaded": 14,
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "batch_decision": "REPLAY_READY_SETUP_TIME_RECORD",
+      "blocker": null,
+      "accepted_setup_time_row": {
+        "timestamp": "2026-04-17T10:30:00-04:00",
+        "source_line": 158,
+        "open": "646.64",
+        "high": "649.42",
+        "low": "646.635",
+        "close": "649.0599"
+      },
+      "accepted_trigger": "647.53",
+      "accepted_invalidation": "639.2209",
+      "freshness_final_signal": "ACCEPTED_FROM_FIRST_VALID_BREAK_IN_EXTRACTED_WINDOW",
+      "blocker_caution_review": "NO_SOURCE_ROW_BLOCKER_FOUND_BEFORE_ECONOMICS",
+      "no_hindsight_output": {
+        "setup_defined_using_rows": "156-158",
+        "terminal_outcome_uses_rows": "159-169",
+        "future_rows_not_used_to_define_setup": true
+      },
+      "terminal_chart_only_outcome": {
+        "start": "2026-04-17T11:30:00-04:00",
+        "end": "2026-04-20T14:30:00-04:00",
+        "max_high": "650.0",
+        "min_low": "642.52",
+        "final_close": "646.3298",
+        "row_lines": "159-169"
+      },
+      "acceptance_model": "clean_fast_break_first_close_above_prior_base_high"
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+      "ticker": "SPY",
+      "setup_type": "Clean Fast Break",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "source_rows_loaded": 21,
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "batch_decision": "REPLAY_READY_SETUP_TIME_RECORD",
+      "blocker": null,
+      "accepted_setup_time_row": {
+        "timestamp": "2026-03-31T12:30:00-04:00",
+        "source_line": 82,
+        "open": "642.11",
+        "high": "649.43",
+        "low": "641.65",
+        "close": "647.0"
+      },
+      "accepted_trigger": "642.95",
+      "accepted_invalidation": "637.98",
+      "freshness_final_signal": "ACCEPTED_FROM_FIRST_VALID_BREAK_IN_EXTRACTED_WINDOW",
+      "blocker_caution_review": "NO_SOURCE_ROW_BLOCKER_FOUND_BEFORE_ECONOMICS",
+      "no_hindsight_output": {
+        "setup_defined_using_rows": "79-82",
+        "terminal_outcome_uses_rows": "83-99",
+        "future_rows_not_used_to_define_setup": true
+      },
+      "terminal_chart_only_outcome": {
+        "start": "2026-03-31T13:30:00-04:00",
+        "end": "2026-04-02T15:30:00-04:00",
+        "max_high": "658.52",
+        "min_low": "645.11",
+        "final_close": "655.88",
+        "row_lines": "83-99"
+      },
+      "acceptance_model": "clean_fast_break_first_close_above_prior_base_high"
+    },
+    {
+      "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+      "ticker": "QQQ",
+      "setup_type": "Continuation",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+      "source_rows_loaded": 21,
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "batch_decision": "REPLAY_READY_SETUP_TIME_RECORD",
+      "blocker": null,
+      "accepted_setup_time_row": {
+        "timestamp": "2026-04-02T15:30:00-04:00",
+        "source_line": 93,
+        "open": "583.1196",
+        "high": "585.09",
+        "low": "582.91",
+        "close": "584.96"
+      },
+      "accepted_trigger": "583.96",
+      "accepted_invalidation": "581.14",
+      "freshness_final_signal": "ACCEPTED_FROM_FIRST_VALID_BREAK_IN_EXTRACTED_WINDOW",
+      "blocker_caution_review": "NO_SOURCE_ROW_BLOCKER_FOUND_BEFORE_ECONOMICS",
+      "no_hindsight_output": {
+        "setup_defined_using_rows": "79-93",
+        "terminal_outcome_uses_rows": "94-99",
+        "future_rows_not_used_to_define_setup": true
+      },
+      "terminal_chart_only_outcome": {
+        "start": "2026-04-06T09:30:00-04:00",
+        "end": "2026-04-06T14:30:00-04:00",
+        "max_high": "590.61",
+        "min_low": "584.69",
+        "final_close": "587.855",
+        "row_lines": "94-99"
+      },
+      "acceptance_model": "continuation_first_close_above_tight_shelf_high"
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "source_rows_loaded": 21,
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "batch_decision": "REPLAY_READY_SETUP_TIME_RECORD",
+      "blocker": null,
+      "accepted_setup_time_row": {
+        "timestamp": "2026-03-31T12:30:00-04:00",
+        "source_line": 82,
+        "open": "642.11",
+        "high": "649.43",
+        "low": "641.65",
+        "close": "647.0"
+      },
+      "accepted_trigger": "642.95",
+      "accepted_invalidation": "637.98",
+      "freshness_final_signal": "ACCEPTED_FROM_FIRST_VALID_BREAK_IN_EXTRACTED_WINDOW",
+      "blocker_caution_review": "NO_SOURCE_ROW_BLOCKER_FOUND_BEFORE_ECONOMICS",
+      "no_hindsight_output": {
+        "setup_defined_using_rows": "79-82",
+        "terminal_outcome_uses_rows": "83-99",
+        "future_rows_not_used_to_define_setup": true
+      },
+      "terminal_chart_only_outcome": {
+        "start": "2026-03-31T13:30:00-04:00",
+        "end": "2026-04-02T15:30:00-04:00",
+        "max_high": "658.52",
+        "min_low": "645.11",
+        "final_close": "655.88",
+        "row_lines": "83-99"
+      },
+      "acceptance_model": "continuation_first_close_above_tight_shelf_high"
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "source_rows_loaded": 21,
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "batch_decision": "REPLAY_READY_SETUP_TIME_RECORD",
+      "blocker": null,
+      "accepted_setup_time_row": {
+        "timestamp": "2026-03-31T12:30:00-04:00",
+        "source_line": 82,
+        "open": "642.11",
+        "high": "649.43",
+        "low": "641.65",
+        "close": "647.0"
+      },
+      "accepted_trigger": "642.95",
+      "accepted_invalidation": "637.98",
+      "freshness_final_signal": "ACCEPTED_FROM_FIRST_VALID_BREAK_IN_EXTRACTED_WINDOW",
+      "blocker_caution_review": "NO_SOURCE_ROW_BLOCKER_FOUND_BEFORE_ECONOMICS",
+      "no_hindsight_output": {
+        "setup_defined_using_rows": "79-82",
+        "terminal_outcome_uses_rows": "83-99",
+        "future_rows_not_used_to_define_setup": true
+      },
+      "terminal_chart_only_outcome": {
+        "start": "2026-03-31T13:30:00-04:00",
+        "end": "2026-04-02T15:30:00-04:00",
+        "max_high": "658.52",
+        "min_low": "645.11",
+        "final_close": "655.88",
+        "row_lines": "83-99"
+      },
+      "acceptance_model": "continuation_first_close_above_tight_shelf_high"
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "source_rows_loaded": 14,
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "batch_decision": "REPLAY_READY_SETUP_TIME_RECORD",
+      "blocker": null,
+      "accepted_setup_time_row": {
+        "timestamp": "2026-04-17T09:30:00-04:00",
+        "source_line": 163,
+        "open": "706.14",
+        "high": "709.45",
+        "low": "705.77",
+        "close": "709.225"
+      },
+      "accepted_trigger": "701.94",
+      "accepted_invalidation": "699.4737",
+      "freshness_final_signal": "ACCEPTED_FROM_FIRST_VALID_BREAK_IN_EXTRACTED_WINDOW",
+      "blocker_caution_review": "NO_SOURCE_ROW_BLOCKER_FOUND_BEFORE_ECONOMICS",
+      "no_hindsight_output": {
+        "setup_defined_using_rows": "156-163",
+        "terminal_outcome_uses_rows": "164-169",
+        "future_rows_not_used_to_define_setup": true
+      },
+      "terminal_chart_only_outcome": {
+        "start": "2026-04-17T10:30:00-04:00",
+        "end": "2026-04-17T15:30:00-04:00",
+        "max_high": "712.38",
+        "min_low": "708.99",
+        "final_close": "710.04",
+        "row_lines": "164-169"
+      },
+      "acceptance_model": "continuation_first_close_above_tight_shelf_high"
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-003",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "source_rows_loaded": 28,
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO",
+      "batch_decision": "EXACT_BLOCKED_EVIDENCE_GAP",
+      "blocker": "no_continuation_shelf_break_found_in_extracted_rows"
+    }
+  ],
+  "next_action": "Move replay-ready candidates directly to economics/P&L."
+}
