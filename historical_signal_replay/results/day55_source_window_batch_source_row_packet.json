@@ -1,0 +1,732 @@
+{
+  "schema": "safe_fast_day55_source_window_batch_source_row_packet_v1",
+  "created_from_head": "8ec765e Close source-window batch as exact blocker",
+  "source_closeout": "historical_signal_replay/results/day55_source_window_batch_exact_blocker_closeout.json",
+  "decision": "BATCH_SOURCE_ROW_PACKET_COMPLETE",
+  "total_candidates": 7,
+  "source_rows_extracted_count": 7,
+  "exact_blocked_count": 0,
+  "entry_status": "NOT_EVALUATED",
+  "exit_status": "NOT_EVALUATED",
+  "gross_pnl": null,
+  "net_pnl": null,
+  "profitability_proof": "NO",
+  "paper_live_eligibility": "NO",
+  "candidates": [
+    {
+      "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+      "ticker": "QQQ",
+      "setup_type": "Clean Fast Break",
+      "requested_source_rows": "66-86",
+      "source_file_status": "SOURCE_ROWS_EXTRACTED",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+      "candidate_source_files": [
+        "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv"
+      ],
+      "extracted_rows": [
+        {
+          "line": 156,
+          "text": "QQQ,2026-04-16T15:30:00-04:00,America/New_York,2026-04-16,regular,true,1h_rth,639.35,640.72,639.2209,640.41,2340368.856229,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 157,
+          "text": "QQQ,2026-04-17T09:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,645.53,647.53,644.07,646.63,5672400.559219,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 158,
+          "text": "QQQ,2026-04-17T10:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,646.64,649.42,646.635,649.0599,3277497.453111,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 159,
+          "text": "QQQ,2026-04-17T11:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,649.08,649.9,647.87,649.35,2714781.647052,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 160,
+          "text": "QQQ,2026-04-17T12:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,649.375,650.0,646.49,647.3799,2314002.27918,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 161,
+          "text": "QQQ,2026-04-17T13:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,647.34,648.73,646.94,647.6524,2072646.072947,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 162,
+          "text": "QQQ,2026-04-17T14:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,647.66,648.36,647.02,647.52,1816632.42697,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 163,
+          "text": "QQQ,2026-04-17T15:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,647.52,648.85,647.5199,648.78,2504410.445525,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 164,
+          "text": "QQQ,2026-04-20T09:30:00-04:00,America/New_York,2026-04-20,regular,true,1h_rth,648.04,648.76,646.08,646.405,3205632.594682,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 165,
+          "text": "QQQ,2026-04-20T10:30:00-04:00,America/New_York,2026-04-20,regular,true,1h_rth,646.38,646.6594,642.52,645.65,3843146.095445,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 166,
+          "text": "QQQ,2026-04-20T11:30:00-04:00,America/New_York,2026-04-20,regular,true,1h_rth,645.62,645.62,644.08,645.08,1634299.214246,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 167,
+          "text": "QQQ,2026-04-20T12:30:00-04:00,America/New_York,2026-04-20,regular,true,1h_rth,645.11,646.09,644.755,645.61,977982.935644,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 168,
+          "text": "QQQ,2026-04-20T13:30:00-04:00,America/New_York,2026-04-20,regular,true,1h_rth,645.6,646.71,645.31,646.49,1073737.127092,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 169,
+          "text": "QQQ,2026-04-20T14:30:00-04:00,America/New_York,2026-04-20,regular,true,1h_rth,646.5,646.81,645.935,646.3298,1319067.442019,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        }
+      ],
+      "rows_extracted_count": 14,
+      "decision": "SOURCE_ROWS_EXTRACTED_FOR_FIELD_ACCEPTANCE",
+      "blocker": "accepted_setup_fields_still_required_before_economics",
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO"
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+      "ticker": "SPY",
+      "setup_type": "Clean Fast Break",
+      "requested_source_rows": "79-99",
+      "source_file_status": "SOURCE_ROWS_EXTRACTED",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "candidate_source_files": [
+        "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv"
+      ],
+      "extracted_rows": [
+        {
+          "line": 79,
+          "text": "SPY,2026-03-31T09:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,638.94,642.95,638.31,642.5,9343696.071119,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 80,
+          "text": "SPY,2026-03-31T10:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,642.48,642.65,637.98,640.68,8232012.742451,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 81,
+          "text": "SPY,2026-03-31T11:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,640.68,642.63,639.55,642.11,4598869.139489,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 82,
+          "text": "SPY,2026-03-31T12:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,642.11,649.43,641.65,647.0,12152764.15441,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 83,
+          "text": "SPY,2026-03-31T13:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,647.02,648.4,646.14,647.71,6636288.81114,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 84,
+          "text": "SPY,2026-03-31T14:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,647.71,649.91,647.2,649.402,6827421.216202,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 85,
+          "text": "SPY,2026-03-31T15:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,649.42,651.53,649.32,650.235,9925150.25773,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 86,
+          "text": "SPY,2026-04-01T09:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,653.88,656.05,653.0,655.03,9932835.198246,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 87,
+          "text": "SPY,2026-04-01T10:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,655.03,657.07,653.7,656.33,5675688.638723,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 88,
+          "text": "SPY,2026-04-01T11:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,656.33,658.095,655.93,657.175,3646062.552178,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 89,
+          "text": "SPY,2026-04-01T12:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,657.185,658.52,655.0817,658.3,2602959.002987,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 90,
+          "text": "SPY,2026-04-01T13:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,658.315,658.44,653.83,654.22,5125184.925649,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 91,
+          "text": "SPY,2026-04-01T14:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,654.23,656.3401,653.667,656.1,5445731.702624,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 92,
+          "text": "SPY,2026-04-01T15:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,656.1,656.74,654.73,655.18,4519339.132405,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 93,
+          "text": "SPY,2026-04-02T09:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,646.42,651.06,645.11,650.34,7534801.667911,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 94,
+          "text": "SPY,2026-04-02T10:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,650.35,657.92,650.1,655.28,8206353.601952,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 95,
+          "text": "SPY,2026-04-02T11:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,655.32,655.8894,652.17,652.72,3349574.515831,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 96,
+          "text": "SPY,2026-04-02T12:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,652.7,655.04,652.53,654.65,2138809.651271,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 97,
+          "text": "SPY,2026-04-02T13:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,654.65,654.75,652.55,653.5,2205579.771482,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 98,
+          "text": "SPY,2026-04-02T14:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,653.53,655.27,653.39,654.3799,2742030.732827,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 99,
+          "text": "SPY,2026-04-02T15:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,654.37,656.1,654.09,655.88,3188535.125356,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        }
+      ],
+      "rows_extracted_count": 21,
+      "decision": "SOURCE_ROWS_EXTRACTED_FOR_FIELD_ACCEPTANCE",
+      "blocker": "accepted_setup_fields_still_required_before_economics",
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO"
+    },
+    {
+      "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+      "ticker": "QQQ",
+      "setup_type": "Continuation",
+      "requested_source_rows": "87-107",
+      "source_file_status": "SOURCE_ROWS_EXTRACTED",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv",
+      "candidate_source_files": [
+        "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_QQQ_source.csv"
+      ],
+      "extracted_rows": [
+        {
+          "line": 79,
+          "text": "QQQ,2026-03-31T15:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,576.45,578.64,576.29,577.17,5207417.857679,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 80,
+          "text": "QQQ,2026-04-01T09:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,581.49,584.36,580.42,583.83,7645809.058006,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 81,
+          "text": "QQQ,2026-04-01T10:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,583.84,586.205,582.52,585.31,5385853.53765,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 82,
+          "text": "QQQ,2026-04-01T11:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,585.31,587.26,584.86,586.665,3653342.770572,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 83,
+          "text": "QQQ,2026-04-01T12:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,586.68,587.739,586.27,587.34,2540406.389854,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 84,
+          "text": "QQQ,2026-04-01T13:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,587.3475,587.55,582.7,583.025,5537721.527819,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 85,
+          "text": "QQQ,2026-04-01T14:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,583.03,585.3,582.3265,585.03,5032721.079172,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 86,
+          "text": "QQQ,2026-04-01T15:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,585.04,585.51,583.82,584.26,3502128.38412,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 87,
+          "text": "QQQ,2026-04-02T09:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,573.97,579.7,571.92,578.23,8669268.322061,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 88,
+          "text": "QQQ,2026-04-02T10:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,578.25,585.9899,577.9701,583.96,6670233.02795,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 89,
+          "text": "QQQ,2026-04-02T11:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,584.04,584.7,580.97,581.6999,3209249.57729,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 90,
+          "text": "QQQ,2026-04-02T12:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,581.67,583.96,581.27,583.5399,2828848.707814,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 91,
+          "text": "QQQ,2026-04-02T13:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,583.56,583.66,581.14,582.18,2023841.802647,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 92,
+          "text": "QQQ,2026-04-02T14:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,582.196,583.96,582.05,583.129,2094414.779356,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 93,
+          "text": "QQQ,2026-04-02T15:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,583.1196,585.09,582.91,584.96,2378719.422026,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 94,
+          "text": "QQQ,2026-04-06T09:30:00-04:00,America/New_York,2026-04-06,regular,true,1h_rth,586.22,590.61,585.73,588.52,5511305.986938,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 95,
+          "text": "QQQ,2026-04-06T10:30:00-04:00,America/New_York,2026-04-06,regular,true,1h_rth,588.51,589.13,586.08,586.54,3107387.81868,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 96,
+          "text": "QQQ,2026-04-06T11:30:00-04:00,America/New_York,2026-04-06,regular,true,1h_rth,586.54,587.75,585.87,587.2745,1657737.115651,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 97,
+          "text": "QQQ,2026-04-06T12:30:00-04:00,America/New_York,2026-04-06,regular,true,1h_rth,587.28,588.1,584.69,587.15,2440229.558938,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 98,
+          "text": "QQQ,2026-04-06T13:30:00-04:00,America/New_York,2026-04-06,regular,true,1h_rth,587.16,588.495,585.71,587.98,2289184.903556,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 99,
+          "text": "QQQ,2026-04-06T14:30:00-04:00,America/New_York,2026-04-06,regular,true,1h_rth,587.98,588.345,587.54,587.855,1359260.579429,dxlink_candles.get_1h_ema50_snapshot,2026-05-15T18:48:44Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        }
+      ],
+      "rows_extracted_count": 21,
+      "decision": "SOURCE_ROWS_EXTRACTED_FOR_FIELD_ACCEPTANCE",
+      "blocker": "accepted_setup_fields_still_required_before_economics",
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO"
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "requested_source_rows": "93-113",
+      "source_file_status": "SOURCE_ROWS_EXTRACTED",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "candidate_source_files": [
+        "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv"
+      ],
+      "extracted_rows": [
+        {
+          "line": 79,
+          "text": "SPY,2026-03-31T09:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,638.94,642.95,638.31,642.5,9343696.071119,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 80,
+          "text": "SPY,2026-03-31T10:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,642.48,642.65,637.98,640.68,8232012.742451,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 81,
+          "text": "SPY,2026-03-31T11:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,640.68,642.63,639.55,642.11,4598869.139489,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 82,
+          "text": "SPY,2026-03-31T12:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,642.11,649.43,641.65,647.0,12152764.15441,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 83,
+          "text": "SPY,2026-03-31T13:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,647.02,648.4,646.14,647.71,6636288.81114,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 84,
+          "text": "SPY,2026-03-31T14:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,647.71,649.91,647.2,649.402,6827421.216202,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 85,
+          "text": "SPY,2026-03-31T15:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,649.42,651.53,649.32,650.235,9925150.25773,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 86,
+          "text": "SPY,2026-04-01T09:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,653.88,656.05,653.0,655.03,9932835.198246,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 87,
+          "text": "SPY,2026-04-01T10:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,655.03,657.07,653.7,656.33,5675688.638723,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 88,
+          "text": "SPY,2026-04-01T11:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,656.33,658.095,655.93,657.175,3646062.552178,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 89,
+          "text": "SPY,2026-04-01T12:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,657.185,658.52,655.0817,658.3,2602959.002987,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 90,
+          "text": "SPY,2026-04-01T13:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,658.315,658.44,653.83,654.22,5125184.925649,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 91,
+          "text": "SPY,2026-04-01T14:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,654.23,656.3401,653.667,656.1,5445731.702624,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 92,
+          "text": "SPY,2026-04-01T15:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,656.1,656.74,654.73,655.18,4519339.132405,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 93,
+          "text": "SPY,2026-04-02T09:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,646.42,651.06,645.11,650.34,7534801.667911,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 94,
+          "text": "SPY,2026-04-02T10:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,650.35,657.92,650.1,655.28,8206353.601952,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 95,
+          "text": "SPY,2026-04-02T11:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,655.32,655.8894,652.17,652.72,3349574.515831,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 96,
+          "text": "SPY,2026-04-02T12:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,652.7,655.04,652.53,654.65,2138809.651271,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 97,
+          "text": "SPY,2026-04-02T13:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,654.65,654.75,652.55,653.5,2205579.771482,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 98,
+          "text": "SPY,2026-04-02T14:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,653.53,655.27,653.39,654.3799,2742030.732827,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 99,
+          "text": "SPY,2026-04-02T15:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,654.37,656.1,654.09,655.88,3188535.125356,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        }
+      ],
+      "rows_extracted_count": 21,
+      "decision": "SOURCE_ROWS_EXTRACTED_FOR_FIELD_ACCEPTANCE",
+      "blocker": "accepted_setup_fields_still_required_before_economics",
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO"
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "requested_source_rows": "233-253",
+      "source_file_status": "SOURCE_ROWS_EXTRACTED",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "candidate_source_files": [
+        "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv"
+      ],
+      "extracted_rows": [
+        {
+          "line": 79,
+          "text": "SPY,2026-03-31T09:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,638.94,642.95,638.31,642.5,9343696.071119,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 80,
+          "text": "SPY,2026-03-31T10:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,642.48,642.65,637.98,640.68,8232012.742451,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 81,
+          "text": "SPY,2026-03-31T11:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,640.68,642.63,639.55,642.11,4598869.139489,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 82,
+          "text": "SPY,2026-03-31T12:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,642.11,649.43,641.65,647.0,12152764.15441,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 83,
+          "text": "SPY,2026-03-31T13:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,647.02,648.4,646.14,647.71,6636288.81114,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 84,
+          "text": "SPY,2026-03-31T14:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,647.71,649.91,647.2,649.402,6827421.216202,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 85,
+          "text": "SPY,2026-03-31T15:30:00-04:00,America/New_York,2026-03-31,regular,true,1h_rth,649.42,651.53,649.32,650.235,9925150.25773,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 86,
+          "text": "SPY,2026-04-01T09:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,653.88,656.05,653.0,655.03,9932835.198246,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 87,
+          "text": "SPY,2026-04-01T10:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,655.03,657.07,653.7,656.33,5675688.638723,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 88,
+          "text": "SPY,2026-04-01T11:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,656.33,658.095,655.93,657.175,3646062.552178,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 89,
+          "text": "SPY,2026-04-01T12:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,657.185,658.52,655.0817,658.3,2602959.002987,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 90,
+          "text": "SPY,2026-04-01T13:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,658.315,658.44,653.83,654.22,5125184.925649,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 91,
+          "text": "SPY,2026-04-01T14:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,654.23,656.3401,653.667,656.1,5445731.702624,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 92,
+          "text": "SPY,2026-04-01T15:30:00-04:00,America/New_York,2026-04-01,regular,true,1h_rth,656.1,656.74,654.73,655.18,4519339.132405,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 93,
+          "text": "SPY,2026-04-02T09:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,646.42,651.06,645.11,650.34,7534801.667911,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 94,
+          "text": "SPY,2026-04-02T10:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,650.35,657.92,650.1,655.28,8206353.601952,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 95,
+          "text": "SPY,2026-04-02T11:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,655.32,655.8894,652.17,652.72,3349574.515831,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 96,
+          "text": "SPY,2026-04-02T12:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,652.7,655.04,652.53,654.65,2138809.651271,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 97,
+          "text": "SPY,2026-04-02T13:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,654.65,654.75,652.55,653.5,2205579.771482,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 98,
+          "text": "SPY,2026-04-02T14:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,653.53,655.27,653.39,654.3799,2742030.732827,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 99,
+          "text": "SPY,2026-04-02T15:30:00-04:00,America/New_York,2026-04-02,regular,true,1h_rth,654.37,656.1,654.09,655.88,3188535.125356,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        }
+      ],
+      "rows_extracted_count": 21,
+      "decision": "SOURCE_ROWS_EXTRACTED_FOR_FIELD_ACCEPTANCE",
+      "blocker": "accepted_setup_fields_still_required_before_economics",
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO"
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "requested_source_rows": "156-169",
+      "source_file_status": "SOURCE_ROWS_EXTRACTED",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "candidate_source_files": [
+        "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv"
+      ],
+      "extracted_rows": [
+        {
+          "line": 156,
+          "text": "SPY,2026-04-16T09:30:00-04:00,America/New_York,2026-04-16,regular,true,1h_rth,701.06,701.3,698.53,699.14,4642575.155902,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 157,
+          "text": "SPY,2026-04-16T10:30:00-04:00,America/New_York,2026-04-16,regular,true,1h_rth,699.1499,702.03,698.87,700.78,2692068.74081,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 158,
+          "text": "SPY,2026-04-16T11:30:00-04:00,America/New_York,2026-04-16,regular,true,1h_rth,700.77,702.78,700.66,702.01,2471636.60677,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 159,
+          "text": "SPY,2026-04-16T12:30:00-04:00,America/New_York,2026-04-16,regular,true,1h_rth,702.0113,702.0699,699.84,700.7,2478525.752575,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 160,
+          "text": "SPY,2026-04-16T13:30:00-04:00,America/New_York,2026-04-16,regular,true,1h_rth,700.72,701.525,699.4737,699.79,2034225.027039,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 161,
+          "text": "SPY,2026-04-16T14:30:00-04:00,America/New_York,2026-04-16,regular,true,1h_rth,699.8,701.195,699.775,700.9101,1912279.42899,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 162,
+          "text": "SPY,2026-04-16T15:30:00-04:00,America/New_York,2026-04-16,regular,true,1h_rth,700.91,701.94,700.83,701.55,2838722.914039,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 163,
+          "text": "SPY,2026-04-17T09:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,706.14,709.45,705.77,709.225,5981360.770273,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 164,
+          "text": "SPY,2026-04-17T10:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,709.24,711.335,709.2301,710.62,4283884.61661,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 165,
+          "text": "SPY,2026-04-17T11:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,710.63,711.64,710.4193,711.51,2676647.174139,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 166,
+          "text": "SPY,2026-04-17T12:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,711.515,712.38,709.03,709.88,3376597.919685,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 167,
+          "text": "SPY,2026-04-17T13:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,709.88,710.7,709.14,709.81,2539257.508548,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 168,
+          "text": "SPY,2026-04-17T14:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,709.81,710.39,708.99,709.26,2606581.693525,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 169,
+          "text": "SPY,2026-04-17T15:30:00-04:00,America/New_York,2026-04-17,regular,true,1h_rth,709.27,710.4,709.26,710.04,3307973.73953,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        }
+      ],
+      "rows_extracted_count": 14,
+      "decision": "SOURCE_ROWS_EXTRACTED_FOR_FIELD_ACCEPTANCE",
+      "blocker": "accepted_setup_fields_still_required_before_economics",
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO"
+    },
+    {
+      "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-003",
+      "ticker": "SPY",
+      "setup_type": "Continuation",
+      "requested_source_rows": "51-78",
+      "source_file_status": "SOURCE_ROWS_EXTRACTED",
+      "source_file": "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv",
+      "candidate_source_files": [
+        "historical_signal_replay/source_data/incoming/first_real_historical_replay_v1_SPY_source.csv"
+      ],
+      "extracted_rows": [
+        {
+          "line": 51,
+          "text": "SPY,2026-03-25T09:30:00-04:00,America/New_York,2026-03-25,regular,true,1h_rth,658.66,660.89,655.67,658.14,9510900.26195,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 52,
+          "text": "SPY,2026-03-25T10:30:00-04:00,America/New_York,2026-03-25,regular,true,1h_rth,658.16,659.25,654.24,657.84,7453851.898465,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 53,
+          "text": "SPY,2026-03-25T11:30:00-04:00,America/New_York,2026-03-25,regular,true,1h_rth,657.84,658.24,656.01,657.5,4839228.163925,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 54,
+          "text": "SPY,2026-03-25T12:30:00-04:00,America/New_York,2026-03-25,regular,true,1h_rth,657.46,658.32,656.915,658.03,4322226.913158,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 55,
+          "text": "SPY,2026-03-25T13:30:00-04:00,America/New_York,2026-03-25,regular,true,1h_rth,658.04,659.38,657.33,657.515,4427855.841252,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 56,
+          "text": "SPY,2026-03-25T14:30:00-04:00,America/New_York,2026-03-25,regular,true,1h_rth,657.51,657.81,655.58,656.51,5218989.708888,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 57,
+          "text": "SPY,2026-03-25T15:30:00-04:00,America/New_York,2026-03-25,regular,true,1h_rth,656.51,657.06,655.755,656.72,3793744.088954,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 58,
+          "text": "SPY,2026-03-26T09:30:00-04:00,America/New_York,2026-03-26,regular,true,1h_rth,652.03,654.84,650.73,653.62,7926907.909152,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 59,
+          "text": "SPY,2026-03-26T10:30:00-04:00,America/New_York,2026-03-26,regular,true,1h_rth,653.62,654.85,650.84,651.69,6781579.282844,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 60,
+          "text": "SPY,2026-03-26T11:30:00-04:00,America/New_York,2026-03-26,regular,true,1h_rth,651.71,652.29,649.29,649.47,4304993.419402,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 61,
+          "text": "SPY,2026-03-26T12:30:00-04:00,America/New_York,2026-03-26,regular,true,1h_rth,649.4913,650.1,647.98,648.62,3217817.150277,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 62,
+          "text": "SPY,2026-03-26T13:30:00-04:00,America/New_York,2026-03-26,regular,true,1h_rth,648.62,649.06,646.44,646.6,4607108.657608,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 63,
+          "text": "SPY,2026-03-26T14:30:00-04:00,America/New_York,2026-03-26,regular,true,1h_rth,646.59,647.65,645.85,646.21,5319220.948104,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 64,
+          "text": "SPY,2026-03-26T15:30:00-04:00,America/New_York,2026-03-26,regular,true,1h_rth,646.21,646.27,644.83,645.1,4955398.703136,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 65,
+          "text": "SPY,2026-03-27T09:30:00-04:00,America/New_York,2026-03-27,regular,true,1h_rth,642.5,642.66,638.594,639.1,7894747.427747,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 66,
+          "text": "SPY,2026-03-27T10:30:00-04:00,America/New_York,2026-03-27,regular,true,1h_rth,639.09,641.49,638.34,640.97,5862308.909902,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 67,
+          "text": "SPY,2026-03-27T11:30:00-04:00,America/New_York,2026-03-27,regular,true,1h_rth,640.98,642.13,638.58,638.89,4849854.030213,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 68,
+          "text": "SPY,2026-03-27T12:30:00-04:00,America/New_York,2026-03-27,regular,true,1h_rth,638.88,639.93,636.59,636.62,5278200.568139,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 69,
+          "text": "SPY,2026-03-27T13:30:00-04:00,America/New_York,2026-03-27,regular,true,1h_rth,636.62,637.25,635.13,635.77,5084326.397586,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 70,
+          "text": "SPY,2026-03-27T14:30:00-04:00,America/New_York,2026-03-27,regular,true,1h_rth,635.76,636.73,634.52,634.85,5673887.584705,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 71,
+          "text": "SPY,2026-03-27T15:30:00-04:00,America/New_York,2026-03-27,regular,true,1h_rth,634.87,635.35,633.105,634.08,6968895.125355,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 72,
+          "text": "SPY,2026-03-30T09:30:00-04:00,America/New_York,2026-03-30,regular,true,1h_rth,640.08,640.37,634.68,635.86,8099932.769972,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 73,
+          "text": "SPY,2026-03-30T10:30:00-04:00,America/New_York,2026-03-30,regular,true,1h_rth,635.85,638.77,634.73,636.46,7397728.664657,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 74,
+          "text": "SPY,2026-03-30T11:30:00-04:00,America/New_York,2026-03-30,regular,true,1h_rth,636.45,638.475,635.165,635.26,4583743.027478,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 75,
+          "text": "SPY,2026-03-30T12:30:00-04:00,America/New_York,2026-03-30,regular,true,1h_rth,635.25,636.01,633.24,633.4,4283324.207531,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 76,
+          "text": "SPY,2026-03-30T13:30:00-04:00,America/New_York,2026-03-30,regular,true,1h_rth,633.4,634.63,632.26,632.28,6135203.496671,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 77,
+          "text": "SPY,2026-03-30T14:30:00-04:00,America/New_York,2026-03-30,regular,true,1h_rth,632.29,633.17,629.29,629.58,7624687.891352,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        },
+        {
+          "line": 78,
+          "text": "SPY,2026-03-30T15:30:00-04:00,America/New_York,2026-03-30,regular,true,1h_rth,629.585,632.6402,629.35,632.02,5752983.659349,dxlink_candles.get_1h_ema50_snapshot,2026-05-13T18:43:00Z,dxFeed via tastytrade dxLink,CONTEXT_24H_DAILY_UNCONFIRMED,,MACRO_UNCONFIRMED,,IV_UNCONFIRMED,,EVENT_UNCONFIRMED,,OHLCV returned by dxLink; unavailable context fields UNCONFIRMED."
+        }
+      ],
+      "rows_extracted_count": 28,
+      "decision": "SOURCE_ROWS_EXTRACTED_FOR_FIELD_ACCEPTANCE",
+      "blocker": "accepted_setup_fields_still_required_before_economics",
+      "entry_status": "NOT_EVALUATED",
+      "exit_status": "NOT_EVALUATED",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "profitability_proof": "NO",
+      "paper_live_eligibility": "NO"
+    }
+  ],
+  "next_action": "If source rows were extracted, fill accepted setup-time row, trigger, invalidation, freshness/final-signal, blocker/caution, no-hindsight output, and terminal chart-only outcome. If source rows were not extracted, resolve the exact source CSV path blocker before economics/P&L."
+}
