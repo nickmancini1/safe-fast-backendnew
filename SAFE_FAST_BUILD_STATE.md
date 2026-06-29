@@ -55,26 +55,51 @@ Top anti-drift rule: if the information already exists in the latest machine-rea
 <!-- SAFE_FAST_CURRENT_STATE_BEGIN -->
 - PROJECT_DAY: Day 55
 - PROJECT_DATE: 2026-06-26
-- ACTIVE_OBJECTIVE: Move selected Day 55 contracts to exact quote/trade/statistics cost request for option evidence and economics/P&L.
+- ACTIVE_OBJECTIVE: Get operator vendor cost approval for the completed Day 55 32-request Databento quote/trade/statistics cost-only request before any download.
 - ACTIVE_TASK: NONE_PENDING_OPERATOR_REVIEW
-- ACTIVE_TASK_PURPOSE: No active task file is currently authorized. The completed canonical workflow cleanup must not be recreated; the next action is operator selection of the next fastest safe economic replay path while preserving the Day 55 exact no-entry result.
-- PROVEN_SUMMARY: Day 52 accepted numeric binding remains proven: Ideal, Clean Fast Break, and Continuation intentionally share the publisher-collapsed setup-time row at `2026-03-16T13:30:00Z`; accepted trigger is `668.360000000`, accepted invalidation is `667.870000000`; accepted full-session layer-1 replay has 3 setup-qualified records, 1 selected winner, and 2 suppressed duplicates. The selected economic winner is `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`. Committed derived OPRA definition evidence rejects `SPY   260330C00669000` as `CONTRACT_UNLISTED` and selects `SPY   260330C00670000`, expiration `2026-03-30`, strike `670`, call, instrument ID `1241515301`, publisher ID `30`. Operator cost output is `SUCCESS`, cost-only, no download performed, grouped cost `$0.006495481730`, approved ceiling `$0.01`, exact schemas `cmbp-1`, `tcbbo`, `trades`, and `statistics`, with `definition` forbidden. Local Day 55 evaluation validated the manifest and selected-contract identity, inspected `9017` entry-window `cmbp-1` rows and valid trade volume, then rejected entry exactly because statistics/OI evidence has zero rows: `open_interest_statistics_zero_rows`.
-- UNPROVEN_SUMMARY: No valid entry, recorded entry, exit, gross P&L, net P&L, profitability proof, readiness, paper eligibility, or live eligibility is established for the Day 55 SPY 670C case because entry is exactly rejected by missing statistics/OI evidence.
-- CURRENT_FUNNEL_TOTALS: accepted layer-1 setup-qualified records 3; selected winner records 1; suppressed duplicate records 2; selected duplicate groups processed for economics 1; trade candidates 1; selected contracts 1; eligible entries 0; recorded entries 0; costed exits 0; net P&L results 0; exact priced requests pending 0; valid trades captured 0; true no-trades 1; missing-data cases 1; missed valid trades 0; invalid trades allowed 0; unresolved cases 0; profitability proof NO; paper/live eligibility NO.
-- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md; SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md; historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json; historical_signal_replay/day55_spy_670c_entry_exit_pnl_evaluation.py; watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py; tests/test_day55_spy_670c_entry_exit_pnl_evaluation.py; plus Day 52 input evidence files and accepted layer-1 references.
-- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md
+- ACTIVE_TASK_PURPOSE: No active task file is currently authorized. Commit `07ce562` completed and validated the Day 55 quote/trade/statistics cost-only request; the next action is operator vendor cost approval before any download.
+- PROVEN_SUMMARY: Day 55 definition contract selection is complete for replay-ready candidates: 6 selected candidates and 12 selected contract legs. Commit `07ce562` created the exact Databento `OPRA.PILLAR` quote/trade/statistics cost-only request package for those selected contracts: 32 requests across `cmbp-1`, `tcbbo`, `trades`, and `statistics`; `definition` is forbidden; vendor call performed `false`; download performed `false`; credential env var read `false`; request validation passes. Profitability proof remains `NO` and paper/live eligibility remains `NO`.
+- UNPROVEN_SUMMARY: No valid entry, recorded entry, exit, gross P&L, net P&L, profitability proof, readiness, paper eligibility, or live eligibility is established for the Day 55 selected-contract request set because quote/trade/statistics evidence has not been downloaded or evaluated.
+- CURRENT_FUNNEL_TOTALS: selected candidates 6; selected contract legs 12; quote/trade/statistics cost-only requests ready for operator vendor cost approval 32; required schemas 4; forbidden definition requests 0; vendor calls performed 0; downloads performed 0; eligible entries 0; recorded entries 0; costed exits 0; net P&L results 0; valid trades captured 0; missed valid trades 0; invalid trades allowed 0; unresolved cases 0; profitability proof NO; paper/live eligibility NO.
+- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md; historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json; historical_signal_replay/day55_quote_trade_statistics_cost_request.py; watcher_foundation/day55_quote_trade_statistics_cost_request_validator.py; tests/test_day55_quote_trade_statistics_cost_request.py; plus Day 55 definition contract-selection inputs.
+- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md
 - SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task.
 - DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md
-- NEXT_ACTION: Use historical_signal_replay/results/day55_definition_contract_selection_for_replay_ready_candidates.json; selected contracts exist, so create the exact quote/trade/statistics cost request for those contracts. Keep profitability proof NO and paper/live eligibility NO.
+- NEXT_ACTION: Operator must review/cost-check and explicitly approve the 32-request Databento `OPRA.PILLAR` quote/trade/statistics cost-only request before any download; keep profitability proof NO, paper/live eligibility NO, and no entry/exit/P&L claim.
 <!-- SAFE_FAST_CURRENT_STATE_END -->
+
+## Day 55 quote/trade/statistics cost request status
+
+- Result document: `SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md`.
+- Machine-readable result: `historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json`.
+- Implementation: `historical_signal_replay/day55_quote_trade_statistics_cost_request.py`.
+- Validator: `watcher_foundation/day55_quote_trade_statistics_cost_request_validator.py`.
+- Focused test: `tests/test_day55_quote_trade_statistics_cost_request.py`.
+- Commit: `07ce562 Create Day 55 quote trade statistics cost request`.
+- Decision: `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`.
+- Dataset: Databento `OPRA.PILLAR`.
+- Request count: `32`.
+- Required schemas: `cmbp-1`, `tcbbo`, `trades`, and `statistics`.
+- Forbidden schemas: `definition`.
+- Cost-only: `true`.
+- Vendor call performed: `false`.
+- Download performed: `false`.
+- Credential env var read: `false`.
+- Entry status: `NOT_EVALUATED`.
+- Exit status: `NOT_EVALUATED`.
+- Gross P&L: `None`.
+- Net P&L: `None`.
+- Profitability proof: `NO`.
+- Paper/live eligibility: `NO`.
+- Next action: operator vendor cost approval for the 32-request Databento quote/trade/statistics cost-only request; do not download until explicitly approved.
 
 ## Day 55 canonical workflow cleanup status
 
 - Canonical operating-loop file: `SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md`.
 - Enforcement surfaces updated: `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`, `SAFE_FAST_PROJECT_DASHBOARD.md`, `SAFE_FAST_PROJECT_RULE_INDEX.md`, `scripts/safe_fast_new_chat_status.ps1`, and `tests/test_day51_next_chat_handoff_consistency.py`.
-- Required loop preserves the Day 55 SPY 670C economic result: `NO_ENTRY_EXACT_REJECTION`; first blocker `open_interest_statistics_zero_rows`; no valid entry; exit blocked; gross P&L none; net P&L none; complete end-to-end backtest `NO`; profitability proof `NO`; paper/live eligibility `NO`.
+- Required loop preserves the Day 55 quote/trade/statistics cost-request result: `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`; 32 cost-only Databento requests; no vendor call; no download; no entry; no exit; gross P&L none; net P&L none; profitability proof `NO`; paper/live eligibility `NO`.
 - No Databento, tastytrade, Schwab, `main.py`, Railway/deploy, production/live backend, broker/account/order/fill/alert code, credentials, `.env`, sizing, stage, commit, push, profitability claim, or paper/live eligibility change was made.
-- Remaining active objective: cleanup completed at 3210251; operator review chooses the next fastest safe economic replay path while preserving the Day 55 SPY 670C exact no-entry result.
+- Remaining active objective: cost request completed at `07ce562`; operator vendor cost approval is required before any Databento quote/trade/statistics download.
 - Freeze recovery rule preserved: If PowerShell stops progressing, press Ctrl+C once. Do not rerun. First inspect logs, partial files, output, manifest, and Git status.
 - Expanded freeze recovery preserved: First determine whether PowerShell is waiting for hidden input; if not, press Ctrl+C once; do not assume success or failure; inspect process status, logs, partial files, output, manifest, sizes, hashes, parseability, and Git status; rerun only for a specific verified missing or failed result; never repeat a paid request or completed schema merely because output was quiet.
 
@@ -14737,7 +14762,7 @@ This correction supersedes older handoff wording where workflow rules appear aft
 - Net P&L: none.
 - Profitability proof: `NO`.
 - Paper/live eligibility: `NO`.
-- Preserved completed result: SPY 670C remains `NO_ENTRY_EXACT_REJECTION` with first blocker `open_interest_statistics_zero_rows`.
+- Preserved completed result: Day 55 quote/trade/statistics cost request remains `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`; no download, entry, exit, gross P&L, or net P&L is claimed.
 - Next objective: complete the missing accepted setup-time replay fields, then classify as replay-ready, exact no-replay, or exact blocked evidence gap with next source/action.
 ## Day 55 QQQ source-window Clean Fast Break 002 setup-time replay worksheet status
 
@@ -14790,18 +14815,24 @@ This correction supersedes older handoff wording where workflow rules appear aft
 - Profitability proof: NO.
 - Paper/live eligibility: NO.
 - Next action: $(@{schema=safe_fast_day55_source_window_batch_accepted_field_completion_v1; created_from_head=a75914c Create source-window batch source-row packet; source_packet=historical_signal_replay/results/day55_source_window_batch_source_row_packet.json; decision=BATCH_ACCEPTED_FIELD_COMPLETION_COMPLETE; total_candidates=7; replay_ready_count=6; exact_blocked_count=1; entry_status=NOT_EVALUATED; exit_status=NOT_EVALUATED; gross_pnl=; net_pnl=; profitability_proof=NO; paper_live_eligibility=NO; candidates=System.Object[]; next_action=Move replay-ready candidates directly to economics/P&L.}.next_action).
-## Day 55 definition contract-selection status
+## Day 55 quote/trade/statistics cost request status
 
-- Result: historical_signal_replay/results/day55_definition_contract_selection_for_replay_ready_candidates.json.
-- Summary: SAFE_FAST_DAY55_DEFINITION_CONTRACT_SELECTION_FOR_REPLAY_READY_CANDIDATES.md.
-- Test: 	ests/test_day55_definition_contract_selection_for_replay_ready_candidates.py.
-- Decision: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.decision).
-- Candidate count: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.candidate_count).
-- Contracts selected: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.contracts_selected_count).
-- Exact blocked: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.exact_blocked_count).
-- Definition vendor call performed: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.vendor_call_performed).
-- Definition download performed: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.download_performed).
-- Quote/trade/statistics download performed: alse.
-- Profitability proof: NO.
-- Paper/live eligibility: NO.
-- Next action: Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.
+- Result: `historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json`.
+- Summary: `SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md`.
+- Test: `tests/test_day55_quote_trade_statistics_cost_request.py`.
+- Validator: `watcher_foundation/day55_quote_trade_statistics_cost_request_validator.py`.
+- Commit: `07ce562 Create Day 55 quote trade statistics cost request`.
+- Decision: `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`.
+- Request count: `32`.
+- Required schemas: `cmbp-1`, `tcbbo`, `trades`, and `statistics`.
+- Forbidden schema: `definition`.
+- Cost-only: `true`.
+- Vendor call performed: `false`.
+- Download performed: `false`.
+- Entry status: `NOT_EVALUATED`.
+- Exit status: `NOT_EVALUATED`.
+- Gross P&L: `None`.
+- Net P&L: `None`.
+- Profitability proof: `NO`.
+- Paper/live eligibility: `NO`.
+- Next action: operator vendor cost approval for the 32-request Databento quote/trade/statistics cost-only request; no download until explicitly approved.

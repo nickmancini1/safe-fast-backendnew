@@ -99,20 +99,25 @@ Verified result:
 - publisher ID is `30`
 - do not redownload definitions
 
-Day 55 local evaluation:
+Day 55 quote/trade/statistics cost request:
 
-- result doc: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`
-- machine result: `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json`
-- entry result: `NO_ENTRY_EXACT_REJECTION`
-- first blocker: `open_interest_statistics_zero_rows`
-- exit result: `EXIT_BLOCKED`
+- result doc: `SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md`
+- machine result: `historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json`
+- decision: `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`
+- request count: `32`
+- required schemas: `cmbp-1`, `tcbbo`, `trades`, and `statistics`
+- forbidden schema: `definition`
+- cost-only: `true`
+- vendor call performed: `false`
+- download performed: `false`
+- entry status: `NOT_EVALUATED`
+- exit status: `NOT_EVALUATED`
 - gross P&L: `None`
 - net P&L: `None`
-- complete end-to-end backtest: `NO`
 
 Next path:
 
-operator review of the exact no-entry result. Do not request more data under the completed Day 55 task unless a later explicit task authorizes it.
+operator vendor cost approval for the 32-request Databento quote/trade/statistics cost-only request. Do not download until explicitly approved.
 
 Profitability proof: `NO`.
 
@@ -157,7 +162,7 @@ This rule applies regardless of the current technical objective and supersedes a
 
 Active task: `NONE_PENDING_OPERATOR_REVIEW`
 
-Cleanup completed at `3210251`: the mandatory source-to-decision / anti-rabbit-hole operating contract is installed. Preserve the accepted March 16, 2026 SPY 670C exact no-entry result. Current objective: operator review chooses the next fastest safe economic replay path; no active code/Codex task is authorized yet.
+Commit `07ce562` completed and validated the Day 55 quote/trade/statistics cost-only request. Current objective: operator vendor cost approval for the 32-request Databento `OPRA.PILLAR` quote/trade/statistics request before any download; no active code/Codex task is authorized yet.
 
 Do not return to broad candidate hunting.
 
@@ -167,13 +172,13 @@ Do not wait for Schwab.
 
 A network/proxy failure is not proof that data is unavailable.
 
-Future chats must start from the Day 55 exact no-entry result unless a later explicit task supersedes it.
+Future chats must start from the completed Day 55 32-request cost-only request unless a later explicit task supersedes it.
 
-Latest current result: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`.
+Latest current result: `SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md`.
 
-Latest machine result: `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json`.
+Latest machine result: `historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json`.
 
-Latest verified commit at task start: `37cda01 Make option-evidence backtest mandatory`.
+Latest verified commit for the cost-request package: `07ce562 Create Day 55 quote trade statistics cost request`.
 
 Dirty status after the Day 55 canonical workflow cleanup task: `DIRTY` until operator review/commit. Modified tracked files include `SAFE_FAST_BUILD_STATE.md`, `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`, `SAFE_FAST_PROJECT_DASHBOARD.md`, `SAFE_FAST_PROJECT_RULE_INDEX.md`, `scripts/safe_fast_new_chat_status.ps1`, and `tests/test_day51_next_chat_handoff_consistency.py`. New file: `SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md`. The task file `NONE_PENDING_OPERATOR_REVIEW` remains the expected preexisting untracked task file.
 
@@ -183,13 +188,11 @@ Contract-selection result: `CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVI
 
 Tastytrade result: `FIELD_LIMITATION_BLOCKED`; local helper proves underlying OHLCV only, not historical option bid/ask.
 
-Databento result: local manifest is `SUCCESS`; completed/reused schemas are `cmbp-1`, `tcbbo`, `trades`, and `statistics`; no `definition` request is needed.
+Databento result: exact cost-only request package is ready for operator review; schemas are `cmbp-1`, `tcbbo`, `trades`, and `statistics`; `definition` is forbidden; vendor call performed `false`; download performed `false`.
 
-Complete entry-window result: quotes are present and inspected; first quote at `2026-03-16T13:31:00.010890Z` has bid `9.970000000`, ask `10.040000000`, spread `0.070000000`, and valid displayed sizes.
+Stage reached: `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`.
 
-Stage reached: `NO_ENTRY_EXACT_REJECTION`.
-
-Remaining blocker: `open_interest_statistics_zero_rows`; statistics has zero rows, so the accepted open-interest rule blocks entry. Exit and net P&L are blocked.
+Remaining blocker: operator vendor cost approval is required before any Databento download. Entry, exit, gross P&L, and net P&L are not evaluated.
 
 Tests passed: focused SPY 670C downloader tests; focused Day 52 option-evidence tests; Databento OPRA normalizer tests; Day 52 option-evidence validator; `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\safe_fast_run_safe_checks.ps1`; `git diff --check`.
 
@@ -217,17 +220,17 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".\scripts\safe_fast_new_cha
 
 Project day and date: Day 55, 2026-06-26.
 
-Current technical checkpoint: Day 55 local selected-contract economic evaluation, with the accepted March 16 SPY Clean Fast Break selected winner stopped at exact no-entry blocker `open_interest_statistics_zero_rows`.
+Current technical checkpoint: Day 55 quote/trade/statistics cost-only request, ready for operator vendor cost approval with 32 Databento `OPRA.PILLAR` requests.
 
 Latest verified commit at current option-evidence task start: `37cda01 Make option-evidence backtest mandatory`.
 
-Current technical package: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`, `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json`, `historical_signal_replay/day55_spy_670c_entry_exit_pnl_evaluation.py`, `watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py`, and `tests/test_day55_spy_670c_entry_exit_pnl_evaluation.py`; accepted layer-1 and Day 52 input references remain available.
+Current technical package: `SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md`, `historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json`, `historical_signal_replay/day55_quote_trade_statistics_cost_request.py`, `watcher_foundation/day55_quote_trade_statistics_cost_request_validator.py`, and `tests/test_day55_quote_trade_statistics_cost_request.py`; Day 55 definition contract-selection inputs remain available.
 
 Exact active task: `NONE_PENDING_OPERATOR_REVIEW`.
 
 Active task exists: yes.
 
-Exact active objective: operator review chooses the next fastest safe economic replay path while preserving the Day 55 SPY 670C exact no-entry result.
+Exact active objective: operator vendor cost approval for the completed Day 55 32-request Databento quote/trade/statistics cost-only request before any download.
 
 Current accepted full-session manifest result: sessions scanned `1`; rows scanned `751`; unique timestamps `390`; recognition records `2253`. Per setup family: rejected `389`, duplicate `361`, blocked by missing evidence `0`; Clean Fast Break selected winner `1`; Ideal suppressed `1`; Continuation suppressed `1`; setup-qualified layer-1 records `3`; recognition-layer executable `1`. Accepted numeric values established `6`; accepted numeric values unresolved `0`. Current provisional replay-only result remains separate: setup-qualified-under-provisional `3`, selected winner `1`, suppressed `2`, recognition-layer executable `1`, trade candidates `0`, selected contracts `0`, eligible entries `0`, recorded entries `0`; profitability proof `NO`; paper/live eligibility `NO`.
 
@@ -235,17 +238,17 @@ What is fixed: the repo now has complete chronological accepted-mode layer-1 acc
 
 What remains unproven: no valid entry, recorded entry, exit evaluation, gross P&L, net P&L, proof, profitability, readiness, paper eligibility, or live eligibility is established.
 
-Exact remaining blocker: `open_interest_statistics_zero_rows`. The local Day 55 manifest is `SUCCESS`, selected-contract identity matches, entry-window quotes and trade volume are present, but statistics/OI has zero rows, so the accepted open-interest rule blocks entry. Do not request `definition`; committed definition evidence already rejected 669C and selected 670C.
+Exact remaining blocker: operator vendor cost approval for the 32-request cost-only package. Do not request `definition`; the current request package covers only `cmbp-1`, `tcbbo`, `trades`, and `statistics`, and no download has been performed.
 
 Schwab status: Schwab Trader API access remains pending approval/credential configuration unless a later repo result says otherwise. No Schwab authentication, token write, endpoint call, order, account, or fill action is part of the active task.
 
-Exact next task: operator decision only. Do not broad-hunt candidates, do not create another provisional layer, do not wait for Schwab, and do not claim P&L, profitability, paper eligibility, or live eligibility.
+Exact next task: operator vendor cost approval only. Do not download, broad-hunt candidates, create another provisional layer, wait for Schwab, or claim entry/exit/P&L, profitability, paper eligibility, or live eligibility.
 
 ## Current technical objective
 
-The active technical objective is operator review to choose the next fastest safe economic replay path while preserving the bounded local Day 55 SPY 670C selected-contract economic evaluation result.
+The active technical objective is operator vendor cost approval for the completed Day 55 32-request Databento quote/trade/statistics cost-only request.
 
-The current result is `NO_ENTRY_EXACT_REJECTION`. Contract selection is resolved from committed local definition evidence: 669C is unlisted and selected contract `SPY   260330C00670000` matches instrument ID `1241515301` / publisher ID `30`. Entry-window quotes and trade volume are present, but statistics/OI has zero rows, so the accepted open-interest rule blocks entry with `open_interest_statistics_zero_rows`. Exit, gross P&L, and net P&L remain blocked. This must not be read as valid entry, P&L, profitability proof, paper eligibility, or live eligibility.
+The current result is `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`. The package requests Databento `OPRA.PILLAR` schemas `cmbp-1`, `tcbbo`, `trades`, and `statistics` only; `definition` is forbidden. No vendor call or download was performed. Entry, exit, gross P&L, and net P&L are not evaluated. This must not be read as valid entry, P&L, profitability proof, paper eligibility, or live eligibility.
 
 ## Real progress measurement
 
@@ -342,23 +345,29 @@ Safety rejection and positive-trade capture are equal build objectives.
 
 Exact active task: `NONE_PENDING_OPERATOR_REVIEW`.
 
-Cleanup completed at `3210251`; do not recreate the completed task file. The current task state is operator review only, with no active code/Codex task authorized yet.
+Commit `07ce562` completed the Day 55 quote/trade/statistics cost request; do not recreate the completed task file. The current task state is operator vendor cost approval only, with no active code/Codex task authorized yet.
 
-Measurable output: result doc `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md` and machine result `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json` record selected winner `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`, selected contract `SPY   260330C00670000`, entry result `NO_ENTRY_EXACT_REJECTION`, first blocker `open_interest_statistics_zero_rows`, exit result `EXIT_BLOCKED`, gross P&L `None`, net P&L `None`, complete end-to-end backtest `NO`, profitability proof `NO`, paper/live eligibility `NO`, and no vendor call, broker work, proof, readiness, paper, or live expansion.
+Measurable output: result doc `SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md` and machine result `historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json` record decision `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`, request count `32`, required schemas `cmbp-1`, `tcbbo`, `trades`, and `statistics`, forbidden schema `definition`, cost-only `true`, vendor call performed `false`, download performed `false`, entry status `NOT_EVALUATED`, exit status `NOT_EVALUATED`, gross P&L `None`, net P&L `None`, profitability proof `NO`, paper/live eligibility `NO`, and no broker work, proof, readiness, paper, or live expansion.
 
 After Codex runs, the user should paste Codex's `Baseline`, `Fixed`, `Blocked`, `Next`, `Tests`, and changed-files summary.
-## Day 55 definition contract-selection status
+## Day 55 quote/trade/statistics cost request status
 
-- Result: historical_signal_replay/results/day55_definition_contract_selection_for_replay_ready_candidates.json.
-- Summary: SAFE_FAST_DAY55_DEFINITION_CONTRACT_SELECTION_FOR_REPLAY_READY_CANDIDATES.md.
-- Test: 	ests/test_day55_definition_contract_selection_for_replay_ready_candidates.py.
-- Decision: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.decision).
-- Candidate count: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.candidate_count).
-- Contracts selected: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.contracts_selected_count).
-- Exact blocked: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.exact_blocked_count).
-- Definition vendor call performed: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.vendor_call_performed).
-- Definition download performed: $(@{schema=safe_fast_day55_definition_contract_selection_for_replay_ready_candidates_v1; source_cost_result=historical_signal_replay/results/day55_definition_cost_check_for_replay_ready_candidates.json; source_definition_request=historical_signal_replay/results/day55_definition_cost_request_for_replay_ready_candidates.json; decision=DEFINITION_CONTRACT_SELECTION_COMPLETE; vendor_call_performed=True; download_performed=True; downloaded_schema=definition; quote_trade_statistics_download_performed=False; candidate_count=6; contracts_selected_count=6; exact_blocked_count=0; definition_requests=System.Object[]; candidates=System.Object[]; profitability_proof=NO; paper_live_eligibility=NO; next_action=Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.}.download_performed).
-- Quote/trade/statistics download performed: alse.
-- Profitability proof: NO.
-- Paper/live eligibility: NO.
-- Next action: Move selected contracts to exact quote/trade/statistics cost request; blocked candidates remain exact contract-selection blockers.
+- Result: `historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json`.
+- Summary: `SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md`.
+- Test: `tests/test_day55_quote_trade_statistics_cost_request.py`.
+- Validator: `watcher_foundation/day55_quote_trade_statistics_cost_request_validator.py`.
+- Commit: `07ce562 Create Day 55 quote trade statistics cost request`.
+- Decision: `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`.
+- Request count: `32`.
+- Required schemas: `cmbp-1`, `tcbbo`, `trades`, and `statistics`.
+- Forbidden schema: `definition`.
+- Cost-only: `true`.
+- Vendor call performed: `false`.
+- Download performed: `false`.
+- Entry status: `NOT_EVALUATED`.
+- Exit status: `NOT_EVALUATED`.
+- Gross P&L: `None`.
+- Net P&L: `None`.
+- Profitability proof: `NO`.
+- Paper/live eligibility: `NO`.
+- Next action: operator vendor cost approval for the 32-request Databento quote/trade/statistics cost-only request; no download until explicitly approved.
