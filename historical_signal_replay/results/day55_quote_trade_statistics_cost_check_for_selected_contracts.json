@@ -1,0 +1,292 @@
+{
+  "checked_at_utc": "2026-06-29T16:19:28.224384Z",
+  "cost_only": true,
+  "credential_env_var": "SAFE_FAST_DB_AUTH",
+  "credential_value_printed": false,
+  "currency": "USD",
+  "dataset": "OPRA.PILLAR",
+  "download_performed": false,
+  "entry_status": "NOT_EVALUATED",
+  "exit_status": "NOT_EVALUATED",
+  "failure_detail": "HTTPSConnectionPool(host='hist.databento.com', port=443): Max retries exceeded with url: /v0/metadata.get_cost (Caused by ProxyError('Unable to connect to proxy', NewConnectionError(\"HTTPSConnection(host='127.0.0.1', port=9): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it\")))",
+  "failure_reason": "ProxyError",
+  "forbidden_schemas": [
+    "definition"
+  ],
+  "gross_pnl": null,
+  "grouped_cost": null,
+  "net_pnl": null,
+  "next_action": "Resolve the exact Databento metadata.get_cost failure, then rerun the cost-only checker. Do not download until the grouped quote/trade/statistics cost is explicitly approved.",
+  "paper_live_eligibility": "NO",
+  "profitability_proof": "NO",
+  "request_count": 32,
+  "requests": [
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T19:45:00Z",
+      "schema": "trades",
+      "start": "2026-03-31T16:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00645000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T16:36:00Z",
+      "schema": "statistics",
+      "start": "2026-03-31T16:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00645000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T19:45:00Z",
+      "schema": "trades",
+      "start": "2026-03-31T16:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00650000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T16:36:00Z",
+      "schema": "statistics",
+      "start": "2026-03-31T16:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00650000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T16:36:00Z",
+      "schema": "cmbp-1",
+      "start": "2026-03-31T16:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00645000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T19:45:00Z",
+      "schema": "tcbbo",
+      "start": "2026-03-31T16:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00645000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T16:36:00Z",
+      "schema": "cmbp-1",
+      "start": "2026-03-31T16:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00650000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-31T19:45:00Z",
+      "schema": "tcbbo",
+      "start": "2026-03-31T16:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260414C00650000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:45:00Z",
+      "schema": "trades",
+      "start": "2026-04-02T19:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00585000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:36:00Z",
+      "schema": "statistics",
+      "start": "2026-04-02T19:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00585000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:45:00Z",
+      "schema": "trades",
+      "start": "2026-04-02T19:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00590000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:36:00Z",
+      "schema": "statistics",
+      "start": "2026-04-02T19:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00590000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:36:00Z",
+      "schema": "cmbp-1",
+      "start": "2026-04-02T19:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00585000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:45:00Z",
+      "schema": "tcbbo",
+      "start": "2026-04-02T19:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00585000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:36:00Z",
+      "schema": "cmbp-1",
+      "start": "2026-04-02T19:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00590000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-02T19:45:00Z",
+      "schema": "tcbbo",
+      "start": "2026-04-02T19:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260416C00590000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "schema": "trades",
+      "start": "2026-04-17T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00702000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T13:36:00Z",
+      "schema": "statistics",
+      "start": "2026-04-17T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00702000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "schema": "trades",
+      "start": "2026-04-17T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00707000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T13:36:00Z",
+      "schema": "statistics",
+      "start": "2026-04-17T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00707000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T13:36:00Z",
+      "schema": "cmbp-1",
+      "start": "2026-04-17T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00702000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "schema": "tcbbo",
+      "start": "2026-04-17T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00702000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T13:36:00Z",
+      "schema": "cmbp-1",
+      "start": "2026-04-17T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00707000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "schema": "tcbbo",
+      "start": "2026-04-17T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260501C00707000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "schema": "trades",
+      "start": "2026-04-17T14:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00650000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T14:36:00Z",
+      "schema": "statistics",
+      "start": "2026-04-17T14:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00650000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "schema": "trades",
+      "start": "2026-04-17T14:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00655000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T14:36:00Z",
+      "schema": "statistics",
+      "start": "2026-04-17T14:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00655000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T14:36:00Z",
+      "schema": "cmbp-1",
+      "start": "2026-04-17T14:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00650000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "schema": "tcbbo",
+      "start": "2026-04-17T14:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00650000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T14:36:00Z",
+      "schema": "cmbp-1",
+      "start": "2026-04-17T14:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00655000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-04-17T19:45:00Z",
+      "schema": "tcbbo",
+      "start": "2026-04-17T14:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "QQQ   260501C00655000"
+    }
+  ],
+  "required_schemas": [
+    "cmbp-1",
+    "statistics",
+    "tcbbo",
+    "trades"
+  ],
+  "result_version": "safe_fast_day55_quote_trade_statistics_cost_check_for_selected_contracts_v1",
+  "schema_costs": [],
+  "source_request": "historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json",
+  "status": "FAILURE",
+  "vendor_metadata_call_performed": true
+}
