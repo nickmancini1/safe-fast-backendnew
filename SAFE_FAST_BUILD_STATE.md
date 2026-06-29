@@ -55,20 +55,44 @@ Top anti-drift rule: if the information already exists in the latest machine-rea
 <!-- SAFE_FAST_CURRENT_STATE_BEGIN -->
 - PROJECT_DAY: Day 55
 - PROJECT_DATE: 2026-06-26
-- ACTIVE_OBJECTIVE: Get operator vendor cost approval for the completed Day 55 32-request Databento quote/trade/statistics cost-only request before any download.
-- ACTIVE_TASK: NONE_PENDING_OPERATOR_REVIEW
-- ACTIVE_TASK_PURPOSE: No active task file is currently authorized. Commit `07ce562` completed and validated the Day 55 quote/trade/statistics cost-only request; the next action is operator vendor cost approval before any download.
-- PROVEN_SUMMARY: Day 55 definition contract selection is complete for replay-ready candidates: 6 selected candidates and 12 selected contract legs. Commit `07ce562` created the exact Databento `OPRA.PILLAR` quote/trade/statistics cost-only request package for those selected contracts: 32 requests across `cmbp-1`, `tcbbo`, `trades`, and `statistics`; `definition` is forbidden; vendor call performed `false`; download performed `false`; credential env var read `false`; request validation passes. Profitability proof remains `NO` and paper/live eligibility remains `NO`.
-- UNPROVEN_SUMMARY: No valid entry, recorded entry, exit, gross P&L, net P&L, profitability proof, readiness, paper eligibility, or live eligibility is established for the Day 55 selected-contract request set because quote/trade/statistics evidence has not been downloaded or evaluated.
-- CURRENT_FUNNEL_TOTALS: selected candidates 6; selected contract legs 12; quote/trade/statistics cost-only requests ready for operator vendor cost approval 32; required schemas 4; forbidden definition requests 0; vendor calls performed 0; downloads performed 0; eligible entries 0; recorded entries 0; costed exits 0; net P&L results 0; valid trades captured 0; missed valid trades 0; invalid trades allowed 0; unresolved cases 0; profitability proof NO; paper/live eligibility NO.
-- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md; historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json; historical_signal_replay/day55_quote_trade_statistics_cost_request.py; watcher_foundation/day55_quote_trade_statistics_cost_request_validator.py; tests/test_day55_quote_trade_statistics_cost_request.py; plus Day 55 definition contract-selection inputs.
-- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md
+- ACTIVE_OBJECTIVE: Preserve the Day 55 approved/downloaded option-evidence result and exact SPY 670C target-mismatch rejection; no entry/exit/P&L claim is allowed.
+- ACTIVE_TASK: SAFE_FAST_DAY55_TARGET_MISMATCH_HANDOFF_FIX_TASK.md
+- ACTIVE_TASK_PURPOSE: Finish the uncommitted Day 55 target-mismatch fix and update canonical handoff/status without committing.
+- PROVEN_SUMMARY: Current HEAD before this uncommitted fix is `a91920b`. The approved/downloaded Day 55 quote/trade/statistics evidence package succeeded for 32 Databento `OPRA.PILLAR` requests across `cmbp-1`, `tcbbo`, `trades`, and `statistics`; `definition` remained forbidden. The selected SPY 670C replay target is `SPY   260330C00670000`, but that target is not present in the Day 55 download manifest, so the replay result is exact rejection `target_contract_not_in_day55_download_manifest`. The old blocker `open_interest_statistics_zero_rows` is preserved as not closed. Profitability proof remains `NO` and paper/live eligibility remains `NO`.
+- UNPROVEN_SUMMARY: No valid entry, recorded entry, exit, gross P&L, net P&L, profitability proof, readiness, paper eligibility, or live eligibility is established because the SPY 670C target contract was absent from the downloaded Day 55 evidence package.
+- CURRENT_FUNNEL_TOTALS: selected candidates 6; selected contract legs 12; quote/trade/statistics requests downloaded/validated 32; required schemas 4; forbidden definition requests 0; SPY 670C target contracts in Day 55 download manifest 0; eligible entries 0; recorded entries 0; costed exits 0; net P&L results 0; valid trades captured 0; missed valid trades 0; invalid trades allowed 0; unresolved cases 0; exact rejections 1; profitability proof NO; paper/live eligibility NO.
+- CURRENT_TECHNICAL_PACKAGE: SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md; historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json; historical_signal_replay/day55_spy_670c_entry_exit_pnl_evaluation.py; watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py; tests/test_day55_spy_670c_entry_exit_pnl_evaluation.py; plus Day 55 downloaded quote/trade/statistics manifest.
+- CURRENT_TECHNICAL_RESULT: SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md
 - SCHWAB_STATUS: Schwab Trader API access remains pending credential/approval configuration; no OAuth browser authorization, token write, authenticated Schwab endpoint call, broker mutation, order, account, or fill action is part of the active task.
 - DATA_SOURCE_REGISTRY: SAFE_FAST_DATA_SOURCE_REGISTRY.md
-- NEXT_ACTION: Operator must review/cost-check and explicitly approve the 32-request Databento `OPRA.PILLAR` quote/trade/statistics cost-only request before any download; keep profitability proof NO, paper/live eligibility NO, and no entry/exit/P&L claim.
+- NEXT_ACTION: Stop after the Day 55 target-mismatch handoff fix; if continued later, choose the next evidence action from the exact rejection `target_contract_not_in_day55_download_manifest`, without claiming entry/exit/P&L, proof, or paper/live eligibility.
 <!-- SAFE_FAST_CURRENT_STATE_END -->
 
-## Day 55 quote/trade/statistics cost request status
+## Day 55 SPY 670C target-mismatch entry/exit/P&L replay status
+
+- Result document: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`.
+- Machine-readable result: `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json`.
+- Implementation: `historical_signal_replay/day55_spy_670c_entry_exit_pnl_evaluation.py`.
+- Validator: `watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py`.
+- Focused test: `tests/test_day55_spy_670c_entry_exit_pnl_evaluation.py`.
+- Current HEAD before uncommitted fix: `a91920b`.
+- Approved/downloaded Day 55 quote/trade/statistics evidence succeeded: yes.
+- Downloaded request count: `32`.
+- Required schemas: `cmbp-1`, `tcbbo`, `trades`, and `statistics`.
+- Forbidden schemas: `definition`.
+- SPY 670C replay target: `SPY   260330C00670000`.
+- Target present in downloaded Day 55 manifest: `false`.
+- Entry status: `NO_ENTRY_EXACT_REJECTION`.
+- First blocker: `target_contract_not_in_day55_download_manifest`.
+- Old blocker audit trail: `open_interest_statistics_zero_rows` was not closed.
+- Exit status: `EXIT_BLOCKED`.
+- Gross P&L: `None`.
+- Net P&L: `None`.
+- Profitability proof: `NO`.
+- Paper/live eligibility: `NO`.
+- No entry/exit/P&L claim is established.
+
+## Day 55 quote/trade/statistics cost request historical status
 
 - Result document: `SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md`.
 - Machine-readable result: `historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json`.
@@ -91,15 +115,16 @@ Top anti-drift rule: if the information already exists in the latest machine-rea
 - Net P&L: `None`.
 - Profitability proof: `NO`.
 - Paper/live eligibility: `NO`.
-- Next action: operator vendor cost approval for the 32-request Databento quote/trade/statistics cost-only request; do not download until explicitly approved.
+- Superseded next action: operator vendor cost approval was later completed outside this cost-request package.
+- Current replacement result: approved/downloaded Day 55 quote/trade/statistics evidence succeeded, but the SPY 670C target `SPY   260330C00670000` is absent from the Day 55 download manifest; exact rejection is `target_contract_not_in_day55_download_manifest`.
 
 ## Day 55 canonical workflow cleanup status
 
 - Canonical operating-loop file: `SAFE_FAST_SOURCE_TO_DECISION_OPERATING_LOOP.md`.
 - Enforcement surfaces updated: `SAFE_FAST_NEXT_CHAT_HANDOFF_START_HERE.md`, `SAFE_FAST_NEXT_CHAT_INTRO_BLOCK.txt`, `SAFE_FAST_PROJECT_DASHBOARD.md`, `SAFE_FAST_PROJECT_RULE_INDEX.md`, `scripts/safe_fast_new_chat_status.ps1`, and `tests/test_day51_next_chat_handoff_consistency.py`.
-- Required loop preserves the Day 55 quote/trade/statistics cost-request result: `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`; 32 cost-only Databento requests; no vendor call; no download; no entry; no exit; gross P&L none; net P&L none; profitability proof `NO`; paper/live eligibility `NO`.
+- Required loop preserves the Day 55 target-mismatch replay result: `NO_ENTRY_EXACT_REJECTION`; first blocker `target_contract_not_in_day55_download_manifest`; old blocker `open_interest_statistics_zero_rows` not closed; no entry; no exit; gross P&L none; net P&L none; profitability proof `NO`; paper/live eligibility `NO`.
 - No Databento, tastytrade, Schwab, `main.py`, Railway/deploy, production/live backend, broker/account/order/fill/alert code, credentials, `.env`, sizing, stage, commit, push, profitability claim, or paper/live eligibility change was made.
-- Remaining active objective: cost request completed at `07ce562`; operator vendor cost approval is required before any Databento quote/trade/statistics download.
+- Remaining active objective: finish the uncommitted Day 55 target-mismatch handoff fix; do not commit.
 - Freeze recovery rule preserved: If PowerShell stops progressing, press Ctrl+C once. Do not rerun. First inspect logs, partial files, output, manifest, and Git status.
 - Expanded freeze recovery preserved: First determine whether PowerShell is waiting for hidden input; if not, press Ctrl+C once; do not assume success or failure; inspect process status, logs, partial files, output, manifest, sizes, hashes, parseability, and Git status; rerun only for a specific verified missing or failed result; never repeat a paid request or completed schema merely because output was quiet.
 

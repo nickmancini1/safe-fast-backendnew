@@ -102,9 +102,9 @@ Active path:
 
 completed Day 55 selected-contract definition result
 -> completed 32-request quote/trade/statistics cost-only request
--> operator vendor cost approval
--> approved download only after explicit approval
--> entry/exit/P&L evaluation only after evidence exists
+-> approved/downloaded Day 55 quote/trade/statistics evidence succeeded
+-> SPY 670C target `SPY   260330C00670000` absent from the Day 55 download manifest
+-> exact rejection `target_contract_not_in_day55_download_manifest`
 
 No candidate hunting.
 No provisional layer.
@@ -147,9 +147,9 @@ This rule applies regardless of the current technical objective and supersedes a
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
-Active task: `NONE_PENDING_OPERATOR_REVIEW`
+Active task: `SAFE_FAST_DAY55_TARGET_MISMATCH_HANDOFF_FIX_TASK.md`
 
-Commit `07ce562` completed and validated the Day 55 quote/trade/statistics cost-only request. Current objective: operator vendor cost approval for the 32-request Databento `OPRA.PILLAR` quote/trade/statistics request before any download; no active code/Codex task is authorized yet.
+Current objective: finish the uncommitted Day 55 target-mismatch handoff fix. Current HEAD before the uncommitted fix is `a91920b`.
 
 Do not return to broad candidate hunting.
 
@@ -159,9 +159,9 @@ Do not wait for Schwab.
 
 A network/proxy failure is not proof that data is unavailable.
 
-Future chats must start from the completed Day 55 32-request cost-only request unless a later explicit task supersedes it.
+Future chats must start from the completed Day 55 target-mismatch exact rejection unless a later explicit task supersedes it.
 
-Current result: `SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md`.
+Current result: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`.
 
 Selected winner: `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`.
 
@@ -169,13 +169,13 @@ Contract-selection result: `CONTRACT_RESOLVED_FROM_EXISTING_LOCAL_DEFINITION_EVI
 
 Tastytrade result: `FIELD_LIMITATION_BLOCKED`; local helper proves underlying OHLCV only, not historical option bid/ask.
 
-Databento result: exact cost-only request package is ready for operator review; schemas are `cmbp-1`, `tcbbo`, `trades`, and `statistics`; `definition` is forbidden; vendor call performed `false`; download performed `false`.
+Databento result: approved/downloaded quote/trade/statistics evidence succeeded for 32 requests; schemas are `cmbp-1`, `tcbbo`, `trades`, and `statistics`; `definition` is forbidden.
 
-Request result: `32` cost-only Databento `OPRA.PILLAR` requests are ready for operator vendor cost approval.
+Replay target: `SPY   260330C00670000` is not present in the Day 55 download manifest.
 
-Stage reached: `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`.
+Stage reached: `NO_ENTRY_EXACT_REJECTION`.
 
-Remaining blocker: operator vendor cost approval is required before any Databento download. Entry, exit, gross P&L, and net P&L are not evaluated.
+Remaining blocker: `target_contract_not_in_day55_download_manifest`. The old blocker `open_interest_statistics_zero_rows` was not closed. Entry, exit, gross P&L, and net P&L are `None`.
 
 Profitability proof: `NO`.
 
@@ -198,23 +198,25 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".\scripts\safe_fast_new_cha
 ```
 
 After the user returns that output, state the actual baseline, identify the exact active task, give one action, continue without restarting discovery, and do not make the user explain completed work.
-## Day 55 quote/trade/statistics cost request status
+## Day 55 SPY 670C target-mismatch replay status
 
-- Result: `historical_signal_replay/results/day55_quote_trade_statistics_cost_request_for_selected_contracts.json`.
-- Summary: `SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md`.
-- Validator: `watcher_foundation/day55_quote_trade_statistics_cost_request_validator.py`.
-- Commit: `07ce562 Create Day 55 quote trade statistics cost request`.
-- Decision: `QUOTE_TRADE_STATISTICS_COST_REQUEST_READY_FOR_OPERATOR_REVIEW`.
+- Result: `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json`.
+- Summary: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`.
+- Validator: `watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py`.
+- Current HEAD before uncommitted fix: `a91920b`.
+- Decision: `NO_ENTRY_EXACT_REJECTION`.
 - Request count: `32`.
 - Required schemas: `cmbp-1`, `tcbbo`, `trades`, and `statistics`.
 - Forbidden schema: `definition`.
-- Cost-only: `true`.
-- Vendor call performed: `false`.
-- Download performed: `false`.
-- Entry status: `NOT_EVALUATED`.
-- Exit status: `NOT_EVALUATED`.
+- Approved/downloaded evidence succeeded: `true`.
+- SPY 670C target: `SPY   260330C00670000`.
+- Target present in Day 55 download manifest: `false`.
+- First blocker: `target_contract_not_in_day55_download_manifest`.
+- Old blocker audit trail: `open_interest_statistics_zero_rows` was not closed.
+- Entry status: `NO_ENTRY_EXACT_REJECTION`.
+- Exit status: `EXIT_BLOCKED`.
 - Gross P&L: `None`.
 - Net P&L: `None`.
 - Profitability proof: `NO`.
 - Paper/live eligibility: `NO`.
-- Next action: operator vendor cost approval for the 32-request Databento quote/trade/statistics cost-only request; no download until explicitly approved.
+- Next action: stop after this handoff fix unless a later explicit task is provided; no entry/exit/P&L claim.

@@ -14,23 +14,23 @@
     "underlying": "SPY"
   },
   "evaluation": {
-    "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+    "entry_bid_ask_basis": null,
     "entry_context": {
       "accepted_window_end": "2026-03-16T13:36:00Z",
       "accepted_window_start": "2026-03-16T13:31:00Z",
-      "entry_ask": null,
-      "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
-      "entry_price": null,
-      "first_quote_ask": "10.040000000",
-      "first_quote_ask_size": "65",
-      "first_quote_bid": "9.970000000",
-      "first_quote_bid_size": "121",
-      "first_quote_timestamp": "2026-03-16T13:31:00.010890Z",
-      "quote_age_seconds": "0.01089",
-      "quote_timestamp": "2026-03-16T13:31:00.010890Z",
-      "quotes_considered": 9017,
-      "spread": "0.070000000",
-      "spread_percent": "0.006996501749125437281359320340",
+      "downloaded_symbols": [
+        "QQQ   260416C00585000",
+        "QQQ   260416C00590000",
+        "QQQ   260501C00650000",
+        "QQQ   260501C00655000",
+        "SPY   260414C00645000",
+        "SPY   260414C00650000",
+        "SPY   260501C00702000",
+        "SPY   260501C00707000"
+      ],
+      "old_blocker_closed_by_raw_statistics": false,
+      "previous_blocker": "open_interest_statistics_zero_rows",
+      "target_raw_symbol": "SPY   260330C00670000",
       "window_end_inclusive": false
     },
     "entry_price": null,
@@ -41,7 +41,7 @@
       "status": "EXIT_BLOCKED"
     },
     "exit_status": "EXIT_BLOCKED",
-    "first_blocker": "open_interest_statistics_zero_rows",
+    "first_blocker": "target_contract_not_in_day55_download_manifest",
     "gross_pnl": null,
     "input_status": "INPUTS_VALIDATED",
     "net_pnl": null,
@@ -49,62 +49,535 @@
     "paper_live_eligibility": "NO",
     "pnl_result": null,
     "profitability_status": "NO",
-    "quote_age": "0.01089",
-    "spread": "0.070000000",
-    "spread_percent": "0.006996501749125437281359320340",
+    "quote_age": null,
+    "spread": null,
+    "spread_percent": null,
     "statistics_open_interest_status": {
-      "first_blocker": "open_interest_statistics_zero_rows",
+      "first_blocker": "target_contract_not_in_day55_download_manifest",
+      "old_blocker_closed_by_raw_statistics": false,
       "open_interest": null,
-      "rows": 0,
-      "status": "STATISTICS_ZERO_ROWS"
+      "previous_blocker": "open_interest_statistics_zero_rows",
+      "rows": null,
+      "status": "NOT_EVALUATED_TARGET_CONTRACT_NOT_IN_MANIFEST"
     },
     "trade_volume_context": {
-      "first_trade_timestamp": "2026-03-16T13:31:41.642190Z",
-      "minimum_trade_volume": "1",
-      "status": "TRADE_VOLUME_VALID",
-      "trade_count_through_entry_window": 4,
-      "trade_volume_through_entry_window": "4"
+      "reason": "target_contract_not_in_day55_download_manifest",
+      "status": "NOT_EVALUATED"
     }
   },
   "input_validation": {
+    "completed_or_reused_request_count": 32,
     "completed_or_reused_schemas": [
       "cmbp-1",
+      "statistics",
       "tcbbo",
-      "trades",
-      "statistics"
+      "trades"
     ],
     "contract_identity_verified": true,
     "definition_requested_or_needed": false,
+    "download_performed": true,
     "first_blocker": null,
     "manifest_status": "SUCCESS",
+    "old_blocker_closed_by_raw_statistics": false,
+    "previous_blocker": "open_interest_statistics_zero_rows",
     "problems": [],
+    "remaining_request_count": 0,
+    "request_count": 32,
     "schema_file_status": {
-      "cmbp-1": {
-        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day52_spy_670c/day52_spy_670c_cmbp-1.csv",
-        "exists": true,
+      "01_spy260414c00645000_trades_20260331t163000z_20260331t194500z": {
+        "actual_csv_record_count": 27,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/01_spy260414c00645000_trades_20260331t163000z_20260331t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/01_spy260414c00645000_trades_20260331t163000z_20260331t194500z.dbn.zst",
+        "dbn_sha256_match": true,
         "manifest_empty": false,
-        "manifest_record_count": 9017
+        "manifest_record_count": 27,
+        "schema": "trades",
+        "symbols": "SPY   260414C00645000"
       },
-      "statistics": {
-        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day52_spy_670c/day52_spy_670c_statistics.csv",
-        "exists": true,
+      "02_spy260414c00645000_statistics_20260331t163000z_20260331t163600z": {
+        "actual_csv_record_count": 0,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/02_spy260414c00645000_statistics_20260331t163000z_20260331t163600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/02_spy260414c00645000_statistics_20260331t163000z_20260331t163600z.dbn.zst",
+        "dbn_sha256_match": true,
         "manifest_empty": true,
-        "manifest_record_count": 0
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "symbols": "SPY   260414C00645000"
       },
-      "tcbbo": {
-        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day52_spy_670c/day52_spy_670c_tcbbo.csv",
-        "exists": true,
+      "03_spy260414c00650000_trades_20260331t163000z_20260331t194500z": {
+        "actual_csv_record_count": 128,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/03_spy260414c00650000_trades_20260331t163000z_20260331t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/03_spy260414c00650000_trades_20260331t163000z_20260331t194500z.dbn.zst",
+        "dbn_sha256_match": true,
         "manifest_empty": false,
-        "manifest_record_count": 220
+        "manifest_record_count": 128,
+        "schema": "trades",
+        "symbols": "SPY   260414C00650000"
       },
-      "trades": {
-        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day52_spy_670c/day52_spy_670c_trades.csv",
-        "exists": true,
+      "04_spy260414c00650000_statistics_20260331t163000z_20260331t163600z": {
+        "actual_csv_record_count": 0,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/04_spy260414c00650000_statistics_20260331t163000z_20260331t163600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/04_spy260414c00650000_statistics_20260331t163000z_20260331t163600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "symbols": "SPY   260414C00650000"
+      },
+      "05_spy260414c00645000_cmbp1_20260331t163100z_20260331t163600z": {
+        "actual_csv_record_count": 7043,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/05_spy260414c00645000_cmbp1_20260331t163100z_20260331t163600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/05_spy260414c00645000_cmbp1_20260331t163100z_20260331t163600z.dbn.zst",
+        "dbn_sha256_match": true,
         "manifest_empty": false,
-        "manifest_record_count": 220
+        "manifest_record_count": 7043,
+        "schema": "cmbp-1",
+        "symbols": "SPY   260414C00645000"
+      },
+      "06_spy260414c00645000_tcbbo_20260331t163100z_20260331t194500z": {
+        "actual_csv_record_count": 27,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/06_spy260414c00645000_tcbbo_20260331t163100z_20260331t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/06_spy260414c00645000_tcbbo_20260331t163100z_20260331t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 27,
+        "schema": "tcbbo",
+        "symbols": "SPY   260414C00645000"
+      },
+      "07_spy260414c00650000_cmbp1_20260331t163100z_20260331t163600z": {
+        "actual_csv_record_count": 6880,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/07_spy260414c00650000_cmbp1_20260331t163100z_20260331t163600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/07_spy260414c00650000_cmbp1_20260331t163100z_20260331t163600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 6880,
+        "schema": "cmbp-1",
+        "symbols": "SPY   260414C00650000"
+      },
+      "08_spy260414c00650000_tcbbo_20260331t163100z_20260331t194500z": {
+        "actual_csv_record_count": 128,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/08_spy260414c00650000_tcbbo_20260331t163100z_20260331t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/08_spy260414c00650000_tcbbo_20260331t163100z_20260331t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 128,
+        "schema": "tcbbo",
+        "symbols": "SPY   260414C00650000"
+      },
+      "09_qqq260416c00585000_trades_20260402t193000z_20260402t194500z": {
+        "actual_csv_record_count": 5,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/09_qqq260416c00585000_trades_20260402t193000z_20260402t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/09_qqq260416c00585000_trades_20260402t193000z_20260402t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 5,
+        "schema": "trades",
+        "symbols": "QQQ   260416C00585000"
+      },
+      "10_qqq260416c00585000_statistics_20260402t193000z_20260402t193600z": {
+        "actual_csv_record_count": 0,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/10_qqq260416c00585000_statistics_20260402t193000z_20260402t193600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/10_qqq260416c00585000_statistics_20260402t193000z_20260402t193600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "symbols": "QQQ   260416C00585000"
+      },
+      "11_qqq260416c00590000_trades_20260402t193000z_20260402t194500z": {
+        "actual_csv_record_count": 0,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/11_qqq260416c00590000_trades_20260402t193000z_20260402t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/11_qqq260416c00590000_trades_20260402t193000z_20260402t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "trades",
+        "symbols": "QQQ   260416C00590000"
+      },
+      "12_qqq260416c00590000_statistics_20260402t193000z_20260402t193600z": {
+        "actual_csv_record_count": 0,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/12_qqq260416c00590000_statistics_20260402t193000z_20260402t193600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/12_qqq260416c00590000_statistics_20260402t193000z_20260402t193600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "symbols": "QQQ   260416C00590000"
+      },
+      "13_qqq260416c00585000_cmbp1_20260402t193100z_20260402t193600z": {
+        "actual_csv_record_count": 4356,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/13_qqq260416c00585000_cmbp1_20260402t193100z_20260402t193600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/13_qqq260416c00585000_cmbp1_20260402t193100z_20260402t193600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 4356,
+        "schema": "cmbp-1",
+        "symbols": "QQQ   260416C00585000"
+      },
+      "14_qqq260416c00585000_tcbbo_20260402t193100z_20260402t194500z": {
+        "actual_csv_record_count": 5,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/14_qqq260416c00585000_tcbbo_20260402t193100z_20260402t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/14_qqq260416c00585000_tcbbo_20260402t193100z_20260402t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 5,
+        "schema": "tcbbo",
+        "symbols": "QQQ   260416C00585000"
+      },
+      "15_qqq260416c00590000_cmbp1_20260402t193100z_20260402t193600z": {
+        "actual_csv_record_count": 2883,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/15_qqq260416c00590000_cmbp1_20260402t193100z_20260402t193600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/15_qqq260416c00590000_cmbp1_20260402t193100z_20260402t193600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 2883,
+        "schema": "cmbp-1",
+        "symbols": "QQQ   260416C00590000"
+      },
+      "16_qqq260416c00590000_tcbbo_20260402t193100z_20260402t194500z": {
+        "actual_csv_record_count": 0,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/16_qqq260416c00590000_tcbbo_20260402t193100z_20260402t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/16_qqq260416c00590000_tcbbo_20260402t193100z_20260402t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "tcbbo",
+        "symbols": "QQQ   260416C00590000"
+      },
+      "17_spy260501c00702000_trades_20260417t133000z_20260417t194500z": {
+        "actual_csv_record_count": 115,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/17_spy260501c00702000_trades_20260417t133000z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/17_spy260501c00702000_trades_20260417t133000z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 115,
+        "schema": "trades",
+        "symbols": "SPY   260501C00702000"
+      },
+      "18_spy260501c00702000_statistics_20260417t133000z_20260417t133600z": {
+        "actual_csv_record_count": 0,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/18_spy260501c00702000_statistics_20260417t133000z_20260417t133600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/18_spy260501c00702000_statistics_20260417t133000z_20260417t133600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "symbols": "SPY   260501C00702000"
+      },
+      "19_spy260501c00707000_trades_20260417t133000z_20260417t194500z": {
+        "actual_csv_record_count": 217,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/19_spy260501c00707000_trades_20260417t133000z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/19_spy260501c00707000_trades_20260417t133000z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 217,
+        "schema": "trades",
+        "symbols": "SPY   260501C00707000"
+      },
+      "20_spy260501c00707000_statistics_20260417t133000z_20260417t133600z": {
+        "actual_csv_record_count": 0,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/20_spy260501c00707000_statistics_20260417t133000z_20260417t133600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/20_spy260501c00707000_statistics_20260417t133000z_20260417t133600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "symbols": "SPY   260501C00707000"
+      },
+      "21_spy260501c00702000_cmbp1_20260417t133100z_20260417t133600z": {
+        "actual_csv_record_count": 9705,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/21_spy260501c00702000_cmbp1_20260417t133100z_20260417t133600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/21_spy260501c00702000_cmbp1_20260417t133100z_20260417t133600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 9705,
+        "schema": "cmbp-1",
+        "symbols": "SPY   260501C00702000"
+      },
+      "22_spy260501c00702000_tcbbo_20260417t133100z_20260417t194500z": {
+        "actual_csv_record_count": 110,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/22_spy260501c00702000_tcbbo_20260417t133100z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/22_spy260501c00702000_tcbbo_20260417t133100z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 110,
+        "schema": "tcbbo",
+        "symbols": "SPY   260501C00702000"
+      },
+      "23_spy260501c00707000_cmbp1_20260417t133100z_20260417t133600z": {
+        "actual_csv_record_count": 16037,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/23_spy260501c00707000_cmbp1_20260417t133100z_20260417t133600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/23_spy260501c00707000_cmbp1_20260417t133100z_20260417t133600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 16037,
+        "schema": "cmbp-1",
+        "symbols": "SPY   260501C00707000"
+      },
+      "24_spy260501c00707000_tcbbo_20260417t133100z_20260417t194500z": {
+        "actual_csv_record_count": 213,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/24_spy260501c00707000_tcbbo_20260417t133100z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/24_spy260501c00707000_tcbbo_20260417t133100z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 213,
+        "schema": "tcbbo",
+        "symbols": "SPY   260501C00707000"
+      },
+      "25_qqq260501c00650000_trades_20260417t143000z_20260417t194500z": {
+        "actual_csv_record_count": 724,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/25_qqq260501c00650000_trades_20260417t143000z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/25_qqq260501c00650000_trades_20260417t143000z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 724,
+        "schema": "trades",
+        "symbols": "QQQ   260501C00650000"
+      },
+      "26_qqq260501c00650000_statistics_20260417t143000z_20260417t143600z": {
+        "actual_csv_record_count": 0,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/26_qqq260501c00650000_statistics_20260417t143000z_20260417t143600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/26_qqq260501c00650000_statistics_20260417t143000z_20260417t143600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "symbols": "QQQ   260501C00650000"
+      },
+      "27_qqq260501c00655000_trades_20260417t143000z_20260417t194500z": {
+        "actual_csv_record_count": 634,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/27_qqq260501c00655000_trades_20260417t143000z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/27_qqq260501c00655000_trades_20260417t143000z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 634,
+        "schema": "trades",
+        "symbols": "QQQ   260501C00655000"
+      },
+      "28_qqq260501c00655000_statistics_20260417t143000z_20260417t143600z": {
+        "actual_csv_record_count": 0,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/28_qqq260501c00655000_statistics_20260417t143000z_20260417t143600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/28_qqq260501c00655000_statistics_20260417t143000z_20260417t143600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "symbols": "QQQ   260501C00655000"
+      },
+      "29_qqq260501c00650000_cmbp1_20260417t143100z_20260417t143600z": {
+        "actual_csv_record_count": 16209,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/29_qqq260501c00650000_cmbp1_20260417t143100z_20260417t143600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/29_qqq260501c00650000_cmbp1_20260417t143100z_20260417t143600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 16209,
+        "schema": "cmbp-1",
+        "symbols": "QQQ   260501C00650000"
+      },
+      "30_qqq260501c00650000_tcbbo_20260417t143100z_20260417t194500z": {
+        "actual_csv_record_count": 722,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/30_qqq260501c00650000_tcbbo_20260417t143100z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/30_qqq260501c00650000_tcbbo_20260417t143100z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 722,
+        "schema": "tcbbo",
+        "symbols": "QQQ   260501C00650000"
+      },
+      "31_qqq260501c00655000_cmbp1_20260417t143100z_20260417t143600z": {
+        "actual_csv_record_count": 11916,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/31_qqq260501c00655000_cmbp1_20260417t143100z_20260417t143600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/31_qqq260501c00655000_cmbp1_20260417t143100z_20260417t143600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 11916,
+        "schema": "cmbp-1",
+        "symbols": "QQQ   260501C00655000"
+      },
+      "32_qqq260501c00655000_tcbbo_20260417t143100z_20260417t194500z": {
+        "actual_csv_record_count": 634,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/32_qqq260501c00655000_tcbbo_20260417t143100z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/32_qqq260501c00655000_tcbbo_20260417t143100z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "manifest_empty": false,
+        "manifest_record_count": 634,
+        "schema": "tcbbo",
+        "symbols": "QQQ   260501C00655000"
       }
     },
-    "status": "INPUTS_VALIDATED"
+    "selected_contracts": [
+      {
+        "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+        "instrument_id": 989856791,
+        "leg": "long",
+        "raw_symbol": "QQQ   260501C00650000"
+      },
+      {
+        "candidate_id": "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002",
+        "instrument_id": 989855873,
+        "leg": "short",
+        "raw_symbol": "QQQ   260501C00655000"
+      },
+      {
+        "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "instrument_id": 1275070451,
+        "leg": "long",
+        "raw_symbol": "SPY   260414C00645000"
+      },
+      {
+        "candidate_id": "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "instrument_id": 1275070438,
+        "leg": "short",
+        "raw_symbol": "SPY   260414C00650000"
+      },
+      {
+        "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+        "instrument_id": 1040189341,
+        "leg": "long",
+        "raw_symbol": "QQQ   260416C00585000"
+      },
+      {
+        "candidate_id": "QQQ-SOURCE-WINDOW-CONTINUATION-002",
+        "instrument_id": 1040189318,
+        "leg": "short",
+        "raw_symbol": "QQQ   260416C00590000"
+      },
+      {
+        "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "instrument_id": 1275070451,
+        "leg": "long",
+        "raw_symbol": "SPY   260414C00645000"
+      },
+      {
+        "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "instrument_id": 1275070438,
+        "leg": "short",
+        "raw_symbol": "SPY   260414C00650000"
+      },
+      {
+        "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+        "instrument_id": 1275070451,
+        "leg": "long",
+        "raw_symbol": "SPY   260414C00645000"
+      },
+      {
+        "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-005",
+        "instrument_id": 1275070438,
+        "leg": "short",
+        "raw_symbol": "SPY   260414C00650000"
+      },
+      {
+        "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+        "instrument_id": 1224736926,
+        "leg": "long",
+        "raw_symbol": "SPY   260501C00702000"
+      },
+      {
+        "candidate_id": "SPY-SOURCE-WINDOW-CONTINUATION-002",
+        "instrument_id": 1224738270,
+        "leg": "short",
+        "raw_symbol": "SPY   260501C00707000"
+      }
+    ],
+    "status": "INPUTS_VALIDATED",
+    "target_contract_in_manifest": false,
+    "target_schema_file_status": {}
   },
   "paper_live_eligibility": "NO",
   "profitability_status": "NO",
@@ -113,9 +586,9 @@
     "paper_live_eligibility": "NO",
     "profitability_proof": "NO"
   },
-  "remaining_blocker": "open_interest_statistics_zero_rows",
+  "remaining_blocker": "target_contract_not_in_day55_download_manifest",
   "result_version": "day55_spy_670c_entry_exit_pnl_evaluation_v1",
-  "run_timestamp": "2026-06-26T14:28:14.326299Z",
+  "run_timestamp": "2026-06-29T22:15:43.489829Z",
   "scope": {
     "broker_account_order_alert_touched": false,
     "credentials_or_env_changed": false,
@@ -138,6 +611,7 @@
     "side": "call",
     "strike": "670"
   },
-  "source_commit": "cb4bc0e",
-  "task": "SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_CODEX_TASK.md"
+  "source_commit": "a91920b",
+  "supersedes_task": "SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_CODEX_TASK.md",
+  "task": "SAFE_FAST_DAY55_OPTION_EVIDENCE_ENTRY_EXIT_PNL_REPLAY_TASK.md"
 }

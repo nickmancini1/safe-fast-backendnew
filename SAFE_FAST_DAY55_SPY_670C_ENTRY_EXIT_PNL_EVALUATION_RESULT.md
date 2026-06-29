@@ -3,19 +3,24 @@
 ## Decision
 
 - Status: `NO_ENTRY_EXACT_REJECTION`.
+- Current HEAD before uncommitted fix: `a91920b`.
 - Selected winner: `DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39`.
 - Contract: `SPY   260330C00670000`, instrument `1241515301`, publisher `30`.
 - Entry window: `2026-03-16T13:31:00Z` through `2026-03-16T13:36:00Z`.
-- First blocker: `open_interest_statistics_zero_rows`.
+- Approved/downloaded Day 55 quote/trade/statistics evidence succeeded: `true`.
+- Day 55 downloaded request count: `32`.
+- Target present in Day 55 download manifest: `false`.
+- First blocker: `target_contract_not_in_day55_download_manifest`.
+- Old blocker audit trail: `open_interest_statistics_zero_rows` was not closed.
 
 ## Entry / Exit / P&L
 
 - Entry timestamp: `None`.
 - Entry price: `None`.
-- Quote age: `0.01089`.
-- Spread: `0.070000000`.
-- Trade-volume status: `TRADE_VOLUME_VALID`.
-- Statistics/OI status: `STATISTICS_ZERO_ROWS`.
+- Quote age: `None`.
+- Spread: `None`.
+- Trade-volume status: `NOT_EVALUATED`.
+- Statistics/OI status: `NOT_EVALUATED_TARGET_CONTRACT_NOT_IN_MANIFEST`.
 - Exit status: `EXIT_BLOCKED`.
 - Gross P&L: `None`.
 - Net P&L: `None`.

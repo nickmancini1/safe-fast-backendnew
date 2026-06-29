@@ -1,4 +1,5 @@
 import csv
+import hashlib
 import json
 from datetime import datetime, time, timezone
 from decimal import Decimal, InvalidOperation
@@ -15,23 +16,26 @@ SOURCE_ROOT = (
     / "historical_signal_replay"
     / "source_data"
     / "external_option_data_drop"
-    / "day52_spy_670c"
+    / "day55_quote_trade_statistics_selected_contracts"
 )
-MANIFEST_PATH = SOURCE_ROOT / "day52_spy_670c_databento_download_manifest.json"
-CONTRACT_RESOLUTION_PATH = (
-    REPO_ROOT / "historical_signal_replay" / "results" / "day52_spy_opra_contract_resolution.json"
+MANIFEST_PATH = SOURCE_ROOT / "day55_quote_trade_statistics_download_manifest.json"
+CONTRACT_SELECTION_PATH = (
+    REPO_ROOT
+    / "historical_signal_replay"
+    / "results"
+    / "day55_definition_contract_selection_for_replay_ready_candidates.json"
 )
 COST_OUTPUT_PATH = (
     REPO_ROOT
     / "historical_signal_replay"
     / "results"
-    / "day52_existing_setup_databento_cost_request_operator_output.json"
+    / "day55_quote_trade_statistics_cost_check_for_selected_contracts.json"
 )
-DAY52_E2E_PATH = (
+PREVIOUS_RESULT_PATH = (
     REPO_ROOT
     / "historical_signal_replay"
     / "results"
-    / "day52_existing_setup_option_evidence_end_to_end_backtest.json"
+    / "day55_spy_670c_entry_exit_pnl_evaluation.json"
 )
 RESULT_PATH = (
     REPO_ROOT
@@ -43,6 +47,7 @@ RESULT_DOC_PATH = REPO_ROOT / "SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATIO
 
 RESULT_VERSION = "day55_spy_670c_entry_exit_pnl_evaluation_v1"
 TASK_FILENAME = "SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_CODEX_TASK.md"
+REPLAY_TASK_FILENAME = "SAFE_FAST_DAY55_OPTION_EVIDENCE_ENTRY_EXIT_PNL_REPLAY_TASK.md"
 SELECTED_WINNER_ID = "DAY52-SPY-2026-03-16-CLEAN-FAST-BREAK-20260316T133000Z-P39"
 SETUP_FAMILY = "Clean Fast Break"
 RAW_SYMBOL = "SPY   260330C00670000"
@@ -66,12 +71,7 @@ NET_PNL_EVALUATED = "NET_PNL_EVALUATED"
 ECONOMIC_REPLAY_BLOCKED = "ECONOMIC_REPLAY_BLOCKED"
 
 REQUIRED_SCHEMAS = ("cmbp-1", "tcbbo", "trades", "statistics")
-CSV_BY_SCHEMA = {
-    "cmbp-1": "day52_spy_670c_cmbp-1.csv",
-    "tcbbo": "day52_spy_670c_tcbbo.csv",
-    "trades": "day52_spy_670c_trades.csv",
-    "statistics": "day52_spy_670c_statistics.csv",
-}
+CSV_BY_SCHEMA = {}
 
 
 class Day55EvaluationError(ValueError):
@@ -81,31 +81,35 @@ class Day55EvaluationError(ValueError):
 def build_document(
     *,
     manifest_path=MANIFEST_PATH,
-    contract_resolution_path=CONTRACT_RESOLUTION_PATH,
+    contract_selection_path=CONTRACT_SELECTION_PATH,
     cost_output_path=COST_OUTPUT_PATH,
-    day52_e2e_path=DAY52_E2E_PATH,
+    previous_result_path=PREVIOUS_RESULT_PATH,
     source_root=SOURCE_ROOT,
     run_timestamp=None,
     source_commit=None,
 ):
     run_timestamp = run_timestamp or _utc_now()
     manifest = _load_json(manifest_path, "missing_manifest")
-    contract_resolution = _load_json(contract_resolution_path, "missing_contract_resolution")
+    contract_selection = _load_json(contract_selection_path, "missing_contract_selection")
     cost_output = _load_json(cost_output_path, "missing_cost_output")
-    day52_e2e = _load_json(day52_e2e_path, "missing_day52_e2e_result")
+    previous_result = _load_json(previous_result_path, "missing_previous_result")
 
     input_status = _validate_inputs(
         manifest=manifest,
-        contract_resolution=contract_resolution,
+        contract_selection=contract_selection,
         cost_output=cost_output,
-        day52_e2e=day52_e2e,
+        previous_result=previous_result,
         source_root=Path(source_root),
     )
     if input_status["status"] != "INPUTS_VALIDATED":
         evaluation = _blocked_evaluation(input_status["first_blocker"], input_status)
+    elif not input_status["target_contract_in_manifest"]:
+        evaluation = _target_contract_not_in_download_result(input_status)
     else:
         rows_by_schema = {
-            schema: _read_csv_rows(Path(source_root) / CSV_BY_SCHEMA[schema])
+            schema: _read_csv_rows(
+                _repo_path(input_status["target_schema_file_status"][schema]["csv_path"], source_root)
+            )
             for schema in REQUIRED_SCHEMAS
         }
         evaluation = _evaluate_rows(rows_by_schema, input_status)
@@ -124,7 +128,8 @@ def build_document(
 
     return {
         "result_version": RESULT_VERSION,
-        "task": TASK_FILENAME,
+        "task": REPLAY_TASK_FILENAME,
+        "supersedes_task": TASK_FILENAME,
         "source_commit": source_commit or _git_short_head(),
         "run_timestamp": run_timestamp,
         "scope": {
@@ -183,62 +188,121 @@ def write_outputs(*, run_timestamp=None, source_commit=None):
     return document
 
 
-def _validate_inputs(*, manifest, contract_resolution, cost_output, day52_e2e, source_root):
+def _validate_inputs(*, manifest, contract_selection, cost_output, previous_result, source_root):
     problems = []
 
     if manifest.get("status") != "SUCCESS":
         problems.append("manifest_status_not_success")
-    if "definition" in set(manifest.get("completed_or_reused_schemas", [])):
+    if manifest.get("download_performed") is not True:
+        problems.append("download_not_performed")
+    if manifest.get("request_count") != 32:
+        problems.append("request_count_not_32")
+    if set(manifest.get("required_schemas", [])) != set(REQUIRED_SCHEMAS):
+        problems.append("required_schema_set_mismatch")
+    if "definition" not in set(manifest.get("forbidden_schemas", [])):
+        problems.append("definition_not_forbidden")
+    if any(request.get("schema") == "definition" for request in manifest.get("exact_requests", [])):
         problems.append("definition_schema_unexpected")
-    if set(manifest.get("completed_or_reused_schemas", [])) != set(REQUIRED_SCHEMAS):
-        problems.append("completed_schema_set_mismatch")
 
-    selected = contract_resolution.get("selected_contract") or {}
-    manifest_contract = manifest.get("contract_identity") or {}
-    cost_contract = cost_output.get("selected_contract") or {}
-    e2e_contract = (
-        day52_e2e.get("contract_selection_result", {}).get("selected_contract") or {}
-    )
-    identities = [
-        ("contract_resolution", selected.get("raw_symbol"), selected.get("instrument_id"), selected.get("publisher_id")),
-        ("manifest", manifest_contract.get("raw_symbol"), manifest_contract.get("instrument_id"), manifest_contract.get("publisher_id")),
-        ("cost_output", cost_contract.get("vendor_symbol"), cost_contract.get("instrument_id"), cost_contract.get("publisher_id")),
-        ("day52_e2e", e2e_contract.get("raw_symbol"), e2e_contract.get("instrument_id"), e2e_contract.get("publisher_id")),
-    ]
-    for label, symbol, instrument_id, publisher_id in identities:
-        if symbol != RAW_SYMBOL:
-            problems.append(f"{label}_raw_symbol_mismatch")
-        parsed_instrument_id = int(instrument_id) if instrument_id is not None else None
-        parsed_publisher_id = int(publisher_id) if publisher_id is not None else None
-        if parsed_instrument_id != INSTRUMENT_ID:
-            problems.append(f"{label}_instrument_id_mismatch")
-        if parsed_publisher_id != PUBLISHER_ID:
-            problems.append(f"{label}_publisher_id_mismatch")
+    if contract_selection.get("decision") != "DEFINITION_CONTRACT_SELECTION_COMPLETE":
+        problems.append("contract_selection_not_complete")
+    if cost_output.get("status") != "SUCCESS":
+        problems.append("cost_check_not_success")
+    if cost_output.get("download_performed") is not False:
+        problems.append("cost_check_download_performed_changed")
+    if cost_output.get("grouped_cost") != manifest.get("checked_grouped_cost_usd"):
+        problems.append("cost_check_amount_mismatch")
+    if [vendor_request(request) for request in manifest.get("exact_requests", [])] != [
+        vendor_request(request) for request in cost_output.get("requests", [])
+    ]:
+        problems.append("manifest_cost_requests_mismatch")
 
-    output_files = {item.get("schema"): item for item in manifest.get("output_files", [])}
-    schema_status = manifest.get("schema_status") or {}
+    selected_contracts = []
+    for candidate in contract_selection.get("candidates", []):
+        for leg in ("long_contract", "short_contract"):
+            contract = candidate.get(leg) or {}
+            if contract:
+                selected_contracts.append(
+                    {
+                        "candidate_id": candidate.get("candidate_id"),
+                        "leg": leg.replace("_contract", ""),
+                        "raw_symbol": contract.get("raw_symbol"),
+                        "instrument_id": _int_or_none(contract.get("instrument_id")),
+                    }
+                )
+
     file_status = {}
-    for schema in REQUIRED_SCHEMAS:
-        manifest_file = output_files.get(schema) or {}
-        status_row = schema_status.get(schema) or {}
-        csv_path = Path(manifest_file.get("csv_path") or source_root / CSV_BY_SCHEMA[schema])
-        if not csv_path.is_absolute():
-            csv_path = REPO_ROOT / csv_path
-        exists = csv_path.exists()
-        file_status[schema] = {
+    output_files = manifest.get("output_files", [])
+    for output in output_files:
+        request_id = output.get("request_id") or f"{output.get('schema')}_{output.get('symbols')}"
+        csv_path = _repo_path(output.get("csv_path"), source_root)
+        dbn_path = _repo_path(output.get("dbn_path"), source_root)
+        expected_records = int(output.get("parsed_record_count") or 0)
+        csv_exists = csv_path.exists()
+        dbn_exists = dbn_path.exists()
+        actual_records = _csv_record_count(csv_path) if csv_exists else None
+        file_status[request_id] = {
+            "schema": output.get("schema"),
+            "symbols": output.get("symbols"),
             "csv_path": _relative(csv_path),
-            "exists": exists,
-            "manifest_record_count": status_row.get(
-                "parsed_record_count",
-                manifest_file.get("parsed_record_count"),
-            ),
-            "manifest_empty": manifest_file.get("empty"),
+            "dbn_path": _relative(dbn_path),
+            "csv_exists": csv_exists,
+            "dbn_exists": dbn_exists,
+            "manifest_record_count": expected_records,
+            "actual_csv_record_count": actual_records,
+            "manifest_empty": output.get("empty"),
+            "csv_sha256_match": _sha256_matches(csv_path, output.get("csv_sha256")) if csv_exists else False,
+            "dbn_sha256_match": _sha256_matches(dbn_path, output.get("dbn_sha256")) if dbn_exists else False,
         }
-        if not exists:
-            problems.append(f"{schema}_csv_missing")
-        request = (status_row.get("request") or manifest_file)
-        if request.get("symbols") != RAW_SYMBOL:
-            problems.append(f"{schema}_request_symbol_mismatch")
+        if output.get("schema") not in REQUIRED_SCHEMAS:
+            problems.append(f"{request_id}_unexpected_schema")
+        if output.get("contract_identity_validated") is not True:
+            problems.append(f"{request_id}_contract_identity_not_validated")
+        if not csv_exists:
+            problems.append(f"{request_id}_csv_missing")
+        if not dbn_exists:
+            problems.append(f"{request_id}_dbn_missing")
+        if csv_exists and actual_records != expected_records:
+            problems.append(f"{request_id}_csv_record_count_mismatch")
+        if csv_exists and not file_status[request_id]["csv_sha256_match"]:
+            problems.append(f"{request_id}_csv_sha256_mismatch")
+        if dbn_exists and not file_status[request_id]["dbn_sha256_match"]:
+            problems.append(f"{request_id}_dbn_sha256_mismatch")
+
+    target_outputs = [
+        output for output in output_files
+        if str(output.get("symbols", "")).strip() == RAW_SYMBOL.strip()
+    ]
+    target_schema_file_status = {}
+    for output in target_outputs:
+        schema = output.get("schema")
+        if schema in REQUIRED_SCHEMAS:
+            target_schema_file_status[schema] = {
+                "csv_path": _relative(_repo_path(output.get("csv_path"), source_root)),
+                "exists": _repo_path(output.get("csv_path"), source_root).exists(),
+                "manifest_record_count": output.get("parsed_record_count"),
+                "manifest_empty": output.get("empty"),
+            }
+
+    target_contract_in_manifest = bool(target_outputs)
+    if target_contract_in_manifest and set(target_schema_file_status) != set(REQUIRED_SCHEMAS):
+        problems.append("target_contract_schema_set_incomplete")
+
+    previous_evaluation = previous_result.get("evaluation", {})
+    previous_input_validation = previous_result.get("input_validation", {})
+    previous_blocker = (
+        previous_input_validation.get("previous_blocker")
+        or previous_result.get("remaining_blocker")
+        or previous_evaluation.get("first_blocker")
+    )
+    old_blocker_closed = False
+    if previous_blocker == "open_interest_statistics_zero_rows" and target_contract_in_manifest:
+        stats_path = target_schema_file_status.get("statistics", {}).get("csv_path")
+        if stats_path:
+            old_blocker_closed = (
+                _statistics_status(_read_csv_rows(_repo_path(stats_path, source_root)))["status"]
+                == "OPEN_INTEREST_VALID"
+            )
 
     first_blocker = problems[0] if problems else None
     return {
@@ -246,10 +310,21 @@ def _validate_inputs(*, manifest, contract_resolution, cost_output, day52_e2e, s
         "first_blocker": first_blocker,
         "problems": problems,
         "manifest_status": manifest.get("status"),
-        "completed_or_reused_schemas": manifest.get("completed_or_reused_schemas", []),
+        "download_performed": manifest.get("download_performed"),
+        "request_count": manifest.get("request_count"),
+        "completed_or_reused_request_count": len(manifest.get("completed_or_reused_request_ids", [])),
+        "remaining_request_count": len(manifest.get("remaining_request_ids", [])),
+        "completed_or_reused_schemas": sorted(set(item.get("schema") for item in output_files)),
         "schema_file_status": file_status,
+        "target_contract_in_manifest": target_contract_in_manifest,
+        "target_schema_file_status": target_schema_file_status,
+        "selected_contracts": selected_contracts,
+        "previous_blocker": previous_blocker,
+        "old_blocker_closed_by_raw_statistics": old_blocker_closed,
         "definition_requested_or_needed": False,
-        "contract_identity_verified": not any("mismatch" in problem for problem in problems),
+        "contract_identity_verified": all(
+            output.get("contract_identity_validated") is True for output in output_files
+        ),
     }
 
 
@@ -341,6 +416,49 @@ def _evaluate_rows(rows_by_schema, input_status):
         entry_attempt,
         trade_context,
         statistics_status,
+    )
+
+
+def _target_contract_not_in_download_result(input_status):
+    entry_attempt = {
+        "accepted_window_start": ENTRY_WINDOW_START_UTC,
+        "accepted_window_end": ENTRY_WINDOW_END_UTC,
+        "window_end_inclusive": False,
+        "target_raw_symbol": RAW_SYMBOL,
+        "downloaded_symbols": sorted(
+            {
+                contract["raw_symbol"]
+                for contract in input_status.get("selected_contracts", [])
+                if contract.get("raw_symbol")
+            }
+        ),
+        "previous_blocker": input_status.get("previous_blocker"),
+        "old_blocker_closed_by_raw_statistics": input_status.get(
+            "old_blocker_closed_by_raw_statistics"
+        ),
+    }
+    return _base_evaluation(
+        entry_status=NO_ENTRY_EXACT_REJECTION,
+        exit_status=EXIT_BLOCKED,
+        net_pnl_status=ECONOMIC_REPLAY_BLOCKED,
+        first_blocker="target_contract_not_in_day55_download_manifest",
+        input_status=input_status,
+        entry_attempt=entry_attempt,
+        trade_context={
+            "status": "NOT_EVALUATED",
+            "reason": "target_contract_not_in_day55_download_manifest",
+        },
+        statistics_status={
+            "status": "NOT_EVALUATED_TARGET_CONTRACT_NOT_IN_MANIFEST",
+            "rows": None,
+            "open_interest": None,
+            "first_blocker": "target_contract_not_in_day55_download_manifest",
+            "previous_blocker": input_status.get("previous_blocker"),
+            "old_blocker_closed_by_raw_statistics": input_status.get(
+                "old_blocker_closed_by_raw_statistics"
+            ),
+        },
+        exit_result={"status": EXIT_BLOCKED, "exit_timestamp": None},
     )
 
 
@@ -642,6 +760,43 @@ def _read_csv_rows(path):
         raise Day55EvaluationError(f"missing schema csv: {path}")
     with Path(path).open(newline="", encoding="utf-8") as handle:
         return [row for row in csv.DictReader(handle) if any((value or "").strip() for value in row.values())]
+
+
+def _csv_record_count(path):
+    return len(_read_csv_rows(path))
+
+
+def _sha256_matches(path, expected):
+    if not expected:
+        return False
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest() == expected
+
+
+def _repo_path(value, fallback_root):
+    if not value:
+        return Path(fallback_root)
+    path = Path(value)
+    if path.is_absolute():
+        return path
+    return REPO_ROOT / path
+
+
+def _int_or_none(value):
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def vendor_request(request):
+    return {
+        "dataset": request.get("dataset"),
+        "schema": request.get("schema"),
+        "start": request.get("start"),
+        "end": request.get("end"),
+        "stype_in": request.get("stype_in"),
+        "symbols": request.get("symbols"),
+    }
 
 
 def _identity_matches(row):

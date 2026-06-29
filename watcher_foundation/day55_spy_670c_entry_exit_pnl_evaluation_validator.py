@@ -25,6 +25,8 @@ def validate_result_document(result_path=RESULT_PATH):
 
     if result.get("result_version") != "day55_spy_670c_entry_exit_pnl_evaluation_v1":
         problems.append("unexpected_result_version")
+    if result.get("task") != "SAFE_FAST_DAY55_OPTION_EVIDENCE_ENTRY_EXIT_PNL_REPLAY_TASK.md":
+        problems.append("unexpected_task")
 
     scope = result.get("scope", {})
     expected_true = (
@@ -80,6 +82,37 @@ def validate_result_document(result_path=RESULT_PATH):
         problems.append("definition_needed_unexpected")
     if "definition" in input_validation.get("completed_or_reused_schemas", []):
         problems.append("definition_schema_unexpected")
+    if input_validation.get("manifest_status") != "SUCCESS":
+        problems.append("manifest_not_success")
+    if input_validation.get("download_performed") is not True:
+        problems.append("download_not_validated")
+    if input_validation.get("request_count") != 32:
+        problems.append("request_count_not_32")
+    if input_validation.get("completed_or_reused_request_count") != 32:
+        problems.append("completed_request_count_not_32")
+    if input_validation.get("remaining_request_count") != 0:
+        problems.append("remaining_requests_not_zero")
+    if input_validation.get("status") == "INPUTS_VALIDATED":
+        schema_status = input_validation.get("schema_file_status", {})
+        if len(schema_status) != 32:
+            problems.append("downloaded_file_status_count_not_32")
+        for request_id, status in schema_status.items():
+            if status.get("csv_exists") is not True:
+                problems.append(f"{request_id}_csv_missing")
+            if status.get("dbn_exists") is not True:
+                problems.append(f"{request_id}_dbn_missing")
+            if status.get("csv_sha256_match") is not True:
+                problems.append(f"{request_id}_csv_sha256_not_validated")
+            if status.get("dbn_sha256_match") is not True:
+                problems.append(f"{request_id}_dbn_sha256_not_validated")
+            if status.get("actual_csv_record_count") != status.get("manifest_record_count"):
+                problems.append(f"{request_id}_csv_record_count_mismatch")
+    if (
+        input_validation.get("previous_blocker") == "open_interest_statistics_zero_rows"
+        and input_validation.get("old_blocker_closed_by_raw_statistics") is True
+        and not input_validation.get("target_contract_in_manifest")
+    ):
+        problems.append("old_blocker_closed_without_target_raw_statistics")
 
     evaluation = result.get("evaluation", {})
     if evaluation.get("entry_status") not in VALID_ENTRY_STATUSES:
@@ -92,6 +125,11 @@ def validate_result_document(result_path=RESULT_PATH):
         problems.append("no_entry_missing_first_blocker")
     if evaluation.get("entry_status") != "VALID_ENTRY_FOUND" and evaluation.get("net_pnl") is not None:
         problems.append("net_pnl_invented_without_entry")
+    if (
+        input_validation.get("target_contract_in_manifest") is False
+        and evaluation.get("first_blocker") != "target_contract_not_in_day55_download_manifest"
+    ):
+        problems.append("missing_target_contract_not_exactly_rejected")
 
     proof = result.get("proof_status", {})
     complete = (
