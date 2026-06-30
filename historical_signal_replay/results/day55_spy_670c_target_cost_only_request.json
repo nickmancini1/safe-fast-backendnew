@@ -1,0 +1,124 @@
+{
+  "cost_only": true,
+  "cost_source": "historical_signal_replay/results/day52_existing_setup_databento_cost_request_operator_output.json",
+  "credential_env_var_read": false,
+  "currency": "USD",
+  "dataset": "OPRA.PILLAR",
+  "decision": "TARGET_COST_ONLY_REQUEST_READY_FOR_OPERATOR_APPROVAL",
+  "destination_for_approved_download": "historical_signal_replay/source_data/external_option_data_drop/day55_spy_670c_target_only",
+  "download_performed": false,
+  "entry_status": "NOT_EVALUATED",
+  "exact_estimated_cost": "0.006495481730",
+  "exact_symbol": "SPY   260330C00670000",
+  "exit_status": "NOT_EVALUATED",
+  "forbidden_schemas": [
+    "definition"
+  ],
+  "gross_pnl": null,
+  "net_pnl": null,
+  "next_action": "Operator approval is required before any Databento download. No Codex download was performed.",
+  "operator_approval_text": "Approve cost-only Databento OPRA.PILLAR request for SPY   260330C00670000 using schemas cmbp-1, tcbbo, trades, statistics only, no definition request, estimated cost 0.006495481730 USD; if approved, download only to historical_signal_replay/source_data/external_option_data_drop/day55_spy_670c_target_only.",
+  "paper_live_eligibility": "NO",
+  "profitability_proof": "NO",
+  "request_count": 4,
+  "requests": [
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-16T13:36:00Z",
+      "schema": "cmbp-1",
+      "start": "2026-03-16T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260330C00670000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-16T19:45:00Z",
+      "schema": "tcbbo",
+      "start": "2026-03-16T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260330C00670000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-16T19:45:00Z",
+      "schema": "trades",
+      "start": "2026-03-16T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260330C00670000"
+    },
+    {
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-16T13:36:00Z",
+      "schema": "statistics",
+      "start": "2026-03-16T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260330C00670000"
+    }
+  ],
+  "required_schemas": [
+    "cmbp-1",
+    "tcbbo",
+    "trades",
+    "statistics"
+  ],
+  "result_version": "day55_spy_670c_target_cost_only_request_v1",
+  "run_timestamp": "2026-06-30T03:33:20.929516Z",
+  "schema_costs": [
+    {
+      "checked_cost": "0.000215089321",
+      "currency": "USD",
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-16T13:36:00Z",
+      "schema": "cmbp-1",
+      "start": "2026-03-16T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260330C00670000"
+    },
+    {
+      "checked_cost": "0.003489106894",
+      "currency": "USD",
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-16T19:45:00Z",
+      "schema": "tcbbo",
+      "start": "2026-03-16T13:31:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260330C00670000"
+    },
+    {
+      "checked_cost": "0.002791285515",
+      "currency": "USD",
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-16T19:45:00Z",
+      "schema": "trades",
+      "start": "2026-03-16T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260330C00670000"
+    },
+    {
+      "checked_cost": "0.0",
+      "currency": "USD",
+      "dataset": "OPRA.PILLAR",
+      "end": "2026-03-16T13:36:00Z",
+      "schema": "statistics",
+      "start": "2026-03-16T13:30:00Z",
+      "stype_in": "raw_symbol",
+      "symbols": "SPY   260330C00670000"
+    }
+  ],
+  "selected_contract": {
+    "expiration": "2026-03-30",
+    "instrument_id": 1241515301,
+    "publisher_id": 30,
+    "raw_symbol": "SPY   260330C00670000",
+    "side": "call",
+    "strike": "670",
+    "underlying": "SPY"
+  },
+  "source_commit": "e851fdb",
+  "vendor_call_performed": false,
+  "window_sources": [
+    "historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json",
+    "historical_signal_replay/results/day52_existing_setup_option_evidence_end_to_end_backtest.json",
+    "historical_signal_replay/results/day52_existing_setup_databento_cost_request_operator_output.json"
+  ]
+}
