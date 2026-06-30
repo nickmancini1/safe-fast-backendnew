@@ -75,6 +75,102 @@ class Day55ReadyDownloadedContractsReplayTests(unittest.TestCase):
         self.assertIsNone(rejection["gross_pnl"])
         self.assertIsNone(rejection["net_pnl"])
 
+    def test_entry_rule_gap_preserves_first_quote_only_spread_rejection(self):
+        temp_dir = self._normal_temp_dir()
+        try:
+            cmbp_path = temp_dir / "entry_quotes.csv"
+            tcbbo_path = temp_dir / "exit_quotes.csv"
+            trades_path = temp_dir / "trades.csv"
+            statistics_path = temp_dir / "statistics.csv"
+            cmbp_path.write_text(
+                "\n".join(
+                    [
+                        "ts_event,ts_recv,symbol,instrument_id,bid_px_00,ask_px_00,bid_sz_00,ask_sz_00",
+                        "2026-04-17T13:31:00Z,2026-04-17T13:31:00Z,SPY   260501C00707000,707707,1.00,1.18,1,1",
+                        "2026-04-17T13:31:10Z,2026-04-17T13:31:10Z,SPY   260501C00707000,707707,1.00,1.15,1,1",
+                    ]
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            tcbbo_path.write_text(
+                "ts_event,ts_recv,symbol,instrument_id,bid_px_00,ask_px_00,bid_sz_00,ask_sz_00\n",
+                encoding="utf-8",
+            )
+            trades_path.write_text(
+                "\n".join(
+                    [
+                        "ts_event,symbol,instrument_id,size",
+                        "2026-04-17T13:31:30Z,SPY   260501C00707000,707707,1",
+                    ]
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            statistics_path.write_text(
+                "\n".join(
+                    [
+                        "ts_event,symbol,instrument_id,stat_type,quantity,price",
+                        "2026-04-17T13:31:00Z,SPY   260501C00707000,707707,9,1,",
+                    ]
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            contract = {
+                "raw_symbol": "SPY   260501C00707000",
+                "instrument_id": 707707,
+                "expiration": "2026-05-01",
+                "strike": "707",
+                "candidate_ids": ["day55-entry-quote-rule-gap-regression"],
+                "legs": ["long"],
+                "schema_files": {
+                    "cmbp-1": {
+                        "csv_path": str(cmbp_path),
+                        "start": "2026-04-17T13:31:00Z",
+                        "end": "2026-04-17T13:36:00Z",
+                    },
+                    "tcbbo": {
+                        "csv_path": str(tcbbo_path),
+                        "start": "2026-04-17T13:31:00Z",
+                        "end": "2026-04-17T19:45:00Z",
+                    },
+                    "trades": {
+                        "csv_path": str(trades_path),
+                        "start": "2026-04-17T13:30:00Z",
+                        "end": "2026-04-17T19:45:00Z",
+                    },
+                    "statistics": {
+                        "csv_path": str(statistics_path),
+                        "start": "2026-04-17T13:30:00Z",
+                        "end": "2026-04-17T13:36:00Z",
+                    },
+                },
+            }
+
+            result = day55._evaluate_contract(
+                contract,
+                {"status": "INPUTS_VALIDATED"},
+                source_root=temp_dir,
+            )
+        finally:
+            shutil.rmtree(temp_dir, ignore_errors=True)
+
+        self.assertEqual(result["entry_status"], day55.NO_ENTRY_EXACT_REJECTION)
+        self.assertEqual(result["first_blocker"], "spread_above_0_15")
+        self.assertEqual(result["entry_timestamp"], None)
+        self.assertEqual(result["entry_context"]["quotes_considered"], 2)
+        self.assertEqual(
+            result["entry_context"]["first_quote_timestamp"],
+            "2026-04-17T13:31:00Z",
+        )
+        self.assertEqual(
+            result["entry_context"]["quote_timestamp"],
+            "2026-04-17T13:31:00Z",
+        )
+        self.assertEqual(result["entry_context"]["spread"], "0.18")
+        self.assertIsNone(result["entry_price"])
+
     def test_writer_and_validator_accept_ready_contract_replay_result(self):
         temp_dir = self._normal_temp_dir()
         result_path = temp_dir / "result.json"
