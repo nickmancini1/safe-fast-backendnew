@@ -1,0 +1,1776 @@
+{
+  "baseline": {
+    "allowed_contract_count": 8,
+    "allowed_contracts": [
+      "QQQ   260416C00585000",
+      "QQQ   260416C00590000",
+      "QQQ   260501C00650000",
+      "QQQ   260501C00655000",
+      "SPY   260414C00645000",
+      "SPY   260414C00650000",
+      "SPY   260501C00702000",
+      "SPY   260501C00707000"
+    ],
+    "download_manifest_status": "SUCCESS",
+    "downloaded_request_count": 32,
+    "forbidden_schemas": [
+      "definition"
+    ],
+    "preserved_spy_670c_rejection": {
+      "entry_status": "NO_ENTRY_EXACT_REJECTION",
+      "first_blocker": "target_contract_not_in_day55_download_manifest",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "preserved": true,
+      "raw_symbol": "SPY   260330C00670000",
+      "target_contract_in_manifest": false
+    },
+    "required_schemas": [
+      "cmbp-1",
+      "statistics",
+      "tcbbo",
+      "trades"
+    ]
+  },
+  "contract_results": [
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+      "entry_context": {
+        "accepted_window_end": "2026-04-02T19:36:00Z",
+        "accepted_window_start": "2026-04-02T19:31:00Z",
+        "entry_ask": null,
+        "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+        "entry_price": null,
+        "first_quote_ask": "10.190000000",
+        "first_quote_ask_size": "20",
+        "first_quote_bid": "10.140000000",
+        "first_quote_bid_size": "5",
+        "first_quote_timestamp": "2026-04-02T19:31:00.072022Z",
+        "quote_age_seconds": "0.072022",
+        "quote_timestamp": "2026-04-02T19:31:00.072022Z",
+        "quotes_considered": 4356,
+        "spread": "0.050000000",
+        "spread_percent": "0.004918839153959665518937530743",
+        "window_end_inclusive": false
+      },
+      "entry_price": null,
+      "entry_status": "NO_ENTRY_EXACT_REJECTION",
+      "entry_timestamp": null,
+      "exit_result": {
+        "exit_timestamp": null,
+        "status": "EXIT_BLOCKED"
+      },
+      "exit_status": "EXIT_BLOCKED",
+      "expiration": "2026-04-16",
+      "first_blocker": "open_interest_statistics_zero_rows",
+      "gross_pnl": null,
+      "instrument_id": 1040189341,
+      "legs": [
+        "long"
+      ],
+      "net_pnl": null,
+      "net_pnl_status": "ECONOMIC_REPLAY_BLOCKED",
+      "paper_live_eligibility": "NO",
+      "pnl_result": null,
+      "profitability_status": "NO",
+      "quote_age": "0.072022",
+      "raw_symbol": "QQQ   260416C00585000",
+      "schema_files": {
+        "cmbp-1": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/13_qqq260416c00585000_cmbp1_20260402t193100z_20260402t193600z.csv",
+          "end": "2026-04-02T19:36:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 4356,
+          "request_id": "13_qqq260416c00585000_cmbp1_20260402t193100z_20260402t193600z",
+          "start": "2026-04-02T19:31:00Z"
+        },
+        "statistics": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/10_qqq260416c00585000_statistics_20260402t193000z_20260402t193600z.csv",
+          "end": "2026-04-02T19:36:00Z",
+          "manifest_empty": true,
+          "manifest_record_count": 0,
+          "request_id": "10_qqq260416c00585000_statistics_20260402t193000z_20260402t193600z",
+          "start": "2026-04-02T19:30:00Z"
+        },
+        "tcbbo": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/14_qqq260416c00585000_tcbbo_20260402t193100z_20260402t194500z.csv",
+          "end": "2026-04-02T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 5,
+          "request_id": "14_qqq260416c00585000_tcbbo_20260402t193100z_20260402t194500z",
+          "start": "2026-04-02T19:31:00Z"
+        },
+        "trades": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/09_qqq260416c00585000_trades_20260402t193000z_20260402t194500z.csv",
+          "end": "2026-04-02T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 5,
+          "request_id": "09_qqq260416c00585000_trades_20260402t193000z_20260402t194500z",
+          "start": "2026-04-02T19:30:00Z"
+        }
+      },
+      "side": "call",
+      "spread": "0.050000000",
+      "spread_percent": "0.004918839153959665518937530743",
+      "statistics_open_interest_status": {
+        "first_blocker": "open_interest_statistics_zero_rows",
+        "open_interest": null,
+        "rows": 0,
+        "status": "STATISTICS_ZERO_ROWS"
+      },
+      "strike": "585.0",
+      "trade_volume_context": {
+        "first_trade_timestamp": "2026-04-02T19:32:11.576988Z",
+        "minimum_trade_volume": "1",
+        "status": "TRADE_VOLUME_VALID",
+        "trade_count_through_entry_window": 4,
+        "trade_volume_through_entry_window": "6"
+      }
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+      "entry_context": {
+        "accepted_window_end": "2026-04-02T19:36:00Z",
+        "accepted_window_start": "2026-04-02T19:31:00Z",
+        "entry_ask": null,
+        "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+        "entry_price": null,
+        "first_quote_ask": "7.470000000",
+        "first_quote_ask_size": "36",
+        "first_quote_bid": "7.420000000",
+        "first_quote_bid_size": "10",
+        "first_quote_timestamp": "2026-04-02T19:31:00.122018Z",
+        "quote_age_seconds": "0.122018",
+        "quote_timestamp": "2026-04-02T19:31:00.122018Z",
+        "quotes_considered": 2883,
+        "spread": "0.050000000",
+        "spread_percent": "0.006715916722632639355271994627",
+        "window_end_inclusive": false
+      },
+      "entry_price": null,
+      "entry_status": "NO_ENTRY_EXACT_REJECTION",
+      "entry_timestamp": null,
+      "exit_result": {
+        "exit_timestamp": null,
+        "status": "EXIT_BLOCKED"
+      },
+      "exit_status": "EXIT_BLOCKED",
+      "expiration": "2026-04-16",
+      "first_blocker": "trade_volume_below_1",
+      "gross_pnl": null,
+      "instrument_id": 1040189318,
+      "legs": [
+        "short"
+      ],
+      "net_pnl": null,
+      "net_pnl_status": "ECONOMIC_REPLAY_BLOCKED",
+      "paper_live_eligibility": "NO",
+      "pnl_result": null,
+      "profitability_status": "NO",
+      "quote_age": "0.122018",
+      "raw_symbol": "QQQ   260416C00590000",
+      "schema_files": {
+        "cmbp-1": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/15_qqq260416c00590000_cmbp1_20260402t193100z_20260402t193600z.csv",
+          "end": "2026-04-02T19:36:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 2883,
+          "request_id": "15_qqq260416c00590000_cmbp1_20260402t193100z_20260402t193600z",
+          "start": "2026-04-02T19:31:00Z"
+        },
+        "statistics": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/12_qqq260416c00590000_statistics_20260402t193000z_20260402t193600z.csv",
+          "end": "2026-04-02T19:36:00Z",
+          "manifest_empty": true,
+          "manifest_record_count": 0,
+          "request_id": "12_qqq260416c00590000_statistics_20260402t193000z_20260402t193600z",
+          "start": "2026-04-02T19:30:00Z"
+        },
+        "tcbbo": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/16_qqq260416c00590000_tcbbo_20260402t193100z_20260402t194500z.csv",
+          "end": "2026-04-02T19:45:00Z",
+          "manifest_empty": true,
+          "manifest_record_count": 0,
+          "request_id": "16_qqq260416c00590000_tcbbo_20260402t193100z_20260402t194500z",
+          "start": "2026-04-02T19:31:00Z"
+        },
+        "trades": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/11_qqq260416c00590000_trades_20260402t193000z_20260402t194500z.csv",
+          "end": "2026-04-02T19:45:00Z",
+          "manifest_empty": true,
+          "manifest_record_count": 0,
+          "request_id": "11_qqq260416c00590000_trades_20260402t193000z_20260402t194500z",
+          "start": "2026-04-02T19:30:00Z"
+        }
+      },
+      "side": "call",
+      "spread": "0.050000000",
+      "spread_percent": "0.006715916722632639355271994627",
+      "statistics_open_interest_status": {
+        "first_blocker": "open_interest_statistics_zero_rows",
+        "open_interest": null,
+        "rows": 0,
+        "status": "STATISTICS_ZERO_ROWS"
+      },
+      "strike": "590.0",
+      "trade_volume_context": {
+        "first_trade_timestamp": null,
+        "minimum_trade_volume": "1",
+        "status": "TRADE_VOLUME_INVALID",
+        "trade_count_through_entry_window": 0,
+        "trade_volume_through_entry_window": "0"
+      }
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+      ],
+      "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+      "entry_context": {
+        "accepted_window_end": "2026-04-17T14:36:00Z",
+        "accepted_window_start": "2026-04-17T14:31:00Z",
+        "entry_ask": null,
+        "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+        "entry_price": null,
+        "first_quote_ask": "8.850000000",
+        "first_quote_ask_size": "33",
+        "first_quote_bid": "8.800000000",
+        "first_quote_bid_size": "57",
+        "first_quote_timestamp": "2026-04-17T14:31:00.044792Z",
+        "quote_age_seconds": "0.044792",
+        "quote_timestamp": "2026-04-17T14:31:00.044792Z",
+        "quotes_considered": 16209,
+        "spread": "0.050000000",
+        "spread_percent": "0.005665722379603399433427762040",
+        "window_end_inclusive": false
+      },
+      "entry_price": null,
+      "entry_status": "NO_ENTRY_EXACT_REJECTION",
+      "entry_timestamp": null,
+      "exit_result": {
+        "exit_timestamp": null,
+        "status": "EXIT_BLOCKED"
+      },
+      "exit_status": "EXIT_BLOCKED",
+      "expiration": "2026-05-01",
+      "first_blocker": "open_interest_statistics_zero_rows",
+      "gross_pnl": null,
+      "instrument_id": 989856791,
+      "legs": [
+        "long"
+      ],
+      "net_pnl": null,
+      "net_pnl_status": "ECONOMIC_REPLAY_BLOCKED",
+      "paper_live_eligibility": "NO",
+      "pnl_result": null,
+      "profitability_status": "NO",
+      "quote_age": "0.044792",
+      "raw_symbol": "QQQ   260501C00650000",
+      "schema_files": {
+        "cmbp-1": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/29_qqq260501c00650000_cmbp1_20260417t143100z_20260417t143600z.csv",
+          "end": "2026-04-17T14:36:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 16209,
+          "request_id": "29_qqq260501c00650000_cmbp1_20260417t143100z_20260417t143600z",
+          "start": "2026-04-17T14:31:00Z"
+        },
+        "statistics": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/26_qqq260501c00650000_statistics_20260417t143000z_20260417t143600z.csv",
+          "end": "2026-04-17T14:36:00Z",
+          "manifest_empty": true,
+          "manifest_record_count": 0,
+          "request_id": "26_qqq260501c00650000_statistics_20260417t143000z_20260417t143600z",
+          "start": "2026-04-17T14:30:00Z"
+        },
+        "tcbbo": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/30_qqq260501c00650000_tcbbo_20260417t143100z_20260417t194500z.csv",
+          "end": "2026-04-17T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 722,
+          "request_id": "30_qqq260501c00650000_tcbbo_20260417t143100z_20260417t194500z",
+          "start": "2026-04-17T14:31:00Z"
+        },
+        "trades": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/25_qqq260501c00650000_trades_20260417t143000z_20260417t194500z.csv",
+          "end": "2026-04-17T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 724,
+          "request_id": "25_qqq260501c00650000_trades_20260417t143000z_20260417t194500z",
+          "start": "2026-04-17T14:30:00Z"
+        }
+      },
+      "side": "call",
+      "spread": "0.050000000",
+      "spread_percent": "0.005665722379603399433427762040",
+      "statistics_open_interest_status": {
+        "first_blocker": "open_interest_statistics_zero_rows",
+        "open_interest": null,
+        "rows": 0,
+        "status": "STATISTICS_ZERO_ROWS"
+      },
+      "strike": "650.0",
+      "trade_volume_context": {
+        "first_trade_timestamp": "2026-04-17T14:30:26.621340Z",
+        "minimum_trade_volume": "1",
+        "status": "TRADE_VOLUME_VALID",
+        "trade_count_through_entry_window": 39,
+        "trade_volume_through_entry_window": "181"
+      }
+    },
+    {
+      "candidate_ids": [
+        "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+      ],
+      "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+      "entry_context": {
+        "accepted_window_end": "2026-04-17T14:36:00Z",
+        "accepted_window_start": "2026-04-17T14:31:00Z",
+        "entry_ask": null,
+        "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+        "entry_price": null,
+        "first_quote_ask": "6.440000000",
+        "first_quote_ask_size": "35",
+        "first_quote_bid": "6.400000000",
+        "first_quote_bid_size": "52",
+        "first_quote_timestamp": "2026-04-17T14:31:00.052135Z",
+        "quote_age_seconds": "0.052135",
+        "quote_timestamp": "2026-04-17T14:31:00.052135Z",
+        "quotes_considered": 11916,
+        "spread": "0.040000000",
+        "spread_percent": "0.006230529595015576323987538941",
+        "window_end_inclusive": false
+      },
+      "entry_price": null,
+      "entry_status": "NO_ENTRY_EXACT_REJECTION",
+      "entry_timestamp": null,
+      "exit_result": {
+        "exit_timestamp": null,
+        "status": "EXIT_BLOCKED"
+      },
+      "exit_status": "EXIT_BLOCKED",
+      "expiration": "2026-05-01",
+      "first_blocker": "open_interest_statistics_zero_rows",
+      "gross_pnl": null,
+      "instrument_id": 989855873,
+      "legs": [
+        "short"
+      ],
+      "net_pnl": null,
+      "net_pnl_status": "ECONOMIC_REPLAY_BLOCKED",
+      "paper_live_eligibility": "NO",
+      "pnl_result": null,
+      "profitability_status": "NO",
+      "quote_age": "0.052135",
+      "raw_symbol": "QQQ   260501C00655000",
+      "schema_files": {
+        "cmbp-1": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/31_qqq260501c00655000_cmbp1_20260417t143100z_20260417t143600z.csv",
+          "end": "2026-04-17T14:36:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 11916,
+          "request_id": "31_qqq260501c00655000_cmbp1_20260417t143100z_20260417t143600z",
+          "start": "2026-04-17T14:31:00Z"
+        },
+        "statistics": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/28_qqq260501c00655000_statistics_20260417t143000z_20260417t143600z.csv",
+          "end": "2026-04-17T14:36:00Z",
+          "manifest_empty": true,
+          "manifest_record_count": 0,
+          "request_id": "28_qqq260501c00655000_statistics_20260417t143000z_20260417t143600z",
+          "start": "2026-04-17T14:30:00Z"
+        },
+        "tcbbo": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/32_qqq260501c00655000_tcbbo_20260417t143100z_20260417t194500z.csv",
+          "end": "2026-04-17T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 634,
+          "request_id": "32_qqq260501c00655000_tcbbo_20260417t143100z_20260417t194500z",
+          "start": "2026-04-17T14:31:00Z"
+        },
+        "trades": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/27_qqq260501c00655000_trades_20260417t143000z_20260417t194500z.csv",
+          "end": "2026-04-17T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 634,
+          "request_id": "27_qqq260501c00655000_trades_20260417t143000z_20260417t194500z",
+          "start": "2026-04-17T14:30:00Z"
+        }
+      },
+      "side": "call",
+      "spread": "0.040000000",
+      "spread_percent": "0.006230529595015576323987538941",
+      "statistics_open_interest_status": {
+        "first_blocker": "open_interest_statistics_zero_rows",
+        "open_interest": null,
+        "rows": 0,
+        "status": "STATISTICS_ZERO_ROWS"
+      },
+      "strike": "655.0",
+      "trade_volume_context": {
+        "first_trade_timestamp": "2026-04-17T14:33:32.258714Z",
+        "minimum_trade_volume": "1",
+        "status": "TRADE_VOLUME_VALID",
+        "trade_count_through_entry_window": 6,
+        "trade_volume_through_entry_window": "15"
+      }
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "SPY-SOURCE-WINDOW-CONTINUATION-005"
+      ],
+      "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+      "entry_context": {
+        "accepted_window_end": "2026-03-31T16:36:00Z",
+        "accepted_window_start": "2026-03-31T16:31:00Z",
+        "entry_ask": null,
+        "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+        "entry_price": null,
+        "first_quote_ask": "10.550000000",
+        "first_quote_ask_size": "121",
+        "first_quote_bid": "10.500000000",
+        "first_quote_bid_size": "65",
+        "first_quote_timestamp": "2026-03-31T16:31:00.009786Z",
+        "quote_age_seconds": "0.009786",
+        "quote_timestamp": "2026-03-31T16:31:00.009786Z",
+        "quotes_considered": 7043,
+        "spread": "0.050000000",
+        "spread_percent": "0.004750593824228028503562945368",
+        "window_end_inclusive": false
+      },
+      "entry_price": null,
+      "entry_status": "NO_ENTRY_EXACT_REJECTION",
+      "entry_timestamp": null,
+      "exit_result": {
+        "exit_timestamp": null,
+        "status": "EXIT_BLOCKED"
+      },
+      "exit_status": "EXIT_BLOCKED",
+      "expiration": "2026-04-14",
+      "first_blocker": "trade_volume_below_1",
+      "gross_pnl": null,
+      "instrument_id": 1275070451,
+      "legs": [
+        "long"
+      ],
+      "net_pnl": null,
+      "net_pnl_status": "ECONOMIC_REPLAY_BLOCKED",
+      "paper_live_eligibility": "NO",
+      "pnl_result": null,
+      "profitability_status": "NO",
+      "quote_age": "0.009786",
+      "raw_symbol": "SPY   260414C00645000",
+      "schema_files": {
+        "cmbp-1": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/05_spy260414c00645000_cmbp1_20260331t163100z_20260331t163600z.csv",
+          "end": "2026-03-31T16:36:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 7043,
+          "request_id": "05_spy260414c00645000_cmbp1_20260331t163100z_20260331t163600z",
+          "start": "2026-03-31T16:31:00Z"
+        },
+        "statistics": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/02_spy260414c00645000_statistics_20260331t163000z_20260331t163600z.csv",
+          "end": "2026-03-31T16:36:00Z",
+          "manifest_empty": true,
+          "manifest_record_count": 0,
+          "request_id": "02_spy260414c00645000_statistics_20260331t163000z_20260331t163600z",
+          "start": "2026-03-31T16:30:00Z"
+        },
+        "tcbbo": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/06_spy260414c00645000_tcbbo_20260331t163100z_20260331t194500z.csv",
+          "end": "2026-03-31T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 27,
+          "request_id": "06_spy260414c00645000_tcbbo_20260331t163100z_20260331t194500z",
+          "start": "2026-03-31T16:31:00Z"
+        },
+        "trades": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/01_spy260414c00645000_trades_20260331t163000z_20260331t194500z.csv",
+          "end": "2026-03-31T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 27,
+          "request_id": "01_spy260414c00645000_trades_20260331t163000z_20260331t194500z",
+          "start": "2026-03-31T16:30:00Z"
+        }
+      },
+      "side": "call",
+      "spread": "0.050000000",
+      "spread_percent": "0.004750593824228028503562945368",
+      "statistics_open_interest_status": {
+        "first_blocker": "open_interest_statistics_zero_rows",
+        "open_interest": null,
+        "rows": 0,
+        "status": "STATISTICS_ZERO_ROWS"
+      },
+      "strike": "645.0",
+      "trade_volume_context": {
+        "first_trade_timestamp": null,
+        "minimum_trade_volume": "1",
+        "status": "TRADE_VOLUME_INVALID",
+        "trade_count_through_entry_window": 0,
+        "trade_volume_through_entry_window": "0"
+      }
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+        "SPY-SOURCE-WINDOW-CONTINUATION-004",
+        "SPY-SOURCE-WINDOW-CONTINUATION-005"
+      ],
+      "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+      "entry_context": {
+        "accepted_window_end": "2026-03-31T16:36:00Z",
+        "accepted_window_start": "2026-03-31T16:31:00Z",
+        "entry_ask": null,
+        "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+        "entry_price": null,
+        "first_quote_ask": "7.970000000",
+        "first_quote_ask_size": "152",
+        "first_quote_bid": "7.920000000",
+        "first_quote_bid_size": "68",
+        "first_quote_timestamp": "2026-03-31T16:31:00.507074Z",
+        "quote_age_seconds": "0.507074",
+        "quote_timestamp": "2026-03-31T16:31:00.507074Z",
+        "quotes_considered": 6880,
+        "spread": "0.050000000",
+        "spread_percent": "0.006293266205160478288231592196",
+        "window_end_inclusive": false
+      },
+      "entry_price": null,
+      "entry_status": "NO_ENTRY_EXACT_REJECTION",
+      "entry_timestamp": null,
+      "exit_result": {
+        "exit_timestamp": null,
+        "status": "EXIT_BLOCKED"
+      },
+      "exit_status": "EXIT_BLOCKED",
+      "expiration": "2026-04-14",
+      "first_blocker": "trade_volume_below_1",
+      "gross_pnl": null,
+      "instrument_id": 1275070438,
+      "legs": [
+        "short"
+      ],
+      "net_pnl": null,
+      "net_pnl_status": "ECONOMIC_REPLAY_BLOCKED",
+      "paper_live_eligibility": "NO",
+      "pnl_result": null,
+      "profitability_status": "NO",
+      "quote_age": "0.507074",
+      "raw_symbol": "SPY   260414C00650000",
+      "schema_files": {
+        "cmbp-1": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/07_spy260414c00650000_cmbp1_20260331t163100z_20260331t163600z.csv",
+          "end": "2026-03-31T16:36:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 6880,
+          "request_id": "07_spy260414c00650000_cmbp1_20260331t163100z_20260331t163600z",
+          "start": "2026-03-31T16:31:00Z"
+        },
+        "statistics": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/04_spy260414c00650000_statistics_20260331t163000z_20260331t163600z.csv",
+          "end": "2026-03-31T16:36:00Z",
+          "manifest_empty": true,
+          "manifest_record_count": 0,
+          "request_id": "04_spy260414c00650000_statistics_20260331t163000z_20260331t163600z",
+          "start": "2026-03-31T16:30:00Z"
+        },
+        "tcbbo": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/08_spy260414c00650000_tcbbo_20260331t163100z_20260331t194500z.csv",
+          "end": "2026-03-31T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 128,
+          "request_id": "08_spy260414c00650000_tcbbo_20260331t163100z_20260331t194500z",
+          "start": "2026-03-31T16:31:00Z"
+        },
+        "trades": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/03_spy260414c00650000_trades_20260331t163000z_20260331t194500z.csv",
+          "end": "2026-03-31T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 128,
+          "request_id": "03_spy260414c00650000_trades_20260331t163000z_20260331t194500z",
+          "start": "2026-03-31T16:30:00Z"
+        }
+      },
+      "side": "call",
+      "spread": "0.050000000",
+      "spread_percent": "0.006293266205160478288231592196",
+      "statistics_open_interest_status": {
+        "first_blocker": "open_interest_statistics_zero_rows",
+        "open_interest": null,
+        "rows": 0,
+        "status": "STATISTICS_ZERO_ROWS"
+      },
+      "strike": "650.0",
+      "trade_volume_context": {
+        "first_trade_timestamp": null,
+        "minimum_trade_volume": "1",
+        "status": "TRADE_VOLUME_INVALID",
+        "trade_count_through_entry_window": 0,
+        "trade_volume_through_entry_window": "0"
+      }
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+      "entry_context": {
+        "accepted_window_end": "2026-04-17T13:36:00Z",
+        "accepted_window_start": "2026-04-17T13:31:00Z",
+        "entry_ask": null,
+        "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+        "entry_price": null,
+        "first_quote_ask": "11.500000000",
+        "first_quote_ask_size": "55",
+        "first_quote_bid": "11.020000000",
+        "first_quote_bid_size": "147",
+        "first_quote_timestamp": "2026-04-17T13:31:00.023693Z",
+        "quote_age_seconds": "0.023693",
+        "quote_timestamp": "2026-04-17T13:31:00.023693Z",
+        "quotes_considered": 9705,
+        "spread": "0.480000000",
+        "spread_percent": "0.04262877442273534635879218472",
+        "window_end_inclusive": false
+      },
+      "entry_price": null,
+      "entry_status": "NO_ENTRY_EXACT_REJECTION",
+      "entry_timestamp": null,
+      "exit_result": {
+        "exit_timestamp": null,
+        "status": "EXIT_BLOCKED"
+      },
+      "exit_status": "EXIT_BLOCKED",
+      "expiration": "2026-05-01",
+      "first_blocker": "spread_above_0_15",
+      "gross_pnl": null,
+      "instrument_id": 1224736926,
+      "legs": [
+        "long"
+      ],
+      "net_pnl": null,
+      "net_pnl_status": "ECONOMIC_REPLAY_BLOCKED",
+      "paper_live_eligibility": "NO",
+      "pnl_result": null,
+      "profitability_status": "NO",
+      "quote_age": "0.023693",
+      "raw_symbol": "SPY   260501C00702000",
+      "schema_files": {
+        "cmbp-1": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/21_spy260501c00702000_cmbp1_20260417t133100z_20260417t133600z.csv",
+          "end": "2026-04-17T13:36:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 9705,
+          "request_id": "21_spy260501c00702000_cmbp1_20260417t133100z_20260417t133600z",
+          "start": "2026-04-17T13:31:00Z"
+        },
+        "statistics": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/18_spy260501c00702000_statistics_20260417t133000z_20260417t133600z.csv",
+          "end": "2026-04-17T13:36:00Z",
+          "manifest_empty": true,
+          "manifest_record_count": 0,
+          "request_id": "18_spy260501c00702000_statistics_20260417t133000z_20260417t133600z",
+          "start": "2026-04-17T13:30:00Z"
+        },
+        "tcbbo": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/22_spy260501c00702000_tcbbo_20260417t133100z_20260417t194500z.csv",
+          "end": "2026-04-17T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 110,
+          "request_id": "22_spy260501c00702000_tcbbo_20260417t133100z_20260417t194500z",
+          "start": "2026-04-17T13:31:00Z"
+        },
+        "trades": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/17_spy260501c00702000_trades_20260417t133000z_20260417t194500z.csv",
+          "end": "2026-04-17T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 115,
+          "request_id": "17_spy260501c00702000_trades_20260417t133000z_20260417t194500z",
+          "start": "2026-04-17T13:30:00Z"
+        }
+      },
+      "side": "call",
+      "spread": "0.480000000",
+      "spread_percent": "0.04262877442273534635879218472",
+      "statistics_open_interest_status": {
+        "first_blocker": "open_interest_statistics_zero_rows",
+        "open_interest": null,
+        "rows": 0,
+        "status": "STATISTICS_ZERO_ROWS"
+      },
+      "strike": "702.0",
+      "trade_volume_context": {
+        "first_trade_timestamp": "2026-04-17T13:30:33.299146Z",
+        "minimum_trade_volume": "1",
+        "status": "TRADE_VOLUME_VALID",
+        "trade_count_through_entry_window": 14,
+        "trade_volume_through_entry_window": "37"
+      }
+    },
+    {
+      "candidate_ids": [
+        "SPY-SOURCE-WINDOW-CONTINUATION-002"
+      ],
+      "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+      "entry_context": {
+        "accepted_window_end": "2026-04-17T13:36:00Z",
+        "accepted_window_start": "2026-04-17T13:31:00Z",
+        "entry_ask": null,
+        "entry_bid_ask_basis": "ask_plus_0.02_entry_slippage",
+        "entry_price": null,
+        "first_quote_ask": "8.250000000",
+        "first_quote_ask_size": "68",
+        "first_quote_bid": "8.070000000",
+        "first_quote_bid_size": "141",
+        "first_quote_timestamp": "2026-04-17T13:31:00.003405Z",
+        "quote_age_seconds": "0.003405",
+        "quote_timestamp": "2026-04-17T13:31:00.003405Z",
+        "quotes_considered": 16037,
+        "spread": "0.180000000",
+        "spread_percent": "0.02205882352941176470588235294",
+        "window_end_inclusive": false
+      },
+      "entry_price": null,
+      "entry_status": "NO_ENTRY_EXACT_REJECTION",
+      "entry_timestamp": null,
+      "exit_result": {
+        "exit_timestamp": null,
+        "status": "EXIT_BLOCKED"
+      },
+      "exit_status": "EXIT_BLOCKED",
+      "expiration": "2026-05-01",
+      "first_blocker": "spread_above_0_15",
+      "gross_pnl": null,
+      "instrument_id": 1224738270,
+      "legs": [
+        "short"
+      ],
+      "net_pnl": null,
+      "net_pnl_status": "ECONOMIC_REPLAY_BLOCKED",
+      "paper_live_eligibility": "NO",
+      "pnl_result": null,
+      "profitability_status": "NO",
+      "quote_age": "0.003405",
+      "raw_symbol": "SPY   260501C00707000",
+      "schema_files": {
+        "cmbp-1": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/23_spy260501c00707000_cmbp1_20260417t133100z_20260417t133600z.csv",
+          "end": "2026-04-17T13:36:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 16037,
+          "request_id": "23_spy260501c00707000_cmbp1_20260417t133100z_20260417t133600z",
+          "start": "2026-04-17T13:31:00Z"
+        },
+        "statistics": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/20_spy260501c00707000_statistics_20260417t133000z_20260417t133600z.csv",
+          "end": "2026-04-17T13:36:00Z",
+          "manifest_empty": true,
+          "manifest_record_count": 0,
+          "request_id": "20_spy260501c00707000_statistics_20260417t133000z_20260417t133600z",
+          "start": "2026-04-17T13:30:00Z"
+        },
+        "tcbbo": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/24_spy260501c00707000_tcbbo_20260417t133100z_20260417t194500z.csv",
+          "end": "2026-04-17T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 213,
+          "request_id": "24_spy260501c00707000_tcbbo_20260417t133100z_20260417t194500z",
+          "start": "2026-04-17T13:31:00Z"
+        },
+        "trades": {
+          "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/19_spy260501c00707000_trades_20260417t133000z_20260417t194500z.csv",
+          "end": "2026-04-17T19:45:00Z",
+          "manifest_empty": false,
+          "manifest_record_count": 217,
+          "request_id": "19_spy260501c00707000_trades_20260417t133000z_20260417t194500z",
+          "start": "2026-04-17T13:30:00Z"
+        }
+      },
+      "side": "call",
+      "spread": "0.180000000",
+      "spread_percent": "0.02205882352941176470588235294",
+      "statistics_open_interest_status": {
+        "first_blocker": "open_interest_statistics_zero_rows",
+        "open_interest": null,
+        "rows": 0,
+        "status": "STATISTICS_ZERO_ROWS"
+      },
+      "strike": "707.0",
+      "trade_volume_context": {
+        "first_trade_timestamp": "2026-04-17T13:30:15.440109Z",
+        "minimum_trade_volume": "1",
+        "status": "TRADE_VOLUME_VALID",
+        "trade_count_through_entry_window": 26,
+        "trade_volume_through_entry_window": "83"
+      }
+    }
+  ],
+  "input_validation": {
+    "allowed_contracts": [
+      "QQQ   260416C00585000",
+      "QQQ   260416C00590000",
+      "QQQ   260501C00650000",
+      "QQQ   260501C00655000",
+      "SPY   260414C00645000",
+      "SPY   260414C00650000",
+      "SPY   260501C00702000",
+      "SPY   260501C00707000"
+    ],
+    "completed_or_reused_request_count": 32,
+    "completed_or_reused_schemas": [
+      "cmbp-1",
+      "statistics",
+      "tcbbo",
+      "trades"
+    ],
+    "contract_identity_verified": true,
+    "definition_requested_or_needed": false,
+    "download_performed": true,
+    "first_blocker": null,
+    "manifest_status": "SUCCESS",
+    "problems": [],
+    "ready_contract_count": 8,
+    "ready_contracts": [
+      {
+        "candidate_ids": [
+          "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+        ],
+        "expiration": "2026-04-16",
+        "instrument_id": 1040189341,
+        "legs": [
+          "long"
+        ],
+        "raw_symbol": "QQQ   260416C00585000",
+        "schema_files": {
+          "cmbp-1": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/13_qqq260416c00585000_cmbp1_20260402t193100z_20260402t193600z.csv",
+            "end": "2026-04-02T19:36:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 4356,
+            "request_id": "13_qqq260416c00585000_cmbp1_20260402t193100z_20260402t193600z",
+            "start": "2026-04-02T19:31:00Z"
+          },
+          "statistics": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/10_qqq260416c00585000_statistics_20260402t193000z_20260402t193600z.csv",
+            "end": "2026-04-02T19:36:00Z",
+            "manifest_empty": true,
+            "manifest_record_count": 0,
+            "request_id": "10_qqq260416c00585000_statistics_20260402t193000z_20260402t193600z",
+            "start": "2026-04-02T19:30:00Z"
+          },
+          "tcbbo": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/14_qqq260416c00585000_tcbbo_20260402t193100z_20260402t194500z.csv",
+            "end": "2026-04-02T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 5,
+            "request_id": "14_qqq260416c00585000_tcbbo_20260402t193100z_20260402t194500z",
+            "start": "2026-04-02T19:31:00Z"
+          },
+          "trades": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/09_qqq260416c00585000_trades_20260402t193000z_20260402t194500z.csv",
+            "end": "2026-04-02T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 5,
+            "request_id": "09_qqq260416c00585000_trades_20260402t193000z_20260402t194500z",
+            "start": "2026-04-02T19:30:00Z"
+          }
+        },
+        "strike": "585.0"
+      },
+      {
+        "candidate_ids": [
+          "QQQ-SOURCE-WINDOW-CONTINUATION-002"
+        ],
+        "expiration": "2026-04-16",
+        "instrument_id": 1040189318,
+        "legs": [
+          "short"
+        ],
+        "raw_symbol": "QQQ   260416C00590000",
+        "schema_files": {
+          "cmbp-1": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/15_qqq260416c00590000_cmbp1_20260402t193100z_20260402t193600z.csv",
+            "end": "2026-04-02T19:36:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 2883,
+            "request_id": "15_qqq260416c00590000_cmbp1_20260402t193100z_20260402t193600z",
+            "start": "2026-04-02T19:31:00Z"
+          },
+          "statistics": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/12_qqq260416c00590000_statistics_20260402t193000z_20260402t193600z.csv",
+            "end": "2026-04-02T19:36:00Z",
+            "manifest_empty": true,
+            "manifest_record_count": 0,
+            "request_id": "12_qqq260416c00590000_statistics_20260402t193000z_20260402t193600z",
+            "start": "2026-04-02T19:30:00Z"
+          },
+          "tcbbo": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/16_qqq260416c00590000_tcbbo_20260402t193100z_20260402t194500z.csv",
+            "end": "2026-04-02T19:45:00Z",
+            "manifest_empty": true,
+            "manifest_record_count": 0,
+            "request_id": "16_qqq260416c00590000_tcbbo_20260402t193100z_20260402t194500z",
+            "start": "2026-04-02T19:31:00Z"
+          },
+          "trades": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/11_qqq260416c00590000_trades_20260402t193000z_20260402t194500z.csv",
+            "end": "2026-04-02T19:45:00Z",
+            "manifest_empty": true,
+            "manifest_record_count": 0,
+            "request_id": "11_qqq260416c00590000_trades_20260402t193000z_20260402t194500z",
+            "start": "2026-04-02T19:30:00Z"
+          }
+        },
+        "strike": "590.0"
+      },
+      {
+        "candidate_ids": [
+          "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+        ],
+        "expiration": "2026-05-01",
+        "instrument_id": 989856791,
+        "legs": [
+          "long"
+        ],
+        "raw_symbol": "QQQ   260501C00650000",
+        "schema_files": {
+          "cmbp-1": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/29_qqq260501c00650000_cmbp1_20260417t143100z_20260417t143600z.csv",
+            "end": "2026-04-17T14:36:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 16209,
+            "request_id": "29_qqq260501c00650000_cmbp1_20260417t143100z_20260417t143600z",
+            "start": "2026-04-17T14:31:00Z"
+          },
+          "statistics": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/26_qqq260501c00650000_statistics_20260417t143000z_20260417t143600z.csv",
+            "end": "2026-04-17T14:36:00Z",
+            "manifest_empty": true,
+            "manifest_record_count": 0,
+            "request_id": "26_qqq260501c00650000_statistics_20260417t143000z_20260417t143600z",
+            "start": "2026-04-17T14:30:00Z"
+          },
+          "tcbbo": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/30_qqq260501c00650000_tcbbo_20260417t143100z_20260417t194500z.csv",
+            "end": "2026-04-17T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 722,
+            "request_id": "30_qqq260501c00650000_tcbbo_20260417t143100z_20260417t194500z",
+            "start": "2026-04-17T14:31:00Z"
+          },
+          "trades": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/25_qqq260501c00650000_trades_20260417t143000z_20260417t194500z.csv",
+            "end": "2026-04-17T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 724,
+            "request_id": "25_qqq260501c00650000_trades_20260417t143000z_20260417t194500z",
+            "start": "2026-04-17T14:30:00Z"
+          }
+        },
+        "strike": "650.0"
+      },
+      {
+        "candidate_ids": [
+          "QQQ-SOURCE-WINDOW-CLEAN-FAST-BREAK-002"
+        ],
+        "expiration": "2026-05-01",
+        "instrument_id": 989855873,
+        "legs": [
+          "short"
+        ],
+        "raw_symbol": "QQQ   260501C00655000",
+        "schema_files": {
+          "cmbp-1": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/31_qqq260501c00655000_cmbp1_20260417t143100z_20260417t143600z.csv",
+            "end": "2026-04-17T14:36:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 11916,
+            "request_id": "31_qqq260501c00655000_cmbp1_20260417t143100z_20260417t143600z",
+            "start": "2026-04-17T14:31:00Z"
+          },
+          "statistics": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/28_qqq260501c00655000_statistics_20260417t143000z_20260417t143600z.csv",
+            "end": "2026-04-17T14:36:00Z",
+            "manifest_empty": true,
+            "manifest_record_count": 0,
+            "request_id": "28_qqq260501c00655000_statistics_20260417t143000z_20260417t143600z",
+            "start": "2026-04-17T14:30:00Z"
+          },
+          "tcbbo": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/32_qqq260501c00655000_tcbbo_20260417t143100z_20260417t194500z.csv",
+            "end": "2026-04-17T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 634,
+            "request_id": "32_qqq260501c00655000_tcbbo_20260417t143100z_20260417t194500z",
+            "start": "2026-04-17T14:31:00Z"
+          },
+          "trades": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/27_qqq260501c00655000_trades_20260417t143000z_20260417t194500z.csv",
+            "end": "2026-04-17T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 634,
+            "request_id": "27_qqq260501c00655000_trades_20260417t143000z_20260417t194500z",
+            "start": "2026-04-17T14:30:00Z"
+          }
+        },
+        "strike": "655.0"
+      },
+      {
+        "candidate_ids": [
+          "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+          "SPY-SOURCE-WINDOW-CONTINUATION-004",
+          "SPY-SOURCE-WINDOW-CONTINUATION-005"
+        ],
+        "expiration": "2026-04-14",
+        "instrument_id": 1275070451,
+        "legs": [
+          "long"
+        ],
+        "raw_symbol": "SPY   260414C00645000",
+        "schema_files": {
+          "cmbp-1": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/05_spy260414c00645000_cmbp1_20260331t163100z_20260331t163600z.csv",
+            "end": "2026-03-31T16:36:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 7043,
+            "request_id": "05_spy260414c00645000_cmbp1_20260331t163100z_20260331t163600z",
+            "start": "2026-03-31T16:31:00Z"
+          },
+          "statistics": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/02_spy260414c00645000_statistics_20260331t163000z_20260331t163600z.csv",
+            "end": "2026-03-31T16:36:00Z",
+            "manifest_empty": true,
+            "manifest_record_count": 0,
+            "request_id": "02_spy260414c00645000_statistics_20260331t163000z_20260331t163600z",
+            "start": "2026-03-31T16:30:00Z"
+          },
+          "tcbbo": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/06_spy260414c00645000_tcbbo_20260331t163100z_20260331t194500z.csv",
+            "end": "2026-03-31T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 27,
+            "request_id": "06_spy260414c00645000_tcbbo_20260331t163100z_20260331t194500z",
+            "start": "2026-03-31T16:31:00Z"
+          },
+          "trades": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/01_spy260414c00645000_trades_20260331t163000z_20260331t194500z.csv",
+            "end": "2026-03-31T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 27,
+            "request_id": "01_spy260414c00645000_trades_20260331t163000z_20260331t194500z",
+            "start": "2026-03-31T16:30:00Z"
+          }
+        },
+        "strike": "645.0"
+      },
+      {
+        "candidate_ids": [
+          "SPY-SOURCE-WINDOW-CLEAN-FAST-BREAK-003",
+          "SPY-SOURCE-WINDOW-CONTINUATION-004",
+          "SPY-SOURCE-WINDOW-CONTINUATION-005"
+        ],
+        "expiration": "2026-04-14",
+        "instrument_id": 1275070438,
+        "legs": [
+          "short"
+        ],
+        "raw_symbol": "SPY   260414C00650000",
+        "schema_files": {
+          "cmbp-1": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/07_spy260414c00650000_cmbp1_20260331t163100z_20260331t163600z.csv",
+            "end": "2026-03-31T16:36:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 6880,
+            "request_id": "07_spy260414c00650000_cmbp1_20260331t163100z_20260331t163600z",
+            "start": "2026-03-31T16:31:00Z"
+          },
+          "statistics": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/04_spy260414c00650000_statistics_20260331t163000z_20260331t163600z.csv",
+            "end": "2026-03-31T16:36:00Z",
+            "manifest_empty": true,
+            "manifest_record_count": 0,
+            "request_id": "04_spy260414c00650000_statistics_20260331t163000z_20260331t163600z",
+            "start": "2026-03-31T16:30:00Z"
+          },
+          "tcbbo": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/08_spy260414c00650000_tcbbo_20260331t163100z_20260331t194500z.csv",
+            "end": "2026-03-31T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 128,
+            "request_id": "08_spy260414c00650000_tcbbo_20260331t163100z_20260331t194500z",
+            "start": "2026-03-31T16:31:00Z"
+          },
+          "trades": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/03_spy260414c00650000_trades_20260331t163000z_20260331t194500z.csv",
+            "end": "2026-03-31T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 128,
+            "request_id": "03_spy260414c00650000_trades_20260331t163000z_20260331t194500z",
+            "start": "2026-03-31T16:30:00Z"
+          }
+        },
+        "strike": "650.0"
+      },
+      {
+        "candidate_ids": [
+          "SPY-SOURCE-WINDOW-CONTINUATION-002"
+        ],
+        "expiration": "2026-05-01",
+        "instrument_id": 1224736926,
+        "legs": [
+          "long"
+        ],
+        "raw_symbol": "SPY   260501C00702000",
+        "schema_files": {
+          "cmbp-1": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/21_spy260501c00702000_cmbp1_20260417t133100z_20260417t133600z.csv",
+            "end": "2026-04-17T13:36:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 9705,
+            "request_id": "21_spy260501c00702000_cmbp1_20260417t133100z_20260417t133600z",
+            "start": "2026-04-17T13:31:00Z"
+          },
+          "statistics": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/18_spy260501c00702000_statistics_20260417t133000z_20260417t133600z.csv",
+            "end": "2026-04-17T13:36:00Z",
+            "manifest_empty": true,
+            "manifest_record_count": 0,
+            "request_id": "18_spy260501c00702000_statistics_20260417t133000z_20260417t133600z",
+            "start": "2026-04-17T13:30:00Z"
+          },
+          "tcbbo": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/22_spy260501c00702000_tcbbo_20260417t133100z_20260417t194500z.csv",
+            "end": "2026-04-17T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 110,
+            "request_id": "22_spy260501c00702000_tcbbo_20260417t133100z_20260417t194500z",
+            "start": "2026-04-17T13:31:00Z"
+          },
+          "trades": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/17_spy260501c00702000_trades_20260417t133000z_20260417t194500z.csv",
+            "end": "2026-04-17T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 115,
+            "request_id": "17_spy260501c00702000_trades_20260417t133000z_20260417t194500z",
+            "start": "2026-04-17T13:30:00Z"
+          }
+        },
+        "strike": "702.0"
+      },
+      {
+        "candidate_ids": [
+          "SPY-SOURCE-WINDOW-CONTINUATION-002"
+        ],
+        "expiration": "2026-05-01",
+        "instrument_id": 1224738270,
+        "legs": [
+          "short"
+        ],
+        "raw_symbol": "SPY   260501C00707000",
+        "schema_files": {
+          "cmbp-1": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/23_spy260501c00707000_cmbp1_20260417t133100z_20260417t133600z.csv",
+            "end": "2026-04-17T13:36:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 16037,
+            "request_id": "23_spy260501c00707000_cmbp1_20260417t133100z_20260417t133600z",
+            "start": "2026-04-17T13:31:00Z"
+          },
+          "statistics": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/20_spy260501c00707000_statistics_20260417t133000z_20260417t133600z.csv",
+            "end": "2026-04-17T13:36:00Z",
+            "manifest_empty": true,
+            "manifest_record_count": 0,
+            "request_id": "20_spy260501c00707000_statistics_20260417t133000z_20260417t133600z",
+            "start": "2026-04-17T13:30:00Z"
+          },
+          "tcbbo": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/24_spy260501c00707000_tcbbo_20260417t133100z_20260417t194500z.csv",
+            "end": "2026-04-17T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 213,
+            "request_id": "24_spy260501c00707000_tcbbo_20260417t133100z_20260417t194500z",
+            "start": "2026-04-17T13:31:00Z"
+          },
+          "trades": {
+            "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/19_spy260501c00707000_trades_20260417t133000z_20260417t194500z.csv",
+            "end": "2026-04-17T19:45:00Z",
+            "manifest_empty": false,
+            "manifest_record_count": 217,
+            "request_id": "19_spy260501c00707000_trades_20260417t133000z_20260417t194500z",
+            "start": "2026-04-17T13:30:00Z"
+          }
+        },
+        "strike": "707.0"
+      }
+    ],
+    "remaining_request_count": 0,
+    "request_count": 32,
+    "schema_file_status": {
+      "01_spy260414c00645000_trades_20260331t163000z_20260331t194500z": {
+        "actual_csv_record_count": 27,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/01_spy260414c00645000_trades_20260331t163000z_20260331t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/01_spy260414c00645000_trades_20260331t163000z_20260331t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-03-31T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 27,
+        "schema": "trades",
+        "start": "2026-03-31T16:30:00Z",
+        "symbols": "SPY   260414C00645000"
+      },
+      "02_spy260414c00645000_statistics_20260331t163000z_20260331t163600z": {
+        "actual_csv_record_count": 0,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/02_spy260414c00645000_statistics_20260331t163000z_20260331t163600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/02_spy260414c00645000_statistics_20260331t163000z_20260331t163600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-03-31T16:36:00Z",
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "start": "2026-03-31T16:30:00Z",
+        "symbols": "SPY   260414C00645000"
+      },
+      "03_spy260414c00650000_trades_20260331t163000z_20260331t194500z": {
+        "actual_csv_record_count": 128,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/03_spy260414c00650000_trades_20260331t163000z_20260331t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/03_spy260414c00650000_trades_20260331t163000z_20260331t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-03-31T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 128,
+        "schema": "trades",
+        "start": "2026-03-31T16:30:00Z",
+        "symbols": "SPY   260414C00650000"
+      },
+      "04_spy260414c00650000_statistics_20260331t163000z_20260331t163600z": {
+        "actual_csv_record_count": 0,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/04_spy260414c00650000_statistics_20260331t163000z_20260331t163600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/04_spy260414c00650000_statistics_20260331t163000z_20260331t163600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-03-31T16:36:00Z",
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "start": "2026-03-31T16:30:00Z",
+        "symbols": "SPY   260414C00650000"
+      },
+      "05_spy260414c00645000_cmbp1_20260331t163100z_20260331t163600z": {
+        "actual_csv_record_count": 7043,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/05_spy260414c00645000_cmbp1_20260331t163100z_20260331t163600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/05_spy260414c00645000_cmbp1_20260331t163100z_20260331t163600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-03-31T16:36:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 7043,
+        "schema": "cmbp-1",
+        "start": "2026-03-31T16:31:00Z",
+        "symbols": "SPY   260414C00645000"
+      },
+      "06_spy260414c00645000_tcbbo_20260331t163100z_20260331t194500z": {
+        "actual_csv_record_count": 27,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/06_spy260414c00645000_tcbbo_20260331t163100z_20260331t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/06_spy260414c00645000_tcbbo_20260331t163100z_20260331t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-03-31T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 27,
+        "schema": "tcbbo",
+        "start": "2026-03-31T16:31:00Z",
+        "symbols": "SPY   260414C00645000"
+      },
+      "07_spy260414c00650000_cmbp1_20260331t163100z_20260331t163600z": {
+        "actual_csv_record_count": 6880,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/07_spy260414c00650000_cmbp1_20260331t163100z_20260331t163600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/07_spy260414c00650000_cmbp1_20260331t163100z_20260331t163600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-03-31T16:36:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 6880,
+        "schema": "cmbp-1",
+        "start": "2026-03-31T16:31:00Z",
+        "symbols": "SPY   260414C00650000"
+      },
+      "08_spy260414c00650000_tcbbo_20260331t163100z_20260331t194500z": {
+        "actual_csv_record_count": 128,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/08_spy260414c00650000_tcbbo_20260331t163100z_20260331t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/08_spy260414c00650000_tcbbo_20260331t163100z_20260331t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-03-31T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 128,
+        "schema": "tcbbo",
+        "start": "2026-03-31T16:31:00Z",
+        "symbols": "SPY   260414C00650000"
+      },
+      "09_qqq260416c00585000_trades_20260402t193000z_20260402t194500z": {
+        "actual_csv_record_count": 5,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/09_qqq260416c00585000_trades_20260402t193000z_20260402t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/09_qqq260416c00585000_trades_20260402t193000z_20260402t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-02T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 5,
+        "schema": "trades",
+        "start": "2026-04-02T19:30:00Z",
+        "symbols": "QQQ   260416C00585000"
+      },
+      "10_qqq260416c00585000_statistics_20260402t193000z_20260402t193600z": {
+        "actual_csv_record_count": 0,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/10_qqq260416c00585000_statistics_20260402t193000z_20260402t193600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/10_qqq260416c00585000_statistics_20260402t193000z_20260402t193600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-02T19:36:00Z",
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "start": "2026-04-02T19:30:00Z",
+        "symbols": "QQQ   260416C00585000"
+      },
+      "11_qqq260416c00590000_trades_20260402t193000z_20260402t194500z": {
+        "actual_csv_record_count": 0,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/11_qqq260416c00590000_trades_20260402t193000z_20260402t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/11_qqq260416c00590000_trades_20260402t193000z_20260402t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-02T19:45:00Z",
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "trades",
+        "start": "2026-04-02T19:30:00Z",
+        "symbols": "QQQ   260416C00590000"
+      },
+      "12_qqq260416c00590000_statistics_20260402t193000z_20260402t193600z": {
+        "actual_csv_record_count": 0,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/12_qqq260416c00590000_statistics_20260402t193000z_20260402t193600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/12_qqq260416c00590000_statistics_20260402t193000z_20260402t193600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-02T19:36:00Z",
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "start": "2026-04-02T19:30:00Z",
+        "symbols": "QQQ   260416C00590000"
+      },
+      "13_qqq260416c00585000_cmbp1_20260402t193100z_20260402t193600z": {
+        "actual_csv_record_count": 4356,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/13_qqq260416c00585000_cmbp1_20260402t193100z_20260402t193600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/13_qqq260416c00585000_cmbp1_20260402t193100z_20260402t193600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-02T19:36:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 4356,
+        "schema": "cmbp-1",
+        "start": "2026-04-02T19:31:00Z",
+        "symbols": "QQQ   260416C00585000"
+      },
+      "14_qqq260416c00585000_tcbbo_20260402t193100z_20260402t194500z": {
+        "actual_csv_record_count": 5,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/14_qqq260416c00585000_tcbbo_20260402t193100z_20260402t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/14_qqq260416c00585000_tcbbo_20260402t193100z_20260402t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-02T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 5,
+        "schema": "tcbbo",
+        "start": "2026-04-02T19:31:00Z",
+        "symbols": "QQQ   260416C00585000"
+      },
+      "15_qqq260416c00590000_cmbp1_20260402t193100z_20260402t193600z": {
+        "actual_csv_record_count": 2883,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/15_qqq260416c00590000_cmbp1_20260402t193100z_20260402t193600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/15_qqq260416c00590000_cmbp1_20260402t193100z_20260402t193600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-02T19:36:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 2883,
+        "schema": "cmbp-1",
+        "start": "2026-04-02T19:31:00Z",
+        "symbols": "QQQ   260416C00590000"
+      },
+      "16_qqq260416c00590000_tcbbo_20260402t193100z_20260402t194500z": {
+        "actual_csv_record_count": 0,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/16_qqq260416c00590000_tcbbo_20260402t193100z_20260402t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/16_qqq260416c00590000_tcbbo_20260402t193100z_20260402t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-02T19:45:00Z",
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "tcbbo",
+        "start": "2026-04-02T19:31:00Z",
+        "symbols": "QQQ   260416C00590000"
+      },
+      "17_spy260501c00702000_trades_20260417t133000z_20260417t194500z": {
+        "actual_csv_record_count": 115,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/17_spy260501c00702000_trades_20260417t133000z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/17_spy260501c00702000_trades_20260417t133000z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 115,
+        "schema": "trades",
+        "start": "2026-04-17T13:30:00Z",
+        "symbols": "SPY   260501C00702000"
+      },
+      "18_spy260501c00702000_statistics_20260417t133000z_20260417t133600z": {
+        "actual_csv_record_count": 0,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/18_spy260501c00702000_statistics_20260417t133000z_20260417t133600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/18_spy260501c00702000_statistics_20260417t133000z_20260417t133600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T13:36:00Z",
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "start": "2026-04-17T13:30:00Z",
+        "symbols": "SPY   260501C00702000"
+      },
+      "19_spy260501c00707000_trades_20260417t133000z_20260417t194500z": {
+        "actual_csv_record_count": 217,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/19_spy260501c00707000_trades_20260417t133000z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/19_spy260501c00707000_trades_20260417t133000z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 217,
+        "schema": "trades",
+        "start": "2026-04-17T13:30:00Z",
+        "symbols": "SPY   260501C00707000"
+      },
+      "20_spy260501c00707000_statistics_20260417t133000z_20260417t133600z": {
+        "actual_csv_record_count": 0,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/20_spy260501c00707000_statistics_20260417t133000z_20260417t133600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/20_spy260501c00707000_statistics_20260417t133000z_20260417t133600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T13:36:00Z",
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "start": "2026-04-17T13:30:00Z",
+        "symbols": "SPY   260501C00707000"
+      },
+      "21_spy260501c00702000_cmbp1_20260417t133100z_20260417t133600z": {
+        "actual_csv_record_count": 9705,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/21_spy260501c00702000_cmbp1_20260417t133100z_20260417t133600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/21_spy260501c00702000_cmbp1_20260417t133100z_20260417t133600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T13:36:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 9705,
+        "schema": "cmbp-1",
+        "start": "2026-04-17T13:31:00Z",
+        "symbols": "SPY   260501C00702000"
+      },
+      "22_spy260501c00702000_tcbbo_20260417t133100z_20260417t194500z": {
+        "actual_csv_record_count": 110,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/22_spy260501c00702000_tcbbo_20260417t133100z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/22_spy260501c00702000_tcbbo_20260417t133100z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 110,
+        "schema": "tcbbo",
+        "start": "2026-04-17T13:31:00Z",
+        "symbols": "SPY   260501C00702000"
+      },
+      "23_spy260501c00707000_cmbp1_20260417t133100z_20260417t133600z": {
+        "actual_csv_record_count": 16037,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/23_spy260501c00707000_cmbp1_20260417t133100z_20260417t133600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/23_spy260501c00707000_cmbp1_20260417t133100z_20260417t133600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T13:36:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 16037,
+        "schema": "cmbp-1",
+        "start": "2026-04-17T13:31:00Z",
+        "symbols": "SPY   260501C00707000"
+      },
+      "24_spy260501c00707000_tcbbo_20260417t133100z_20260417t194500z": {
+        "actual_csv_record_count": 213,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/24_spy260501c00707000_tcbbo_20260417t133100z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/24_spy260501c00707000_tcbbo_20260417t133100z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 213,
+        "schema": "tcbbo",
+        "start": "2026-04-17T13:31:00Z",
+        "symbols": "SPY   260501C00707000"
+      },
+      "25_qqq260501c00650000_trades_20260417t143000z_20260417t194500z": {
+        "actual_csv_record_count": 724,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/25_qqq260501c00650000_trades_20260417t143000z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/25_qqq260501c00650000_trades_20260417t143000z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 724,
+        "schema": "trades",
+        "start": "2026-04-17T14:30:00Z",
+        "symbols": "QQQ   260501C00650000"
+      },
+      "26_qqq260501c00650000_statistics_20260417t143000z_20260417t143600z": {
+        "actual_csv_record_count": 0,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/26_qqq260501c00650000_statistics_20260417t143000z_20260417t143600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/26_qqq260501c00650000_statistics_20260417t143000z_20260417t143600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T14:36:00Z",
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "start": "2026-04-17T14:30:00Z",
+        "symbols": "QQQ   260501C00650000"
+      },
+      "27_qqq260501c00655000_trades_20260417t143000z_20260417t194500z": {
+        "actual_csv_record_count": 634,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/27_qqq260501c00655000_trades_20260417t143000z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/27_qqq260501c00655000_trades_20260417t143000z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 634,
+        "schema": "trades",
+        "start": "2026-04-17T14:30:00Z",
+        "symbols": "QQQ   260501C00655000"
+      },
+      "28_qqq260501c00655000_statistics_20260417t143000z_20260417t143600z": {
+        "actual_csv_record_count": 0,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/28_qqq260501c00655000_statistics_20260417t143000z_20260417t143600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/28_qqq260501c00655000_statistics_20260417t143000z_20260417t143600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T14:36:00Z",
+        "manifest_empty": true,
+        "manifest_record_count": 0,
+        "schema": "statistics",
+        "start": "2026-04-17T14:30:00Z",
+        "symbols": "QQQ   260501C00655000"
+      },
+      "29_qqq260501c00650000_cmbp1_20260417t143100z_20260417t143600z": {
+        "actual_csv_record_count": 16209,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/29_qqq260501c00650000_cmbp1_20260417t143100z_20260417t143600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/29_qqq260501c00650000_cmbp1_20260417t143100z_20260417t143600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T14:36:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 16209,
+        "schema": "cmbp-1",
+        "start": "2026-04-17T14:31:00Z",
+        "symbols": "QQQ   260501C00650000"
+      },
+      "30_qqq260501c00650000_tcbbo_20260417t143100z_20260417t194500z": {
+        "actual_csv_record_count": 722,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/30_qqq260501c00650000_tcbbo_20260417t143100z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/30_qqq260501c00650000_tcbbo_20260417t143100z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 722,
+        "schema": "tcbbo",
+        "start": "2026-04-17T14:31:00Z",
+        "symbols": "QQQ   260501C00650000"
+      },
+      "31_qqq260501c00655000_cmbp1_20260417t143100z_20260417t143600z": {
+        "actual_csv_record_count": 11916,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/31_qqq260501c00655000_cmbp1_20260417t143100z_20260417t143600z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/31_qqq260501c00655000_cmbp1_20260417t143100z_20260417t143600z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T14:36:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 11916,
+        "schema": "cmbp-1",
+        "start": "2026-04-17T14:31:00Z",
+        "symbols": "QQQ   260501C00655000"
+      },
+      "32_qqq260501c00655000_tcbbo_20260417t143100z_20260417t194500z": {
+        "actual_csv_record_count": 634,
+        "contract_identity_validated": true,
+        "csv_exists": true,
+        "csv_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/32_qqq260501c00655000_tcbbo_20260417t143100z_20260417t194500z.csv",
+        "csv_sha256_match": true,
+        "dbn_exists": true,
+        "dbn_path": "historical_signal_replay/source_data/external_option_data_drop/day55_quote_trade_statistics_selected_contracts/32_qqq260501c00655000_tcbbo_20260417t143100z_20260417t194500z.dbn.zst",
+        "dbn_sha256_match": true,
+        "end": "2026-04-17T19:45:00Z",
+        "manifest_empty": false,
+        "manifest_record_count": 634,
+        "schema": "tcbbo",
+        "start": "2026-04-17T14:31:00Z",
+        "symbols": "QQQ   260501C00655000"
+      }
+    },
+    "spy_670c_exact_rejection": {
+      "entry_status": "NO_ENTRY_EXACT_REJECTION",
+      "first_blocker": "target_contract_not_in_day55_download_manifest",
+      "gross_pnl": null,
+      "net_pnl": null,
+      "preserved": true,
+      "raw_symbol": "SPY   260330C00670000",
+      "target_contract_in_manifest": false
+    },
+    "status": "INPUTS_VALIDATED"
+  },
+  "next_action": "No ready downloaded contract produced a valid entry; blockers: open_interest_statistics_zero_rows, spread_above_0_15, trade_volume_below_1",
+  "paper_live_eligibility": "NO",
+  "profitability_proof": "NO",
+  "result_version": "day55_ready_downloaded_contracts_replay_v1",
+  "run_timestamp": "2026-06-30T01:59:20.573954Z",
+  "scope": {
+    "broker_account_order_alert_touched": false,
+    "credentials_or_env_changed": false,
+    "databento_called": false,
+    "definition_requested": false,
+    "local_raw_databento_files_only": true,
+    "main_py_changed": false,
+    "more_data_requested": false,
+    "railway_or_deploy_changed": false,
+    "raw_vendor_files_mutated": false,
+    "schwab_called": false,
+    "sizing_changed": false,
+    "tastytrade_called": false,
+    "vendor_download_performed": false
+  },
+  "source_commit": "148cde9",
+  "summary": {
+    "evaluated_exits": 0,
+    "exact_no_entry_rejections": 8,
+    "net_pnl_results": 0,
+    "paper_live_eligibility": "NO",
+    "profitability_proof": "NO",
+    "profitable_net_results": 0,
+    "ready_contracts_evaluated": 8,
+    "unresolved_or_blocked": 0,
+    "valid_entries": 0
+  },
+  "task": "SAFE_FAST_DAY55_READY_DOWNLOADED_CONTRACTS_REPLAY_TASK.md"
+}
