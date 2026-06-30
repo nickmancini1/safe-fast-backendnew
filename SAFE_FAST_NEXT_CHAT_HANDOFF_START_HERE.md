@@ -162,7 +162,7 @@ This rule applies regardless of the current technical objective and supersedes a
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
-Active task: `SAFE_FAST_DAY55_TARGET_MISMATCH_HANDOFF_FIX_TASK.md`
+Active task: `SAFE_FAST_DAY55_SPY_670C_TARGET_APPROVED_DOWNLOAD_REPLAY_TASK.md`
 
 Current objective: finish the uncommitted Day 55 target-mismatch handoff fix. Current HEAD before the uncommitted fix is `a91920b`. The approved/downloaded 32-request Day 55 Databento `OPRA.PILLAR` quote/trade/statistics evidence package succeeded, but it does not contain the SPY 670C replay target.
 
@@ -228,7 +228,7 @@ Latest verified commit at current option-evidence task start: `37cda01 Make opti
 
 Current technical package: `SAFE_FAST_DAY55_SPY_670C_ENTRY_EXIT_PNL_EVALUATION_RESULT.md`, `historical_signal_replay/results/day55_spy_670c_entry_exit_pnl_evaluation.json`, `historical_signal_replay/day55_spy_670c_entry_exit_pnl_evaluation.py`, `watcher_foundation/day55_spy_670c_entry_exit_pnl_evaluation_validator.py`, and `tests/test_day55_spy_670c_entry_exit_pnl_evaluation.py`; Day 55 downloaded quote/trade/statistics manifest remains available.
 
-Exact active task: `SAFE_FAST_DAY55_TARGET_MISMATCH_HANDOFF_FIX_TASK.md`.
+Exact active task: `SAFE_FAST_DAY55_SPY_670C_TARGET_APPROVED_DOWNLOAD_REPLAY_TASK.md`.
 
 Active task exists: yes.
 
@@ -345,7 +345,7 @@ Safety rejection and positive-trade capture are equal build objectives.
 
 ## Exact current task
 
-Exact active task: `SAFE_FAST_DAY55_TARGET_MISMATCH_HANDOFF_FIX_TASK.md`.
+Exact active task: `SAFE_FAST_DAY55_SPY_670C_TARGET_APPROVED_DOWNLOAD_REPLAY_TASK.md`.
 
 Current HEAD before the uncommitted fix is `a91920b`. The current task state is the Day 55 target-mismatch handoff fix; do not commit.
 
@@ -375,3 +375,4 @@ After Codex runs, the user should paste Codex's `Baseline`, `Fixed`, `Blocked`, 
 - Profitability proof: `NO`.
 - Paper/live eligibility: `NO`.
 - Next action: stop after this handoff fix unless a later explicit task is provided; no entry/exit/P&L claim.
+

@@ -147,7 +147,7 @@ This rule applies regardless of the current technical objective and supersedes a
 <!-- SAFE_FAST_MANDATORY_OPTION_BACKTEST_START -->
 ## CURRENT MANDATORY OBJECTIVE
 
-Active task: `SAFE_FAST_DAY55_TARGET_MISMATCH_HANDOFF_FIX_TASK.md`
+Active task: `SAFE_FAST_DAY55_SPY_670C_TARGET_APPROVED_DOWNLOAD_REPLAY_TASK.md`
 
 Current objective: finish the uncommitted Day 55 target-mismatch handoff fix. Current HEAD before the uncommitted fix is `a91920b`.
 
@@ -220,3 +220,4 @@ After the user returns that output, state the actual baseline, identify the exac
 - Profitability proof: `NO`.
 - Paper/live eligibility: `NO`.
 - Next action: stop after this handoff fix unless a later explicit task is provided; no entry/exit/P&L claim.
+

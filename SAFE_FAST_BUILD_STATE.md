@@ -55,8 +55,8 @@ Top anti-drift rule: if the information already exists in the latest machine-rea
 <!-- SAFE_FAST_CURRENT_STATE_BEGIN -->
 - PROJECT_DAY: Day 55
 - PROJECT_DATE: 2026-06-26
-- ACTIVE_OBJECTIVE: Preserve the Day 55 approved/downloaded option-evidence result and exact SPY 670C target-mismatch rejection; no entry/exit/P&L claim is allowed.
-- ACTIVE_TASK: SAFE_FAST_DAY55_TARGET_MISMATCH_HANDOFF_FIX_TASK.md
+- ACTIVE_OBJECTIVE: Download approved SPY 670C target-only evidence, replay entry/exit/P&L, then either produce exact trade result or kill Day 55.
+- ACTIVE_TASK: SAFE_FAST_DAY55_SPY_670C_TARGET_APPROVED_DOWNLOAD_REPLAY_TASK.md
 - ACTIVE_TASK_PURPOSE: Finish the uncommitted Day 55 target-mismatch fix and update canonical handoff/status without committing.
 - PROVEN_SUMMARY: Current HEAD before this uncommitted fix is `a91920b`. The approved/downloaded Day 55 quote/trade/statistics evidence package succeeded for 32 Databento `OPRA.PILLAR` requests across `cmbp-1`, `tcbbo`, `trades`, and `statistics`; `definition` remained forbidden. The selected SPY 670C replay target is `SPY   260330C00670000`, but that target is not present in the Day 55 download manifest, so the replay result is exact rejection `target_contract_not_in_day55_download_manifest`. The old blocker `open_interest_statistics_zero_rows` is preserved as not closed. Profitability proof remains `NO` and paper/live eligibility remains `NO`.
 - UNPROVEN_SUMMARY: No valid entry, recorded entry, exit, gross P&L, net P&L, profitability proof, readiness, paper eligibility, or live eligibility is established because the SPY 670C target contract was absent from the downloaded Day 55 evidence package.
@@ -14861,3 +14861,4 @@ This correction supersedes older handoff wording where workflow rules appear aft
 - Profitability proof: `NO`.
 - Paper/live eligibility: `NO`.
 - Next action: operator vendor cost approval for the 32-request Databento quote/trade/statistics cost-only request; no download until explicitly approved.
+
