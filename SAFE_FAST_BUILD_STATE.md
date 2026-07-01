@@ -14862,3 +14862,21 @@ This correction supersedes older handoff wording where workflow rules appear aft
 - Paper/live eligibility: `NO`.
 - Next action: operator vendor cost approval for the 32-request Databento quote/trade/statistics cost-only request; no download until explicitly approved.
 
+
+<!-- SAFE_FAST_GUARDRAILS_BEGIN -->
+## SAFE-FAST Guardrails
+
+Guardrails are now part of the repo.
+
+Required guardrail files:
+- SAFE_FAST_ACTION_LOCK.md
+- SAFE_FAST_PASTE_BACK_CONTRACT.md
+- SAFE_FAST_MISTAKE_PROTOCOL.md
+- SAFE_FAST_CHAT_KILL_SWITCH.md
+- SAFE_FAST_USER_SAFETY_CHECK.md
+- SAFE_FAST_PLAIN_ENGLISH_CONTRACT.md
+- SAFE_FAST_DATA_SOURCE_RULE.md
+- SAFE_FAST_CANDIDATE_FACTORY.md
+
+These rules exist to stop unsafe commands, hidden mistakes, broad edits, vendor misuse, live-system work, and confusing output.
+<!-- SAFE_FAST_GUARDRAILS_END -->
