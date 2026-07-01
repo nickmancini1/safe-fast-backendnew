@@ -35,3 +35,23 @@ Hard stops:
 - no paid Databento unless cost and scope are approved first
 - no candidate work while replay work is active
 - no proof claim without tests, commit proof, and clean Git status
+
+## Tightening addendum
+
+Pre-change gate:
+Before any command that can change files, the command must first verify the repo folder, branch, clean status, active task when needed, and allowed dirty files during recovery.
+If any check fails, stop before changing files.
+
+Small-command rule:
+Use one-purpose PowerShell blocks.
+Do not use giant fragile scripts when a smaller step can do the job.
+
+Codex sealed-ticket rule:
+No Codex task is allowed unless the ticket states one objective, exact files, forbidden work, tests, done condition, commit proof, and clean status proof.
+
+Build-state rule:
+Before any Codex or code task, read `SAFE_FAST_BUILD_STATE.md` first.
+If `SAFE_FAST_BUILD_STATE.md` is missing, stop before touching engine logic.
+
+No terminal-closing rule:
+Do not use `exit` in Nick's PowerShell commands unless Nick explicitly approves it in plain English.

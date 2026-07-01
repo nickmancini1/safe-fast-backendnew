@@ -21,3 +21,15 @@ The chat must not claim work is done unless there is:
 - required tests
 - commit proof if files changed
 - clean Git status
+
+## Tightening addendum
+
+Guardrail-break rule:
+If a chat breaks these guardrails while doing guardrail or recovery work, that counts as a clear mistake.
+
+Serious mistakes include:
+- closing Nick's terminal with a bad command
+- giving a giant fragile script after being told not to
+- leaving the repo dirty after promising a commit and clean status
+- hiding the exact failure
+- continuing after the kill-switch rule says to stop

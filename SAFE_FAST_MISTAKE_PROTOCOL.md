@@ -34,3 +34,18 @@ Chat mistakes:
 - no paste-back block
 - false claim
 - claiming work was done without commit and clean status
+
+## Tightening addendum
+
+Proof-check rule:
+Before giving the next command, compare the expected proof to the actual paste-back output.
+
+If the expected proof did not happen because of the chat's command, the first sentence must be:
+
+I made a mistake.
+
+Then state what was expected, what happened, what the impact is, whether the repo is dirty, whether a commit happened, and the smallest safe recovery step.
+
+Do not call a chat-caused failure a blocker.
+A blocker is outside the chat's control.
+A failed command caused by a bad instruction is a mistake.

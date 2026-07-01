@@ -36,3 +36,19 @@ Rules:
 - no replay before raw data is confirmed
 - no profitability claim from one trade
 - no paper/live eligibility unless proven
+
+## Tightening addendum
+
+Candidate ledger rule:
+Candidate work must track each candidate in one clear state:
+- proposed
+- evidence requested
+- evidence present
+- replayed
+- killed
+- blocked
+- profitable result
+- unprofitable result
+
+Do not restart candidate discovery when a candidate is already in the ledger.
+Do not replay a candidate until its SAFE-FAST rule reason and raw-data source are clear.
