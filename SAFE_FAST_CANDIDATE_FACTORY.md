@@ -5,6 +5,7 @@ Build a repeatable path toward a profitable trading plan.
 
 Candidate finding and backtesting are bottlenecks.
 Candidate work must be a factory, not a random hunt.
+Do not add a candidate-count target as repo fact unless a completed result establishes it.
 
 A candidate is not replay-ready just because it looks interesting.
 
@@ -30,6 +31,9 @@ Does the broad market information become an Ideal, Clean Fast Break, or Continua
 
 Candidate path:
 candidate -> raw evidence -> replay -> entry/exit/P&L -> exact result -> tests -> commit -> clean status
+
+Replay-ready candidates go directly to economics/P&L.
+If SAFE-FAST is unprofitable, weak, missing evidence, or inconclusive, diagnose the exact cause and smallest evidence-backed fix.
 
 Rules:
 - no broad hunt while replaying

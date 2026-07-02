@@ -48,6 +48,7 @@ Do not use giant fragile scripts when a smaller step can do the job.
 
 Codex sealed-ticket rule:
 No Codex task is allowed unless the ticket states one objective, exact files, forbidden work, tests, done condition, commit proof, and clean status proof.
+Codex must run through `codex.cmd` with an unelevated sandbox.
 
 Build-state rule:
 Before any Codex or code task, read `SAFE_FAST_BUILD_STATE.md` first.

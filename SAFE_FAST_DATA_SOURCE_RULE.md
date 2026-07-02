@@ -10,6 +10,7 @@ SAFE-FAST translates that evidence into setup labels, entry/exit decisions, P&L,
 Data-source ownership:
 
 Databento:
+Databento supplies raw historical replay evidence.
 Databento is the source for paid historical raw market evidence used in replay and backtesting.
 Use it for approved raw option evidence such as quotes, trades, statistics, and other approved schemas.
 A Databento request must be exact before it runs: contract, dataset, schemas, time windows, destination, cost state, approval state, and forbidden schemas.
@@ -18,8 +19,13 @@ No paid Databento request unless cost and scope are approved first.
 
 Tastytrade:
 Tastytrade is part of the trading and candidate workflow where the repo or task says Tastytrade is the source.
+Tastytrade/dxLink is candidate/trading workflow source only where the repo/task says so.
 Do not silently replace Databento replay evidence with Tastytrade data.
 Do not treat Tastytrade observations as SAFE-FAST proof until they are translated into exact SAFE-FAST setup rules and replayed where required.
+
+Official agencies / ALFRED:
+Official agencies / ALFRED supply macro and event facts.
+Macro and event facts do not decide SAFE-FAST labels, entry, exit, P&L, profitability, paper eligibility, or live eligibility.
 
 Schwab:
 Schwab is future or potential broker/API work only.
@@ -28,8 +34,10 @@ No OAuth, token writes, account calls, broker mutation, orders, fills, live back
 
 SAFE-FAST:
 SAFE-FAST owns setup labels and trade decisions.
+SAFE-FAST owns labels, entry, exit, P&L, profitability, paper eligibility, and live eligibility.
 SAFE-FAST must translate broad market data into exact setup definitions before a candidate can move to replay.
 Vendors do not decide Ideal, Clean Fast Break, Continuation, entry, exit, P&L, profitability, paper eligibility, or live eligibility.
+If SAFE-FAST is unprofitable, weak, missing evidence, or inconclusive, diagnose the exact cause and smallest evidence-backed fix.
 
 Candidate data rule:
 A candidate is not replay-ready just because it looks interesting.

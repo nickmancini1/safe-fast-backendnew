@@ -65,7 +65,11 @@ Blocker categories: `RAW_DATA_GAP`, `RULE_DEFINITION_GAP`, `CALCULATOR_OR_IMPLEM
 
 Source ownership: Databento supplies primary raw historical underlying and option evidence; tastytrade/dxLink is secondary raw data only; official agencies / ALFRED supply macro and event facts; Schwab is future live-data and broker/account/order authority after access approval. SAFE-FAST alone calculates setup identity, trigger, invalidation, freshness, stale/spent, blocker, stage, winner, no-trade, entry, exit, and profitability-related decisions. Vendors provide evidence; SAFE-FAST provides labels and decisions.
 
+Startup source guardrails: Codex must run through `codex.cmd` with `windows.sandbox="unelevated"`; Codex tasks must be sealed tickets with one objective, exact files, forbidden work, tests, done condition, commit proof, and clean status proof. Databento supplies raw historical replay evidence. Tastytrade/dxLink is candidate/trading workflow source only where the repo/task says so. Official agencies / ALFRED supply macro and event facts. SAFE-FAST owns labels, entry, exit, P&L, profitability, paper eligibility, and live eligibility.
+
 Candidate funnel: scan broad bounded pool; fast field screen; remove duplicates and known structural blockers; rank by completeness; deep-review strongest batch only; drop/replace weak candidates quickly; one-candidate work only when complete enough for economic proof.
+
+Candidate work is a factory, not a random hunt. Replay-ready candidates go directly to economics/P&L. If SAFE-FAST is unprofitable, weak, missing evidence, or inconclusive, diagnose the exact cause and smallest evidence-backed fix.
 
 No-documentation-loop rule: no new review/plan/status/handoff merely restating a known blocker. Documentation is allowed only when it establishes a decision, closes contradiction, defines a testable contract, records a completed result, repairs canonical handoff, or enables the immediate executable step.
 

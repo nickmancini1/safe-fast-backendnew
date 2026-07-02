@@ -92,6 +92,16 @@ Top anti-drift rule: if the information already exists in the latest machine-rea
 - Paper/live eligibility: `NO`.
 - No entry/exit/P&L claim is established.
 
+## Startup source guardrails status
+
+- Codex startup guardrails are visible in new-chat handoff, intro, action lock, data-source rule, candidate factory, and the new-chat status script.
+- Codex must run through `codex.cmd` with an unelevated sandbox, and Codex tasks must be sealed tickets.
+- Databento supplies raw historical replay evidence; Tastytrade/dxLink is candidate/trading workflow source only where the repo/task says so; official agencies / ALFRED supply macro and event facts.
+- SAFE-FAST owns labels, entry, exit, P&L, profitability, paper eligibility, and live eligibility.
+- If SAFE-FAST is unprofitable, weak, missing evidence, or inconclusive, diagnose the exact cause and smallest evidence-backed fix.
+- Candidate work is a factory, not a random hunt; replay-ready candidates go directly to economics/P&L.
+- Current active Day 55 SPY 670C target-mismatch objective, profitability proof `NO`, and paper/live eligibility `NO` are preserved.
+
 ## Day 55 quote/trade/statistics cost request historical status
 
 - Result document: `SAFE_FAST_DAY55_QUOTE_TRADE_STATISTICS_COST_REQUEST_RESULT.md`.
