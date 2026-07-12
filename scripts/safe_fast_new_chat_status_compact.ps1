@@ -71,7 +71,7 @@ try {
         throw "Git could not read HEAD."
     }
 
-    $statusLines = @(& git --no-pager status --short -- . " :(exclude)tmp2i57tguu" " :(exclude)tmpj8ei9a_f" " :(exclude)tmpra392qh0" " :(exclude)tmpt2fw63vq")
+    $statusLines = @(& git --no-pager status --short -- . ":(exclude)tmp2i57tguu" ":(exclude)tmpj8ei9a_f" ":(exclude)tmpra392qh0" ":(exclude)tmpt2fw63vq")
     if ($LASTEXITCODE -ne 0) {
         throw "Git could not read repository status."
     }
