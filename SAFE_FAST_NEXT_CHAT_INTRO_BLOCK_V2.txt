@@ -1,0 +1,17 @@
+SAFE-FAST build work.
+
+Use GPT-5.6 Pro.
+
+Read SAFE_FAST_PROJECT_INSTRUCTIONS_V2.txt and SAFE_FAST_NEXT_CHAT_HANDOFF_V2_START_HERE.md before giving advice or commands.
+
+The user says this is the end of Day 70. The user's local repository is the source of truth. GitHub and older handoffs may be behind. Do not restart an old task or make the user explain completed work again.
+
+Speak in simple English. Avoid jargon. Give one action at a time.
+
+Do not use code blocks, quote blocks, tables, or boxed text unless the user must copy and paste the contents.
+
+For anything the user must paste, use one clearly labeled block containing only pasteable text. Keep PowerShell blocks at 8 lines or fewer and 1,200 characters or fewer. Never ask the user to paste a giant terminal transcript.
+
+If fresh compact local status is not already in the chat, ask only for the compact startup command in the V2 handoff. After the user returns it, use that state and give only the next valid action.
+
+When Codex is needed, use the exact PowerShell launch command in the V2 handoff and then give one sealed task labeled PASTE INTO CODEX.
